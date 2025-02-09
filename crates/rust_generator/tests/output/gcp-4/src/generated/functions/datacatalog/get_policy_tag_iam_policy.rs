@@ -29,7 +29,8 @@ pub mod get_policy_tag_iam_policy {
     ) -> GetPolicyTagIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_tag_binding = args.policy_tag.get_output(context).get_inner();
+        let policy_tag_binding_1 = args.policy_tag.get_output(context);
+        let policy_tag_binding = policy_tag_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:datacatalog/getPolicyTagIamPolicy:getPolicyTagIamPolicy".into(),
             version: super::super::super::get_version(),

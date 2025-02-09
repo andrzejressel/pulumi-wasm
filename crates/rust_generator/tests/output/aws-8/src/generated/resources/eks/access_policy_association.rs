@@ -72,10 +72,14 @@ pub mod access_policy_association {
     ) -> AccessPolicyAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_scope_binding = args.access_scope.get_output(context).get_inner();
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let policy_arn_binding = args.policy_arn.get_output(context).get_inner();
-        let principal_arn_binding = args.principal_arn.get_output(context).get_inner();
+        let access_scope_binding_1 = args.access_scope.get_output(context);
+        let access_scope_binding = access_scope_binding_1.get_inner();
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let policy_arn_binding_1 = args.policy_arn.get_output(context);
+        let policy_arn_binding = policy_arn_binding_1.get_inner();
+        let principal_arn_binding_1 = args.principal_arn.get_output(context);
+        let principal_arn_binding = principal_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:eks/accessPolicyAssociation:AccessPolicyAssociation".into(),
             name: name.to_string(),

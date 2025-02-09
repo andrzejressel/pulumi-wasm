@@ -198,25 +198,29 @@ pub mod trigger {
     ) -> TriggerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let channel_binding = args.channel.get_output(context).get_inner();
-        let destination_binding = args.destination.get_output(context).get_inner();
-        let event_data_content_type_binding = args
+        let channel_binding_1 = args.channel.get_output(context);
+        let channel_binding = channel_binding_1.get_inner();
+        let destination_binding_1 = args.destination.get_output(context);
+        let destination_binding = destination_binding_1.get_inner();
+        let event_data_content_type_binding_1 = args
             .event_data_content_type
-            .get_output(context)
+            .get_output(context);
+        let event_data_content_type_binding = event_data_content_type_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let matching_criterias_binding = args
-            .matching_criterias
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let service_account_binding = args
-            .service_account
-            .get_output(context)
-            .get_inner();
-        let transport_binding = args.transport.get_output(context).get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let matching_criterias_binding_1 = args.matching_criterias.get_output(context);
+        let matching_criterias_binding = matching_criterias_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let service_account_binding_1 = args.service_account.get_output(context);
+        let service_account_binding = service_account_binding_1.get_inner();
+        let transport_binding_1 = args.transport.get_output(context);
+        let transport_binding = transport_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:eventarc/trigger:Trigger".into(),
             name: name.to_string(),

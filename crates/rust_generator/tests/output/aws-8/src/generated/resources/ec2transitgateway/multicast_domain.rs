@@ -199,20 +199,22 @@ pub mod multicast_domain {
     ) -> MulticastDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_accept_shared_associations_binding = args
+        let auto_accept_shared_associations_binding_1 = args
             .auto_accept_shared_associations
-            .get_output(context)
+            .get_output(context);
+        let auto_accept_shared_associations_binding = auto_accept_shared_associations_binding_1
             .get_inner();
-        let igmpv2_support_binding = args.igmpv2_support.get_output(context).get_inner();
-        let static_sources_support_binding = args
+        let igmpv2_support_binding_1 = args.igmpv2_support.get_output(context);
+        let igmpv2_support_binding = igmpv2_support_binding_1.get_inner();
+        let static_sources_support_binding_1 = args
             .static_sources_support
-            .get_output(context)
+            .get_output(context);
+        let static_sources_support_binding = static_sources_support_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let transit_gateway_id_binding = args
-            .transit_gateway_id
-            .get_output(context)
-            .get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let transit_gateway_id_binding_1 = args.transit_gateway_id.get_output(context);
+        let transit_gateway_id_binding = transit_gateway_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/multicastDomain:MulticastDomain".into(),
             name: name.to_string(),

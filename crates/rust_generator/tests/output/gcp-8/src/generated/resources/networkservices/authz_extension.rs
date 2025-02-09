@@ -215,25 +215,34 @@ pub mod authz_extension {
     ) -> AuthzExtensionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authority_binding = args.authority.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let fail_open_binding = args.fail_open.get_output(context).get_inner();
-        let forward_headers_binding = args
-            .forward_headers
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let load_balancing_scheme_binding = args
+        let authority_binding_1 = args.authority.get_output(context);
+        let authority_binding = authority_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let fail_open_binding_1 = args.fail_open.get_output(context);
+        let fail_open_binding = fail_open_binding_1.get_inner();
+        let forward_headers_binding_1 = args.forward_headers.get_output(context);
+        let forward_headers_binding = forward_headers_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let load_balancing_scheme_binding_1 = args
             .load_balancing_scheme
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
-        let timeout_binding = args.timeout.get_output(context).get_inner();
-        let wire_format_binding = args.wire_format.get_output(context).get_inner();
+            .get_output(context);
+        let load_balancing_scheme_binding = load_balancing_scheme_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
+        let timeout_binding_1 = args.timeout.get_output(context);
+        let timeout_binding = timeout_binding_1.get_inner();
+        let wire_format_binding_1 = args.wire_format.get_output(context);
+        let wire_format_binding = wire_format_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkservices/authzExtension:AuthzExtension".into(),
             name: name.to_string(),

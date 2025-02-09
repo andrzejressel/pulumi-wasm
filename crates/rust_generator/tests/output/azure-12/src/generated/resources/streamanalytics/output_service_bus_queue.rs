@@ -146,40 +146,41 @@ pub mod output_service_bus_queue {
     ) -> OutputServiceBusQueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_mode_binding = args
-            .authentication_mode
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let property_columns_binding = args
-            .property_columns
-            .get_output(context)
-            .get_inner();
-        let queue_name_binding = args.queue_name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let serialization_binding = args.serialization.get_output(context).get_inner();
-        let servicebus_namespace_binding = args
+        let authentication_mode_binding_1 = args.authentication_mode.get_output(context);
+        let authentication_mode_binding = authentication_mode_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let property_columns_binding_1 = args.property_columns.get_output(context);
+        let property_columns_binding = property_columns_binding_1.get_inner();
+        let queue_name_binding_1 = args.queue_name.get_output(context);
+        let queue_name_binding = queue_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let serialization_binding_1 = args.serialization.get_output(context);
+        let serialization_binding = serialization_binding_1.get_inner();
+        let servicebus_namespace_binding_1 = args
             .servicebus_namespace
-            .get_output(context)
-            .get_inner();
-        let shared_access_policy_key_binding = args
+            .get_output(context);
+        let servicebus_namespace_binding = servicebus_namespace_binding_1.get_inner();
+        let shared_access_policy_key_binding_1 = args
             .shared_access_policy_key
-            .get_output(context)
+            .get_output(context);
+        let shared_access_policy_key_binding = shared_access_policy_key_binding_1
             .get_inner();
-        let shared_access_policy_name_binding = args
+        let shared_access_policy_name_binding_1 = args
             .shared_access_policy_name
-            .get_output(context)
+            .get_output(context);
+        let shared_access_policy_name_binding = shared_access_policy_name_binding_1
             .get_inner();
-        let stream_analytics_job_name_binding = args
+        let stream_analytics_job_name_binding_1 = args
             .stream_analytics_job_name
-            .get_output(context)
+            .get_output(context);
+        let stream_analytics_job_name_binding = stream_analytics_job_name_binding_1
             .get_inner();
-        let system_property_columns_binding = args
+        let system_property_columns_binding_1 = args
             .system_property_columns
-            .get_output(context)
+            .get_output(context);
+        let system_property_columns_binding = system_property_columns_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue"

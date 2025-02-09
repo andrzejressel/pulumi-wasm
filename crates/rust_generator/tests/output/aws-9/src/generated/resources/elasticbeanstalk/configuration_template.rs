@@ -98,15 +98,18 @@ pub mod configuration_template {
     ) -> ConfigurationTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_binding = args.application.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let environment_id_binding = args.environment_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let settings_binding = args.settings.get_output(context).get_inner();
-        let solution_stack_name_binding = args
-            .solution_stack_name
-            .get_output(context)
-            .get_inner();
+        let application_binding_1 = args.application.get_output(context);
+        let application_binding = application_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let environment_id_binding_1 = args.environment_id.get_output(context);
+        let environment_id_binding = environment_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let settings_binding_1 = args.settings.get_output(context);
+        let settings_binding = settings_binding_1.get_inner();
+        let solution_stack_name_binding_1 = args.solution_stack_name.get_output(context);
+        let solution_stack_name_binding = solution_stack_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate"
                 .into(),

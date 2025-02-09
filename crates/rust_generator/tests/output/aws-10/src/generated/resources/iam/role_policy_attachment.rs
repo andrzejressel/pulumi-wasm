@@ -88,8 +88,10 @@ pub mod role_policy_attachment {
     ) -> RolePolicyAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_arn_binding = args.policy_arn.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
+        let policy_arn_binding_1 = args.policy_arn.get_output(context);
+        let policy_arn_binding = policy_arn_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/rolePolicyAttachment:RolePolicyAttachment".into(),
             name: name.to_string(),

@@ -71,11 +71,16 @@ pub mod get_image {
     ) -> GetImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_output(context).get_inner();
-        let most_recent_binding = args.most_recent.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_regex_binding = args.name_regex.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let arn_binding_1 = args.arn.get_output(context);
+        let arn_binding = arn_binding_1.get_inner();
+        let most_recent_binding_1 = args.most_recent.get_output(context);
+        let most_recent_binding = most_recent_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_regex_binding_1 = args.name_regex.get_output(context);
+        let name_regex_binding = name_regex_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:appstream/getImage:getImage".into(),
             version: super::super::super::get_version(),

@@ -64,11 +64,16 @@ pub mod rubber_tree {
     ) -> RubberTreeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_binding = args.container.get_output(context).get_inner();
-        let diameter_binding = args.diameter.get_output(context).get_inner();
-        let farm_binding = args.farm.get_output(context).get_inner();
-        let size_binding = args.size.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let container_binding_1 = args.container.get_output(context);
+        let container_binding = container_binding_1.get_inner();
+        let diameter_binding_1 = args.diameter.get_output(context);
+        let diameter_binding = diameter_binding_1.get_inner();
+        let farm_binding_1 = args.farm.get_output(context);
+        let farm_binding = farm_binding_1.get_inner();
+        let size_binding_1 = args.size.get_output(context);
+        let size_binding = size_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "plant:tree/v1:RubberTree".into(),
             name: name.to_string(),

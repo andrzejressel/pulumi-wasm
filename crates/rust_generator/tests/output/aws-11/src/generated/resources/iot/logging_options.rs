@@ -52,15 +52,12 @@ pub mod logging_options {
     ) -> LoggingOptionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_log_level_binding = args
-            .default_log_level
-            .get_output(context)
-            .get_inner();
-        let disable_all_logs_binding = args
-            .disable_all_logs
-            .get_output(context)
-            .get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let default_log_level_binding_1 = args.default_log_level.get_output(context);
+        let default_log_level_binding = default_log_level_binding_1.get_inner();
+        let disable_all_logs_binding_1 = args.disable_all_logs.get_output(context);
+        let disable_all_logs_binding = disable_all_logs_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/loggingOptions:LoggingOptions".into(),
             name: name.to_string(),

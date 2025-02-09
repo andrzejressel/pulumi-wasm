@@ -89,15 +89,15 @@ pub mod customer_managed_policy_attachment {
     ) -> CustomerManagedPolicyAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let customer_managed_policy_reference_binding = args
+        let customer_managed_policy_reference_binding_1 = args
             .customer_managed_policy_reference
-            .get_output(context)
+            .get_output(context);
+        let customer_managed_policy_reference_binding = customer_managed_policy_reference_binding_1
             .get_inner();
-        let instance_arn_binding = args.instance_arn.get_output(context).get_inner();
-        let permission_set_arn_binding = args
-            .permission_set_arn
-            .get_output(context)
-            .get_inner();
+        let instance_arn_binding_1 = args.instance_arn.get_output(context);
+        let instance_arn_binding = instance_arn_binding_1.get_inner();
+        let permission_set_arn_binding_1 = args.permission_set_arn.get_output(context);
+        let permission_set_arn_binding = permission_set_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment"
                 .into(),

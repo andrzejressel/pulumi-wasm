@@ -119,14 +119,19 @@ pub mod hosted_configuration_version {
     ) -> HostedConfigurationVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_output(context).get_inner();
-        let configuration_profile_id_binding = args
+        let application_id_binding_1 = args.application_id.get_output(context);
+        let application_id_binding = application_id_binding_1.get_inner();
+        let configuration_profile_id_binding_1 = args
             .configuration_profile_id
-            .get_output(context)
+            .get_output(context);
+        let configuration_profile_id_binding = configuration_profile_id_binding_1
             .get_inner();
-        let content_binding = args.content.get_output(context).get_inner();
-        let content_type_binding = args.content_type.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
+        let content_binding_1 = args.content.get_output(context);
+        let content_binding = content_binding_1.get_inner();
+        let content_type_binding_1 = args.content_type.get_output(context);
+        let content_type_binding = content_type_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion"
                 .into(),

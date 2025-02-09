@@ -104,23 +104,28 @@ pub mod definition {
     ) -> DefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorizations_binding = args.authorizations.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let eligible_authorizations_binding = args
+        let authorizations_binding_1 = args.authorizations.get_output(context);
+        let authorizations_binding = authorizations_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let eligible_authorizations_binding_1 = args
             .eligible_authorizations
-            .get_output(context)
+            .get_output(context);
+        let eligible_authorizations_binding = eligible_authorizations_binding_1
             .get_inner();
-        let lighthouse_definition_id_binding = args
+        let lighthouse_definition_id_binding_1 = args
             .lighthouse_definition_id
-            .get_output(context)
+            .get_output(context);
+        let lighthouse_definition_id_binding = lighthouse_definition_id_binding_1
             .get_inner();
-        let managing_tenant_id_binding = args
-            .managing_tenant_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let plan_binding = args.plan.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
+        let managing_tenant_id_binding_1 = args.managing_tenant_id.get_output(context);
+        let managing_tenant_id_binding = managing_tenant_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let plan_binding_1 = args.plan.get_output(context);
+        let plan_binding = plan_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:lighthouse/definition:Definition".into(),
             name: name.to_string(),

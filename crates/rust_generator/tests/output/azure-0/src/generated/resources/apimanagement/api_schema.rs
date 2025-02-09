@@ -99,20 +99,22 @@ pub mod api_schema {
     ) -> ApiSchemaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args
-            .api_management_name
-            .get_output(context)
-            .get_inner();
-        let api_name_binding = args.api_name.get_output(context).get_inner();
-        let components_binding = args.components.get_output(context).get_inner();
-        let content_type_binding = args.content_type.get_output(context).get_inner();
-        let definitions_binding = args.definitions.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let schema_id_binding = args.schema_id.get_output(context).get_inner();
-        let value_binding = args.value.get_output(context).get_inner();
+        let api_management_name_binding_1 = args.api_management_name.get_output(context);
+        let api_management_name_binding = api_management_name_binding_1.get_inner();
+        let api_name_binding_1 = args.api_name.get_output(context);
+        let api_name_binding = api_name_binding_1.get_inner();
+        let components_binding_1 = args.components.get_output(context);
+        let components_binding = components_binding_1.get_inner();
+        let content_type_binding_1 = args.content_type.get_output(context);
+        let content_type_binding = content_type_binding_1.get_inner();
+        let definitions_binding_1 = args.definitions.get_output(context);
+        let definitions_binding = definitions_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let schema_id_binding_1 = args.schema_id.get_output(context);
+        let schema_id_binding = schema_id_binding_1.get_inner();
+        let value_binding_1 = args.value.get_output(context);
+        let value_binding = value_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/apiSchema:ApiSchema".into(),
             name: name.to_string(),

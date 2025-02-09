@@ -26,7 +26,8 @@ pub mod get_resource_policy {
     ) -> GetResourcePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
+        let resource_arn_binding_1 = args.resource_arn.get_output(context);
+        let resource_arn_binding = resource_arn_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:networkfirewall/getResourcePolicy:getResourcePolicy".into(),
             version: super::super::super::get_version(),

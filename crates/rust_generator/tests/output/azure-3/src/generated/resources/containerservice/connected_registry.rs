@@ -164,33 +164,32 @@ pub mod connected_registry {
     ) -> ConnectedRegistryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_log_enabled_binding = args
-            .audit_log_enabled
-            .get_output(context)
-            .get_inner();
-        let client_token_ids_binding = args
-            .client_token_ids
-            .get_output(context)
-            .get_inner();
-        let container_registry_id_binding = args
+        let audit_log_enabled_binding_1 = args.audit_log_enabled.get_output(context);
+        let audit_log_enabled_binding = audit_log_enabled_binding_1.get_inner();
+        let client_token_ids_binding_1 = args.client_token_ids.get_output(context);
+        let client_token_ids_binding = client_token_ids_binding_1.get_inner();
+        let container_registry_id_binding_1 = args
             .container_registry_id
-            .get_output(context)
-            .get_inner();
-        let log_level_binding = args.log_level.get_output(context).get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notifications_binding = args.notifications.get_output(context).get_inner();
-        let parent_registry_id_binding = args
-            .parent_registry_id
-            .get_output(context)
-            .get_inner();
-        let sync_message_ttl_binding = args
-            .sync_message_ttl
-            .get_output(context)
-            .get_inner();
-        let sync_schedule_binding = args.sync_schedule.get_output(context).get_inner();
-        let sync_token_id_binding = args.sync_token_id.get_output(context).get_inner();
-        let sync_window_binding = args.sync_window.get_output(context).get_inner();
+            .get_output(context);
+        let container_registry_id_binding = container_registry_id_binding_1.get_inner();
+        let log_level_binding_1 = args.log_level.get_output(context);
+        let log_level_binding = log_level_binding_1.get_inner();
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notifications_binding_1 = args.notifications.get_output(context);
+        let notifications_binding = notifications_binding_1.get_inner();
+        let parent_registry_id_binding_1 = args.parent_registry_id.get_output(context);
+        let parent_registry_id_binding = parent_registry_id_binding_1.get_inner();
+        let sync_message_ttl_binding_1 = args.sync_message_ttl.get_output(context);
+        let sync_message_ttl_binding = sync_message_ttl_binding_1.get_inner();
+        let sync_schedule_binding_1 = args.sync_schedule.get_output(context);
+        let sync_schedule_binding = sync_schedule_binding_1.get_inner();
+        let sync_token_id_binding_1 = args.sync_token_id.get_output(context);
+        let sync_token_id_binding = sync_token_id_binding_1.get_inner();
+        let sync_window_binding_1 = args.sync_window.get_output(context);
+        let sync_window_binding = sync_window_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/connectedRegistry:ConnectedRegistry".into(),
             name: name.to_string(),

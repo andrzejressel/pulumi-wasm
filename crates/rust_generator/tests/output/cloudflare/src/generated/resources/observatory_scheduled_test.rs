@@ -66,10 +66,14 @@ pub mod observatory_scheduled_test {
     ) -> ObservatoryScheduledTestResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let frequency_binding = args.frequency.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let url_binding = args.url.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let frequency_binding_1 = args.frequency.get_output(context);
+        let frequency_binding = frequency_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let url_binding_1 = args.url.get_output(context);
+        let url_binding = url_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/observatoryScheduledTest:ObservatoryScheduledTest"
                 .into(),

@@ -57,12 +57,12 @@ pub mod get_device {
     ) -> GetDeviceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let device_id_binding = args.device_id.get_output(context).get_inner();
-        let global_network_id_binding = args
-            .global_network_id
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let device_id_binding_1 = args.device_id.get_output(context);
+        let device_id_binding = device_id_binding_1.get_inner();
+        let global_network_id_binding_1 = args.global_network_id.get_output(context);
+        let global_network_id_binding = global_network_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:networkmanager/getDevice:getDevice".into(),
             version: super::super::super::get_version(),

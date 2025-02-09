@@ -216,52 +216,51 @@ pub mod virtual_network_peering {
     ) -> VirtualNetworkPeeringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_forwarded_traffic_binding = args
+        let allow_forwarded_traffic_binding_1 = args
             .allow_forwarded_traffic
-            .get_output(context)
+            .get_output(context);
+        let allow_forwarded_traffic_binding = allow_forwarded_traffic_binding_1
             .get_inner();
-        let allow_gateway_transit_binding = args
+        let allow_gateway_transit_binding_1 = args
             .allow_gateway_transit
-            .get_output(context)
-            .get_inner();
-        let allow_virtual_network_access_binding = args
+            .get_output(context);
+        let allow_gateway_transit_binding = allow_gateway_transit_binding_1.get_inner();
+        let allow_virtual_network_access_binding_1 = args
             .allow_virtual_network_access
-            .get_output(context)
+            .get_output(context);
+        let allow_virtual_network_access_binding = allow_virtual_network_access_binding_1
             .get_inner();
-        let local_subnet_names_binding = args
-            .local_subnet_names
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let only_ipv6_peering_enabled_binding = args
+        let local_subnet_names_binding_1 = args.local_subnet_names.get_output(context);
+        let local_subnet_names_binding = local_subnet_names_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let only_ipv6_peering_enabled_binding_1 = args
             .only_ipv6_peering_enabled
-            .get_output(context)
+            .get_output(context);
+        let only_ipv6_peering_enabled_binding = only_ipv6_peering_enabled_binding_1
             .get_inner();
-        let peer_complete_virtual_networks_enabled_binding = args
+        let peer_complete_virtual_networks_enabled_binding_1 = args
             .peer_complete_virtual_networks_enabled
-            .get_output(context)
+            .get_output(context);
+        let peer_complete_virtual_networks_enabled_binding = peer_complete_virtual_networks_enabled_binding_1
             .get_inner();
-        let remote_subnet_names_binding = args
-            .remote_subnet_names
-            .get_output(context)
-            .get_inner();
-        let remote_virtual_network_id_binding = args
+        let remote_subnet_names_binding_1 = args.remote_subnet_names.get_output(context);
+        let remote_subnet_names_binding = remote_subnet_names_binding_1.get_inner();
+        let remote_virtual_network_id_binding_1 = args
             .remote_virtual_network_id
-            .get_output(context)
+            .get_output(context);
+        let remote_virtual_network_id_binding = remote_virtual_network_id_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let triggers_binding = args.triggers.get_output(context).get_inner();
-        let use_remote_gateways_binding = args
-            .use_remote_gateways
-            .get_output(context)
-            .get_inner();
-        let virtual_network_name_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let triggers_binding_1 = args.triggers.get_output(context);
+        let triggers_binding = triggers_binding_1.get_inner();
+        let use_remote_gateways_binding_1 = args.use_remote_gateways.get_output(context);
+        let use_remote_gateways_binding = use_remote_gateways_binding_1.get_inner();
+        let virtual_network_name_binding_1 = args
             .virtual_network_name
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let virtual_network_name_binding = virtual_network_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/virtualNetworkPeering:VirtualNetworkPeering".into(),
             name: name.to_string(),

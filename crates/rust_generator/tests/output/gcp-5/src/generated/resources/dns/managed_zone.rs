@@ -421,32 +421,42 @@ pub mod managed_zone {
     ) -> ManagedZoneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloud_logging_config_binding = args
+        let cloud_logging_config_binding_1 = args
             .cloud_logging_config
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let dns_name_binding = args.dns_name.get_output(context).get_inner();
-        let dnssec_config_binding = args.dnssec_config.get_output(context).get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let forwarding_config_binding = args
-            .forwarding_config
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let peering_config_binding = args.peering_config.get_output(context).get_inner();
-        let private_visibility_config_binding = args
+            .get_output(context);
+        let cloud_logging_config_binding = cloud_logging_config_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dns_name_binding_1 = args.dns_name.get_output(context);
+        let dns_name_binding = dns_name_binding_1.get_inner();
+        let dnssec_config_binding_1 = args.dnssec_config.get_output(context);
+        let dnssec_config_binding = dnssec_config_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let forwarding_config_binding_1 = args.forwarding_config.get_output(context);
+        let forwarding_config_binding = forwarding_config_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let peering_config_binding_1 = args.peering_config.get_output(context);
+        let peering_config_binding = peering_config_binding_1.get_inner();
+        let private_visibility_config_binding_1 = args
             .private_visibility_config
-            .get_output(context)
+            .get_output(context);
+        let private_visibility_config_binding = private_visibility_config_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let reverse_lookup_binding = args.reverse_lookup.get_output(context).get_inner();
-        let service_directory_config_binding = args
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let reverse_lookup_binding_1 = args.reverse_lookup.get_output(context);
+        let reverse_lookup_binding = reverse_lookup_binding_1.get_inner();
+        let service_directory_config_binding_1 = args
             .service_directory_config
-            .get_output(context)
+            .get_output(context);
+        let service_directory_config_binding = service_directory_config_binding_1
             .get_inner();
-        let visibility_binding = args.visibility.get_output(context).get_inner();
+        let visibility_binding_1 = args.visibility.get_output(context);
+        let visibility_binding = visibility_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dns/managedZone:ManagedZone".into(),
             name: name.to_string(),

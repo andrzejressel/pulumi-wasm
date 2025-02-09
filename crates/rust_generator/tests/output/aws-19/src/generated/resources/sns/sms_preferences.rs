@@ -75,29 +75,26 @@ pub mod sms_preferences {
     ) -> SmsPreferencesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_sender_id_binding = args
-            .default_sender_id
-            .get_output(context)
-            .get_inner();
-        let default_sms_type_binding = args
-            .default_sms_type
-            .get_output(context)
-            .get_inner();
-        let delivery_status_iam_role_arn_binding = args
+        let default_sender_id_binding_1 = args.default_sender_id.get_output(context);
+        let default_sender_id_binding = default_sender_id_binding_1.get_inner();
+        let default_sms_type_binding_1 = args.default_sms_type.get_output(context);
+        let default_sms_type_binding = default_sms_type_binding_1.get_inner();
+        let delivery_status_iam_role_arn_binding_1 = args
             .delivery_status_iam_role_arn
-            .get_output(context)
+            .get_output(context);
+        let delivery_status_iam_role_arn_binding = delivery_status_iam_role_arn_binding_1
             .get_inner();
-        let delivery_status_success_sampling_rate_binding = args
+        let delivery_status_success_sampling_rate_binding_1 = args
             .delivery_status_success_sampling_rate
-            .get_output(context)
+            .get_output(context);
+        let delivery_status_success_sampling_rate_binding = delivery_status_success_sampling_rate_binding_1
             .get_inner();
-        let monthly_spend_limit_binding = args
-            .monthly_spend_limit
-            .get_output(context)
-            .get_inner();
-        let usage_report_s3_bucket_binding = args
+        let monthly_spend_limit_binding_1 = args.monthly_spend_limit.get_output(context);
+        let monthly_spend_limit_binding = monthly_spend_limit_binding_1.get_inner();
+        let usage_report_s3_bucket_binding_1 = args
             .usage_report_s3_bucket
-            .get_output(context)
+            .get_output(context);
+        let usage_report_s3_bucket_binding = usage_report_s3_bucket_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sns/smsPreferences:SmsPreferences".into(),

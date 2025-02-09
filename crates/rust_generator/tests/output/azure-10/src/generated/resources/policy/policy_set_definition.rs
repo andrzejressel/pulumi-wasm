@@ -131,24 +131,30 @@ pub mod policy_set_definition {
     ) -> PolicySetDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let management_group_id_binding = args
-            .management_group_id
-            .get_output(context)
-            .get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let policy_definition_groups_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let management_group_id_binding_1 = args.management_group_id.get_output(context);
+        let management_group_id_binding = management_group_id_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let policy_definition_groups_binding_1 = args
             .policy_definition_groups
-            .get_output(context)
+            .get_output(context);
+        let policy_definition_groups_binding = policy_definition_groups_binding_1
             .get_inner();
-        let policy_definition_references_binding = args
+        let policy_definition_references_binding_1 = args
             .policy_definition_references
-            .get_output(context)
+            .get_output(context);
+        let policy_definition_references_binding = policy_definition_references_binding_1
             .get_inner();
-        let policy_type_binding = args.policy_type.get_output(context).get_inner();
+        let policy_type_binding_1 = args.policy_type.get_output(context);
+        let policy_type_binding = policy_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:policy/policySetDefinition:PolicySetDefinition".into(),
             name: name.to_string(),

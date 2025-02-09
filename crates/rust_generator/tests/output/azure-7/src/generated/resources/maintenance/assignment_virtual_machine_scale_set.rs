@@ -240,14 +240,17 @@ pub mod assignment_virtual_machine_scale_set {
     ) -> AssignmentVirtualMachineScaleSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_output(context).get_inner();
-        let maintenance_configuration_id_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maintenance_configuration_id_binding_1 = args
             .maintenance_configuration_id
-            .get_output(context)
+            .get_output(context);
+        let maintenance_configuration_id_binding = maintenance_configuration_id_binding_1
             .get_inner();
-        let virtual_machine_scale_set_id_binding = args
+        let virtual_machine_scale_set_id_binding_1 = args
             .virtual_machine_scale_set_id
-            .get_output(context)
+            .get_output(context);
+        let virtual_machine_scale_set_id_binding = virtual_machine_scale_set_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet"

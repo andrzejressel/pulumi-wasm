@@ -197,47 +197,45 @@ pub mod resource_deployment_script_power_shell {
     ) -> ResourceDeploymentScriptPowerShellResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cleanup_preference_binding = args
-            .cleanup_preference
-            .get_output(context)
-            .get_inner();
-        let command_line_binding = args.command_line.get_output(context).get_inner();
-        let container_binding = args.container.get_output(context).get_inner();
-        let environment_variables_binding = args
+        let cleanup_preference_binding_1 = args.cleanup_preference.get_output(context);
+        let cleanup_preference_binding = cleanup_preference_binding_1.get_inner();
+        let command_line_binding_1 = args.command_line.get_output(context);
+        let command_line_binding = command_line_binding_1.get_inner();
+        let container_binding_1 = args.container.get_output(context);
+        let container_binding = container_binding_1.get_inner();
+        let environment_variables_binding_1 = args
             .environment_variables
-            .get_output(context)
-            .get_inner();
-        let force_update_tag_binding = args
-            .force_update_tag
-            .get_output(context)
-            .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let primary_script_uri_binding = args
-            .primary_script_uri
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let retention_interval_binding = args
-            .retention_interval
-            .get_output(context)
-            .get_inner();
-        let script_content_binding = args.script_content.get_output(context).get_inner();
-        let storage_account_binding = args
-            .storage_account
-            .get_output(context)
-            .get_inner();
-        let supporting_script_uris_binding = args
+            .get_output(context);
+        let environment_variables_binding = environment_variables_binding_1.get_inner();
+        let force_update_tag_binding_1 = args.force_update_tag.get_output(context);
+        let force_update_tag_binding = force_update_tag_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let primary_script_uri_binding_1 = args.primary_script_uri.get_output(context);
+        let primary_script_uri_binding = primary_script_uri_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let retention_interval_binding_1 = args.retention_interval.get_output(context);
+        let retention_interval_binding = retention_interval_binding_1.get_inner();
+        let script_content_binding_1 = args.script_content.get_output(context);
+        let script_content_binding = script_content_binding_1.get_inner();
+        let storage_account_binding_1 = args.storage_account.get_output(context);
+        let storage_account_binding = storage_account_binding_1.get_inner();
+        let supporting_script_uris_binding_1 = args
             .supporting_script_uris
-            .get_output(context)
+            .get_output(context);
+        let supporting_script_uris_binding = supporting_script_uris_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeout_binding = args.timeout.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeout_binding_1 = args.timeout.get_output(context);
+        let timeout_binding = timeout_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell"
                 .into(),

@@ -403,16 +403,23 @@ pub mod service {
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autogenerate_revision_name_binding = args
+        let autogenerate_revision_name_binding_1 = args
             .autogenerate_revision_name
-            .get_output(context)
+            .get_output(context);
+        let autogenerate_revision_name_binding = autogenerate_revision_name_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let template_binding = args.template.get_output(context).get_inner();
-        let traffics_binding = args.traffics.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let template_binding_1 = args.template.get_output(context);
+        let template_binding = template_binding_1.get_inner();
+        let traffics_binding_1 = args.traffics.get_output(context);
+        let traffics_binding = traffics_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudrun/service:Service".into(),
             name: name.to_string(),

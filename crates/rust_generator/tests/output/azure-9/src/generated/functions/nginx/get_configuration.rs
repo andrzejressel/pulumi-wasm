@@ -36,10 +36,8 @@ pub mod get_configuration {
     ) -> GetConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let nginx_deployment_id_binding = args
-            .nginx_deployment_id
-            .get_output(context)
-            .get_inner();
+        let nginx_deployment_id_binding_1 = args.nginx_deployment_id.get_output(context);
+        let nginx_deployment_id_binding = nginx_deployment_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:nginx/getConfiguration:getConfiguration".into(),
             version: super::super::super::get_version(),

@@ -73,9 +73,12 @@ pub mod key_value_store {
     ) -> KeyValueStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/keyValueStore:KeyValueStore".into(),
             name: name.to_string(),

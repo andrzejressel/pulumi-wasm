@@ -79,10 +79,14 @@ pub mod sharedflow {
     ) -> SharedflowResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let config_bundle_binding = args.config_bundle.get_output(context).get_inner();
-        let detect_md5hash_binding = args.detect_md5hash.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
+        let config_bundle_binding_1 = args.config_bundle.get_output(context);
+        let config_bundle_binding = config_bundle_binding_1.get_inner();
+        let detect_md5hash_binding_1 = args.detect_md5hash.get_output(context);
+        let detect_md5hash_binding = detect_md5hash_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/sharedflow:Sharedflow".into(),
             name: name.to_string(),

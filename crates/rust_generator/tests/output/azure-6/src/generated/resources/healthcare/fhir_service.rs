@@ -180,31 +180,41 @@ pub mod fhir_service {
     ) -> FhirServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_policy_object_ids_binding = args
+        let access_policy_object_ids_binding_1 = args
             .access_policy_object_ids
-            .get_output(context)
+            .get_output(context);
+        let access_policy_object_ids_binding = access_policy_object_ids_binding_1
             .get_inner();
-        let authentication_binding = args.authentication.get_output(context).get_inner();
-        let configuration_export_storage_account_name_binding = args
+        let authentication_binding_1 = args.authentication.get_output(context);
+        let authentication_binding = authentication_binding_1.get_inner();
+        let configuration_export_storage_account_name_binding_1 = args
             .configuration_export_storage_account_name
-            .get_output(context)
+            .get_output(context);
+        let configuration_export_storage_account_name_binding = configuration_export_storage_account_name_binding_1
             .get_inner();
-        let container_registry_login_server_urls_binding = args
+        let container_registry_login_server_urls_binding_1 = args
             .container_registry_login_server_urls
-            .get_output(context)
+            .get_output(context);
+        let container_registry_login_server_urls_binding = container_registry_login_server_urls_binding_1
             .get_inner();
-        let cors_binding = args.cors.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let kind_binding = args.kind.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let oci_artifacts_binding = args.oci_artifacts.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+        let cors_binding_1 = args.cors.get_output(context);
+        let cors_binding = cors_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let kind_binding_1 = args.kind.get_output(context);
+        let kind_binding = kind_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let oci_artifacts_binding_1 = args.oci_artifacts.get_output(context);
+        let oci_artifacts_binding = oci_artifacts_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:healthcare/fhirService:FhirService".into(),
             name: name.to_string(),

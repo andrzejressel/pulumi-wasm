@@ -99,15 +99,18 @@ pub mod service_integration {
     ) -> ServiceIntegrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let kms_server_side_encryption_binding = args
+        let kms_server_side_encryption_binding_1 = args
             .kms_server_side_encryption
-            .get_output(context)
+            .get_output(context);
+        let kms_server_side_encryption_binding = kms_server_side_encryption_binding_1
             .get_inner();
-        let logs_anomaly_detection_binding = args
+        let logs_anomaly_detection_binding_1 = args
             .logs_anomaly_detection
-            .get_output(context)
+            .get_output(context);
+        let logs_anomaly_detection_binding = logs_anomaly_detection_binding_1
             .get_inner();
-        let ops_center_binding = args.ops_center.get_output(context).get_inner();
+        let ops_center_binding_1 = args.ops_center.get_output(context);
+        let ops_center_binding = ops_center_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:devopsguru/serviceIntegration:ServiceIntegration".into(),
             name: name.to_string(),

@@ -200,36 +200,43 @@ pub mod service {
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_scaling_configuration_arn_binding = args
+        let auto_scaling_configuration_arn_binding_1 = args
             .auto_scaling_configuration_arn
-            .get_output(context)
+            .get_output(context);
+        let auto_scaling_configuration_arn_binding = auto_scaling_configuration_arn_binding_1
             .get_inner();
-        let encryption_configuration_binding = args
+        let encryption_configuration_binding_1 = args
             .encryption_configuration
-            .get_output(context)
+            .get_output(context);
+        let encryption_configuration_binding = encryption_configuration_binding_1
             .get_inner();
-        let health_check_configuration_binding = args
+        let health_check_configuration_binding_1 = args
             .health_check_configuration
-            .get_output(context)
+            .get_output(context);
+        let health_check_configuration_binding = health_check_configuration_binding_1
             .get_inner();
-        let instance_configuration_binding = args
+        let instance_configuration_binding_1 = args
             .instance_configuration
-            .get_output(context)
+            .get_output(context);
+        let instance_configuration_binding = instance_configuration_binding_1
             .get_inner();
-        let network_configuration_binding = args
+        let network_configuration_binding_1 = args
             .network_configuration
-            .get_output(context)
-            .get_inner();
-        let observability_configuration_binding = args
+            .get_output(context);
+        let network_configuration_binding = network_configuration_binding_1.get_inner();
+        let observability_configuration_binding_1 = args
             .observability_configuration
-            .get_output(context)
+            .get_output(context);
+        let observability_configuration_binding = observability_configuration_binding_1
             .get_inner();
-        let service_name_binding = args.service_name.get_output(context).get_inner();
-        let source_configuration_binding = args
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
+        let source_configuration_binding_1 = args
             .source_configuration
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let source_configuration_binding = source_configuration_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apprunner/service:Service".into(),
             name: name.to_string(),

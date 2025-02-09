@@ -70,9 +70,12 @@ pub mod service_specific_credential {
     ) -> ServiceSpecificCredentialResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let service_name_binding = args.service_name.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let user_name_binding = args.user_name.get_output(context).get_inner();
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let user_name_binding_1 = args.user_name.get_output(context);
+        let user_name_binding = user_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/serviceSpecificCredential:ServiceSpecificCredential".into(),
             name: name.to_string(),

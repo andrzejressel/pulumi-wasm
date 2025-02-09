@@ -104,30 +104,20 @@ pub mod outbound_connection {
     ) -> OutboundConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_connection_binding = args
-            .accept_connection
-            .get_output(context)
-            .get_inner();
-        let connection_alias_binding = args
-            .connection_alias
-            .get_output(context)
-            .get_inner();
-        let connection_mode_binding = args
-            .connection_mode
-            .get_output(context)
-            .get_inner();
-        let connection_properties_binding = args
+        let accept_connection_binding_1 = args.accept_connection.get_output(context);
+        let accept_connection_binding = accept_connection_binding_1.get_inner();
+        let connection_alias_binding_1 = args.connection_alias.get_output(context);
+        let connection_alias_binding = connection_alias_binding_1.get_inner();
+        let connection_mode_binding_1 = args.connection_mode.get_output(context);
+        let connection_mode_binding = connection_mode_binding_1.get_inner();
+        let connection_properties_binding_1 = args
             .connection_properties
-            .get_output(context)
-            .get_inner();
-        let local_domain_info_binding = args
-            .local_domain_info
-            .get_output(context)
-            .get_inner();
-        let remote_domain_info_binding = args
-            .remote_domain_info
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let connection_properties_binding = connection_properties_binding_1.get_inner();
+        let local_domain_info_binding_1 = args.local_domain_info.get_output(context);
+        let local_domain_info_binding = local_domain_info_binding_1.get_inner();
+        let remote_domain_info_binding_1 = args.remote_domain_info.get_output(context);
+        let remote_domain_info_binding = remote_domain_info_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opensearch/outboundConnection:OutboundConnection".into(),
             name: name.to_string(),

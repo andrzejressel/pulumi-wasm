@@ -48,10 +48,14 @@ pub mod get_log_data_protection_policy_document {
     ) -> GetLogDataProtectionPolicyDocumentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let statements_binding = args.statements.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let statements_binding_1 = args.statements.get_output(context);
+        let statements_binding = statements_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument"
                 .into(),

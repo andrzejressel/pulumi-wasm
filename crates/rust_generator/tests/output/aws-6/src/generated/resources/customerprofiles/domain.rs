@@ -160,25 +160,28 @@ pub mod domain {
     ) -> DomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dead_letter_queue_url_binding = args
+        let dead_letter_queue_url_binding_1 = args
             .dead_letter_queue_url
-            .get_output(context)
-            .get_inner();
-        let default_encryption_key_binding = args
+            .get_output(context);
+        let dead_letter_queue_url_binding = dead_letter_queue_url_binding_1.get_inner();
+        let default_encryption_key_binding_1 = args
             .default_encryption_key
-            .get_output(context)
+            .get_output(context);
+        let default_encryption_key_binding = default_encryption_key_binding_1
             .get_inner();
-        let default_expiration_days_binding = args
+        let default_expiration_days_binding_1 = args
             .default_expiration_days
-            .get_output(context)
+            .get_output(context);
+        let default_expiration_days_binding = default_expiration_days_binding_1
             .get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let matching_binding = args.matching.get_output(context).get_inner();
-        let rule_based_matching_binding = args
-            .rule_based_matching
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let matching_binding_1 = args.matching.get_output(context);
+        let matching_binding = matching_binding_1.get_inner();
+        let rule_based_matching_binding_1 = args.rule_based_matching.get_output(context);
+        let rule_based_matching_binding = rule_based_matching_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:customerprofiles/domain:Domain".into(),
             name: name.to_string(),

@@ -71,15 +71,12 @@ pub mod access_log_subscription {
     ) -> AccessLogSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_arn_binding = args
-            .destination_arn
-            .get_output(context)
-            .get_inner();
-        let resource_identifier_binding = args
-            .resource_identifier
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let destination_arn_binding_1 = args.destination_arn.get_output(context);
+        let destination_arn_binding = destination_arn_binding_1.get_inner();
+        let resource_identifier_binding_1 = args.resource_identifier.get_output(context);
+        let resource_identifier_binding = resource_identifier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpclattice/accessLogSubscription:AccessLogSubscription".into(),
             name: name.to_string(),

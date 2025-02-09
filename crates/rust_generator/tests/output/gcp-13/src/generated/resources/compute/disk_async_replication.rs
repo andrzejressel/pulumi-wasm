@@ -68,8 +68,10 @@ pub mod disk_async_replication {
     ) -> DiskAsyncReplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let primary_disk_binding = args.primary_disk.get_output(context).get_inner();
-        let secondary_disk_binding = args.secondary_disk.get_output(context).get_inner();
+        let primary_disk_binding_1 = args.primary_disk.get_output(context);
+        let primary_disk_binding = primary_disk_binding_1.get_inner();
+        let secondary_disk_binding_1 = args.secondary_disk.get_output(context);
+        let secondary_disk_binding = secondary_disk_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/diskAsyncReplication:DiskAsyncReplication".into(),
             name: name.to_string(),

@@ -94,15 +94,21 @@ pub mod app_monitor {
     ) -> AppMonitorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_monitor_configuration_binding = args
+        let app_monitor_configuration_binding_1 = args
             .app_monitor_configuration
-            .get_output(context)
+            .get_output(context);
+        let app_monitor_configuration_binding = app_monitor_configuration_binding_1
             .get_inner();
-        let custom_events_binding = args.custom_events.get_output(context).get_inner();
-        let cw_log_enabled_binding = args.cw_log_enabled.get_output(context).get_inner();
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let custom_events_binding_1 = args.custom_events.get_output(context);
+        let custom_events_binding = custom_events_binding_1.get_inner();
+        let cw_log_enabled_binding_1 = args.cw_log_enabled.get_output(context);
+        let cw_log_enabled_binding = cw_log_enabled_binding_1.get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rum/appMonitor:AppMonitor".into(),
             name: name.to_string(),

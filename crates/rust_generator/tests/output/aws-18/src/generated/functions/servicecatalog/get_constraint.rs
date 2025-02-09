@@ -45,12 +45,12 @@ pub mod get_constraint {
     ) -> GetConstraintResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding = args
-            .accept_language
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let id_binding = args.id.get_output(context).get_inner();
+        let accept_language_binding_1 = args.accept_language.get_output(context);
+        let accept_language_binding = accept_language_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let id_binding_1 = args.id.get_output(context);
+        let id_binding = id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicecatalog/getConstraint:getConstraint".into(),
             version: super::super::super::get_version(),

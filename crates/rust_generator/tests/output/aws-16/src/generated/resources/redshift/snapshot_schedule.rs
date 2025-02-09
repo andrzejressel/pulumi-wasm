@@ -85,15 +85,18 @@ pub mod snapshot_schedule {
     ) -> SnapshotScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let definitions_binding = args.definitions.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let identifier_binding = args.identifier.get_output(context).get_inner();
-        let identifier_prefix_binding = args
-            .identifier_prefix
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let definitions_binding_1 = args.definitions.get_output(context);
+        let definitions_binding = definitions_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let identifier_binding_1 = args.identifier.get_output(context);
+        let identifier_binding = identifier_binding_1.get_inner();
+        let identifier_prefix_binding_1 = args.identifier_prefix.get_output(context);
+        let identifier_prefix_binding = identifier_prefix_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/snapshotSchedule:SnapshotSchedule".into(),
             name: name.to_string(),

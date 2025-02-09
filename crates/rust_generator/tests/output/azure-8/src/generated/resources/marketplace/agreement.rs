@@ -64,9 +64,12 @@ pub mod agreement {
     ) -> AgreementResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let offer_binding = args.offer.get_output(context).get_inner();
-        let plan_binding = args.plan.get_output(context).get_inner();
-        let publisher_binding = args.publisher.get_output(context).get_inner();
+        let offer_binding_1 = args.offer.get_output(context);
+        let offer_binding = offer_binding_1.get_inner();
+        let plan_binding_1 = args.plan.get_output(context);
+        let plan_binding = plan_binding_1.get_inner();
+        let publisher_binding_1 = args.publisher.get_output(context);
+        let publisher_binding = publisher_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:marketplace/agreement:Agreement".into(),
             name: name.to_string(),

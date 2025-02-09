@@ -118,22 +118,29 @@ pub mod security_group_egress_rule {
     ) -> SecurityGroupEgressRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_ipv4_binding = args.cidr_ipv4.get_output(context).get_inner();
-        let cidr_ipv6_binding = args.cidr_ipv6.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let from_port_binding = args.from_port.get_output(context).get_inner();
-        let ip_protocol_binding = args.ip_protocol.get_output(context).get_inner();
-        let prefix_list_id_binding = args.prefix_list_id.get_output(context).get_inner();
-        let referenced_security_group_id_binding = args
+        let cidr_ipv4_binding_1 = args.cidr_ipv4.get_output(context);
+        let cidr_ipv4_binding = cidr_ipv4_binding_1.get_inner();
+        let cidr_ipv6_binding_1 = args.cidr_ipv6.get_output(context);
+        let cidr_ipv6_binding = cidr_ipv6_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let from_port_binding_1 = args.from_port.get_output(context);
+        let from_port_binding = from_port_binding_1.get_inner();
+        let ip_protocol_binding_1 = args.ip_protocol.get_output(context);
+        let ip_protocol_binding = ip_protocol_binding_1.get_inner();
+        let prefix_list_id_binding_1 = args.prefix_list_id.get_output(context);
+        let prefix_list_id_binding = prefix_list_id_binding_1.get_inner();
+        let referenced_security_group_id_binding_1 = args
             .referenced_security_group_id
-            .get_output(context)
+            .get_output(context);
+        let referenced_security_group_id_binding = referenced_security_group_id_binding_1
             .get_inner();
-        let security_group_id_binding = args
-            .security_group_id
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let to_port_binding = args.to_port.get_output(context).get_inner();
+        let security_group_id_binding_1 = args.security_group_id.get_output(context);
+        let security_group_id_binding = security_group_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let to_port_binding_1 = args.to_port.get_output(context);
+        let to_port_binding = to_port_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule".into(),
             name: name.to_string(),

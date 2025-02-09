@@ -70,8 +70,10 @@ pub mod fleet_stack_association {
     ) -> FleetStackAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let fleet_name_binding = args.fleet_name.get_output(context).get_inner();
-        let stack_name_binding = args.stack_name.get_output(context).get_inner();
+        let fleet_name_binding_1 = args.fleet_name.get_output(context);
+        let fleet_name_binding = fleet_name_binding_1.get_inner();
+        let stack_name_binding_1 = args.stack_name.get_output(context);
+        let stack_name_binding = stack_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appstream/fleetStackAssociation:FleetStackAssociation".into(),
             name: name.to_string(),

@@ -62,18 +62,15 @@ pub mod security_group_association {
     ) -> SecurityGroupAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let replace_default_association_binding = args
+        let replace_default_association_binding_1 = args
             .replace_default_association
-            .get_output(context)
+            .get_output(context);
+        let replace_default_association_binding = replace_default_association_binding_1
             .get_inner();
-        let security_group_id_binding = args
-            .security_group_id
-            .get_output(context)
-            .get_inner();
-        let vpc_endpoint_id_binding = args
-            .vpc_endpoint_id
-            .get_output(context)
-            .get_inner();
+        let security_group_id_binding_1 = args.security_group_id.get_output(context);
+        let security_group_id_binding = security_group_id_binding_1.get_inner();
+        let vpc_endpoint_id_binding_1 = args.vpc_endpoint_id.get_output(context);
+        let vpc_endpoint_id_binding = vpc_endpoint_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/securityGroupAssociation:SecurityGroupAssociation".into(),
             name: name.to_string(),

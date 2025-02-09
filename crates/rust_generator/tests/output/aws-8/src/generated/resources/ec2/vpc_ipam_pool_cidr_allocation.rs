@@ -140,14 +140,16 @@ pub mod vpc_ipam_pool_cidr_allocation {
     ) -> VpcIpamPoolCidrAllocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_binding = args.cidr.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disallowed_cidrs_binding = args
-            .disallowed_cidrs
-            .get_output(context)
-            .get_inner();
-        let ipam_pool_id_binding = args.ipam_pool_id.get_output(context).get_inner();
-        let netmask_length_binding = args.netmask_length.get_output(context).get_inner();
+        let cidr_binding_1 = args.cidr.get_output(context);
+        let cidr_binding = cidr_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disallowed_cidrs_binding_1 = args.disallowed_cidrs.get_output(context);
+        let disallowed_cidrs_binding = disallowed_cidrs_binding_1.get_inner();
+        let ipam_pool_id_binding_1 = args.ipam_pool_id.get_output(context);
+        let ipam_pool_id_binding = ipam_pool_id_binding_1.get_inner();
+        let netmask_length_binding_1 = args.netmask_length.get_output(context);
+        let netmask_length_binding = netmask_length_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation".into(),
             name: name.to_string(),

@@ -114,8 +114,10 @@ pub mod web_acl_association {
     ) -> WebAclAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
-        let web_acl_id_binding = args.web_acl_id.get_output(context).get_inner();
+        let resource_arn_binding_1 = args.resource_arn.get_output(context);
+        let resource_arn_binding = resource_arn_binding_1.get_inner();
+        let web_acl_id_binding_1 = args.web_acl_id.get_output(context);
+        let web_acl_id_binding = web_acl_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:wafregional/webAclAssociation:WebAclAssociation".into(),
             name: name.to_string(),

@@ -32,7 +32,8 @@ pub mod get_group_lookup {
     ) -> GetGroupLookupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_key_binding = args.group_key.get_output(context).get_inner();
+        let group_key_binding_1 = args.group_key.get_output(context);
+        let group_key_binding = group_key_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudidentity/getGroupLookup:getGroupLookup".into(),
             version: super::super::super::get_version(),

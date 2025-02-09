@@ -70,9 +70,12 @@ pub mod managed_prefix_list_entry {
     ) -> ManagedPrefixListEntryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_binding = args.cidr.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let prefix_list_id_binding = args.prefix_list_id.get_output(context).get_inner();
+        let cidr_binding_1 = args.cidr.get_output(context);
+        let cidr_binding = cidr_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let prefix_list_id_binding_1 = args.prefix_list_id.get_output(context);
+        let prefix_list_id_binding = prefix_list_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry".into(),
             name: name.to_string(),

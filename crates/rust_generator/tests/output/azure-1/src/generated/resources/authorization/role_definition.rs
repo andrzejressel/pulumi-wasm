@@ -122,18 +122,18 @@ pub mod role_definition {
     ) -> RoleDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assignable_scopes_binding = args
-            .assignable_scopes
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let role_definition_id_binding = args
-            .role_definition_id
-            .get_output(context)
-            .get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
+        let assignable_scopes_binding_1 = args.assignable_scopes.get_output(context);
+        let assignable_scopes_binding = assignable_scopes_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let role_definition_id_binding_1 = args.role_definition_id.get_output(context);
+        let role_definition_id_binding = role_definition_id_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:authorization/roleDefinition:RoleDefinition".into(),
             name: name.to_string(),

@@ -114,37 +114,31 @@ pub mod organization_managed_rule {
     ) -> OrganizationManagedRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let excluded_accounts_binding = args
-            .excluded_accounts
-            .get_output(context)
-            .get_inner();
-        let input_parameters_binding = args
-            .input_parameters
-            .get_output(context)
-            .get_inner();
-        let maximum_execution_frequency_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let excluded_accounts_binding_1 = args.excluded_accounts.get_output(context);
+        let excluded_accounts_binding = excluded_accounts_binding_1.get_inner();
+        let input_parameters_binding_1 = args.input_parameters.get_output(context);
+        let input_parameters_binding = input_parameters_binding_1.get_inner();
+        let maximum_execution_frequency_binding_1 = args
             .maximum_execution_frequency
-            .get_output(context)
+            .get_output(context);
+        let maximum_execution_frequency_binding = maximum_execution_frequency_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_id_scope_binding = args
-            .resource_id_scope
-            .get_output(context)
-            .get_inner();
-        let resource_types_scopes_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_id_scope_binding_1 = args.resource_id_scope.get_output(context);
+        let resource_id_scope_binding = resource_id_scope_binding_1.get_inner();
+        let resource_types_scopes_binding_1 = args
             .resource_types_scopes
-            .get_output(context)
-            .get_inner();
-        let rule_identifier_binding = args
-            .rule_identifier
-            .get_output(context)
-            .get_inner();
-        let tag_key_scope_binding = args.tag_key_scope.get_output(context).get_inner();
-        let tag_value_scope_binding = args
-            .tag_value_scope
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let resource_types_scopes_binding = resource_types_scopes_binding_1.get_inner();
+        let rule_identifier_binding_1 = args.rule_identifier.get_output(context);
+        let rule_identifier_binding = rule_identifier_binding_1.get_inner();
+        let tag_key_scope_binding_1 = args.tag_key_scope.get_output(context);
+        let tag_key_scope_binding = tag_key_scope_binding_1.get_inner();
+        let tag_value_scope_binding_1 = args.tag_value_scope.get_output(context);
+        let tag_value_scope_binding = tag_value_scope_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/organizationManagedRule:OrganizationManagedRule".into(),
             name: name.to_string(),

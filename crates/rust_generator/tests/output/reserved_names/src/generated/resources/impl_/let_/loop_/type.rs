@@ -20,7 +20,8 @@ pub mod type_ {
     ) {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let type__binding = args.type_.get_output(context).get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "example:impl/let/loop:Type".into(),
             name: name.to_string(),

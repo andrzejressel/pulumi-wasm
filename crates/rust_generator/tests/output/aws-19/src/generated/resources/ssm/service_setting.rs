@@ -61,8 +61,10 @@ pub mod service_setting {
     ) -> ServiceSettingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let setting_id_binding = args.setting_id.get_output(context).get_inner();
-        let setting_value_binding = args.setting_value.get_output(context).get_inner();
+        let setting_id_binding_1 = args.setting_id.get_output(context);
+        let setting_id_binding = setting_id_binding_1.get_inner();
+        let setting_value_binding_1 = args.setting_value.get_output(context);
+        let setting_value_binding = setting_value_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/serviceSetting:ServiceSetting".into(),
             name: name.to_string(),

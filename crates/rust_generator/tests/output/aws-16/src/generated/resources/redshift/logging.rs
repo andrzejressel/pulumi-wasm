@@ -96,17 +96,18 @@ pub mod logging {
     ) -> LoggingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_name_binding = args.bucket_name.get_output(context).get_inner();
-        let cluster_identifier_binding = args
-            .cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let log_destination_type_binding = args
+        let bucket_name_binding_1 = args.bucket_name.get_output(context);
+        let bucket_name_binding = bucket_name_binding_1.get_inner();
+        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
+        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
+        let log_destination_type_binding_1 = args
             .log_destination_type
-            .get_output(context)
-            .get_inner();
-        let log_exports_binding = args.log_exports.get_output(context).get_inner();
-        let s3_key_prefix_binding = args.s3_key_prefix.get_output(context).get_inner();
+            .get_output(context);
+        let log_destination_type_binding = log_destination_type_binding_1.get_inner();
+        let log_exports_binding_1 = args.log_exports.get_output(context);
+        let log_exports_binding = log_exports_binding_1.get_inner();
+        let s3_key_prefix_binding_1 = args.s3_key_prefix.get_output(context);
+        let s3_key_prefix_binding = s3_key_prefix_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/logging:Logging".into(),
             name: name.to_string(),

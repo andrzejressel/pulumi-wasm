@@ -61,12 +61,15 @@ pub mod get_query_suggestions_block_list {
     ) -> GetQuerySuggestionsBlockListResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let index_id_binding = args.index_id.get_output(context).get_inner();
-        let query_suggestions_block_list_id_binding = args
+        let index_id_binding_1 = args.index_id.get_output(context);
+        let index_id_binding = index_id_binding_1.get_inner();
+        let query_suggestions_block_list_id_binding_1 = args
             .query_suggestions_block_list_id
-            .get_output(context)
+            .get_output(context);
+        let query_suggestions_block_list_id_binding = query_suggestions_block_list_id_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList"
                 .into(),

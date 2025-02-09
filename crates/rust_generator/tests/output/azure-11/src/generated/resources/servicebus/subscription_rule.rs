@@ -157,18 +157,18 @@ pub mod subscription_rule {
     ) -> SubscriptionRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let correlation_filter_binding = args
-            .correlation_filter
-            .get_output(context)
-            .get_inner();
-        let filter_type_binding = args.filter_type.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let sql_filter_binding = args.sql_filter.get_output(context).get_inner();
-        let subscription_id_binding = args
-            .subscription_id
-            .get_output(context)
-            .get_inner();
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let correlation_filter_binding_1 = args.correlation_filter.get_output(context);
+        let correlation_filter_binding = correlation_filter_binding_1.get_inner();
+        let filter_type_binding_1 = args.filter_type.get_output(context);
+        let filter_type_binding = filter_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let sql_filter_binding_1 = args.sql_filter.get_output(context);
+        let sql_filter_binding = sql_filter_binding_1.get_inner();
+        let subscription_id_binding_1 = args.subscription_id.get_output(context);
+        let subscription_id_binding = subscription_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:servicebus/subscriptionRule:SubscriptionRule".into(),
             name: name.to_string(),

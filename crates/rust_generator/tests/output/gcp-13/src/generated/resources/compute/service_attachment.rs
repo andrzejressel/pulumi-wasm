@@ -558,37 +558,45 @@ pub mod service_attachment {
     ) -> ServiceAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_preference_binding = args
+        let connection_preference_binding_1 = args
             .connection_preference
-            .get_output(context)
-            .get_inner();
-        let consumer_accept_lists_binding = args
+            .get_output(context);
+        let connection_preference_binding = connection_preference_binding_1.get_inner();
+        let consumer_accept_lists_binding_1 = args
             .consumer_accept_lists
-            .get_output(context)
-            .get_inner();
-        let consumer_reject_lists_binding = args
+            .get_output(context);
+        let consumer_accept_lists_binding = consumer_accept_lists_binding_1.get_inner();
+        let consumer_reject_lists_binding_1 = args
             .consumer_reject_lists
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let domain_names_binding = args.domain_names.get_output(context).get_inner();
-        let enable_proxy_protocol_binding = args
+            .get_output(context);
+        let consumer_reject_lists_binding = consumer_reject_lists_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let domain_names_binding_1 = args.domain_names.get_output(context);
+        let domain_names_binding = domain_names_binding_1.get_inner();
+        let enable_proxy_protocol_binding_1 = args
             .enable_proxy_protocol
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let nat_subnets_binding = args.nat_subnets.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let propagated_connection_limit_binding = args
+            .get_output(context);
+        let enable_proxy_protocol_binding = enable_proxy_protocol_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let nat_subnets_binding_1 = args.nat_subnets.get_output(context);
+        let nat_subnets_binding = nat_subnets_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let propagated_connection_limit_binding_1 = args
             .propagated_connection_limit
-            .get_output(context)
+            .get_output(context);
+        let propagated_connection_limit_binding = propagated_connection_limit_binding_1
             .get_inner();
-        let reconcile_connections_binding = args
+        let reconcile_connections_binding_1 = args
             .reconcile_connections
-            .get_output(context)
-            .get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let target_service_binding = args.target_service.get_output(context).get_inner();
+            .get_output(context);
+        let reconcile_connections_binding = reconcile_connections_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let target_service_binding_1 = args.target_service.get_output(context);
+        let target_service_binding = target_service_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/serviceAttachment:ServiceAttachment".into(),
             name: name.to_string(),

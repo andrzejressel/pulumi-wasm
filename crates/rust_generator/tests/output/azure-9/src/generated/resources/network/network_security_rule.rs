@@ -182,60 +182,68 @@ pub mod network_security_rule {
     ) -> NetworkSecurityRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_binding = args.access.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let destination_address_prefix_binding = args
+        let access_binding_1 = args.access.get_output(context);
+        let access_binding = access_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let destination_address_prefix_binding_1 = args
             .destination_address_prefix
-            .get_output(context)
+            .get_output(context);
+        let destination_address_prefix_binding = destination_address_prefix_binding_1
             .get_inner();
-        let destination_address_prefixes_binding = args
+        let destination_address_prefixes_binding_1 = args
             .destination_address_prefixes
-            .get_output(context)
+            .get_output(context);
+        let destination_address_prefixes_binding = destination_address_prefixes_binding_1
             .get_inner();
-        let destination_application_security_group_ids_binding = args
+        let destination_application_security_group_ids_binding_1 = args
             .destination_application_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let destination_application_security_group_ids_binding = destination_application_security_group_ids_binding_1
             .get_inner();
-        let destination_port_range_binding = args
+        let destination_port_range_binding_1 = args
             .destination_port_range
-            .get_output(context)
+            .get_output(context);
+        let destination_port_range_binding = destination_port_range_binding_1
             .get_inner();
-        let destination_port_ranges_binding = args
+        let destination_port_ranges_binding_1 = args
             .destination_port_ranges
-            .get_output(context)
+            .get_output(context);
+        let destination_port_ranges_binding = destination_port_ranges_binding_1
             .get_inner();
-        let direction_binding = args.direction.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_security_group_name_binding = args
+        let direction_binding_1 = args.direction.get_output(context);
+        let direction_binding = direction_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_security_group_name_binding_1 = args
             .network_security_group_name
-            .get_output(context)
+            .get_output(context);
+        let network_security_group_name_binding = network_security_group_name_binding_1
             .get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let source_address_prefix_binding = args
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let source_address_prefix_binding_1 = args
             .source_address_prefix
-            .get_output(context)
-            .get_inner();
-        let source_address_prefixes_binding = args
+            .get_output(context);
+        let source_address_prefix_binding = source_address_prefix_binding_1.get_inner();
+        let source_address_prefixes_binding_1 = args
             .source_address_prefixes
-            .get_output(context)
+            .get_output(context);
+        let source_address_prefixes_binding = source_address_prefixes_binding_1
             .get_inner();
-        let source_application_security_group_ids_binding = args
+        let source_application_security_group_ids_binding_1 = args
             .source_application_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let source_application_security_group_ids_binding = source_application_security_group_ids_binding_1
             .get_inner();
-        let source_port_range_binding = args
-            .source_port_range
-            .get_output(context)
-            .get_inner();
-        let source_port_ranges_binding = args
-            .source_port_ranges
-            .get_output(context)
-            .get_inner();
+        let source_port_range_binding_1 = args.source_port_range.get_output(context);
+        let source_port_range_binding = source_port_range_binding_1.get_inner();
+        let source_port_ranges_binding_1 = args.source_port_ranges.get_output(context);
+        let source_port_ranges_binding = source_port_ranges_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkSecurityRule:NetworkSecurityRule".into(),
             name: name.to_string(),

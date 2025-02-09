@@ -152,20 +152,22 @@ pub mod voice_connector_streaming {
     ) -> VoiceConnectorStreamingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_retention_binding = args.data_retention.get_output(context).get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let media_insights_configuration_binding = args
+        let data_retention_binding_1 = args.data_retention.get_output(context);
+        let data_retention_binding = data_retention_binding_1.get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let media_insights_configuration_binding_1 = args
             .media_insights_configuration
-            .get_output(context)
+            .get_output(context);
+        let media_insights_configuration_binding = media_insights_configuration_binding_1
             .get_inner();
-        let streaming_notification_targets_binding = args
+        let streaming_notification_targets_binding_1 = args
             .streaming_notification_targets
-            .get_output(context)
+            .get_output(context);
+        let streaming_notification_targets_binding = streaming_notification_targets_binding_1
             .get_inner();
-        let voice_connector_id_binding = args
-            .voice_connector_id
-            .get_output(context)
-            .get_inner();
+        let voice_connector_id_binding_1 = args.voice_connector_id.get_output(context);
+        let voice_connector_id_binding = voice_connector_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming".into(),
             name: name.to_string(),

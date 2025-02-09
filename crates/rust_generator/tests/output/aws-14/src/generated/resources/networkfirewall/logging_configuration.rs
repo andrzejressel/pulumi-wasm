@@ -93,11 +93,12 @@ pub mod logging_configuration {
     ) -> LoggingConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let firewall_arn_binding = args.firewall_arn.get_output(context).get_inner();
-        let logging_configuration_binding = args
+        let firewall_arn_binding_1 = args.firewall_arn.get_output(context);
+        let firewall_arn_binding = firewall_arn_binding_1.get_inner();
+        let logging_configuration_binding_1 = args
             .logging_configuration
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let logging_configuration_binding = logging_configuration_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkfirewall/loggingConfiguration:LoggingConfiguration"
                 .into(),

@@ -115,31 +115,29 @@ pub mod stream {
     ) -> StreamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_output(context).get_inner();
-        let encryption_type_binding = args
-            .encryption_type
-            .get_output(context)
-            .get_inner();
-        let enforce_consumer_deletion_binding = args
+        let arn_binding_1 = args.arn.get_output(context);
+        let arn_binding = arn_binding_1.get_inner();
+        let encryption_type_binding_1 = args.encryption_type.get_output(context);
+        let encryption_type_binding = encryption_type_binding_1.get_inner();
+        let enforce_consumer_deletion_binding_1 = args
             .enforce_consumer_deletion
-            .get_output(context)
+            .get_output(context);
+        let enforce_consumer_deletion_binding = enforce_consumer_deletion_binding_1
             .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let retention_period_binding = args
-            .retention_period
-            .get_output(context)
-            .get_inner();
-        let shard_count_binding = args.shard_count.get_output(context).get_inner();
-        let shard_level_metrics_binding = args
-            .shard_level_metrics
-            .get_output(context)
-            .get_inner();
-        let stream_mode_details_binding = args
-            .stream_mode_details
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let retention_period_binding_1 = args.retention_period.get_output(context);
+        let retention_period_binding = retention_period_binding_1.get_inner();
+        let shard_count_binding_1 = args.shard_count.get_output(context);
+        let shard_count_binding = shard_count_binding_1.get_inner();
+        let shard_level_metrics_binding_1 = args.shard_level_metrics.get_output(context);
+        let shard_level_metrics_binding = shard_level_metrics_binding_1.get_inner();
+        let stream_mode_details_binding_1 = args.stream_mode_details.get_output(context);
+        let stream_mode_details_binding = stream_mode_details_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kinesis/stream:Stream".into(),
             name: name.to_string(),

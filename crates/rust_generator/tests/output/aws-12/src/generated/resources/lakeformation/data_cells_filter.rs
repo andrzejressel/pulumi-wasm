@@ -75,8 +75,10 @@ pub mod data_cells_filter {
     ) -> DataCellsFilterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let table_data_binding = args.table_data.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let table_data_binding_1 = args.table_data.get_output(context);
+        let table_data_binding = table_data_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lakeformation/dataCellsFilter:DataCellsFilter".into(),
             name: name.to_string(),

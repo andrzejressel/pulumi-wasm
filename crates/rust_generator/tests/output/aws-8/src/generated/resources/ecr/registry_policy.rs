@@ -71,7 +71,8 @@ pub mod registry_policy {
     ) -> RegistryPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_binding = args.policy.get_output(context).get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecr/registryPolicy:RegistryPolicy".into(),
             name: name.to_string(),

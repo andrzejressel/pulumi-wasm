@@ -129,20 +129,16 @@ pub mod endpoint_custom_domain {
     ) -> EndpointCustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdn_endpoint_id_binding = args
-            .cdn_endpoint_id
-            .get_output(context)
-            .get_inner();
-        let cdn_managed_https_binding = args
-            .cdn_managed_https
-            .get_output(context)
-            .get_inner();
-        let host_name_binding = args.host_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let user_managed_https_binding = args
-            .user_managed_https
-            .get_output(context)
-            .get_inner();
+        let cdn_endpoint_id_binding_1 = args.cdn_endpoint_id.get_output(context);
+        let cdn_endpoint_id_binding = cdn_endpoint_id_binding_1.get_inner();
+        let cdn_managed_https_binding_1 = args.cdn_managed_https.get_output(context);
+        let cdn_managed_https_binding = cdn_managed_https_binding_1.get_inner();
+        let host_name_binding_1 = args.host_name.get_output(context);
+        let host_name_binding = host_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let user_managed_https_binding_1 = args.user_managed_https.get_output(context);
+        let user_managed_https_binding = user_managed_https_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/endpointCustomDomain:EndpointCustomDomain".into(),
             name: name.to_string(),

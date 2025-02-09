@@ -79,21 +79,23 @@ pub mod replicator {
     ) -> ReplicatorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let kafka_clusters_binding = args.kafka_clusters.get_output(context).get_inner();
-        let replication_info_list_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let kafka_clusters_binding_1 = args.kafka_clusters.get_output(context);
+        let kafka_clusters_binding = kafka_clusters_binding_1.get_inner();
+        let replication_info_list_binding_1 = args
             .replication_info_list
-            .get_output(context)
-            .get_inner();
-        let replicator_name_binding = args
-            .replicator_name
-            .get_output(context)
-            .get_inner();
-        let service_execution_role_arn_binding = args
+            .get_output(context);
+        let replication_info_list_binding = replication_info_list_binding_1.get_inner();
+        let replicator_name_binding_1 = args.replicator_name.get_output(context);
+        let replicator_name_binding = replicator_name_binding_1.get_inner();
+        let service_execution_role_arn_binding_1 = args
             .service_execution_role_arn
-            .get_output(context)
+            .get_output(context);
+        let service_execution_role_arn_binding = service_execution_role_arn_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:msk/replicator:Replicator".into(),
             name: name.to_string(),

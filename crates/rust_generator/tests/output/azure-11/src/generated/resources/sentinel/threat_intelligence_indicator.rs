@@ -227,47 +227,46 @@ pub mod threat_intelligence_indicator {
     ) -> ThreatIntelligenceIndicatorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let confidence_binding = args.confidence.get_output(context).get_inner();
-        let created_by_binding = args.created_by.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let extension_binding = args.extension.get_output(context).get_inner();
-        let external_references_binding = args
-            .external_references
-            .get_output(context)
-            .get_inner();
-        let granular_markings_binding = args
-            .granular_markings
-            .get_output(context)
-            .get_inner();
-        let kill_chain_phases_binding = args
-            .kill_chain_phases
-            .get_output(context)
-            .get_inner();
-        let language_binding = args.language.get_output(context).get_inner();
-        let object_marking_refs_binding = args
-            .object_marking_refs
-            .get_output(context)
-            .get_inner();
-        let pattern_binding = args.pattern.get_output(context).get_inner();
-        let pattern_type_binding = args.pattern_type.get_output(context).get_inner();
-        let pattern_version_binding = args
-            .pattern_version
-            .get_output(context)
-            .get_inner();
-        let revoked_binding = args.revoked.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let threat_types_binding = args.threat_types.get_output(context).get_inner();
-        let validate_from_utc_binding = args
-            .validate_from_utc
-            .get_output(context)
-            .get_inner();
-        let validate_until_utc_binding = args
-            .validate_until_utc
-            .get_output(context)
-            .get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+        let confidence_binding_1 = args.confidence.get_output(context);
+        let confidence_binding = confidence_binding_1.get_inner();
+        let created_by_binding_1 = args.created_by.get_output(context);
+        let created_by_binding = created_by_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let extension_binding_1 = args.extension.get_output(context);
+        let extension_binding = extension_binding_1.get_inner();
+        let external_references_binding_1 = args.external_references.get_output(context);
+        let external_references_binding = external_references_binding_1.get_inner();
+        let granular_markings_binding_1 = args.granular_markings.get_output(context);
+        let granular_markings_binding = granular_markings_binding_1.get_inner();
+        let kill_chain_phases_binding_1 = args.kill_chain_phases.get_output(context);
+        let kill_chain_phases_binding = kill_chain_phases_binding_1.get_inner();
+        let language_binding_1 = args.language.get_output(context);
+        let language_binding = language_binding_1.get_inner();
+        let object_marking_refs_binding_1 = args.object_marking_refs.get_output(context);
+        let object_marking_refs_binding = object_marking_refs_binding_1.get_inner();
+        let pattern_binding_1 = args.pattern.get_output(context);
+        let pattern_binding = pattern_binding_1.get_inner();
+        let pattern_type_binding_1 = args.pattern_type.get_output(context);
+        let pattern_type_binding = pattern_type_binding_1.get_inner();
+        let pattern_version_binding_1 = args.pattern_version.get_output(context);
+        let pattern_version_binding = pattern_version_binding_1.get_inner();
+        let revoked_binding_1 = args.revoked.get_output(context);
+        let revoked_binding = revoked_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let threat_types_binding_1 = args.threat_types.get_output(context);
+        let threat_types_binding = threat_types_binding_1.get_inner();
+        let validate_from_utc_binding_1 = args.validate_from_utc.get_output(context);
+        let validate_from_utc_binding = validate_from_utc_binding_1.get_inner();
+        let validate_until_utc_binding_1 = args.validate_until_utc.get_output(context);
+        let validate_until_utc_binding = validate_until_utc_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator"
                 .into(),

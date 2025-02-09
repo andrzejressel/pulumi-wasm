@@ -75,9 +75,12 @@ pub mod access_mutual_tls_hostname_settings {
     ) -> AccessMutualTlsHostnameSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let settings_binding = args.settings.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let settings_binding_1 = args.settings.get_output(context);
+        let settings_binding = settings_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/accessMutualTlsHostnameSettings:AccessMutualTlsHostnameSettings"
                 .into(),

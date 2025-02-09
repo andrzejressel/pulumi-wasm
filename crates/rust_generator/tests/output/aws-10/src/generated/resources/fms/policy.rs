@@ -164,41 +164,45 @@ pub mod policy {
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delete_all_policy_resources_binding = args
+        let delete_all_policy_resources_binding_1 = args
             .delete_all_policy_resources
-            .get_output(context)
+            .get_output(context);
+        let delete_all_policy_resources_binding = delete_all_policy_resources_binding_1
             .get_inner();
-        let delete_unused_fm_managed_resources_binding = args
+        let delete_unused_fm_managed_resources_binding_1 = args
             .delete_unused_fm_managed_resources
-            .get_output(context)
+            .get_output(context);
+        let delete_unused_fm_managed_resources_binding = delete_unused_fm_managed_resources_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let exclude_map_binding = args.exclude_map.get_output(context).get_inner();
-        let exclude_resource_tags_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let exclude_map_binding_1 = args.exclude_map.get_output(context);
+        let exclude_map_binding = exclude_map_binding_1.get_inner();
+        let exclude_resource_tags_binding_1 = args
             .exclude_resource_tags
-            .get_output(context)
-            .get_inner();
-        let include_map_binding = args.include_map.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let remediation_enabled_binding = args
-            .remediation_enabled
-            .get_output(context)
-            .get_inner();
-        let resource_set_ids_binding = args
-            .resource_set_ids
-            .get_output(context)
-            .get_inner();
-        let resource_tags_binding = args.resource_tags.get_output(context).get_inner();
-        let resource_type_binding = args.resource_type.get_output(context).get_inner();
-        let resource_type_lists_binding = args
-            .resource_type_lists
-            .get_output(context)
-            .get_inner();
-        let security_service_policy_data_binding = args
+            .get_output(context);
+        let exclude_resource_tags_binding = exclude_resource_tags_binding_1.get_inner();
+        let include_map_binding_1 = args.include_map.get_output(context);
+        let include_map_binding = include_map_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let remediation_enabled_binding_1 = args.remediation_enabled.get_output(context);
+        let remediation_enabled_binding = remediation_enabled_binding_1.get_inner();
+        let resource_set_ids_binding_1 = args.resource_set_ids.get_output(context);
+        let resource_set_ids_binding = resource_set_ids_binding_1.get_inner();
+        let resource_tags_binding_1 = args.resource_tags.get_output(context);
+        let resource_tags_binding = resource_tags_binding_1.get_inner();
+        let resource_type_binding_1 = args.resource_type.get_output(context);
+        let resource_type_binding = resource_type_binding_1.get_inner();
+        let resource_type_lists_binding_1 = args.resource_type_lists.get_output(context);
+        let resource_type_lists_binding = resource_type_lists_binding_1.get_inner();
+        let security_service_policy_data_binding_1 = args
             .security_service_policy_data
-            .get_output(context)
+            .get_output(context);
+        let security_service_policy_data_binding = security_service_policy_data_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fms/policy:Policy".into(),
             name: name.to_string(),

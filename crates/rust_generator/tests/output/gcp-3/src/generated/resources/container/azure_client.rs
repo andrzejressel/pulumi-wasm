@@ -108,11 +108,16 @@ pub mod azure_client {
     ) -> AzureClientResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
+        let application_id_binding_1 = args.application_id.get_output(context);
+        let application_id_binding = application_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let tenant_id_binding_1 = args.tenant_id.get_output(context);
+        let tenant_id_binding = tenant_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:container/azureClient:AzureClient".into(),
             name: name.to_string(),

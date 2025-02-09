@@ -133,26 +133,28 @@ pub mod api_operation {
     ) -> ApiOperationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args
-            .api_management_name
-            .get_output(context)
-            .get_inner();
-        let api_name_binding = args.api_name.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let method_binding = args.method.get_output(context).get_inner();
-        let operation_id_binding = args.operation_id.get_output(context).get_inner();
-        let request_binding = args.request.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let responses_binding = args.responses.get_output(context).get_inner();
-        let template_parameters_binding = args
-            .template_parameters
-            .get_output(context)
-            .get_inner();
-        let url_template_binding = args.url_template.get_output(context).get_inner();
+        let api_management_name_binding_1 = args.api_management_name.get_output(context);
+        let api_management_name_binding = api_management_name_binding_1.get_inner();
+        let api_name_binding_1 = args.api_name.get_output(context);
+        let api_name_binding = api_name_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let method_binding_1 = args.method.get_output(context);
+        let method_binding = method_binding_1.get_inner();
+        let operation_id_binding_1 = args.operation_id.get_output(context);
+        let operation_id_binding = operation_id_binding_1.get_inner();
+        let request_binding_1 = args.request.get_output(context);
+        let request_binding = request_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let responses_binding_1 = args.responses.get_output(context);
+        let responses_binding = responses_binding_1.get_inner();
+        let template_parameters_binding_1 = args.template_parameters.get_output(context);
+        let template_parameters_binding = template_parameters_binding_1.get_inner();
+        let url_template_binding_1 = args.url_template.get_output(context);
+        let url_template_binding = url_template_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/apiOperation:ApiOperation".into(),
             name: name.to_string(),

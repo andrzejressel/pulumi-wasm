@@ -74,12 +74,12 @@ pub mod human_task_ui {
     ) -> HumanTaskUIResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let human_task_ui_name_binding = args
-            .human_task_ui_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let ui_template_binding = args.ui_template.get_output(context).get_inner();
+        let human_task_ui_name_binding_1 = args.human_task_ui_name.get_output(context);
+        let human_task_ui_name_binding = human_task_ui_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let ui_template_binding_1 = args.ui_template.get_output(context);
+        let ui_template_binding = ui_template_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/humanTaskUI:HumanTaskUI".into(),
             name: name.to_string(),

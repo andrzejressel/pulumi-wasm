@@ -442,15 +442,24 @@ pub mod job {
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let copy_binding = args.copy.get_output(context).get_inner();
-        let extract_binding = args.extract.get_output(context).get_inner();
-        let job_id_binding = args.job_id.get_output(context).get_inner();
-        let job_timeout_ms_binding = args.job_timeout_ms.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let load_binding = args.load.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let query_binding = args.query.get_output(context).get_inner();
+        let copy_binding_1 = args.copy.get_output(context);
+        let copy_binding = copy_binding_1.get_inner();
+        let extract_binding_1 = args.extract.get_output(context);
+        let extract_binding = extract_binding_1.get_inner();
+        let job_id_binding_1 = args.job_id.get_output(context);
+        let job_id_binding = job_id_binding_1.get_inner();
+        let job_timeout_ms_binding_1 = args.job_timeout_ms.get_output(context);
+        let job_timeout_ms_binding = job_timeout_ms_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let load_binding_1 = args.load.get_output(context);
+        let load_binding = load_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let query_binding_1 = args.query.get_output(context);
+        let query_binding = query_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/job:Job".into(),
             name: name.to_string(),

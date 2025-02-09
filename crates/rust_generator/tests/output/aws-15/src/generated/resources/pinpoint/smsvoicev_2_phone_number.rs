@@ -125,41 +125,38 @@ pub mod smsvoicev_2_phone_number {
     ) -> Smsvoicev2PhoneNumberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_protection_enabled_binding = args
+        let deletion_protection_enabled_binding_1 = args
             .deletion_protection_enabled
-            .get_output(context)
+            .get_output(context);
+        let deletion_protection_enabled_binding = deletion_protection_enabled_binding_1
             .get_inner();
-        let iso_country_code_binding = args
-            .iso_country_code
-            .get_output(context)
-            .get_inner();
-        let message_type_binding = args.message_type.get_output(context).get_inner();
-        let number_capabilities_binding = args
-            .number_capabilities
-            .get_output(context)
-            .get_inner();
-        let number_type_binding = args.number_type.get_output(context).get_inner();
-        let opt_out_list_name_binding = args
-            .opt_out_list_name
-            .get_output(context)
-            .get_inner();
-        let registration_id_binding = args
-            .registration_id
-            .get_output(context)
-            .get_inner();
-        let self_managed_opt_outs_enabled_binding = args
+        let iso_country_code_binding_1 = args.iso_country_code.get_output(context);
+        let iso_country_code_binding = iso_country_code_binding_1.get_inner();
+        let message_type_binding_1 = args.message_type.get_output(context);
+        let message_type_binding = message_type_binding_1.get_inner();
+        let number_capabilities_binding_1 = args.number_capabilities.get_output(context);
+        let number_capabilities_binding = number_capabilities_binding_1.get_inner();
+        let number_type_binding_1 = args.number_type.get_output(context);
+        let number_type_binding = number_type_binding_1.get_inner();
+        let opt_out_list_name_binding_1 = args.opt_out_list_name.get_output(context);
+        let opt_out_list_name_binding = opt_out_list_name_binding_1.get_inner();
+        let registration_id_binding_1 = args.registration_id.get_output(context);
+        let registration_id_binding = registration_id_binding_1.get_inner();
+        let self_managed_opt_outs_enabled_binding_1 = args
             .self_managed_opt_outs_enabled
-            .get_output(context)
+            .get_output(context);
+        let self_managed_opt_outs_enabled_binding = self_managed_opt_outs_enabled_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let two_way_channel_arn_binding = args
-            .two_way_channel_arn
-            .get_output(context)
-            .get_inner();
-        let two_way_channel_enabled_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let two_way_channel_arn_binding_1 = args.two_way_channel_arn.get_output(context);
+        let two_way_channel_arn_binding = two_way_channel_arn_binding_1.get_inner();
+        let two_way_channel_enabled_binding_1 = args
             .two_way_channel_enabled
-            .get_output(context)
+            .get_output(context);
+        let two_way_channel_enabled_binding = two_way_channel_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber".into(),

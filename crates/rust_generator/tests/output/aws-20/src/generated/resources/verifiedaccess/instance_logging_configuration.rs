@@ -207,10 +207,12 @@ pub mod instance_logging_configuration {
     ) -> InstanceLoggingConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_logs_binding = args.access_logs.get_output(context).get_inner();
-        let verifiedaccess_instance_id_binding = args
+        let access_logs_binding_1 = args.access_logs.get_output(context);
+        let access_logs_binding = access_logs_binding_1.get_inner();
+        let verifiedaccess_instance_id_binding_1 = args
             .verifiedaccess_instance_id
-            .get_output(context)
+            .get_output(context);
+        let verifiedaccess_instance_id_binding = verifiedaccess_instance_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration"

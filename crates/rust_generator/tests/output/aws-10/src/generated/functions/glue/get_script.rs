@@ -44,9 +44,12 @@ pub mod get_script {
     ) -> GetScriptResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dag_edges_binding = args.dag_edges.get_output(context).get_inner();
-        let dag_nodes_binding = args.dag_nodes.get_output(context).get_inner();
-        let language_binding = args.language.get_output(context).get_inner();
+        let dag_edges_binding_1 = args.dag_edges.get_output(context);
+        let dag_edges_binding = dag_edges_binding_1.get_inner();
+        let dag_nodes_binding_1 = args.dag_nodes.get_output(context);
+        let dag_nodes_binding = dag_nodes_binding_1.get_inner();
+        let language_binding_1 = args.language.get_output(context);
+        let language_binding = language_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:glue/getScript:getScript".into(),
             version: super::super::super::get_version(),

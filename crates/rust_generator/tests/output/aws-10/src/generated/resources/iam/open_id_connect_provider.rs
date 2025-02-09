@@ -97,16 +97,14 @@ pub mod open_id_connect_provider {
     ) -> OpenIdConnectProviderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_id_lists_binding = args
-            .client_id_lists
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let thumbprint_lists_binding = args
-            .thumbprint_lists
-            .get_output(context)
-            .get_inner();
-        let url_binding = args.url.get_output(context).get_inner();
+        let client_id_lists_binding_1 = args.client_id_lists.get_output(context);
+        let client_id_lists_binding = client_id_lists_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let thumbprint_lists_binding_1 = args.thumbprint_lists.get_output(context);
+        let thumbprint_lists_binding = thumbprint_lists_binding_1.get_inner();
+        let url_binding_1 = args.url.get_output(context);
+        let url_binding = url_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/openIdConnectProvider:OpenIdConnectProvider".into(),
             name: name.to_string(),

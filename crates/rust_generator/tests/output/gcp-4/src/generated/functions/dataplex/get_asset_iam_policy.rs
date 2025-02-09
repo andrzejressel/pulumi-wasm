@@ -43,11 +43,16 @@ pub mod get_asset_iam_policy {
     ) -> GetAssetIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let asset_binding = args.asset.get_output(context).get_inner();
-        let dataplex_zone_binding = args.dataplex_zone.get_output(context).get_inner();
-        let lake_binding = args.lake.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let asset_binding_1 = args.asset.get_output(context);
+        let asset_binding = asset_binding_1.get_inner();
+        let dataplex_zone_binding_1 = args.dataplex_zone.get_output(context);
+        let dataplex_zone_binding = dataplex_zone_binding_1.get_inner();
+        let lake_binding_1 = args.lake.get_output(context);
+        let lake_binding = lake_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:dataplex/getAssetIamPolicy:getAssetIamPolicy".into(),
             version: super::super::super::get_version(),

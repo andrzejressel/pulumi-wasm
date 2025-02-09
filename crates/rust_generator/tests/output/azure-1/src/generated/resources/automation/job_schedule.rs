@@ -94,22 +94,23 @@ pub mod job_schedule {
     ) -> JobScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding = args
+        let automation_account_name_binding_1 = args
             .automation_account_name
-            .get_output(context)
+            .get_output(context);
+        let automation_account_name_binding = automation_account_name_binding_1
             .get_inner();
-        let job_schedule_id_binding = args
-            .job_schedule_id
-            .get_output(context)
-            .get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let run_on_binding = args.run_on.get_output(context).get_inner();
-        let runbook_name_binding = args.runbook_name.get_output(context).get_inner();
-        let schedule_name_binding = args.schedule_name.get_output(context).get_inner();
+        let job_schedule_id_binding_1 = args.job_schedule_id.get_output(context);
+        let job_schedule_id_binding = job_schedule_id_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let run_on_binding_1 = args.run_on.get_output(context);
+        let run_on_binding = run_on_binding_1.get_inner();
+        let runbook_name_binding_1 = args.runbook_name.get_output(context);
+        let runbook_name_binding = runbook_name_binding_1.get_inner();
+        let schedule_name_binding_1 = args.schedule_name.get_output(context);
+        let schedule_name_binding = schedule_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/jobSchedule:JobSchedule".into(),
             name: name.to_string(),

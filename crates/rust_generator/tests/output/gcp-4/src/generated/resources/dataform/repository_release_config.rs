@@ -173,17 +173,25 @@ pub mod repository_release_config {
     ) -> RepositoryReleaseConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let code_compilation_config_binding = args
+        let code_compilation_config_binding_1 = args
             .code_compilation_config
-            .get_output(context)
+            .get_output(context);
+        let code_compilation_config_binding = code_compilation_config_binding_1
             .get_inner();
-        let cron_schedule_binding = args.cron_schedule.get_output(context).get_inner();
-        let git_commitish_binding = args.git_commitish.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let repository_binding = args.repository.get_output(context).get_inner();
-        let time_zone_binding = args.time_zone.get_output(context).get_inner();
+        let cron_schedule_binding_1 = args.cron_schedule.get_output(context);
+        let cron_schedule_binding = cron_schedule_binding_1.get_inner();
+        let git_commitish_binding_1 = args.git_commitish.get_output(context);
+        let git_commitish_binding = git_commitish_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let repository_binding_1 = args.repository.get_output(context);
+        let repository_binding = repository_binding_1.get_inner();
+        let time_zone_binding_1 = args.time_zone.get_output(context);
+        let time_zone_binding = time_zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataform/repositoryReleaseConfig:RepositoryReleaseConfig".into(),
             name: name.to_string(),

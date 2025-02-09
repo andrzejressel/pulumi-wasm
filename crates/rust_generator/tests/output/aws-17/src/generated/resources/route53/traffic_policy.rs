@@ -71,9 +71,12 @@ pub mod traffic_policy {
     ) -> TrafficPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let document_binding = args.document.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let document_binding_1 = args.document.get_output(context);
+        let document_binding = document_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/trafficPolicy:TrafficPolicy".into(),
             name: name.to_string(),

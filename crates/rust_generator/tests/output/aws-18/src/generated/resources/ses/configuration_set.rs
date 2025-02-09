@@ -129,23 +129,19 @@ pub mod configuration_set {
     ) -> ConfigurationSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delivery_options_binding = args
-            .delivery_options
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let reputation_metrics_enabled_binding = args
+        let delivery_options_binding_1 = args.delivery_options.get_output(context);
+        let delivery_options_binding = delivery_options_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let reputation_metrics_enabled_binding_1 = args
             .reputation_metrics_enabled
-            .get_output(context)
+            .get_output(context);
+        let reputation_metrics_enabled_binding = reputation_metrics_enabled_binding_1
             .get_inner();
-        let sending_enabled_binding = args
-            .sending_enabled
-            .get_output(context)
-            .get_inner();
-        let tracking_options_binding = args
-            .tracking_options
-            .get_output(context)
-            .get_inner();
+        let sending_enabled_binding_1 = args.sending_enabled.get_output(context);
+        let sending_enabled_binding = sending_enabled_binding_1.get_inner();
+        let tracking_options_binding_1 = args.tracking_options.get_output(context);
+        let tracking_options_binding = tracking_options_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/configurationSet:ConfigurationSet".into(),
             name: name.to_string(),

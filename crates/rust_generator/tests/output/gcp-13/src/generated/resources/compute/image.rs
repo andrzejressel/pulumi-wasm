@@ -339,32 +339,36 @@ pub mod image {
     ) -> ImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let disk_size_gb_binding = args.disk_size_gb.get_output(context).get_inner();
-        let family_binding = args.family.get_output(context).get_inner();
-        let guest_os_features_binding = args
-            .guest_os_features
-            .get_output(context)
-            .get_inner();
-        let image_encryption_key_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disk_size_gb_binding_1 = args.disk_size_gb.get_output(context);
+        let disk_size_gb_binding = disk_size_gb_binding_1.get_inner();
+        let family_binding_1 = args.family.get_output(context);
+        let family_binding = family_binding_1.get_inner();
+        let guest_os_features_binding_1 = args.guest_os_features.get_output(context);
+        let guest_os_features_binding = guest_os_features_binding_1.get_inner();
+        let image_encryption_key_binding_1 = args
             .image_encryption_key
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let licenses_binding = args.licenses.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let raw_disk_binding = args.raw_disk.get_output(context).get_inner();
-        let source_disk_binding = args.source_disk.get_output(context).get_inner();
-        let source_image_binding = args.source_image.get_output(context).get_inner();
-        let source_snapshot_binding = args
-            .source_snapshot
-            .get_output(context)
-            .get_inner();
-        let storage_locations_binding = args
-            .storage_locations
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let image_encryption_key_binding = image_encryption_key_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let licenses_binding_1 = args.licenses.get_output(context);
+        let licenses_binding = licenses_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let raw_disk_binding_1 = args.raw_disk.get_output(context);
+        let raw_disk_binding = raw_disk_binding_1.get_inner();
+        let source_disk_binding_1 = args.source_disk.get_output(context);
+        let source_disk_binding = source_disk_binding_1.get_inner();
+        let source_image_binding_1 = args.source_image.get_output(context);
+        let source_image_binding = source_image_binding_1.get_inner();
+        let source_snapshot_binding_1 = args.source_snapshot.get_output(context);
+        let source_snapshot_binding = source_snapshot_binding_1.get_inner();
+        let storage_locations_binding_1 = args.storage_locations.get_output(context);
+        let storage_locations_binding = storage_locations_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/image:Image".into(),
             name: name.to_string(),

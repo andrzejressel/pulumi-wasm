@@ -72,18 +72,24 @@ pub mod get_account_sas {
     ) -> GetAccountSasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_string_binding = args
-            .connection_string
-            .get_output(context)
-            .get_inner();
-        let expiry_binding = args.expiry.get_output(context).get_inner();
-        let https_only_binding = args.https_only.get_output(context).get_inner();
-        let ip_addresses_binding = args.ip_addresses.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let resource_types_binding = args.resource_types.get_output(context).get_inner();
-        let services_binding = args.services.get_output(context).get_inner();
-        let signed_version_binding = args.signed_version.get_output(context).get_inner();
-        let start_binding = args.start.get_output(context).get_inner();
+        let connection_string_binding_1 = args.connection_string.get_output(context);
+        let connection_string_binding = connection_string_binding_1.get_inner();
+        let expiry_binding_1 = args.expiry.get_output(context);
+        let expiry_binding = expiry_binding_1.get_inner();
+        let https_only_binding_1 = args.https_only.get_output(context);
+        let https_only_binding = https_only_binding_1.get_inner();
+        let ip_addresses_binding_1 = args.ip_addresses.get_output(context);
+        let ip_addresses_binding = ip_addresses_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let resource_types_binding_1 = args.resource_types.get_output(context);
+        let resource_types_binding = resource_types_binding_1.get_inner();
+        let services_binding_1 = args.services.get_output(context);
+        let services_binding = services_binding_1.get_inner();
+        let signed_version_binding_1 = args.signed_version.get_output(context);
+        let signed_version_binding = signed_version_binding_1.get_inner();
+        let start_binding_1 = args.start.get_output(context);
+        let start_binding = start_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getAccountSAS:getAccountSAS".into(),
             version: super::super::super::get_version(),

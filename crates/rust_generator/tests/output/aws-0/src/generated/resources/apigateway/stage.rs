@@ -149,40 +149,40 @@ pub mod stage {
     ) -> StageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_log_settings_binding = args
-            .access_log_settings
-            .get_output(context)
-            .get_inner();
-        let cache_cluster_enabled_binding = args
+        let access_log_settings_binding_1 = args.access_log_settings.get_output(context);
+        let access_log_settings_binding = access_log_settings_binding_1.get_inner();
+        let cache_cluster_enabled_binding_1 = args
             .cache_cluster_enabled
-            .get_output(context)
-            .get_inner();
-        let cache_cluster_size_binding = args
-            .cache_cluster_size
-            .get_output(context)
-            .get_inner();
-        let canary_settings_binding = args
-            .canary_settings
-            .get_output(context)
-            .get_inner();
-        let client_certificate_id_binding = args
+            .get_output(context);
+        let cache_cluster_enabled_binding = cache_cluster_enabled_binding_1.get_inner();
+        let cache_cluster_size_binding_1 = args.cache_cluster_size.get_output(context);
+        let cache_cluster_size_binding = cache_cluster_size_binding_1.get_inner();
+        let canary_settings_binding_1 = args.canary_settings.get_output(context);
+        let canary_settings_binding = canary_settings_binding_1.get_inner();
+        let client_certificate_id_binding_1 = args
             .client_certificate_id
-            .get_output(context)
-            .get_inner();
-        let deployment_binding = args.deployment.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let documentation_version_binding = args
+            .get_output(context);
+        let client_certificate_id_binding = client_certificate_id_binding_1.get_inner();
+        let deployment_binding_1 = args.deployment.get_output(context);
+        let deployment_binding = deployment_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let documentation_version_binding_1 = args
             .documentation_version
-            .get_output(context)
-            .get_inner();
-        let rest_api_binding = args.rest_api.get_output(context).get_inner();
-        let stage_name_binding = args.stage_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let variables_binding = args.variables.get_output(context).get_inner();
-        let xray_tracing_enabled_binding = args
+            .get_output(context);
+        let documentation_version_binding = documentation_version_binding_1.get_inner();
+        let rest_api_binding_1 = args.rest_api.get_output(context);
+        let rest_api_binding = rest_api_binding_1.get_inner();
+        let stage_name_binding_1 = args.stage_name.get_output(context);
+        let stage_name_binding = stage_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let variables_binding_1 = args.variables.get_output(context);
+        let variables_binding = variables_binding_1.get_inner();
+        let xray_tracing_enabled_binding_1 = args
             .xray_tracing_enabled
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let xray_tracing_enabled_binding = xray_tracing_enabled_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/stage:Stage".into(),
             name: name.to_string(),

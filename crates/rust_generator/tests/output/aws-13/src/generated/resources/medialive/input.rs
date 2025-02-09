@@ -146,22 +146,28 @@ pub mod input {
     ) -> InputResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destinations_binding = args.destinations.get_output(context).get_inner();
-        let input_devices_binding = args.input_devices.get_output(context).get_inner();
-        let input_security_groups_binding = args
+        let destinations_binding_1 = args.destinations.get_output(context);
+        let destinations_binding = destinations_binding_1.get_inner();
+        let input_devices_binding_1 = args.input_devices.get_output(context);
+        let input_devices_binding = input_devices_binding_1.get_inner();
+        let input_security_groups_binding_1 = args
             .input_security_groups
-            .get_output(context)
-            .get_inner();
-        let media_connect_flows_binding = args
-            .media_connect_flows
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let sources_binding = args.sources.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let vpc_binding = args.vpc.get_output(context).get_inner();
+            .get_output(context);
+        let input_security_groups_binding = input_security_groups_binding_1.get_inner();
+        let media_connect_flows_binding_1 = args.media_connect_flows.get_output(context);
+        let media_connect_flows_binding = media_connect_flows_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let sources_binding_1 = args.sources.get_output(context);
+        let sources_binding = sources_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let vpc_binding_1 = args.vpc.get_output(context);
+        let vpc_binding = vpc_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:medialive/input:Input".into(),
             name: name.to_string(),

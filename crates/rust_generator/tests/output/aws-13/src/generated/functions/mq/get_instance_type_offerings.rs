@@ -41,12 +41,12 @@ pub mod get_instance_type_offerings {
     ) -> GetInstanceTypeOfferingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let engine_type_binding = args.engine_type.get_output(context).get_inner();
-        let host_instance_type_binding = args
-            .host_instance_type
-            .get_output(context)
-            .get_inner();
-        let storage_type_binding = args.storage_type.get_output(context).get_inner();
+        let engine_type_binding_1 = args.engine_type.get_output(context);
+        let engine_type_binding = engine_type_binding_1.get_inner();
+        let host_instance_type_binding_1 = args.host_instance_type.get_output(context);
+        let host_instance_type_binding = host_instance_type_binding_1.get_inner();
+        let storage_type_binding_1 = args.storage_type.get_output(context);
+        let storage_type_binding = storage_type_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings".into(),
             version: super::super::super::get_version(),

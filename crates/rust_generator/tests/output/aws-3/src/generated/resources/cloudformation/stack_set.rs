@@ -204,38 +204,39 @@ pub mod stack_set {
     ) -> StackSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administration_role_arn_binding = args
+        let administration_role_arn_binding_1 = args
             .administration_role_arn
-            .get_output(context)
+            .get_output(context);
+        let administration_role_arn_binding = administration_role_arn_binding_1
             .get_inner();
-        let auto_deployment_binding = args
-            .auto_deployment
-            .get_output(context)
-            .get_inner();
-        let call_as_binding = args.call_as.get_output(context).get_inner();
-        let capabilities_binding = args.capabilities.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let execution_role_name_binding = args
-            .execution_role_name
-            .get_output(context)
-            .get_inner();
-        let managed_execution_binding = args
-            .managed_execution
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let operation_preferences_binding = args
+        let auto_deployment_binding_1 = args.auto_deployment.get_output(context);
+        let auto_deployment_binding = auto_deployment_binding_1.get_inner();
+        let call_as_binding_1 = args.call_as.get_output(context);
+        let call_as_binding = call_as_binding_1.get_inner();
+        let capabilities_binding_1 = args.capabilities.get_output(context);
+        let capabilities_binding = capabilities_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let execution_role_name_binding_1 = args.execution_role_name.get_output(context);
+        let execution_role_name_binding = execution_role_name_binding_1.get_inner();
+        let managed_execution_binding_1 = args.managed_execution.get_output(context);
+        let managed_execution_binding = managed_execution_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let operation_preferences_binding_1 = args
             .operation_preferences
-            .get_output(context)
-            .get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let permission_model_binding = args
-            .permission_model
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let template_body_binding = args.template_body.get_output(context).get_inner();
-        let template_url_binding = args.template_url.get_output(context).get_inner();
+            .get_output(context);
+        let operation_preferences_binding = operation_preferences_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let permission_model_binding_1 = args.permission_model.get_output(context);
+        let permission_model_binding = permission_model_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let template_body_binding_1 = args.template_body.get_output(context);
+        let template_body_binding = template_body_binding_1.get_inner();
+        let template_url_binding_1 = args.template_url.get_output(context);
+        let template_url_binding = template_url_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudformation/stackSet:StackSet".into(),
             name: name.to_string(),

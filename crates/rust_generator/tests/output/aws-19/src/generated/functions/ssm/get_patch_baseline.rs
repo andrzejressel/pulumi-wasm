@@ -66,16 +66,14 @@ pub mod get_patch_baseline {
     ) -> GetPatchBaselineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_baseline_binding = args
-            .default_baseline
-            .get_output(context)
-            .get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let operating_system_binding = args
-            .operating_system
-            .get_output(context)
-            .get_inner();
-        let owner_binding = args.owner.get_output(context).get_inner();
+        let default_baseline_binding_1 = args.default_baseline.get_output(context);
+        let default_baseline_binding = default_baseline_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let operating_system_binding_1 = args.operating_system.get_output(context);
+        let operating_system_binding = operating_system_binding_1.get_inner();
+        let owner_binding_1 = args.owner.get_output(context);
+        let owner_binding = owner_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssm/getPatchBaseline:getPatchBaseline".into(),
             version: super::super::super::get_version(),

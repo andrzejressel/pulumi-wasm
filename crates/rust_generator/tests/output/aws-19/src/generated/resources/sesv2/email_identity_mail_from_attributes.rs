@@ -67,15 +67,15 @@ pub mod email_identity_mail_from_attributes {
     ) -> EmailIdentityMailFromAttributesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let behavior_on_mx_failure_binding = args
+        let behavior_on_mx_failure_binding_1 = args
             .behavior_on_mx_failure
-            .get_output(context)
+            .get_output(context);
+        let behavior_on_mx_failure_binding = behavior_on_mx_failure_binding_1
             .get_inner();
-        let email_identity_binding = args.email_identity.get_output(context).get_inner();
-        let mail_from_domain_binding = args
-            .mail_from_domain
-            .get_output(context)
-            .get_inner();
+        let email_identity_binding_1 = args.email_identity.get_output(context);
+        let email_identity_binding = email_identity_binding_1.get_inner();
+        let mail_from_domain_binding_1 = args.mail_from_domain.get_output(context);
+        let mail_from_domain_binding = mail_from_domain_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes"
                 .into(),

@@ -72,8 +72,10 @@ pub mod gateway_api {
     ) -> GatewayApiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_output(context).get_inner();
-        let gateway_id_binding = args.gateway_id.get_output(context).get_inner();
+        let api_id_binding_1 = args.api_id.get_output(context);
+        let api_id_binding = api_id_binding_1.get_inner();
+        let gateway_id_binding_1 = args.gateway_id.get_output(context);
+        let gateway_id_binding = gateway_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/gatewayApi:GatewayApi".into(),
             name: name.to_string(),

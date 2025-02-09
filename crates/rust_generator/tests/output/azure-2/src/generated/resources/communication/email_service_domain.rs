@@ -101,19 +101,18 @@ pub mod email_service_domain {
     ) -> EmailServiceDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_management_binding = args
-            .domain_management
-            .get_output(context)
-            .get_inner();
-        let email_service_id_binding = args
-            .email_service_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_engagement_tracking_enabled_binding = args
+        let domain_management_binding_1 = args.domain_management.get_output(context);
+        let domain_management_binding = domain_management_binding_1.get_inner();
+        let email_service_id_binding_1 = args.email_service_id.get_output(context);
+        let email_service_id_binding = email_service_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_engagement_tracking_enabled_binding_1 = args
             .user_engagement_tracking_enabled
-            .get_output(context)
+            .get_output(context);
+        let user_engagement_tracking_enabled_binding = user_engagement_tracking_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:communication/emailServiceDomain:EmailServiceDomain".into(),

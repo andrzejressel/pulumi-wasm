@@ -140,17 +140,22 @@ pub mod sql_pool_workload_classifier {
     ) -> SqlPoolWorkloadClassifierResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let context_binding = args.context.get_output(context).get_inner();
-        let end_time_binding = args.end_time.get_output(context).get_inner();
-        let importance_binding = args.importance.get_output(context).get_inner();
-        let label_binding = args.label.get_output(context).get_inner();
-        let member_name_binding = args.member_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let start_time_binding = args.start_time.get_output(context).get_inner();
-        let workload_group_id_binding = args
-            .workload_group_id
-            .get_output(context)
-            .get_inner();
+        let context_binding_1 = args.context.get_output(context);
+        let context_binding = context_binding_1.get_inner();
+        let end_time_binding_1 = args.end_time.get_output(context);
+        let end_time_binding = end_time_binding_1.get_inner();
+        let importance_binding_1 = args.importance.get_output(context);
+        let importance_binding = importance_binding_1.get_inner();
+        let label_binding_1 = args.label.get_output(context);
+        let label_binding = label_binding_1.get_inner();
+        let member_name_binding_1 = args.member_name.get_output(context);
+        let member_name_binding = member_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let start_time_binding_1 = args.start_time.get_output(context);
+        let start_time_binding = start_time_binding_1.get_inner();
+        let workload_group_id_binding_1 = args.workload_group_id.get_output(context);
+        let workload_group_id_binding = workload_group_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier"
                 .into(),

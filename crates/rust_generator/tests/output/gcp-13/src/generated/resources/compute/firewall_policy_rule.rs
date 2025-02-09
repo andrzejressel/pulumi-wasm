@@ -202,30 +202,36 @@ pub mod firewall_policy_rule {
     ) -> FirewallPolicyRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let direction_binding = args.direction.get_output(context).get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let enable_logging_binding = args.enable_logging.get_output(context).get_inner();
-        let firewall_policy_binding = args
-            .firewall_policy
-            .get_output(context)
-            .get_inner();
-        let match__binding = args.match_.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let security_profile_group_binding = args
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let direction_binding_1 = args.direction.get_output(context);
+        let direction_binding = direction_binding_1.get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let enable_logging_binding_1 = args.enable_logging.get_output(context);
+        let enable_logging_binding = enable_logging_binding_1.get_inner();
+        let firewall_policy_binding_1 = args.firewall_policy.get_output(context);
+        let firewall_policy_binding = firewall_policy_binding_1.get_inner();
+        let match__binding_1 = args.match_.get_output(context);
+        let match__binding = match__binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let security_profile_group_binding_1 = args
             .security_profile_group
-            .get_output(context)
+            .get_output(context);
+        let security_profile_group_binding = security_profile_group_binding_1
             .get_inner();
-        let target_resources_binding = args
-            .target_resources
-            .get_output(context)
-            .get_inner();
-        let target_service_accounts_binding = args
+        let target_resources_binding_1 = args.target_resources.get_output(context);
+        let target_resources_binding = target_resources_binding_1.get_inner();
+        let target_service_accounts_binding_1 = args
             .target_service_accounts
-            .get_output(context)
+            .get_output(context);
+        let target_service_accounts_binding = target_service_accounts_binding_1
             .get_inner();
-        let tls_inspect_binding = args.tls_inspect.get_output(context).get_inner();
+        let tls_inspect_binding_1 = args.tls_inspect.get_output(context);
+        let tls_inspect_binding = tls_inspect_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/firewallPolicyRule:FirewallPolicyRule".into(),
             name: name.to_string(),

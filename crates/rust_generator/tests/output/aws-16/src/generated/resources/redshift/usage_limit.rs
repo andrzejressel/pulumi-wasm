@@ -92,16 +92,20 @@ pub mod usage_limit {
     ) -> UsageLimitResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let amount_binding = args.amount.get_output(context).get_inner();
-        let breach_action_binding = args.breach_action.get_output(context).get_inner();
-        let cluster_identifier_binding = args
-            .cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let feature_type_binding = args.feature_type.get_output(context).get_inner();
-        let limit_type_binding = args.limit_type.get_output(context).get_inner();
-        let period_binding = args.period.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let amount_binding_1 = args.amount.get_output(context);
+        let amount_binding = amount_binding_1.get_inner();
+        let breach_action_binding_1 = args.breach_action.get_output(context);
+        let breach_action_binding = breach_action_binding_1.get_inner();
+        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
+        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
+        let feature_type_binding_1 = args.feature_type.get_output(context);
+        let feature_type_binding = feature_type_binding_1.get_inner();
+        let limit_type_binding_1 = args.limit_type.get_output(context);
+        let limit_type_binding = limit_type_binding_1.get_inner();
+        let period_binding_1 = args.period.get_output(context);
+        let period_binding = period_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/usageLimit:UsageLimit".into(),
             name: name.to_string(),

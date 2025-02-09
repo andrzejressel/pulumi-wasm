@@ -111,27 +111,27 @@ pub mod composite_alarm {
     ) -> CompositeAlarmResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_enabled_binding = args
-            .actions_enabled
-            .get_output(context)
-            .get_inner();
-        let actions_suppressor_binding = args
-            .actions_suppressor
-            .get_output(context)
-            .get_inner();
-        let alarm_actions_binding = args.alarm_actions.get_output(context).get_inner();
-        let alarm_description_binding = args
-            .alarm_description
-            .get_output(context)
-            .get_inner();
-        let alarm_name_binding = args.alarm_name.get_output(context).get_inner();
-        let alarm_rule_binding = args.alarm_rule.get_output(context).get_inner();
-        let insufficient_data_actions_binding = args
+        let actions_enabled_binding_1 = args.actions_enabled.get_output(context);
+        let actions_enabled_binding = actions_enabled_binding_1.get_inner();
+        let actions_suppressor_binding_1 = args.actions_suppressor.get_output(context);
+        let actions_suppressor_binding = actions_suppressor_binding_1.get_inner();
+        let alarm_actions_binding_1 = args.alarm_actions.get_output(context);
+        let alarm_actions_binding = alarm_actions_binding_1.get_inner();
+        let alarm_description_binding_1 = args.alarm_description.get_output(context);
+        let alarm_description_binding = alarm_description_binding_1.get_inner();
+        let alarm_name_binding_1 = args.alarm_name.get_output(context);
+        let alarm_name_binding = alarm_name_binding_1.get_inner();
+        let alarm_rule_binding_1 = args.alarm_rule.get_output(context);
+        let alarm_rule_binding = alarm_rule_binding_1.get_inner();
+        let insufficient_data_actions_binding_1 = args
             .insufficient_data_actions
-            .get_output(context)
+            .get_output(context);
+        let insufficient_data_actions_binding = insufficient_data_actions_binding_1
             .get_inner();
-        let ok_actions_binding = args.ok_actions.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let ok_actions_binding_1 = args.ok_actions.get_output(context);
+        let ok_actions_binding = ok_actions_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/compositeAlarm:CompositeAlarm".into(),
             name: name.to_string(),

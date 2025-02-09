@@ -105,17 +105,22 @@ pub mod location_smb {
     ) -> LocationSmbResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_arns_binding = args.agent_arns.get_output(context).get_inner();
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let mount_options_binding = args.mount_options.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let server_hostname_binding = args
-            .server_hostname
-            .get_output(context)
-            .get_inner();
-        let subdirectory_binding = args.subdirectory.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_binding = args.user.get_output(context).get_inner();
+        let agent_arns_binding_1 = args.agent_arns.get_output(context);
+        let agent_arns_binding = agent_arns_binding_1.get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let mount_options_binding_1 = args.mount_options.get_output(context);
+        let mount_options_binding = mount_options_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let server_hostname_binding_1 = args.server_hostname.get_output(context);
+        let server_hostname_binding = server_hostname_binding_1.get_inner();
+        let subdirectory_binding_1 = args.subdirectory.get_output(context);
+        let subdirectory_binding = subdirectory_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_binding_1 = args.user.get_output(context);
+        let user_binding = user_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/locationSmb:LocationSmb".into(),
             name: name.to_string(),

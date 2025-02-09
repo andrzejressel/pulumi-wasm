@@ -89,9 +89,12 @@ pub mod watchlist_item {
     ) -> WatchlistItemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let properties_binding = args.properties.get_output(context).get_inner();
-        let watchlist_id_binding = args.watchlist_id.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let properties_binding_1 = args.properties.get_output(context);
+        let properties_binding = properties_binding_1.get_inner();
+        let watchlist_id_binding_1 = args.watchlist_id.get_output(context);
+        let watchlist_id_binding = watchlist_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/watchlistItem:WatchlistItem".into(),
             name: name.to_string(),

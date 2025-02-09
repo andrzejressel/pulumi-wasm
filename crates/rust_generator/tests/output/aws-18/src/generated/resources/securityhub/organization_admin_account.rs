@@ -64,10 +64,8 @@ pub mod organization_admin_account {
     ) -> OrganizationAdminAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_account_id_binding = args
-            .admin_account_id
-            .get_output(context)
-            .get_inner();
+        let admin_account_id_binding_1 = args.admin_account_id.get_output(context);
+        let admin_account_id_binding = admin_account_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/organizationAdminAccount:OrganizationAdminAccount"
                 .into(),

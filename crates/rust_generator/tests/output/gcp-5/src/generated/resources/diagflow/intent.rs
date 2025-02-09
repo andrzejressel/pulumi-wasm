@@ -251,27 +251,36 @@ pub mod intent {
     ) -> IntentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let default_response_platforms_binding = args
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let default_response_platforms_binding_1 = args
             .default_response_platforms
-            .get_output(context)
+            .get_output(context);
+        let default_response_platforms_binding = default_response_platforms_binding_1
             .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let events_binding = args.events.get_output(context).get_inner();
-        let input_context_names_binding = args
-            .input_context_names
-            .get_output(context)
-            .get_inner();
-        let is_fallback_binding = args.is_fallback.get_output(context).get_inner();
-        let ml_disabled_binding = args.ml_disabled.get_output(context).get_inner();
-        let parent_followup_intent_name_binding = args
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let events_binding_1 = args.events.get_output(context);
+        let events_binding = events_binding_1.get_inner();
+        let input_context_names_binding_1 = args.input_context_names.get_output(context);
+        let input_context_names_binding = input_context_names_binding_1.get_inner();
+        let is_fallback_binding_1 = args.is_fallback.get_output(context);
+        let is_fallback_binding = is_fallback_binding_1.get_inner();
+        let ml_disabled_binding_1 = args.ml_disabled.get_output(context);
+        let ml_disabled_binding = ml_disabled_binding_1.get_inner();
+        let parent_followup_intent_name_binding_1 = args
             .parent_followup_intent_name
-            .get_output(context)
+            .get_output(context);
+        let parent_followup_intent_name_binding = parent_followup_intent_name_binding_1
             .get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let reset_contexts_binding = args.reset_contexts.get_output(context).get_inner();
-        let webhook_state_binding = args.webhook_state.get_output(context).get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let reset_contexts_binding_1 = args.reset_contexts.get_output(context);
+        let reset_contexts_binding = reset_contexts_binding_1.get_inner();
+        let webhook_state_binding_1 = args.webhook_state.get_output(context);
+        let webhook_state_binding = webhook_state_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/intent:Intent".into(),
             name: name.to_string(),

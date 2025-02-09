@@ -43,16 +43,19 @@ pub mod list_product_families {
     ) -> ListProductFamiliesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let customer_subscription_details_binding = args
+        let customer_subscription_details_binding_1 = args
             .customer_subscription_details
-            .get_output(context)
+            .get_output(context);
+        let customer_subscription_details_binding = customer_subscription_details_binding_1
             .get_inner();
-        let expand_binding = args.expand.get_output(context).get_inner();
-        let filterable_properties_binding = args
+        let expand_binding_1 = args.expand.get_output(context);
+        let expand_binding = expand_binding_1.get_inner();
+        let filterable_properties_binding_1 = args
             .filterable_properties
-            .get_output(context)
-            .get_inner();
-        let skip_token_binding = args.skip_token.get_output(context).get_inner();
+            .get_output(context);
+        let filterable_properties_binding = filterable_properties_binding_1.get_inner();
+        let skip_token_binding_1 = args.skip_token.get_output(context);
+        let skip_token_binding = skip_token_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "myedgeorder::listProductFamilies".into(),
             version: super::super::get_version(),

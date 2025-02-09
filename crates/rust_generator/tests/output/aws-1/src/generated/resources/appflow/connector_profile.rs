@@ -128,21 +128,21 @@ pub mod connector_profile {
     ) -> ConnectorProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_mode_binding = args
-            .connection_mode
-            .get_output(context)
-            .get_inner();
-        let connector_label_binding = args
-            .connector_label
-            .get_output(context)
-            .get_inner();
-        let connector_profile_config_binding = args
+        let connection_mode_binding_1 = args.connection_mode.get_output(context);
+        let connection_mode_binding = connection_mode_binding_1.get_inner();
+        let connector_label_binding_1 = args.connector_label.get_output(context);
+        let connector_label_binding = connector_label_binding_1.get_inner();
+        let connector_profile_config_binding_1 = args
             .connector_profile_config
-            .get_output(context)
+            .get_output(context);
+        let connector_profile_config_binding = connector_profile_config_binding_1
             .get_inner();
-        let connector_type_binding = args.connector_type.get_output(context).get_inner();
-        let kms_arn_binding = args.kms_arn.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let connector_type_binding_1 = args.connector_type.get_output(context);
+        let connector_type_binding = connector_type_binding_1.get_inner();
+        let kms_arn_binding_1 = args.kms_arn.get_output(context);
+        let kms_arn_binding = kms_arn_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appflow/connectorProfile:ConnectorProfile".into(),
             name: name.to_string(),

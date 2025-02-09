@@ -83,11 +83,16 @@ pub mod page_rule {
     ) -> PageRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let target_binding = args.target.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let actions_binding_1 = args.actions.get_output(context);
+        let actions_binding = actions_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let target_binding_1 = args.target.get_output(context);
+        let target_binding = target_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/pageRule:PageRule".into(),
             name: name.to_string(),

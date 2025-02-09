@@ -83,15 +83,21 @@ pub mod get_snapshot {
     ) -> GetSnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let most_recent_binding = args.most_recent.get_output(context).get_inner();
-        let owners_binding = args.owners.get_output(context).get_inner();
-        let restorable_by_user_ids_binding = args
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let most_recent_binding_1 = args.most_recent.get_output(context);
+        let most_recent_binding = most_recent_binding_1.get_inner();
+        let owners_binding_1 = args.owners.get_output(context);
+        let owners_binding = owners_binding_1.get_inner();
+        let restorable_by_user_ids_binding_1 = args
             .restorable_by_user_ids
-            .get_output(context)
+            .get_output(context);
+        let restorable_by_user_ids_binding = restorable_by_user_ids_binding_1
             .get_inner();
-        let snapshot_ids_binding = args.snapshot_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let snapshot_ids_binding_1 = args.snapshot_ids.get_output(context);
+        let snapshot_ids_binding = snapshot_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ebs/getSnapshot:getSnapshot".into(),
             version: super::super::super::get_version(),

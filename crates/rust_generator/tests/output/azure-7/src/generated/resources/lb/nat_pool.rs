@@ -143,41 +143,34 @@ pub mod nat_pool {
     ) -> NatPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backend_port_binding = args.backend_port.get_output(context).get_inner();
-        let floating_ip_enabled_binding = args
-            .floating_ip_enabled
-            .get_output(context)
-            .get_inner();
-        let frontend_ip_configuration_name_binding = args
+        let backend_port_binding_1 = args.backend_port.get_output(context);
+        let backend_port_binding = backend_port_binding_1.get_inner();
+        let floating_ip_enabled_binding_1 = args.floating_ip_enabled.get_output(context);
+        let floating_ip_enabled_binding = floating_ip_enabled_binding_1.get_inner();
+        let frontend_ip_configuration_name_binding_1 = args
             .frontend_ip_configuration_name
-            .get_output(context)
+            .get_output(context);
+        let frontend_ip_configuration_name_binding = frontend_ip_configuration_name_binding_1
             .get_inner();
-        let frontend_port_end_binding = args
-            .frontend_port_end
-            .get_output(context)
-            .get_inner();
-        let frontend_port_start_binding = args
-            .frontend_port_start
-            .get_output(context)
-            .get_inner();
-        let idle_timeout_in_minutes_binding = args
+        let frontend_port_end_binding_1 = args.frontend_port_end.get_output(context);
+        let frontend_port_end_binding = frontend_port_end_binding_1.get_inner();
+        let frontend_port_start_binding_1 = args.frontend_port_start.get_output(context);
+        let frontend_port_start_binding = frontend_port_start_binding_1.get_inner();
+        let idle_timeout_in_minutes_binding_1 = args
             .idle_timeout_in_minutes
-            .get_output(context)
+            .get_output(context);
+        let idle_timeout_in_minutes_binding = idle_timeout_in_minutes_binding_1
             .get_inner();
-        let loadbalancer_id_binding = args
-            .loadbalancer_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tcp_reset_enabled_binding = args
-            .tcp_reset_enabled
-            .get_output(context)
-            .get_inner();
+        let loadbalancer_id_binding_1 = args.loadbalancer_id.get_output(context);
+        let loadbalancer_id_binding = loadbalancer_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tcp_reset_enabled_binding_1 = args.tcp_reset_enabled.get_output(context);
+        let tcp_reset_enabled_binding = tcp_reset_enabled_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:lb/natPool:NatPool".into(),
             name: name.to_string(),

@@ -158,32 +158,40 @@ pub mod vpn_server_configuration {
     ) -> VpnServerConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let azure_active_directory_authentications_binding = args
+        let azure_active_directory_authentications_binding_1 = args
             .azure_active_directory_authentications
-            .get_output(context)
+            .get_output(context);
+        let azure_active_directory_authentications_binding = azure_active_directory_authentications_binding_1
             .get_inner();
-        let client_revoked_certificates_binding = args
+        let client_revoked_certificates_binding_1 = args
             .client_revoked_certificates
-            .get_output(context)
+            .get_output(context);
+        let client_revoked_certificates_binding = client_revoked_certificates_binding_1
             .get_inner();
-        let client_root_certificates_binding = args
+        let client_root_certificates_binding_1 = args
             .client_root_certificates
-            .get_output(context)
+            .get_output(context);
+        let client_root_certificates_binding = client_root_certificates_binding_1
             .get_inner();
-        let ipsec_policy_binding = args.ipsec_policy.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let radius_binding = args.radius.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpn_authentication_types_binding = args
+        let ipsec_policy_binding_1 = args.ipsec_policy.get_output(context);
+        let ipsec_policy_binding = ipsec_policy_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let radius_binding_1 = args.radius.get_output(context);
+        let radius_binding = radius_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpn_authentication_types_binding_1 = args
             .vpn_authentication_types
-            .get_output(context)
+            .get_output(context);
+        let vpn_authentication_types_binding = vpn_authentication_types_binding_1
             .get_inner();
-        let vpn_protocols_binding = args.vpn_protocols.get_output(context).get_inner();
+        let vpn_protocols_binding_1 = args.vpn_protocols.get_output(context);
+        let vpn_protocols_binding = vpn_protocols_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/vpnServerConfiguration:VpnServerConfiguration".into(),
             name: name.to_string(),

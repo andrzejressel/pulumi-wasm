@@ -46,10 +46,14 @@ pub mod get_backup_run {
     ) -> GetBackupRunResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_id_binding = args.backup_id.get_output(context).get_inner();
-        let instance_binding = args.instance.get_output(context).get_inner();
-        let most_recent_binding = args.most_recent.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let backup_id_binding_1 = args.backup_id.get_output(context);
+        let backup_id_binding = backup_id_binding_1.get_inner();
+        let instance_binding_1 = args.instance.get_output(context);
+        let instance_binding = instance_binding_1.get_inner();
+        let most_recent_binding_1 = args.most_recent.get_output(context);
+        let most_recent_binding = most_recent_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:sql/getBackupRun:getBackupRun".into(),
             version: super::super::super::get_version(),

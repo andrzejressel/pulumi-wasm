@@ -90,12 +90,12 @@ pub mod sql_dedicated_gateway {
     ) -> SqlDedicatedGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cosmosdb_account_id_binding = args
-            .cosmosdb_account_id
-            .get_output(context)
-            .get_inner();
-        let instance_count_binding = args.instance_count.get_output(context).get_inner();
-        let instance_size_binding = args.instance_size.get_output(context).get_inner();
+        let cosmosdb_account_id_binding_1 = args.cosmosdb_account_id.get_output(context);
+        let cosmosdb_account_id_binding = cosmosdb_account_id_binding_1.get_inner();
+        let instance_count_binding_1 = args.instance_count.get_output(context);
+        let instance_count_binding = instance_count_binding_1.get_inner();
+        let instance_size_binding_1 = args.instance_size.get_output(context);
+        let instance_size_binding = instance_size_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway".into(),
             name: name.to_string(),

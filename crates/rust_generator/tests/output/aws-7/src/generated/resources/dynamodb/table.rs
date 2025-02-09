@@ -349,63 +349,77 @@ pub mod table {
     ) -> TableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attributes_binding = args.attributes.get_output(context).get_inner();
-        let billing_mode_binding = args.billing_mode.get_output(context).get_inner();
-        let deletion_protection_enabled_binding = args
+        let attributes_binding_1 = args.attributes.get_output(context);
+        let attributes_binding = attributes_binding_1.get_inner();
+        let billing_mode_binding_1 = args.billing_mode.get_output(context);
+        let billing_mode_binding = billing_mode_binding_1.get_inner();
+        let deletion_protection_enabled_binding_1 = args
             .deletion_protection_enabled
-            .get_output(context)
+            .get_output(context);
+        let deletion_protection_enabled_binding = deletion_protection_enabled_binding_1
             .get_inner();
-        let global_secondary_indexes_binding = args
+        let global_secondary_indexes_binding_1 = args
             .global_secondary_indexes
-            .get_output(context)
+            .get_output(context);
+        let global_secondary_indexes_binding = global_secondary_indexes_binding_1
             .get_inner();
-        let hash_key_binding = args.hash_key.get_output(context).get_inner();
-        let import_table_binding = args.import_table.get_output(context).get_inner();
-        let local_secondary_indexes_binding = args
+        let hash_key_binding_1 = args.hash_key.get_output(context);
+        let hash_key_binding = hash_key_binding_1.get_inner();
+        let import_table_binding_1 = args.import_table.get_output(context);
+        let import_table_binding = import_table_binding_1.get_inner();
+        let local_secondary_indexes_binding_1 = args
             .local_secondary_indexes
-            .get_output(context)
+            .get_output(context);
+        let local_secondary_indexes_binding = local_secondary_indexes_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let on_demand_throughput_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let on_demand_throughput_binding_1 = args
             .on_demand_throughput
-            .get_output(context)
-            .get_inner();
-        let point_in_time_recovery_binding = args
+            .get_output(context);
+        let on_demand_throughput_binding = on_demand_throughput_binding_1.get_inner();
+        let point_in_time_recovery_binding_1 = args
             .point_in_time_recovery
-            .get_output(context)
+            .get_output(context);
+        let point_in_time_recovery_binding = point_in_time_recovery_binding_1
             .get_inner();
-        let range_key_binding = args.range_key.get_output(context).get_inner();
-        let read_capacity_binding = args.read_capacity.get_output(context).get_inner();
-        let replicas_binding = args.replicas.get_output(context).get_inner();
-        let restore_date_time_binding = args
-            .restore_date_time
-            .get_output(context)
-            .get_inner();
-        let restore_source_name_binding = args
-            .restore_source_name
-            .get_output(context)
-            .get_inner();
-        let restore_source_table_arn_binding = args
+        let range_key_binding_1 = args.range_key.get_output(context);
+        let range_key_binding = range_key_binding_1.get_inner();
+        let read_capacity_binding_1 = args.read_capacity.get_output(context);
+        let read_capacity_binding = read_capacity_binding_1.get_inner();
+        let replicas_binding_1 = args.replicas.get_output(context);
+        let replicas_binding = replicas_binding_1.get_inner();
+        let restore_date_time_binding_1 = args.restore_date_time.get_output(context);
+        let restore_date_time_binding = restore_date_time_binding_1.get_inner();
+        let restore_source_name_binding_1 = args.restore_source_name.get_output(context);
+        let restore_source_name_binding = restore_source_name_binding_1.get_inner();
+        let restore_source_table_arn_binding_1 = args
             .restore_source_table_arn
-            .get_output(context)
+            .get_output(context);
+        let restore_source_table_arn_binding = restore_source_table_arn_binding_1
             .get_inner();
-        let restore_to_latest_time_binding = args
+        let restore_to_latest_time_binding_1 = args
             .restore_to_latest_time
-            .get_output(context)
+            .get_output(context);
+        let restore_to_latest_time_binding = restore_to_latest_time_binding_1
             .get_inner();
-        let server_side_encryption_binding = args
+        let server_side_encryption_binding_1 = args
             .server_side_encryption
-            .get_output(context)
+            .get_output(context);
+        let server_side_encryption_binding = server_side_encryption_binding_1
             .get_inner();
-        let stream_enabled_binding = args.stream_enabled.get_output(context).get_inner();
-        let stream_view_type_binding = args
-            .stream_view_type
-            .get_output(context)
-            .get_inner();
-        let table_class_binding = args.table_class.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let ttl_binding = args.ttl.get_output(context).get_inner();
-        let write_capacity_binding = args.write_capacity.get_output(context).get_inner();
+        let stream_enabled_binding_1 = args.stream_enabled.get_output(context);
+        let stream_enabled_binding = stream_enabled_binding_1.get_inner();
+        let stream_view_type_binding_1 = args.stream_view_type.get_output(context);
+        let stream_view_type_binding = stream_view_type_binding_1.get_inner();
+        let table_class_binding_1 = args.table_class.get_output(context);
+        let table_class_binding = table_class_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let ttl_binding_1 = args.ttl.get_output(context);
+        let ttl_binding = ttl_binding_1.get_inner();
+        let write_capacity_binding_1 = args.write_capacity.get_output(context);
+        let write_capacity_binding = write_capacity_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dynamodb/table:Table".into(),
             name: name.to_string(),

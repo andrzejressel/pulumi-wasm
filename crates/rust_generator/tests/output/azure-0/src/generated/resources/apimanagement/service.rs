@@ -281,68 +281,79 @@ pub mod service {
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_locations_binding = args
+        let additional_locations_binding_1 = args
             .additional_locations
-            .get_output(context)
-            .get_inner();
-        let certificates_binding = args.certificates.get_output(context).get_inner();
-        let client_certificate_enabled_binding = args
+            .get_output(context);
+        let additional_locations_binding = additional_locations_binding_1.get_inner();
+        let certificates_binding_1 = args.certificates.get_output(context);
+        let certificates_binding = certificates_binding_1.get_inner();
+        let client_certificate_enabled_binding_1 = args
             .client_certificate_enabled
-            .get_output(context)
+            .get_output(context);
+        let client_certificate_enabled_binding = client_certificate_enabled_binding_1
             .get_inner();
-        let delegation_binding = args.delegation.get_output(context).get_inner();
-        let gateway_disabled_binding = args
-            .gateway_disabled
-            .get_output(context)
-            .get_inner();
-        let hostname_configuration_binding = args
+        let delegation_binding_1 = args.delegation.get_output(context);
+        let delegation_binding = delegation_binding_1.get_inner();
+        let gateway_disabled_binding_1 = args.gateway_disabled.get_output(context);
+        let gateway_disabled_binding = gateway_disabled_binding_1.get_inner();
+        let hostname_configuration_binding_1 = args
             .hostname_configuration
-            .get_output(context)
+            .get_output(context);
+        let hostname_configuration_binding = hostname_configuration_binding_1
             .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let min_api_version_binding = args
-            .min_api_version
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notification_sender_email_binding = args
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let min_api_version_binding_1 = args.min_api_version.get_output(context);
+        let min_api_version_binding = min_api_version_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notification_sender_email_binding_1 = args
             .notification_sender_email
-            .get_output(context)
+            .get_output(context);
+        let notification_sender_email_binding = notification_sender_email_binding_1
             .get_inner();
-        let protocols_binding = args.protocols.get_output(context).get_inner();
-        let public_ip_address_id_binding = args
+        let protocols_binding_1 = args.protocols.get_output(context);
+        let protocols_binding = protocols_binding_1.get_inner();
+        let public_ip_address_id_binding_1 = args
             .public_ip_address_id
-            .get_output(context)
-            .get_inner();
-        let public_network_access_enabled_binding = args
+            .get_output(context);
+        let public_ip_address_id_binding = public_ip_address_id_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let publisher_email_binding = args
-            .publisher_email
-            .get_output(context)
-            .get_inner();
-        let publisher_name_binding = args.publisher_name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let security_binding = args.security.get_output(context).get_inner();
-        let sign_in_binding = args.sign_in.get_output(context).get_inner();
-        let sign_up_binding = args.sign_up.get_output(context).get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tenant_access_binding = args.tenant_access.get_output(context).get_inner();
-        let virtual_network_configuration_binding = args
+        let publisher_email_binding_1 = args.publisher_email.get_output(context);
+        let publisher_email_binding = publisher_email_binding_1.get_inner();
+        let publisher_name_binding_1 = args.publisher_name.get_output(context);
+        let publisher_name_binding = publisher_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let security_binding_1 = args.security.get_output(context);
+        let security_binding = security_binding_1.get_inner();
+        let sign_in_binding_1 = args.sign_in.get_output(context);
+        let sign_in_binding = sign_in_binding_1.get_inner();
+        let sign_up_binding_1 = args.sign_up.get_output(context);
+        let sign_up_binding = sign_up_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tenant_access_binding_1 = args.tenant_access.get_output(context);
+        let tenant_access_binding = tenant_access_binding_1.get_inner();
+        let virtual_network_configuration_binding_1 = args
             .virtual_network_configuration
-            .get_output(context)
+            .get_output(context);
+        let virtual_network_configuration_binding = virtual_network_configuration_binding_1
             .get_inner();
-        let virtual_network_type_binding = args
+        let virtual_network_type_binding_1 = args
             .virtual_network_type
-            .get_output(context)
-            .get_inner();
-        let zones_binding = args.zones.get_output(context).get_inner();
+            .get_output(context);
+        let virtual_network_type_binding = virtual_network_type_binding_1.get_inner();
+        let zones_binding_1 = args.zones.get_output(context);
+        let zones_binding = zones_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/service:Service".into(),
             name: name.to_string(),

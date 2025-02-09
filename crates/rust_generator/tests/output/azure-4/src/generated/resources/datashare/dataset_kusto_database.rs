@@ -110,12 +110,12 @@ pub mod dataset_kusto_database {
     ) -> DatasetKustoDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let kusto_database_id_binding = args
-            .kusto_database_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let share_id_binding = args.share_id.get_output(context).get_inner();
+        let kusto_database_id_binding_1 = args.kusto_database_id.get_output(context);
+        let kusto_database_id_binding = kusto_database_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let share_id_binding_1 = args.share_id.get_output(context);
+        let share_id_binding = share_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datashare/datasetKustoDatabase:DatasetKustoDatabase".into(),
             name: name.to_string(),

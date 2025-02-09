@@ -38,8 +38,10 @@ pub mod get_cluster {
     ) -> GetClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
-        let cluster_state_binding = args.cluster_state.get_output(context).get_inner();
+        let cluster_id_binding_1 = args.cluster_id.get_output(context);
+        let cluster_id_binding = cluster_id_binding_1.get_inner();
+        let cluster_state_binding_1 = args.cluster_state.get_output(context);
+        let cluster_state_binding = cluster_state_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudhsmv2/getCluster:getCluster".into(),
             version: super::super::super::get_version(),

@@ -114,24 +114,27 @@ pub mod deployment {
     ) -> DeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cognitive_account_id_binding = args
+        let cognitive_account_id_binding_1 = args
             .cognitive_account_id
-            .get_output(context)
-            .get_inner();
-        let dynamic_throttling_enabled_binding = args
+            .get_output(context);
+        let cognitive_account_id_binding = cognitive_account_id_binding_1.get_inner();
+        let dynamic_throttling_enabled_binding_1 = args
             .dynamic_throttling_enabled
-            .get_output(context)
+            .get_output(context);
+        let dynamic_throttling_enabled_binding = dynamic_throttling_enabled_binding_1
             .get_inner();
-        let model_binding = args.model.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let rai_policy_name_binding = args
-            .rai_policy_name
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let version_upgrade_option_binding = args
+        let model_binding_1 = args.model.get_output(context);
+        let model_binding = model_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let rai_policy_name_binding_1 = args.rai_policy_name.get_output(context);
+        let rai_policy_name_binding = rai_policy_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let version_upgrade_option_binding_1 = args
             .version_upgrade_option
-            .get_output(context)
+            .get_output(context);
+        let version_upgrade_option_binding = version_upgrade_option_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cognitive/deployment:Deployment".into(),

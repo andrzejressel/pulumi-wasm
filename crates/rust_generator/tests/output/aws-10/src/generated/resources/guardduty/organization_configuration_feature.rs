@@ -82,13 +82,17 @@ pub mod organization_configuration_feature {
     ) -> OrganizationConfigurationFeatureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_configurations_binding = args
+        let additional_configurations_binding_1 = args
             .additional_configurations
-            .get_output(context)
+            .get_output(context);
+        let additional_configurations_binding = additional_configurations_binding_1
             .get_inner();
-        let auto_enable_binding = args.auto_enable.get_output(context).get_inner();
-        let detector_id_binding = args.detector_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let auto_enable_binding_1 = args.auto_enable.get_output(context);
+        let auto_enable_binding = auto_enable_binding_1.get_inner();
+        let detector_id_binding_1 = args.detector_id.get_output(context);
+        let detector_id_binding = detector_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature"
                 .into(),

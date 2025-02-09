@@ -218,30 +218,36 @@ pub mod per_instance_config {
     ) -> PerInstanceConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_group_manager_binding = args
+        let instance_group_manager_binding_1 = args
             .instance_group_manager
-            .get_output(context)
+            .get_output(context);
+        let instance_group_manager_binding = instance_group_manager_binding_1
             .get_inner();
-        let minimal_action_binding = args.minimal_action.get_output(context).get_inner();
-        let most_disruptive_allowed_action_binding = args
+        let minimal_action_binding_1 = args.minimal_action.get_output(context);
+        let minimal_action_binding = minimal_action_binding_1.get_inner();
+        let most_disruptive_allowed_action_binding_1 = args
             .most_disruptive_allowed_action
-            .get_output(context)
+            .get_output(context);
+        let most_disruptive_allowed_action_binding = most_disruptive_allowed_action_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let preserved_state_binding = args
-            .preserved_state
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let remove_instance_on_destroy_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let preserved_state_binding_1 = args.preserved_state.get_output(context);
+        let preserved_state_binding = preserved_state_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let remove_instance_on_destroy_binding_1 = args
             .remove_instance_on_destroy
-            .get_output(context)
+            .get_output(context);
+        let remove_instance_on_destroy_binding = remove_instance_on_destroy_binding_1
             .get_inner();
-        let remove_instance_state_on_destroy_binding = args
+        let remove_instance_state_on_destroy_binding_1 = args
             .remove_instance_state_on_destroy
-            .get_output(context)
+            .get_output(context);
+        let remove_instance_state_on_destroy_binding = remove_instance_state_on_destroy_binding_1
             .get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/perInstanceConfig:PerInstanceConfig".into(),
             name: name.to_string(),

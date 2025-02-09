@@ -56,11 +56,13 @@ pub mod waiting_room_settings {
     ) -> WaitingRoomSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let search_engine_crawler_bypass_binding = args
+        let search_engine_crawler_bypass_binding_1 = args
             .search_engine_crawler_bypass
-            .get_output(context)
+            .get_output(context);
+        let search_engine_crawler_bypass_binding = search_engine_crawler_bypass_binding_1
             .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/waitingRoomSettings:WaitingRoomSettings".into(),
             name: name.to_string(),

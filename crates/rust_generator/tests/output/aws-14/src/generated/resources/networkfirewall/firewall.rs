@@ -121,34 +121,35 @@ pub mod firewall {
     ) -> FirewallResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delete_protection_binding = args
-            .delete_protection
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let encryption_configuration_binding = args
+        let delete_protection_binding_1 = args.delete_protection.get_output(context);
+        let delete_protection_binding = delete_protection_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let encryption_configuration_binding_1 = args
             .encryption_configuration
-            .get_output(context)
+            .get_output(context);
+        let encryption_configuration_binding = encryption_configuration_binding_1
             .get_inner();
-        let firewall_policy_arn_binding = args
-            .firewall_policy_arn
-            .get_output(context)
-            .get_inner();
-        let firewall_policy_change_protection_binding = args
+        let firewall_policy_arn_binding_1 = args.firewall_policy_arn.get_output(context);
+        let firewall_policy_arn_binding = firewall_policy_arn_binding_1.get_inner();
+        let firewall_policy_change_protection_binding_1 = args
             .firewall_policy_change_protection
-            .get_output(context)
+            .get_output(context);
+        let firewall_policy_change_protection_binding = firewall_policy_change_protection_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let subnet_change_protection_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let subnet_change_protection_binding_1 = args
             .subnet_change_protection
-            .get_output(context)
+            .get_output(context);
+        let subnet_change_protection_binding = subnet_change_protection_binding_1
             .get_inner();
-        let subnet_mappings_binding = args
-            .subnet_mappings
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let subnet_mappings_binding_1 = args.subnet_mappings.get_output(context);
+        let subnet_mappings_binding = subnet_mappings_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkfirewall/firewall:Firewall".into(),
             name: name.to_string(),

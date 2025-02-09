@@ -57,13 +57,16 @@ pub mod user_profile {
     ) -> UserProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_self_management_binding = args
+        let allow_self_management_binding_1 = args
             .allow_self_management
-            .get_output(context)
-            .get_inner();
-        let ssh_public_key_binding = args.ssh_public_key.get_output(context).get_inner();
-        let ssh_username_binding = args.ssh_username.get_output(context).get_inner();
-        let user_arn_binding = args.user_arn.get_output(context).get_inner();
+            .get_output(context);
+        let allow_self_management_binding = allow_self_management_binding_1.get_inner();
+        let ssh_public_key_binding_1 = args.ssh_public_key.get_output(context);
+        let ssh_public_key_binding = ssh_public_key_binding_1.get_inner();
+        let ssh_username_binding_1 = args.ssh_username.get_output(context);
+        let ssh_username_binding = ssh_username_binding_1.get_inner();
+        let user_arn_binding_1 = args.user_arn.get_output(context);
+        let user_arn_binding = user_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opsworks/userProfile:UserProfile".into(),
             name: name.to_string(),

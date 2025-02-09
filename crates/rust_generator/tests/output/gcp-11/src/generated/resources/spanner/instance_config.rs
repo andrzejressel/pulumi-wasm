@@ -114,12 +114,18 @@ pub mod instance_config {
     ) -> InstanceConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_config_binding = args.base_config.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let replicas_binding = args.replicas.get_output(context).get_inner();
+        let base_config_binding_1 = args.base_config.get_output(context);
+        let base_config_binding = base_config_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let replicas_binding_1 = args.replicas.get_output(context);
+        let replicas_binding = replicas_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:spanner/instanceConfig:InstanceConfig".into(),
             name: name.to_string(),

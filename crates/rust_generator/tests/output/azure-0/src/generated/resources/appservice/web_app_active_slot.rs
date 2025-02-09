@@ -137,11 +137,13 @@ pub mod web_app_active_slot {
     ) -> WebAppActiveSlotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let overwrite_network_config_binding = args
+        let overwrite_network_config_binding_1 = args
             .overwrite_network_config
-            .get_output(context)
+            .get_output(context);
+        let overwrite_network_config_binding = overwrite_network_config_binding_1
             .get_inner();
-        let slot_id_binding = args.slot_id.get_output(context).get_inner();
+        let slot_id_binding_1 = args.slot_id.get_output(context);
+        let slot_id_binding = slot_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/webAppActiveSlot:WebAppActiveSlot".into(),
             name: name.to_string(),

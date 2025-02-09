@@ -41,12 +41,12 @@ pub mod get_token {
     ) -> GetTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identifier_binding = args.identifier.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let verification_method_binding = args
-            .verification_method
-            .get_output(context)
-            .get_inner();
+        let identifier_binding_1 = args.identifier.get_output(context);
+        let identifier_binding = identifier_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let verification_method_binding_1 = args.verification_method.get_output(context);
+        let verification_method_binding = verification_method_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:siteverification/getToken:getToken".into(),
             version: super::super::super::get_version(),

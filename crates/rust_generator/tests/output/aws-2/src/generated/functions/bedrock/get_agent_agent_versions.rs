@@ -41,10 +41,12 @@ pub mod get_agent_agent_versions {
     ) -> GetAgentAgentVersionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_id_binding = args.agent_id.get_output(context).get_inner();
-        let agent_version_summaries_binding = args
+        let agent_id_binding_1 = args.agent_id.get_output(context);
+        let agent_id_binding = agent_id_binding_1.get_inner();
+        let agent_version_summaries_binding_1 = args
             .agent_version_summaries
-            .get_output(context)
+            .get_output(context);
+        let agent_version_summaries_binding = agent_version_summaries_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:bedrock/getAgentAgentVersions:getAgentAgentVersions".into(),

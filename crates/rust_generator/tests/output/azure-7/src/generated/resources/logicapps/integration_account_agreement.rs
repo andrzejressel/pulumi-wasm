@@ -149,28 +149,29 @@ pub mod integration_account_agreement {
     ) -> IntegrationAccountAgreementResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agreement_type_binding = args.agreement_type.get_output(context).get_inner();
-        let content_binding = args.content.get_output(context).get_inner();
-        let guest_identity_binding = args.guest_identity.get_output(context).get_inner();
-        let guest_partner_name_binding = args
-            .guest_partner_name
-            .get_output(context)
-            .get_inner();
-        let host_identity_binding = args.host_identity.get_output(context).get_inner();
-        let host_partner_name_binding = args
-            .host_partner_name
-            .get_output(context)
-            .get_inner();
-        let integration_account_name_binding = args
+        let agreement_type_binding_1 = args.agreement_type.get_output(context);
+        let agreement_type_binding = agreement_type_binding_1.get_inner();
+        let content_binding_1 = args.content.get_output(context);
+        let content_binding = content_binding_1.get_inner();
+        let guest_identity_binding_1 = args.guest_identity.get_output(context);
+        let guest_identity_binding = guest_identity_binding_1.get_inner();
+        let guest_partner_name_binding_1 = args.guest_partner_name.get_output(context);
+        let guest_partner_name_binding = guest_partner_name_binding_1.get_inner();
+        let host_identity_binding_1 = args.host_identity.get_output(context);
+        let host_identity_binding = host_identity_binding_1.get_inner();
+        let host_partner_name_binding_1 = args.host_partner_name.get_output(context);
+        let host_partner_name_binding = host_partner_name_binding_1.get_inner();
+        let integration_account_name_binding_1 = args
             .integration_account_name
-            .get_output(context)
+            .get_output(context);
+        let integration_account_name_binding = integration_account_name_binding_1
             .get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement"
                 .into(),

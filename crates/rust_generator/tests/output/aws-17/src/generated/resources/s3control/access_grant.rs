@@ -130,19 +130,26 @@ pub mod access_grant {
     ) -> AccessGrantResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_grants_location_configuration_binding = args
+        let access_grants_location_configuration_binding_1 = args
             .access_grants_location_configuration
-            .get_output(context)
+            .get_output(context);
+        let access_grants_location_configuration_binding = access_grants_location_configuration_binding_1
             .get_inner();
-        let access_grants_location_id_binding = args
+        let access_grants_location_id_binding_1 = args
             .access_grants_location_id
-            .get_output(context)
+            .get_output(context);
+        let access_grants_location_id_binding = access_grants_location_id_binding_1
             .get_inner();
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let grantee_binding = args.grantee.get_output(context).get_inner();
-        let permission_binding = args.permission.get_output(context).get_inner();
-        let s3_prefix_type_binding = args.s3_prefix_type.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let grantee_binding_1 = args.grantee.get_output(context);
+        let grantee_binding = grantee_binding_1.get_inner();
+        let permission_binding_1 = args.permission.get_output(context);
+        let permission_binding = permission_binding_1.get_inner();
+        let s3_prefix_type_binding_1 = args.s3_prefix_type.get_output(context);
+        let s3_prefix_type_binding = s3_prefix_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3control/accessGrant:AccessGrant".into(),
             name: name.to_string(),

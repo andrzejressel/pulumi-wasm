@@ -52,16 +52,17 @@ pub mod identity_pool_provider_principal_tag {
     ) -> IdentityPoolProviderPrincipalTagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identity_pool_id_binding = args
-            .identity_pool_id
-            .get_output(context)
-            .get_inner();
-        let identity_provider_name_binding = args
+        let identity_pool_id_binding_1 = args.identity_pool_id.get_output(context);
+        let identity_pool_id_binding = identity_pool_id_binding_1.get_inner();
+        let identity_provider_name_binding_1 = args
             .identity_provider_name
-            .get_output(context)
+            .get_output(context);
+        let identity_provider_name_binding = identity_provider_name_binding_1
             .get_inner();
-        let principal_tags_binding = args.principal_tags.get_output(context).get_inner();
-        let use_defaults_binding = args.use_defaults.get_output(context).get_inner();
+        let principal_tags_binding_1 = args.principal_tags.get_output(context);
+        let principal_tags_binding = principal_tags_binding_1.get_inner();
+        let use_defaults_binding_1 = args.use_defaults.get_output(context);
+        let use_defaults_binding = use_defaults_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag"
                 .into(),

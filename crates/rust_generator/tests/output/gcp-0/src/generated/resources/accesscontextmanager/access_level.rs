@@ -133,12 +133,18 @@ pub mod access_level {
     ) -> AccessLevelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let basic_binding = args.basic.get_output(context).get_inner();
-        let custom_binding = args.custom.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let title_binding = args.title.get_output(context).get_inner();
+        let basic_binding_1 = args.basic.get_output(context);
+        let basic_binding = basic_binding_1.get_inner();
+        let custom_binding_1 = args.custom.get_output(context);
+        let custom_binding = custom_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let title_binding_1 = args.title.get_output(context);
+        let title_binding = title_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/accessLevel:AccessLevel".into(),
             name: name.to_string(),

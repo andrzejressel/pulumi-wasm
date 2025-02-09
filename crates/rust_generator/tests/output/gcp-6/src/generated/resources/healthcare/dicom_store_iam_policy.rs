@@ -168,8 +168,10 @@ pub mod dicom_store_iam_policy {
     ) -> DicomStoreIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dicom_store_id_binding = args.dicom_store_id.get_output(context).get_inner();
-        let policy_data_binding = args.policy_data.get_output(context).get_inner();
+        let dicom_store_id_binding_1 = args.dicom_store_id.get_output(context);
+        let dicom_store_id_binding = dicom_store_id_binding_1.get_inner();
+        let policy_data_binding_1 = args.policy_data.get_output(context);
+        let policy_data_binding = policy_data_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/dicomStoreIamPolicy:DicomStoreIamPolicy".into(),
             name: name.to_string(),

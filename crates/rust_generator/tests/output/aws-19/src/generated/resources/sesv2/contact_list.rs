@@ -108,13 +108,14 @@ pub mod contact_list {
     ) -> ContactListResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contact_list_name_binding = args
-            .contact_list_name
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let topics_binding = args.topics.get_output(context).get_inner();
+        let contact_list_name_binding_1 = args.contact_list_name.get_output(context);
+        let contact_list_name_binding = contact_list_name_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let topics_binding_1 = args.topics.get_output(context);
+        let topics_binding = topics_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/contactList:ContactList".into(),
             name: name.to_string(),

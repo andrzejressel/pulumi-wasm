@@ -158,25 +158,26 @@ pub mod event_destination {
     ) -> EventDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_destinations_binding = args
+        let cloudwatch_destinations_binding_1 = args
             .cloudwatch_destinations
-            .get_output(context)
+            .get_output(context);
+        let cloudwatch_destinations_binding = cloudwatch_destinations_binding_1
             .get_inner();
-        let configuration_set_name_binding = args
+        let configuration_set_name_binding_1 = args
             .configuration_set_name
-            .get_output(context)
+            .get_output(context);
+        let configuration_set_name_binding = configuration_set_name_binding_1
             .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let kinesis_destination_binding = args
-            .kinesis_destination
-            .get_output(context)
-            .get_inner();
-        let matching_types_binding = args.matching_types.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let sns_destination_binding = args
-            .sns_destination
-            .get_output(context)
-            .get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let kinesis_destination_binding_1 = args.kinesis_destination.get_output(context);
+        let kinesis_destination_binding = kinesis_destination_binding_1.get_inner();
+        let matching_types_binding_1 = args.matching_types.get_output(context);
+        let matching_types_binding = matching_types_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let sns_destination_binding_1 = args.sns_destination.get_output(context);
+        let sns_destination_binding = sns_destination_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/eventDestination:EventDestination".into(),
             name: name.to_string(),

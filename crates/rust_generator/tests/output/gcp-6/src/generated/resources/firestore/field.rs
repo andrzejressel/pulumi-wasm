@@ -226,12 +226,18 @@ pub mod field {
     ) -> FieldResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let collection_binding = args.collection.get_output(context).get_inner();
-        let database_binding = args.database.get_output(context).get_inner();
-        let field_binding = args.field.get_output(context).get_inner();
-        let index_config_binding = args.index_config.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let ttl_config_binding = args.ttl_config.get_output(context).get_inner();
+        let collection_binding_1 = args.collection.get_output(context);
+        let collection_binding = collection_binding_1.get_inner();
+        let database_binding_1 = args.database.get_output(context);
+        let database_binding = database_binding_1.get_inner();
+        let field_binding_1 = args.field.get_output(context);
+        let field_binding = field_binding_1.get_inner();
+        let index_config_binding_1 = args.index_config.get_output(context);
+        let index_config_binding = index_config_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let ttl_config_binding_1 = args.ttl_config.get_output(context);
+        let ttl_config_binding = ttl_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firestore/field:Field".into(),
             name: name.to_string(),

@@ -110,26 +110,28 @@ pub mod connection_service_principal {
     ) -> ConnectionServicePrincipalResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_output(context).get_inner();
-        let automation_account_name_binding = args
+        let application_id_binding_1 = args.application_id.get_output(context);
+        let application_id_binding = application_id_binding_1.get_inner();
+        let automation_account_name_binding_1 = args
             .automation_account_name
-            .get_output(context)
+            .get_output(context);
+        let automation_account_name_binding = automation_account_name_binding_1
             .get_inner();
-        let certificate_thumbprint_binding = args
+        let certificate_thumbprint_binding_1 = args
             .certificate_thumbprint
-            .get_output(context)
+            .get_output(context);
+        let certificate_thumbprint_binding = certificate_thumbprint_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let subscription_id_binding = args
-            .subscription_id
-            .get_output(context)
-            .get_inner();
-        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let subscription_id_binding_1 = args.subscription_id.get_output(context);
+        let subscription_id_binding = subscription_id_binding_1.get_inner();
+        let tenant_id_binding_1 = args.tenant_id.get_output(context);
+        let tenant_id_binding = tenant_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/connectionServicePrincipal:ConnectionServicePrincipal"
                 .into(),

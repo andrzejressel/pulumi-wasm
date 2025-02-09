@@ -100,17 +100,19 @@ pub mod registry_scope_map {
     ) -> RegistryScopeMapResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_output(context).get_inner();
-        let container_registry_name_binding = args
+        let actions_binding_1 = args.actions.get_output(context);
+        let actions_binding = actions_binding_1.get_inner();
+        let container_registry_name_binding_1 = args
             .container_registry_name
-            .get_output(context)
+            .get_output(context);
+        let container_registry_name_binding = container_registry_name_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/registryScopeMap:RegistryScopeMap".into(),
             name: name.to_string(),

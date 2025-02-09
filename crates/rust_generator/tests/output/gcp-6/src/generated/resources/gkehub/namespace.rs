@@ -166,18 +166,18 @@ pub mod namespace {
     ) -> NamespaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let namespace_labels_binding = args
-            .namespace_labels
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
-        let scope_id_binding = args.scope_id.get_output(context).get_inner();
-        let scope_namespace_id_binding = args
-            .scope_namespace_id
-            .get_output(context)
-            .get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let namespace_labels_binding_1 = args.namespace_labels.get_output(context);
+        let namespace_labels_binding = namespace_labels_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
+        let scope_id_binding_1 = args.scope_id.get_output(context);
+        let scope_id_binding = scope_id_binding_1.get_inner();
+        let scope_namespace_id_binding_1 = args.scope_namespace_id.get_output(context);
+        let scope_namespace_id_binding = scope_namespace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkehub/namespace:Namespace".into(),
             name: name.to_string(),

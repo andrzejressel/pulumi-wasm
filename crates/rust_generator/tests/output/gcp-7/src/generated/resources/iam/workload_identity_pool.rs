@@ -145,13 +145,18 @@ pub mod workload_identity_pool {
     ) -> WorkloadIdentityPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let workload_identity_pool_id_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let workload_identity_pool_id_binding_1 = args
             .workload_identity_pool_id
-            .get_output(context)
+            .get_output(context);
+        let workload_identity_pool_id_binding = workload_identity_pool_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iam/workloadIdentityPool:WorkloadIdentityPool".into(),

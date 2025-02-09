@@ -121,21 +121,24 @@ pub mod iot_hub_device_update_instance {
     ) -> IotHubDeviceUpdateInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let device_update_account_id_binding = args
+        let device_update_account_id_binding_1 = args
             .device_update_account_id
-            .get_output(context)
+            .get_output(context);
+        let device_update_account_id_binding = device_update_account_id_binding_1
             .get_inner();
-        let diagnostic_enabled_binding = args
-            .diagnostic_enabled
-            .get_output(context)
-            .get_inner();
-        let diagnostic_storage_account_binding = args
+        let diagnostic_enabled_binding_1 = args.diagnostic_enabled.get_output(context);
+        let diagnostic_enabled_binding = diagnostic_enabled_binding_1.get_inner();
+        let diagnostic_storage_account_binding_1 = args
             .diagnostic_storage_account
-            .get_output(context)
+            .get_output(context);
+        let diagnostic_storage_account_binding = diagnostic_storage_account_binding_1
             .get_inner();
-        let iothub_id_binding = args.iothub_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let iothub_id_binding_1 = args.iothub_id.get_output(context);
+        let iothub_id_binding = iothub_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance"
                 .into(),

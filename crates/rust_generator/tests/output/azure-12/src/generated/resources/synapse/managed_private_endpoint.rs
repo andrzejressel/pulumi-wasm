@@ -127,19 +127,16 @@ pub mod managed_private_endpoint {
     ) -> ManagedPrivateEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let subresource_name_binding = args
-            .subresource_name
-            .get_output(context)
-            .get_inner();
-        let synapse_workspace_id_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let subresource_name_binding_1 = args.subresource_name.get_output(context);
+        let subresource_name_binding = subresource_name_binding_1.get_inner();
+        let synapse_workspace_id_binding_1 = args
             .synapse_workspace_id
-            .get_output(context)
-            .get_inner();
-        let target_resource_id_binding = args
-            .target_resource_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let synapse_workspace_id_binding = synapse_workspace_id_binding_1.get_inner();
+        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
+        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint".into(),
             name: name.to_string(),

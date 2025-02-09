@@ -131,9 +131,12 @@ pub mod subnet {
     ) -> SubnetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ip_cidr_range_binding = args.ip_cidr_range.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
+        let ip_cidr_range_binding_1 = args.ip_cidr_range.get_output(context);
+        let ip_cidr_range_binding = ip_cidr_range_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vmwareengine/subnet:Subnet".into(),
             name: name.to_string(),

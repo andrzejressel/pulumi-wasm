@@ -189,23 +189,24 @@ pub mod stack_instances {
     ) -> StackInstancesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accounts_binding = args.accounts.get_output(context).get_inner();
-        let call_as_binding = args.call_as.get_output(context).get_inner();
-        let deployment_targets_binding = args
-            .deployment_targets
-            .get_output(context)
-            .get_inner();
-        let operation_preferences_binding = args
+        let accounts_binding_1 = args.accounts.get_output(context);
+        let accounts_binding = accounts_binding_1.get_inner();
+        let call_as_binding_1 = args.call_as.get_output(context);
+        let call_as_binding = call_as_binding_1.get_inner();
+        let deployment_targets_binding_1 = args.deployment_targets.get_output(context);
+        let deployment_targets_binding = deployment_targets_binding_1.get_inner();
+        let operation_preferences_binding_1 = args
             .operation_preferences
-            .get_output(context)
-            .get_inner();
-        let parameter_overrides_binding = args
-            .parameter_overrides
-            .get_output(context)
-            .get_inner();
-        let regions_binding = args.regions.get_output(context).get_inner();
-        let retain_stacks_binding = args.retain_stacks.get_output(context).get_inner();
-        let stack_set_name_binding = args.stack_set_name.get_output(context).get_inner();
+            .get_output(context);
+        let operation_preferences_binding = operation_preferences_binding_1.get_inner();
+        let parameter_overrides_binding_1 = args.parameter_overrides.get_output(context);
+        let parameter_overrides_binding = parameter_overrides_binding_1.get_inner();
+        let regions_binding_1 = args.regions.get_output(context);
+        let regions_binding = regions_binding_1.get_inner();
+        let retain_stacks_binding_1 = args.retain_stacks.get_output(context);
+        let retain_stacks_binding = retain_stacks_binding_1.get_inner();
+        let stack_set_name_binding_1 = args.stack_set_name.get_output(context);
+        let stack_set_name_binding = stack_set_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudformation/stackInstances:StackInstances".into(),
             name: name.to_string(),

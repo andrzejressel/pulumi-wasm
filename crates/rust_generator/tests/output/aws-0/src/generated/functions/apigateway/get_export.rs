@@ -50,11 +50,16 @@ pub mod get_export {
     ) -> GetExportResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accepts_binding = args.accepts.get_output(context).get_inner();
-        let export_type_binding = args.export_type.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let rest_api_id_binding = args.rest_api_id.get_output(context).get_inner();
-        let stage_name_binding = args.stage_name.get_output(context).get_inner();
+        let accepts_binding_1 = args.accepts.get_output(context);
+        let accepts_binding = accepts_binding_1.get_inner();
+        let export_type_binding_1 = args.export_type.get_output(context);
+        let export_type_binding = export_type_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let rest_api_id_binding_1 = args.rest_api_id.get_output(context);
+        let rest_api_id_binding = rest_api_id_binding_1.get_inner();
+        let stage_name_binding_1 = args.stage_name.get_output(context);
+        let stage_name_binding = stage_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:apigateway/getExport:getExport".into(),
             version: super::super::super::get_version(),

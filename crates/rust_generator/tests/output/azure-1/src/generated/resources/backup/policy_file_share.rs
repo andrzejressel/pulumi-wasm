@@ -163,33 +163,24 @@ pub mod policy_file_share {
     ) -> PolicyFileShareResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_binding = args.backup.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let recovery_vault_name_binding = args
-            .recovery_vault_name
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let retention_daily_binding = args
-            .retention_daily
-            .get_output(context)
-            .get_inner();
-        let retention_monthly_binding = args
-            .retention_monthly
-            .get_output(context)
-            .get_inner();
-        let retention_weekly_binding = args
-            .retention_weekly
-            .get_output(context)
-            .get_inner();
-        let retention_yearly_binding = args
-            .retention_yearly
-            .get_output(context)
-            .get_inner();
-        let timezone_binding = args.timezone.get_output(context).get_inner();
+        let backup_binding_1 = args.backup.get_output(context);
+        let backup_binding = backup_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recovery_vault_name_binding_1 = args.recovery_vault_name.get_output(context);
+        let recovery_vault_name_binding = recovery_vault_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let retention_daily_binding_1 = args.retention_daily.get_output(context);
+        let retention_daily_binding = retention_daily_binding_1.get_inner();
+        let retention_monthly_binding_1 = args.retention_monthly.get_output(context);
+        let retention_monthly_binding = retention_monthly_binding_1.get_inner();
+        let retention_weekly_binding_1 = args.retention_weekly.get_output(context);
+        let retention_weekly_binding = retention_weekly_binding_1.get_inner();
+        let retention_yearly_binding_1 = args.retention_yearly.get_output(context);
+        let retention_yearly_binding = retention_yearly_binding_1.get_inner();
+        let timezone_binding_1 = args.timezone.get_output(context);
+        let timezone_binding = timezone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:backup/policyFileShare:PolicyFileShare".into(),
             name: name.to_string(),

@@ -36,11 +36,10 @@ pub mod get_secret_versions {
     ) -> GetSecretVersionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let include_deprecated_binding = args
-            .include_deprecated
-            .get_output(context)
-            .get_inner();
-        let secret_id_binding = args.secret_id.get_output(context).get_inner();
+        let include_deprecated_binding_1 = args.include_deprecated.get_output(context);
+        let include_deprecated_binding = include_deprecated_binding_1.get_inner();
+        let secret_id_binding_1 = args.secret_id.get_output(context);
+        let secret_id_binding = secret_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:secretsmanager/getSecretVersions:getSecretVersions".into(),
             version: super::super::super::get_version(),

@@ -135,20 +135,22 @@ pub mod gallery_application_assignment {
     ) -> GalleryApplicationAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_blob_uri_binding = args
+        let configuration_blob_uri_binding_1 = args
             .configuration_blob_uri
-            .get_output(context)
+            .get_output(context);
+        let configuration_blob_uri_binding = configuration_blob_uri_binding_1
             .get_inner();
-        let gallery_application_version_id_binding = args
+        let gallery_application_version_id_binding_1 = args
             .gallery_application_version_id
-            .get_output(context)
+            .get_output(context);
+        let gallery_application_version_id_binding = gallery_application_version_id_binding_1
             .get_inner();
-        let order_binding = args.order.get_output(context).get_inner();
-        let tag_binding = args.tag.get_output(context).get_inner();
-        let virtual_machine_id_binding = args
-            .virtual_machine_id
-            .get_output(context)
-            .get_inner();
+        let order_binding_1 = args.order.get_output(context);
+        let order_binding = order_binding_1.get_inner();
+        let tag_binding_1 = args.tag.get_output(context);
+        let tag_binding = tag_binding_1.get_inner();
+        let virtual_machine_id_binding_1 = args.virtual_machine_id.get_output(context);
+        let virtual_machine_id_binding = virtual_machine_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment"
                 .into(),

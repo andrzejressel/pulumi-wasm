@@ -81,26 +81,24 @@ pub mod grant {
     ) -> GrantResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let constraints_binding = args.constraints.get_output(context).get_inner();
-        let grant_creation_tokens_binding = args
+        let constraints_binding_1 = args.constraints.get_output(context);
+        let constraints_binding = constraints_binding_1.get_inner();
+        let grant_creation_tokens_binding_1 = args
             .grant_creation_tokens
-            .get_output(context)
-            .get_inner();
-        let grantee_principal_binding = args
-            .grantee_principal
-            .get_output(context)
-            .get_inner();
-        let key_id_binding = args.key_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let operations_binding = args.operations.get_output(context).get_inner();
-        let retire_on_delete_binding = args
-            .retire_on_delete
-            .get_output(context)
-            .get_inner();
-        let retiring_principal_binding = args
-            .retiring_principal
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let grant_creation_tokens_binding = grant_creation_tokens_binding_1.get_inner();
+        let grantee_principal_binding_1 = args.grantee_principal.get_output(context);
+        let grantee_principal_binding = grantee_principal_binding_1.get_inner();
+        let key_id_binding_1 = args.key_id.get_output(context);
+        let key_id_binding = key_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let operations_binding_1 = args.operations.get_output(context);
+        let operations_binding = operations_binding_1.get_inner();
+        let retire_on_delete_binding_1 = args.retire_on_delete.get_output(context);
+        let retire_on_delete_binding = retire_on_delete_binding_1.get_inner();
+        let retiring_principal_binding_1 = args.retiring_principal.get_output(context);
+        let retiring_principal_binding = retiring_principal_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kms/grant:Grant".into(),
             name: name.to_string(),

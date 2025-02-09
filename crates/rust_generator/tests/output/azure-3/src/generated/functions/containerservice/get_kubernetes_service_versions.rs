@@ -38,12 +38,12 @@ pub mod get_kubernetes_service_versions {
     ) -> GetKubernetesServiceVersionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let include_preview_binding = args
-            .include_preview
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let version_prefix_binding = args.version_prefix.get_output(context).get_inner();
+        let include_preview_binding_1 = args.include_preview.get_output(context);
+        let include_preview_binding = include_preview_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let version_prefix_binding_1 = args.version_prefix.get_output(context);
+        let version_prefix_binding = version_prefix_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions"
                 .into(),

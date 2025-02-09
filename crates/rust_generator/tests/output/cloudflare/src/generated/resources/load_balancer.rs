@@ -225,52 +225,49 @@ pub mod load_balancer {
     ) -> LoadBalancerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let adaptive_routings_binding = args
-            .adaptive_routings
-            .get_output(context)
-            .get_inner();
-        let country_pools_binding = args.country_pools.get_output(context).get_inner();
-        let default_pool_ids_binding = args
-            .default_pool_ids
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let fallback_pool_id_binding = args
-            .fallback_pool_id
-            .get_output(context)
-            .get_inner();
-        let location_strategies_binding = args
-            .location_strategies
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let pop_pools_binding = args.pop_pools.get_output(context).get_inner();
-        let proxied_binding = args.proxied.get_output(context).get_inner();
-        let random_steerings_binding = args
-            .random_steerings
-            .get_output(context)
-            .get_inner();
-        let region_pools_binding = args.region_pools.get_output(context).get_inner();
-        let rules_binding = args.rules.get_output(context).get_inner();
-        let session_affinity_binding = args
-            .session_affinity
-            .get_output(context)
-            .get_inner();
-        let session_affinity_attributes_binding = args
+        let adaptive_routings_binding_1 = args.adaptive_routings.get_output(context);
+        let adaptive_routings_binding = adaptive_routings_binding_1.get_inner();
+        let country_pools_binding_1 = args.country_pools.get_output(context);
+        let country_pools_binding = country_pools_binding_1.get_inner();
+        let default_pool_ids_binding_1 = args.default_pool_ids.get_output(context);
+        let default_pool_ids_binding = default_pool_ids_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let fallback_pool_id_binding_1 = args.fallback_pool_id.get_output(context);
+        let fallback_pool_id_binding = fallback_pool_id_binding_1.get_inner();
+        let location_strategies_binding_1 = args.location_strategies.get_output(context);
+        let location_strategies_binding = location_strategies_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let pop_pools_binding_1 = args.pop_pools.get_output(context);
+        let pop_pools_binding = pop_pools_binding_1.get_inner();
+        let proxied_binding_1 = args.proxied.get_output(context);
+        let proxied_binding = proxied_binding_1.get_inner();
+        let random_steerings_binding_1 = args.random_steerings.get_output(context);
+        let random_steerings_binding = random_steerings_binding_1.get_inner();
+        let region_pools_binding_1 = args.region_pools.get_output(context);
+        let region_pools_binding = region_pools_binding_1.get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
+        let session_affinity_binding_1 = args.session_affinity.get_output(context);
+        let session_affinity_binding = session_affinity_binding_1.get_inner();
+        let session_affinity_attributes_binding_1 = args
             .session_affinity_attributes
-            .get_output(context)
+            .get_output(context);
+        let session_affinity_attributes_binding = session_affinity_attributes_binding_1
             .get_inner();
-        let session_affinity_ttl_binding = args
+        let session_affinity_ttl_binding_1 = args
             .session_affinity_ttl
-            .get_output(context)
-            .get_inner();
-        let steering_policy_binding = args
-            .steering_policy
-            .get_output(context)
-            .get_inner();
-        let ttl_binding = args.ttl.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+            .get_output(context);
+        let session_affinity_ttl_binding = session_affinity_ttl_binding_1.get_inner();
+        let steering_policy_binding_1 = args.steering_policy.get_output(context);
+        let steering_policy_binding = steering_policy_binding_1.get_inner();
+        let ttl_binding_1 = args.ttl.get_output(context);
+        let ttl_binding = ttl_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/loadBalancer:LoadBalancer".into(),
             name: name.to_string(),

@@ -268,52 +268,63 @@ pub mod scheduled_query_rules_alert_v_2 {
     ) -> ScheduledQueryRulesAlertV2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let auto_mitigation_enabled_binding = args
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let auto_mitigation_enabled_binding_1 = args
             .auto_mitigation_enabled
-            .get_output(context)
+            .get_output(context);
+        let auto_mitigation_enabled_binding = auto_mitigation_enabled_binding_1
             .get_inner();
-        let criterias_binding = args.criterias.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let evaluation_frequency_binding = args
+        let criterias_binding_1 = args.criterias.get_output(context);
+        let criterias_binding = criterias_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let evaluation_frequency_binding_1 = args
             .evaluation_frequency
-            .get_output(context)
-            .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let mute_actions_after_alert_duration_binding = args
+            .get_output(context);
+        let evaluation_frequency_binding = evaluation_frequency_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let mute_actions_after_alert_duration_binding_1 = args
             .mute_actions_after_alert_duration
-            .get_output(context)
+            .get_output(context);
+        let mute_actions_after_alert_duration_binding = mute_actions_after_alert_duration_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let query_time_range_override_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let query_time_range_override_binding_1 = args
             .query_time_range_override
-            .get_output(context)
+            .get_output(context);
+        let query_time_range_override_binding = query_time_range_override_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let scopes_binding = args.scopes.get_output(context).get_inner();
-        let severity_binding = args.severity.get_output(context).get_inner();
-        let skip_query_validation_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let scopes_binding_1 = args.scopes.get_output(context);
+        let scopes_binding = scopes_binding_1.get_inner();
+        let severity_binding_1 = args.severity.get_output(context);
+        let severity_binding = severity_binding_1.get_inner();
+        let skip_query_validation_binding_1 = args
             .skip_query_validation
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_resource_types_binding = args
+            .get_output(context);
+        let skip_query_validation_binding = skip_query_validation_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_resource_types_binding_1 = args
             .target_resource_types
-            .get_output(context)
-            .get_inner();
-        let window_duration_binding = args
-            .window_duration
-            .get_output(context)
-            .get_inner();
-        let workspace_alerts_storage_enabled_binding = args
+            .get_output(context);
+        let target_resource_types_binding = target_resource_types_binding_1.get_inner();
+        let window_duration_binding_1 = args.window_duration.get_output(context);
+        let window_duration_binding = window_duration_binding_1.get_inner();
+        let workspace_alerts_storage_enabled_binding_1 = args
             .workspace_alerts_storage_enabled
-            .get_output(context)
+            .get_output(context);
+        let workspace_alerts_storage_enabled_binding = workspace_alerts_storage_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2"

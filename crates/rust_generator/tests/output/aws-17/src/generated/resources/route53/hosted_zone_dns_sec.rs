@@ -103,8 +103,10 @@ pub mod hosted_zone_dns_sec {
     ) -> HostedZoneDnsSecResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hosted_zone_id_binding = args.hosted_zone_id.get_output(context).get_inner();
-        let signing_status_binding = args.signing_status.get_output(context).get_inner();
+        let hosted_zone_id_binding_1 = args.hosted_zone_id.get_output(context);
+        let hosted_zone_id_binding = hosted_zone_id_binding_1.get_inner();
+        let signing_status_binding_1 = args.signing_status.get_output(context);
+        let signing_status_binding = signing_status_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/hostedZoneDnsSec:HostedZoneDnsSec".into(),
             name: name.to_string(),

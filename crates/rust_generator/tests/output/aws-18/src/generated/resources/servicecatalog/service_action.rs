@@ -80,13 +80,14 @@ pub mod service_action {
     ) -> ServiceActionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding = args
-            .accept_language
-            .get_output(context)
-            .get_inner();
-        let definition_binding = args.definition.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let accept_language_binding_1 = args.accept_language.get_output(context);
+        let accept_language_binding = accept_language_binding_1.get_inner();
+        let definition_binding_1 = args.definition.get_output(context);
+        let definition_binding = definition_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/serviceAction:ServiceAction".into(),
             name: name.to_string(),

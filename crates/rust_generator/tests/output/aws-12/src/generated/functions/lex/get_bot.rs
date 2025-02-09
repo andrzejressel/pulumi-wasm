@@ -58,8 +58,10 @@ pub mod get_bot {
     ) -> GetBotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lex/getBot:getBot".into(),
             version: super::super::super::get_version(),

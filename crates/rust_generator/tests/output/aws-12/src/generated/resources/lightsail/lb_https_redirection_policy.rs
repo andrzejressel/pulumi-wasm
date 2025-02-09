@@ -71,8 +71,10 @@ pub mod lb_https_redirection_policy {
     ) -> LbHttpsRedirectionPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let lb_name_binding = args.lb_name.get_output(context).get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let lb_name_binding_1 = args.lb_name.get_output(context);
+        let lb_name_binding = lb_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy"
                 .into(),

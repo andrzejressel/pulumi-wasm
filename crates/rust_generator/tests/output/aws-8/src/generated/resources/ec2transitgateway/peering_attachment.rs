@@ -103,21 +103,21 @@ pub mod peering_attachment {
     ) -> PeeringAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let options_binding = args.options.get_output(context).get_inner();
-        let peer_account_id_binding = args
-            .peer_account_id
-            .get_output(context)
-            .get_inner();
-        let peer_region_binding = args.peer_region.get_output(context).get_inner();
-        let peer_transit_gateway_id_binding = args
+        let options_binding_1 = args.options.get_output(context);
+        let options_binding = options_binding_1.get_inner();
+        let peer_account_id_binding_1 = args.peer_account_id.get_output(context);
+        let peer_account_id_binding = peer_account_id_binding_1.get_inner();
+        let peer_region_binding_1 = args.peer_region.get_output(context);
+        let peer_region_binding = peer_region_binding_1.get_inner();
+        let peer_transit_gateway_id_binding_1 = args
             .peer_transit_gateway_id
-            .get_output(context)
+            .get_output(context);
+        let peer_transit_gateway_id_binding = peer_transit_gateway_id_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let transit_gateway_id_binding = args
-            .transit_gateway_id
-            .get_output(context)
-            .get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let transit_gateway_id_binding_1 = args.transit_gateway_id.get_output(context);
+        let transit_gateway_id_binding = transit_gateway_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/peeringAttachment:PeeringAttachment".into(),
             name: name.to_string(),

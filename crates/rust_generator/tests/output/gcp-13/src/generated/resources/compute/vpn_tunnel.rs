@@ -306,44 +306,53 @@ pub mod vpn_tunnel {
     ) -> VPNTunnelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let ike_version_binding = args.ike_version.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let local_traffic_selectors_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let ike_version_binding_1 = args.ike_version.get_output(context);
+        let ike_version_binding = ike_version_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let local_traffic_selectors_binding_1 = args
             .local_traffic_selectors
-            .get_output(context)
+            .get_output(context);
+        let local_traffic_selectors_binding = local_traffic_selectors_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let peer_external_gateway_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let peer_external_gateway_binding_1 = args
             .peer_external_gateway
-            .get_output(context)
-            .get_inner();
-        let peer_external_gateway_interface_binding = args
+            .get_output(context);
+        let peer_external_gateway_binding = peer_external_gateway_binding_1.get_inner();
+        let peer_external_gateway_interface_binding_1 = args
             .peer_external_gateway_interface
-            .get_output(context)
+            .get_output(context);
+        let peer_external_gateway_interface_binding = peer_external_gateway_interface_binding_1
             .get_inner();
-        let peer_gcp_gateway_binding = args
-            .peer_gcp_gateway
-            .get_output(context)
-            .get_inner();
-        let peer_ip_binding = args.peer_ip.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let remote_traffic_selectors_binding = args
+        let peer_gcp_gateway_binding_1 = args.peer_gcp_gateway.get_output(context);
+        let peer_gcp_gateway_binding = peer_gcp_gateway_binding_1.get_inner();
+        let peer_ip_binding_1 = args.peer_ip.get_output(context);
+        let peer_ip_binding = peer_ip_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let remote_traffic_selectors_binding_1 = args
             .remote_traffic_selectors
-            .get_output(context)
+            .get_output(context);
+        let remote_traffic_selectors_binding = remote_traffic_selectors_binding_1
             .get_inner();
-        let router_binding = args.router.get_output(context).get_inner();
-        let shared_secret_binding = args.shared_secret.get_output(context).get_inner();
-        let target_vpn_gateway_binding = args
-            .target_vpn_gateway
-            .get_output(context)
-            .get_inner();
-        let vpn_gateway_binding = args.vpn_gateway.get_output(context).get_inner();
-        let vpn_gateway_interface_binding = args
+        let router_binding_1 = args.router.get_output(context);
+        let router_binding = router_binding_1.get_inner();
+        let shared_secret_binding_1 = args.shared_secret.get_output(context);
+        let shared_secret_binding = shared_secret_binding_1.get_inner();
+        let target_vpn_gateway_binding_1 = args.target_vpn_gateway.get_output(context);
+        let target_vpn_gateway_binding = target_vpn_gateway_binding_1.get_inner();
+        let vpn_gateway_binding_1 = args.vpn_gateway.get_output(context);
+        let vpn_gateway_binding = vpn_gateway_binding_1.get_inner();
+        let vpn_gateway_interface_binding_1 = args
             .vpn_gateway_interface
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let vpn_gateway_interface_binding = vpn_gateway_interface_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/vPNTunnel:VPNTunnel".into(),
             name: name.to_string(),

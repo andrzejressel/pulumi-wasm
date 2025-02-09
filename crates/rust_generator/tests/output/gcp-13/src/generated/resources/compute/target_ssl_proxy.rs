@@ -187,23 +187,22 @@ pub mod target_ssl_proxy {
     ) -> TargetSSLProxyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backend_service_binding = args
-            .backend_service
-            .get_output(context)
-            .get_inner();
-        let certificate_map_binding = args
-            .certificate_map
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let proxy_header_binding = args.proxy_header.get_output(context).get_inner();
-        let ssl_certificates_binding = args
-            .ssl_certificates
-            .get_output(context)
-            .get_inner();
-        let ssl_policy_binding = args.ssl_policy.get_output(context).get_inner();
+        let backend_service_binding_1 = args.backend_service.get_output(context);
+        let backend_service_binding = backend_service_binding_1.get_inner();
+        let certificate_map_binding_1 = args.certificate_map.get_output(context);
+        let certificate_map_binding = certificate_map_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let proxy_header_binding_1 = args.proxy_header.get_output(context);
+        let proxy_header_binding = proxy_header_binding_1.get_inner();
+        let ssl_certificates_binding_1 = args.ssl_certificates.get_output(context);
+        let ssl_certificates_binding = ssl_certificates_binding_1.get_inner();
+        let ssl_policy_binding_1 = args.ssl_policy.get_output(context);
+        let ssl_policy_binding = ssl_policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/targetSSLProxy:TargetSSLProxy".into(),
             name: name.to_string(),

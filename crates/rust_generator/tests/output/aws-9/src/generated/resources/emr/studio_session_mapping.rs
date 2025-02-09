@@ -72,14 +72,16 @@ pub mod studio_session_mapping {
     ) -> StudioSessionMappingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identity_id_binding = args.identity_id.get_output(context).get_inner();
-        let identity_name_binding = args.identity_name.get_output(context).get_inner();
-        let identity_type_binding = args.identity_type.get_output(context).get_inner();
-        let session_policy_arn_binding = args
-            .session_policy_arn
-            .get_output(context)
-            .get_inner();
-        let studio_id_binding = args.studio_id.get_output(context).get_inner();
+        let identity_id_binding_1 = args.identity_id.get_output(context);
+        let identity_id_binding = identity_id_binding_1.get_inner();
+        let identity_name_binding_1 = args.identity_name.get_output(context);
+        let identity_name_binding = identity_name_binding_1.get_inner();
+        let identity_type_binding_1 = args.identity_type.get_output(context);
+        let identity_type_binding = identity_type_binding_1.get_inner();
+        let session_policy_arn_binding_1 = args.session_policy_arn.get_output(context);
+        let session_policy_arn_binding = session_policy_arn_binding_1.get_inner();
+        let studio_id_binding_1 = args.studio_id.get_output(context);
+        let studio_id_binding = studio_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:emr/studioSessionMapping:StudioSessionMapping".into(),
             name: name.to_string(),

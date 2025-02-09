@@ -172,26 +172,33 @@ pub mod software_update_configuration {
     ) -> SoftwareUpdateConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_id_binding = args
+        let automation_account_id_binding_1 = args
             .automation_account_id
-            .get_output(context)
-            .get_inner();
-        let duration_binding = args.duration.get_output(context).get_inner();
-        let linux_binding = args.linux.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let non_azure_computer_names_binding = args
+            .get_output(context);
+        let automation_account_id_binding = automation_account_id_binding_1.get_inner();
+        let duration_binding_1 = args.duration.get_output(context);
+        let duration_binding = duration_binding_1.get_inner();
+        let linux_binding_1 = args.linux.get_output(context);
+        let linux_binding = linux_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let non_azure_computer_names_binding_1 = args
             .non_azure_computer_names
-            .get_output(context)
+            .get_output(context);
+        let non_azure_computer_names_binding = non_azure_computer_names_binding_1
             .get_inner();
-        let post_task_binding = args.post_task.get_output(context).get_inner();
-        let pre_task_binding = args.pre_task.get_output(context).get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let target_binding = args.target.get_output(context).get_inner();
-        let virtual_machine_ids_binding = args
-            .virtual_machine_ids
-            .get_output(context)
-            .get_inner();
-        let windows_binding = args.windows.get_output(context).get_inner();
+        let post_task_binding_1 = args.post_task.get_output(context);
+        let post_task_binding = post_task_binding_1.get_inner();
+        let pre_task_binding_1 = args.pre_task.get_output(context);
+        let pre_task_binding = pre_task_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let target_binding_1 = args.target.get_output(context);
+        let target_binding = target_binding_1.get_inner();
+        let virtual_machine_ids_binding_1 = args.virtual_machine_ids.get_output(context);
+        let virtual_machine_ids_binding = virtual_machine_ids_binding_1.get_inner();
+        let windows_binding_1 = args.windows.get_output(context);
+        let windows_binding = windows_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration"
                 .into(),

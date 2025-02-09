@@ -102,13 +102,20 @@ pub mod user_defined_function {
     ) -> UserDefinedFunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
-        let class_name_binding = args.class_name.get_output(context).get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let owner_name_binding = args.owner_name.get_output(context).get_inner();
-        let owner_type_binding = args.owner_type.get_output(context).get_inner();
-        let resource_uris_binding = args.resource_uris.get_output(context).get_inner();
+        let catalog_id_binding_1 = args.catalog_id.get_output(context);
+        let catalog_id_binding = catalog_id_binding_1.get_inner();
+        let class_name_binding_1 = args.class_name.get_output(context);
+        let class_name_binding = class_name_binding_1.get_inner();
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let owner_name_binding_1 = args.owner_name.get_output(context);
+        let owner_name_binding = owner_name_binding_1.get_inner();
+        let owner_type_binding_1 = args.owner_type.get_output(context);
+        let owner_type_binding = owner_type_binding_1.get_inner();
+        let resource_uris_binding_1 = args.resource_uris.get_output(context);
+        let resource_uris_binding = resource_uris_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/userDefinedFunction:UserDefinedFunction".into(),
             name: name.to_string(),

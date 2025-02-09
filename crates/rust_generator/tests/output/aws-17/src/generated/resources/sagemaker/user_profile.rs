@@ -97,21 +97,24 @@ pub mod user_profile {
     ) -> UserProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_id_binding = args.domain_id.get_output(context).get_inner();
-        let single_sign_on_user_identifier_binding = args
+        let domain_id_binding_1 = args.domain_id.get_output(context);
+        let domain_id_binding = domain_id_binding_1.get_inner();
+        let single_sign_on_user_identifier_binding_1 = args
             .single_sign_on_user_identifier
-            .get_output(context)
+            .get_output(context);
+        let single_sign_on_user_identifier_binding = single_sign_on_user_identifier_binding_1
             .get_inner();
-        let single_sign_on_user_value_binding = args
+        let single_sign_on_user_value_binding_1 = args
             .single_sign_on_user_value
-            .get_output(context)
+            .get_output(context);
+        let single_sign_on_user_value_binding = single_sign_on_user_value_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_profile_name_binding = args
-            .user_profile_name
-            .get_output(context)
-            .get_inner();
-        let user_settings_binding = args.user_settings.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_profile_name_binding_1 = args.user_profile_name.get_output(context);
+        let user_profile_name_binding = user_profile_name_binding_1.get_inner();
+        let user_settings_binding_1 = args.user_settings.get_output(context);
+        let user_settings_binding = user_settings_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/userProfile:UserProfile".into(),
             name: name.to_string(),

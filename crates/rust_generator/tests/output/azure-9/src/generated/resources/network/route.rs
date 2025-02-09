@@ -98,21 +98,21 @@ pub mod route {
     ) -> RouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_prefix_binding = args.address_prefix.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let next_hop_in_ip_address_binding = args
+        let address_prefix_binding_1 = args.address_prefix.get_output(context);
+        let address_prefix_binding = address_prefix_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let next_hop_in_ip_address_binding_1 = args
             .next_hop_in_ip_address
-            .get_output(context)
+            .get_output(context);
+        let next_hop_in_ip_address_binding = next_hop_in_ip_address_binding_1
             .get_inner();
-        let next_hop_type_binding = args.next_hop_type.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let route_table_name_binding = args
-            .route_table_name
-            .get_output(context)
-            .get_inner();
+        let next_hop_type_binding_1 = args.next_hop_type.get_output(context);
+        let next_hop_type_binding = next_hop_type_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let route_table_name_binding_1 = args.route_table_name.get_output(context);
+        let route_table_name_binding = route_table_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/route:Route".into(),
             name: name.to_string(),

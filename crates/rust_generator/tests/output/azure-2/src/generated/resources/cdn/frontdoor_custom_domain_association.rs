@@ -158,13 +158,15 @@ pub mod frontdoor_custom_domain_association {
     ) -> FrontdoorCustomDomainAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdn_frontdoor_custom_domain_id_binding = args
+        let cdn_frontdoor_custom_domain_id_binding_1 = args
             .cdn_frontdoor_custom_domain_id
-            .get_output(context)
+            .get_output(context);
+        let cdn_frontdoor_custom_domain_id_binding = cdn_frontdoor_custom_domain_id_binding_1
             .get_inner();
-        let cdn_frontdoor_route_ids_binding = args
+        let cdn_frontdoor_route_ids_binding_1 = args
             .cdn_frontdoor_route_ids
-            .get_output(context)
+            .get_output(context);
+        let cdn_frontdoor_route_ids_binding = cdn_frontdoor_route_ids_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation"

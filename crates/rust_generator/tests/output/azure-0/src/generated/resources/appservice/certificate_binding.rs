@@ -134,12 +134,12 @@ pub mod certificate_binding {
     ) -> CertificateBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_id_binding = args.certificate_id.get_output(context).get_inner();
-        let hostname_binding_id_binding = args
-            .hostname_binding_id
-            .get_output(context)
-            .get_inner();
-        let ssl_state_binding = args.ssl_state.get_output(context).get_inner();
+        let certificate_id_binding_1 = args.certificate_id.get_output(context);
+        let certificate_id_binding = certificate_id_binding_1.get_inner();
+        let hostname_binding_id_binding_1 = args.hostname_binding_id.get_output(context);
+        let hostname_binding_id_binding = hostname_binding_id_binding_1.get_inner();
+        let ssl_state_binding_1 = args.ssl_state.get_output(context);
+        let ssl_state_binding = ssl_state_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/certificateBinding:CertificateBinding".into(),
             name: name.to_string(),

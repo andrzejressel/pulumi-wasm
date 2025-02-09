@@ -107,10 +107,14 @@ pub mod resource_server {
     ) -> ResourceServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identifier_binding = args.identifier.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let scopes_binding = args.scopes.get_output(context).get_inner();
-        let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
+        let identifier_binding_1 = args.identifier.get_output(context);
+        let identifier_binding = identifier_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let scopes_binding_1 = args.scopes.get_output(context);
+        let scopes_binding = scopes_binding_1.get_inner();
+        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
+        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/resourceServer:ResourceServer".into(),
             name: name.to_string(),

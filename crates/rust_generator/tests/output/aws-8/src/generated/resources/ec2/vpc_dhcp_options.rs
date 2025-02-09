@@ -128,25 +128,25 @@ pub mod vpc_dhcp_options {
     ) -> VpcDhcpOptionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let domain_name_servers_binding = args
-            .domain_name_servers
-            .get_output(context)
-            .get_inner();
-        let ipv6_address_preferred_lease_time_binding = args
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let domain_name_servers_binding_1 = args.domain_name_servers.get_output(context);
+        let domain_name_servers_binding = domain_name_servers_binding_1.get_inner();
+        let ipv6_address_preferred_lease_time_binding_1 = args
             .ipv6_address_preferred_lease_time
-            .get_output(context)
+            .get_output(context);
+        let ipv6_address_preferred_lease_time_binding = ipv6_address_preferred_lease_time_binding_1
             .get_inner();
-        let netbios_name_servers_binding = args
+        let netbios_name_servers_binding_1 = args
             .netbios_name_servers
-            .get_output(context)
-            .get_inner();
-        let netbios_node_type_binding = args
-            .netbios_node_type
-            .get_output(context)
-            .get_inner();
-        let ntp_servers_binding = args.ntp_servers.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let netbios_name_servers_binding = netbios_name_servers_binding_1.get_inner();
+        let netbios_node_type_binding_1 = args.netbios_node_type.get_output(context);
+        let netbios_node_type_binding = netbios_node_type_binding_1.get_inner();
+        let ntp_servers_binding_1 = args.ntp_servers.get_output(context);
+        let ntp_servers_binding = ntp_servers_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcDhcpOptions:VpcDhcpOptions".into(),
             name: name.to_string(),

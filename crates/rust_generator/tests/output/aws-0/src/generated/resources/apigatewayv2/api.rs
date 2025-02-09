@@ -174,38 +174,43 @@ pub mod api {
     ) -> ApiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_selection_expression_binding = args
+        let api_key_selection_expression_binding_1 = args
             .api_key_selection_expression
-            .get_output(context)
+            .get_output(context);
+        let api_key_selection_expression_binding = api_key_selection_expression_binding_1
             .get_inner();
-        let body_binding = args.body.get_output(context).get_inner();
-        let cors_configuration_binding = args
-            .cors_configuration
-            .get_output(context)
-            .get_inner();
-        let credentials_arn_binding = args
-            .credentials_arn
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disable_execute_api_endpoint_binding = args
+        let body_binding_1 = args.body.get_output(context);
+        let body_binding = body_binding_1.get_inner();
+        let cors_configuration_binding_1 = args.cors_configuration.get_output(context);
+        let cors_configuration_binding = cors_configuration_binding_1.get_inner();
+        let credentials_arn_binding_1 = args.credentials_arn.get_output(context);
+        let credentials_arn_binding = credentials_arn_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disable_execute_api_endpoint_binding_1 = args
             .disable_execute_api_endpoint
-            .get_output(context)
+            .get_output(context);
+        let disable_execute_api_endpoint_binding = disable_execute_api_endpoint_binding_1
             .get_inner();
-        let fail_on_warnings_binding = args
-            .fail_on_warnings
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let protocol_type_binding = args.protocol_type.get_output(context).get_inner();
-        let route_key_binding = args.route_key.get_output(context).get_inner();
-        let route_selection_expression_binding = args
+        let fail_on_warnings_binding_1 = args.fail_on_warnings.get_output(context);
+        let fail_on_warnings_binding = fail_on_warnings_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let protocol_type_binding_1 = args.protocol_type.get_output(context);
+        let protocol_type_binding = protocol_type_binding_1.get_inner();
+        let route_key_binding_1 = args.route_key.get_output(context);
+        let route_key_binding = route_key_binding_1.get_inner();
+        let route_selection_expression_binding_1 = args
             .route_selection_expression
-            .get_output(context)
+            .get_output(context);
+        let route_selection_expression_binding = route_selection_expression_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_binding = args.target.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_binding_1 = args.target.get_output(context);
+        let target_binding = target_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigatewayv2/api:Api".into(),
             name: name.to_string(),

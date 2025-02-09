@@ -157,23 +157,29 @@ pub mod spring_cloud_gateway_route_config {
     ) -> SpringCloudGatewayRouteConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let open_api_binding = args.open_api.get_output(context).get_inner();
-        let predicates_binding = args.predicates.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let routes_binding = args.routes.get_output(context).get_inner();
-        let spring_cloud_app_id_binding = args
-            .spring_cloud_app_id
-            .get_output(context)
-            .get_inner();
-        let spring_cloud_gateway_id_binding = args
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let open_api_binding_1 = args.open_api.get_output(context);
+        let open_api_binding = open_api_binding_1.get_inner();
+        let predicates_binding_1 = args.predicates.get_output(context);
+        let predicates_binding = predicates_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let routes_binding_1 = args.routes.get_output(context);
+        let routes_binding = routes_binding_1.get_inner();
+        let spring_cloud_app_id_binding_1 = args.spring_cloud_app_id.get_output(context);
+        let spring_cloud_app_id_binding = spring_cloud_app_id_binding_1.get_inner();
+        let spring_cloud_gateway_id_binding_1 = args
             .spring_cloud_gateway_id
-            .get_output(context)
+            .get_output(context);
+        let spring_cloud_gateway_id_binding = spring_cloud_gateway_id_binding_1
             .get_inner();
-        let sso_validation_enabled_binding = args
+        let sso_validation_enabled_binding_1 = args
             .sso_validation_enabled
-            .get_output(context)
+            .get_output(context);
+        let sso_validation_enabled_binding = sso_validation_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig"

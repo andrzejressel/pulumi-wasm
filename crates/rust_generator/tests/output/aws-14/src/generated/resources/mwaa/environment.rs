@@ -217,78 +217,81 @@ pub mod environment {
     ) -> EnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let airflow_configuration_options_binding = args
+        let airflow_configuration_options_binding_1 = args
             .airflow_configuration_options
-            .get_output(context)
+            .get_output(context);
+        let airflow_configuration_options_binding = airflow_configuration_options_binding_1
             .get_inner();
-        let airflow_version_binding = args
-            .airflow_version
-            .get_output(context)
-            .get_inner();
-        let dag_s3_path_binding = args.dag_s3_path.get_output(context).get_inner();
-        let endpoint_management_binding = args
-            .endpoint_management
-            .get_output(context)
-            .get_inner();
-        let environment_class_binding = args
-            .environment_class
-            .get_output(context)
-            .get_inner();
-        let execution_role_arn_binding = args
-            .execution_role_arn
-            .get_output(context)
-            .get_inner();
-        let kms_key_binding = args.kms_key.get_output(context).get_inner();
-        let logging_configuration_binding = args
+        let airflow_version_binding_1 = args.airflow_version.get_output(context);
+        let airflow_version_binding = airflow_version_binding_1.get_inner();
+        let dag_s3_path_binding_1 = args.dag_s3_path.get_output(context);
+        let dag_s3_path_binding = dag_s3_path_binding_1.get_inner();
+        let endpoint_management_binding_1 = args.endpoint_management.get_output(context);
+        let endpoint_management_binding = endpoint_management_binding_1.get_inner();
+        let environment_class_binding_1 = args.environment_class.get_output(context);
+        let environment_class_binding = environment_class_binding_1.get_inner();
+        let execution_role_arn_binding_1 = args.execution_role_arn.get_output(context);
+        let execution_role_arn_binding = execution_role_arn_binding_1.get_inner();
+        let kms_key_binding_1 = args.kms_key.get_output(context);
+        let kms_key_binding = kms_key_binding_1.get_inner();
+        let logging_configuration_binding_1 = args
             .logging_configuration
-            .get_output(context)
-            .get_inner();
-        let max_webservers_binding = args.max_webservers.get_output(context).get_inner();
-        let max_workers_binding = args.max_workers.get_output(context).get_inner();
-        let min_webservers_binding = args.min_webservers.get_output(context).get_inner();
-        let min_workers_binding = args.min_workers.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_configuration_binding = args
+            .get_output(context);
+        let logging_configuration_binding = logging_configuration_binding_1.get_inner();
+        let max_webservers_binding_1 = args.max_webservers.get_output(context);
+        let max_webservers_binding = max_webservers_binding_1.get_inner();
+        let max_workers_binding_1 = args.max_workers.get_output(context);
+        let max_workers_binding = max_workers_binding_1.get_inner();
+        let min_webservers_binding_1 = args.min_webservers.get_output(context);
+        let min_webservers_binding = min_webservers_binding_1.get_inner();
+        let min_workers_binding_1 = args.min_workers.get_output(context);
+        let min_workers_binding = min_workers_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_configuration_binding_1 = args
             .network_configuration
-            .get_output(context)
-            .get_inner();
-        let plugins_s3_object_version_binding = args
+            .get_output(context);
+        let network_configuration_binding = network_configuration_binding_1.get_inner();
+        let plugins_s3_object_version_binding_1 = args
             .plugins_s3_object_version
-            .get_output(context)
+            .get_output(context);
+        let plugins_s3_object_version_binding = plugins_s3_object_version_binding_1
             .get_inner();
-        let plugins_s3_path_binding = args
-            .plugins_s3_path
-            .get_output(context)
-            .get_inner();
-        let requirements_s3_object_version_binding = args
+        let plugins_s3_path_binding_1 = args.plugins_s3_path.get_output(context);
+        let plugins_s3_path_binding = plugins_s3_path_binding_1.get_inner();
+        let requirements_s3_object_version_binding_1 = args
             .requirements_s3_object_version
-            .get_output(context)
+            .get_output(context);
+        let requirements_s3_object_version_binding = requirements_s3_object_version_binding_1
             .get_inner();
-        let requirements_s3_path_binding = args
+        let requirements_s3_path_binding_1 = args
             .requirements_s3_path
-            .get_output(context)
-            .get_inner();
-        let schedulers_binding = args.schedulers.get_output(context).get_inner();
-        let source_bucket_arn_binding = args
-            .source_bucket_arn
-            .get_output(context)
-            .get_inner();
-        let startup_script_s3_object_version_binding = args
+            .get_output(context);
+        let requirements_s3_path_binding = requirements_s3_path_binding_1.get_inner();
+        let schedulers_binding_1 = args.schedulers.get_output(context);
+        let schedulers_binding = schedulers_binding_1.get_inner();
+        let source_bucket_arn_binding_1 = args.source_bucket_arn.get_output(context);
+        let source_bucket_arn_binding = source_bucket_arn_binding_1.get_inner();
+        let startup_script_s3_object_version_binding_1 = args
             .startup_script_s3_object_version
-            .get_output(context)
+            .get_output(context);
+        let startup_script_s3_object_version_binding = startup_script_s3_object_version_binding_1
             .get_inner();
-        let startup_script_s3_path_binding = args
+        let startup_script_s3_path_binding_1 = args
             .startup_script_s3_path
-            .get_output(context)
+            .get_output(context);
+        let startup_script_s3_path_binding = startup_script_s3_path_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let webserver_access_mode_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let webserver_access_mode_binding_1 = args
             .webserver_access_mode
-            .get_output(context)
-            .get_inner();
-        let weekly_maintenance_window_start_binding = args
+            .get_output(context);
+        let webserver_access_mode_binding = webserver_access_mode_binding_1.get_inner();
+        let weekly_maintenance_window_start_binding_1 = args
             .weekly_maintenance_window_start
-            .get_output(context)
+            .get_output(context);
+        let weekly_maintenance_window_start_binding = weekly_maintenance_window_start_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:mwaa/environment:Environment".into(),

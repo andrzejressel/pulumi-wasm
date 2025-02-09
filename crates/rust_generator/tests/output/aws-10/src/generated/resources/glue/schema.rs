@@ -103,16 +103,20 @@ pub mod schema {
     ) -> SchemaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compatibility_binding = args.compatibility.get_output(context).get_inner();
-        let data_format_binding = args.data_format.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let registry_arn_binding = args.registry_arn.get_output(context).get_inner();
-        let schema_definition_binding = args
-            .schema_definition
-            .get_output(context)
-            .get_inner();
-        let schema_name_binding = args.schema_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let compatibility_binding_1 = args.compatibility.get_output(context);
+        let compatibility_binding = compatibility_binding_1.get_inner();
+        let data_format_binding_1 = args.data_format.get_output(context);
+        let data_format_binding = data_format_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let registry_arn_binding_1 = args.registry_arn.get_output(context);
+        let registry_arn_binding = registry_arn_binding_1.get_inner();
+        let schema_definition_binding_1 = args.schema_definition.get_output(context);
+        let schema_definition_binding = schema_definition_binding_1.get_inner();
+        let schema_name_binding_1 = args.schema_name.get_output(context);
+        let schema_name_binding = schema_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/schema:Schema".into(),
             name: name.to_string(),

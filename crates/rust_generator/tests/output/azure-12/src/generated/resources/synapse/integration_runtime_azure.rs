@@ -125,19 +125,22 @@ pub mod integration_runtime_azure {
     ) -> IntegrationRuntimeAzureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compute_type_binding = args.compute_type.get_output(context).get_inner();
-        let core_count_binding = args.core_count.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let synapse_workspace_id_binding = args
+        let compute_type_binding_1 = args.compute_type.get_output(context);
+        let compute_type_binding = compute_type_binding_1.get_inner();
+        let core_count_binding_1 = args.core_count.get_output(context);
+        let core_count_binding = core_count_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let synapse_workspace_id_binding_1 = args
             .synapse_workspace_id
-            .get_output(context)
-            .get_inner();
-        let time_to_live_min_binding = args
-            .time_to_live_min
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let synapse_workspace_id_binding = synapse_workspace_id_binding_1.get_inner();
+        let time_to_live_min_binding_1 = args.time_to_live_min.get_output(context);
+        let time_to_live_min_binding = time_to_live_min_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure"
                 .into(),

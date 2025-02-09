@@ -151,26 +151,34 @@ pub mod user {
     ) -> UserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addresses_binding = args.addresses.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let emails_binding = args.emails.get_output(context).get_inner();
-        let identity_store_id_binding = args
-            .identity_store_id
-            .get_output(context)
-            .get_inner();
-        let locale_binding = args.locale.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let nickname_binding = args.nickname.get_output(context).get_inner();
-        let phone_numbers_binding = args.phone_numbers.get_output(context).get_inner();
-        let preferred_language_binding = args
-            .preferred_language
-            .get_output(context)
-            .get_inner();
-        let profile_url_binding = args.profile_url.get_output(context).get_inner();
-        let timezone_binding = args.timezone.get_output(context).get_inner();
-        let title_binding = args.title.get_output(context).get_inner();
-        let user_name_binding = args.user_name.get_output(context).get_inner();
-        let user_type_binding = args.user_type.get_output(context).get_inner();
+        let addresses_binding_1 = args.addresses.get_output(context);
+        let addresses_binding = addresses_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let emails_binding_1 = args.emails.get_output(context);
+        let emails_binding = emails_binding_1.get_inner();
+        let identity_store_id_binding_1 = args.identity_store_id.get_output(context);
+        let identity_store_id_binding = identity_store_id_binding_1.get_inner();
+        let locale_binding_1 = args.locale.get_output(context);
+        let locale_binding = locale_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let nickname_binding_1 = args.nickname.get_output(context);
+        let nickname_binding = nickname_binding_1.get_inner();
+        let phone_numbers_binding_1 = args.phone_numbers.get_output(context);
+        let phone_numbers_binding = phone_numbers_binding_1.get_inner();
+        let preferred_language_binding_1 = args.preferred_language.get_output(context);
+        let preferred_language_binding = preferred_language_binding_1.get_inner();
+        let profile_url_binding_1 = args.profile_url.get_output(context);
+        let profile_url_binding = profile_url_binding_1.get_inner();
+        let timezone_binding_1 = args.timezone.get_output(context);
+        let timezone_binding = timezone_binding_1.get_inner();
+        let title_binding_1 = args.title.get_output(context);
+        let title_binding = title_binding_1.get_inner();
+        let user_name_binding_1 = args.user_name.get_output(context);
+        let user_name_binding = user_name_binding_1.get_inner();
+        let user_type_binding_1 = args.user_type.get_output(context);
+        let user_type_binding = user_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:identitystore/user:User".into(),
             name: name.to_string(),

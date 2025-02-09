@@ -96,10 +96,14 @@ pub mod volume {
     ) -> VolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let driver_binding = args.driver.get_output(context).get_inner();
-        let driver_opts_binding = args.driver_opts.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let driver_binding_1 = args.driver.get_output(context);
+        let driver_binding = driver_binding_1.get_inner();
+        let driver_opts_binding_1 = args.driver_opts.get_output(context);
+        let driver_opts_binding = driver_opts_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "docker:index/volume:Volume".into(),
             name: name.to_string(),

@@ -149,41 +149,39 @@ pub mod snapshot {
     ) -> SnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let create_option_binding = args.create_option.get_output(context).get_inner();
-        let disk_access_id_binding = args.disk_access_id.get_output(context).get_inner();
-        let disk_size_gb_binding = args.disk_size_gb.get_output(context).get_inner();
-        let encryption_settings_binding = args
-            .encryption_settings
-            .get_output(context)
-            .get_inner();
-        let incremental_enabled_binding = args
-            .incremental_enabled
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_access_policy_binding = args
+        let create_option_binding_1 = args.create_option.get_output(context);
+        let create_option_binding = create_option_binding_1.get_inner();
+        let disk_access_id_binding_1 = args.disk_access_id.get_output(context);
+        let disk_access_id_binding = disk_access_id_binding_1.get_inner();
+        let disk_size_gb_binding_1 = args.disk_size_gb.get_output(context);
+        let disk_size_gb_binding = disk_size_gb_binding_1.get_inner();
+        let encryption_settings_binding_1 = args.encryption_settings.get_output(context);
+        let encryption_settings_binding = encryption_settings_binding_1.get_inner();
+        let incremental_enabled_binding_1 = args.incremental_enabled.get_output(context);
+        let incremental_enabled_binding = incremental_enabled_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_access_policy_binding_1 = args
             .network_access_policy
-            .get_output(context)
-            .get_inner();
-        let public_network_access_enabled_binding = args
+            .get_output(context);
+        let network_access_policy_binding = network_access_policy_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let source_resource_id_binding = args
-            .source_resource_id
-            .get_output(context)
-            .get_inner();
-        let source_uri_binding = args.source_uri.get_output(context).get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let source_resource_id_binding_1 = args.source_resource_id.get_output(context);
+        let source_resource_id_binding = source_resource_id_binding_1.get_inner();
+        let source_uri_binding_1 = args.source_uri.get_output(context);
+        let source_uri_binding = source_uri_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/snapshot:Snapshot".into(),
             name: name.to_string(),

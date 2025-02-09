@@ -110,17 +110,22 @@ pub mod virtual_hub_connection {
     ) -> VirtualHubConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let internet_security_enabled_binding = args
+        let internet_security_enabled_binding_1 = args
             .internet_security_enabled
-            .get_output(context)
+            .get_output(context);
+        let internet_security_enabled_binding = internet_security_enabled_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let remote_virtual_network_id_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let remote_virtual_network_id_binding_1 = args
             .remote_virtual_network_id
-            .get_output(context)
+            .get_output(context);
+        let remote_virtual_network_id_binding = remote_virtual_network_id_binding_1
             .get_inner();
-        let routing_binding = args.routing.get_output(context).get_inner();
-        let virtual_hub_id_binding = args.virtual_hub_id.get_output(context).get_inner();
+        let routing_binding_1 = args.routing.get_output(context);
+        let routing_binding = routing_binding_1.get_inner();
+        let virtual_hub_id_binding_1 = args.virtual_hub_id.get_output(context);
+        let virtual_hub_id_binding = virtual_hub_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/virtualHubConnection:VirtualHubConnection".into(),
             name: name.to_string(),

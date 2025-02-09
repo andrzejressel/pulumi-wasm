@@ -106,12 +106,18 @@ pub mod router_nat_address {
     ) -> RouterNatAddressResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let drain_nat_ips_binding = args.drain_nat_ips.get_output(context).get_inner();
-        let nat_ips_binding = args.nat_ips.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let router_binding = args.router.get_output(context).get_inner();
-        let router_nat_binding = args.router_nat.get_output(context).get_inner();
+        let drain_nat_ips_binding_1 = args.drain_nat_ips.get_output(context);
+        let drain_nat_ips_binding = drain_nat_ips_binding_1.get_inner();
+        let nat_ips_binding_1 = args.nat_ips.get_output(context);
+        let nat_ips_binding = nat_ips_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let router_binding_1 = args.router.get_output(context);
+        let router_binding = router_binding_1.get_inner();
+        let router_nat_binding_1 = args.router_nat.get_output(context);
+        let router_nat_binding = router_nat_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/routerNatAddress:RouterNatAddress".into(),
             name: name.to_string(),

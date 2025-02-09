@@ -129,19 +129,20 @@ pub mod peering {
     ) -> PeeringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorized_network_binding = args
-            .authorized_network
-            .get_output(context)
-            .get_inner();
-        let domain_resource_binding = args
-            .domain_resource
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let peering_id_binding = args.peering_id.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let status_message_binding = args.status_message.get_output(context).get_inner();
+        let authorized_network_binding_1 = args.authorized_network.get_output(context);
+        let authorized_network_binding = authorized_network_binding_1.get_inner();
+        let domain_resource_binding_1 = args.domain_resource.get_output(context);
+        let domain_resource_binding = domain_resource_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let peering_id_binding_1 = args.peering_id.get_output(context);
+        let peering_id_binding = peering_id_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let status_message_binding_1 = args.status_message.get_output(context);
+        let status_message_binding = status_message_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:activedirectory/peering:Peering".into(),
             name: name.to_string(),

@@ -168,25 +168,29 @@ pub mod security_scan_config {
     ) -> SecurityScanConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_binding = args.authentication.get_output(context).get_inner();
-        let blacklist_patterns_binding = args
-            .blacklist_patterns
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let export_to_security_command_center_binding = args
+        let authentication_binding_1 = args.authentication.get_output(context);
+        let authentication_binding = authentication_binding_1.get_inner();
+        let blacklist_patterns_binding_1 = args.blacklist_patterns.get_output(context);
+        let blacklist_patterns_binding = blacklist_patterns_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let export_to_security_command_center_binding_1 = args
             .export_to_security_command_center
-            .get_output(context)
+            .get_output(context);
+        let export_to_security_command_center_binding = export_to_security_command_center_binding_1
             .get_inner();
-        let max_qps_binding = args.max_qps.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let starting_urls_binding = args.starting_urls.get_output(context).get_inner();
-        let target_platforms_binding = args
-            .target_platforms
-            .get_output(context)
-            .get_inner();
-        let user_agent_binding = args.user_agent.get_output(context).get_inner();
+        let max_qps_binding_1 = args.max_qps.get_output(context);
+        let max_qps_binding = max_qps_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let starting_urls_binding_1 = args.starting_urls.get_output(context);
+        let starting_urls_binding = starting_urls_binding_1.get_inner();
+        let target_platforms_binding_1 = args.target_platforms.get_output(context);
+        let target_platforms_binding = target_platforms_binding_1.get_inner();
+        let user_agent_binding_1 = args.user_agent.get_output(context);
+        let user_agent_binding = user_agent_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/securityScanConfig:SecurityScanConfig".into(),
             name: name.to_string(),

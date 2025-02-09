@@ -44,9 +44,12 @@ pub mod get_region_ssl_certificate {
     ) -> GetRegionSslCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getRegionSslCertificate:getRegionSslCertificate".into(),
             version: super::super::super::get_version(),

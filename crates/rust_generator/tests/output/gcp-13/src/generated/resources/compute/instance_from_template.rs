@@ -366,87 +366,98 @@ pub mod instance_from_template {
     ) -> InstanceFromTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advanced_machine_features_binding = args
+        let advanced_machine_features_binding_1 = args
             .advanced_machine_features
-            .get_output(context)
+            .get_output(context);
+        let advanced_machine_features_binding = advanced_machine_features_binding_1
             .get_inner();
-        let allow_stopping_for_update_binding = args
+        let allow_stopping_for_update_binding_1 = args
             .allow_stopping_for_update
-            .get_output(context)
+            .get_output(context);
+        let allow_stopping_for_update_binding = allow_stopping_for_update_binding_1
             .get_inner();
-        let attached_disks_binding = args.attached_disks.get_output(context).get_inner();
-        let boot_disk_binding = args.boot_disk.get_output(context).get_inner();
-        let can_ip_forward_binding = args.can_ip_forward.get_output(context).get_inner();
-        let confidential_instance_config_binding = args
+        let attached_disks_binding_1 = args.attached_disks.get_output(context);
+        let attached_disks_binding = attached_disks_binding_1.get_inner();
+        let boot_disk_binding_1 = args.boot_disk.get_output(context);
+        let boot_disk_binding = boot_disk_binding_1.get_inner();
+        let can_ip_forward_binding_1 = args.can_ip_forward.get_output(context);
+        let can_ip_forward_binding = can_ip_forward_binding_1.get_inner();
+        let confidential_instance_config_binding_1 = args
             .confidential_instance_config
-            .get_output(context)
+            .get_output(context);
+        let confidential_instance_config_binding = confidential_instance_config_binding_1
             .get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let desired_status_binding = args.desired_status.get_output(context).get_inner();
-        let enable_display_binding = args.enable_display.get_output(context).get_inner();
-        let guest_accelerators_binding = args
-            .guest_accelerators
-            .get_output(context)
-            .get_inner();
-        let hostname_binding = args.hostname.get_output(context).get_inner();
-        let key_revocation_action_type_binding = args
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let desired_status_binding_1 = args.desired_status.get_output(context);
+        let desired_status_binding = desired_status_binding_1.get_inner();
+        let enable_display_binding_1 = args.enable_display.get_output(context);
+        let enable_display_binding = enable_display_binding_1.get_inner();
+        let guest_accelerators_binding_1 = args.guest_accelerators.get_output(context);
+        let guest_accelerators_binding = guest_accelerators_binding_1.get_inner();
+        let hostname_binding_1 = args.hostname.get_output(context);
+        let hostname_binding = hostname_binding_1.get_inner();
+        let key_revocation_action_type_binding_1 = args
             .key_revocation_action_type
-            .get_output(context)
+            .get_output(context);
+        let key_revocation_action_type_binding = key_revocation_action_type_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let machine_type_binding = args.machine_type.get_output(context).get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let metadata_startup_script_binding = args
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let machine_type_binding_1 = args.machine_type.get_output(context);
+        let machine_type_binding = machine_type_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let metadata_startup_script_binding_1 = args
             .metadata_startup_script
-            .get_output(context)
+            .get_output(context);
+        let metadata_startup_script_binding = metadata_startup_script_binding_1
             .get_inner();
-        let min_cpu_platform_binding = args
-            .min_cpu_platform
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_interfaces_binding = args
-            .network_interfaces
-            .get_output(context)
-            .get_inner();
-        let network_performance_config_binding = args
+        let min_cpu_platform_binding_1 = args.min_cpu_platform.get_output(context);
+        let min_cpu_platform_binding = min_cpu_platform_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_interfaces_binding_1 = args.network_interfaces.get_output(context);
+        let network_interfaces_binding = network_interfaces_binding_1.get_inner();
+        let network_performance_config_binding_1 = args
             .network_performance_config
-            .get_output(context)
+            .get_output(context);
+        let network_performance_config_binding = network_performance_config_binding_1
             .get_inner();
-        let params_binding = args.params.get_output(context).get_inner();
-        let partner_metadata_binding = args
-            .partner_metadata
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let reservation_affinity_binding = args
+        let params_binding_1 = args.params.get_output(context);
+        let params_binding = params_binding_1.get_inner();
+        let partner_metadata_binding_1 = args.partner_metadata.get_output(context);
+        let partner_metadata_binding = partner_metadata_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let reservation_affinity_binding_1 = args
             .reservation_affinity
-            .get_output(context)
-            .get_inner();
-        let resource_policies_binding = args
-            .resource_policies
-            .get_output(context)
-            .get_inner();
-        let scheduling_binding = args.scheduling.get_output(context).get_inner();
-        let scratch_disks_binding = args.scratch_disks.get_output(context).get_inner();
-        let service_account_binding = args
-            .service_account
-            .get_output(context)
-            .get_inner();
-        let shielded_instance_config_binding = args
+            .get_output(context);
+        let reservation_affinity_binding = reservation_affinity_binding_1.get_inner();
+        let resource_policies_binding_1 = args.resource_policies.get_output(context);
+        let resource_policies_binding = resource_policies_binding_1.get_inner();
+        let scheduling_binding_1 = args.scheduling.get_output(context);
+        let scheduling_binding = scheduling_binding_1.get_inner();
+        let scratch_disks_binding_1 = args.scratch_disks.get_output(context);
+        let scratch_disks_binding = scratch_disks_binding_1.get_inner();
+        let service_account_binding_1 = args.service_account.get_output(context);
+        let service_account_binding = service_account_binding_1.get_inner();
+        let shielded_instance_config_binding_1 = args
             .shielded_instance_config
-            .get_output(context)
+            .get_output(context);
+        let shielded_instance_config_binding = shielded_instance_config_binding_1
             .get_inner();
-        let source_instance_template_binding = args
+        let source_instance_template_binding_1 = args
             .source_instance_template
-            .get_output(context)
+            .get_output(context);
+        let source_instance_template_binding = source_instance_template_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/instanceFromTemplate:InstanceFromTemplate".into(),
             name: name.to_string(),

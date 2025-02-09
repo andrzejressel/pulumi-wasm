@@ -160,14 +160,16 @@ pub mod resource_lf_tags {
     ) -> ResourceLfTagsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
-        let database_binding = args.database.get_output(context).get_inner();
-        let lf_tags_binding = args.lf_tags.get_output(context).get_inner();
-        let table_binding = args.table.get_output(context).get_inner();
-        let table_with_columns_binding = args
-            .table_with_columns
-            .get_output(context)
-            .get_inner();
+        let catalog_id_binding_1 = args.catalog_id.get_output(context);
+        let catalog_id_binding = catalog_id_binding_1.get_inner();
+        let database_binding_1 = args.database.get_output(context);
+        let database_binding = database_binding_1.get_inner();
+        let lf_tags_binding_1 = args.lf_tags.get_output(context);
+        let lf_tags_binding = lf_tags_binding_1.get_inner();
+        let table_binding_1 = args.table.get_output(context);
+        let table_binding = table_binding_1.get_inner();
+        let table_with_columns_binding_1 = args.table_with_columns.get_output(context);
+        let table_with_columns_binding = table_with_columns_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lakeformation/resourceLfTags:ResourceLfTags".into(),
             name: name.to_string(),

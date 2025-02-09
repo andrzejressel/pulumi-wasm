@@ -48,14 +48,16 @@ pub mod get_image {
     ) -> GetImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let image_digest_binding = args.image_digest.get_output(context).get_inner();
-        let image_tag_binding = args.image_tag.get_output(context).get_inner();
-        let most_recent_binding = args.most_recent.get_output(context).get_inner();
-        let registry_id_binding = args.registry_id.get_output(context).get_inner();
-        let repository_name_binding = args
-            .repository_name
-            .get_output(context)
-            .get_inner();
+        let image_digest_binding_1 = args.image_digest.get_output(context);
+        let image_digest_binding = image_digest_binding_1.get_inner();
+        let image_tag_binding_1 = args.image_tag.get_output(context);
+        let image_tag_binding = image_tag_binding_1.get_inner();
+        let most_recent_binding_1 = args.most_recent.get_output(context);
+        let most_recent_binding = most_recent_binding_1.get_inner();
+        let registry_id_binding_1 = args.registry_id.get_output(context);
+        let registry_id_binding = registry_id_binding_1.get_inner();
+        let repository_name_binding_1 = args.repository_name.get_output(context);
+        let repository_name_binding = repository_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ecr/getImage:getImage".into(),
             version: super::super::super::get_version(),

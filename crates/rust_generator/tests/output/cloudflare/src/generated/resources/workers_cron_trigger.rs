@@ -72,9 +72,12 @@ pub mod workers_cron_trigger {
     ) -> WorkersCronTriggerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let schedules_binding = args.schedules.get_output(context).get_inner();
-        let script_name_binding = args.script_name.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let schedules_binding_1 = args.schedules.get_output(context);
+        let schedules_binding = schedules_binding_1.get_inner();
+        let script_name_binding_1 = args.script_name.get_output(context);
+        let script_name_binding = script_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/workersCronTrigger:WorkersCronTrigger".into(),
             name: name.to_string(),

@@ -87,24 +87,21 @@ pub mod vpc_ipv_6_cidr_block_association {
     ) -> VpcIpv6CidrBlockAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assign_generated_ipv6_cidr_block_binding = args
+        let assign_generated_ipv6_cidr_block_binding_1 = args
             .assign_generated_ipv6_cidr_block
-            .get_output(context)
+            .get_output(context);
+        let assign_generated_ipv6_cidr_block_binding = assign_generated_ipv6_cidr_block_binding_1
             .get_inner();
-        let ipv6_cidr_block_binding = args
-            .ipv6_cidr_block
-            .get_output(context)
-            .get_inner();
-        let ipv6_ipam_pool_id_binding = args
-            .ipv6_ipam_pool_id
-            .get_output(context)
-            .get_inner();
-        let ipv6_netmask_length_binding = args
-            .ipv6_netmask_length
-            .get_output(context)
-            .get_inner();
-        let ipv6_pool_binding = args.ipv6_pool.get_output(context).get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let ipv6_cidr_block_binding_1 = args.ipv6_cidr_block.get_output(context);
+        let ipv6_cidr_block_binding = ipv6_cidr_block_binding_1.get_inner();
+        let ipv6_ipam_pool_id_binding_1 = args.ipv6_ipam_pool_id.get_output(context);
+        let ipv6_ipam_pool_id_binding = ipv6_ipam_pool_id_binding_1.get_inner();
+        let ipv6_netmask_length_binding_1 = args.ipv6_netmask_length.get_output(context);
+        let ipv6_netmask_length_binding = ipv6_netmask_length_binding_1.get_inner();
+        let ipv6_pool_binding_1 = args.ipv6_pool.get_output(context);
+        let ipv6_pool_binding = ipv6_pool_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation"
                 .into(),

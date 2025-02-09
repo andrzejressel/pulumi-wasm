@@ -124,20 +124,26 @@ pub mod frontdoor_origin_group {
     ) -> FrontdoorOriginGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdn_frontdoor_profile_id_binding = args
+        let cdn_frontdoor_profile_id_binding_1 = args
             .cdn_frontdoor_profile_id
-            .get_output(context)
+            .get_output(context);
+        let cdn_frontdoor_profile_id_binding = cdn_frontdoor_profile_id_binding_1
             .get_inner();
-        let health_probe_binding = args.health_probe.get_output(context).get_inner();
-        let load_balancing_binding = args.load_balancing.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let restore_traffic_time_to_healed_or_new_endpoint_in_minutes_binding = args
+        let health_probe_binding_1 = args.health_probe.get_output(context);
+        let health_probe_binding = health_probe_binding_1.get_inner();
+        let load_balancing_binding_1 = args.load_balancing.get_output(context);
+        let load_balancing_binding = load_balancing_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let restore_traffic_time_to_healed_or_new_endpoint_in_minutes_binding_1 = args
             .restore_traffic_time_to_healed_or_new_endpoint_in_minutes
-            .get_output(context)
+            .get_output(context);
+        let restore_traffic_time_to_healed_or_new_endpoint_in_minutes_binding = restore_traffic_time_to_healed_or_new_endpoint_in_minutes_binding_1
             .get_inner();
-        let session_affinity_enabled_binding = args
+        let session_affinity_enabled_binding_1 = args
             .session_affinity_enabled
-            .get_output(context)
+            .get_output(context);
+        let session_affinity_enabled_binding = session_affinity_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup".into(),

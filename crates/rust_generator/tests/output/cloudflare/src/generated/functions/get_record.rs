@@ -53,11 +53,16 @@ pub mod get_record {
     ) -> GetRecordResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let content_binding = args.content.get_output(context).get_inner();
-        let hostname_binding = args.hostname.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let content_binding_1 = args.content.get_output(context);
+        let content_binding = content_binding_1.get_inner();
+        let hostname_binding_1 = args.hostname.get_output(context);
+        let hostname_binding = hostname_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getRecord:getRecord".into(),
             version: super::super::get_version(),

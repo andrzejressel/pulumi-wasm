@@ -241,51 +241,46 @@ pub mod association {
     ) -> AssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let apply_only_at_cron_interval_binding = args
+        let apply_only_at_cron_interval_binding_1 = args
             .apply_only_at_cron_interval
-            .get_output(context)
+            .get_output(context);
+        let apply_only_at_cron_interval_binding = apply_only_at_cron_interval_binding_1
             .get_inner();
-        let association_name_binding = args
-            .association_name
-            .get_output(context)
-            .get_inner();
-        let automation_target_parameter_name_binding = args
+        let association_name_binding_1 = args.association_name.get_output(context);
+        let association_name_binding = association_name_binding_1.get_inner();
+        let automation_target_parameter_name_binding_1 = args
             .automation_target_parameter_name
-            .get_output(context)
+            .get_output(context);
+        let automation_target_parameter_name_binding = automation_target_parameter_name_binding_1
             .get_inner();
-        let compliance_severity_binding = args
-            .compliance_severity
-            .get_output(context)
-            .get_inner();
-        let document_version_binding = args
-            .document_version
-            .get_output(context)
-            .get_inner();
-        let instance_id_binding = args.instance_id.get_output(context).get_inner();
-        let max_concurrency_binding = args
-            .max_concurrency
-            .get_output(context)
-            .get_inner();
-        let max_errors_binding = args.max_errors.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let output_location_binding = args
-            .output_location
-            .get_output(context)
-            .get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let schedule_expression_binding = args
-            .schedule_expression
-            .get_output(context)
-            .get_inner();
-        let sync_compliance_binding = args
-            .sync_compliance
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let targets_binding = args.targets.get_output(context).get_inner();
-        let wait_for_success_timeout_seconds_binding = args
+        let compliance_severity_binding_1 = args.compliance_severity.get_output(context);
+        let compliance_severity_binding = compliance_severity_binding_1.get_inner();
+        let document_version_binding_1 = args.document_version.get_output(context);
+        let document_version_binding = document_version_binding_1.get_inner();
+        let instance_id_binding_1 = args.instance_id.get_output(context);
+        let instance_id_binding = instance_id_binding_1.get_inner();
+        let max_concurrency_binding_1 = args.max_concurrency.get_output(context);
+        let max_concurrency_binding = max_concurrency_binding_1.get_inner();
+        let max_errors_binding_1 = args.max_errors.get_output(context);
+        let max_errors_binding = max_errors_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let output_location_binding_1 = args.output_location.get_output(context);
+        let output_location_binding = output_location_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let schedule_expression_binding_1 = args.schedule_expression.get_output(context);
+        let schedule_expression_binding = schedule_expression_binding_1.get_inner();
+        let sync_compliance_binding_1 = args.sync_compliance.get_output(context);
+        let sync_compliance_binding = sync_compliance_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let targets_binding_1 = args.targets.get_output(context);
+        let targets_binding = targets_binding_1.get_inner();
+        let wait_for_success_timeout_seconds_binding_1 = args
             .wait_for_success_timeout_seconds
-            .get_output(context)
+            .get_output(context);
+        let wait_for_success_timeout_seconds_binding = wait_for_success_timeout_seconds_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/association:Association".into(),

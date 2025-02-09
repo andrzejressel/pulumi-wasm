@@ -158,13 +158,14 @@ pub mod policy_tag {
     ) -> PolicyTagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let parent_policy_tag_binding = args
-            .parent_policy_tag
-            .get_output(context)
-            .get_inner();
-        let taxonomy_binding = args.taxonomy.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let parent_policy_tag_binding_1 = args.parent_policy_tag.get_output(context);
+        let parent_policy_tag_binding = parent_policy_tag_binding_1.get_inner();
+        let taxonomy_binding_1 = args.taxonomy.get_output(context);
+        let taxonomy_binding = taxonomy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/policyTag:PolicyTag".into(),
             name: name.to_string(),

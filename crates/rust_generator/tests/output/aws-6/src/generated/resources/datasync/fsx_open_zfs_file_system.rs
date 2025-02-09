@@ -101,17 +101,16 @@ pub mod fsx_open_zfs_file_system {
     ) -> FsxOpenZfsFileSystemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let fsx_filesystem_arn_binding = args
-            .fsx_filesystem_arn
-            .get_output(context)
-            .get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let security_group_arns_binding = args
-            .security_group_arns
-            .get_output(context)
-            .get_inner();
-        let subdirectory_binding = args.subdirectory.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let fsx_filesystem_arn_binding_1 = args.fsx_filesystem_arn.get_output(context);
+        let fsx_filesystem_arn_binding = fsx_filesystem_arn_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let security_group_arns_binding_1 = args.security_group_arns.get_output(context);
+        let security_group_arns_binding = security_group_arns_binding_1.get_inner();
+        let subdirectory_binding_1 = args.subdirectory.get_output(context);
+        let subdirectory_binding = subdirectory_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem".into(),
             name: name.to_string(),

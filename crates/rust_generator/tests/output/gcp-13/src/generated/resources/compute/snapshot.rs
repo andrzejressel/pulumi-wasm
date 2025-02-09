@@ -282,25 +282,32 @@ pub mod snapshot {
     ) -> SnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let chain_name_binding = args.chain_name.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let snapshot_encryption_key_binding = args
+        let chain_name_binding_1 = args.chain_name.get_output(context);
+        let chain_name_binding = chain_name_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let snapshot_encryption_key_binding_1 = args
             .snapshot_encryption_key
-            .get_output(context)
+            .get_output(context);
+        let snapshot_encryption_key_binding = snapshot_encryption_key_binding_1
             .get_inner();
-        let source_disk_binding = args.source_disk.get_output(context).get_inner();
-        let source_disk_encryption_key_binding = args
+        let source_disk_binding_1 = args.source_disk.get_output(context);
+        let source_disk_binding = source_disk_binding_1.get_inner();
+        let source_disk_encryption_key_binding_1 = args
             .source_disk_encryption_key
-            .get_output(context)
+            .get_output(context);
+        let source_disk_encryption_key_binding = source_disk_encryption_key_binding_1
             .get_inner();
-        let storage_locations_binding = args
-            .storage_locations
-            .get_output(context)
-            .get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let storage_locations_binding_1 = args.storage_locations.get_output(context);
+        let storage_locations_binding = storage_locations_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/snapshot:Snapshot".into(),
             name: name.to_string(),

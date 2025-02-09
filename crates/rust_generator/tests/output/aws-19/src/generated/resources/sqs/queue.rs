@@ -255,56 +255,63 @@ pub mod queue {
     ) -> QueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let content_based_deduplication_binding = args
+        let content_based_deduplication_binding_1 = args
             .content_based_deduplication
-            .get_output(context)
+            .get_output(context);
+        let content_based_deduplication_binding = content_based_deduplication_binding_1
             .get_inner();
-        let deduplication_scope_binding = args
-            .deduplication_scope
-            .get_output(context)
-            .get_inner();
-        let delay_seconds_binding = args.delay_seconds.get_output(context).get_inner();
-        let fifo_queue_binding = args.fifo_queue.get_output(context).get_inner();
-        let fifo_throughput_limit_binding = args
+        let deduplication_scope_binding_1 = args.deduplication_scope.get_output(context);
+        let deduplication_scope_binding = deduplication_scope_binding_1.get_inner();
+        let delay_seconds_binding_1 = args.delay_seconds.get_output(context);
+        let delay_seconds_binding = delay_seconds_binding_1.get_inner();
+        let fifo_queue_binding_1 = args.fifo_queue.get_output(context);
+        let fifo_queue_binding = fifo_queue_binding_1.get_inner();
+        let fifo_throughput_limit_binding_1 = args
             .fifo_throughput_limit
-            .get_output(context)
-            .get_inner();
-        let kms_data_key_reuse_period_seconds_binding = args
+            .get_output(context);
+        let fifo_throughput_limit_binding = fifo_throughput_limit_binding_1.get_inner();
+        let kms_data_key_reuse_period_seconds_binding_1 = args
             .kms_data_key_reuse_period_seconds
-            .get_output(context)
+            .get_output(context);
+        let kms_data_key_reuse_period_seconds_binding = kms_data_key_reuse_period_seconds_binding_1
             .get_inner();
-        let kms_master_key_id_binding = args
-            .kms_master_key_id
-            .get_output(context)
-            .get_inner();
-        let max_message_size_binding = args
-            .max_message_size
-            .get_output(context)
-            .get_inner();
-        let message_retention_seconds_binding = args
+        let kms_master_key_id_binding_1 = args.kms_master_key_id.get_output(context);
+        let kms_master_key_id_binding = kms_master_key_id_binding_1.get_inner();
+        let max_message_size_binding_1 = args.max_message_size.get_output(context);
+        let max_message_size_binding = max_message_size_binding_1.get_inner();
+        let message_retention_seconds_binding_1 = args
             .message_retention_seconds
-            .get_output(context)
+            .get_output(context);
+        let message_retention_seconds_binding = message_retention_seconds_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let receive_wait_time_seconds_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let receive_wait_time_seconds_binding_1 = args
             .receive_wait_time_seconds
-            .get_output(context)
+            .get_output(context);
+        let receive_wait_time_seconds_binding = receive_wait_time_seconds_binding_1
             .get_inner();
-        let redrive_allow_policy_binding = args
+        let redrive_allow_policy_binding_1 = args
             .redrive_allow_policy
-            .get_output(context)
-            .get_inner();
-        let redrive_policy_binding = args.redrive_policy.get_output(context).get_inner();
-        let sqs_managed_sse_enabled_binding = args
+            .get_output(context);
+        let redrive_allow_policy_binding = redrive_allow_policy_binding_1.get_inner();
+        let redrive_policy_binding_1 = args.redrive_policy.get_output(context);
+        let redrive_policy_binding = redrive_policy_binding_1.get_inner();
+        let sqs_managed_sse_enabled_binding_1 = args
             .sqs_managed_sse_enabled
-            .get_output(context)
+            .get_output(context);
+        let sqs_managed_sse_enabled_binding = sqs_managed_sse_enabled_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let visibility_timeout_seconds_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let visibility_timeout_seconds_binding_1 = args
             .visibility_timeout_seconds
-            .get_output(context)
+            .get_output(context);
+        let visibility_timeout_seconds_binding = visibility_timeout_seconds_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sqs/queue:Queue".into(),

@@ -145,26 +145,31 @@ pub mod automation_rule {
     ) -> AutomationRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_incidents_binding = args
-            .action_incidents
-            .get_output(context)
-            .get_inner();
-        let action_playbooks_binding = args
-            .action_playbooks
-            .get_output(context)
-            .get_inner();
-        let condition_json_binding = args.condition_json.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let expiration_binding = args.expiration.get_output(context).get_inner();
-        let log_analytics_workspace_id_binding = args
+        let action_incidents_binding_1 = args.action_incidents.get_output(context);
+        let action_incidents_binding = action_incidents_binding_1.get_inner();
+        let action_playbooks_binding_1 = args.action_playbooks.get_output(context);
+        let action_playbooks_binding = action_playbooks_binding_1.get_inner();
+        let condition_json_binding_1 = args.condition_json.get_output(context);
+        let condition_json_binding = condition_json_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let expiration_binding_1 = args.expiration.get_output(context);
+        let expiration_binding = expiration_binding_1.get_inner();
+        let log_analytics_workspace_id_binding_1 = args
             .log_analytics_workspace_id
-            .get_output(context)
+            .get_output(context);
+        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let order_binding = args.order.get_output(context).get_inner();
-        let triggers_on_binding = args.triggers_on.get_output(context).get_inner();
-        let triggers_when_binding = args.triggers_when.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let order_binding_1 = args.order.get_output(context);
+        let order_binding = order_binding_1.get_inner();
+        let triggers_on_binding_1 = args.triggers_on.get_output(context);
+        let triggers_on_binding = triggers_on_binding_1.get_inner();
+        let triggers_when_binding_1 = args.triggers_when.get_output(context);
+        let triggers_when_binding = triggers_when_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/automationRule:AutomationRule".into(),
             name: name.to_string(),

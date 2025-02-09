@@ -69,9 +69,12 @@ pub mod archive_rule {
     ) -> ArchiveRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let analyzer_name_binding = args.analyzer_name.get_output(context).get_inner();
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let rule_name_binding = args.rule_name.get_output(context).get_inner();
+        let analyzer_name_binding_1 = args.analyzer_name.get_output(context);
+        let analyzer_name_binding = analyzer_name_binding_1.get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let rule_name_binding_1 = args.rule_name.get_output(context);
+        let rule_name_binding = rule_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:accessanalyzer/archiveRule:ArchiveRule".into(),
             name: name.to_string(),

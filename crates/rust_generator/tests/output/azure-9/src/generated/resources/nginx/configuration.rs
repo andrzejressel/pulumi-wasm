@@ -163,17 +163,16 @@ pub mod configuration {
     ) -> ConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let config_files_binding = args.config_files.get_output(context).get_inner();
-        let nginx_deployment_id_binding = args
-            .nginx_deployment_id
-            .get_output(context)
-            .get_inner();
-        let package_data_binding = args.package_data.get_output(context).get_inner();
-        let protected_files_binding = args
-            .protected_files
-            .get_output(context)
-            .get_inner();
-        let root_file_binding = args.root_file.get_output(context).get_inner();
+        let config_files_binding_1 = args.config_files.get_output(context);
+        let config_files_binding = config_files_binding_1.get_inner();
+        let nginx_deployment_id_binding_1 = args.nginx_deployment_id.get_output(context);
+        let nginx_deployment_id_binding = nginx_deployment_id_binding_1.get_inner();
+        let package_data_binding_1 = args.package_data.get_output(context);
+        let package_data_binding = package_data_binding_1.get_inner();
+        let protected_files_binding_1 = args.protected_files.get_output(context);
+        let protected_files_binding = protected_files_binding_1.get_inner();
+        let root_file_binding_1 = args.root_file.get_output(context);
+        let root_file_binding = root_file_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:nginx/configuration:Configuration".into(),
             name: name.to_string(),

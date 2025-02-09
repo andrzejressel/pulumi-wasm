@@ -124,23 +124,21 @@ pub mod sync_cloud_endpoint {
     ) -> SyncCloudEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let file_share_name_binding = args
-            .file_share_name
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
-        let storage_account_tenant_id_binding = args
+        let file_share_name_binding_1 = args.file_share_name.get_output(context);
+        let file_share_name_binding = file_share_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
+        let storage_account_tenant_id_binding_1 = args
             .storage_account_tenant_id
-            .get_output(context)
+            .get_output(context);
+        let storage_account_tenant_id_binding = storage_account_tenant_id_binding_1
             .get_inner();
-        let storage_sync_group_id_binding = args
+        let storage_sync_group_id_binding_1 = args
             .storage_sync_group_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let storage_sync_group_id_binding = storage_sync_group_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/syncCloudEndpoint:SyncCloudEndpoint".into(),
             name: name.to_string(),

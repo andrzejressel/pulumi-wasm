@@ -98,8 +98,10 @@ pub mod notification_channel {
     ) -> NotificationChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let sns_binding = args.sns.get_output(context).get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let sns_binding_1 = args.sns.get_output(context);
+        let sns_binding = sns_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:devopsguru/notificationChannel:NotificationChannel".into(),
             name: name.to_string(),

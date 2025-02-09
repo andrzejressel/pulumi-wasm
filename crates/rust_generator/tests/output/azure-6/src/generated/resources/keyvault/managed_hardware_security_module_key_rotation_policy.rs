@@ -77,19 +77,14 @@ pub mod managed_hardware_security_module_key_rotation_policy {
     ) -> ManagedHardwareSecurityModuleKeyRotationPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let expire_after_binding = args.expire_after.get_output(context).get_inner();
-        let managed_hsm_key_id_binding = args
-            .managed_hsm_key_id
-            .get_output(context)
-            .get_inner();
-        let time_after_creation_binding = args
-            .time_after_creation
-            .get_output(context)
-            .get_inner();
-        let time_before_expiry_binding = args
-            .time_before_expiry
-            .get_output(context)
-            .get_inner();
+        let expire_after_binding_1 = args.expire_after.get_output(context);
+        let expire_after_binding = expire_after_binding_1.get_inner();
+        let managed_hsm_key_id_binding_1 = args.managed_hsm_key_id.get_output(context);
+        let managed_hsm_key_id_binding = managed_hsm_key_id_binding_1.get_inner();
+        let time_after_creation_binding_1 = args.time_after_creation.get_output(context);
+        let time_after_creation_binding = time_after_creation_binding_1.get_inner();
+        let time_before_expiry_binding_1 = args.time_before_expiry.get_output(context);
+        let time_before_expiry_binding = time_before_expiry_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/managedHardwareSecurityModuleKeyRotationPolicy:ManagedHardwareSecurityModuleKeyRotationPolicy"
                 .into(),

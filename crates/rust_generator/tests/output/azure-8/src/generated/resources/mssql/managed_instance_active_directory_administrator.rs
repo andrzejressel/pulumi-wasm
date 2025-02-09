@@ -131,17 +131,19 @@ pub mod managed_instance_active_directory_administrator {
     ) -> ManagedInstanceActiveDirectoryAdministratorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let azuread_authentication_only_binding = args
+        let azuread_authentication_only_binding_1 = args
             .azuread_authentication_only
-            .get_output(context)
+            .get_output(context);
+        let azuread_authentication_only_binding = azuread_authentication_only_binding_1
             .get_inner();
-        let login_username_binding = args.login_username.get_output(context).get_inner();
-        let managed_instance_id_binding = args
-            .managed_instance_id
-            .get_output(context)
-            .get_inner();
-        let object_id_binding = args.object_id.get_output(context).get_inner();
-        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
+        let login_username_binding_1 = args.login_username.get_output(context);
+        let login_username_binding = login_username_binding_1.get_inner();
+        let managed_instance_id_binding_1 = args.managed_instance_id.get_output(context);
+        let managed_instance_id_binding = managed_instance_id_binding_1.get_inner();
+        let object_id_binding_1 = args.object_id.get_output(context);
+        let object_id_binding = object_id_binding_1.get_inner();
+        let tenant_id_binding_1 = args.tenant_id.get_output(context);
+        let tenant_id_binding = tenant_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator"
                 .into(),

@@ -88,15 +88,12 @@ pub mod vault_notifications {
     ) -> VaultNotificationsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_vault_events_binding = args
-            .backup_vault_events
-            .get_output(context)
-            .get_inner();
-        let backup_vault_name_binding = args
-            .backup_vault_name
-            .get_output(context)
-            .get_inner();
-        let sns_topic_arn_binding = args.sns_topic_arn.get_output(context).get_inner();
+        let backup_vault_events_binding_1 = args.backup_vault_events.get_output(context);
+        let backup_vault_events_binding = backup_vault_events_binding_1.get_inner();
+        let backup_vault_name_binding_1 = args.backup_vault_name.get_output(context);
+        let backup_vault_name_binding = backup_vault_name_binding_1.get_inner();
+        let sns_topic_arn_binding_1 = args.sns_topic_arn.get_output(context);
+        let sns_topic_arn_binding = sns_topic_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:backup/vaultNotifications:VaultNotifications".into(),
             name: name.to_string(),

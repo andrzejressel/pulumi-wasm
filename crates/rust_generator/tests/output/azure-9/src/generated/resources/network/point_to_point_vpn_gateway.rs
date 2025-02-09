@@ -167,27 +167,34 @@ pub mod point_to_point_vpn_gateway {
     ) -> PointToPointVpnGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_configurations_binding = args
+        let connection_configurations_binding_1 = args
             .connection_configurations
-            .get_output(context)
+            .get_output(context);
+        let connection_configurations_binding = connection_configurations_binding_1
             .get_inner();
-        let dns_servers_binding = args.dns_servers.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let routing_preference_internet_enabled_binding = args
+        let dns_servers_binding_1 = args.dns_servers.get_output(context);
+        let dns_servers_binding = dns_servers_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let routing_preference_internet_enabled_binding_1 = args
             .routing_preference_internet_enabled
-            .get_output(context)
+            .get_output(context);
+        let routing_preference_internet_enabled_binding = routing_preference_internet_enabled_binding_1
             .get_inner();
-        let scale_unit_binding = args.scale_unit.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let virtual_hub_id_binding = args.virtual_hub_id.get_output(context).get_inner();
-        let vpn_server_configuration_id_binding = args
+        let scale_unit_binding_1 = args.scale_unit.get_output(context);
+        let scale_unit_binding = scale_unit_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let virtual_hub_id_binding_1 = args.virtual_hub_id.get_output(context);
+        let virtual_hub_id_binding = virtual_hub_id_binding_1.get_inner();
+        let vpn_server_configuration_id_binding_1 = args
             .vpn_server_configuration_id
-            .get_output(context)
+            .get_output(context);
+        let vpn_server_configuration_id_binding = vpn_server_configuration_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/pointToPointVpnGateway:PointToPointVpnGateway".into(),

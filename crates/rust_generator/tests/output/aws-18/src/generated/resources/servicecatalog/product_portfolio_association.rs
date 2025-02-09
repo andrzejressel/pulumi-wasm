@@ -71,16 +71,14 @@ pub mod product_portfolio_association {
     ) -> ProductPortfolioAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding = args
-            .accept_language
-            .get_output(context)
-            .get_inner();
-        let portfolio_id_binding = args.portfolio_id.get_output(context).get_inner();
-        let product_id_binding = args.product_id.get_output(context).get_inner();
-        let source_portfolio_id_binding = args
-            .source_portfolio_id
-            .get_output(context)
-            .get_inner();
+        let accept_language_binding_1 = args.accept_language.get_output(context);
+        let accept_language_binding = accept_language_binding_1.get_inner();
+        let portfolio_id_binding_1 = args.portfolio_id.get_output(context);
+        let portfolio_id_binding = portfolio_id_binding_1.get_inner();
+        let product_id_binding_1 = args.product_id.get_output(context);
+        let product_id_binding = product_id_binding_1.get_inner();
+        let source_portfolio_id_binding_1 = args.source_portfolio_id.get_output(context);
+        let source_portfolio_id_binding = source_portfolio_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation"
                 .into(),

@@ -185,23 +185,24 @@ pub mod network_policy {
     ) -> NetworkPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let edge_services_cidr_binding = args
-            .edge_services_cidr
-            .get_output(context)
-            .get_inner();
-        let external_ip_binding = args.external_ip.get_output(context).get_inner();
-        let internet_access_binding = args
-            .internet_access
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let vmware_engine_network_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let edge_services_cidr_binding_1 = args.edge_services_cidr.get_output(context);
+        let edge_services_cidr_binding = edge_services_cidr_binding_1.get_inner();
+        let external_ip_binding_1 = args.external_ip.get_output(context);
+        let external_ip_binding = external_ip_binding_1.get_inner();
+        let internet_access_binding_1 = args.internet_access.get_output(context);
+        let internet_access_binding = internet_access_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let vmware_engine_network_binding_1 = args
             .vmware_engine_network
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let vmware_engine_network_binding = vmware_engine_network_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vmwareengine/networkPolicy:NetworkPolicy".into(),
             name: name.to_string(),

@@ -282,45 +282,37 @@ pub mod cx_security_settings {
     ) -> CxSecuritySettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audio_export_settings_binding = args
+        let audio_export_settings_binding_1 = args
             .audio_export_settings
-            .get_output(context)
-            .get_inner();
-        let deidentify_template_binding = args
-            .deidentify_template
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let insights_export_settings_binding = args
+            .get_output(context);
+        let audio_export_settings_binding = audio_export_settings_binding_1.get_inner();
+        let deidentify_template_binding_1 = args.deidentify_template.get_output(context);
+        let deidentify_template_binding = deidentify_template_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let insights_export_settings_binding_1 = args
             .insights_export_settings
-            .get_output(context)
+            .get_output(context);
+        let insights_export_settings_binding = insights_export_settings_binding_1
             .get_inner();
-        let inspect_template_binding = args
-            .inspect_template
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let purge_data_types_binding = args
-            .purge_data_types
-            .get_output(context)
-            .get_inner();
-        let redaction_scope_binding = args
-            .redaction_scope
-            .get_output(context)
-            .get_inner();
-        let redaction_strategy_binding = args
-            .redaction_strategy
-            .get_output(context)
-            .get_inner();
-        let retention_strategy_binding = args
-            .retention_strategy
-            .get_output(context)
-            .get_inner();
-        let retention_window_days_binding = args
+        let inspect_template_binding_1 = args.inspect_template.get_output(context);
+        let inspect_template_binding = inspect_template_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let purge_data_types_binding_1 = args.purge_data_types.get_output(context);
+        let purge_data_types_binding = purge_data_types_binding_1.get_inner();
+        let redaction_scope_binding_1 = args.redaction_scope.get_output(context);
+        let redaction_scope_binding = redaction_scope_binding_1.get_inner();
+        let redaction_strategy_binding_1 = args.redaction_strategy.get_output(context);
+        let redaction_strategy_binding = redaction_strategy_binding_1.get_inner();
+        let retention_strategy_binding_1 = args.retention_strategy.get_output(context);
+        let retention_strategy_binding = retention_strategy_binding_1.get_inner();
+        let retention_window_days_binding_1 = args
             .retention_window_days
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let retention_window_days_binding = retention_window_days_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/cxSecuritySettings:CxSecuritySettings".into(),
             name: name.to_string(),

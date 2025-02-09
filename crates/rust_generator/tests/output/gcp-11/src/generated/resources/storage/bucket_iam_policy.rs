@@ -362,8 +362,10 @@ pub mod bucket_iam_policy {
     ) -> BucketIAMPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let policy_data_binding = args.policy_data.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let policy_data_binding_1 = args.policy_data.get_output(context);
+        let policy_data_binding = policy_data_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/bucketIAMPolicy:BucketIAMPolicy".into(),
             name: name.to_string(),

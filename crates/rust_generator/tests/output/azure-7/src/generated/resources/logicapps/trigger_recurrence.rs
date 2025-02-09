@@ -106,13 +106,20 @@ pub mod trigger_recurrence {
     ) -> TriggerRecurrenceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let frequency_binding = args.frequency.get_output(context).get_inner();
-        let interval_binding = args.interval.get_output(context).get_inner();
-        let logic_app_id_binding = args.logic_app_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let start_time_binding = args.start_time.get_output(context).get_inner();
-        let time_zone_binding = args.time_zone.get_output(context).get_inner();
+        let frequency_binding_1 = args.frequency.get_output(context);
+        let frequency_binding = frequency_binding_1.get_inner();
+        let interval_binding_1 = args.interval.get_output(context);
+        let interval_binding = interval_binding_1.get_inner();
+        let logic_app_id_binding_1 = args.logic_app_id.get_output(context);
+        let logic_app_id_binding = logic_app_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let start_time_binding_1 = args.start_time.get_output(context);
+        let start_time_binding = start_time_binding_1.get_inner();
+        let time_zone_binding_1 = args.time_zone.get_output(context);
+        let time_zone_binding = time_zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/triggerRecurrence:TriggerRecurrence".into(),
             name: name.to_string(),

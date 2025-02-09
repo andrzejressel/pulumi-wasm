@@ -199,44 +199,52 @@ pub mod agent_agent {
     ) -> AgentAgentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_collaboration_binding = args
-            .agent_collaboration
-            .get_output(context)
-            .get_inner();
-        let agent_name_binding = args.agent_name.get_output(context).get_inner();
-        let agent_resource_role_arn_binding = args
+        let agent_collaboration_binding_1 = args.agent_collaboration.get_output(context);
+        let agent_collaboration_binding = agent_collaboration_binding_1.get_inner();
+        let agent_name_binding_1 = args.agent_name.get_output(context);
+        let agent_name_binding = agent_name_binding_1.get_inner();
+        let agent_resource_role_arn_binding_1 = args
             .agent_resource_role_arn
-            .get_output(context)
+            .get_output(context);
+        let agent_resource_role_arn_binding = agent_resource_role_arn_binding_1
             .get_inner();
-        let customer_encryption_key_arn_binding = args
+        let customer_encryption_key_arn_binding_1 = args
             .customer_encryption_key_arn
-            .get_output(context)
+            .get_output(context);
+        let customer_encryption_key_arn_binding = customer_encryption_key_arn_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let foundation_model_binding = args
-            .foundation_model
-            .get_output(context)
-            .get_inner();
-        let guardrail_configurations_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let foundation_model_binding_1 = args.foundation_model.get_output(context);
+        let foundation_model_binding = foundation_model_binding_1.get_inner();
+        let guardrail_configurations_binding_1 = args
             .guardrail_configurations
-            .get_output(context)
+            .get_output(context);
+        let guardrail_configurations_binding = guardrail_configurations_binding_1
             .get_inner();
-        let idle_session_ttl_in_seconds_binding = args
+        let idle_session_ttl_in_seconds_binding_1 = args
             .idle_session_ttl_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let idle_session_ttl_in_seconds_binding = idle_session_ttl_in_seconds_binding_1
             .get_inner();
-        let instruction_binding = args.instruction.get_output(context).get_inner();
-        let prepare_agent_binding = args.prepare_agent.get_output(context).get_inner();
-        let prompt_override_configurations_binding = args
+        let instruction_binding_1 = args.instruction.get_output(context);
+        let instruction_binding = instruction_binding_1.get_inner();
+        let prepare_agent_binding_1 = args.prepare_agent.get_output(context);
+        let prepare_agent_binding = prepare_agent_binding_1.get_inner();
+        let prompt_override_configurations_binding_1 = args
             .prompt_override_configurations
-            .get_output(context)
+            .get_output(context);
+        let prompt_override_configurations_binding = prompt_override_configurations_binding_1
             .get_inner();
-        let skip_resource_in_use_check_binding = args
+        let skip_resource_in_use_check_binding_1 = args
             .skip_resource_in_use_check
-            .get_output(context)
+            .get_output(context);
+        let skip_resource_in_use_check_binding = skip_resource_in_use_check_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:bedrock/agentAgent:AgentAgent".into(),
             name: name.to_string(),

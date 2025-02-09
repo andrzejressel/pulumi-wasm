@@ -406,78 +406,79 @@ pub mod flexible_app_version {
     ) -> FlexibleAppVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_config_binding = args.api_config.get_output(context).get_inner();
-        let automatic_scaling_binding = args
-            .automatic_scaling
-            .get_output(context)
-            .get_inner();
-        let beta_settings_binding = args.beta_settings.get_output(context).get_inner();
-        let default_expiration_binding = args
-            .default_expiration
-            .get_output(context)
-            .get_inner();
-        let delete_service_on_destroy_binding = args
+        let api_config_binding_1 = args.api_config.get_output(context);
+        let api_config_binding = api_config_binding_1.get_inner();
+        let automatic_scaling_binding_1 = args.automatic_scaling.get_output(context);
+        let automatic_scaling_binding = automatic_scaling_binding_1.get_inner();
+        let beta_settings_binding_1 = args.beta_settings.get_output(context);
+        let beta_settings_binding = beta_settings_binding_1.get_inner();
+        let default_expiration_binding_1 = args.default_expiration.get_output(context);
+        let default_expiration_binding = default_expiration_binding_1.get_inner();
+        let delete_service_on_destroy_binding_1 = args
             .delete_service_on_destroy
-            .get_output(context)
+            .get_output(context);
+        let delete_service_on_destroy_binding = delete_service_on_destroy_binding_1
             .get_inner();
-        let deployment_binding = args.deployment.get_output(context).get_inner();
-        let endpoints_api_service_binding = args
+        let deployment_binding_1 = args.deployment.get_output(context);
+        let deployment_binding = deployment_binding_1.get_inner();
+        let endpoints_api_service_binding_1 = args
             .endpoints_api_service
-            .get_output(context)
-            .get_inner();
-        let entrypoint_binding = args.entrypoint.get_output(context).get_inner();
-        let env_variables_binding = args.env_variables.get_output(context).get_inner();
-        let flexible_runtime_settings_binding = args
+            .get_output(context);
+        let endpoints_api_service_binding = endpoints_api_service_binding_1.get_inner();
+        let entrypoint_binding_1 = args.entrypoint.get_output(context);
+        let entrypoint_binding = entrypoint_binding_1.get_inner();
+        let env_variables_binding_1 = args.env_variables.get_output(context);
+        let env_variables_binding = env_variables_binding_1.get_inner();
+        let flexible_runtime_settings_binding_1 = args
             .flexible_runtime_settings
-            .get_output(context)
+            .get_output(context);
+        let flexible_runtime_settings_binding = flexible_runtime_settings_binding_1
             .get_inner();
-        let handlers_binding = args.handlers.get_output(context).get_inner();
-        let inbound_services_binding = args
-            .inbound_services
-            .get_output(context)
-            .get_inner();
-        let instance_class_binding = args.instance_class.get_output(context).get_inner();
-        let liveness_check_binding = args.liveness_check.get_output(context).get_inner();
-        let manual_scaling_binding = args.manual_scaling.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let nobuild_files_regex_binding = args
-            .nobuild_files_regex
-            .get_output(context)
-            .get_inner();
-        let noop_on_destroy_binding = args
-            .noop_on_destroy
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let readiness_check_binding = args
-            .readiness_check
-            .get_output(context)
-            .get_inner();
-        let resources_binding = args.resources.get_output(context).get_inner();
-        let runtime_binding = args.runtime.get_output(context).get_inner();
-        let runtime_api_version_binding = args
-            .runtime_api_version
-            .get_output(context)
-            .get_inner();
-        let runtime_channel_binding = args
-            .runtime_channel
-            .get_output(context)
-            .get_inner();
-        let runtime_main_executable_path_binding = args
+        let handlers_binding_1 = args.handlers.get_output(context);
+        let handlers_binding = handlers_binding_1.get_inner();
+        let inbound_services_binding_1 = args.inbound_services.get_output(context);
+        let inbound_services_binding = inbound_services_binding_1.get_inner();
+        let instance_class_binding_1 = args.instance_class.get_output(context);
+        let instance_class_binding = instance_class_binding_1.get_inner();
+        let liveness_check_binding_1 = args.liveness_check.get_output(context);
+        let liveness_check_binding = liveness_check_binding_1.get_inner();
+        let manual_scaling_binding_1 = args.manual_scaling.get_output(context);
+        let manual_scaling_binding = manual_scaling_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let nobuild_files_regex_binding_1 = args.nobuild_files_regex.get_output(context);
+        let nobuild_files_regex_binding = nobuild_files_regex_binding_1.get_inner();
+        let noop_on_destroy_binding_1 = args.noop_on_destroy.get_output(context);
+        let noop_on_destroy_binding = noop_on_destroy_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let readiness_check_binding_1 = args.readiness_check.get_output(context);
+        let readiness_check_binding = readiness_check_binding_1.get_inner();
+        let resources_binding_1 = args.resources.get_output(context);
+        let resources_binding = resources_binding_1.get_inner();
+        let runtime_binding_1 = args.runtime.get_output(context);
+        let runtime_binding = runtime_binding_1.get_inner();
+        let runtime_api_version_binding_1 = args.runtime_api_version.get_output(context);
+        let runtime_api_version_binding = runtime_api_version_binding_1.get_inner();
+        let runtime_channel_binding_1 = args.runtime_channel.get_output(context);
+        let runtime_channel_binding = runtime_channel_binding_1.get_inner();
+        let runtime_main_executable_path_binding_1 = args
             .runtime_main_executable_path
-            .get_output(context)
+            .get_output(context);
+        let runtime_main_executable_path_binding = runtime_main_executable_path_binding_1
             .get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
-        let service_account_binding = args
-            .service_account
-            .get_output(context)
-            .get_inner();
-        let serving_status_binding = args.serving_status.get_output(context).get_inner();
-        let version_id_binding = args.version_id.get_output(context).get_inner();
-        let vpc_access_connector_binding = args
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
+        let service_account_binding_1 = args.service_account.get_output(context);
+        let service_account_binding = service_account_binding_1.get_inner();
+        let serving_status_binding_1 = args.serving_status.get_output(context);
+        let serving_status_binding = serving_status_binding_1.get_inner();
+        let version_id_binding_1 = args.version_id.get_output(context);
+        let version_id_binding = version_id_binding_1.get_inner();
+        let vpc_access_connector_binding_1 = args
             .vpc_access_connector
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let vpc_access_connector_binding = vpc_access_connector_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/flexibleAppVersion:FlexibleAppVersion".into(),
             name: name.to_string(),

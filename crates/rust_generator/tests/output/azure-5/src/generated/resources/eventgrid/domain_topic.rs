@@ -71,12 +71,12 @@ pub mod domain_topic {
     ) -> DomainTopicResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:eventgrid/domainTopic:DomainTopic".into(),
             name: name.to_string(),

@@ -163,53 +163,52 @@ pub mod v_2_models_intent {
     ) -> V2modelsIntentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_id_binding = args.bot_id.get_output(context).get_inner();
-        let bot_version_binding = args.bot_version.get_output(context).get_inner();
-        let closing_setting_binding = args
-            .closing_setting
-            .get_output(context)
-            .get_inner();
-        let confirmation_setting_binding = args
+        let bot_id_binding_1 = args.bot_id.get_output(context);
+        let bot_id_binding = bot_id_binding_1.get_inner();
+        let bot_version_binding_1 = args.bot_version.get_output(context);
+        let bot_version_binding = bot_version_binding_1.get_inner();
+        let closing_setting_binding_1 = args.closing_setting.get_output(context);
+        let closing_setting_binding = closing_setting_binding_1.get_inner();
+        let confirmation_setting_binding_1 = args
             .confirmation_setting
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let dialog_code_hook_binding = args
-            .dialog_code_hook
-            .get_output(context)
-            .get_inner();
-        let fulfillment_code_hook_binding = args
+            .get_output(context);
+        let confirmation_setting_binding = confirmation_setting_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dialog_code_hook_binding_1 = args.dialog_code_hook.get_output(context);
+        let dialog_code_hook_binding = dialog_code_hook_binding_1.get_inner();
+        let fulfillment_code_hook_binding_1 = args
             .fulfillment_code_hook
-            .get_output(context)
-            .get_inner();
-        let initial_response_setting_binding = args
+            .get_output(context);
+        let fulfillment_code_hook_binding = fulfillment_code_hook_binding_1.get_inner();
+        let initial_response_setting_binding_1 = args
             .initial_response_setting
-            .get_output(context)
+            .get_output(context);
+        let initial_response_setting_binding = initial_response_setting_binding_1
             .get_inner();
-        let input_contexts_binding = args.input_contexts.get_output(context).get_inner();
-        let kendra_configuration_binding = args
+        let input_contexts_binding_1 = args.input_contexts.get_output(context);
+        let input_contexts_binding = input_contexts_binding_1.get_inner();
+        let kendra_configuration_binding_1 = args
             .kendra_configuration
-            .get_output(context)
-            .get_inner();
-        let locale_id_binding = args.locale_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let output_contexts_binding = args
-            .output_contexts
-            .get_output(context)
-            .get_inner();
-        let parent_intent_signature_binding = args
+            .get_output(context);
+        let kendra_configuration_binding = kendra_configuration_binding_1.get_inner();
+        let locale_id_binding_1 = args.locale_id.get_output(context);
+        let locale_id_binding = locale_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let output_contexts_binding_1 = args.output_contexts.get_output(context);
+        let output_contexts_binding = output_contexts_binding_1.get_inner();
+        let parent_intent_signature_binding_1 = args
             .parent_intent_signature
-            .get_output(context)
+            .get_output(context);
+        let parent_intent_signature_binding = parent_intent_signature_binding_1
             .get_inner();
-        let sample_utterances_binding = args
-            .sample_utterances
-            .get_output(context)
-            .get_inner();
-        let slot_priorities_binding = args
-            .slot_priorities
-            .get_output(context)
-            .get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let sample_utterances_binding_1 = args.sample_utterances.get_output(context);
+        let sample_utterances_binding = sample_utterances_binding_1.get_inner();
+        let slot_priorities_binding_1 = args.slot_priorities.get_output(context);
+        let slot_priorities_binding = slot_priorities_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lex/v2modelsIntent:V2modelsIntent".into(),
             name: name.to_string(),

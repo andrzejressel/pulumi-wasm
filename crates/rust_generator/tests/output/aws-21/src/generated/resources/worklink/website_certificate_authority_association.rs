@@ -67,9 +67,12 @@ pub mod website_certificate_authority_association {
     ) -> WebsiteCertificateAuthorityAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_binding = args.certificate.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let fleet_arn_binding = args.fleet_arn.get_output(context).get_inner();
+        let certificate_binding_1 = args.certificate.get_output(context);
+        let certificate_binding = certificate_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let fleet_arn_binding_1 = args.fleet_arn.get_output(context);
+        let fleet_arn_binding = fleet_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation"
                 .into(),

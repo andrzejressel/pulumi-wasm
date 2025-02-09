@@ -126,13 +126,20 @@ pub mod notification_rule {
     ) -> NotificationRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let detail_type_binding = args.detail_type.get_output(context).get_inner();
-        let event_type_ids_binding = args.event_type_ids.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_binding = args.resource.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let targets_binding = args.targets.get_output(context).get_inner();
+        let detail_type_binding_1 = args.detail_type.get_output(context);
+        let detail_type_binding = detail_type_binding_1.get_inner();
+        let event_type_ids_binding_1 = args.event_type_ids.get_output(context);
+        let event_type_ids_binding = event_type_ids_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_binding_1 = args.resource.get_output(context);
+        let resource_binding = resource_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let targets_binding_1 = args.targets.get_output(context);
+        let targets_binding = targets_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codestarnotifications/notificationRule:NotificationRule".into(),
             name: name.to_string(),

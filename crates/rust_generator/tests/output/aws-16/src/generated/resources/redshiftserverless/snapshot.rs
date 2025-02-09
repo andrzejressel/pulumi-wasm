@@ -76,12 +76,12 @@ pub mod snapshot {
     ) -> SnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
-        let retention_period_binding = args
-            .retention_period
-            .get_output(context)
-            .get_inner();
-        let snapshot_name_binding = args.snapshot_name.get_output(context).get_inner();
+        let namespace_name_binding_1 = args.namespace_name.get_output(context);
+        let namespace_name_binding = namespace_name_binding_1.get_inner();
+        let retention_period_binding_1 = args.retention_period.get_output(context);
+        let retention_period_binding = retention_period_binding_1.get_inner();
+        let snapshot_name_binding_1 = args.snapshot_name.get_output(context);
+        let snapshot_name_binding = snapshot_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshiftserverless/snapshot:Snapshot".into(),
             name: name.to_string(),

@@ -119,16 +119,23 @@ pub mod resiliency_policy {
     ) -> ResiliencyPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_location_constraint_binding = args
+        let data_location_constraint_binding_1 = args
             .data_location_constraint
-            .get_output(context)
+            .get_output(context);
+        let data_location_constraint_binding = data_location_constraint_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tier_binding = args.tier.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tier_binding_1 = args.tier.get_output(context);
+        let tier_binding = tier_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy".into(),
             name: name.to_string(),

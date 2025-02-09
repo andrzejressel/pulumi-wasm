@@ -597,12 +597,15 @@ pub mod frontdoor_secret {
     ) -> FrontdoorSecretResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdn_frontdoor_profile_id_binding = args
+        let cdn_frontdoor_profile_id_binding_1 = args
             .cdn_frontdoor_profile_id
-            .get_output(context)
+            .get_output(context);
+        let cdn_frontdoor_profile_id_binding = cdn_frontdoor_profile_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let secret_binding = args.secret.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let secret_binding_1 = args.secret.get_output(context);
+        let secret_binding = secret_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorSecret:FrontdoorSecret".into(),
             name: name.to_string(),

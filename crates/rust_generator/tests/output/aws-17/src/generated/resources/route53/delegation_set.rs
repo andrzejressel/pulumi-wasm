@@ -68,7 +68,8 @@ pub mod delegation_set {
     ) -> DelegationSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let reference_name_binding = args.reference_name.get_output(context).get_inner();
+        let reference_name_binding_1 = args.reference_name.get_output(context);
+        let reference_name_binding = reference_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/delegationSet:DelegationSet".into(),
             name: name.to_string(),

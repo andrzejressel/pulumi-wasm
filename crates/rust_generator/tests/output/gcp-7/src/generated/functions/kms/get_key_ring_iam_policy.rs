@@ -31,7 +31,8 @@ pub mod get_key_ring_iam_policy {
     ) -> GetKeyRingIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_ring_id_binding = args.key_ring_id.get_output(context).get_inner();
+        let key_ring_id_binding_1 = args.key_ring_id.get_output(context);
+        let key_ring_id_binding = key_ring_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getKeyRingIamPolicy:getKeyRingIamPolicy".into(),
             version: super::super::super::get_version(),

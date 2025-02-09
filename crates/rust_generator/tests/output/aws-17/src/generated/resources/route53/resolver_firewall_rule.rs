@@ -119,35 +119,42 @@ pub mod resolver_firewall_rule {
     ) -> ResolverFirewallRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let block_override_dns_type_binding = args
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let block_override_dns_type_binding_1 = args
             .block_override_dns_type
-            .get_output(context)
+            .get_output(context);
+        let block_override_dns_type_binding = block_override_dns_type_binding_1
             .get_inner();
-        let block_override_domain_binding = args
+        let block_override_domain_binding_1 = args
             .block_override_domain
-            .get_output(context)
-            .get_inner();
-        let block_override_ttl_binding = args
-            .block_override_ttl
-            .get_output(context)
-            .get_inner();
-        let block_response_binding = args.block_response.get_output(context).get_inner();
-        let firewall_domain_list_id_binding = args
+            .get_output(context);
+        let block_override_domain_binding = block_override_domain_binding_1.get_inner();
+        let block_override_ttl_binding_1 = args.block_override_ttl.get_output(context);
+        let block_override_ttl_binding = block_override_ttl_binding_1.get_inner();
+        let block_response_binding_1 = args.block_response.get_output(context);
+        let block_response_binding = block_response_binding_1.get_inner();
+        let firewall_domain_list_id_binding_1 = args
             .firewall_domain_list_id
-            .get_output(context)
+            .get_output(context);
+        let firewall_domain_list_id_binding = firewall_domain_list_id_binding_1
             .get_inner();
-        let firewall_domain_redirection_action_binding = args
+        let firewall_domain_redirection_action_binding_1 = args
             .firewall_domain_redirection_action
-            .get_output(context)
+            .get_output(context);
+        let firewall_domain_redirection_action_binding = firewall_domain_redirection_action_binding_1
             .get_inner();
-        let firewall_rule_group_id_binding = args
+        let firewall_rule_group_id_binding_1 = args
             .firewall_rule_group_id
-            .get_output(context)
+            .get_output(context);
+        let firewall_rule_group_id_binding = firewall_rule_group_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let q_type_binding = args.q_type.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let q_type_binding_1 = args.q_type.get_output(context);
+        let q_type_binding = q_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/resolverFirewallRule:ResolverFirewallRule".into(),
             name: name.to_string(),

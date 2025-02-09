@@ -38,10 +38,14 @@ pub mod get_repository_endpoint {
     ) -> GetRepositoryEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let domain_owner_binding = args.domain_owner.get_output(context).get_inner();
-        let format_binding = args.format.get_output(context).get_inner();
-        let repository_binding = args.repository.get_output(context).get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let domain_owner_binding_1 = args.domain_owner.get_output(context);
+        let domain_owner_binding = domain_owner_binding_1.get_inner();
+        let format_binding_1 = args.format.get_output(context);
+        let format_binding = format_binding_1.get_inner();
+        let repository_binding_1 = args.repository.get_output(context);
+        let repository_binding = repository_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint".into(),
             version: super::super::super::get_version(),

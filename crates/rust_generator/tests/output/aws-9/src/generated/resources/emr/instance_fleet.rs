@@ -122,24 +122,27 @@ pub mod instance_fleet {
     ) -> InstanceFleetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
-        let instance_type_configs_binding = args
+        let cluster_id_binding_1 = args.cluster_id.get_output(context);
+        let cluster_id_binding = cluster_id_binding_1.get_inner();
+        let instance_type_configs_binding_1 = args
             .instance_type_configs
-            .get_output(context)
-            .get_inner();
-        let launch_specifications_binding = args
+            .get_output(context);
+        let instance_type_configs_binding = instance_type_configs_binding_1.get_inner();
+        let launch_specifications_binding_1 = args
             .launch_specifications
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let target_on_demand_capacity_binding = args
+            .get_output(context);
+        let launch_specifications_binding = launch_specifications_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let target_on_demand_capacity_binding_1 = args
             .target_on_demand_capacity
-            .get_output(context)
+            .get_output(context);
+        let target_on_demand_capacity_binding = target_on_demand_capacity_binding_1
             .get_inner();
-        let target_spot_capacity_binding = args
+        let target_spot_capacity_binding_1 = args
             .target_spot_capacity
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let target_spot_capacity_binding = target_spot_capacity_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:emr/instanceFleet:InstanceFleet".into(),
             name: name.to_string(),

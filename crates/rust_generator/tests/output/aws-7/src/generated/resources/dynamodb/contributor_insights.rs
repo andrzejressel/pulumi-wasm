@@ -52,8 +52,10 @@ pub mod contributor_insights {
     ) -> ContributorInsightsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let index_name_binding = args.index_name.get_output(context).get_inner();
-        let table_name_binding = args.table_name.get_output(context).get_inner();
+        let index_name_binding_1 = args.index_name.get_output(context);
+        let index_name_binding = index_name_binding_1.get_inner();
+        let table_name_binding_1 = args.table_name.get_output(context);
+        let table_name_binding = table_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dynamodb/contributorInsights:ContributorInsights".into(),
             name: name.to_string(),

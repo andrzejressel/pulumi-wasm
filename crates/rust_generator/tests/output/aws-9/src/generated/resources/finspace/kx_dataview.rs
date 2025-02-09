@@ -146,23 +146,33 @@ pub mod kx_dataview {
     ) -> KxDataviewResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_update_binding = args.auto_update.get_output(context).get_inner();
-        let availability_zone_id_binding = args
+        let auto_update_binding_1 = args.auto_update.get_output(context);
+        let auto_update_binding = auto_update_binding_1.get_inner();
+        let availability_zone_id_binding_1 = args
             .availability_zone_id
-            .get_output(context)
-            .get_inner();
-        let az_mode_binding = args.az_mode.get_output(context).get_inner();
-        let changeset_id_binding = args.changeset_id.get_output(context).get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let environment_id_binding = args.environment_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let read_write_binding = args.read_write.get_output(context).get_inner();
-        let segment_configurations_binding = args
+            .get_output(context);
+        let availability_zone_id_binding = availability_zone_id_binding_1.get_inner();
+        let az_mode_binding_1 = args.az_mode.get_output(context);
+        let az_mode_binding = az_mode_binding_1.get_inner();
+        let changeset_id_binding_1 = args.changeset_id.get_output(context);
+        let changeset_id_binding = changeset_id_binding_1.get_inner();
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let environment_id_binding_1 = args.environment_id.get_output(context);
+        let environment_id_binding = environment_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let read_write_binding_1 = args.read_write.get_output(context);
+        let read_write_binding = read_write_binding_1.get_inner();
+        let segment_configurations_binding_1 = args
             .segment_configurations
-            .get_output(context)
+            .get_output(context);
+        let segment_configurations_binding = segment_configurations_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:finspace/kxDataview:KxDataview".into(),
             name: name.to_string(),

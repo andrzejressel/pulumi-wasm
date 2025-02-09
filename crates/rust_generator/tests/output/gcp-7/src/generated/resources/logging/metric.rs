@@ -292,25 +292,26 @@ pub mod metric {
     ) -> MetricResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_name_binding = args.bucket_name.get_output(context).get_inner();
-        let bucket_options_binding = args.bucket_options.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let label_extractors_binding = args
-            .label_extractors
-            .get_output(context)
-            .get_inner();
-        let metric_descriptor_binding = args
-            .metric_descriptor
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let value_extractor_binding = args
-            .value_extractor
-            .get_output(context)
-            .get_inner();
+        let bucket_name_binding_1 = args.bucket_name.get_output(context);
+        let bucket_name_binding = bucket_name_binding_1.get_inner();
+        let bucket_options_binding_1 = args.bucket_options.get_output(context);
+        let bucket_options_binding = bucket_options_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let label_extractors_binding_1 = args.label_extractors.get_output(context);
+        let label_extractors_binding = label_extractors_binding_1.get_inner();
+        let metric_descriptor_binding_1 = args.metric_descriptor.get_output(context);
+        let metric_descriptor_binding = metric_descriptor_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let value_extractor_binding_1 = args.value_extractor.get_output(context);
+        let value_extractor_binding = value_extractor_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:logging/metric:Metric".into(),
             name: name.to_string(),

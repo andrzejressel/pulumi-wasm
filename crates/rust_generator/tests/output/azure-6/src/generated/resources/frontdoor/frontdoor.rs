@@ -219,35 +219,38 @@ pub mod frontdoor {
     ) -> FrontdoorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backend_pool_health_probes_binding = args
+        let backend_pool_health_probes_binding_1 = args
             .backend_pool_health_probes
-            .get_output(context)
+            .get_output(context);
+        let backend_pool_health_probes_binding = backend_pool_health_probes_binding_1
             .get_inner();
-        let backend_pool_load_balancings_binding = args
+        let backend_pool_load_balancings_binding_1 = args
             .backend_pool_load_balancings
-            .get_output(context)
+            .get_output(context);
+        let backend_pool_load_balancings_binding = backend_pool_load_balancings_binding_1
             .get_inner();
-        let backend_pool_settings_binding = args
+        let backend_pool_settings_binding_1 = args
             .backend_pool_settings
-            .get_output(context)
-            .get_inner();
-        let backend_pools_binding = args.backend_pools.get_output(context).get_inner();
-        let friendly_name_binding = args.friendly_name.get_output(context).get_inner();
-        let frontend_endpoints_binding = args
-            .frontend_endpoints
-            .get_output(context)
-            .get_inner();
-        let load_balancer_enabled_binding = args
+            .get_output(context);
+        let backend_pool_settings_binding = backend_pool_settings_binding_1.get_inner();
+        let backend_pools_binding_1 = args.backend_pools.get_output(context);
+        let backend_pools_binding = backend_pools_binding_1.get_inner();
+        let friendly_name_binding_1 = args.friendly_name.get_output(context);
+        let friendly_name_binding = friendly_name_binding_1.get_inner();
+        let frontend_endpoints_binding_1 = args.frontend_endpoints.get_output(context);
+        let frontend_endpoints_binding = frontend_endpoints_binding_1.get_inner();
+        let load_balancer_enabled_binding_1 = args
             .load_balancer_enabled
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let routing_rules_binding = args.routing_rules.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let load_balancer_enabled_binding = load_balancer_enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let routing_rules_binding_1 = args.routing_rules.get_output(context);
+        let routing_rules_binding = routing_rules_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:frontdoor/frontdoor:Frontdoor".into(),
             name: name.to_string(),

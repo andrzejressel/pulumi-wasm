@@ -44,11 +44,10 @@ pub mod get_certificate {
     ) -> GetCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let nginx_deployment_id_binding = args
-            .nginx_deployment_id
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let nginx_deployment_id_binding_1 = args.nginx_deployment_id.get_output(context);
+        let nginx_deployment_id_binding = nginx_deployment_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:nginx/getCertificate:getCertificate".into(),
             version: super::super::super::get_version(),

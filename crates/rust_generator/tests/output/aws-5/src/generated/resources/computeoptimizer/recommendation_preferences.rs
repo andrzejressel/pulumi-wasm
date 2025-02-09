@@ -171,35 +171,38 @@ pub mod recommendation_preferences {
     ) -> RecommendationPreferencesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enhanced_infrastructure_metrics_binding = args
+        let enhanced_infrastructure_metrics_binding_1 = args
             .enhanced_infrastructure_metrics
-            .get_output(context)
+            .get_output(context);
+        let enhanced_infrastructure_metrics_binding = enhanced_infrastructure_metrics_binding_1
             .get_inner();
-        let external_metrics_preference_binding = args
+        let external_metrics_preference_binding_1 = args
             .external_metrics_preference
-            .get_output(context)
+            .get_output(context);
+        let external_metrics_preference_binding = external_metrics_preference_binding_1
             .get_inner();
-        let inferred_workload_types_binding = args
+        let inferred_workload_types_binding_1 = args
             .inferred_workload_types
-            .get_output(context)
+            .get_output(context);
+        let inferred_workload_types_binding = inferred_workload_types_binding_1
             .get_inner();
-        let look_back_period_binding = args
-            .look_back_period
-            .get_output(context)
-            .get_inner();
-        let preferred_resources_binding = args
-            .preferred_resources
-            .get_output(context)
-            .get_inner();
-        let resource_type_binding = args.resource_type.get_output(context).get_inner();
-        let savings_estimation_mode_binding = args
+        let look_back_period_binding_1 = args.look_back_period.get_output(context);
+        let look_back_period_binding = look_back_period_binding_1.get_inner();
+        let preferred_resources_binding_1 = args.preferred_resources.get_output(context);
+        let preferred_resources_binding = preferred_resources_binding_1.get_inner();
+        let resource_type_binding_1 = args.resource_type.get_output(context);
+        let resource_type_binding = resource_type_binding_1.get_inner();
+        let savings_estimation_mode_binding_1 = args
             .savings_estimation_mode
-            .get_output(context)
+            .get_output(context);
+        let savings_estimation_mode_binding = savings_estimation_mode_binding_1
             .get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
-        let utilization_preferences_binding = args
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
+        let utilization_preferences_binding_1 = args
             .utilization_preferences
-            .get_output(context)
+            .get_output(context);
+        let utilization_preferences_binding = utilization_preferences_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:computeoptimizer/recommendationPreferences:RecommendationPreferences"

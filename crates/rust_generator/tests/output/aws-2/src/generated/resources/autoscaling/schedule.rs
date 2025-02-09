@@ -118,24 +118,29 @@ pub mod schedule {
     ) -> ScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_group_name_binding = args
+        let autoscaling_group_name_binding_1 = args
             .autoscaling_group_name
-            .get_output(context)
+            .get_output(context);
+        let autoscaling_group_name_binding = autoscaling_group_name_binding_1
             .get_inner();
-        let desired_capacity_binding = args
-            .desired_capacity
-            .get_output(context)
-            .get_inner();
-        let end_time_binding = args.end_time.get_output(context).get_inner();
-        let max_size_binding = args.max_size.get_output(context).get_inner();
-        let min_size_binding = args.min_size.get_output(context).get_inner();
-        let recurrence_binding = args.recurrence.get_output(context).get_inner();
-        let scheduled_action_name_binding = args
+        let desired_capacity_binding_1 = args.desired_capacity.get_output(context);
+        let desired_capacity_binding = desired_capacity_binding_1.get_inner();
+        let end_time_binding_1 = args.end_time.get_output(context);
+        let end_time_binding = end_time_binding_1.get_inner();
+        let max_size_binding_1 = args.max_size.get_output(context);
+        let max_size_binding = max_size_binding_1.get_inner();
+        let min_size_binding_1 = args.min_size.get_output(context);
+        let min_size_binding = min_size_binding_1.get_inner();
+        let recurrence_binding_1 = args.recurrence.get_output(context);
+        let recurrence_binding = recurrence_binding_1.get_inner();
+        let scheduled_action_name_binding_1 = args
             .scheduled_action_name
-            .get_output(context)
-            .get_inner();
-        let start_time_binding = args.start_time.get_output(context).get_inner();
-        let time_zone_binding = args.time_zone.get_output(context).get_inner();
+            .get_output(context);
+        let scheduled_action_name_binding = scheduled_action_name_binding_1.get_inner();
+        let start_time_binding_1 = args.start_time.get_output(context);
+        let start_time_binding = start_time_binding_1.get_inner();
+        let time_zone_binding_1 = args.time_zone.get_output(context);
+        let time_zone_binding = time_zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:autoscaling/schedule:Schedule".into(),
             name: name.to_string(),

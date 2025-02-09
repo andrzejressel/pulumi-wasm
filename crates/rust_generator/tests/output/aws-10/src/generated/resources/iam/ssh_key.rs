@@ -76,10 +76,14 @@ pub mod ssh_key {
     ) -> SshKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let encoding_binding = args.encoding.get_output(context).get_inner();
-        let public_key_binding = args.public_key.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
+        let encoding_binding_1 = args.encoding.get_output(context);
+        let encoding_binding = encoding_binding_1.get_inner();
+        let public_key_binding_1 = args.public_key.get_output(context);
+        let public_key_binding = public_key_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/sshKey:SshKey".into(),
             name: name.to_string(),

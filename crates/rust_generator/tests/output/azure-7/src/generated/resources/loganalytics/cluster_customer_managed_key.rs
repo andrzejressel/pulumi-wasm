@@ -111,13 +111,12 @@ pub mod cluster_customer_managed_key {
     ) -> ClusterCustomerManagedKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_vault_key_id_binding = args
-            .key_vault_key_id
-            .get_output(context)
-            .get_inner();
-        let log_analytics_cluster_id_binding = args
+        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
+        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
+        let log_analytics_cluster_id_binding_1 = args
             .log_analytics_cluster_id
-            .get_output(context)
+            .get_output(context);
+        let log_analytics_cluster_id_binding = log_analytics_cluster_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey"

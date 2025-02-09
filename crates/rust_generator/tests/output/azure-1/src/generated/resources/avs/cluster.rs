@@ -95,16 +95,14 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_node_count_binding = args
-            .cluster_node_count
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let vmware_cloud_id_binding = args
-            .vmware_cloud_id
-            .get_output(context)
-            .get_inner();
+        let cluster_node_count_binding_1 = args.cluster_node_count.get_output(context);
+        let cluster_node_count_binding = cluster_node_count_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let vmware_cloud_id_binding_1 = args.vmware_cloud_id.get_output(context);
+        let vmware_cloud_id_binding = vmware_cloud_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:avs/cluster:Cluster".into(),
             name: name.to_string(),

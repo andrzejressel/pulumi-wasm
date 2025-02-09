@@ -210,17 +210,25 @@ pub mod worker_pool {
     ) -> WorkerPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_config_binding = args.network_config.get_output(context).get_inner();
-        let private_service_connect_binding = args
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_config_binding_1 = args.network_config.get_output(context);
+        let network_config_binding = network_config_binding_1.get_inner();
+        let private_service_connect_binding_1 = args
             .private_service_connect
-            .get_output(context)
+            .get_output(context);
+        let private_service_connect_binding = private_service_connect_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let worker_config_binding = args.worker_config.get_output(context).get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let worker_config_binding_1 = args.worker_config.get_output(context);
+        let worker_config_binding = worker_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudbuild/workerPool:WorkerPool".into(),
             name: name.to_string(),

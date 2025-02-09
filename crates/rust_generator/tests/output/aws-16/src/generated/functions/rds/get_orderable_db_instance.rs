@@ -150,77 +150,92 @@ pub mod get_orderable_db_instance {
     ) -> GetOrderableDbInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_group_binding = args
+        let availability_zone_group_binding_1 = args
             .availability_zone_group
-            .get_output(context)
+            .get_output(context);
+        let availability_zone_group_binding = availability_zone_group_binding_1
             .get_inner();
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let engine_latest_version_binding = args
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let engine_latest_version_binding_1 = args
             .engine_latest_version
-            .get_output(context)
-            .get_inner();
-        let engine_version_binding = args.engine_version.get_output(context).get_inner();
-        let instance_class_binding = args.instance_class.get_output(context).get_inner();
-        let license_model_binding = args.license_model.get_output(context).get_inner();
-        let preferred_engine_versions_binding = args
+            .get_output(context);
+        let engine_latest_version_binding = engine_latest_version_binding_1.get_inner();
+        let engine_version_binding_1 = args.engine_version.get_output(context);
+        let engine_version_binding = engine_version_binding_1.get_inner();
+        let instance_class_binding_1 = args.instance_class.get_output(context);
+        let instance_class_binding = instance_class_binding_1.get_inner();
+        let license_model_binding_1 = args.license_model.get_output(context);
+        let license_model_binding = license_model_binding_1.get_inner();
+        let preferred_engine_versions_binding_1 = args
             .preferred_engine_versions
-            .get_output(context)
+            .get_output(context);
+        let preferred_engine_versions_binding = preferred_engine_versions_binding_1
             .get_inner();
-        let preferred_instance_classes_binding = args
+        let preferred_instance_classes_binding_1 = args
             .preferred_instance_classes
-            .get_output(context)
+            .get_output(context);
+        let preferred_instance_classes_binding = preferred_instance_classes_binding_1
             .get_inner();
-        let read_replica_capable_binding = args
+        let read_replica_capable_binding_1 = args
             .read_replica_capable
-            .get_output(context)
-            .get_inner();
-        let storage_type_binding = args.storage_type.get_output(context).get_inner();
-        let supported_engine_modes_binding = args
+            .get_output(context);
+        let read_replica_capable_binding = read_replica_capable_binding_1.get_inner();
+        let storage_type_binding_1 = args.storage_type.get_output(context);
+        let storage_type_binding = storage_type_binding_1.get_inner();
+        let supported_engine_modes_binding_1 = args
             .supported_engine_modes
-            .get_output(context)
+            .get_output(context);
+        let supported_engine_modes_binding = supported_engine_modes_binding_1
             .get_inner();
-        let supported_network_types_binding = args
+        let supported_network_types_binding_1 = args
             .supported_network_types
-            .get_output(context)
+            .get_output(context);
+        let supported_network_types_binding = supported_network_types_binding_1
             .get_inner();
-        let supports_clusters_binding = args
-            .supports_clusters
-            .get_output(context)
-            .get_inner();
-        let supports_enhanced_monitoring_binding = args
+        let supports_clusters_binding_1 = args.supports_clusters.get_output(context);
+        let supports_clusters_binding = supports_clusters_binding_1.get_inner();
+        let supports_enhanced_monitoring_binding_1 = args
             .supports_enhanced_monitoring
-            .get_output(context)
+            .get_output(context);
+        let supports_enhanced_monitoring_binding = supports_enhanced_monitoring_binding_1
             .get_inner();
-        let supports_global_databases_binding = args
+        let supports_global_databases_binding_1 = args
             .supports_global_databases
-            .get_output(context)
+            .get_output(context);
+        let supports_global_databases_binding = supports_global_databases_binding_1
             .get_inner();
-        let supports_iam_database_authentication_binding = args
+        let supports_iam_database_authentication_binding_1 = args
             .supports_iam_database_authentication
-            .get_output(context)
+            .get_output(context);
+        let supports_iam_database_authentication_binding = supports_iam_database_authentication_binding_1
             .get_inner();
-        let supports_iops_binding = args.supports_iops.get_output(context).get_inner();
-        let supports_kerberos_authentication_binding = args
+        let supports_iops_binding_1 = args.supports_iops.get_output(context);
+        let supports_iops_binding = supports_iops_binding_1.get_inner();
+        let supports_kerberos_authentication_binding_1 = args
             .supports_kerberos_authentication
-            .get_output(context)
+            .get_output(context);
+        let supports_kerberos_authentication_binding = supports_kerberos_authentication_binding_1
             .get_inner();
-        let supports_multi_az_binding = args
-            .supports_multi_az
-            .get_output(context)
-            .get_inner();
-        let supports_performance_insights_binding = args
+        let supports_multi_az_binding_1 = args.supports_multi_az.get_output(context);
+        let supports_multi_az_binding = supports_multi_az_binding_1.get_inner();
+        let supports_performance_insights_binding_1 = args
             .supports_performance_insights
-            .get_output(context)
+            .get_output(context);
+        let supports_performance_insights_binding = supports_performance_insights_binding_1
             .get_inner();
-        let supports_storage_autoscaling_binding = args
+        let supports_storage_autoscaling_binding_1 = args
             .supports_storage_autoscaling
-            .get_output(context)
+            .get_output(context);
+        let supports_storage_autoscaling_binding = supports_storage_autoscaling_binding_1
             .get_inner();
-        let supports_storage_encryption_binding = args
+        let supports_storage_encryption_binding_1 = args
             .supports_storage_encryption
-            .get_output(context)
+            .get_output(context);
+        let supports_storage_encryption_binding = supports_storage_encryption_binding_1
             .get_inner();
-        let vpc_binding = args.vpc.get_output(context).get_inner();
+        let vpc_binding_1 = args.vpc.get_output(context);
+        let vpc_binding = vpc_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:rds/getOrderableDbInstance:getOrderableDbInstance".into(),
             version: super::super::super::get_version(),

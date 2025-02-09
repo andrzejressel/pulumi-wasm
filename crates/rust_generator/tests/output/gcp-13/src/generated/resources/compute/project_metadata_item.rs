@@ -74,9 +74,12 @@ pub mod project_metadata_item {
     ) -> ProjectMetadataItemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_binding = args.key.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let value_binding = args.value.get_output(context).get_inner();
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let value_binding_1 = args.value.get_output(context);
+        let value_binding = value_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/projectMetadataItem:ProjectMetadataItem".into(),
             name: name.to_string(),

@@ -219,73 +219,68 @@ pub mod smb_file_share {
     ) -> SmbFileShareResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_based_enumeration_binding = args
+        let access_based_enumeration_binding_1 = args
             .access_based_enumeration
-            .get_output(context)
+            .get_output(context);
+        let access_based_enumeration_binding = access_based_enumeration_binding_1
             .get_inner();
-        let admin_user_lists_binding = args
-            .admin_user_lists
-            .get_output(context)
-            .get_inner();
-        let audit_destination_arn_binding = args
+        let admin_user_lists_binding_1 = args.admin_user_lists.get_output(context);
+        let admin_user_lists_binding = admin_user_lists_binding_1.get_inner();
+        let audit_destination_arn_binding_1 = args
             .audit_destination_arn
-            .get_output(context)
-            .get_inner();
-        let authentication_binding = args.authentication.get_output(context).get_inner();
-        let bucket_region_binding = args.bucket_region.get_output(context).get_inner();
-        let cache_attributes_binding = args
-            .cache_attributes
-            .get_output(context)
-            .get_inner();
-        let case_sensitivity_binding = args
-            .case_sensitivity
-            .get_output(context)
-            .get_inner();
-        let default_storage_class_binding = args
+            .get_output(context);
+        let audit_destination_arn_binding = audit_destination_arn_binding_1.get_inner();
+        let authentication_binding_1 = args.authentication.get_output(context);
+        let authentication_binding = authentication_binding_1.get_inner();
+        let bucket_region_binding_1 = args.bucket_region.get_output(context);
+        let bucket_region_binding = bucket_region_binding_1.get_inner();
+        let cache_attributes_binding_1 = args.cache_attributes.get_output(context);
+        let cache_attributes_binding = cache_attributes_binding_1.get_inner();
+        let case_sensitivity_binding_1 = args.case_sensitivity.get_output(context);
+        let case_sensitivity_binding = case_sensitivity_binding_1.get_inner();
+        let default_storage_class_binding_1 = args
             .default_storage_class
-            .get_output(context)
-            .get_inner();
-        let file_share_name_binding = args
-            .file_share_name
-            .get_output(context)
-            .get_inner();
-        let gateway_arn_binding = args.gateway_arn.get_output(context).get_inner();
-        let guess_mime_type_enabled_binding = args
+            .get_output(context);
+        let default_storage_class_binding = default_storage_class_binding_1.get_inner();
+        let file_share_name_binding_1 = args.file_share_name.get_output(context);
+        let file_share_name_binding = file_share_name_binding_1.get_inner();
+        let gateway_arn_binding_1 = args.gateway_arn.get_output(context);
+        let gateway_arn_binding = gateway_arn_binding_1.get_inner();
+        let guess_mime_type_enabled_binding_1 = args
             .guess_mime_type_enabled
-            .get_output(context)
+            .get_output(context);
+        let guess_mime_type_enabled_binding = guess_mime_type_enabled_binding_1
             .get_inner();
-        let invalid_user_lists_binding = args
-            .invalid_user_lists
-            .get_output(context)
-            .get_inner();
-        let kms_encrypted_binding = args.kms_encrypted.get_output(context).get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
-        let location_arn_binding = args.location_arn.get_output(context).get_inner();
-        let notification_policy_binding = args
-            .notification_policy
-            .get_output(context)
-            .get_inner();
-        let object_acl_binding = args.object_acl.get_output(context).get_inner();
-        let oplocks_enabled_binding = args
-            .oplocks_enabled
-            .get_output(context)
-            .get_inner();
-        let read_only_binding = args.read_only.get_output(context).get_inner();
-        let requester_pays_binding = args.requester_pays.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let smb_acl_enabled_binding = args
-            .smb_acl_enabled
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let valid_user_lists_binding = args
-            .valid_user_lists
-            .get_output(context)
-            .get_inner();
-        let vpc_endpoint_dns_name_binding = args
+        let invalid_user_lists_binding_1 = args.invalid_user_lists.get_output(context);
+        let invalid_user_lists_binding = invalid_user_lists_binding_1.get_inner();
+        let kms_encrypted_binding_1 = args.kms_encrypted.get_output(context);
+        let kms_encrypted_binding = kms_encrypted_binding_1.get_inner();
+        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
+        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
+        let location_arn_binding_1 = args.location_arn.get_output(context);
+        let location_arn_binding = location_arn_binding_1.get_inner();
+        let notification_policy_binding_1 = args.notification_policy.get_output(context);
+        let notification_policy_binding = notification_policy_binding_1.get_inner();
+        let object_acl_binding_1 = args.object_acl.get_output(context);
+        let object_acl_binding = object_acl_binding_1.get_inner();
+        let oplocks_enabled_binding_1 = args.oplocks_enabled.get_output(context);
+        let oplocks_enabled_binding = oplocks_enabled_binding_1.get_inner();
+        let read_only_binding_1 = args.read_only.get_output(context);
+        let read_only_binding = read_only_binding_1.get_inner();
+        let requester_pays_binding_1 = args.requester_pays.get_output(context);
+        let requester_pays_binding = requester_pays_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let smb_acl_enabled_binding_1 = args.smb_acl_enabled.get_output(context);
+        let smb_acl_enabled_binding = smb_acl_enabled_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let valid_user_lists_binding_1 = args.valid_user_lists.get_output(context);
+        let valid_user_lists_binding = valid_user_lists_binding_1.get_inner();
+        let vpc_endpoint_dns_name_binding_1 = args
             .vpc_endpoint_dns_name
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let vpc_endpoint_dns_name_binding = vpc_endpoint_dns_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:storagegateway/smbFileShare:SmbFileShare".into(),
             name: name.to_string(),

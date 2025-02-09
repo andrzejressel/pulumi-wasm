@@ -69,15 +69,18 @@ pub mod request_validator {
     ) -> RequestValidatorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let rest_api_binding = args.rest_api.get_output(context).get_inner();
-        let validate_request_body_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let rest_api_binding_1 = args.rest_api.get_output(context);
+        let rest_api_binding = rest_api_binding_1.get_inner();
+        let validate_request_body_binding_1 = args
             .validate_request_body
-            .get_output(context)
-            .get_inner();
-        let validate_request_parameters_binding = args
+            .get_output(context);
+        let validate_request_body_binding = validate_request_body_binding_1.get_inner();
+        let validate_request_parameters_binding_1 = args
             .validate_request_parameters
-            .get_output(context)
+            .get_output(context);
+        let validate_request_parameters_binding = validate_request_parameters_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/requestValidator:RequestValidator".into(),

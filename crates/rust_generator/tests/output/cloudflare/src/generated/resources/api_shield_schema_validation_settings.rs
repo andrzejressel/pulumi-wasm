@@ -59,15 +59,18 @@ pub mod api_shield_schema_validation_settings {
     ) -> ApiShieldSchemaValidationSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let validation_default_mitigation_action_binding = args
+        let validation_default_mitigation_action_binding_1 = args
             .validation_default_mitigation_action
-            .get_output(context)
+            .get_output(context);
+        let validation_default_mitigation_action_binding = validation_default_mitigation_action_binding_1
             .get_inner();
-        let validation_override_mitigation_action_binding = args
+        let validation_override_mitigation_action_binding_1 = args
             .validation_override_mitigation_action
-            .get_output(context)
+            .get_output(context);
+        let validation_override_mitigation_action_binding = validation_override_mitigation_action_binding_1
             .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/apiShieldSchemaValidationSettings:ApiShieldSchemaValidationSettings"
                 .into(),

@@ -503,60 +503,68 @@ pub mod workspace {
     ) -> WorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_insights_id_binding = args
+        let application_insights_id_binding_1 = args
             .application_insights_id
-            .get_output(context)
+            .get_output(context);
+        let application_insights_id_binding = application_insights_id_binding_1
             .get_inner();
-        let container_registry_id_binding = args
+        let container_registry_id_binding_1 = args
             .container_registry_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let encryption_binding = args.encryption.get_output(context).get_inner();
-        let feature_store_binding = args.feature_store.get_output(context).get_inner();
-        let friendly_name_binding = args.friendly_name.get_output(context).get_inner();
-        let high_business_impact_binding = args
+            .get_output(context);
+        let container_registry_id_binding = container_registry_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let encryption_binding_1 = args.encryption.get_output(context);
+        let encryption_binding = encryption_binding_1.get_inner();
+        let feature_store_binding_1 = args.feature_store.get_output(context);
+        let feature_store_binding = feature_store_binding_1.get_inner();
+        let friendly_name_binding_1 = args.friendly_name.get_output(context);
+        let friendly_name_binding = friendly_name_binding_1.get_inner();
+        let high_business_impact_binding_1 = args
             .high_business_impact
-            .get_output(context)
-            .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let image_build_compute_name_binding = args
+            .get_output(context);
+        let high_business_impact_binding = high_business_impact_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let image_build_compute_name_binding_1 = args
             .image_build_compute_name
-            .get_output(context)
+            .get_output(context);
+        let image_build_compute_name_binding = image_build_compute_name_binding_1
             .get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
-        let kind_binding = args.kind.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let managed_network_binding = args
-            .managed_network
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let primary_user_assigned_identity_binding = args
+        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
+        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
+        let kind_binding_1 = args.kind.get_output(context);
+        let kind_binding = kind_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let managed_network_binding_1 = args.managed_network.get_output(context);
+        let managed_network_binding = managed_network_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let primary_user_assigned_identity_binding_1 = args
             .primary_user_assigned_identity
-            .get_output(context)
+            .get_output(context);
+        let primary_user_assigned_identity_binding = primary_user_assigned_identity_binding_1
             .get_inner();
-        let public_network_access_enabled_binding = args
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let serverless_compute_binding = args
-            .serverless_compute
-            .get_output(context)
-            .get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let v1_legacy_mode_enabled_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let serverless_compute_binding_1 = args.serverless_compute.get_output(context);
+        let serverless_compute_binding = serverless_compute_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let v1_legacy_mode_enabled_binding_1 = args
             .v1_legacy_mode_enabled
-            .get_output(context)
+            .get_output(context);
+        let v1_legacy_mode_enabled_binding = v1_legacy_mode_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:machinelearning/workspace:Workspace".into(),

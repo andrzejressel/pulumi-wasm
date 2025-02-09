@@ -117,22 +117,22 @@ pub mod posture_deployment {
     ) -> PostureDeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let posture_deployment_id_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let posture_deployment_id_binding_1 = args
             .posture_deployment_id
-            .get_output(context)
-            .get_inner();
-        let posture_id_binding = args.posture_id.get_output(context).get_inner();
-        let posture_revision_id_binding = args
-            .posture_revision_id
-            .get_output(context)
-            .get_inner();
-        let target_resource_binding = args
-            .target_resource
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let posture_deployment_id_binding = posture_deployment_id_binding_1.get_inner();
+        let posture_id_binding_1 = args.posture_id.get_output(context);
+        let posture_id_binding = posture_id_binding_1.get_inner();
+        let posture_revision_id_binding_1 = args.posture_revision_id.get_output(context);
+        let posture_revision_id_binding = posture_revision_id_binding_1.get_inner();
+        let target_resource_binding_1 = args.target_resource.get_output(context);
+        let target_resource_binding = target_resource_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securityposture/postureDeployment:PostureDeployment".into(),
             name: name.to_string(),

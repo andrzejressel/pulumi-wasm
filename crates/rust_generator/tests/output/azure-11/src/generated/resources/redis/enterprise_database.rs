@@ -145,30 +145,27 @@ pub mod enterprise_database {
     ) -> EnterpriseDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_protocol_binding = args
-            .client_protocol
-            .get_output(context)
-            .get_inner();
-        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
-        let clustering_policy_binding = args
-            .clustering_policy
-            .get_output(context)
-            .get_inner();
-        let eviction_policy_binding = args
-            .eviction_policy
-            .get_output(context)
-            .get_inner();
-        let linked_database_group_nickname_binding = args
+        let client_protocol_binding_1 = args.client_protocol.get_output(context);
+        let client_protocol_binding = client_protocol_binding_1.get_inner();
+        let cluster_id_binding_1 = args.cluster_id.get_output(context);
+        let cluster_id_binding = cluster_id_binding_1.get_inner();
+        let clustering_policy_binding_1 = args.clustering_policy.get_output(context);
+        let clustering_policy_binding = clustering_policy_binding_1.get_inner();
+        let eviction_policy_binding_1 = args.eviction_policy.get_output(context);
+        let eviction_policy_binding = eviction_policy_binding_1.get_inner();
+        let linked_database_group_nickname_binding_1 = args
             .linked_database_group_nickname
-            .get_output(context)
+            .get_output(context);
+        let linked_database_group_nickname_binding = linked_database_group_nickname_binding_1
             .get_inner();
-        let linked_database_ids_binding = args
-            .linked_database_ids
-            .get_output(context)
-            .get_inner();
-        let modules_binding = args.modules.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
+        let linked_database_ids_binding_1 = args.linked_database_ids.get_output(context);
+        let linked_database_ids_binding = linked_database_ids_binding_1.get_inner();
+        let modules_binding_1 = args.modules.get_output(context);
+        let modules_binding = modules_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:redis/enterpriseDatabase:EnterpriseDatabase".into(),
             name: name.to_string(),

@@ -372,54 +372,60 @@ pub mod distribution {
     ) -> DistributionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aliases_binding = args.aliases.get_output(context).get_inner();
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let continuous_deployment_policy_id_binding = args
+        let aliases_binding_1 = args.aliases.get_output(context);
+        let aliases_binding = aliases_binding_1.get_inner();
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let continuous_deployment_policy_id_binding_1 = args
             .continuous_deployment_policy_id
-            .get_output(context)
+            .get_output(context);
+        let continuous_deployment_policy_id_binding = continuous_deployment_policy_id_binding_1
             .get_inner();
-        let custom_error_responses_binding = args
+        let custom_error_responses_binding_1 = args
             .custom_error_responses
-            .get_output(context)
+            .get_output(context);
+        let custom_error_responses_binding = custom_error_responses_binding_1
             .get_inner();
-        let default_cache_behavior_binding = args
+        let default_cache_behavior_binding_1 = args
             .default_cache_behavior
-            .get_output(context)
+            .get_output(context);
+        let default_cache_behavior_binding = default_cache_behavior_binding_1
             .get_inner();
-        let default_root_object_binding = args
-            .default_root_object
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let http_version_binding = args.http_version.get_output(context).get_inner();
-        let is_ipv6_enabled_binding = args
-            .is_ipv6_enabled
-            .get_output(context)
-            .get_inner();
-        let logging_config_binding = args.logging_config.get_output(context).get_inner();
-        let ordered_cache_behaviors_binding = args
+        let default_root_object_binding_1 = args.default_root_object.get_output(context);
+        let default_root_object_binding = default_root_object_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let http_version_binding_1 = args.http_version.get_output(context);
+        let http_version_binding = http_version_binding_1.get_inner();
+        let is_ipv6_enabled_binding_1 = args.is_ipv6_enabled.get_output(context);
+        let is_ipv6_enabled_binding = is_ipv6_enabled_binding_1.get_inner();
+        let logging_config_binding_1 = args.logging_config.get_output(context);
+        let logging_config_binding = logging_config_binding_1.get_inner();
+        let ordered_cache_behaviors_binding_1 = args
             .ordered_cache_behaviors
-            .get_output(context)
+            .get_output(context);
+        let ordered_cache_behaviors_binding = ordered_cache_behaviors_binding_1
             .get_inner();
-        let origin_groups_binding = args.origin_groups.get_output(context).get_inner();
-        let origins_binding = args.origins.get_output(context).get_inner();
-        let price_class_binding = args.price_class.get_output(context).get_inner();
-        let restrictions_binding = args.restrictions.get_output(context).get_inner();
-        let retain_on_delete_binding = args
-            .retain_on_delete
-            .get_output(context)
-            .get_inner();
-        let staging_binding = args.staging.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let viewer_certificate_binding = args
-            .viewer_certificate
-            .get_output(context)
-            .get_inner();
-        let wait_for_deployment_binding = args
-            .wait_for_deployment
-            .get_output(context)
-            .get_inner();
-        let web_acl_id_binding = args.web_acl_id.get_output(context).get_inner();
+        let origin_groups_binding_1 = args.origin_groups.get_output(context);
+        let origin_groups_binding = origin_groups_binding_1.get_inner();
+        let origins_binding_1 = args.origins.get_output(context);
+        let origins_binding = origins_binding_1.get_inner();
+        let price_class_binding_1 = args.price_class.get_output(context);
+        let price_class_binding = price_class_binding_1.get_inner();
+        let restrictions_binding_1 = args.restrictions.get_output(context);
+        let restrictions_binding = restrictions_binding_1.get_inner();
+        let retain_on_delete_binding_1 = args.retain_on_delete.get_output(context);
+        let retain_on_delete_binding = retain_on_delete_binding_1.get_inner();
+        let staging_binding_1 = args.staging.get_output(context);
+        let staging_binding = staging_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let viewer_certificate_binding_1 = args.viewer_certificate.get_output(context);
+        let viewer_certificate_binding = viewer_certificate_binding_1.get_inner();
+        let wait_for_deployment_binding_1 = args.wait_for_deployment.get_output(context);
+        let wait_for_deployment_binding = wait_for_deployment_binding_1.get_inner();
+        let web_acl_id_binding_1 = args.web_acl_id.get_output(context);
+        let web_acl_id_binding = web_acl_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/distribution:Distribution".into(),
             name: name.to_string(),

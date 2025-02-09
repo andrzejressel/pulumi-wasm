@@ -143,21 +143,24 @@ pub mod service {
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auth_binding = args.auth.get_output(context).get_inner();
-        let converge_config_binding = args
-            .converge_config
-            .get_output(context)
-            .get_inner();
-        let endpoint_spec_binding = args.endpoint_spec.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let rollback_config_binding = args
-            .rollback_config
-            .get_output(context)
-            .get_inner();
-        let task_spec_binding = args.task_spec.get_output(context).get_inner();
-        let update_config_binding = args.update_config.get_output(context).get_inner();
+        let auth_binding_1 = args.auth.get_output(context);
+        let auth_binding = auth_binding_1.get_inner();
+        let converge_config_binding_1 = args.converge_config.get_output(context);
+        let converge_config_binding = converge_config_binding_1.get_inner();
+        let endpoint_spec_binding_1 = args.endpoint_spec.get_output(context);
+        let endpoint_spec_binding = endpoint_spec_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let rollback_config_binding_1 = args.rollback_config.get_output(context);
+        let rollback_config_binding = rollback_config_binding_1.get_inner();
+        let task_spec_binding_1 = args.task_spec.get_output(context);
+        let task_spec_binding = task_spec_binding_1.get_inner();
+        let update_config_binding_1 = args.update_config.get_output(context);
+        let update_config_binding = update_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "docker:index/service:Service".into(),
             name: name.to_string(),

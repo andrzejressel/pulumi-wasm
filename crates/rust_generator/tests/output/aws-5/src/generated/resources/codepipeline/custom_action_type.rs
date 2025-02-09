@@ -122,23 +122,31 @@ pub mod custom_action_type {
     ) -> CustomActionTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let category_binding = args.category.get_output(context).get_inner();
-        let configuration_properties_binding = args
+        let category_binding_1 = args.category.get_output(context);
+        let category_binding = category_binding_1.get_inner();
+        let configuration_properties_binding_1 = args
             .configuration_properties
-            .get_output(context)
+            .get_output(context);
+        let configuration_properties_binding = configuration_properties_binding_1
             .get_inner();
-        let input_artifact_details_binding = args
+        let input_artifact_details_binding_1 = args
             .input_artifact_details
-            .get_output(context)
+            .get_output(context);
+        let input_artifact_details_binding = input_artifact_details_binding_1
             .get_inner();
-        let output_artifact_details_binding = args
+        let output_artifact_details_binding_1 = args
             .output_artifact_details
-            .get_output(context)
+            .get_output(context);
+        let output_artifact_details_binding = output_artifact_details_binding_1
             .get_inner();
-        let provider_name_binding = args.provider_name.get_output(context).get_inner();
-        let settings_binding = args.settings.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let provider_name_binding_1 = args.provider_name.get_output(context);
+        let provider_name_binding = provider_name_binding_1.get_inner();
+        let settings_binding_1 = args.settings.get_output(context);
+        let settings_binding = settings_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codepipeline/customActionType:CustomActionType".into(),
             name: name.to_string(),

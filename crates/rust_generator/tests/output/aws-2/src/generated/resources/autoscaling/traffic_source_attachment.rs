@@ -55,11 +55,13 @@ pub mod traffic_source_attachment {
     ) -> TrafficSourceAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_group_name_binding = args
+        let autoscaling_group_name_binding_1 = args
             .autoscaling_group_name
-            .get_output(context)
+            .get_output(context);
+        let autoscaling_group_name_binding = autoscaling_group_name_binding_1
             .get_inner();
-        let traffic_source_binding = args.traffic_source.get_output(context).get_inner();
+        let traffic_source_binding_1 = args.traffic_source.get_output(context);
+        let traffic_source_binding = traffic_source_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment"
                 .into(),

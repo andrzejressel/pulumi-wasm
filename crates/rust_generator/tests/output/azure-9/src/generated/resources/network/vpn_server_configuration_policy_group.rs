@@ -109,13 +109,18 @@ pub mod vpn_server_configuration_policy_group {
     ) -> VpnServerConfigurationPolicyGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let is_default_binding = args.is_default.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let policies_binding = args.policies.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let vpn_server_configuration_id_binding = args
+        let is_default_binding_1 = args.is_default.get_output(context);
+        let is_default_binding = is_default_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let policies_binding_1 = args.policies.get_output(context);
+        let policies_binding = policies_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let vpn_server_configuration_id_binding_1 = args
             .vpn_server_configuration_id
-            .get_output(context)
+            .get_output(context);
+        let vpn_server_configuration_id_binding = vpn_server_configuration_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup"

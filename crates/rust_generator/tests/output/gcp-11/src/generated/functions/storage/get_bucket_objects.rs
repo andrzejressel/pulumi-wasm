@@ -36,9 +36,12 @@ pub mod get_bucket_objects {
     ) -> GetBucketObjectsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let match_glob_binding = args.match_glob.get_output(context).get_inner();
-        let prefix_binding = args.prefix.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let match_glob_binding_1 = args.match_glob.get_output(context);
+        let match_glob_binding = match_glob_binding_1.get_inner();
+        let prefix_binding_1 = args.prefix.get_output(context);
+        let prefix_binding = prefix_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:storage/getBucketObjects:getBucketObjects".into(),
             version: super::super::super::get_version(),

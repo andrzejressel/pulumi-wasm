@@ -69,8 +69,10 @@ pub mod instance_public_ports {
     ) -> InstancePublicPortsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_name_binding = args.instance_name.get_output(context).get_inner();
-        let port_infos_binding = args.port_infos.get_output(context).get_inner();
+        let instance_name_binding_1 = args.instance_name.get_output(context);
+        let instance_name_binding = instance_name_binding_1.get_inner();
+        let port_infos_binding_1 = args.port_infos.get_output(context);
+        let port_infos_binding = port_infos_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/instancePublicPorts:InstancePublicPorts".into(),
             name: name.to_string(),

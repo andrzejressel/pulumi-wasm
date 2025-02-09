@@ -85,34 +85,31 @@ pub mod certificate_pack {
     ) -> CertificatePackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_authority_binding = args
+        let certificate_authority_binding_1 = args
             .certificate_authority
-            .get_output(context)
-            .get_inner();
-        let cloudflare_branding_binding = args
-            .cloudflare_branding
-            .get_output(context)
-            .get_inner();
-        let hosts_binding = args.hosts.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let validation_errors_binding = args
-            .validation_errors
-            .get_output(context)
-            .get_inner();
-        let validation_method_binding = args
-            .validation_method
-            .get_output(context)
-            .get_inner();
-        let validation_records_binding = args
-            .validation_records
-            .get_output(context)
-            .get_inner();
-        let validity_days_binding = args.validity_days.get_output(context).get_inner();
-        let wait_for_active_status_binding = args
+            .get_output(context);
+        let certificate_authority_binding = certificate_authority_binding_1.get_inner();
+        let cloudflare_branding_binding_1 = args.cloudflare_branding.get_output(context);
+        let cloudflare_branding_binding = cloudflare_branding_binding_1.get_inner();
+        let hosts_binding_1 = args.hosts.get_output(context);
+        let hosts_binding = hosts_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let validation_errors_binding_1 = args.validation_errors.get_output(context);
+        let validation_errors_binding = validation_errors_binding_1.get_inner();
+        let validation_method_binding_1 = args.validation_method.get_output(context);
+        let validation_method_binding = validation_method_binding_1.get_inner();
+        let validation_records_binding_1 = args.validation_records.get_output(context);
+        let validation_records_binding = validation_records_binding_1.get_inner();
+        let validity_days_binding_1 = args.validity_days.get_output(context);
+        let validity_days_binding = validity_days_binding_1.get_inner();
+        let wait_for_active_status_binding_1 = args
             .wait_for_active_status
-            .get_output(context)
+            .get_output(context);
+        let wait_for_active_status_binding = wait_for_active_status_binding_1
             .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/certificatePack:CertificatePack".into(),
             name: name.to_string(),

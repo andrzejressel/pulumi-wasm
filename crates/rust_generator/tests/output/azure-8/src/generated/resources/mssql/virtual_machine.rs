@@ -181,54 +181,57 @@ pub mod virtual_machine {
     ) -> VirtualMachineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assessment_binding = args.assessment.get_output(context).get_inner();
-        let auto_backup_binding = args.auto_backup.get_output(context).get_inner();
-        let auto_patching_binding = args.auto_patching.get_output(context).get_inner();
-        let key_vault_credential_binding = args
+        let assessment_binding_1 = args.assessment.get_output(context);
+        let assessment_binding = assessment_binding_1.get_inner();
+        let auto_backup_binding_1 = args.auto_backup.get_output(context);
+        let auto_backup_binding = auto_backup_binding_1.get_inner();
+        let auto_patching_binding_1 = args.auto_patching.get_output(context);
+        let auto_patching_binding = auto_patching_binding_1.get_inner();
+        let key_vault_credential_binding_1 = args
             .key_vault_credential
-            .get_output(context)
-            .get_inner();
-        let r_services_enabled_binding = args
-            .r_services_enabled
-            .get_output(context)
-            .get_inner();
-        let sql_connectivity_port_binding = args
+            .get_output(context);
+        let key_vault_credential_binding = key_vault_credential_binding_1.get_inner();
+        let r_services_enabled_binding_1 = args.r_services_enabled.get_output(context);
+        let r_services_enabled_binding = r_services_enabled_binding_1.get_inner();
+        let sql_connectivity_port_binding_1 = args
             .sql_connectivity_port
-            .get_output(context)
-            .get_inner();
-        let sql_connectivity_type_binding = args
+            .get_output(context);
+        let sql_connectivity_port_binding = sql_connectivity_port_binding_1.get_inner();
+        let sql_connectivity_type_binding_1 = args
             .sql_connectivity_type
-            .get_output(context)
-            .get_inner();
-        let sql_connectivity_update_password_binding = args
+            .get_output(context);
+        let sql_connectivity_type_binding = sql_connectivity_type_binding_1.get_inner();
+        let sql_connectivity_update_password_binding_1 = args
             .sql_connectivity_update_password
-            .get_output(context)
+            .get_output(context);
+        let sql_connectivity_update_password_binding = sql_connectivity_update_password_binding_1
             .get_inner();
-        let sql_connectivity_update_username_binding = args
+        let sql_connectivity_update_username_binding_1 = args
             .sql_connectivity_update_username
-            .get_output(context)
+            .get_output(context);
+        let sql_connectivity_update_username_binding = sql_connectivity_update_username_binding_1
             .get_inner();
-        let sql_instance_binding = args.sql_instance.get_output(context).get_inner();
-        let sql_license_type_binding = args
-            .sql_license_type
-            .get_output(context)
-            .get_inner();
-        let sql_virtual_machine_group_id_binding = args
+        let sql_instance_binding_1 = args.sql_instance.get_output(context);
+        let sql_instance_binding = sql_instance_binding_1.get_inner();
+        let sql_license_type_binding_1 = args.sql_license_type.get_output(context);
+        let sql_license_type_binding = sql_license_type_binding_1.get_inner();
+        let sql_virtual_machine_group_id_binding_1 = args
             .sql_virtual_machine_group_id
-            .get_output(context)
+            .get_output(context);
+        let sql_virtual_machine_group_id_binding = sql_virtual_machine_group_id_binding_1
             .get_inner();
-        let storage_configuration_binding = args
+        let storage_configuration_binding_1 = args
             .storage_configuration
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let virtual_machine_id_binding = args
-            .virtual_machine_id
-            .get_output(context)
-            .get_inner();
-        let wsfc_domain_credential_binding = args
+            .get_output(context);
+        let storage_configuration_binding = storage_configuration_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let virtual_machine_id_binding_1 = args.virtual_machine_id.get_output(context);
+        let virtual_machine_id_binding = virtual_machine_id_binding_1.get_inner();
+        let wsfc_domain_credential_binding_1 = args
             .wsfc_domain_credential
-            .get_output(context)
+            .get_output(context);
+        let wsfc_domain_credential_binding = wsfc_domain_credential_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/virtualMachine:VirtualMachine".into(),

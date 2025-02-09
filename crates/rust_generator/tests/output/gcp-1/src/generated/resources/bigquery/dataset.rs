@@ -509,54 +509,64 @@ pub mod dataset {
     ) -> DatasetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accesses_binding = args.accesses.get_output(context).get_inner();
-        let dataset_id_binding = args.dataset_id.get_output(context).get_inner();
-        let default_collation_binding = args
-            .default_collation
-            .get_output(context)
-            .get_inner();
-        let default_encryption_configuration_binding = args
+        let accesses_binding_1 = args.accesses.get_output(context);
+        let accesses_binding = accesses_binding_1.get_inner();
+        let dataset_id_binding_1 = args.dataset_id.get_output(context);
+        let dataset_id_binding = dataset_id_binding_1.get_inner();
+        let default_collation_binding_1 = args.default_collation.get_output(context);
+        let default_collation_binding = default_collation_binding_1.get_inner();
+        let default_encryption_configuration_binding_1 = args
             .default_encryption_configuration
-            .get_output(context)
+            .get_output(context);
+        let default_encryption_configuration_binding = default_encryption_configuration_binding_1
             .get_inner();
-        let default_partition_expiration_ms_binding = args
+        let default_partition_expiration_ms_binding_1 = args
             .default_partition_expiration_ms
-            .get_output(context)
+            .get_output(context);
+        let default_partition_expiration_ms_binding = default_partition_expiration_ms_binding_1
             .get_inner();
-        let default_table_expiration_ms_binding = args
+        let default_table_expiration_ms_binding_1 = args
             .default_table_expiration_ms
-            .get_output(context)
+            .get_output(context);
+        let default_table_expiration_ms_binding = default_table_expiration_ms_binding_1
             .get_inner();
-        let delete_contents_on_destroy_binding = args
+        let delete_contents_on_destroy_binding_1 = args
             .delete_contents_on_destroy
-            .get_output(context)
+            .get_output(context);
+        let delete_contents_on_destroy_binding = delete_contents_on_destroy_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let external_catalog_dataset_options_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let external_catalog_dataset_options_binding_1 = args
             .external_catalog_dataset_options
-            .get_output(context)
+            .get_output(context);
+        let external_catalog_dataset_options_binding = external_catalog_dataset_options_binding_1
             .get_inner();
-        let external_dataset_reference_binding = args
+        let external_dataset_reference_binding_1 = args
             .external_dataset_reference
-            .get_output(context)
+            .get_output(context);
+        let external_dataset_reference_binding = external_dataset_reference_binding_1
             .get_inner();
-        let friendly_name_binding = args.friendly_name.get_output(context).get_inner();
-        let is_case_insensitive_binding = args
-            .is_case_insensitive
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let max_time_travel_hours_binding = args
+        let friendly_name_binding_1 = args.friendly_name.get_output(context);
+        let friendly_name_binding = friendly_name_binding_1.get_inner();
+        let is_case_insensitive_binding_1 = args.is_case_insensitive.get_output(context);
+        let is_case_insensitive_binding = is_case_insensitive_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let max_time_travel_hours_binding_1 = args
             .max_time_travel_hours
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let resource_tags_binding = args.resource_tags.get_output(context).get_inner();
-        let storage_billing_model_binding = args
+            .get_output(context);
+        let max_time_travel_hours_binding = max_time_travel_hours_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let resource_tags_binding_1 = args.resource_tags.get_output(context);
+        let resource_tags_binding = resource_tags_binding_1.get_inner();
+        let storage_billing_model_binding_1 = args
             .storage_billing_model
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let storage_billing_model_binding = storage_billing_model_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/dataset:Dataset".into(),
             name: name.to_string(),

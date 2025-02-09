@@ -176,32 +176,35 @@ pub mod network_sim {
     ) -> NetworkSimResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_key_binding = args
-            .authentication_key
-            .get_output(context)
-            .get_inner();
-        let device_type_binding = args.device_type.get_output(context).get_inner();
-        let integrated_circuit_card_identifier_binding = args
+        let authentication_key_binding_1 = args.authentication_key.get_output(context);
+        let authentication_key_binding = authentication_key_binding_1.get_inner();
+        let device_type_binding_1 = args.device_type.get_output(context);
+        let device_type_binding = device_type_binding_1.get_inner();
+        let integrated_circuit_card_identifier_binding_1 = args
             .integrated_circuit_card_identifier
-            .get_output(context)
+            .get_output(context);
+        let integrated_circuit_card_identifier_binding = integrated_circuit_card_identifier_binding_1
             .get_inner();
-        let international_mobile_subscriber_identity_binding = args
+        let international_mobile_subscriber_identity_binding_1 = args
             .international_mobile_subscriber_identity
-            .get_output(context)
+            .get_output(context);
+        let international_mobile_subscriber_identity_binding = international_mobile_subscriber_identity_binding_1
             .get_inner();
-        let mobile_network_sim_group_id_binding = args
+        let mobile_network_sim_group_id_binding_1 = args
             .mobile_network_sim_group_id
-            .get_output(context)
+            .get_output(context);
+        let mobile_network_sim_group_id_binding = mobile_network_sim_group_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let operator_key_code_binding = args
-            .operator_key_code
-            .get_output(context)
-            .get_inner();
-        let sim_policy_id_binding = args.sim_policy_id.get_output(context).get_inner();
-        let static_ip_configurations_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let operator_key_code_binding_1 = args.operator_key_code.get_output(context);
+        let operator_key_code_binding = operator_key_code_binding_1.get_inner();
+        let sim_policy_id_binding_1 = args.sim_policy_id.get_output(context);
+        let sim_policy_id_binding = sim_policy_id_binding_1.get_inner();
+        let static_ip_configurations_binding_1 = args
             .static_ip_configurations
-            .get_output(context)
+            .get_output(context);
+        let static_ip_configurations_binding = static_ip_configurations_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mobile/networkSim:NetworkSim".into(),

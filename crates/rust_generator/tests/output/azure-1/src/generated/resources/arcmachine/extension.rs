@@ -128,29 +128,33 @@ pub mod extension {
     ) -> ExtensionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arc_machine_id_binding = args.arc_machine_id.get_output(context).get_inner();
-        let automatic_upgrade_enabled_binding = args
+        let arc_machine_id_binding_1 = args.arc_machine_id.get_output(context);
+        let arc_machine_id_binding = arc_machine_id_binding_1.get_inner();
+        let automatic_upgrade_enabled_binding_1 = args
             .automatic_upgrade_enabled
-            .get_output(context)
+            .get_output(context);
+        let automatic_upgrade_enabled_binding = automatic_upgrade_enabled_binding_1
             .get_inner();
-        let force_update_tag_binding = args
-            .force_update_tag
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let protected_settings_binding = args
-            .protected_settings
-            .get_output(context)
-            .get_inner();
-        let publisher_binding = args.publisher.get_output(context).get_inner();
-        let settings_binding = args.settings.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let type_handler_version_binding = args
+        let force_update_tag_binding_1 = args.force_update_tag.get_output(context);
+        let force_update_tag_binding = force_update_tag_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let protected_settings_binding_1 = args.protected_settings.get_output(context);
+        let protected_settings_binding = protected_settings_binding_1.get_inner();
+        let publisher_binding_1 = args.publisher.get_output(context);
+        let publisher_binding = publisher_binding_1.get_inner();
+        let settings_binding_1 = args.settings.get_output(context);
+        let settings_binding = settings_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let type_handler_version_binding_1 = args
             .type_handler_version
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let type_handler_version_binding = type_handler_version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:arcmachine/extension:Extension".into(),
             name: name.to_string(),

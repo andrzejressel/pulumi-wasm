@@ -65,14 +65,16 @@ pub mod api_shield_schema {
     ) -> ApiShieldSchemaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let kind_binding = args.kind.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let validation_enabled_binding = args
-            .validation_enabled
-            .get_output(context)
-            .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let kind_binding_1 = args.kind.get_output(context);
+        let kind_binding = kind_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let validation_enabled_binding_1 = args.validation_enabled.get_output(context);
+        let validation_enabled_binding = validation_enabled_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/apiShieldSchema:ApiShieldSchema".into(),
             name: name.to_string(),

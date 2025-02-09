@@ -93,17 +93,18 @@ pub mod registry_cache_rule {
     ) -> RegistryCacheRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_registry_id_binding = args
+        let container_registry_id_binding_1 = args
             .container_registry_id
-            .get_output(context)
-            .get_inner();
-        let credential_set_id_binding = args
-            .credential_set_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let source_repo_binding = args.source_repo.get_output(context).get_inner();
-        let target_repo_binding = args.target_repo.get_output(context).get_inner();
+            .get_output(context);
+        let container_registry_id_binding = container_registry_id_binding_1.get_inner();
+        let credential_set_id_binding_1 = args.credential_set_id.get_output(context);
+        let credential_set_id_binding = credential_set_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let source_repo_binding_1 = args.source_repo.get_output(context);
+        let source_repo_binding = source_repo_binding_1.get_inner();
+        let target_repo_binding_1 = args.target_repo.get_output(context);
+        let target_repo_binding = target_repo_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/registryCacheRule:RegistryCacheRule".into(),
             name: name.to_string(),

@@ -27,7 +27,8 @@ pub mod get_email_identity {
     ) -> GetEmailIdentityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let email_binding = args.email.get_output(context).get_inner();
+        let email_binding_1 = args.email.get_output(context);
+        let email_binding = email_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ses/getEmailIdentity:getEmailIdentity".into(),
             version: super::super::super::get_version(),

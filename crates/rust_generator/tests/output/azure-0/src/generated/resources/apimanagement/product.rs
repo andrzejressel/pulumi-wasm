@@ -127,31 +127,28 @@ pub mod product {
     ) -> ProductResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args
-            .api_management_name
-            .get_output(context)
-            .get_inner();
-        let approval_required_binding = args
-            .approval_required
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let product_id_binding = args.product_id.get_output(context).get_inner();
-        let published_binding = args.published.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let subscription_required_binding = args
+        let api_management_name_binding_1 = args.api_management_name.get_output(context);
+        let api_management_name_binding = api_management_name_binding_1.get_inner();
+        let approval_required_binding_1 = args.approval_required.get_output(context);
+        let approval_required_binding = approval_required_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let product_id_binding_1 = args.product_id.get_output(context);
+        let product_id_binding = product_id_binding_1.get_inner();
+        let published_binding_1 = args.published.get_output(context);
+        let published_binding = published_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let subscription_required_binding_1 = args
             .subscription_required
-            .get_output(context)
-            .get_inner();
-        let subscriptions_limit_binding = args
-            .subscriptions_limit
-            .get_output(context)
-            .get_inner();
-        let terms_binding = args.terms.get_output(context).get_inner();
+            .get_output(context);
+        let subscription_required_binding = subscription_required_binding_1.get_inner();
+        let subscriptions_limit_binding_1 = args.subscriptions_limit.get_output(context);
+        let subscriptions_limit_binding = subscriptions_limit_binding_1.get_inner();
+        let terms_binding_1 = args.terms.get_output(context);
+        let terms_binding = terms_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/product:Product".into(),
             name: name.to_string(),

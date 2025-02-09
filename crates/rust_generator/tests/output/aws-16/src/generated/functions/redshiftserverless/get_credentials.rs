@@ -38,12 +38,12 @@ pub mod get_credentials {
     ) -> GetCredentialsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_name_binding = args.db_name.get_output(context).get_inner();
-        let duration_seconds_binding = args
-            .duration_seconds
-            .get_output(context)
-            .get_inner();
-        let workgroup_name_binding = args.workgroup_name.get_output(context).get_inner();
+        let db_name_binding_1 = args.db_name.get_output(context);
+        let db_name_binding = db_name_binding_1.get_inner();
+        let duration_seconds_binding_1 = args.duration_seconds.get_output(context);
+        let duration_seconds_binding = duration_seconds_binding_1.get_inner();
+        let workgroup_name_binding_1 = args.workgroup_name.get_output(context);
+        let workgroup_name_binding = workgroup_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshiftserverless/getCredentials:getCredentials".into(),
             version: super::super::super::get_version(),

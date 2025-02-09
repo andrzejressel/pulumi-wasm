@@ -283,12 +283,18 @@ pub mod entry_type_iam_binding {
     ) -> EntryTypeIamBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let entry_type_id_binding = args.entry_type_id.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let members_binding = args.members.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let entry_type_id_binding_1 = args.entry_type_id.get_output(context);
+        let entry_type_id_binding = entry_type_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let members_binding_1 = args.members.get_output(context);
+        let members_binding = members_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataplex/entryTypeIamBinding:EntryTypeIamBinding".into(),
             name: name.to_string(),

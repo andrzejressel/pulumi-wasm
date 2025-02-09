@@ -86,8 +86,10 @@ pub mod repository_policy {
     ) -> RepositoryPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let repository_binding = args.repository.get_output(context).get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let repository_binding_1 = args.repository.get_output(context);
+        let repository_binding = repository_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecr/repositoryPolicy:RepositoryPolicy".into(),
             name: name.to_string(),

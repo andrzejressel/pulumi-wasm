@@ -352,44 +352,43 @@ pub mod v_2_vm {
     ) -> V2VmResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerator_config_binding = args
-            .accelerator_config
-            .get_output(context)
-            .get_inner();
-        let accelerator_type_binding = args
-            .accelerator_type
-            .get_output(context)
-            .get_inner();
-        let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
-        let data_disks_binding = args.data_disks.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_config_binding = args.network_config.get_output(context).get_inner();
-        let network_configs_binding = args
-            .network_configs
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let runtime_version_binding = args
-            .runtime_version
-            .get_output(context)
-            .get_inner();
-        let scheduling_config_binding = args
-            .scheduling_config
-            .get_output(context)
-            .get_inner();
-        let service_account_binding = args
-            .service_account
-            .get_output(context)
-            .get_inner();
-        let shielded_instance_config_binding = args
+        let accelerator_config_binding_1 = args.accelerator_config.get_output(context);
+        let accelerator_config_binding = accelerator_config_binding_1.get_inner();
+        let accelerator_type_binding_1 = args.accelerator_type.get_output(context);
+        let accelerator_type_binding = accelerator_type_binding_1.get_inner();
+        let cidr_block_binding_1 = args.cidr_block.get_output(context);
+        let cidr_block_binding = cidr_block_binding_1.get_inner();
+        let data_disks_binding_1 = args.data_disks.get_output(context);
+        let data_disks_binding = data_disks_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_config_binding_1 = args.network_config.get_output(context);
+        let network_config_binding = network_config_binding_1.get_inner();
+        let network_configs_binding_1 = args.network_configs.get_output(context);
+        let network_configs_binding = network_configs_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let runtime_version_binding_1 = args.runtime_version.get_output(context);
+        let runtime_version_binding = runtime_version_binding_1.get_inner();
+        let scheduling_config_binding_1 = args.scheduling_config.get_output(context);
+        let scheduling_config_binding = scheduling_config_binding_1.get_inner();
+        let service_account_binding_1 = args.service_account.get_output(context);
+        let service_account_binding = service_account_binding_1.get_inner();
+        let shielded_instance_config_binding_1 = args
             .shielded_instance_config
-            .get_output(context)
+            .get_output(context);
+        let shielded_instance_config_binding = shielded_instance_config_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:tpu/v2Vm:V2Vm".into(),
             name: name.to_string(),

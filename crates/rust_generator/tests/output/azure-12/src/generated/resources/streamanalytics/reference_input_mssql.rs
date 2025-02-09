@@ -143,33 +143,38 @@ pub mod reference_input_mssql {
     ) -> ReferenceInputMssqlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_binding = args.database.get_output(context).get_inner();
-        let delta_snapshot_query_binding = args
+        let database_binding_1 = args.database.get_output(context);
+        let database_binding = database_binding_1.get_inner();
+        let delta_snapshot_query_binding_1 = args
             .delta_snapshot_query
-            .get_output(context)
-            .get_inner();
-        let full_snapshot_query_binding = args
-            .full_snapshot_query
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let refresh_interval_duration_binding = args
+            .get_output(context);
+        let delta_snapshot_query_binding = delta_snapshot_query_binding_1.get_inner();
+        let full_snapshot_query_binding_1 = args.full_snapshot_query.get_output(context);
+        let full_snapshot_query_binding = full_snapshot_query_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let refresh_interval_duration_binding_1 = args
             .refresh_interval_duration
-            .get_output(context)
+            .get_output(context);
+        let refresh_interval_duration_binding = refresh_interval_duration_binding_1
             .get_inner();
-        let refresh_type_binding = args.refresh_type.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let server_binding = args.server.get_output(context).get_inner();
-        let stream_analytics_job_name_binding = args
+        let refresh_type_binding_1 = args.refresh_type.get_output(context);
+        let refresh_type_binding = refresh_type_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let server_binding_1 = args.server.get_output(context);
+        let server_binding = server_binding_1.get_inner();
+        let stream_analytics_job_name_binding_1 = args
             .stream_analytics_job_name
-            .get_output(context)
+            .get_output(context);
+        let stream_analytics_job_name_binding = stream_analytics_job_name_binding_1
             .get_inner();
-        let table_binding = args.table.get_output(context).get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
+        let table_binding_1 = args.table.get_output(context);
+        let table_binding = table_binding_1.get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/referenceInputMssql:ReferenceInputMssql"
                 .into(),

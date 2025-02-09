@@ -114,39 +114,39 @@ pub mod logpush_job {
     ) -> LogpushJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let dataset_binding = args.dataset.get_output(context).get_inner();
-        let destination_conf_binding = args
-            .destination_conf
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let frequency_binding = args.frequency.get_output(context).get_inner();
-        let kind_binding = args.kind.get_output(context).get_inner();
-        let logpull_options_binding = args
-            .logpull_options
-            .get_output(context)
-            .get_inner();
-        let max_upload_bytes_binding = args
-            .max_upload_bytes
-            .get_output(context)
-            .get_inner();
-        let max_upload_interval_seconds_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let dataset_binding_1 = args.dataset.get_output(context);
+        let dataset_binding = dataset_binding_1.get_inner();
+        let destination_conf_binding_1 = args.destination_conf.get_output(context);
+        let destination_conf_binding = destination_conf_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let frequency_binding_1 = args.frequency.get_output(context);
+        let frequency_binding = frequency_binding_1.get_inner();
+        let kind_binding_1 = args.kind.get_output(context);
+        let kind_binding = kind_binding_1.get_inner();
+        let logpull_options_binding_1 = args.logpull_options.get_output(context);
+        let logpull_options_binding = logpull_options_binding_1.get_inner();
+        let max_upload_bytes_binding_1 = args.max_upload_bytes.get_output(context);
+        let max_upload_bytes_binding = max_upload_bytes_binding_1.get_inner();
+        let max_upload_interval_seconds_binding_1 = args
             .max_upload_interval_seconds
-            .get_output(context)
+            .get_output(context);
+        let max_upload_interval_seconds_binding = max_upload_interval_seconds_binding_1
             .get_inner();
-        let max_upload_records_binding = args
-            .max_upload_records
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let output_options_binding = args.output_options.get_output(context).get_inner();
-        let ownership_challenge_binding = args
-            .ownership_challenge
-            .get_output(context)
-            .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let max_upload_records_binding_1 = args.max_upload_records.get_output(context);
+        let max_upload_records_binding = max_upload_records_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let output_options_binding_1 = args.output_options.get_output(context);
+        let output_options_binding = output_options_binding_1.get_inner();
+        let ownership_challenge_binding_1 = args.ownership_challenge.get_output(context);
+        let ownership_challenge_binding = ownership_challenge_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/logpushJob:LogpushJob".into(),
             name: name.to_string(),

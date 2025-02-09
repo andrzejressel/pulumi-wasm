@@ -93,14 +93,10 @@ pub mod core_network_policy_attachment {
     ) -> CoreNetworkPolicyAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let core_network_id_binding = args
-            .core_network_id
-            .get_output(context)
-            .get_inner();
-        let policy_document_binding = args
-            .policy_document
-            .get_output(context)
-            .get_inner();
+        let core_network_id_binding_1 = args.core_network_id.get_output(context);
+        let core_network_id_binding = core_network_id_binding_1.get_inner();
+        let policy_document_binding_1 = args.policy_document.get_output(context);
+        let policy_document_binding = policy_document_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment"
                 .into(),

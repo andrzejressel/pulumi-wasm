@@ -59,10 +59,14 @@ pub mod vpc_network_performance_metric_subscription {
     ) -> VpcNetworkPerformanceMetricSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_binding = args.destination.get_output(context).get_inner();
-        let metric_binding = args.metric.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let statistic_binding = args.statistic.get_output(context).get_inner();
+        let destination_binding_1 = args.destination.get_output(context);
+        let destination_binding = destination_binding_1.get_inner();
+        let metric_binding_1 = args.metric.get_output(context);
+        let metric_binding = metric_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let statistic_binding_1 = args.statistic.get_output(context);
+        let statistic_binding = statistic_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription"
                 .into(),

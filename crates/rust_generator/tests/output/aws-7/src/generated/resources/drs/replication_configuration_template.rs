@@ -144,57 +144,63 @@ pub mod replication_configuration_template {
     ) -> ReplicationConfigurationTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let associate_default_security_group_binding = args
+        let associate_default_security_group_binding_1 = args
             .associate_default_security_group
-            .get_output(context)
+            .get_output(context);
+        let associate_default_security_group_binding = associate_default_security_group_binding_1
             .get_inner();
-        let auto_replicate_new_disks_binding = args
+        let auto_replicate_new_disks_binding_1 = args
             .auto_replicate_new_disks
-            .get_output(context)
+            .get_output(context);
+        let auto_replicate_new_disks_binding = auto_replicate_new_disks_binding_1
             .get_inner();
-        let bandwidth_throttling_binding = args
+        let bandwidth_throttling_binding_1 = args
             .bandwidth_throttling
-            .get_output(context)
-            .get_inner();
-        let create_public_ip_binding = args
-            .create_public_ip
-            .get_output(context)
-            .get_inner();
-        let data_plane_routing_binding = args
-            .data_plane_routing
-            .get_output(context)
-            .get_inner();
-        let default_large_staging_disk_type_binding = args
+            .get_output(context);
+        let bandwidth_throttling_binding = bandwidth_throttling_binding_1.get_inner();
+        let create_public_ip_binding_1 = args.create_public_ip.get_output(context);
+        let create_public_ip_binding = create_public_ip_binding_1.get_inner();
+        let data_plane_routing_binding_1 = args.data_plane_routing.get_output(context);
+        let data_plane_routing_binding = data_plane_routing_binding_1.get_inner();
+        let default_large_staging_disk_type_binding_1 = args
             .default_large_staging_disk_type
-            .get_output(context)
+            .get_output(context);
+        let default_large_staging_disk_type_binding = default_large_staging_disk_type_binding_1
             .get_inner();
-        let ebs_encryption_binding = args.ebs_encryption.get_output(context).get_inner();
-        let ebs_encryption_key_arn_binding = args
+        let ebs_encryption_binding_1 = args.ebs_encryption.get_output(context);
+        let ebs_encryption_binding = ebs_encryption_binding_1.get_inner();
+        let ebs_encryption_key_arn_binding_1 = args
             .ebs_encryption_key_arn
-            .get_output(context)
+            .get_output(context);
+        let ebs_encryption_key_arn_binding = ebs_encryption_key_arn_binding_1
             .get_inner();
-        let pit_policies_binding = args.pit_policies.get_output(context).get_inner();
-        let replication_server_instance_type_binding = args
+        let pit_policies_binding_1 = args.pit_policies.get_output(context);
+        let pit_policies_binding = pit_policies_binding_1.get_inner();
+        let replication_server_instance_type_binding_1 = args
             .replication_server_instance_type
-            .get_output(context)
+            .get_output(context);
+        let replication_server_instance_type_binding = replication_server_instance_type_binding_1
             .get_inner();
-        let replication_servers_security_groups_ids_binding = args
+        let replication_servers_security_groups_ids_binding_1 = args
             .replication_servers_security_groups_ids
-            .get_output(context)
+            .get_output(context);
+        let replication_servers_security_groups_ids_binding = replication_servers_security_groups_ids_binding_1
             .get_inner();
-        let staging_area_subnet_id_binding = args
+        let staging_area_subnet_id_binding_1 = args
             .staging_area_subnet_id
-            .get_output(context)
+            .get_output(context);
+        let staging_area_subnet_id_binding = staging_area_subnet_id_binding_1
             .get_inner();
-        let staging_area_tags_binding = args
-            .staging_area_tags
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let use_dedicated_replication_server_binding = args
+        let staging_area_tags_binding_1 = args.staging_area_tags.get_output(context);
+        let staging_area_tags_binding = staging_area_tags_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let use_dedicated_replication_server_binding_1 = args
             .use_dedicated_replication_server
-            .get_output(context)
+            .get_output(context);
+        let use_dedicated_replication_server_binding = use_dedicated_replication_server_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate"

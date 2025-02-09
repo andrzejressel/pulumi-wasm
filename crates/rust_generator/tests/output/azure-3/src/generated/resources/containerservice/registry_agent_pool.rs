@@ -110,22 +110,27 @@ pub mod registry_agent_pool {
     ) -> RegistryAgentPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_registry_name_binding = args
+        let container_registry_name_binding_1 = args
             .container_registry_name
-            .get_output(context)
+            .get_output(context);
+        let container_registry_name_binding = container_registry_name_binding_1
             .get_inner();
-        let instance_count_binding = args.instance_count.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tier_binding = args.tier.get_output(context).get_inner();
-        let virtual_network_subnet_id_binding = args
+        let instance_count_binding_1 = args.instance_count.get_output(context);
+        let instance_count_binding = instance_count_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tier_binding_1 = args.tier.get_output(context);
+        let tier_binding = tier_binding_1.get_inner();
+        let virtual_network_subnet_id_binding_1 = args
             .virtual_network_subnet_id
-            .get_output(context)
+            .get_output(context);
+        let virtual_network_subnet_id_binding = virtual_network_subnet_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/registryAgentPool:RegistryAgentPool".into(),

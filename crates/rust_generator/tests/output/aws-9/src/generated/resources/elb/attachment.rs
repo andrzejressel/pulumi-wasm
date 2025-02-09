@@ -51,8 +51,10 @@ pub mod attachment {
     ) -> AttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let elb_binding = args.elb.get_output(context).get_inner();
-        let instance_binding = args.instance.get_output(context).get_inner();
+        let elb_binding_1 = args.elb.get_output(context);
+        let elb_binding = elb_binding_1.get_inner();
+        let instance_binding_1 = args.instance.get_output(context);
+        let instance_binding = instance_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elb/attachment:Attachment".into(),
             name: name.to_string(),

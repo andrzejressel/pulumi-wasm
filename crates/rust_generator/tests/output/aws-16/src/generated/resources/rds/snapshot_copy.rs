@@ -151,33 +151,34 @@ pub mod snapshot_copy {
     ) -> SnapshotCopyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let copy_tags_binding = args.copy_tags.get_output(context).get_inner();
-        let destination_region_binding = args
-            .destination_region
-            .get_output(context)
-            .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let option_group_name_binding = args
-            .option_group_name
-            .get_output(context)
-            .get_inner();
-        let presigned_url_binding = args.presigned_url.get_output(context).get_inner();
-        let shared_accounts_binding = args
-            .shared_accounts
-            .get_output(context)
-            .get_inner();
-        let source_db_snapshot_identifier_binding = args
+        let copy_tags_binding_1 = args.copy_tags.get_output(context);
+        let copy_tags_binding = copy_tags_binding_1.get_inner();
+        let destination_region_binding_1 = args.destination_region.get_output(context);
+        let destination_region_binding = destination_region_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let option_group_name_binding_1 = args.option_group_name.get_output(context);
+        let option_group_name_binding = option_group_name_binding_1.get_inner();
+        let presigned_url_binding_1 = args.presigned_url.get_output(context);
+        let presigned_url_binding = presigned_url_binding_1.get_inner();
+        let shared_accounts_binding_1 = args.shared_accounts.get_output(context);
+        let shared_accounts_binding = shared_accounts_binding_1.get_inner();
+        let source_db_snapshot_identifier_binding_1 = args
             .source_db_snapshot_identifier
-            .get_output(context)
+            .get_output(context);
+        let source_db_snapshot_identifier_binding = source_db_snapshot_identifier_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_custom_availability_zone_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_custom_availability_zone_binding_1 = args
             .target_custom_availability_zone
-            .get_output(context)
+            .get_output(context);
+        let target_custom_availability_zone_binding = target_custom_availability_zone_binding_1
             .get_inner();
-        let target_db_snapshot_identifier_binding = args
+        let target_db_snapshot_identifier_binding_1 = args
             .target_db_snapshot_identifier
-            .get_output(context)
+            .get_output(context);
+        let target_db_snapshot_identifier_binding = target_db_snapshot_identifier_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/snapshotCopy:SnapshotCopy".into(),

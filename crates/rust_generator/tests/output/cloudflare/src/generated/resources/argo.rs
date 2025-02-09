@@ -61,9 +61,12 @@ pub mod argo {
     ) -> ArgoResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let smart_routing_binding = args.smart_routing.get_output(context).get_inner();
-        let tiered_caching_binding = args.tiered_caching.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let smart_routing_binding_1 = args.smart_routing.get_output(context);
+        let smart_routing_binding = smart_routing_binding_1.get_inner();
+        let tiered_caching_binding_1 = args.tiered_caching.get_output(context);
+        let tiered_caching_binding = tiered_caching_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/argo:Argo".into(),
             name: name.to_string(),

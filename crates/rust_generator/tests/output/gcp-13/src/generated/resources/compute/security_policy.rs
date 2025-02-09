@@ -251,23 +251,31 @@ pub mod security_policy {
     ) -> SecurityPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let adaptive_protection_config_binding = args
+        let adaptive_protection_config_binding_1 = args
             .adaptive_protection_config
-            .get_output(context)
+            .get_output(context);
+        let adaptive_protection_config_binding = adaptive_protection_config_binding_1
             .get_inner();
-        let advanced_options_config_binding = args
+        let advanced_options_config_binding_1 = args
             .advanced_options_config
-            .get_output(context)
+            .get_output(context);
+        let advanced_options_config_binding = advanced_options_config_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let recaptcha_options_config_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let recaptcha_options_config_binding_1 = args
             .recaptcha_options_config
-            .get_output(context)
+            .get_output(context);
+        let recaptcha_options_config_binding = recaptcha_options_config_binding_1
             .get_inner();
-        let rules_binding = args.rules.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/securityPolicy:SecurityPolicy".into(),
             name: name.to_string(),

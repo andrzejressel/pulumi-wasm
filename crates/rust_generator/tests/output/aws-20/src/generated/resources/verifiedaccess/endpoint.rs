@@ -156,48 +156,45 @@ pub mod endpoint {
     ) -> EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_domain_binding = args
-            .application_domain
-            .get_output(context)
-            .get_inner();
-        let attachment_type_binding = args
-            .attachment_type
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let domain_certificate_arn_binding = args
+        let application_domain_binding_1 = args.application_domain.get_output(context);
+        let application_domain_binding = application_domain_binding_1.get_inner();
+        let attachment_type_binding_1 = args.attachment_type.get_output(context);
+        let attachment_type_binding = attachment_type_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let domain_certificate_arn_binding_1 = args
             .domain_certificate_arn
-            .get_output(context)
+            .get_output(context);
+        let domain_certificate_arn_binding = domain_certificate_arn_binding_1
             .get_inner();
-        let endpoint_domain_prefix_binding = args
+        let endpoint_domain_prefix_binding_1 = args
             .endpoint_domain_prefix
-            .get_output(context)
+            .get_output(context);
+        let endpoint_domain_prefix_binding = endpoint_domain_prefix_binding_1
             .get_inner();
-        let endpoint_type_binding = args.endpoint_type.get_output(context).get_inner();
-        let load_balancer_options_binding = args
+        let endpoint_type_binding_1 = args.endpoint_type.get_output(context);
+        let endpoint_type_binding = endpoint_type_binding_1.get_inner();
+        let load_balancer_options_binding_1 = args
             .load_balancer_options
-            .get_output(context)
-            .get_inner();
-        let network_interface_options_binding = args
+            .get_output(context);
+        let load_balancer_options_binding = load_balancer_options_binding_1.get_inner();
+        let network_interface_options_binding_1 = args
             .network_interface_options
-            .get_output(context)
+            .get_output(context);
+        let network_interface_options_binding = network_interface_options_binding_1
             .get_inner();
-        let policy_document_binding = args
-            .policy_document
-            .get_output(context)
-            .get_inner();
-        let security_group_ids_binding = args
-            .security_group_ids
-            .get_output(context)
-            .get_inner();
-        let sse_specification_binding = args
-            .sse_specification
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let verified_access_group_id_binding = args
+        let policy_document_binding_1 = args.policy_document.get_output(context);
+        let policy_document_binding = policy_document_binding_1.get_inner();
+        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
+        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
+        let sse_specification_binding_1 = args.sse_specification.get_output(context);
+        let sse_specification_binding = sse_specification_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let verified_access_group_id_binding_1 = args
             .verified_access_group_id
-            .get_output(context)
+            .get_output(context);
+        let verified_access_group_id_binding = verified_access_group_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:verifiedaccess/endpoint:Endpoint".into(),

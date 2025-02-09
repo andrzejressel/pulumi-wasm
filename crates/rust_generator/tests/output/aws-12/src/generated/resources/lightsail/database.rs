@@ -312,57 +312,50 @@ pub mod database {
     ) -> DatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let apply_immediately_binding = args
-            .apply_immediately
-            .get_output(context)
-            .get_inner();
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let backup_retention_enabled_binding = args
+        let apply_immediately_binding_1 = args.apply_immediately.get_output(context);
+        let apply_immediately_binding = apply_immediately_binding_1.get_inner();
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let backup_retention_enabled_binding_1 = args
             .backup_retention_enabled
-            .get_output(context)
+            .get_output(context);
+        let backup_retention_enabled_binding = backup_retention_enabled_binding_1
             .get_inner();
-        let blueprint_id_binding = args.blueprint_id.get_output(context).get_inner();
-        let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
-        let final_snapshot_name_binding = args
-            .final_snapshot_name
-            .get_output(context)
-            .get_inner();
-        let master_database_name_binding = args
+        let blueprint_id_binding_1 = args.blueprint_id.get_output(context);
+        let blueprint_id_binding = blueprint_id_binding_1.get_inner();
+        let bundle_id_binding_1 = args.bundle_id.get_output(context);
+        let bundle_id_binding = bundle_id_binding_1.get_inner();
+        let final_snapshot_name_binding_1 = args.final_snapshot_name.get_output(context);
+        let final_snapshot_name_binding = final_snapshot_name_binding_1.get_inner();
+        let master_database_name_binding_1 = args
             .master_database_name
-            .get_output(context)
-            .get_inner();
-        let master_password_binding = args
-            .master_password
-            .get_output(context)
-            .get_inner();
-        let master_username_binding = args
-            .master_username
-            .get_output(context)
-            .get_inner();
-        let preferred_backup_window_binding = args
+            .get_output(context);
+        let master_database_name_binding = master_database_name_binding_1.get_inner();
+        let master_password_binding_1 = args.master_password.get_output(context);
+        let master_password_binding = master_password_binding_1.get_inner();
+        let master_username_binding_1 = args.master_username.get_output(context);
+        let master_username_binding = master_username_binding_1.get_inner();
+        let preferred_backup_window_binding_1 = args
             .preferred_backup_window
-            .get_output(context)
+            .get_output(context);
+        let preferred_backup_window_binding = preferred_backup_window_binding_1
             .get_inner();
-        let preferred_maintenance_window_binding = args
+        let preferred_maintenance_window_binding_1 = args
             .preferred_maintenance_window
-            .get_output(context)
+            .get_output(context);
+        let preferred_maintenance_window_binding = preferred_maintenance_window_binding_1
             .get_inner();
-        let publicly_accessible_binding = args
-            .publicly_accessible
-            .get_output(context)
-            .get_inner();
-        let relational_database_name_binding = args
+        let publicly_accessible_binding_1 = args.publicly_accessible.get_output(context);
+        let publicly_accessible_binding = publicly_accessible_binding_1.get_inner();
+        let relational_database_name_binding_1 = args
             .relational_database_name
-            .get_output(context)
+            .get_output(context);
+        let relational_database_name_binding = relational_database_name_binding_1
             .get_inner();
-        let skip_final_snapshot_binding = args
-            .skip_final_snapshot
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let skip_final_snapshot_binding_1 = args.skip_final_snapshot.get_output(context);
+        let skip_final_snapshot_binding = skip_final_snapshot_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/database:Database".into(),
             name: name.to_string(),

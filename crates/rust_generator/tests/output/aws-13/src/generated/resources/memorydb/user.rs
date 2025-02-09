@@ -93,13 +93,14 @@ pub mod user {
     ) -> UserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_string_binding = args.access_string.get_output(context).get_inner();
-        let authentication_mode_binding = args
-            .authentication_mode
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_name_binding = args.user_name.get_output(context).get_inner();
+        let access_string_binding_1 = args.access_string.get_output(context);
+        let access_string_binding = access_string_binding_1.get_inner();
+        let authentication_mode_binding_1 = args.authentication_mode.get_output(context);
+        let authentication_mode_binding = authentication_mode_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_name_binding_1 = args.user_name.get_output(context);
+        let user_name_binding = user_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:memorydb/user:User".into(),
             name: name.to_string(),

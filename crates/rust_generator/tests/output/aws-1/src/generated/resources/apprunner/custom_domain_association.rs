@@ -72,12 +72,14 @@ pub mod custom_domain_association {
     ) -> CustomDomainAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let enable_www_subdomain_binding = args
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let enable_www_subdomain_binding_1 = args
             .enable_www_subdomain
-            .get_output(context)
-            .get_inner();
-        let service_arn_binding = args.service_arn.get_output(context).get_inner();
+            .get_output(context);
+        let enable_www_subdomain_binding = enable_www_subdomain_binding_1.get_inner();
+        let service_arn_binding_1 = args.service_arn.get_output(context);
+        let service_arn_binding = service_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apprunner/customDomainAssociation:CustomDomainAssociation"
                 .into(),

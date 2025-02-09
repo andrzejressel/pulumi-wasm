@@ -98,20 +98,22 @@ pub mod spring_cloud_elastic_application_performance_monitoring {
     ) -> SpringCloudElasticApplicationPerformanceMonitoringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_packages_binding = args
+        let application_packages_binding_1 = args
             .application_packages
-            .get_output(context)
-            .get_inner();
-        let globally_enabled_binding = args
-            .globally_enabled
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let server_url_binding = args.server_url.get_output(context).get_inner();
-        let service_name_binding = args.service_name.get_output(context).get_inner();
-        let spring_cloud_service_id_binding = args
+            .get_output(context);
+        let application_packages_binding = application_packages_binding_1.get_inner();
+        let globally_enabled_binding_1 = args.globally_enabled.get_output(context);
+        let globally_enabled_binding = globally_enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let server_url_binding_1 = args.server_url.get_output(context);
+        let server_url_binding = server_url_binding_1.get_inner();
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
+        let spring_cloud_service_id_binding_1 = args
             .spring_cloud_service_id
-            .get_output(context)
+            .get_output(context);
+        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring"

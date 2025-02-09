@@ -51,7 +51,8 @@ pub fn invoke(
     use std::collections::HashMap;
 
 {{#each function.input_properties}}
-    let {{arg_name}}_binding = args.{{arg_name}}.get_output(context).get_inner();
+    let {{arg_name}}_binding_1 = args.{{arg_name}}.get_output(context);
+    let {{arg_name}}_binding = {{arg_name}}_binding_1.get_inner();
 {{/each}}
 
     let request = register_interface::ResourceInvokeRequest {

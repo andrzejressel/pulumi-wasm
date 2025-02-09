@@ -104,15 +104,18 @@ pub mod view {
     ) -> ViewResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_view_binding = args.default_view.get_output(context).get_inner();
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let included_properties_binding = args
-            .included_properties
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let default_view_binding_1 = args.default_view.get_output(context);
+        let default_view_binding = default_view_binding_1.get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let included_properties_binding_1 = args.included_properties.get_output(context);
+        let included_properties_binding = included_properties_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:resourceexplorer/view:View".into(),
             name: name.to_string(),

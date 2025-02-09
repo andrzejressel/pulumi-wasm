@@ -254,46 +254,53 @@ pub mod service {
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_ips_binding = args.allowed_ips.get_output(context).get_inner();
-        let authentication_failure_mode_binding = args
+        let allowed_ips_binding_1 = args.allowed_ips.get_output(context);
+        let allowed_ips_binding = allowed_ips_binding_1.get_inner();
+        let authentication_failure_mode_binding_1 = args
             .authentication_failure_mode
-            .get_output(context)
+            .get_output(context);
+        let authentication_failure_mode_binding = authentication_failure_mode_binding_1
             .get_inner();
-        let customer_managed_key_enforcement_enabled_binding = args
+        let customer_managed_key_enforcement_enabled_binding_1 = args
             .customer_managed_key_enforcement_enabled
-            .get_output(context)
+            .get_output(context);
+        let customer_managed_key_enforcement_enabled_binding = customer_managed_key_enforcement_enabled_binding_1
             .get_inner();
-        let hosting_mode_binding = args.hosting_mode.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let local_authentication_enabled_binding = args
+        let hosting_mode_binding_1 = args.hosting_mode.get_output(context);
+        let hosting_mode_binding = hosting_mode_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let local_authentication_enabled_binding_1 = args
             .local_authentication_enabled
-            .get_output(context)
+            .get_output(context);
+        let local_authentication_enabled_binding = local_authentication_enabled_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_rule_bypass_option_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_rule_bypass_option_binding_1 = args
             .network_rule_bypass_option
-            .get_output(context)
+            .get_output(context);
+        let network_rule_bypass_option_binding = network_rule_bypass_option_binding_1
             .get_inner();
-        let partition_count_binding = args
-            .partition_count
-            .get_output(context)
-            .get_inner();
-        let public_network_access_enabled_binding = args
+        let partition_count_binding_1 = args.partition_count.get_output(context);
+        let partition_count_binding = partition_count_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let replica_count_binding = args.replica_count.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let semantic_search_sku_binding = args
-            .semantic_search_sku
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let replica_count_binding_1 = args.replica_count.get_output(context);
+        let replica_count_binding = replica_count_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let semantic_search_sku_binding_1 = args.semantic_search_sku.get_output(context);
+        let semantic_search_sku_binding = semantic_search_sku_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:search/service:Service".into(),
             name: name.to_string(),

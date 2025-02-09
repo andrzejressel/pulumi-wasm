@@ -106,23 +106,22 @@ pub mod channel_slack {
     ) -> ChannelSlackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_name_binding = args.bot_name.get_output(context).get_inner();
-        let client_id_binding = args.client_id.get_output(context).get_inner();
-        let client_secret_binding = args.client_secret.get_output(context).get_inner();
-        let landing_page_url_binding = args
-            .landing_page_url
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let signing_secret_binding = args.signing_secret.get_output(context).get_inner();
-        let verification_token_binding = args
-            .verification_token
-            .get_output(context)
-            .get_inner();
+        let bot_name_binding_1 = args.bot_name.get_output(context);
+        let bot_name_binding = bot_name_binding_1.get_inner();
+        let client_id_binding_1 = args.client_id.get_output(context);
+        let client_id_binding = client_id_binding_1.get_inner();
+        let client_secret_binding_1 = args.client_secret.get_output(context);
+        let client_secret_binding = client_secret_binding_1.get_inner();
+        let landing_page_url_binding_1 = args.landing_page_url.get_output(context);
+        let landing_page_url_binding = landing_page_url_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let signing_secret_binding_1 = args.signing_secret.get_output(context);
+        let signing_secret_binding = signing_secret_binding_1.get_inner();
+        let verification_token_binding_1 = args.verification_token.get_output(context);
+        let verification_token_binding = verification_token_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:bot/channelSlack:ChannelSlack".into(),
             name: name.to_string(),

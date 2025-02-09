@@ -160,30 +160,36 @@ pub mod configuration_feature {
     ) -> ConfigurationFeatureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_store_id_binding = args
+        let configuration_store_id_binding_1 = args
             .configuration_store_id
-            .get_output(context)
+            .get_output(context);
+        let configuration_store_id_binding = configuration_store_id_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let etag_binding = args.etag.get_output(context).get_inner();
-        let key_binding = args.key.get_output(context).get_inner();
-        let label_binding = args.label.get_output(context).get_inner();
-        let locked_binding = args.locked.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let percentage_filter_value_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let etag_binding_1 = args.etag.get_output(context);
+        let etag_binding = etag_binding_1.get_inner();
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let label_binding_1 = args.label.get_output(context);
+        let label_binding = label_binding_1.get_inner();
+        let locked_binding_1 = args.locked.get_output(context);
+        let locked_binding = locked_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let percentage_filter_value_binding_1 = args
             .percentage_filter_value
-            .get_output(context)
+            .get_output(context);
+        let percentage_filter_value_binding = percentage_filter_value_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let targeting_filters_binding = args
-            .targeting_filters
-            .get_output(context)
-            .get_inner();
-        let timewindow_filters_binding = args
-            .timewindow_filters
-            .get_output(context)
-            .get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let targeting_filters_binding_1 = args.targeting_filters.get_output(context);
+        let targeting_filters_binding = targeting_filters_binding_1.get_inner();
+        let timewindow_filters_binding_1 = args.timewindow_filters.get_output(context);
+        let timewindow_filters_binding = timewindow_filters_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appconfiguration/configurationFeature:ConfigurationFeature"
                 .into(),

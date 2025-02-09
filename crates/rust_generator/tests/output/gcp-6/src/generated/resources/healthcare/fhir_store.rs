@@ -369,47 +369,55 @@ pub mod fhir_store {
     ) -> FhirStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let complex_data_type_reference_parsing_binding = args
+        let complex_data_type_reference_parsing_binding_1 = args
             .complex_data_type_reference_parsing
-            .get_output(context)
+            .get_output(context);
+        let complex_data_type_reference_parsing_binding = complex_data_type_reference_parsing_binding_1
             .get_inner();
-        let dataset_binding = args.dataset.get_output(context).get_inner();
-        let default_search_handling_strict_binding = args
+        let dataset_binding_1 = args.dataset.get_output(context);
+        let dataset_binding = dataset_binding_1.get_inner();
+        let default_search_handling_strict_binding_1 = args
             .default_search_handling_strict
-            .get_output(context)
+            .get_output(context);
+        let default_search_handling_strict_binding = default_search_handling_strict_binding_1
             .get_inner();
-        let disable_referential_integrity_binding = args
+        let disable_referential_integrity_binding_1 = args
             .disable_referential_integrity
-            .get_output(context)
+            .get_output(context);
+        let disable_referential_integrity_binding = disable_referential_integrity_binding_1
             .get_inner();
-        let disable_resource_versioning_binding = args
+        let disable_resource_versioning_binding_1 = args
             .disable_resource_versioning
-            .get_output(context)
+            .get_output(context);
+        let disable_resource_versioning_binding = disable_resource_versioning_binding_1
             .get_inner();
-        let enable_history_import_binding = args
+        let enable_history_import_binding_1 = args
             .enable_history_import
-            .get_output(context)
-            .get_inner();
-        let enable_history_modifications_binding = args
+            .get_output(context);
+        let enable_history_import_binding = enable_history_import_binding_1.get_inner();
+        let enable_history_modifications_binding_1 = args
             .enable_history_modifications
-            .get_output(context)
+            .get_output(context);
+        let enable_history_modifications_binding = enable_history_modifications_binding_1
             .get_inner();
-        let enable_update_create_binding = args
+        let enable_update_create_binding_1 = args
             .enable_update_create
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notification_config_binding = args
-            .notification_config
-            .get_output(context)
-            .get_inner();
-        let notification_configs_binding = args
+            .get_output(context);
+        let enable_update_create_binding = enable_update_create_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notification_config_binding_1 = args.notification_config.get_output(context);
+        let notification_config_binding = notification_config_binding_1.get_inner();
+        let notification_configs_binding_1 = args
             .notification_configs
-            .get_output(context)
-            .get_inner();
-        let stream_configs_binding = args.stream_configs.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+            .get_output(context);
+        let notification_configs_binding = notification_configs_binding_1.get_inner();
+        let stream_configs_binding_1 = args.stream_configs.get_output(context);
+        let stream_configs_binding = stream_configs_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/fhirStore:FhirStore".into(),
             name: name.to_string(),

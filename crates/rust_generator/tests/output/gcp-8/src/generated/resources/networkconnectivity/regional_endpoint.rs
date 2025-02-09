@@ -213,19 +213,26 @@ pub mod regional_endpoint {
     ) -> RegionalEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_type_binding = args.access_type.get_output(context).get_inner();
-        let address_binding = args.address.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let subnetwork_binding = args.subnetwork.get_output(context).get_inner();
-        let target_google_api_binding = args
-            .target_google_api
-            .get_output(context)
-            .get_inner();
+        let access_type_binding_1 = args.access_type.get_output(context);
+        let access_type_binding = access_type_binding_1.get_inner();
+        let address_binding_1 = args.address.get_output(context);
+        let address_binding = address_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let subnetwork_binding_1 = args.subnetwork.get_output(context);
+        let subnetwork_binding = subnetwork_binding_1.get_inner();
+        let target_google_api_binding_1 = args.target_google_api.get_output(context);
+        let target_google_api_binding = target_google_api_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkconnectivity/regionalEndpoint:RegionalEndpoint".into(),
             name: name.to_string(),

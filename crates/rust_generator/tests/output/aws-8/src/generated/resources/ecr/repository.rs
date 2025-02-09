@@ -104,21 +104,26 @@ pub mod repository {
     ) -> RepositoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let encryption_configurations_binding = args
+        let encryption_configurations_binding_1 = args
             .encryption_configurations
-            .get_output(context)
+            .get_output(context);
+        let encryption_configurations_binding = encryption_configurations_binding_1
             .get_inner();
-        let force_delete_binding = args.force_delete.get_output(context).get_inner();
-        let image_scanning_configuration_binding = args
+        let force_delete_binding_1 = args.force_delete.get_output(context);
+        let force_delete_binding = force_delete_binding_1.get_inner();
+        let image_scanning_configuration_binding_1 = args
             .image_scanning_configuration
-            .get_output(context)
+            .get_output(context);
+        let image_scanning_configuration_binding = image_scanning_configuration_binding_1
             .get_inner();
-        let image_tag_mutability_binding = args
+        let image_tag_mutability_binding_1 = args
             .image_tag_mutability
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let image_tag_mutability_binding = image_tag_mutability_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecr/repository:Repository".into(),
             name: name.to_string(),

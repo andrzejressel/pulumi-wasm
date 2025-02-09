@@ -383,27 +383,33 @@ pub mod regional_secret {
     ) -> RegionalSecretResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let customer_managed_encryption_binding = args
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let customer_managed_encryption_binding_1 = args
             .customer_managed_encryption
-            .get_output(context)
+            .get_output(context);
+        let customer_managed_encryption_binding = customer_managed_encryption_binding_1
             .get_inner();
-        let expire_time_binding = args.expire_time.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let rotation_binding = args.rotation.get_output(context).get_inner();
-        let secret_id_binding = args.secret_id.get_output(context).get_inner();
-        let topics_binding = args.topics.get_output(context).get_inner();
-        let ttl_binding = args.ttl.get_output(context).get_inner();
-        let version_aliases_binding = args
-            .version_aliases
-            .get_output(context)
-            .get_inner();
-        let version_destroy_ttl_binding = args
-            .version_destroy_ttl
-            .get_output(context)
-            .get_inner();
+        let expire_time_binding_1 = args.expire_time.get_output(context);
+        let expire_time_binding = expire_time_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let rotation_binding_1 = args.rotation.get_output(context);
+        let rotation_binding = rotation_binding_1.get_inner();
+        let secret_id_binding_1 = args.secret_id.get_output(context);
+        let secret_id_binding = secret_id_binding_1.get_inner();
+        let topics_binding_1 = args.topics.get_output(context);
+        let topics_binding = topics_binding_1.get_inner();
+        let ttl_binding_1 = args.ttl.get_output(context);
+        let ttl_binding = ttl_binding_1.get_inner();
+        let version_aliases_binding_1 = args.version_aliases.get_output(context);
+        let version_aliases_binding = version_aliases_binding_1.get_inner();
+        let version_destroy_ttl_binding_1 = args.version_destroy_ttl.get_output(context);
+        let version_destroy_ttl_binding = version_destroy_ttl_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:secretmanager/regionalSecret:RegionalSecret".into(),
             name: name.to_string(),

@@ -35,14 +35,12 @@ pub mod get_custom_key_store {
     ) -> GetCustomKeyStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_key_store_id_binding = args
-            .custom_key_store_id
-            .get_output(context)
-            .get_inner();
-        let custom_key_store_name_binding = args
+        let custom_key_store_id_binding_1 = args.custom_key_store_id.get_output(context);
+        let custom_key_store_id_binding = custom_key_store_id_binding_1.get_inner();
+        let custom_key_store_name_binding_1 = args
             .custom_key_store_name
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let custom_key_store_name_binding = custom_key_store_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kms/getCustomKeyStore:getCustomKeyStore".into(),
             version: super::super::super::get_version(),

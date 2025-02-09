@@ -243,49 +243,63 @@ pub mod spring_cloud_gateway {
     ) -> SpringCloudGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_metadata_binding = args.api_metadata.get_output(context).get_inner();
-        let application_performance_monitoring_ids_binding = args
+        let api_metadata_binding_1 = args.api_metadata.get_output(context);
+        let api_metadata_binding = api_metadata_binding_1.get_inner();
+        let application_performance_monitoring_ids_binding_1 = args
             .application_performance_monitoring_ids
-            .get_output(context)
+            .get_output(context);
+        let application_performance_monitoring_ids_binding = application_performance_monitoring_ids_binding_1
             .get_inner();
-        let application_performance_monitoring_types_binding = args
+        let application_performance_monitoring_types_binding_1 = args
             .application_performance_monitoring_types
-            .get_output(context)
+            .get_output(context);
+        let application_performance_monitoring_types_binding = application_performance_monitoring_types_binding_1
             .get_inner();
-        let client_authorization_binding = args
+        let client_authorization_binding_1 = args
             .client_authorization
-            .get_output(context)
-            .get_inner();
-        let cors_binding = args.cors.get_output(context).get_inner();
-        let environment_variables_binding = args
+            .get_output(context);
+        let client_authorization_binding = client_authorization_binding_1.get_inner();
+        let cors_binding_1 = args.cors.get_output(context);
+        let cors_binding = cors_binding_1.get_inner();
+        let environment_variables_binding_1 = args
             .environment_variables
-            .get_output(context)
-            .get_inner();
-        let https_only_binding = args.https_only.get_output(context).get_inner();
-        let instance_count_binding = args.instance_count.get_output(context).get_inner();
-        let local_response_cache_per_instance_binding = args
+            .get_output(context);
+        let environment_variables_binding = environment_variables_binding_1.get_inner();
+        let https_only_binding_1 = args.https_only.get_output(context);
+        let https_only_binding = https_only_binding_1.get_inner();
+        let instance_count_binding_1 = args.instance_count.get_output(context);
+        let instance_count_binding = instance_count_binding_1.get_inner();
+        let local_response_cache_per_instance_binding_1 = args
             .local_response_cache_per_instance
-            .get_output(context)
+            .get_output(context);
+        let local_response_cache_per_instance_binding = local_response_cache_per_instance_binding_1
             .get_inner();
-        let local_response_cache_per_route_binding = args
+        let local_response_cache_per_route_binding_1 = args
             .local_response_cache_per_route
-            .get_output(context)
+            .get_output(context);
+        let local_response_cache_per_route_binding = local_response_cache_per_route_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let quota_binding = args.quota.get_output(context).get_inner();
-        let sensitive_environment_variables_binding = args
+        let quota_binding_1 = args.quota.get_output(context);
+        let quota_binding = quota_binding_1.get_inner();
+        let sensitive_environment_variables_binding_1 = args
             .sensitive_environment_variables
-            .get_output(context)
+            .get_output(context);
+        let sensitive_environment_variables_binding = sensitive_environment_variables_binding_1
             .get_inner();
-        let spring_cloud_service_id_binding = args
+        let spring_cloud_service_id_binding_1 = args
             .spring_cloud_service_id
-            .get_output(context)
+            .get_output(context);
+        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
             .get_inner();
-        let sso_binding = args.sso.get_output(context).get_inner();
+        let sso_binding_1 = args.sso.get_output(context);
+        let sso_binding = sso_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudGateway:SpringCloudGateway".into(),
             name: name.to_string(),

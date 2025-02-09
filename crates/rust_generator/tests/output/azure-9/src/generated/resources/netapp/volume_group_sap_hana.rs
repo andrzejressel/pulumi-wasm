@@ -269,22 +269,23 @@ pub mod volume_group_sap_hana {
     ) -> VolumeGroupSapHanaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding = args.account_name.get_output(context).get_inner();
-        let application_identifier_binding = args
+        let account_name_binding_1 = args.account_name.get_output(context);
+        let account_name_binding = account_name_binding_1.get_inner();
+        let application_identifier_binding_1 = args
             .application_identifier
-            .get_output(context)
+            .get_output(context);
+        let application_identifier_binding = application_identifier_binding_1
             .get_inner();
-        let group_description_binding = args
-            .group_description
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let volumes_binding = args.volumes.get_output(context).get_inner();
+        let group_description_binding_1 = args.group_description.get_output(context);
+        let group_description_binding = group_description_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let volumes_binding_1 = args.volumes.get_output(context);
+        let volumes_binding = volumes_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:netapp/volumeGroupSapHana:VolumeGroupSapHana".into(),
             name: name.to_string(),

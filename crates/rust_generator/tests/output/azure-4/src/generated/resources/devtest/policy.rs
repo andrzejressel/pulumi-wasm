@@ -111,21 +111,24 @@ pub mod policy {
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let evaluator_type_binding = args.evaluator_type.get_output(context).get_inner();
-        let fact_data_binding = args.fact_data.get_output(context).get_inner();
-        let lab_name_binding = args.lab_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let policy_set_name_binding = args
-            .policy_set_name
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let threshold_binding = args.threshold.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let evaluator_type_binding_1 = args.evaluator_type.get_output(context);
+        let evaluator_type_binding = evaluator_type_binding_1.get_inner();
+        let fact_data_binding_1 = args.fact_data.get_output(context);
+        let fact_data_binding = fact_data_binding_1.get_inner();
+        let lab_name_binding_1 = args.lab_name.get_output(context);
+        let lab_name_binding = lab_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let policy_set_name_binding_1 = args.policy_set_name.get_output(context);
+        let policy_set_name_binding = policy_set_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let threshold_binding_1 = args.threshold.get_output(context);
+        let threshold_binding = threshold_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:devtest/policy:Policy".into(),
             name: name.to_string(),

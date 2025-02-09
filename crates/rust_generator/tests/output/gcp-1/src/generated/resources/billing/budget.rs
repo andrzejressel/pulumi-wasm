@@ -333,25 +333,20 @@ pub mod budget {
     ) -> BudgetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let all_updates_rule_binding = args
-            .all_updates_rule
-            .get_output(context)
-            .get_inner();
-        let amount_binding = args.amount.get_output(context).get_inner();
-        let billing_account_binding = args
-            .billing_account
-            .get_output(context)
-            .get_inner();
-        let budget_filter_binding = args.budget_filter.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let ownership_scope_binding = args
-            .ownership_scope
-            .get_output(context)
-            .get_inner();
-        let threshold_rules_binding = args
-            .threshold_rules
-            .get_output(context)
-            .get_inner();
+        let all_updates_rule_binding_1 = args.all_updates_rule.get_output(context);
+        let all_updates_rule_binding = all_updates_rule_binding_1.get_inner();
+        let amount_binding_1 = args.amount.get_output(context);
+        let amount_binding = amount_binding_1.get_inner();
+        let billing_account_binding_1 = args.billing_account.get_output(context);
+        let billing_account_binding = billing_account_binding_1.get_inner();
+        let budget_filter_binding_1 = args.budget_filter.get_output(context);
+        let budget_filter_binding = budget_filter_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let ownership_scope_binding_1 = args.ownership_scope.get_output(context);
+        let ownership_scope_binding = ownership_scope_binding_1.get_inner();
+        let threshold_rules_binding_1 = args.threshold_rules.get_output(context);
+        let threshold_rules_binding = threshold_rules_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:billing/budget:Budget".into(),
             name: name.to_string(),

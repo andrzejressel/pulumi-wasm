@@ -65,8 +65,10 @@ pub mod vpn_gateway_attachment {
     ) -> VpnGatewayAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
-        let vpn_gateway_id_binding = args.vpn_gateway_id.get_output(context).get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
+        let vpn_gateway_id_binding_1 = args.vpn_gateway_id.get_output(context);
+        let vpn_gateway_id_binding = vpn_gateway_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment".into(),
             name: name.to_string(),

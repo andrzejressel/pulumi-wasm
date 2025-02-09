@@ -57,8 +57,10 @@ pub mod cache {
     ) -> CacheResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disk_id_binding = args.disk_id.get_output(context).get_inner();
-        let gateway_arn_binding = args.gateway_arn.get_output(context).get_inner();
+        let disk_id_binding_1 = args.disk_id.get_output(context);
+        let disk_id_binding = disk_id_binding_1.get_inner();
+        let gateway_arn_binding_1 = args.gateway_arn.get_output(context);
+        let gateway_arn_binding = gateway_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:storagegateway/cache:Cache".into(),
             name: name.to_string(),

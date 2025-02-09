@@ -57,8 +57,10 @@ pub mod availability_zone_group {
     ) -> AvailabilityZoneGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_name_binding = args.group_name.get_output(context).get_inner();
-        let opt_in_status_binding = args.opt_in_status.get_output(context).get_inner();
+        let group_name_binding_1 = args.group_name.get_output(context);
+        let group_name_binding = group_name_binding_1.get_inner();
+        let opt_in_status_binding_1 = args.opt_in_status.get_output(context);
+        let opt_in_status_binding = opt_in_status_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup".into(),
             name: name.to_string(),

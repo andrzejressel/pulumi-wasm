@@ -34,8 +34,10 @@ pub mod get_product {
     ) -> GetProductResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let service_code_binding = args.service_code.get_output(context).get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let service_code_binding_1 = args.service_code.get_output(context);
+        let service_code_binding = service_code_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:pricing/getProduct:getProduct".into(),
             version: super::super::super::get_version(),

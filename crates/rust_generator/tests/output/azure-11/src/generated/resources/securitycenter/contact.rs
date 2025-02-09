@@ -76,17 +76,16 @@ pub mod contact {
     ) -> ContactResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alert_notifications_binding = args
-            .alert_notifications
-            .get_output(context)
-            .get_inner();
-        let alerts_to_admins_binding = args
-            .alerts_to_admins
-            .get_output(context)
-            .get_inner();
-        let email_binding = args.email.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let phone_binding = args.phone.get_output(context).get_inner();
+        let alert_notifications_binding_1 = args.alert_notifications.get_output(context);
+        let alert_notifications_binding = alert_notifications_binding_1.get_inner();
+        let alerts_to_admins_binding_1 = args.alerts_to_admins.get_output(context);
+        let alerts_to_admins_binding = alerts_to_admins_binding_1.get_inner();
+        let email_binding_1 = args.email.get_output(context);
+        let email_binding = email_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let phone_binding_1 = args.phone.get_output(context);
+        let phone_binding = phone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:securitycenter/contact:Contact".into(),
             name: name.to_string(),

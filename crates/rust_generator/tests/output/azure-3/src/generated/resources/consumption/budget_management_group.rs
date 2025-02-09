@@ -143,17 +143,22 @@ pub mod budget_management_group {
     ) -> BudgetManagementGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let amount_binding = args.amount.get_output(context).get_inner();
-        let etag_binding = args.etag.get_output(context).get_inner();
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let management_group_id_binding = args
-            .management_group_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notifications_binding = args.notifications.get_output(context).get_inner();
-        let time_grain_binding = args.time_grain.get_output(context).get_inner();
-        let time_period_binding = args.time_period.get_output(context).get_inner();
+        let amount_binding_1 = args.amount.get_output(context);
+        let amount_binding = amount_binding_1.get_inner();
+        let etag_binding_1 = args.etag.get_output(context);
+        let etag_binding = etag_binding_1.get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let management_group_id_binding_1 = args.management_group_id.get_output(context);
+        let management_group_id_binding = management_group_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notifications_binding_1 = args.notifications.get_output(context);
+        let notifications_binding = notifications_binding_1.get_inner();
+        let time_grain_binding_1 = args.time_grain.get_output(context);
+        let time_grain_binding = time_grain_binding_1.get_inner();
+        let time_period_binding_1 = args.time_period.get_output(context);
+        let time_period_binding = time_period_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:consumption/budgetManagementGroup:BudgetManagementGroup"
                 .into(),

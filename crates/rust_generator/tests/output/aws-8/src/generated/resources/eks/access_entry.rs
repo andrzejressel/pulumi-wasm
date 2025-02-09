@@ -95,15 +95,18 @@ pub mod access_entry {
     ) -> AccessEntryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let kubernetes_groups_binding = args
-            .kubernetes_groups
-            .get_output(context)
-            .get_inner();
-        let principal_arn_binding = args.principal_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let user_name_binding = args.user_name.get_output(context).get_inner();
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let kubernetes_groups_binding_1 = args.kubernetes_groups.get_output(context);
+        let kubernetes_groups_binding = kubernetes_groups_binding_1.get_inner();
+        let principal_arn_binding_1 = args.principal_arn.get_output(context);
+        let principal_arn_binding = principal_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let user_name_binding_1 = args.user_name.get_output(context);
+        let user_name_binding = user_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:eks/accessEntry:AccessEntry".into(),
             name: name.to_string(),

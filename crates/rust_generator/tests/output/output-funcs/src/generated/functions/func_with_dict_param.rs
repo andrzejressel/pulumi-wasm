@@ -25,8 +25,10 @@ pub mod func_with_dict_param {
     ) -> FuncWithDictParamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let a_binding = args.a.get_output(context).get_inner();
-        let b_binding = args.b.get_output(context).get_inner();
+        let a_binding_1 = args.a.get_output(context);
+        let a_binding = a_binding_1.get_inner();
+        let b_binding_1 = args.b.get_output(context);
+        let b_binding = b_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "mypkg::funcWithDictParam".into(),
             version: super::super::get_version(),

@@ -281,53 +281,57 @@ pub mod job {
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let command_binding = args.command.get_output(context).get_inner();
-        let connections_binding = args.connections.get_output(context).get_inner();
-        let default_arguments_binding = args
-            .default_arguments
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let execution_class_binding = args
-            .execution_class
-            .get_output(context)
-            .get_inner();
-        let execution_property_binding = args
-            .execution_property
-            .get_output(context)
-            .get_inner();
-        let glue_version_binding = args.glue_version.get_output(context).get_inner();
-        let job_run_queuing_enabled_binding = args
+        let command_binding_1 = args.command.get_output(context);
+        let command_binding = command_binding_1.get_inner();
+        let connections_binding_1 = args.connections.get_output(context);
+        let connections_binding = connections_binding_1.get_inner();
+        let default_arguments_binding_1 = args.default_arguments.get_output(context);
+        let default_arguments_binding = default_arguments_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let execution_class_binding_1 = args.execution_class.get_output(context);
+        let execution_class_binding = execution_class_binding_1.get_inner();
+        let execution_property_binding_1 = args.execution_property.get_output(context);
+        let execution_property_binding = execution_property_binding_1.get_inner();
+        let glue_version_binding_1 = args.glue_version.get_output(context);
+        let glue_version_binding = glue_version_binding_1.get_inner();
+        let job_run_queuing_enabled_binding_1 = args
             .job_run_queuing_enabled
-            .get_output(context)
+            .get_output(context);
+        let job_run_queuing_enabled_binding = job_run_queuing_enabled_binding_1
             .get_inner();
-        let maintenance_window_binding = args
-            .maintenance_window
-            .get_output(context)
-            .get_inner();
-        let max_capacity_binding = args.max_capacity.get_output(context).get_inner();
-        let max_retries_binding = args.max_retries.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let non_overridable_arguments_binding = args
+        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
+        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
+        let max_capacity_binding_1 = args.max_capacity.get_output(context);
+        let max_capacity_binding = max_capacity_binding_1.get_inner();
+        let max_retries_binding_1 = args.max_retries.get_output(context);
+        let max_retries_binding = max_retries_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let non_overridable_arguments_binding_1 = args
             .non_overridable_arguments
-            .get_output(context)
+            .get_output(context);
+        let non_overridable_arguments_binding = non_overridable_arguments_binding_1
             .get_inner();
-        let notification_property_binding = args
+        let notification_property_binding_1 = args
             .notification_property
-            .get_output(context)
-            .get_inner();
-        let number_of_workers_binding = args
-            .number_of_workers
-            .get_output(context)
-            .get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let security_configuration_binding = args
+            .get_output(context);
+        let notification_property_binding = notification_property_binding_1.get_inner();
+        let number_of_workers_binding_1 = args.number_of_workers.get_output(context);
+        let number_of_workers_binding = number_of_workers_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let security_configuration_binding_1 = args
             .security_configuration
-            .get_output(context)
+            .get_output(context);
+        let security_configuration_binding = security_configuration_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeout_binding = args.timeout.get_output(context).get_inner();
-        let worker_type_binding = args.worker_type.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeout_binding_1 = args.timeout.get_output(context);
+        let timeout_binding = timeout_binding_1.get_inner();
+        let worker_type_binding_1 = args.worker_type.get_output(context);
+        let worker_type_binding = worker_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/job:Job".into(),
             name: name.to_string(),

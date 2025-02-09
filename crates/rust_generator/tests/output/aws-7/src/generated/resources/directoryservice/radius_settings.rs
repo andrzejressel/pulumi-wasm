@@ -96,21 +96,27 @@ pub mod radius_settings {
     ) -> RadiusSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_protocol_binding = args
+        let authentication_protocol_binding_1 = args
             .authentication_protocol
-            .get_output(context)
+            .get_output(context);
+        let authentication_protocol_binding = authentication_protocol_binding_1
             .get_inner();
-        let directory_id_binding = args.directory_id.get_output(context).get_inner();
-        let display_label_binding = args.display_label.get_output(context).get_inner();
-        let radius_port_binding = args.radius_port.get_output(context).get_inner();
-        let radius_retries_binding = args.radius_retries.get_output(context).get_inner();
-        let radius_servers_binding = args.radius_servers.get_output(context).get_inner();
-        let radius_timeout_binding = args.radius_timeout.get_output(context).get_inner();
-        let shared_secret_binding = args.shared_secret.get_output(context).get_inner();
-        let use_same_username_binding = args
-            .use_same_username
-            .get_output(context)
-            .get_inner();
+        let directory_id_binding_1 = args.directory_id.get_output(context);
+        let directory_id_binding = directory_id_binding_1.get_inner();
+        let display_label_binding_1 = args.display_label.get_output(context);
+        let display_label_binding = display_label_binding_1.get_inner();
+        let radius_port_binding_1 = args.radius_port.get_output(context);
+        let radius_port_binding = radius_port_binding_1.get_inner();
+        let radius_retries_binding_1 = args.radius_retries.get_output(context);
+        let radius_retries_binding = radius_retries_binding_1.get_inner();
+        let radius_servers_binding_1 = args.radius_servers.get_output(context);
+        let radius_servers_binding = radius_servers_binding_1.get_inner();
+        let radius_timeout_binding_1 = args.radius_timeout.get_output(context);
+        let radius_timeout_binding = radius_timeout_binding_1.get_inner();
+        let shared_secret_binding_1 = args.shared_secret.get_output(context);
+        let shared_secret_binding = shared_secret_binding_1.get_inner();
+        let use_same_username_binding_1 = args.use_same_username.get_output(context);
+        let use_same_username_binding = use_same_username_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directoryservice/radiusSettings:RadiusSettings".into(),
             name: name.to_string(),

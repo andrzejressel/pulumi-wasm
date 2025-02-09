@@ -87,22 +87,24 @@ pub mod stream {
     ) -> StreamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let exclusive_end_time_binding = args
-            .exclusive_end_time
-            .get_output(context)
-            .get_inner();
-        let inclusive_start_time_binding = args
+        let exclusive_end_time_binding_1 = args.exclusive_end_time.get_output(context);
+        let exclusive_end_time_binding = exclusive_end_time_binding_1.get_inner();
+        let inclusive_start_time_binding_1 = args
             .inclusive_start_time
-            .get_output(context)
-            .get_inner();
-        let kinesis_configuration_binding = args
+            .get_output(context);
+        let inclusive_start_time_binding = inclusive_start_time_binding_1.get_inner();
+        let kinesis_configuration_binding_1 = args
             .kinesis_configuration
-            .get_output(context)
-            .get_inner();
-        let ledger_name_binding = args.ledger_name.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let stream_name_binding = args.stream_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let kinesis_configuration_binding = kinesis_configuration_binding_1.get_inner();
+        let ledger_name_binding_1 = args.ledger_name.get_output(context);
+        let ledger_name_binding = ledger_name_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let stream_name_binding_1 = args.stream_name.get_output(context);
+        let stream_name_binding = stream_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:qldb/stream:Stream".into(),
             name: name.to_string(),

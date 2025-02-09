@@ -193,52 +193,50 @@ pub mod route {
     ) -> RouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let carrier_gateway_id_binding = args
-            .carrier_gateway_id
-            .get_output(context)
-            .get_inner();
-        let core_network_arn_binding = args
-            .core_network_arn
-            .get_output(context)
-            .get_inner();
-        let destination_cidr_block_binding = args
+        let carrier_gateway_id_binding_1 = args.carrier_gateway_id.get_output(context);
+        let carrier_gateway_id_binding = carrier_gateway_id_binding_1.get_inner();
+        let core_network_arn_binding_1 = args.core_network_arn.get_output(context);
+        let core_network_arn_binding = core_network_arn_binding_1.get_inner();
+        let destination_cidr_block_binding_1 = args
             .destination_cidr_block
-            .get_output(context)
+            .get_output(context);
+        let destination_cidr_block_binding = destination_cidr_block_binding_1
             .get_inner();
-        let destination_ipv6_cidr_block_binding = args
+        let destination_ipv6_cidr_block_binding_1 = args
             .destination_ipv6_cidr_block
-            .get_output(context)
+            .get_output(context);
+        let destination_ipv6_cidr_block_binding = destination_ipv6_cidr_block_binding_1
             .get_inner();
-        let destination_prefix_list_id_binding = args
+        let destination_prefix_list_id_binding_1 = args
             .destination_prefix_list_id
-            .get_output(context)
+            .get_output(context);
+        let destination_prefix_list_id_binding = destination_prefix_list_id_binding_1
             .get_inner();
-        let egress_only_gateway_id_binding = args
+        let egress_only_gateway_id_binding_1 = args
             .egress_only_gateway_id
-            .get_output(context)
+            .get_output(context);
+        let egress_only_gateway_id_binding = egress_only_gateway_id_binding_1
             .get_inner();
-        let gateway_id_binding = args.gateway_id.get_output(context).get_inner();
-        let local_gateway_id_binding = args
-            .local_gateway_id
-            .get_output(context)
-            .get_inner();
-        let nat_gateway_id_binding = args.nat_gateway_id.get_output(context).get_inner();
-        let network_interface_id_binding = args
+        let gateway_id_binding_1 = args.gateway_id.get_output(context);
+        let gateway_id_binding = gateway_id_binding_1.get_inner();
+        let local_gateway_id_binding_1 = args.local_gateway_id.get_output(context);
+        let local_gateway_id_binding = local_gateway_id_binding_1.get_inner();
+        let nat_gateway_id_binding_1 = args.nat_gateway_id.get_output(context);
+        let nat_gateway_id_binding = nat_gateway_id_binding_1.get_inner();
+        let network_interface_id_binding_1 = args
             .network_interface_id
-            .get_output(context)
-            .get_inner();
-        let route_table_id_binding = args.route_table_id.get_output(context).get_inner();
-        let transit_gateway_id_binding = args
-            .transit_gateway_id
-            .get_output(context)
-            .get_inner();
-        let vpc_endpoint_id_binding = args
-            .vpc_endpoint_id
-            .get_output(context)
-            .get_inner();
-        let vpc_peering_connection_id_binding = args
+            .get_output(context);
+        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
+        let route_table_id_binding_1 = args.route_table_id.get_output(context);
+        let route_table_id_binding = route_table_id_binding_1.get_inner();
+        let transit_gateway_id_binding_1 = args.transit_gateway_id.get_output(context);
+        let transit_gateway_id_binding = transit_gateway_id_binding_1.get_inner();
+        let vpc_endpoint_id_binding_1 = args.vpc_endpoint_id.get_output(context);
+        let vpc_endpoint_id_binding = vpc_endpoint_id_binding_1.get_inner();
+        let vpc_peering_connection_id_binding_1 = args
             .vpc_peering_connection_id
-            .get_output(context)
+            .get_output(context);
+        let vpc_peering_connection_id_binding = vpc_peering_connection_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/route:Route".into(),

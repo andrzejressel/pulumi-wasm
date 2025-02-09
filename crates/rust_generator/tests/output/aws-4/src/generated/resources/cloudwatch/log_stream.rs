@@ -61,8 +61,10 @@ pub mod log_stream {
     ) -> LogStreamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let log_group_name_binding = args.log_group_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let log_group_name_binding_1 = args.log_group_name.get_output(context);
+        let log_group_name_binding = log_group_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/logStream:LogStream".into(),
             name: name.to_string(),

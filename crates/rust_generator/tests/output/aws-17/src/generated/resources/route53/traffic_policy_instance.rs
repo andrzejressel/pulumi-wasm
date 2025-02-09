@@ -73,17 +73,19 @@ pub mod traffic_policy_instance {
     ) -> TrafficPolicyInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hosted_zone_id_binding = args.hosted_zone_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let traffic_policy_id_binding = args
-            .traffic_policy_id
-            .get_output(context)
-            .get_inner();
-        let traffic_policy_version_binding = args
+        let hosted_zone_id_binding_1 = args.hosted_zone_id.get_output(context);
+        let hosted_zone_id_binding = hosted_zone_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let traffic_policy_id_binding_1 = args.traffic_policy_id.get_output(context);
+        let traffic_policy_id_binding = traffic_policy_id_binding_1.get_inner();
+        let traffic_policy_version_binding_1 = args
             .traffic_policy_version
-            .get_output(context)
+            .get_output(context);
+        let traffic_policy_version_binding = traffic_policy_version_binding_1
             .get_inner();
-        let ttl_binding = args.ttl.get_output(context).get_inner();
+        let ttl_binding_1 = args.ttl.get_output(context);
+        let ttl_binding = ttl_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/trafficPolicyInstance:TrafficPolicyInstance".into(),
             name: name.to_string(),

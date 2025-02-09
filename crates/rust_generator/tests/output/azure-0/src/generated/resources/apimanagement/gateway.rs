@@ -97,13 +97,14 @@ pub mod gateway {
     ) -> GatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding = args
-            .api_management_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let location_data_binding = args.location_data.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let api_management_id_binding_1 = args.api_management_id.get_output(context);
+        let api_management_id_binding = api_management_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let location_data_binding_1 = args.location_data.get_output(context);
+        let location_data_binding = location_data_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/gateway:Gateway".into(),
             name: name.to_string(),

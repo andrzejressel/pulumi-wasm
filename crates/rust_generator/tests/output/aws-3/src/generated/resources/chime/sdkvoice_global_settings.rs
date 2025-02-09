@@ -59,10 +59,8 @@ pub mod sdkvoice_global_settings {
     ) -> SdkvoiceGlobalSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let voice_connector_binding = args
-            .voice_connector
-            .get_output(context)
-            .get_inner();
+        let voice_connector_binding_1 = args.voice_connector.get_output(context);
+        let voice_connector_binding = voice_connector_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings".into(),
             name: name.to_string(),

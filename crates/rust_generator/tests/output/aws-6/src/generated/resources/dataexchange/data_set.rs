@@ -76,10 +76,14 @@ pub mod data_set {
     ) -> DataSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let asset_type_binding = args.asset_type.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let asset_type_binding_1 = args.asset_type.get_output(context);
+        let asset_type_binding = asset_type_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dataexchange/dataSet:DataSet".into(),
             name: name.to_string(),

@@ -332,25 +332,33 @@ pub mod resource_policy {
     ) -> ResourcePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let disk_consistency_group_policy_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disk_consistency_group_policy_binding_1 = args
             .disk_consistency_group_policy
-            .get_output(context)
+            .get_output(context);
+        let disk_consistency_group_policy_binding = disk_consistency_group_policy_binding_1
             .get_inner();
-        let group_placement_policy_binding = args
+        let group_placement_policy_binding_1 = args
             .group_placement_policy
-            .get_output(context)
+            .get_output(context);
+        let group_placement_policy_binding = group_placement_policy_binding_1
             .get_inner();
-        let instance_schedule_policy_binding = args
+        let instance_schedule_policy_binding_1 = args
             .instance_schedule_policy
-            .get_output(context)
+            .get_output(context);
+        let instance_schedule_policy_binding = instance_schedule_policy_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let snapshot_schedule_policy_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let snapshot_schedule_policy_binding_1 = args
             .snapshot_schedule_policy
-            .get_output(context)
+            .get_output(context);
+        let snapshot_schedule_policy_binding = snapshot_schedule_policy_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/resourcePolicy:ResourcePolicy".into(),

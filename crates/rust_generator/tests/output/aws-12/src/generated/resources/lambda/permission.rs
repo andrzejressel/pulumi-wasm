@@ -311,29 +311,31 @@ pub mod permission {
     ) -> PermissionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let event_source_token_binding = args
-            .event_source_token
-            .get_output(context)
-            .get_inner();
-        let function_binding = args.function.get_output(context).get_inner();
-        let function_url_auth_type_binding = args
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let event_source_token_binding_1 = args.event_source_token.get_output(context);
+        let event_source_token_binding = event_source_token_binding_1.get_inner();
+        let function_binding_1 = args.function.get_output(context);
+        let function_binding = function_binding_1.get_inner();
+        let function_url_auth_type_binding_1 = args
             .function_url_auth_type
-            .get_output(context)
+            .get_output(context);
+        let function_url_auth_type_binding = function_url_auth_type_binding_1
             .get_inner();
-        let principal_binding = args.principal.get_output(context).get_inner();
-        let principal_org_id_binding = args
-            .principal_org_id
-            .get_output(context)
-            .get_inner();
-        let qualifier_binding = args.qualifier.get_output(context).get_inner();
-        let source_account_binding = args.source_account.get_output(context).get_inner();
-        let source_arn_binding = args.source_arn.get_output(context).get_inner();
-        let statement_id_binding = args.statement_id.get_output(context).get_inner();
-        let statement_id_prefix_binding = args
-            .statement_id_prefix
-            .get_output(context)
-            .get_inner();
+        let principal_binding_1 = args.principal.get_output(context);
+        let principal_binding = principal_binding_1.get_inner();
+        let principal_org_id_binding_1 = args.principal_org_id.get_output(context);
+        let principal_org_id_binding = principal_org_id_binding_1.get_inner();
+        let qualifier_binding_1 = args.qualifier.get_output(context);
+        let qualifier_binding = qualifier_binding_1.get_inner();
+        let source_account_binding_1 = args.source_account.get_output(context);
+        let source_account_binding = source_account_binding_1.get_inner();
+        let source_arn_binding_1 = args.source_arn.get_output(context);
+        let source_arn_binding = source_arn_binding_1.get_inner();
+        let statement_id_binding_1 = args.statement_id.get_output(context);
+        let statement_id_binding = statement_id_binding_1.get_inner();
+        let statement_id_prefix_binding_1 = args.statement_id_prefix.get_output(context);
+        let statement_id_prefix_binding = statement_id_prefix_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/permission:Permission".into(),
             name: name.to_string(),

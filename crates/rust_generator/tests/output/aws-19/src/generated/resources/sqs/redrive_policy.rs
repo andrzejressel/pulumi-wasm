@@ -71,8 +71,10 @@ pub mod redrive_policy {
     ) -> RedrivePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let queue_url_binding = args.queue_url.get_output(context).get_inner();
-        let redrive_policy_binding = args.redrive_policy.get_output(context).get_inner();
+        let queue_url_binding_1 = args.queue_url.get_output(context);
+        let queue_url_binding = queue_url_binding_1.get_inner();
+        let redrive_policy_binding_1 = args.redrive_policy.get_output(context);
+        let redrive_policy_binding = redrive_policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sqs/redrivePolicy:RedrivePolicy".into(),
             name: name.to_string(),

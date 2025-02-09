@@ -513,61 +513,71 @@ pub mod disk {
     ) -> DiskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_mode_binding = args.access_mode.get_output(context).get_inner();
-        let async_primary_disk_binding = args
-            .async_primary_disk
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disk_encryption_key_binding = args
-            .disk_encryption_key
-            .get_output(context)
-            .get_inner();
-        let enable_confidential_compute_binding = args
+        let access_mode_binding_1 = args.access_mode.get_output(context);
+        let access_mode_binding = access_mode_binding_1.get_inner();
+        let async_primary_disk_binding_1 = args.async_primary_disk.get_output(context);
+        let async_primary_disk_binding = async_primary_disk_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disk_encryption_key_binding_1 = args.disk_encryption_key.get_output(context);
+        let disk_encryption_key_binding = disk_encryption_key_binding_1.get_inner();
+        let enable_confidential_compute_binding_1 = args
             .enable_confidential_compute
-            .get_output(context)
+            .get_output(context);
+        let enable_confidential_compute_binding = enable_confidential_compute_binding_1
             .get_inner();
-        let guest_os_features_binding = args
-            .guest_os_features
-            .get_output(context)
-            .get_inner();
-        let image_binding = args.image.get_output(context).get_inner();
-        let interface_binding = args.interface.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let licenses_binding = args.licenses.get_output(context).get_inner();
-        let multi_writer_binding = args.multi_writer.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let physical_block_size_bytes_binding = args
+        let guest_os_features_binding_1 = args.guest_os_features.get_output(context);
+        let guest_os_features_binding = guest_os_features_binding_1.get_inner();
+        let image_binding_1 = args.image.get_output(context);
+        let image_binding = image_binding_1.get_inner();
+        let interface_binding_1 = args.interface.get_output(context);
+        let interface_binding = interface_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let licenses_binding_1 = args.licenses.get_output(context);
+        let licenses_binding = licenses_binding_1.get_inner();
+        let multi_writer_binding_1 = args.multi_writer.get_output(context);
+        let multi_writer_binding = multi_writer_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let physical_block_size_bytes_binding_1 = args
             .physical_block_size_bytes
-            .get_output(context)
+            .get_output(context);
+        let physical_block_size_bytes_binding = physical_block_size_bytes_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let provisioned_iops_binding = args
-            .provisioned_iops
-            .get_output(context)
-            .get_inner();
-        let provisioned_throughput_binding = args
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let provisioned_iops_binding_1 = args.provisioned_iops.get_output(context);
+        let provisioned_iops_binding = provisioned_iops_binding_1.get_inner();
+        let provisioned_throughput_binding_1 = args
             .provisioned_throughput
-            .get_output(context)
+            .get_output(context);
+        let provisioned_throughput_binding = provisioned_throughput_binding_1
             .get_inner();
-        let resource_policies_binding = args
-            .resource_policies
-            .get_output(context)
-            .get_inner();
-        let size_binding = args.size.get_output(context).get_inner();
-        let snapshot_binding = args.snapshot.get_output(context).get_inner();
-        let source_disk_binding = args.source_disk.get_output(context).get_inner();
-        let source_image_encryption_key_binding = args
+        let resource_policies_binding_1 = args.resource_policies.get_output(context);
+        let resource_policies_binding = resource_policies_binding_1.get_inner();
+        let size_binding_1 = args.size.get_output(context);
+        let size_binding = size_binding_1.get_inner();
+        let snapshot_binding_1 = args.snapshot.get_output(context);
+        let snapshot_binding = snapshot_binding_1.get_inner();
+        let source_disk_binding_1 = args.source_disk.get_output(context);
+        let source_disk_binding = source_disk_binding_1.get_inner();
+        let source_image_encryption_key_binding_1 = args
             .source_image_encryption_key
-            .get_output(context)
+            .get_output(context);
+        let source_image_encryption_key_binding = source_image_encryption_key_binding_1
             .get_inner();
-        let source_snapshot_encryption_key_binding = args
+        let source_snapshot_encryption_key_binding_1 = args
             .source_snapshot_encryption_key
-            .get_output(context)
+            .get_output(context);
+        let source_snapshot_encryption_key_binding = source_snapshot_encryption_key_binding_1
             .get_inner();
-        let storage_pool_binding = args.storage_pool.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let storage_pool_binding_1 = args.storage_pool.get_output(context);
+        let storage_pool_binding = storage_pool_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/disk:Disk".into(),
             name: name.to_string(),

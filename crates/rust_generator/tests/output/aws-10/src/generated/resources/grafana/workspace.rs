@@ -190,49 +190,52 @@ pub mod workspace {
     ) -> WorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_access_type_binding = args
-            .account_access_type
-            .get_output(context)
-            .get_inner();
-        let authentication_providers_binding = args
+        let account_access_type_binding_1 = args.account_access_type.get_output(context);
+        let account_access_type_binding = account_access_type_binding_1.get_inner();
+        let authentication_providers_binding_1 = args
             .authentication_providers
-            .get_output(context)
+            .get_output(context);
+        let authentication_providers_binding = authentication_providers_binding_1
             .get_inner();
-        let configuration_binding = args.configuration.get_output(context).get_inner();
-        let data_sources_binding = args.data_sources.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let grafana_version_binding = args
-            .grafana_version
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_access_control_binding = args
+        let configuration_binding_1 = args.configuration.get_output(context);
+        let configuration_binding = configuration_binding_1.get_inner();
+        let data_sources_binding_1 = args.data_sources.get_output(context);
+        let data_sources_binding = data_sources_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let grafana_version_binding_1 = args.grafana_version.get_output(context);
+        let grafana_version_binding = grafana_version_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_access_control_binding_1 = args
             .network_access_control
-            .get_output(context)
+            .get_output(context);
+        let network_access_control_binding = network_access_control_binding_1
             .get_inner();
-        let notification_destinations_binding = args
+        let notification_destinations_binding_1 = args
             .notification_destinations
-            .get_output(context)
+            .get_output(context);
+        let notification_destinations_binding = notification_destinations_binding_1
             .get_inner();
-        let organization_role_name_binding = args
+        let organization_role_name_binding_1 = args
             .organization_role_name
-            .get_output(context)
+            .get_output(context);
+        let organization_role_name_binding = organization_role_name_binding_1
             .get_inner();
-        let organizational_units_binding = args
+        let organizational_units_binding_1 = args
             .organizational_units
-            .get_output(context)
-            .get_inner();
-        let permission_type_binding = args
-            .permission_type
-            .get_output(context)
-            .get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let stack_set_name_binding = args.stack_set_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_configuration_binding = args
-            .vpc_configuration
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let organizational_units_binding = organizational_units_binding_1.get_inner();
+        let permission_type_binding_1 = args.permission_type.get_output(context);
+        let permission_type_binding = permission_type_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let stack_set_name_binding_1 = args.stack_set_name.get_output(context);
+        let stack_set_name_binding = stack_set_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_configuration_binding_1 = args.vpc_configuration.get_output(context);
+        let vpc_configuration_binding = vpc_configuration_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:grafana/workspace:Workspace".into(),
             name: name.to_string(),

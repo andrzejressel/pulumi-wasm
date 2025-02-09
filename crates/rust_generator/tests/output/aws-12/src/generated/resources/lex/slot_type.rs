@@ -108,16 +108,18 @@ pub mod slot_type {
     ) -> SlotTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let create_version_binding = args.create_version.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enumeration_values_binding = args
-            .enumeration_values
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let value_selection_strategy_binding = args
+        let create_version_binding_1 = args.create_version.get_output(context);
+        let create_version_binding = create_version_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enumeration_values_binding_1 = args.enumeration_values.get_output(context);
+        let enumeration_values_binding = enumeration_values_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let value_selection_strategy_binding_1 = args
             .value_selection_strategy
-            .get_output(context)
+            .get_output(context);
+        let value_selection_strategy_binding = value_selection_strategy_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lex/slotType:SlotType".into(),

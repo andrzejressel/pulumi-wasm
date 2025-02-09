@@ -79,12 +79,15 @@ pub mod local_gateway_route_table_vpc_association {
     ) -> LocalGatewayRouteTableVpcAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let local_gateway_route_table_id_binding = args
+        let local_gateway_route_table_id_binding_1 = args
             .local_gateway_route_table_id
-            .get_output(context)
+            .get_output(context);
+        let local_gateway_route_table_id_binding = local_gateway_route_table_id_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation"
                 .into(),

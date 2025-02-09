@@ -82,10 +82,14 @@ pub mod role_association {
     ) -> RoleAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_ids_binding = args.group_ids.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
-        let user_ids_binding = args.user_ids.get_output(context).get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+        let group_ids_binding_1 = args.group_ids.get_output(context);
+        let group_ids_binding = group_ids_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
+        let user_ids_binding_1 = args.user_ids.get_output(context);
+        let user_ids_binding = user_ids_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:grafana/roleAssociation:RoleAssociation".into(),
             name: name.to_string(),

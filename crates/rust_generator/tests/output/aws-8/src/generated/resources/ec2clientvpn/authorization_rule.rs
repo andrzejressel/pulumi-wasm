@@ -81,23 +81,21 @@ pub mod authorization_rule {
     ) -> AuthorizationRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_group_id_binding = args
-            .access_group_id
-            .get_output(context)
-            .get_inner();
-        let authorize_all_groups_binding = args
+        let access_group_id_binding_1 = args.access_group_id.get_output(context);
+        let access_group_id_binding = access_group_id_binding_1.get_inner();
+        let authorize_all_groups_binding_1 = args
             .authorize_all_groups
-            .get_output(context)
-            .get_inner();
-        let client_vpn_endpoint_id_binding = args
+            .get_output(context);
+        let authorize_all_groups_binding = authorize_all_groups_binding_1.get_inner();
+        let client_vpn_endpoint_id_binding_1 = args
             .client_vpn_endpoint_id
-            .get_output(context)
+            .get_output(context);
+        let client_vpn_endpoint_id_binding = client_vpn_endpoint_id_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let target_network_cidr_binding = args
-            .target_network_cidr
-            .get_output(context)
-            .get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let target_network_cidr_binding_1 = args.target_network_cidr.get_output(context);
+        let target_network_cidr_binding = target_network_cidr_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2clientvpn/authorizationRule:AuthorizationRule".into(),
             name: name.to_string(),

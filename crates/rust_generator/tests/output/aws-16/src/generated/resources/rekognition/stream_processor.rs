@@ -295,26 +295,35 @@ pub mod stream_processor {
     ) -> StreamProcessorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_sharing_preference_binding = args
+        let data_sharing_preference_binding_1 = args
             .data_sharing_preference
-            .get_output(context)
+            .get_output(context);
+        let data_sharing_preference_binding = data_sharing_preference_binding_1
             .get_inner();
-        let input_binding = args.input.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notification_channel_binding = args
+        let input_binding_1 = args.input.get_output(context);
+        let input_binding = input_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notification_channel_binding_1 = args
             .notification_channel
-            .get_output(context)
-            .get_inner();
-        let output_binding = args.output.get_output(context).get_inner();
-        let regions_of_interests_binding = args
+            .get_output(context);
+        let notification_channel_binding = notification_channel_binding_1.get_inner();
+        let output_binding_1 = args.output.get_output(context);
+        let output_binding = output_binding_1.get_inner();
+        let regions_of_interests_binding_1 = args
             .regions_of_interests
-            .get_output(context)
-            .get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let settings_binding = args.settings.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+            .get_output(context);
+        let regions_of_interests_binding = regions_of_interests_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let settings_binding_1 = args.settings.get_output(context);
+        let settings_binding = settings_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rekognition/streamProcessor:StreamProcessor".into(),
             name: name.to_string(),

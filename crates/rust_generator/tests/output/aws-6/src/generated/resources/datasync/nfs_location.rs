@@ -96,14 +96,16 @@ pub mod nfs_location {
     ) -> NfsLocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mount_options_binding = args.mount_options.get_output(context).get_inner();
-        let on_prem_config_binding = args.on_prem_config.get_output(context).get_inner();
-        let server_hostname_binding = args
-            .server_hostname
-            .get_output(context)
-            .get_inner();
-        let subdirectory_binding = args.subdirectory.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let mount_options_binding_1 = args.mount_options.get_output(context);
+        let mount_options_binding = mount_options_binding_1.get_inner();
+        let on_prem_config_binding_1 = args.on_prem_config.get_output(context);
+        let on_prem_config_binding = on_prem_config_binding_1.get_inner();
+        let server_hostname_binding_1 = args.server_hostname.get_output(context);
+        let server_hostname_binding = server_hostname_binding_1.get_inner();
+        let subdirectory_binding_1 = args.subdirectory.get_output(context);
+        let subdirectory_binding = subdirectory_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/nfsLocation:NfsLocation".into(),
             name: name.to_string(),

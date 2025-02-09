@@ -204,63 +204,73 @@ pub mod service_azure_bot {
     ) -> ServiceAzureBotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cmk_key_vault_key_url_binding = args
+        let cmk_key_vault_key_url_binding_1 = args
             .cmk_key_vault_key_url
-            .get_output(context)
-            .get_inner();
-        let developer_app_insights_api_key_binding = args
+            .get_output(context);
+        let cmk_key_vault_key_url_binding = cmk_key_vault_key_url_binding_1.get_inner();
+        let developer_app_insights_api_key_binding_1 = args
             .developer_app_insights_api_key
-            .get_output(context)
+            .get_output(context);
+        let developer_app_insights_api_key_binding = developer_app_insights_api_key_binding_1
             .get_inner();
-        let developer_app_insights_application_id_binding = args
+        let developer_app_insights_application_id_binding_1 = args
             .developer_app_insights_application_id
-            .get_output(context)
+            .get_output(context);
+        let developer_app_insights_application_id_binding = developer_app_insights_application_id_binding_1
             .get_inner();
-        let developer_app_insights_key_binding = args
+        let developer_app_insights_key_binding_1 = args
             .developer_app_insights_key
-            .get_output(context)
+            .get_output(context);
+        let developer_app_insights_key_binding = developer_app_insights_key_binding_1
             .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let endpoint_binding = args.endpoint.get_output(context).get_inner();
-        let icon_url_binding = args.icon_url.get_output(context).get_inner();
-        let local_authentication_enabled_binding = args
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let endpoint_binding_1 = args.endpoint.get_output(context);
+        let endpoint_binding = endpoint_binding_1.get_inner();
+        let icon_url_binding_1 = args.icon_url.get_output(context);
+        let icon_url_binding = icon_url_binding_1.get_inner();
+        let local_authentication_enabled_binding_1 = args
             .local_authentication_enabled
-            .get_output(context)
+            .get_output(context);
+        let local_authentication_enabled_binding = local_authentication_enabled_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let luis_app_ids_binding = args.luis_app_ids.get_output(context).get_inner();
-        let luis_key_binding = args.luis_key.get_output(context).get_inner();
-        let microsoft_app_id_binding = args
-            .microsoft_app_id
-            .get_output(context)
-            .get_inner();
-        let microsoft_app_msi_id_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let luis_app_ids_binding_1 = args.luis_app_ids.get_output(context);
+        let luis_app_ids_binding = luis_app_ids_binding_1.get_inner();
+        let luis_key_binding_1 = args.luis_key.get_output(context);
+        let luis_key_binding = luis_key_binding_1.get_inner();
+        let microsoft_app_id_binding_1 = args.microsoft_app_id.get_output(context);
+        let microsoft_app_id_binding = microsoft_app_id_binding_1.get_inner();
+        let microsoft_app_msi_id_binding_1 = args
             .microsoft_app_msi_id
-            .get_output(context)
-            .get_inner();
-        let microsoft_app_tenant_id_binding = args
+            .get_output(context);
+        let microsoft_app_msi_id_binding = microsoft_app_msi_id_binding_1.get_inner();
+        let microsoft_app_tenant_id_binding_1 = args
             .microsoft_app_tenant_id
-            .get_output(context)
+            .get_output(context);
+        let microsoft_app_tenant_id_binding = microsoft_app_tenant_id_binding_1
             .get_inner();
-        let microsoft_app_type_binding = args
-            .microsoft_app_type
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+        let microsoft_app_type_binding_1 = args.microsoft_app_type.get_output(context);
+        let microsoft_app_type_binding = microsoft_app_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let streaming_endpoint_enabled_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let streaming_endpoint_enabled_binding_1 = args
             .streaming_endpoint_enabled
-            .get_output(context)
+            .get_output(context);
+        let streaming_endpoint_enabled_binding = streaming_endpoint_enabled_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:bot/serviceAzureBot:ServiceAzureBot".into(),
             name: name.to_string(),

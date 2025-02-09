@@ -144,23 +144,22 @@ pub mod table_export {
     ) -> TableExportResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let export_format_binding = args.export_format.get_output(context).get_inner();
-        let export_time_binding = args.export_time.get_output(context).get_inner();
-        let s3_bucket_binding = args.s3_bucket.get_output(context).get_inner();
-        let s3_bucket_owner_binding = args
-            .s3_bucket_owner
-            .get_output(context)
-            .get_inner();
-        let s3_prefix_binding = args.s3_prefix.get_output(context).get_inner();
-        let s3_sse_algorithm_binding = args
-            .s3_sse_algorithm
-            .get_output(context)
-            .get_inner();
-        let s3_sse_kms_key_id_binding = args
-            .s3_sse_kms_key_id
-            .get_output(context)
-            .get_inner();
-        let table_arn_binding = args.table_arn.get_output(context).get_inner();
+        let export_format_binding_1 = args.export_format.get_output(context);
+        let export_format_binding = export_format_binding_1.get_inner();
+        let export_time_binding_1 = args.export_time.get_output(context);
+        let export_time_binding = export_time_binding_1.get_inner();
+        let s3_bucket_binding_1 = args.s3_bucket.get_output(context);
+        let s3_bucket_binding = s3_bucket_binding_1.get_inner();
+        let s3_bucket_owner_binding_1 = args.s3_bucket_owner.get_output(context);
+        let s3_bucket_owner_binding = s3_bucket_owner_binding_1.get_inner();
+        let s3_prefix_binding_1 = args.s3_prefix.get_output(context);
+        let s3_prefix_binding = s3_prefix_binding_1.get_inner();
+        let s3_sse_algorithm_binding_1 = args.s3_sse_algorithm.get_output(context);
+        let s3_sse_algorithm_binding = s3_sse_algorithm_binding_1.get_inner();
+        let s3_sse_kms_key_id_binding_1 = args.s3_sse_kms_key_id.get_output(context);
+        let s3_sse_kms_key_id_binding = s3_sse_kms_key_id_binding_1.get_inner();
+        let table_arn_binding_1 = args.table_arn.get_output(context);
+        let table_arn_binding = table_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dynamodb/tableExport:TableExport".into(),
             name: name.to_string(),

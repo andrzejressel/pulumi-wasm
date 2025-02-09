@@ -116,11 +116,10 @@ pub mod web_resource {
     ) -> WebResourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let site_binding = args.site.get_output(context).get_inner();
-        let verification_method_binding = args
-            .verification_method
-            .get_output(context)
-            .get_inner();
+        let site_binding_1 = args.site.get_output(context);
+        let site_binding = site_binding_1.get_inner();
+        let verification_method_binding_1 = args.verification_method.get_output(context);
+        let verification_method_binding = verification_method_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:siteverification/webResource:WebResource".into(),
             name: name.to_string(),

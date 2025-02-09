@@ -96,11 +96,13 @@ pub mod query_log {
     ) -> QueryLogResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_log_group_arn_binding = args
+        let cloudwatch_log_group_arn_binding_1 = args
             .cloudwatch_log_group_arn
-            .get_output(context)
+            .get_output(context);
+        let cloudwatch_log_group_arn_binding = cloudwatch_log_group_arn_binding_1
             .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/queryLog:QueryLog".into(),
             name: name.to_string(),

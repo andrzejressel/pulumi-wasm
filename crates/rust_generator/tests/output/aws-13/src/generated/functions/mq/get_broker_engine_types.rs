@@ -29,7 +29,8 @@ pub mod get_broker_engine_types {
     ) -> GetBrokerEngineTypesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let engine_type_binding = args.engine_type.get_output(context).get_inner();
+        let engine_type_binding_1 = args.engine_type.get_output(context);
+        let engine_type_binding = engine_type_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:mq/getBrokerEngineTypes:getBrokerEngineTypes".into(),
             version: super::super::super::get_version(),

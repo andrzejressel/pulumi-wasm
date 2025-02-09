@@ -106,17 +106,23 @@ pub mod trusted_token_issuer {
     ) -> TrustedTokenIssuerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_token_binding = args.client_token.get_output(context).get_inner();
-        let instance_arn_binding = args.instance_arn.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let trusted_token_issuer_configuration_binding = args
+        let client_token_binding_1 = args.client_token.get_output(context);
+        let client_token_binding = client_token_binding_1.get_inner();
+        let instance_arn_binding_1 = args.instance_arn.get_output(context);
+        let instance_arn_binding = instance_arn_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let trusted_token_issuer_configuration_binding_1 = args
             .trusted_token_issuer_configuration
-            .get_output(context)
+            .get_output(context);
+        let trusted_token_issuer_configuration_binding = trusted_token_issuer_configuration_binding_1
             .get_inner();
-        let trusted_token_issuer_type_binding = args
+        let trusted_token_issuer_type_binding_1 = args
             .trusted_token_issuer_type
-            .get_output(context)
+            .get_output(context);
+        let trusted_token_issuer_type_binding = trusted_token_issuer_type_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer".into(),

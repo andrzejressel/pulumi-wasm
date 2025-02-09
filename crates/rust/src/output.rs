@@ -7,21 +7,21 @@ use serde::de::DeserializeOwned;
 use serde::Serialize;
 use std::collections::HashMap;
 use std::marker::PhantomData;
-use std::mem::ManuallyDrop;
 use std::sync::Mutex;
 use uuid::Uuid;
 
 /// Not yet known value
 pub struct Output<T> {
     phantom: PhantomData<T>,
-    underlying_id: u32,
+    underlying_id: output_interface::Output,
 }
-
-impl<T> Copy for Output<T> {}
 
 impl<T> Clone for Output<T> {
     fn clone(&self) -> Self {
-        *self
+        Output {
+            phantom: PhantomData,
+            underlying_id: self.underlying_id.clone(),
+        }
     }
 }
 
@@ -55,7 +55,7 @@ impl<T> Output<T> {
 
         Output {
             phantom: PhantomData,
-            underlying_id: output_interface::Output::take_handle(&new_output),
+            underlying_id: new_output,
         }
     }
 
@@ -73,7 +73,7 @@ impl<T> Output<T> {
     pub unsafe fn transmute<F: Serialize>(&self) -> Output<F> {
         Output {
             phantom: PhantomData::<F>,
-            underlying_id: self.underlying_id,
+            underlying_id: self.underlying_id.clone(),
         }
     }
 
@@ -85,13 +85,13 @@ impl<T> Output<T> {
     pub unsafe fn new_from_handle<F: Serialize>(handle: output_interface::Output) -> Output<F> {
         Output {
             phantom: PhantomData::<F>,
-            underlying_id: output_interface::Output::take_handle(&handle),
+            underlying_id: handle,
         }
     }
 
     #[doc(hidden)]
-    pub fn get_inner(&self) -> ManuallyDrop<output_interface::Output> {
-        unsafe { ManuallyDrop::new(output_interface::Output::from_handle(self.underlying_id)) }
+    pub fn get_inner(&self) -> &output_interface::Output {
+        &self.underlying_id
     }
 }
 
@@ -101,7 +101,7 @@ impl<T: Serialize> Output<T> {
         let resource = output_interface::Output::new(&engine.wit_engine, binding.as_str(), false);
         Output {
             phantom: PhantomData,
-            underlying_id: output_interface::Output::take_handle(&resource),
+            underlying_id: resource,
         }
     }
 
@@ -110,7 +110,7 @@ impl<T: Serialize> Output<T> {
         let resource = output_interface::Output::new(&engine.wit_engine, binding.as_str(), true);
         Output {
             phantom: PhantomData,
-            underlying_id: output_interface::Output::take_handle(&resource),
+            underlying_id: resource,
         }
     }
 
@@ -465,6 +465,6 @@ impl<T: Serialize> ToOutput<T> for T {
 
 impl<T> ToOutput<T> for Output<T> {
     fn create_output(&self, _: &PulumiContext) -> Output<T> {
-        *self
+        self.clone()
     }
 }

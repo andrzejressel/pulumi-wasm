@@ -230,27 +230,29 @@ pub mod certificate_template {
     ) -> CertificateTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let identity_constraints_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let identity_constraints_binding_1 = args
             .identity_constraints
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let maximum_lifetime_binding = args
-            .maximum_lifetime
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let passthrough_extensions_binding = args
+            .get_output(context);
+        let identity_constraints_binding = identity_constraints_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maximum_lifetime_binding_1 = args.maximum_lifetime.get_output(context);
+        let maximum_lifetime_binding = maximum_lifetime_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let passthrough_extensions_binding_1 = args
             .passthrough_extensions
-            .get_output(context)
+            .get_output(context);
+        let passthrough_extensions_binding = passthrough_extensions_binding_1
             .get_inner();
-        let predefined_values_binding = args
-            .predefined_values
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let predefined_values_binding_1 = args.predefined_values.get_output(context);
+        let predefined_values_binding = predefined_values_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificateauthority/certificateTemplate:CertificateTemplate"
                 .into(),

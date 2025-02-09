@@ -133,20 +133,24 @@ pub mod firewall_endpoint_association {
     ) -> FirewallEndpointAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let firewall_endpoint_binding = args
-            .firewall_endpoint
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let tls_inspection_policy_binding = args
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let firewall_endpoint_binding_1 = args.firewall_endpoint.get_output(context);
+        let firewall_endpoint_binding = firewall_endpoint_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let tls_inspection_policy_binding_1 = args
             .tls_inspection_policy
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let tls_inspection_policy_binding = tls_inspection_policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networksecurity/firewallEndpointAssociation:FirewallEndpointAssociation"
                 .into(),

@@ -54,18 +54,20 @@ pub mod get_resolver_rule {
     ) -> GetResolverRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resolver_endpoint_id_binding = args
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resolver_endpoint_id_binding_1 = args
             .resolver_endpoint_id
-            .get_output(context)
-            .get_inner();
-        let resolver_rule_id_binding = args
-            .resolver_rule_id
-            .get_output(context)
-            .get_inner();
-        let rule_type_binding = args.rule_type.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let resolver_endpoint_id_binding = resolver_endpoint_id_binding_1.get_inner();
+        let resolver_rule_id_binding_1 = args.resolver_rule_id.get_output(context);
+        let resolver_rule_id_binding = resolver_rule_id_binding_1.get_inner();
+        let rule_type_binding_1 = args.rule_type.get_output(context);
+        let rule_type_binding = rule_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverRule:getResolverRule".into(),
             version: super::super::super::get_version(),

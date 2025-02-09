@@ -134,14 +134,16 @@ pub mod firewall_endpoint {
     ) -> FirewallEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let billing_project_id_binding = args
-            .billing_project_id
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
+        let billing_project_id_binding_1 = args.billing_project_id.get_output(context);
+        let billing_project_id_binding = billing_project_id_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networksecurity/firewallEndpoint:FirewallEndpoint".into(),
             name: name.to_string(),

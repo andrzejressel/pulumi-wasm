@@ -126,22 +126,24 @@ pub mod spring_cloud_customized_accelerator {
     ) -> SpringCloudCustomizedAcceleratorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerator_tags_binding = args
-            .accelerator_tags
-            .get_output(context)
-            .get_inner();
-        let accelerator_type_binding = args
-            .accelerator_type
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let git_repository_binding = args.git_repository.get_output(context).get_inner();
-        let icon_url_binding = args.icon_url.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let spring_cloud_accelerator_id_binding = args
+        let accelerator_tags_binding_1 = args.accelerator_tags.get_output(context);
+        let accelerator_tags_binding = accelerator_tags_binding_1.get_inner();
+        let accelerator_type_binding_1 = args.accelerator_type.get_output(context);
+        let accelerator_type_binding = accelerator_type_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let git_repository_binding_1 = args.git_repository.get_output(context);
+        let git_repository_binding = git_repository_binding_1.get_inner();
+        let icon_url_binding_1 = args.icon_url.get_output(context);
+        let icon_url_binding = icon_url_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let spring_cloud_accelerator_id_binding_1 = args
             .spring_cloud_accelerator_id
-            .get_output(context)
+            .get_output(context);
+        let spring_cloud_accelerator_id_binding = spring_cloud_accelerator_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudCustomizedAccelerator:SpringCloudCustomizedAccelerator"

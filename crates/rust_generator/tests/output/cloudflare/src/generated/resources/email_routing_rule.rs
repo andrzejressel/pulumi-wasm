@@ -97,12 +97,18 @@ pub mod email_routing_rule {
     ) -> EmailRoutingRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let matchers_binding = args.matchers.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let actions_binding_1 = args.actions.get_output(context);
+        let actions_binding = actions_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let matchers_binding_1 = args.matchers.get_output(context);
+        let matchers_binding = matchers_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/emailRoutingRule:EmailRoutingRule".into(),
             name: name.to_string(),

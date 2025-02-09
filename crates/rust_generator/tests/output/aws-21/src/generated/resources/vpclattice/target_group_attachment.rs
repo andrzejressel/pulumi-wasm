@@ -58,10 +58,12 @@ pub mod target_group_attachment {
     ) -> TargetGroupAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let target_binding = args.target.get_output(context).get_inner();
-        let target_group_identifier_binding = args
+        let target_binding_1 = args.target.get_output(context);
+        let target_binding = target_binding_1.get_inner();
+        let target_group_identifier_binding_1 = args
             .target_group_identifier
-            .get_output(context)
+            .get_output(context);
+        let target_group_identifier_binding = target_group_identifier_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpclattice/targetGroupAttachment:TargetGroupAttachment".into(),

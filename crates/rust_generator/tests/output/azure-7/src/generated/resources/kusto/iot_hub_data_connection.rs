@@ -172,34 +172,40 @@ pub mod iot_hub_data_connection {
     ) -> IotHubDataConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let consumer_group_binding = args.consumer_group.get_output(context).get_inner();
-        let data_format_binding = args.data_format.get_output(context).get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let database_routing_type_binding = args
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let consumer_group_binding_1 = args.consumer_group.get_output(context);
+        let consumer_group_binding = consumer_group_binding_1.get_inner();
+        let data_format_binding_1 = args.data_format.get_output(context);
+        let data_format_binding = data_format_binding_1.get_inner();
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let database_routing_type_binding_1 = args
             .database_routing_type
-            .get_output(context)
-            .get_inner();
-        let event_system_properties_binding = args
+            .get_output(context);
+        let database_routing_type_binding = database_routing_type_binding_1.get_inner();
+        let event_system_properties_binding_1 = args
             .event_system_properties
-            .get_output(context)
+            .get_output(context);
+        let event_system_properties_binding = event_system_properties_binding_1
             .get_inner();
-        let iothub_id_binding = args.iothub_id.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let mapping_rule_name_binding = args
-            .mapping_rule_name
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let shared_access_policy_name_binding = args
+        let iothub_id_binding_1 = args.iothub_id.get_output(context);
+        let iothub_id_binding = iothub_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let mapping_rule_name_binding_1 = args.mapping_rule_name.get_output(context);
+        let mapping_rule_name_binding = mapping_rule_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let shared_access_policy_name_binding_1 = args
             .shared_access_policy_name
-            .get_output(context)
+            .get_output(context);
+        let shared_access_policy_name_binding = shared_access_policy_name_binding_1
             .get_inner();
-        let table_name_binding = args.table_name.get_output(context).get_inner();
+        let table_name_binding_1 = args.table_name.get_output(context);
+        let table_name_binding = table_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/iotHubDataConnection:IotHubDataConnection".into(),
             name: name.to_string(),

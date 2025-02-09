@@ -418,11 +418,16 @@ pub mod managed_folder_iam_binding {
     ) -> ManagedFolderIamBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let managed_folder_binding = args.managed_folder.get_output(context).get_inner();
-        let members_binding = args.members.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let managed_folder_binding_1 = args.managed_folder.get_output(context);
+        let managed_folder_binding = managed_folder_binding_1.get_inner();
+        let members_binding_1 = args.members.get_output(context);
+        let members_binding = members_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/managedFolderIamBinding:ManagedFolderIamBinding".into(),
             name: name.to_string(),

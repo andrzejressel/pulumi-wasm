@@ -170,15 +170,20 @@ pub mod web_acl {
     ) -> WebAclResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_action_binding = args.default_action.get_output(context).get_inner();
-        let logging_configuration_binding = args
+        let default_action_binding_1 = args.default_action.get_output(context);
+        let default_action_binding = default_action_binding_1.get_inner();
+        let logging_configuration_binding_1 = args
             .logging_configuration
-            .get_output(context)
-            .get_inner();
-        let metric_name_binding = args.metric_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let rules_binding = args.rules.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let logging_configuration_binding = logging_configuration_binding_1.get_inner();
+        let metric_name_binding_1 = args.metric_name.get_output(context);
+        let metric_name_binding = metric_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:wafregional/webAcl:WebAcl".into(),
             name: name.to_string(),

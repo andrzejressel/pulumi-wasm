@@ -156,13 +156,20 @@ pub mod instance_group {
     ) -> InstanceGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let instances_binding = args.instances.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let named_ports_binding = args.named_ports.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let instances_binding_1 = args.instances.get_output(context);
+        let instances_binding = instances_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let named_ports_binding_1 = args.named_ports.get_output(context);
+        let named_ports_binding = named_ports_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/instanceGroup:InstanceGroup".into(),
             name: name.to_string(),

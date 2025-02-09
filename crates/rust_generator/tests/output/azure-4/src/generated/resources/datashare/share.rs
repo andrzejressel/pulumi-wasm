@@ -98,15 +98,18 @@ pub mod share {
     ) -> ShareResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let kind_binding = args.kind.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let snapshot_schedule_binding = args
-            .snapshot_schedule
-            .get_output(context)
-            .get_inner();
-        let terms_binding = args.terms.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let kind_binding_1 = args.kind.get_output(context);
+        let kind_binding = kind_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let snapshot_schedule_binding_1 = args.snapshot_schedule.get_output(context);
+        let snapshot_schedule_binding = snapshot_schedule_binding_1.get_inner();
+        let terms_binding_1 = args.terms.get_output(context);
+        let terms_binding = terms_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datashare/share:Share".into(),
             name: name.to_string(),

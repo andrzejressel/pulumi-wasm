@@ -186,42 +186,39 @@ pub mod firewall {
     ) -> FirewallResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_proxy_enabled_binding = args
-            .dns_proxy_enabled
-            .get_output(context)
-            .get_inner();
-        let dns_servers_binding = args.dns_servers.get_output(context).get_inner();
-        let firewall_policy_id_binding = args
-            .firewall_policy_id
-            .get_output(context)
-            .get_inner();
-        let ip_configurations_binding = args
-            .ip_configurations
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let management_ip_configuration_binding = args
+        let dns_proxy_enabled_binding_1 = args.dns_proxy_enabled.get_output(context);
+        let dns_proxy_enabled_binding = dns_proxy_enabled_binding_1.get_inner();
+        let dns_servers_binding_1 = args.dns_servers.get_output(context);
+        let dns_servers_binding = dns_servers_binding_1.get_inner();
+        let firewall_policy_id_binding_1 = args.firewall_policy_id.get_output(context);
+        let firewall_policy_id_binding = firewall_policy_id_binding_1.get_inner();
+        let ip_configurations_binding_1 = args.ip_configurations.get_output(context);
+        let ip_configurations_binding = ip_configurations_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let management_ip_configuration_binding_1 = args
             .management_ip_configuration
-            .get_output(context)
+            .get_output(context);
+        let management_ip_configuration_binding = management_ip_configuration_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let private_ip_ranges_binding = args
-            .private_ip_ranges
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let sku_tier_binding = args.sku_tier.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let threat_intel_mode_binding = args
-            .threat_intel_mode
-            .get_output(context)
-            .get_inner();
-        let virtual_hub_binding = args.virtual_hub.get_output(context).get_inner();
-        let zones_binding = args.zones.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let private_ip_ranges_binding_1 = args.private_ip_ranges.get_output(context);
+        let private_ip_ranges_binding = private_ip_ranges_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let sku_tier_binding_1 = args.sku_tier.get_output(context);
+        let sku_tier_binding = sku_tier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let threat_intel_mode_binding_1 = args.threat_intel_mode.get_output(context);
+        let threat_intel_mode_binding = threat_intel_mode_binding_1.get_inner();
+        let virtual_hub_binding_1 = args.virtual_hub.get_output(context);
+        let virtual_hub_binding = virtual_hub_binding_1.get_inner();
+        let zones_binding_1 = args.zones.get_output(context);
+        let zones_binding = zones_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/firewall:Firewall".into(),
             name: name.to_string(),

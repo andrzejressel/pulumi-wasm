@@ -44,8 +44,10 @@ pub mod get_function {
     ) -> GetFunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let stage_binding = args.stage.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let stage_binding_1 = args.stage.get_output(context);
+        let stage_binding = stage_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudfront/getFunction:getFunction".into(),
             version: super::super::super::get_version(),

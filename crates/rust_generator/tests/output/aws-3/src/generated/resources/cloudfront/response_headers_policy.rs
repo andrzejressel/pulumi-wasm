@@ -220,25 +220,31 @@ pub mod response_headers_policy {
     ) -> ResponseHeadersPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let cors_config_binding = args.cors_config.get_output(context).get_inner();
-        let custom_headers_config_binding = args
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let cors_config_binding_1 = args.cors_config.get_output(context);
+        let cors_config_binding = cors_config_binding_1.get_inner();
+        let custom_headers_config_binding_1 = args
             .custom_headers_config
-            .get_output(context)
-            .get_inner();
-        let etag_binding = args.etag.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let remove_headers_config_binding = args
+            .get_output(context);
+        let custom_headers_config_binding = custom_headers_config_binding_1.get_inner();
+        let etag_binding_1 = args.etag.get_output(context);
+        let etag_binding = etag_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let remove_headers_config_binding_1 = args
             .remove_headers_config
-            .get_output(context)
-            .get_inner();
-        let security_headers_config_binding = args
+            .get_output(context);
+        let remove_headers_config_binding = remove_headers_config_binding_1.get_inner();
+        let security_headers_config_binding_1 = args
             .security_headers_config
-            .get_output(context)
+            .get_output(context);
+        let security_headers_config_binding = security_headers_config_binding_1
             .get_inner();
-        let server_timing_headers_config_binding = args
+        let server_timing_headers_config_binding_1 = args
             .server_timing_headers_config
-            .get_output(context)
+            .get_output(context);
+        let server_timing_headers_config_binding = server_timing_headers_config_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy".into(),

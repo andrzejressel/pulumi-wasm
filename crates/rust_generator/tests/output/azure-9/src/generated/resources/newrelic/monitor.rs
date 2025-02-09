@@ -162,30 +162,33 @@ pub mod monitor {
     ) -> MonitorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_creation_source_binding = args
+        let account_creation_source_binding_1 = args
             .account_creation_source
-            .get_output(context)
+            .get_output(context);
+        let account_creation_source_binding = account_creation_source_binding_1
             .get_inner();
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let ingestion_key_binding = args.ingestion_key.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let org_creation_source_binding = args
-            .org_creation_source
-            .get_output(context)
-            .get_inner();
-        let organization_id_binding = args
-            .organization_id
-            .get_output(context)
-            .get_inner();
-        let plan_binding = args.plan.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let user_binding = args.user.get_output(context).get_inner();
-        let user_id_binding = args.user_id.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let ingestion_key_binding_1 = args.ingestion_key.get_output(context);
+        let ingestion_key_binding = ingestion_key_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let org_creation_source_binding_1 = args.org_creation_source.get_output(context);
+        let org_creation_source_binding = org_creation_source_binding_1.get_inner();
+        let organization_id_binding_1 = args.organization_id.get_output(context);
+        let organization_id_binding = organization_id_binding_1.get_inner();
+        let plan_binding_1 = args.plan.get_output(context);
+        let plan_binding = plan_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let user_binding_1 = args.user.get_output(context);
+        let user_binding = user_binding_1.get_inner();
+        let user_id_binding_1 = args.user_id.get_output(context);
+        let user_id_binding = user_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:newrelic/monitor:Monitor".into(),
             name: name.to_string(),

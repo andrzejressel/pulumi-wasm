@@ -154,31 +154,32 @@ pub mod file_system {
     ) -> FileSystemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_name_binding = args
+        let availability_zone_name_binding_1 = args
             .availability_zone_name
-            .get_output(context)
+            .get_output(context);
+        let availability_zone_name_binding = availability_zone_name_binding_1
             .get_inner();
-        let creation_token_binding = args.creation_token.get_output(context).get_inner();
-        let encrypted_binding = args.encrypted.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let lifecycle_policies_binding = args
-            .lifecycle_policies
-            .get_output(context)
-            .get_inner();
-        let performance_mode_binding = args
-            .performance_mode
-            .get_output(context)
-            .get_inner();
-        let protection_binding = args.protection.get_output(context).get_inner();
-        let provisioned_throughput_in_mibps_binding = args
+        let creation_token_binding_1 = args.creation_token.get_output(context);
+        let creation_token_binding = creation_token_binding_1.get_inner();
+        let encrypted_binding_1 = args.encrypted.get_output(context);
+        let encrypted_binding = encrypted_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let lifecycle_policies_binding_1 = args.lifecycle_policies.get_output(context);
+        let lifecycle_policies_binding = lifecycle_policies_binding_1.get_inner();
+        let performance_mode_binding_1 = args.performance_mode.get_output(context);
+        let performance_mode_binding = performance_mode_binding_1.get_inner();
+        let protection_binding_1 = args.protection.get_output(context);
+        let protection_binding = protection_binding_1.get_inner();
+        let provisioned_throughput_in_mibps_binding_1 = args
             .provisioned_throughput_in_mibps
-            .get_output(context)
+            .get_output(context);
+        let provisioned_throughput_in_mibps_binding = provisioned_throughput_in_mibps_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let throughput_mode_binding = args
-            .throughput_mode
-            .get_output(context)
-            .get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let throughput_mode_binding_1 = args.throughput_mode.get_output(context);
+        let throughput_mode_binding = throughput_mode_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:efs/fileSystem:FileSystem".into(),
             name: name.to_string(),

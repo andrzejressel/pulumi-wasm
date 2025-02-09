@@ -76,8 +76,10 @@ pub mod lb_attachment {
     ) -> LbAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_name_binding = args.instance_name.get_output(context).get_inner();
-        let lb_name_binding = args.lb_name.get_output(context).get_inner();
+        let instance_name_binding_1 = args.instance_name.get_output(context);
+        let instance_name_binding = instance_name_binding_1.get_inner();
+        let lb_name_binding_1 = args.lb_name.get_output(context);
+        let lb_name_binding = lb_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/lbAttachment:LbAttachment".into(),
             name: name.to_string(),

@@ -186,13 +186,14 @@ pub mod route_table {
     ) -> RouteTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let propagating_vgws_binding = args
-            .propagating_vgws
-            .get_output(context)
-            .get_inner();
-        let routes_binding = args.routes.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let propagating_vgws_binding_1 = args.propagating_vgws.get_output(context);
+        let propagating_vgws_binding = propagating_vgws_binding_1.get_inner();
+        let routes_binding_1 = args.routes.get_output(context);
+        let routes_binding = routes_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/routeTable:RouteTable".into(),
             name: name.to_string(),

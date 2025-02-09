@@ -305,29 +305,31 @@ pub mod security_policy_rule {
     ) -> SecurityPolicyRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let header_action_binding = args.header_action.get_output(context).get_inner();
-        let match__binding = args.match_.get_output(context).get_inner();
-        let preconfigured_waf_config_binding = args
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let header_action_binding_1 = args.header_action.get_output(context);
+        let header_action_binding = header_action_binding_1.get_inner();
+        let match__binding_1 = args.match_.get_output(context);
+        let match__binding = match__binding_1.get_inner();
+        let preconfigured_waf_config_binding_1 = args
             .preconfigured_waf_config
-            .get_output(context)
+            .get_output(context);
+        let preconfigured_waf_config_binding = preconfigured_waf_config_binding_1
             .get_inner();
-        let preview_binding = args.preview.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let rate_limit_options_binding = args
-            .rate_limit_options
-            .get_output(context)
-            .get_inner();
-        let redirect_options_binding = args
-            .redirect_options
-            .get_output(context)
-            .get_inner();
-        let security_policy_binding = args
-            .security_policy
-            .get_output(context)
-            .get_inner();
+        let preview_binding_1 = args.preview.get_output(context);
+        let preview_binding = preview_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let rate_limit_options_binding_1 = args.rate_limit_options.get_output(context);
+        let rate_limit_options_binding = rate_limit_options_binding_1.get_inner();
+        let redirect_options_binding_1 = args.redirect_options.get_output(context);
+        let redirect_options_binding = redirect_options_binding_1.get_inner();
+        let security_policy_binding_1 = args.security_policy.get_output(context);
+        let security_policy_binding = security_policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/securityPolicyRule:SecurityPolicyRule".into(),
             name: name.to_string(),

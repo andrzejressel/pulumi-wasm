@@ -137,29 +137,31 @@ pub mod classification_job {
     ) -> ClassificationJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_data_identifier_ids_binding = args
+        let custom_data_identifier_ids_binding_1 = args
             .custom_data_identifier_ids
-            .get_output(context)
+            .get_output(context);
+        let custom_data_identifier_ids_binding = custom_data_identifier_ids_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let initial_run_binding = args.initial_run.get_output(context).get_inner();
-        let job_status_binding = args.job_status.get_output(context).get_inner();
-        let job_type_binding = args.job_type.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let s3_job_definition_binding = args
-            .s3_job_definition
-            .get_output(context)
-            .get_inner();
-        let sampling_percentage_binding = args
-            .sampling_percentage
-            .get_output(context)
-            .get_inner();
-        let schedule_frequency_binding = args
-            .schedule_frequency
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let initial_run_binding_1 = args.initial_run.get_output(context);
+        let initial_run_binding = initial_run_binding_1.get_inner();
+        let job_status_binding_1 = args.job_status.get_output(context);
+        let job_status_binding = job_status_binding_1.get_inner();
+        let job_type_binding_1 = args.job_type.get_output(context);
+        let job_type_binding = job_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let s3_job_definition_binding_1 = args.s3_job_definition.get_output(context);
+        let s3_job_definition_binding = s3_job_definition_binding_1.get_inner();
+        let sampling_percentage_binding_1 = args.sampling_percentage.get_output(context);
+        let sampling_percentage_binding = sampling_percentage_binding_1.get_inner();
+        let schedule_frequency_binding_1 = args.schedule_frequency.get_output(context);
+        let schedule_frequency_binding = schedule_frequency_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:macie2/classificationJob:ClassificationJob".into(),
             name: name.to_string(),

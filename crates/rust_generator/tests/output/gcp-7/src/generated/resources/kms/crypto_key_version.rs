@@ -116,12 +116,15 @@ pub mod crypto_key_version {
     ) -> CryptoKeyVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let crypto_key_binding = args.crypto_key.get_output(context).get_inner();
-        let external_protection_level_options_binding = args
+        let crypto_key_binding_1 = args.crypto_key.get_output(context);
+        let crypto_key_binding = crypto_key_binding_1.get_inner();
+        let external_protection_level_options_binding_1 = args
             .external_protection_level_options
-            .get_output(context)
+            .get_output(context);
+        let external_protection_level_options_binding = external_protection_level_options_binding_1
             .get_inner();
-        let state_binding = args.state.get_output(context).get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:kms/cryptoKeyVersion:CryptoKeyVersion".into(),
             name: name.to_string(),

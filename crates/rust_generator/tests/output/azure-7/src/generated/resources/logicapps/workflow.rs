@@ -161,37 +161,38 @@ pub mod workflow {
     ) -> WorkflowResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_control_binding = args.access_control.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let integration_service_environment_id_binding = args
+        let access_control_binding_1 = args.access_control.get_output(context);
+        let access_control_binding = access_control_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let integration_service_environment_id_binding_1 = args
             .integration_service_environment_id
-            .get_output(context)
+            .get_output(context);
+        let integration_service_environment_id_binding = integration_service_environment_id_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let logic_app_integration_account_id_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let logic_app_integration_account_id_binding_1 = args
             .logic_app_integration_account_id
-            .get_output(context)
+            .get_output(context);
+        let logic_app_integration_account_id_binding = logic_app_integration_account_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let workflow_parameters_binding = args
-            .workflow_parameters
-            .get_output(context)
-            .get_inner();
-        let workflow_schema_binding = args
-            .workflow_schema
-            .get_output(context)
-            .get_inner();
-        let workflow_version_binding = args
-            .workflow_version
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let workflow_parameters_binding_1 = args.workflow_parameters.get_output(context);
+        let workflow_parameters_binding = workflow_parameters_binding_1.get_inner();
+        let workflow_schema_binding_1 = args.workflow_schema.get_output(context);
+        let workflow_schema_binding = workflow_schema_binding_1.get_inner();
+        let workflow_version_binding_1 = args.workflow_version.get_output(context);
+        let workflow_version_binding = workflow_version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/workflow:Workflow".into(),
             name: name.to_string(),

@@ -201,20 +201,29 @@ pub mod certificate_issuance_config {
     ) -> CertificateIssuanceConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_authority_config_binding = args
+        let certificate_authority_config_binding_1 = args
             .certificate_authority_config
-            .get_output(context)
+            .get_output(context);
+        let certificate_authority_config_binding = certificate_authority_config_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let key_algorithm_binding = args.key_algorithm.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let lifetime_binding = args.lifetime.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let rotation_window_percentage_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let key_algorithm_binding_1 = args.key_algorithm.get_output(context);
+        let key_algorithm_binding = key_algorithm_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let lifetime_binding_1 = args.lifetime.get_output(context);
+        let lifetime_binding = lifetime_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let rotation_window_percentage_binding_1 = args
             .rotation_window_percentage
-            .get_output(context)
+            .get_output(context);
+        let rotation_window_percentage_binding = rotation_window_percentage_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificatemanager/certificateIssuanceConfig:CertificateIssuanceConfig"

@@ -1096,27 +1096,36 @@ pub mod stream {
     ) -> StreamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backfill_all_binding = args.backfill_all.get_output(context).get_inner();
-        let backfill_none_binding = args.backfill_none.get_output(context).get_inner();
-        let create_without_validation_binding = args
+        let backfill_all_binding_1 = args.backfill_all.get_output(context);
+        let backfill_all_binding = backfill_all_binding_1.get_inner();
+        let backfill_none_binding_1 = args.backfill_none.get_output(context);
+        let backfill_none_binding = backfill_none_binding_1.get_inner();
+        let create_without_validation_binding_1 = args
             .create_without_validation
-            .get_output(context)
+            .get_output(context);
+        let create_without_validation_binding = create_without_validation_binding_1
             .get_inner();
-        let customer_managed_encryption_key_binding = args
+        let customer_managed_encryption_key_binding_1 = args
             .customer_managed_encryption_key
-            .get_output(context)
+            .get_output(context);
+        let customer_managed_encryption_key_binding = customer_managed_encryption_key_binding_1
             .get_inner();
-        let desired_state_binding = args.desired_state.get_output(context).get_inner();
-        let destination_config_binding = args
-            .destination_config
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let source_config_binding = args.source_config.get_output(context).get_inner();
-        let stream_id_binding = args.stream_id.get_output(context).get_inner();
+        let desired_state_binding_1 = args.desired_state.get_output(context);
+        let desired_state_binding = desired_state_binding_1.get_inner();
+        let destination_config_binding_1 = args.destination_config.get_output(context);
+        let destination_config_binding = destination_config_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let source_config_binding_1 = args.source_config.get_output(context);
+        let source_config_binding = source_config_binding_1.get_inner();
+        let stream_id_binding_1 = args.stream_id.get_output(context);
+        let stream_id_binding = stream_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datastream/stream:Stream".into(),
             name: name.to_string(),

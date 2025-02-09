@@ -28,8 +28,10 @@ pub mod get_managed_folder_iam_policy {
     ) -> GetManagedFolderIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let managed_folder_binding = args.managed_folder.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let managed_folder_binding_1 = args.managed_folder.get_output(context);
+        let managed_folder_binding = managed_folder_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:storage/getManagedFolderIamPolicy:getManagedFolderIamPolicy"
                 .into(),

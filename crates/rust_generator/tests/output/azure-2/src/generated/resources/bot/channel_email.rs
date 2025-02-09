@@ -95,15 +95,18 @@ pub mod channel_email {
     ) -> ChannelEmailResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_name_binding = args.bot_name.get_output(context).get_inner();
-        let email_address_binding = args.email_address.get_output(context).get_inner();
-        let email_password_binding = args.email_password.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let magic_code_binding = args.magic_code.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let bot_name_binding_1 = args.bot_name.get_output(context);
+        let bot_name_binding = bot_name_binding_1.get_inner();
+        let email_address_binding_1 = args.email_address.get_output(context);
+        let email_address_binding = email_address_binding_1.get_inner();
+        let email_password_binding_1 = args.email_password.get_output(context);
+        let email_password_binding = email_password_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let magic_code_binding_1 = args.magic_code.get_output(context);
+        let magic_code_binding = magic_code_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:bot/channelEmail:ChannelEmail".into(),
             name: name.to_string(),

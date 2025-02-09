@@ -136,19 +136,26 @@ pub mod vpn_site {
     ) -> VpnSiteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_cidrs_binding = args.address_cidrs.get_output(context).get_inner();
-        let device_model_binding = args.device_model.get_output(context).get_inner();
-        let device_vendor_binding = args.device_vendor.get_output(context).get_inner();
-        let links_binding = args.links.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let o365_policy_binding = args.o365_policy.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let virtual_wan_id_binding = args.virtual_wan_id.get_output(context).get_inner();
+        let address_cidrs_binding_1 = args.address_cidrs.get_output(context);
+        let address_cidrs_binding = address_cidrs_binding_1.get_inner();
+        let device_model_binding_1 = args.device_model.get_output(context);
+        let device_model_binding = device_model_binding_1.get_inner();
+        let device_vendor_binding_1 = args.device_vendor.get_output(context);
+        let device_vendor_binding = device_vendor_binding_1.get_inner();
+        let links_binding_1 = args.links.get_output(context);
+        let links_binding = links_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let o365_policy_binding_1 = args.o365_policy.get_output(context);
+        let o365_policy_binding = o365_policy_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let virtual_wan_id_binding_1 = args.virtual_wan_id.get_output(context);
+        let virtual_wan_id_binding = virtual_wan_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/vpnSite:VpnSite".into(),
             name: name.to_string(),

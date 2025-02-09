@@ -471,24 +471,34 @@ pub mod edge_cache_service {
     ) -> EdgeCacheServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let disable_http2_binding = args.disable_http2.get_output(context).get_inner();
-        let disable_quic_binding = args.disable_quic.get_output(context).get_inner();
-        let edge_security_policy_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disable_http2_binding_1 = args.disable_http2.get_output(context);
+        let disable_http2_binding = disable_http2_binding_1.get_inner();
+        let disable_quic_binding_1 = args.disable_quic.get_output(context);
+        let disable_quic_binding = disable_quic_binding_1.get_inner();
+        let edge_security_policy_binding_1 = args
             .edge_security_policy
-            .get_output(context)
-            .get_inner();
-        let edge_ssl_certificates_binding = args
+            .get_output(context);
+        let edge_security_policy_binding = edge_security_policy_binding_1.get_inner();
+        let edge_ssl_certificates_binding_1 = args
             .edge_ssl_certificates
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let log_config_binding = args.log_config.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let require_tls_binding = args.require_tls.get_output(context).get_inner();
-        let routing_binding = args.routing.get_output(context).get_inner();
-        let ssl_policy_binding = args.ssl_policy.get_output(context).get_inner();
+            .get_output(context);
+        let edge_ssl_certificates_binding = edge_ssl_certificates_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let log_config_binding_1 = args.log_config.get_output(context);
+        let log_config_binding = log_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let require_tls_binding_1 = args.require_tls.get_output(context);
+        let require_tls_binding = require_tls_binding_1.get_inner();
+        let routing_binding_1 = args.routing.get_output(context);
+        let routing_binding = routing_binding_1.get_inner();
+        let ssl_policy_binding_1 = args.ssl_policy.get_output(context);
+        let ssl_policy_binding = ssl_policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkservices/edgeCacheService:EdgeCacheService".into(),
             name: name.to_string(),

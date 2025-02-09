@@ -157,10 +157,14 @@ pub mod vpc_service_controls {
     ) -> VpcServiceControlsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:servicenetworking/vpcServiceControls:VpcServiceControls".into(),
             name: name.to_string(),

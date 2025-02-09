@@ -338,68 +338,78 @@ pub mod workspace {
     ) -> WorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let azure_devops_repo_binding = args
-            .azure_devops_repo
-            .get_output(context)
-            .get_inner();
-        let azuread_authentication_only_binding = args
+        let azure_devops_repo_binding_1 = args.azure_devops_repo.get_output(context);
+        let azure_devops_repo_binding = azure_devops_repo_binding_1.get_inner();
+        let azuread_authentication_only_binding_1 = args
             .azuread_authentication_only
-            .get_output(context)
+            .get_output(context);
+        let azuread_authentication_only_binding = azuread_authentication_only_binding_1
             .get_inner();
-        let compute_subnet_id_binding = args
-            .compute_subnet_id
-            .get_output(context)
-            .get_inner();
-        let customer_managed_key_binding = args
+        let compute_subnet_id_binding_1 = args.compute_subnet_id.get_output(context);
+        let compute_subnet_id_binding = compute_subnet_id_binding_1.get_inner();
+        let customer_managed_key_binding_1 = args
             .customer_managed_key
-            .get_output(context)
-            .get_inner();
-        let data_exfiltration_protection_enabled_binding = args
+            .get_output(context);
+        let customer_managed_key_binding = customer_managed_key_binding_1.get_inner();
+        let data_exfiltration_protection_enabled_binding_1 = args
             .data_exfiltration_protection_enabled
-            .get_output(context)
+            .get_output(context);
+        let data_exfiltration_protection_enabled_binding = data_exfiltration_protection_enabled_binding_1
             .get_inner();
-        let github_repo_binding = args.github_repo.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let linking_allowed_for_aad_tenant_ids_binding = args
+        let github_repo_binding_1 = args.github_repo.get_output(context);
+        let github_repo_binding = github_repo_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let linking_allowed_for_aad_tenant_ids_binding_1 = args
             .linking_allowed_for_aad_tenant_ids
-            .get_output(context)
+            .get_output(context);
+        let linking_allowed_for_aad_tenant_ids_binding = linking_allowed_for_aad_tenant_ids_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let managed_resource_group_name_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let managed_resource_group_name_binding_1 = args
             .managed_resource_group_name
-            .get_output(context)
+            .get_output(context);
+        let managed_resource_group_name_binding = managed_resource_group_name_binding_1
             .get_inner();
-        let managed_virtual_network_enabled_binding = args
+        let managed_virtual_network_enabled_binding_1 = args
             .managed_virtual_network_enabled
-            .get_output(context)
+            .get_output(context);
+        let managed_virtual_network_enabled_binding = managed_virtual_network_enabled_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let purview_id_binding = args.purview_id.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sql_administrator_login_binding = args
+        let purview_id_binding_1 = args.purview_id.get_output(context);
+        let purview_id_binding = purview_id_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sql_administrator_login_binding_1 = args
             .sql_administrator_login
-            .get_output(context)
+            .get_output(context);
+        let sql_administrator_login_binding = sql_administrator_login_binding_1
             .get_inner();
-        let sql_administrator_login_password_binding = args
+        let sql_administrator_login_password_binding_1 = args
             .sql_administrator_login_password
-            .get_output(context)
+            .get_output(context);
+        let sql_administrator_login_password_binding = sql_administrator_login_password_binding_1
             .get_inner();
-        let sql_identity_control_enabled_binding = args
+        let sql_identity_control_enabled_binding_1 = args
             .sql_identity_control_enabled
-            .get_output(context)
+            .get_output(context);
+        let sql_identity_control_enabled_binding = sql_identity_control_enabled_binding_1
             .get_inner();
-        let storage_data_lake_gen2_filesystem_id_binding = args
+        let storage_data_lake_gen2_filesystem_id_binding_1 = args
             .storage_data_lake_gen2_filesystem_id
-            .get_output(context)
+            .get_output(context);
+        let storage_data_lake_gen2_filesystem_id_binding = storage_data_lake_gen2_filesystem_id_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/workspace:Workspace".into(),
             name: name.to_string(),

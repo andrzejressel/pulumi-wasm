@@ -168,24 +168,26 @@ pub mod firewall_policy_rule_collection_group {
     ) -> FirewallPolicyRuleCollectionGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_rule_collections_binding = args
+        let application_rule_collections_binding_1 = args
             .application_rule_collections
-            .get_output(context)
+            .get_output(context);
+        let application_rule_collections_binding = application_rule_collections_binding_1
             .get_inner();
-        let firewall_policy_id_binding = args
-            .firewall_policy_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let nat_rule_collections_binding = args
+        let firewall_policy_id_binding_1 = args.firewall_policy_id.get_output(context);
+        let firewall_policy_id_binding = firewall_policy_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let nat_rule_collections_binding_1 = args
             .nat_rule_collections
-            .get_output(context)
-            .get_inner();
-        let network_rule_collections_binding = args
+            .get_output(context);
+        let nat_rule_collections_binding = nat_rule_collections_binding_1.get_inner();
+        let network_rule_collections_binding_1 = args
             .network_rule_collections
-            .get_output(context)
+            .get_output(context);
+        let network_rule_collections_binding = network_rule_collections_binding_1
             .get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup"
                 .into(),

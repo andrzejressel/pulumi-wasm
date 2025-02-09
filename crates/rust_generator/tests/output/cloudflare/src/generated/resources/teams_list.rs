@@ -83,15 +83,21 @@ pub mod teams_list {
     ) -> TeamsListResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let items_binding = args.items.get_output(context).get_inner();
-        let items_with_descriptions_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let items_binding_1 = args.items.get_output(context);
+        let items_binding = items_binding_1.get_inner();
+        let items_with_descriptions_binding_1 = args
             .items_with_descriptions
-            .get_output(context)
+            .get_output(context);
+        let items_with_descriptions_binding = items_with_descriptions_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/teamsList:TeamsList".into(),
             name: name.to_string(),

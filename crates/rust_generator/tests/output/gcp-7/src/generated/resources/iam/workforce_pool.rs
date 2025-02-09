@@ -186,23 +186,22 @@ pub mod workforce_pool {
     ) -> WorkforcePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_restrictions_binding = args
-            .access_restrictions
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let session_duration_binding = args
-            .session_duration
-            .get_output(context)
-            .get_inner();
-        let workforce_pool_id_binding = args
-            .workforce_pool_id
-            .get_output(context)
-            .get_inner();
+        let access_restrictions_binding_1 = args.access_restrictions.get_output(context);
+        let access_restrictions_binding = access_restrictions_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let session_duration_binding_1 = args.session_duration.get_output(context);
+        let session_duration_binding = session_duration_binding_1.get_inner();
+        let workforce_pool_id_binding_1 = args.workforce_pool_id.get_output(context);
+        let workforce_pool_id_binding = workforce_pool_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iam/workforcePool:WorkforcePool".into(),
             name: name.to_string(),

@@ -74,15 +74,14 @@ pub mod readiness_check {
     ) -> ReadinessCheckResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let readiness_check_name_binding = args
+        let readiness_check_name_binding_1 = args
             .readiness_check_name
-            .get_output(context)
-            .get_inner();
-        let resource_set_name_binding = args
-            .resource_set_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let readiness_check_name_binding = readiness_check_name_binding_1.get_inner();
+        let resource_set_name_binding_1 = args.resource_set_name.get_output(context);
+        let resource_set_name_binding = resource_set_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53recoveryreadiness/readinessCheck:ReadinessCheck".into(),
             name: name.to_string(),

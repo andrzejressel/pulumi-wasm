@@ -88,13 +88,14 @@ pub mod flexible_server_firewall_rule {
     ) -> FlexibleServerFirewallRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let end_ip_address_binding = args.end_ip_address.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let server_id_binding = args.server_id.get_output(context).get_inner();
-        let start_ip_address_binding = args
-            .start_ip_address
-            .get_output(context)
-            .get_inner();
+        let end_ip_address_binding_1 = args.end_ip_address.get_output(context);
+        let end_ip_address_binding = end_ip_address_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let server_id_binding_1 = args.server_id.get_output(context);
+        let server_id_binding = server_id_binding_1.get_inner();
+        let start_ip_address_binding_1 = args.start_ip_address.get_output(context);
+        let start_ip_address_binding = start_ip_address_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule"
                 .into(),

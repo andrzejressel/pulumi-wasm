@@ -51,9 +51,12 @@ pub mod get_access_entry {
     ) -> GetAccessEntryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let principal_arn_binding = args.principal_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let principal_arn_binding_1 = args.principal_arn.get_output(context);
+        let principal_arn_binding = principal_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:eks/getAccessEntry:getAccessEntry".into(),
             version: super::super::super::get_version(),

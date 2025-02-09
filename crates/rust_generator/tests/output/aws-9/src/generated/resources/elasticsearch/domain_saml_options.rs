@@ -80,8 +80,10 @@ pub mod domain_saml_options {
     ) -> DomainSamlOptionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let saml_options_binding = args.saml_options.get_output(context).get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let saml_options_binding_1 = args.saml_options.get_output(context);
+        let saml_options_binding = saml_options_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticsearch/domainSamlOptions:DomainSamlOptions".into(),
             name: name.to_string(),

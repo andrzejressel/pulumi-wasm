@@ -568,30 +568,36 @@ pub mod workload_identity_pool_provider {
     ) -> WorkloadIdentityPoolProviderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attribute_condition_binding = args
-            .attribute_condition
-            .get_output(context)
-            .get_inner();
-        let attribute_mapping_binding = args
-            .attribute_mapping
-            .get_output(context)
-            .get_inner();
-        let aws_binding = args.aws.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let oidc_binding = args.oidc.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let saml_binding = args.saml.get_output(context).get_inner();
-        let workload_identity_pool_id_binding = args
+        let attribute_condition_binding_1 = args.attribute_condition.get_output(context);
+        let attribute_condition_binding = attribute_condition_binding_1.get_inner();
+        let attribute_mapping_binding_1 = args.attribute_mapping.get_output(context);
+        let attribute_mapping_binding = attribute_mapping_binding_1.get_inner();
+        let aws_binding_1 = args.aws.get_output(context);
+        let aws_binding = aws_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let oidc_binding_1 = args.oidc.get_output(context);
+        let oidc_binding = oidc_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let saml_binding_1 = args.saml.get_output(context);
+        let saml_binding = saml_binding_1.get_inner();
+        let workload_identity_pool_id_binding_1 = args
             .workload_identity_pool_id
-            .get_output(context)
+            .get_output(context);
+        let workload_identity_pool_id_binding = workload_identity_pool_id_binding_1
             .get_inner();
-        let workload_identity_pool_provider_id_binding = args
+        let workload_identity_pool_provider_id_binding_1 = args
             .workload_identity_pool_provider_id
-            .get_output(context)
+            .get_output(context);
+        let workload_identity_pool_provider_id_binding = workload_identity_pool_provider_id_binding_1
             .get_inner();
-        let x509_binding = args.x509.get_output(context).get_inner();
+        let x509_binding_1 = args.x509.get_output(context);
+        let x509_binding = x509_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iam/workloadIdentityPoolProvider:WorkloadIdentityPoolProvider"
                 .into(),

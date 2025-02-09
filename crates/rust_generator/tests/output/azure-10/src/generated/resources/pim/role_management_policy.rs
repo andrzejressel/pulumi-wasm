@@ -171,27 +171,24 @@ pub mod role_management_policy {
     ) -> RoleManagementPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let activation_rules_binding = args
-            .activation_rules
-            .get_output(context)
-            .get_inner();
-        let active_assignment_rules_binding = args
+        let activation_rules_binding_1 = args.activation_rules.get_output(context);
+        let activation_rules_binding = activation_rules_binding_1.get_inner();
+        let active_assignment_rules_binding_1 = args
             .active_assignment_rules
-            .get_output(context)
+            .get_output(context);
+        let active_assignment_rules_binding = active_assignment_rules_binding_1
             .get_inner();
-        let eligible_assignment_rules_binding = args
+        let eligible_assignment_rules_binding_1 = args
             .eligible_assignment_rules
-            .get_output(context)
+            .get_output(context);
+        let eligible_assignment_rules_binding = eligible_assignment_rules_binding_1
             .get_inner();
-        let notification_rules_binding = args
-            .notification_rules
-            .get_output(context)
-            .get_inner();
-        let role_definition_id_binding = args
-            .role_definition_id
-            .get_output(context)
-            .get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
+        let notification_rules_binding_1 = args.notification_rules.get_output(context);
+        let notification_rules_binding = notification_rules_binding_1.get_inner();
+        let role_definition_id_binding_1 = args.role_definition_id.get_output(context);
+        let role_definition_id_binding = role_definition_id_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:pim/roleManagementPolicy:RoleManagementPolicy".into(),
             name: name.to_string(),

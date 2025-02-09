@@ -242,35 +242,28 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_server_profile_binding = args
-            .api_server_profile
-            .get_output(context)
-            .get_inner();
-        let cluster_profile_binding = args
-            .cluster_profile
-            .get_output(context)
-            .get_inner();
-        let ingress_profile_binding = args
-            .ingress_profile
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let main_profile_binding = args.main_profile.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_profile_binding = args
-            .network_profile
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let service_principal_binding = args
-            .service_principal
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let worker_profile_binding = args.worker_profile.get_output(context).get_inner();
+        let api_server_profile_binding_1 = args.api_server_profile.get_output(context);
+        let api_server_profile_binding = api_server_profile_binding_1.get_inner();
+        let cluster_profile_binding_1 = args.cluster_profile.get_output(context);
+        let cluster_profile_binding = cluster_profile_binding_1.get_inner();
+        let ingress_profile_binding_1 = args.ingress_profile.get_output(context);
+        let ingress_profile_binding = ingress_profile_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let main_profile_binding_1 = args.main_profile.get_output(context);
+        let main_profile_binding = main_profile_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_profile_binding_1 = args.network_profile.get_output(context);
+        let network_profile_binding = network_profile_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let service_principal_binding_1 = args.service_principal.get_output(context);
+        let service_principal_binding = service_principal_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let worker_profile_binding_1 = args.worker_profile.get_output(context);
+        let worker_profile_binding = worker_profile_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:redhatopenshift/cluster:Cluster".into(),
             name: name.to_string(),

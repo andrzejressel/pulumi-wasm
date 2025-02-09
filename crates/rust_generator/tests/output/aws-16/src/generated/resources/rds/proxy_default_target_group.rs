@@ -87,11 +87,13 @@ pub mod proxy_default_target_group {
     ) -> ProxyDefaultTargetGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_pool_config_binding = args
+        let connection_pool_config_binding_1 = args
             .connection_pool_config
-            .get_output(context)
+            .get_output(context);
+        let connection_pool_config_binding = connection_pool_config_binding_1
             .get_inner();
-        let db_proxy_name_binding = args.db_proxy_name.get_output(context).get_inner();
+        let db_proxy_name_binding_1 = args.db_proxy_name.get_output(context);
+        let db_proxy_name_binding = db_proxy_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup".into(),
             name: name.to_string(),

@@ -130,25 +130,32 @@ pub mod spectrum_application {
     ) -> SpectrumApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let argo_smart_routing_binding = args
-            .argo_smart_routing
-            .get_output(context)
-            .get_inner();
-        let dns_binding = args.dns.get_output(context).get_inner();
-        let edge_ips_binding = args.edge_ips.get_output(context).get_inner();
-        let ip_firewall_binding = args.ip_firewall.get_output(context).get_inner();
-        let origin_directs_binding = args.origin_directs.get_output(context).get_inner();
-        let origin_dns_binding = args.origin_dns.get_output(context).get_inner();
-        let origin_port_binding = args.origin_port.get_output(context).get_inner();
-        let origin_port_range_binding = args
-            .origin_port_range
-            .get_output(context)
-            .get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let proxy_protocol_binding = args.proxy_protocol.get_output(context).get_inner();
-        let tls_binding = args.tls.get_output(context).get_inner();
-        let traffic_type_binding = args.traffic_type.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let argo_smart_routing_binding_1 = args.argo_smart_routing.get_output(context);
+        let argo_smart_routing_binding = argo_smart_routing_binding_1.get_inner();
+        let dns_binding_1 = args.dns.get_output(context);
+        let dns_binding = dns_binding_1.get_inner();
+        let edge_ips_binding_1 = args.edge_ips.get_output(context);
+        let edge_ips_binding = edge_ips_binding_1.get_inner();
+        let ip_firewall_binding_1 = args.ip_firewall.get_output(context);
+        let ip_firewall_binding = ip_firewall_binding_1.get_inner();
+        let origin_directs_binding_1 = args.origin_directs.get_output(context);
+        let origin_directs_binding = origin_directs_binding_1.get_inner();
+        let origin_dns_binding_1 = args.origin_dns.get_output(context);
+        let origin_dns_binding = origin_dns_binding_1.get_inner();
+        let origin_port_binding_1 = args.origin_port.get_output(context);
+        let origin_port_binding = origin_port_binding_1.get_inner();
+        let origin_port_range_binding_1 = args.origin_port_range.get_output(context);
+        let origin_port_range_binding = origin_port_range_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let proxy_protocol_binding_1 = args.proxy_protocol.get_output(context);
+        let proxy_protocol_binding = proxy_protocol_binding_1.get_inner();
+        let tls_binding_1 = args.tls.get_output(context);
+        let tls_binding = tls_binding_1.get_inner();
+        let traffic_type_binding_1 = args.traffic_type.get_output(context);
+        let traffic_type_binding = traffic_type_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/spectrumApplication:SpectrumApplication".into(),
             name: name.to_string(),

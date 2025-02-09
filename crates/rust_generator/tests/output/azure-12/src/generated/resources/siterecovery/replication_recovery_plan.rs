@@ -108,34 +108,38 @@ pub mod replication_recovery_plan {
     ) -> ReplicationRecoveryPlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let azure_to_azure_settings_binding = args
+        let azure_to_azure_settings_binding_1 = args
             .azure_to_azure_settings
-            .get_output(context)
+            .get_output(context);
+        let azure_to_azure_settings_binding = azure_to_azure_settings_binding_1
             .get_inner();
-        let boot_recovery_groups_binding = args
+        let boot_recovery_groups_binding_1 = args
             .boot_recovery_groups
-            .get_output(context)
-            .get_inner();
-        let failover_recovery_group_binding = args
+            .get_output(context);
+        let boot_recovery_groups_binding = boot_recovery_groups_binding_1.get_inner();
+        let failover_recovery_group_binding_1 = args
             .failover_recovery_group
-            .get_output(context)
+            .get_output(context);
+        let failover_recovery_group_binding = failover_recovery_group_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let recovery_vault_id_binding = args
-            .recovery_vault_id
-            .get_output(context)
-            .get_inner();
-        let shutdown_recovery_group_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recovery_vault_id_binding_1 = args.recovery_vault_id.get_output(context);
+        let recovery_vault_id_binding = recovery_vault_id_binding_1.get_inner();
+        let shutdown_recovery_group_binding_1 = args
             .shutdown_recovery_group
-            .get_output(context)
+            .get_output(context);
+        let shutdown_recovery_group_binding = shutdown_recovery_group_binding_1
             .get_inner();
-        let source_recovery_fabric_id_binding = args
+        let source_recovery_fabric_id_binding_1 = args
             .source_recovery_fabric_id
-            .get_output(context)
+            .get_output(context);
+        let source_recovery_fabric_id_binding = source_recovery_fabric_id_binding_1
             .get_inner();
-        let target_recovery_fabric_id_binding = args
+        let target_recovery_fabric_id_binding_1 = args
             .target_recovery_fabric_id
-            .get_output(context)
+            .get_output(context);
+        let target_recovery_fabric_id_binding = target_recovery_fabric_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan"

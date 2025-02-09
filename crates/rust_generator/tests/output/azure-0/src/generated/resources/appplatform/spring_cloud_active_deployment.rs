@@ -86,14 +86,10 @@ pub mod spring_cloud_active_deployment {
     ) -> SpringCloudActiveDeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deployment_name_binding = args
-            .deployment_name
-            .get_output(context)
-            .get_inner();
-        let spring_cloud_app_id_binding = args
-            .spring_cloud_app_id
-            .get_output(context)
-            .get_inner();
+        let deployment_name_binding_1 = args.deployment_name.get_output(context);
+        let deployment_name_binding = deployment_name_binding_1.get_inner();
+        let spring_cloud_app_id_binding_1 = args.spring_cloud_app_id.get_output(context);
+        let spring_cloud_app_id_binding = spring_cloud_app_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment"
                 .into(),

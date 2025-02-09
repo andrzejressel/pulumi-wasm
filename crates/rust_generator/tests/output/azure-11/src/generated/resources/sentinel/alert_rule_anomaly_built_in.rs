@@ -141,14 +141,19 @@ pub mod alert_rule_anomaly_built_in {
     ) -> AlertRuleAnomalyBuiltInResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let log_analytics_workspace_id_binding = args
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let log_analytics_workspace_id_binding_1 = args
             .log_analytics_workspace_id
-            .get_output(context)
+            .get_output(context);
+        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
             .get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn"
                 .into(),

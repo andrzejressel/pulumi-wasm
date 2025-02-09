@@ -105,19 +105,21 @@ pub mod namespace_disaster_recovery_config {
     ) -> NamespaceDisasterRecoveryConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_authorization_rule_id_binding = args
+        let alias_authorization_rule_id_binding_1 = args
             .alias_authorization_rule_id
-            .get_output(context)
+            .get_output(context);
+        let alias_authorization_rule_id_binding = alias_authorization_rule_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let partner_namespace_id_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let partner_namespace_id_binding_1 = args
             .partner_namespace_id
-            .get_output(context)
-            .get_inner();
-        let primary_namespace_id_binding = args
+            .get_output(context);
+        let partner_namespace_id_binding = partner_namespace_id_binding_1.get_inner();
+        let primary_namespace_id_binding_1 = args
             .primary_namespace_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let primary_namespace_id_binding = primary_namespace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig"
                 .into(),

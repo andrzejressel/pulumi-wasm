@@ -108,19 +108,20 @@ pub mod deployment {
     ) -> DeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let canary_settings_binding = args
-            .canary_settings
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let rest_api_binding = args.rest_api.get_output(context).get_inner();
-        let stage_description_binding = args
-            .stage_description
-            .get_output(context)
-            .get_inner();
-        let stage_name_binding = args.stage_name.get_output(context).get_inner();
-        let triggers_binding = args.triggers.get_output(context).get_inner();
-        let variables_binding = args.variables.get_output(context).get_inner();
+        let canary_settings_binding_1 = args.canary_settings.get_output(context);
+        let canary_settings_binding = canary_settings_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let rest_api_binding_1 = args.rest_api.get_output(context);
+        let rest_api_binding = rest_api_binding_1.get_inner();
+        let stage_description_binding_1 = args.stage_description.get_output(context);
+        let stage_description_binding = stage_description_binding_1.get_inner();
+        let stage_name_binding_1 = args.stage_name.get_output(context);
+        let stage_name_binding = stage_name_binding_1.get_inner();
+        let triggers_binding_1 = args.triggers.get_output(context);
+        let triggers_binding = triggers_binding_1.get_inner();
+        let variables_binding_1 = args.variables.get_output(context);
+        let variables_binding = variables_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/deployment:Deployment".into(),
             name: name.to_string(),

@@ -448,23 +448,22 @@ pub mod feature_membership {
     ) -> FeatureMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configmanagement_binding = args
-            .configmanagement
-            .get_output(context)
-            .get_inner();
-        let feature_binding = args.feature.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let membership_binding = args.membership.get_output(context).get_inner();
-        let membership_location_binding = args
-            .membership_location
-            .get_output(context)
-            .get_inner();
-        let mesh_binding = args.mesh.get_output(context).get_inner();
-        let policycontroller_binding = args
-            .policycontroller
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let configmanagement_binding_1 = args.configmanagement.get_output(context);
+        let configmanagement_binding = configmanagement_binding_1.get_inner();
+        let feature_binding_1 = args.feature.get_output(context);
+        let feature_binding = feature_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let membership_binding_1 = args.membership.get_output(context);
+        let membership_binding = membership_binding_1.get_inner();
+        let membership_location_binding_1 = args.membership_location.get_output(context);
+        let membership_location_binding = membership_location_binding_1.get_inner();
+        let mesh_binding_1 = args.mesh.get_output(context);
+        let mesh_binding = mesh_binding_1.get_inner();
+        let policycontroller_binding_1 = args.policycontroller.get_output(context);
+        let policycontroller_binding = policycontroller_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkehub/featureMembership:FeatureMembership".into(),
             name: name.to_string(),

@@ -101,17 +101,19 @@ pub mod data_share_consumer_association {
     ) -> DataShareConsumerAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_writes_binding = args.allow_writes.get_output(context).get_inner();
-        let associate_entire_account_binding = args
+        let allow_writes_binding_1 = args.allow_writes.get_output(context);
+        let allow_writes_binding = allow_writes_binding_1.get_inner();
+        let associate_entire_account_binding_1 = args
             .associate_entire_account
-            .get_output(context)
+            .get_output(context);
+        let associate_entire_account_binding = associate_entire_account_binding_1
             .get_inner();
-        let consumer_arn_binding = args.consumer_arn.get_output(context).get_inner();
-        let consumer_region_binding = args
-            .consumer_region
-            .get_output(context)
-            .get_inner();
-        let data_share_arn_binding = args.data_share_arn.get_output(context).get_inner();
+        let consumer_arn_binding_1 = args.consumer_arn.get_output(context);
+        let consumer_arn_binding = consumer_arn_binding_1.get_inner();
+        let consumer_region_binding_1 = args.consumer_region.get_output(context);
+        let consumer_region_binding = consumer_region_binding_1.get_inner();
+        let data_share_arn_binding_1 = args.data_share_arn.get_output(context);
+        let data_share_arn_binding = data_share_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation"
                 .into(),

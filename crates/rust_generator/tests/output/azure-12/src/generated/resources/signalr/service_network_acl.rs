@@ -124,16 +124,14 @@ pub mod service_network_acl {
     ) -> ServiceNetworkAclResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_action_binding = args.default_action.get_output(context).get_inner();
-        let private_endpoints_binding = args
-            .private_endpoints
-            .get_output(context)
-            .get_inner();
-        let public_network_binding = args.public_network.get_output(context).get_inner();
-        let signalr_service_id_binding = args
-            .signalr_service_id
-            .get_output(context)
-            .get_inner();
+        let default_action_binding_1 = args.default_action.get_output(context);
+        let default_action_binding = default_action_binding_1.get_inner();
+        let private_endpoints_binding_1 = args.private_endpoints.get_output(context);
+        let private_endpoints_binding = private_endpoints_binding_1.get_inner();
+        let public_network_binding_1 = args.public_network.get_output(context);
+        let public_network_binding = public_network_binding_1.get_inner();
+        let signalr_service_id_binding_1 = args.signalr_service_id.get_output(context);
+        let signalr_service_id_binding = signalr_service_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:signalr/serviceNetworkAcl:ServiceNetworkAcl".into(),
             name: name.to_string(),

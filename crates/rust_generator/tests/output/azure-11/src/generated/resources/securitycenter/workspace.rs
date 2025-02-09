@@ -74,8 +74,10 @@ pub mod workspace {
     ) -> WorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let scope_binding = args.scope.get_output(context).get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:securitycenter/workspace:Workspace".into(),
             name: name.to_string(),

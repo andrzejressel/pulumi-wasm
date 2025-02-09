@@ -92,16 +92,14 @@ pub mod linked_service {
     ) -> LinkedServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let read_access_id_binding = args.read_access_id.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
-        let write_access_id_binding = args
-            .write_access_id
-            .get_output(context)
-            .get_inner();
+        let read_access_id_binding_1 = args.read_access_id.get_output(context);
+        let read_access_id_binding = read_access_id_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
+        let write_access_id_binding_1 = args.write_access_id.get_output(context);
+        let write_access_id_binding = write_access_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:loganalytics/linkedService:LinkedService".into(),
             name: name.to_string(),

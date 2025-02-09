@@ -111,13 +111,14 @@ pub mod slot_custom_hostname_binding {
     ) -> SlotCustomHostnameBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_service_slot_id_binding = args
-            .app_service_slot_id
-            .get_output(context)
-            .get_inner();
-        let hostname_binding = args.hostname.get_output(context).get_inner();
-        let ssl_state_binding = args.ssl_state.get_output(context).get_inner();
-        let thumbprint_binding = args.thumbprint.get_output(context).get_inner();
+        let app_service_slot_id_binding_1 = args.app_service_slot_id.get_output(context);
+        let app_service_slot_id_binding = app_service_slot_id_binding_1.get_inner();
+        let hostname_binding_1 = args.hostname.get_output(context);
+        let hostname_binding = hostname_binding_1.get_inner();
+        let ssl_state_binding_1 = args.ssl_state.get_output(context);
+        let ssl_state_binding = ssl_state_binding_1.get_inner();
+        let thumbprint_binding_1 = args.thumbprint.get_output(context);
+        let thumbprint_binding = thumbprint_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding"
                 .into(),

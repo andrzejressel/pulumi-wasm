@@ -161,13 +161,14 @@ pub mod recorder {
     ) -> RecorderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let recording_group_binding = args
-            .recording_group
-            .get_output(context)
-            .get_inner();
-        let recording_mode_binding = args.recording_mode.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recording_group_binding_1 = args.recording_group.get_output(context);
+        let recording_group_binding = recording_group_binding_1.get_inner();
+        let recording_mode_binding_1 = args.recording_mode.get_output(context);
+        let recording_mode_binding = recording_mode_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/recorder:Recorder".into(),
             name: name.to_string(),

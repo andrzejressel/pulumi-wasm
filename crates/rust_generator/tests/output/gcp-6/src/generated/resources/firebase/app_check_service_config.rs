@@ -163,12 +163,12 @@ pub mod app_check_service_config {
     ) -> AppCheckServiceConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enforcement_mode_binding = args
-            .enforcement_mode
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let service_id_binding = args.service_id.get_output(context).get_inner();
+        let enforcement_mode_binding_1 = args.enforcement_mode.get_output(context);
+        let enforcement_mode_binding = enforcement_mode_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let service_id_binding_1 = args.service_id.get_output(context);
+        let service_id_binding = service_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/appCheckServiceConfig:AppCheckServiceConfig".into(),
             name: name.to_string(),

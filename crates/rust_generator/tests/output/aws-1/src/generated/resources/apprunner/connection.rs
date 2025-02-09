@@ -70,12 +70,12 @@ pub mod connection {
     ) -> ConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_name_binding = args
-            .connection_name
-            .get_output(context)
-            .get_inner();
-        let provider_type_binding = args.provider_type.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let connection_name_binding_1 = args.connection_name.get_output(context);
+        let connection_name_binding = connection_name_binding_1.get_inner();
+        let provider_type_binding_1 = args.provider_type.get_output(context);
+        let provider_type_binding = provider_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apprunner/connection:Connection".into(),
             name: name.to_string(),

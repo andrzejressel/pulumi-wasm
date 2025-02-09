@@ -107,19 +107,25 @@ pub mod license_configuration {
     ) -> LicenseConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let license_count_binding = args.license_count.get_output(context).get_inner();
-        let license_count_hard_limit_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let license_count_binding_1 = args.license_count.get_output(context);
+        let license_count_binding = license_count_binding_1.get_inner();
+        let license_count_hard_limit_binding_1 = args
             .license_count_hard_limit
-            .get_output(context)
+            .get_output(context);
+        let license_count_hard_limit_binding = license_count_hard_limit_binding_1
             .get_inner();
-        let license_counting_type_binding = args
+        let license_counting_type_binding_1 = args
             .license_counting_type
-            .get_output(context)
-            .get_inner();
-        let license_rules_binding = args.license_rules.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let license_counting_type_binding = license_counting_type_binding_1.get_inner();
+        let license_rules_binding_1 = args.license_rules.get_output(context);
+        let license_rules_binding = license_rules_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:licensemanager/licenseConfiguration:LicenseConfiguration".into(),
             name: name.to_string(),

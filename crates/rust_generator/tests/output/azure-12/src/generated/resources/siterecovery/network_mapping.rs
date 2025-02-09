@@ -134,30 +134,25 @@ pub mod network_mapping {
     ) -> NetworkMappingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let recovery_vault_name_binding = args
-            .recovery_vault_name
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let source_network_id_binding = args
-            .source_network_id
-            .get_output(context)
-            .get_inner();
-        let source_recovery_fabric_name_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recovery_vault_name_binding_1 = args.recovery_vault_name.get_output(context);
+        let recovery_vault_name_binding = recovery_vault_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let source_network_id_binding_1 = args.source_network_id.get_output(context);
+        let source_network_id_binding = source_network_id_binding_1.get_inner();
+        let source_recovery_fabric_name_binding_1 = args
             .source_recovery_fabric_name
-            .get_output(context)
+            .get_output(context);
+        let source_recovery_fabric_name_binding = source_recovery_fabric_name_binding_1
             .get_inner();
-        let target_network_id_binding = args
-            .target_network_id
-            .get_output(context)
-            .get_inner();
-        let target_recovery_fabric_name_binding = args
+        let target_network_id_binding_1 = args.target_network_id.get_output(context);
+        let target_network_id_binding = target_network_id_binding_1.get_inner();
+        let target_recovery_fabric_name_binding_1 = args
             .target_recovery_fabric_name
-            .get_output(context)
+            .get_output(context);
+        let target_recovery_fabric_name_binding = target_recovery_fabric_name_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:siterecovery/networkMapping:NetworkMapping".into(),

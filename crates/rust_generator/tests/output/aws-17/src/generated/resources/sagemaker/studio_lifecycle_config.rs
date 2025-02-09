@@ -77,19 +77,23 @@ pub mod studio_lifecycle_config {
     ) -> StudioLifecycleConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let studio_lifecycle_config_app_type_binding = args
+        let studio_lifecycle_config_app_type_binding_1 = args
             .studio_lifecycle_config_app_type
-            .get_output(context)
+            .get_output(context);
+        let studio_lifecycle_config_app_type_binding = studio_lifecycle_config_app_type_binding_1
             .get_inner();
-        let studio_lifecycle_config_content_binding = args
+        let studio_lifecycle_config_content_binding_1 = args
             .studio_lifecycle_config_content
-            .get_output(context)
+            .get_output(context);
+        let studio_lifecycle_config_content_binding = studio_lifecycle_config_content_binding_1
             .get_inner();
-        let studio_lifecycle_config_name_binding = args
+        let studio_lifecycle_config_name_binding_1 = args
             .studio_lifecycle_config_name
-            .get_output(context)
+            .get_output(context);
+        let studio_lifecycle_config_name_binding = studio_lifecycle_config_name_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig".into(),
             name: name.to_string(),

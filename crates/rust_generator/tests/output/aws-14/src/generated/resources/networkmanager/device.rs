@@ -114,19 +114,26 @@ pub mod device {
     ) -> DeviceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_location_binding = args.aws_location.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let global_network_id_binding = args
-            .global_network_id
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let model_binding = args.model.get_output(context).get_inner();
-        let serial_number_binding = args.serial_number.get_output(context).get_inner();
-        let site_id_binding = args.site_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let vendor_binding = args.vendor.get_output(context).get_inner();
+        let aws_location_binding_1 = args.aws_location.get_output(context);
+        let aws_location_binding = aws_location_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let global_network_id_binding_1 = args.global_network_id.get_output(context);
+        let global_network_id_binding = global_network_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let model_binding_1 = args.model.get_output(context);
+        let model_binding = model_binding_1.get_inner();
+        let serial_number_binding_1 = args.serial_number.get_output(context);
+        let serial_number_binding = serial_number_binding_1.get_inner();
+        let site_id_binding_1 = args.site_id.get_output(context);
+        let site_id_binding = site_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let vendor_binding_1 = args.vendor.get_output(context);
+        let vendor_binding = vendor_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/device:Device".into(),
             name: name.to_string(),

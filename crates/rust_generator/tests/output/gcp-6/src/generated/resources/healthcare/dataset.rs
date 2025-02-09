@@ -161,14 +161,16 @@ pub mod dataset {
     ) -> DatasetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let encryption_spec_binding = args
-            .encryption_spec
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let time_zone_binding = args.time_zone.get_output(context).get_inner();
+        let encryption_spec_binding_1 = args.encryption_spec.get_output(context);
+        let encryption_spec_binding = encryption_spec_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let time_zone_binding_1 = args.time_zone.get_output(context);
+        let time_zone_binding = time_zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/dataset:Dataset".into(),
             name: name.to_string(),

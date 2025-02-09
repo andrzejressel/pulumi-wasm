@@ -88,14 +88,16 @@ pub mod sdkvoice_sip_rule {
     ) -> SdkvoiceSipRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let target_applications_binding = args
-            .target_applications
-            .get_output(context)
-            .get_inner();
-        let trigger_type_binding = args.trigger_type.get_output(context).get_inner();
-        let trigger_value_binding = args.trigger_value.get_output(context).get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let target_applications_binding_1 = args.target_applications.get_output(context);
+        let target_applications_binding = target_applications_binding_1.get_inner();
+        let trigger_type_binding_1 = args.trigger_type.get_output(context);
+        let trigger_type_binding = trigger_type_binding_1.get_inner();
+        let trigger_value_binding_1 = args.trigger_value.get_output(context);
+        let trigger_value_binding = trigger_value_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chime/sdkvoiceSipRule:SdkvoiceSipRule".into(),
             name: name.to_string(),

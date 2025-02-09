@@ -84,11 +84,10 @@ pub mod attachment_accepter {
     ) -> AttachmentAccepterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attachment_id_binding = args.attachment_id.get_output(context).get_inner();
-        let attachment_type_binding = args
-            .attachment_type
-            .get_output(context)
-            .get_inner();
+        let attachment_id_binding_1 = args.attachment_id.get_output(context);
+        let attachment_id_binding = attachment_id_binding_1.get_inner();
+        let attachment_type_binding_1 = args.attachment_type.get_output(context);
+        let attachment_type_binding = attachment_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/attachmentAccepter:AttachmentAccepter".into(),
             name: name.to_string(),

@@ -241,10 +241,14 @@ pub mod iam_policy {
     ) -> IamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dataset_id_binding = args.dataset_id.get_output(context).get_inner();
-        let policy_data_binding = args.policy_data.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let table_id_binding = args.table_id.get_output(context).get_inner();
+        let dataset_id_binding_1 = args.dataset_id.get_output(context);
+        let dataset_id_binding = dataset_id_binding_1.get_inner();
+        let policy_data_binding_1 = args.policy_data.get_output(context);
+        let policy_data_binding = policy_data_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let table_id_binding_1 = args.table_id.get_output(context);
+        let table_id_binding = table_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/iamPolicy:IamPolicy".into(),
             name: name.to_string(),

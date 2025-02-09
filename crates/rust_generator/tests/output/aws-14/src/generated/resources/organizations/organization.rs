@@ -94,15 +94,17 @@ pub mod organization {
     ) -> OrganizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_service_access_principals_binding = args
+        let aws_service_access_principals_binding_1 = args
             .aws_service_access_principals
-            .get_output(context)
+            .get_output(context);
+        let aws_service_access_principals_binding = aws_service_access_principals_binding_1
             .get_inner();
-        let enabled_policy_types_binding = args
+        let enabled_policy_types_binding_1 = args
             .enabled_policy_types
-            .get_output(context)
-            .get_inner();
-        let feature_set_binding = args.feature_set.get_output(context).get_inner();
+            .get_output(context);
+        let enabled_policy_types_binding = enabled_policy_types_binding_1.get_inner();
+        let feature_set_binding_1 = args.feature_set.get_output(context);
+        let feature_set_binding = feature_set_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:organizations/organization:Organization".into(),
             name: name.to_string(),

@@ -146,15 +146,18 @@ pub mod protection_group {
     ) -> ProtectionGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aggregation_binding = args.aggregation.get_output(context).get_inner();
-        let members_binding = args.members.get_output(context).get_inner();
-        let pattern_binding = args.pattern.get_output(context).get_inner();
-        let protection_group_id_binding = args
-            .protection_group_id
-            .get_output(context)
-            .get_inner();
-        let resource_type_binding = args.resource_type.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let aggregation_binding_1 = args.aggregation.get_output(context);
+        let aggregation_binding = aggregation_binding_1.get_inner();
+        let members_binding_1 = args.members.get_output(context);
+        let members_binding = members_binding_1.get_inner();
+        let pattern_binding_1 = args.pattern.get_output(context);
+        let pattern_binding = pattern_binding_1.get_inner();
+        let protection_group_id_binding_1 = args.protection_group_id.get_output(context);
+        let protection_group_id_binding = protection_group_id_binding_1.get_inner();
+        let resource_type_binding_1 = args.resource_type.get_output(context);
+        let resource_type_binding = resource_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:shield/protectionGroup:ProtectionGroup".into(),
             name: name.to_string(),

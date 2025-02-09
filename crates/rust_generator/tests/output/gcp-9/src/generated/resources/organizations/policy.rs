@@ -193,12 +193,18 @@ pub mod policy {
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let boolean_policy_binding = args.boolean_policy.get_output(context).get_inner();
-        let constraint_binding = args.constraint.get_output(context).get_inner();
-        let list_policy_binding = args.list_policy.get_output(context).get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
-        let restore_policy_binding = args.restore_policy.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let boolean_policy_binding_1 = args.boolean_policy.get_output(context);
+        let boolean_policy_binding = boolean_policy_binding_1.get_inner();
+        let constraint_binding_1 = args.constraint.get_output(context);
+        let constraint_binding = constraint_binding_1.get_inner();
+        let list_policy_binding_1 = args.list_policy.get_output(context);
+        let list_policy_binding = list_policy_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
+        let restore_policy_binding_1 = args.restore_policy.get_output(context);
+        let restore_policy_binding = restore_policy_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:organizations/policy:Policy".into(),
             name: name.to_string(),

@@ -151,22 +151,24 @@ pub mod global_vm_shutdown_schedule {
     ) -> GlobalVMShutdownScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let daily_recurrence_time_binding = args
+        let daily_recurrence_time_binding_1 = args
             .daily_recurrence_time
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let notification_settings_binding = args
+            .get_output(context);
+        let daily_recurrence_time_binding = daily_recurrence_time_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let notification_settings_binding_1 = args
             .notification_settings
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timezone_binding = args.timezone.get_output(context).get_inner();
-        let virtual_machine_id_binding = args
-            .virtual_machine_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let notification_settings_binding = notification_settings_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timezone_binding_1 = args.timezone.get_output(context);
+        let timezone_binding = timezone_binding_1.get_inner();
+        let virtual_machine_id_binding_1 = args.virtual_machine_id.get_output(context);
+        let virtual_machine_id_binding = virtual_machine_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule"
                 .into(),

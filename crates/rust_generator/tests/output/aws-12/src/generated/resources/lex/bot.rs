@@ -182,41 +182,45 @@ pub mod bot {
     ) -> BotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let abort_statement_binding = args
-            .abort_statement
-            .get_output(context)
-            .get_inner();
-        let child_directed_binding = args.child_directed.get_output(context).get_inner();
-        let clarification_prompt_binding = args
+        let abort_statement_binding_1 = args.abort_statement.get_output(context);
+        let abort_statement_binding = abort_statement_binding_1.get_inner();
+        let child_directed_binding_1 = args.child_directed.get_output(context);
+        let child_directed_binding = child_directed_binding_1.get_inner();
+        let clarification_prompt_binding_1 = args
             .clarification_prompt
-            .get_output(context)
-            .get_inner();
-        let create_version_binding = args.create_version.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let detect_sentiment_binding = args
-            .detect_sentiment
-            .get_output(context)
-            .get_inner();
-        let enable_model_improvements_binding = args
+            .get_output(context);
+        let clarification_prompt_binding = clarification_prompt_binding_1.get_inner();
+        let create_version_binding_1 = args.create_version.get_output(context);
+        let create_version_binding = create_version_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let detect_sentiment_binding_1 = args.detect_sentiment.get_output(context);
+        let detect_sentiment_binding = detect_sentiment_binding_1.get_inner();
+        let enable_model_improvements_binding_1 = args
             .enable_model_improvements
-            .get_output(context)
+            .get_output(context);
+        let enable_model_improvements_binding = enable_model_improvements_binding_1
             .get_inner();
-        let idle_session_ttl_in_seconds_binding = args
+        let idle_session_ttl_in_seconds_binding_1 = args
             .idle_session_ttl_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let idle_session_ttl_in_seconds_binding = idle_session_ttl_in_seconds_binding_1
             .get_inner();
-        let intents_binding = args.intents.get_output(context).get_inner();
-        let locale_binding = args.locale.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let nlu_intent_confidence_threshold_binding = args
+        let intents_binding_1 = args.intents.get_output(context);
+        let intents_binding = intents_binding_1.get_inner();
+        let locale_binding_1 = args.locale.get_output(context);
+        let locale_binding = locale_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let nlu_intent_confidence_threshold_binding_1 = args
             .nlu_intent_confidence_threshold
-            .get_output(context)
+            .get_output(context);
+        let nlu_intent_confidence_threshold_binding = nlu_intent_confidence_threshold_binding_1
             .get_inner();
-        let process_behavior_binding = args
-            .process_behavior
-            .get_output(context)
-            .get_inner();
-        let voice_id_binding = args.voice_id.get_output(context).get_inner();
+        let process_behavior_binding_1 = args.process_behavior.get_output(context);
+        let process_behavior_binding = process_behavior_binding_1.get_inner();
+        let voice_id_binding_1 = args.voice_id.get_output(context);
+        let voice_id_binding = voice_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lex/bot:Bot".into(),
             name: name.to_string(),

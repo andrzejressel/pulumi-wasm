@@ -42,9 +42,12 @@ pub mod get_published_version {
     ) -> GetPublishedVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let blueprint_name_binding = args.blueprint_name.get_output(context).get_inner();
-        let scope_id_binding = args.scope_id.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let blueprint_name_binding_1 = args.blueprint_name.get_output(context);
+        let blueprint_name_binding = blueprint_name_binding_1.get_inner();
+        let scope_id_binding_1 = args.scope_id.get_output(context);
+        let scope_id_binding = scope_id_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:blueprint/getPublishedVersion:getPublishedVersion".into(),
             version: super::super::super::get_version(),

@@ -71,14 +71,10 @@ pub mod snapshot_schedule_association {
     ) -> SnapshotScheduleAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_identifier_binding = args
-            .cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let schedule_identifier_binding = args
-            .schedule_identifier
-            .get_output(context)
-            .get_inner();
+        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
+        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
+        let schedule_identifier_binding_1 = args.schedule_identifier.get_output(context);
+        let schedule_identifier_binding = schedule_identifier_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation"
                 .into(),

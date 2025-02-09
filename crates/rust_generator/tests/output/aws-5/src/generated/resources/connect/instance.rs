@@ -164,41 +164,47 @@ pub mod instance {
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_resolve_best_voices_enabled_binding = args
+        let auto_resolve_best_voices_enabled_binding_1 = args
             .auto_resolve_best_voices_enabled
-            .get_output(context)
+            .get_output(context);
+        let auto_resolve_best_voices_enabled_binding = auto_resolve_best_voices_enabled_binding_1
             .get_inner();
-        let contact_flow_logs_enabled_binding = args
+        let contact_flow_logs_enabled_binding_1 = args
             .contact_flow_logs_enabled
-            .get_output(context)
+            .get_output(context);
+        let contact_flow_logs_enabled_binding = contact_flow_logs_enabled_binding_1
             .get_inner();
-        let contact_lens_enabled_binding = args
+        let contact_lens_enabled_binding_1 = args
             .contact_lens_enabled
-            .get_output(context)
-            .get_inner();
-        let directory_id_binding = args.directory_id.get_output(context).get_inner();
-        let early_media_enabled_binding = args
-            .early_media_enabled
-            .get_output(context)
-            .get_inner();
-        let identity_management_type_binding = args
+            .get_output(context);
+        let contact_lens_enabled_binding = contact_lens_enabled_binding_1.get_inner();
+        let directory_id_binding_1 = args.directory_id.get_output(context);
+        let directory_id_binding = directory_id_binding_1.get_inner();
+        let early_media_enabled_binding_1 = args.early_media_enabled.get_output(context);
+        let early_media_enabled_binding = early_media_enabled_binding_1.get_inner();
+        let identity_management_type_binding_1 = args
             .identity_management_type
-            .get_output(context)
+            .get_output(context);
+        let identity_management_type_binding = identity_management_type_binding_1
             .get_inner();
-        let inbound_calls_enabled_binding = args
+        let inbound_calls_enabled_binding_1 = args
             .inbound_calls_enabled
-            .get_output(context)
-            .get_inner();
-        let instance_alias_binding = args.instance_alias.get_output(context).get_inner();
-        let multi_party_conference_enabled_binding = args
+            .get_output(context);
+        let inbound_calls_enabled_binding = inbound_calls_enabled_binding_1.get_inner();
+        let instance_alias_binding_1 = args.instance_alias.get_output(context);
+        let instance_alias_binding = instance_alias_binding_1.get_inner();
+        let multi_party_conference_enabled_binding_1 = args
             .multi_party_conference_enabled
-            .get_output(context)
+            .get_output(context);
+        let multi_party_conference_enabled_binding = multi_party_conference_enabled_binding_1
             .get_inner();
-        let outbound_calls_enabled_binding = args
+        let outbound_calls_enabled_binding_1 = args
             .outbound_calls_enabled
-            .get_output(context)
+            .get_output(context);
+        let outbound_calls_enabled_binding = outbound_calls_enabled_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:connect/instance:Instance".into(),
             name: name.to_string(),

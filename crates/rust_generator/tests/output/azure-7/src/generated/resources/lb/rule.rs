@@ -155,43 +155,43 @@ pub mod rule {
     ) -> RuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backend_address_pool_ids_binding = args
+        let backend_address_pool_ids_binding_1 = args
             .backend_address_pool_ids
-            .get_output(context)
+            .get_output(context);
+        let backend_address_pool_ids_binding = backend_address_pool_ids_binding_1
             .get_inner();
-        let backend_port_binding = args.backend_port.get_output(context).get_inner();
-        let disable_outbound_snat_binding = args
+        let backend_port_binding_1 = args.backend_port.get_output(context);
+        let backend_port_binding = backend_port_binding_1.get_inner();
+        let disable_outbound_snat_binding_1 = args
             .disable_outbound_snat
-            .get_output(context)
-            .get_inner();
-        let enable_floating_ip_binding = args
-            .enable_floating_ip
-            .get_output(context)
-            .get_inner();
-        let enable_tcp_reset_binding = args
-            .enable_tcp_reset
-            .get_output(context)
-            .get_inner();
-        let frontend_ip_configuration_name_binding = args
+            .get_output(context);
+        let disable_outbound_snat_binding = disable_outbound_snat_binding_1.get_inner();
+        let enable_floating_ip_binding_1 = args.enable_floating_ip.get_output(context);
+        let enable_floating_ip_binding = enable_floating_ip_binding_1.get_inner();
+        let enable_tcp_reset_binding_1 = args.enable_tcp_reset.get_output(context);
+        let enable_tcp_reset_binding = enable_tcp_reset_binding_1.get_inner();
+        let frontend_ip_configuration_name_binding_1 = args
             .frontend_ip_configuration_name
-            .get_output(context)
+            .get_output(context);
+        let frontend_ip_configuration_name_binding = frontend_ip_configuration_name_binding_1
             .get_inner();
-        let frontend_port_binding = args.frontend_port.get_output(context).get_inner();
-        let idle_timeout_in_minutes_binding = args
+        let frontend_port_binding_1 = args.frontend_port.get_output(context);
+        let frontend_port_binding = frontend_port_binding_1.get_inner();
+        let idle_timeout_in_minutes_binding_1 = args
             .idle_timeout_in_minutes
-            .get_output(context)
+            .get_output(context);
+        let idle_timeout_in_minutes_binding = idle_timeout_in_minutes_binding_1
             .get_inner();
-        let load_distribution_binding = args
-            .load_distribution
-            .get_output(context)
-            .get_inner();
-        let loadbalancer_id_binding = args
-            .loadbalancer_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let probe_id_binding = args.probe_id.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let load_distribution_binding_1 = args.load_distribution.get_output(context);
+        let load_distribution_binding = load_distribution_binding_1.get_inner();
+        let loadbalancer_id_binding_1 = args.loadbalancer_id.get_output(context);
+        let loadbalancer_id_binding = loadbalancer_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let probe_id_binding_1 = args.probe_id.get_output(context);
+        let probe_id_binding = probe_id_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:lb/rule:Rule".into(),
             name: name.to_string(),

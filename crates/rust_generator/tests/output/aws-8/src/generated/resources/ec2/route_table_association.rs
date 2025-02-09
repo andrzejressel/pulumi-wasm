@@ -85,9 +85,12 @@ pub mod route_table_association {
     ) -> RouteTableAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let gateway_id_binding = args.gateway_id.get_output(context).get_inner();
-        let route_table_id_binding = args.route_table_id.get_output(context).get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
+        let gateway_id_binding_1 = args.gateway_id.get_output(context);
+        let gateway_id_binding = gateway_id_binding_1.get_inner();
+        let route_table_id_binding_1 = args.route_table_id.get_output(context);
+        let route_table_id_binding = route_table_id_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/routeTableAssociation:RouteTableAssociation".into(),
             name: name.to_string(),

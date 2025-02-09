@@ -92,15 +92,12 @@ pub mod notification_recipient_user {
     ) -> NotificationRecipientUserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding = args
-            .api_management_id
-            .get_output(context)
-            .get_inner();
-        let notification_type_binding = args
-            .notification_type
-            .get_output(context)
-            .get_inner();
-        let user_id_binding = args.user_id.get_output(context).get_inner();
+        let api_management_id_binding_1 = args.api_management_id.get_output(context);
+        let api_management_id_binding = api_management_id_binding_1.get_inner();
+        let notification_type_binding_1 = args.notification_type.get_output(context);
+        let notification_type_binding = notification_type_binding_1.get_inner();
+        let user_id_binding_1 = args.user_id.get_output(context);
+        let user_id_binding = user_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/notificationRecipientUser:NotificationRecipientUser"
                 .into(),

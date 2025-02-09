@@ -77,15 +77,12 @@ pub mod shared_vpc_service_project {
     ) -> SharedVPCServiceProjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_policy_binding = args
-            .deletion_policy
-            .get_output(context)
-            .get_inner();
-        let host_project_binding = args.host_project.get_output(context).get_inner();
-        let service_project_binding = args
-            .service_project
-            .get_output(context)
-            .get_inner();
+        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
+        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
+        let host_project_binding_1 = args.host_project.get_output(context);
+        let host_project_binding = host_project_binding_1.get_inner();
+        let service_project_binding_1 = args.service_project.get_output(context);
+        let service_project_binding = service_project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/sharedVPCServiceProject:SharedVPCServiceProject".into(),
             name: name.to_string(),

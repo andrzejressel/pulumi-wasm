@@ -136,18 +136,18 @@ pub mod hybrid_connection {
     ) -> HybridConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_service_name_binding = args
-            .app_service_name
-            .get_output(context)
-            .get_inner();
-        let hostname_binding = args.hostname.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let relay_id_binding = args.relay_id.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let send_key_name_binding = args.send_key_name.get_output(context).get_inner();
+        let app_service_name_binding_1 = args.app_service_name.get_output(context);
+        let app_service_name_binding = app_service_name_binding_1.get_inner();
+        let hostname_binding_1 = args.hostname.get_output(context);
+        let hostname_binding = hostname_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let relay_id_binding_1 = args.relay_id.get_output(context);
+        let relay_id_binding = relay_id_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let send_key_name_binding_1 = args.send_key_name.get_output(context);
+        let send_key_name_binding = send_key_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/hybridConnection:HybridConnection".into(),
             name: name.to_string(),

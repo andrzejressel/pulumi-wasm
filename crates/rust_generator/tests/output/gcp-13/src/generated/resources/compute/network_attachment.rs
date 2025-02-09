@@ -253,23 +253,28 @@ pub mod network_attachment {
     ) -> NetworkAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_preference_binding = args
+        let connection_preference_binding_1 = args
             .connection_preference
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let producer_accept_lists_binding = args
+            .get_output(context);
+        let connection_preference_binding = connection_preference_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let producer_accept_lists_binding_1 = args
             .producer_accept_lists
-            .get_output(context)
-            .get_inner();
-        let producer_reject_lists_binding = args
+            .get_output(context);
+        let producer_accept_lists_binding = producer_accept_lists_binding_1.get_inner();
+        let producer_reject_lists_binding_1 = args
             .producer_reject_lists
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let subnetworks_binding = args.subnetworks.get_output(context).get_inner();
+            .get_output(context);
+        let producer_reject_lists_binding = producer_reject_lists_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let subnetworks_binding_1 = args.subnetworks.get_output(context);
+        let subnetworks_binding = subnetworks_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/networkAttachment:NetworkAttachment".into(),
             name: name.to_string(),

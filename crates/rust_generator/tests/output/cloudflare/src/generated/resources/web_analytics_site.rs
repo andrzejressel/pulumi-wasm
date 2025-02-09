@@ -73,10 +73,14 @@ pub mod web_analytics_site {
     ) -> WebAnalyticsSiteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let auto_install_binding = args.auto_install.get_output(context).get_inner();
-        let host_binding = args.host.get_output(context).get_inner();
-        let zone_tag_binding = args.zone_tag.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let auto_install_binding_1 = args.auto_install.get_output(context);
+        let auto_install_binding = auto_install_binding_1.get_inner();
+        let host_binding_1 = args.host.get_output(context);
+        let host_binding = host_binding_1.get_inner();
+        let zone_tag_binding_1 = args.zone_tag.get_output(context);
+        let zone_tag_binding = zone_tag_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/webAnalyticsSite:WebAnalyticsSite".into(),
             name: name.to_string(),

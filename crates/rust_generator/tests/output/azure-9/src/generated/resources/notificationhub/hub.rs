@@ -129,23 +129,22 @@ pub mod hub {
     ) -> HubResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let apns_credential_binding = args
-            .apns_credential
-            .get_output(context)
-            .get_inner();
-        let browser_credential_binding = args
-            .browser_credential
-            .get_output(context)
-            .get_inner();
-        let gcm_credential_binding = args.gcm_credential.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let apns_credential_binding_1 = args.apns_credential.get_output(context);
+        let apns_credential_binding = apns_credential_binding_1.get_inner();
+        let browser_credential_binding_1 = args.browser_credential.get_output(context);
+        let browser_credential_binding = browser_credential_binding_1.get_inner();
+        let gcm_credential_binding_1 = args.gcm_credential.get_output(context);
+        let gcm_credential_binding = gcm_credential_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let namespace_name_binding_1 = args.namespace_name.get_output(context);
+        let namespace_name_binding = namespace_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:notificationhub/hub:Hub".into(),
             name: name.to_string(),

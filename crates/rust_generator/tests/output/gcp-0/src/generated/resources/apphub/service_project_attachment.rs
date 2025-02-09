@@ -144,14 +144,14 @@ pub mod service_project_attachment {
     ) -> ServiceProjectAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let project_binding = args.project.get_output(context).get_inner();
-        let service_project_binding = args
-            .service_project
-            .get_output(context)
-            .get_inner();
-        let service_project_attachment_id_binding = args
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let service_project_binding_1 = args.service_project.get_output(context);
+        let service_project_binding = service_project_binding_1.get_inner();
+        let service_project_attachment_id_binding_1 = args
             .service_project_attachment_id
-            .get_output(context)
+            .get_output(context);
+        let service_project_attachment_id_binding = service_project_attachment_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apphub/serviceProjectAttachment:ServiceProjectAttachment".into(),

@@ -86,16 +86,16 @@ pub mod get_user {
     ) -> GetUserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alternate_identifier_binding = args
+        let alternate_identifier_binding_1 = args
             .alternate_identifier
-            .get_output(context)
-            .get_inner();
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let identity_store_id_binding = args
-            .identity_store_id
-            .get_output(context)
-            .get_inner();
-        let user_id_binding = args.user_id.get_output(context).get_inner();
+            .get_output(context);
+        let alternate_identifier_binding = alternate_identifier_binding_1.get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let identity_store_id_binding_1 = args.identity_store_id.get_output(context);
+        let identity_store_id_binding = identity_store_id_binding_1.get_inner();
+        let user_id_binding_1 = args.user_id.get_output(context);
+        let user_id_binding = user_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:identitystore/getUser:getUser".into(),
             version: super::super::super::get_version(),

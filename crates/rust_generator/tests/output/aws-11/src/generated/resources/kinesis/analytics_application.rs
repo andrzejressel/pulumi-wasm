@@ -294,24 +294,30 @@ pub mod analytics_application {
     ) -> AnalyticsApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_logging_options_binding = args
+        let cloudwatch_logging_options_binding_1 = args
             .cloudwatch_logging_options
-            .get_output(context)
+            .get_output(context);
+        let cloudwatch_logging_options_binding = cloudwatch_logging_options_binding_1
             .get_inner();
-        let code_binding = args.code.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let inputs_binding = args.inputs.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let outputs_binding = args.outputs.get_output(context).get_inner();
-        let reference_data_sources_binding = args
+        let code_binding_1 = args.code.get_output(context);
+        let code_binding = code_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let inputs_binding_1 = args.inputs.get_output(context);
+        let inputs_binding = inputs_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let outputs_binding_1 = args.outputs.get_output(context);
+        let outputs_binding = outputs_binding_1.get_inner();
+        let reference_data_sources_binding_1 = args
             .reference_data_sources
-            .get_output(context)
+            .get_output(context);
+        let reference_data_sources_binding = reference_data_sources_binding_1
             .get_inner();
-        let start_application_binding = args
-            .start_application
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let start_application_binding_1 = args.start_application.get_output(context);
+        let start_application_binding = start_application_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kinesis/analyticsApplication:AnalyticsApplication".into(),
             name: name.to_string(),

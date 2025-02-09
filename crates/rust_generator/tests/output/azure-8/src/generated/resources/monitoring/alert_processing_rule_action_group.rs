@@ -147,21 +147,26 @@ pub mod alert_processing_rule_action_group {
     ) -> AlertProcessingRuleActionGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let add_action_group_ids_binding = args
+        let add_action_group_ids_binding_1 = args
             .add_action_group_ids
-            .get_output(context)
-            .get_inner();
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let scopes_binding = args.scopes.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let add_action_group_ids_binding = add_action_group_ids_binding_1.get_inner();
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let scopes_binding_1 = args.scopes.get_output(context);
+        let scopes_binding = scopes_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup"
                 .into(),

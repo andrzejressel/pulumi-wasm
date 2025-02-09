@@ -422,15 +422,20 @@ pub mod certificate_template_iam_binding {
     ) -> CertificateTemplateIamBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_template_binding = args
+        let certificate_template_binding_1 = args
             .certificate_template
-            .get_output(context)
-            .get_inner();
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let members_binding = args.members.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
+            .get_output(context);
+        let certificate_template_binding = certificate_template_binding_1.get_inner();
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let members_binding_1 = args.members.get_output(context);
+        let members_binding = members_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificateauthority/certificateTemplateIamBinding:CertificateTemplateIamBinding"
                 .into(),

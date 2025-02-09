@@ -108,18 +108,18 @@ pub mod project {
     ) -> ProjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let domain_identifier_binding = args
-            .domain_identifier
-            .get_output(context)
-            .get_inner();
-        let glossary_terms_binding = args.glossary_terms.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let skip_deletion_check_binding = args
-            .skip_deletion_check
-            .get_output(context)
-            .get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let domain_identifier_binding_1 = args.domain_identifier.get_output(context);
+        let domain_identifier_binding = domain_identifier_binding_1.get_inner();
+        let glossary_terms_binding_1 = args.glossary_terms.get_output(context);
+        let glossary_terms_binding = glossary_terms_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let skip_deletion_check_binding_1 = args.skip_deletion_check.get_output(context);
+        let skip_deletion_check_binding = skip_deletion_check_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datazone/project:Project".into(),
             name: name.to_string(),

@@ -92,14 +92,19 @@ pub mod place_index {
     ) -> PlaceIndexResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_source_binding = args.data_source.get_output(context).get_inner();
-        let data_source_configuration_binding = args
+        let data_source_binding_1 = args.data_source.get_output(context);
+        let data_source_binding = data_source_binding_1.get_inner();
+        let data_source_configuration_binding_1 = args
             .data_source_configuration
-            .get_output(context)
+            .get_output(context);
+        let data_source_configuration_binding = data_source_configuration_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let index_name_binding = args.index_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let index_name_binding_1 = args.index_name.get_output(context);
+        let index_name_binding = index_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:location/placeIndex:PlaceIndex".into(),
             name: name.to_string(),

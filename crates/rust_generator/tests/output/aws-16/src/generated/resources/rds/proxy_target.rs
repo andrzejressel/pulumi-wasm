@@ -119,19 +119,19 @@ pub mod proxy_target {
     ) -> ProxyTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_cluster_identifier_binding = args
+        let db_cluster_identifier_binding_1 = args
             .db_cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let db_instance_identifier_binding = args
+            .get_output(context);
+        let db_cluster_identifier_binding = db_cluster_identifier_binding_1.get_inner();
+        let db_instance_identifier_binding_1 = args
             .db_instance_identifier
-            .get_output(context)
+            .get_output(context);
+        let db_instance_identifier_binding = db_instance_identifier_binding_1
             .get_inner();
-        let db_proxy_name_binding = args.db_proxy_name.get_output(context).get_inner();
-        let target_group_name_binding = args
-            .target_group_name
-            .get_output(context)
-            .get_inner();
+        let db_proxy_name_binding_1 = args.db_proxy_name.get_output(context);
+        let db_proxy_name_binding = db_proxy_name_binding_1.get_inner();
+        let target_group_name_binding_1 = args.target_group_name.get_output(context);
+        let target_group_name_binding = target_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/proxyTarget:ProxyTarget".into(),
             name: name.to_string(),

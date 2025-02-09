@@ -78,11 +78,10 @@ pub mod automanage_configuration_assignment {
     ) -> AutomanageConfigurationAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arc_machine_id_binding = args.arc_machine_id.get_output(context).get_inner();
-        let configuration_id_binding = args
-            .configuration_id
-            .get_output(context)
-            .get_inner();
+        let arc_machine_id_binding_1 = args.arc_machine_id.get_output(context);
+        let arc_machine_id_binding = arc_machine_id_binding_1.get_inner();
+        let configuration_id_binding_1 = args.configuration_id.get_output(context);
+        let configuration_id_binding = configuration_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:arcmachine/automanageConfigurationAssignment:AutomanageConfigurationAssignment"
                 .into(),

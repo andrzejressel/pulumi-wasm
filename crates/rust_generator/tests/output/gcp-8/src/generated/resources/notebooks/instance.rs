@@ -500,84 +500,83 @@ pub mod instance {
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerator_config_binding = args
-            .accelerator_config
-            .get_output(context)
-            .get_inner();
-        let boot_disk_size_gb_binding = args
-            .boot_disk_size_gb
-            .get_output(context)
-            .get_inner();
-        let boot_disk_type_binding = args.boot_disk_type.get_output(context).get_inner();
-        let container_image_binding = args
-            .container_image
-            .get_output(context)
-            .get_inner();
-        let create_time_binding = args.create_time.get_output(context).get_inner();
-        let custom_gpu_driver_path_binding = args
+        let accelerator_config_binding_1 = args.accelerator_config.get_output(context);
+        let accelerator_config_binding = accelerator_config_binding_1.get_inner();
+        let boot_disk_size_gb_binding_1 = args.boot_disk_size_gb.get_output(context);
+        let boot_disk_size_gb_binding = boot_disk_size_gb_binding_1.get_inner();
+        let boot_disk_type_binding_1 = args.boot_disk_type.get_output(context);
+        let boot_disk_type_binding = boot_disk_type_binding_1.get_inner();
+        let container_image_binding_1 = args.container_image.get_output(context);
+        let container_image_binding = container_image_binding_1.get_inner();
+        let create_time_binding_1 = args.create_time.get_output(context);
+        let create_time_binding = create_time_binding_1.get_inner();
+        let custom_gpu_driver_path_binding_1 = args
             .custom_gpu_driver_path
-            .get_output(context)
+            .get_output(context);
+        let custom_gpu_driver_path_binding = custom_gpu_driver_path_binding_1
             .get_inner();
-        let data_disk_size_gb_binding = args
-            .data_disk_size_gb
-            .get_output(context)
-            .get_inner();
-        let data_disk_type_binding = args.data_disk_type.get_output(context).get_inner();
-        let desired_state_binding = args.desired_state.get_output(context).get_inner();
-        let disk_encryption_binding = args
-            .disk_encryption
-            .get_output(context)
-            .get_inner();
-        let install_gpu_driver_binding = args
-            .install_gpu_driver
-            .get_output(context)
-            .get_inner();
-        let instance_owners_binding = args
-            .instance_owners
-            .get_output(context)
-            .get_inner();
-        let kms_key_binding = args.kms_key.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let machine_type_binding = args.machine_type.get_output(context).get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let nic_type_binding = args.nic_type.get_output(context).get_inner();
-        let no_proxy_access_binding = args
-            .no_proxy_access
-            .get_output(context)
-            .get_inner();
-        let no_public_ip_binding = args.no_public_ip.get_output(context).get_inner();
-        let no_remove_data_disk_binding = args
-            .no_remove_data_disk
-            .get_output(context)
-            .get_inner();
-        let post_startup_script_binding = args
-            .post_startup_script
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let reservation_affinity_binding = args
+        let data_disk_size_gb_binding_1 = args.data_disk_size_gb.get_output(context);
+        let data_disk_size_gb_binding = data_disk_size_gb_binding_1.get_inner();
+        let data_disk_type_binding_1 = args.data_disk_type.get_output(context);
+        let data_disk_type_binding = data_disk_type_binding_1.get_inner();
+        let desired_state_binding_1 = args.desired_state.get_output(context);
+        let desired_state_binding = desired_state_binding_1.get_inner();
+        let disk_encryption_binding_1 = args.disk_encryption.get_output(context);
+        let disk_encryption_binding = disk_encryption_binding_1.get_inner();
+        let install_gpu_driver_binding_1 = args.install_gpu_driver.get_output(context);
+        let install_gpu_driver_binding = install_gpu_driver_binding_1.get_inner();
+        let instance_owners_binding_1 = args.instance_owners.get_output(context);
+        let instance_owners_binding = instance_owners_binding_1.get_inner();
+        let kms_key_binding_1 = args.kms_key.get_output(context);
+        let kms_key_binding = kms_key_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let machine_type_binding_1 = args.machine_type.get_output(context);
+        let machine_type_binding = machine_type_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let nic_type_binding_1 = args.nic_type.get_output(context);
+        let nic_type_binding = nic_type_binding_1.get_inner();
+        let no_proxy_access_binding_1 = args.no_proxy_access.get_output(context);
+        let no_proxy_access_binding = no_proxy_access_binding_1.get_inner();
+        let no_public_ip_binding_1 = args.no_public_ip.get_output(context);
+        let no_public_ip_binding = no_public_ip_binding_1.get_inner();
+        let no_remove_data_disk_binding_1 = args.no_remove_data_disk.get_output(context);
+        let no_remove_data_disk_binding = no_remove_data_disk_binding_1.get_inner();
+        let post_startup_script_binding_1 = args.post_startup_script.get_output(context);
+        let post_startup_script_binding = post_startup_script_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let reservation_affinity_binding_1 = args
             .reservation_affinity
-            .get_output(context)
-            .get_inner();
-        let service_account_binding = args
-            .service_account
-            .get_output(context)
-            .get_inner();
-        let service_account_scopes_binding = args
+            .get_output(context);
+        let reservation_affinity_binding = reservation_affinity_binding_1.get_inner();
+        let service_account_binding_1 = args.service_account.get_output(context);
+        let service_account_binding = service_account_binding_1.get_inner();
+        let service_account_scopes_binding_1 = args
             .service_account_scopes
-            .get_output(context)
+            .get_output(context);
+        let service_account_scopes_binding = service_account_scopes_binding_1
             .get_inner();
-        let shielded_instance_config_binding = args
+        let shielded_instance_config_binding_1 = args
             .shielded_instance_config
-            .get_output(context)
+            .get_output(context);
+        let shielded_instance_config_binding = shielded_instance_config_binding_1
             .get_inner();
-        let subnet_binding = args.subnet.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let update_time_binding = args.update_time.get_output(context).get_inner();
-        let vm_image_binding = args.vm_image.get_output(context).get_inner();
+        let subnet_binding_1 = args.subnet.get_output(context);
+        let subnet_binding = subnet_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let update_time_binding_1 = args.update_time.get_output(context);
+        let update_time_binding = update_time_binding_1.get_inner();
+        let vm_image_binding_1 = args.vm_image.get_output(context);
+        let vm_image_binding = vm_image_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:notebooks/instance:Instance".into(),
             name: name.to_string(),

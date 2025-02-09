@@ -270,48 +270,48 @@ pub mod workload {
     ) -> WorkloadResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let billing_account_binding = args
-            .billing_account
-            .get_output(context)
-            .get_inner();
-        let compliance_regime_binding = args
-            .compliance_regime
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enable_sovereign_controls_binding = args
+        let billing_account_binding_1 = args.billing_account.get_output(context);
+        let billing_account_binding = billing_account_binding_1.get_inner();
+        let compliance_regime_binding_1 = args.compliance_regime.get_output(context);
+        let compliance_regime_binding = compliance_regime_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enable_sovereign_controls_binding_1 = args
             .enable_sovereign_controls
-            .get_output(context)
+            .get_output(context);
+        let enable_sovereign_controls_binding = enable_sovereign_controls_binding_1
             .get_inner();
-        let kms_settings_binding = args.kms_settings.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let organization_binding = args.organization.get_output(context).get_inner();
-        let partner_binding = args.partner.get_output(context).get_inner();
-        let partner_permissions_binding = args
-            .partner_permissions
-            .get_output(context)
-            .get_inner();
-        let partner_services_billing_account_binding = args
+        let kms_settings_binding_1 = args.kms_settings.get_output(context);
+        let kms_settings_binding = kms_settings_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let organization_binding_1 = args.organization.get_output(context);
+        let organization_binding = organization_binding_1.get_inner();
+        let partner_binding_1 = args.partner.get_output(context);
+        let partner_binding = partner_binding_1.get_inner();
+        let partner_permissions_binding_1 = args.partner_permissions.get_output(context);
+        let partner_permissions_binding = partner_permissions_binding_1.get_inner();
+        let partner_services_billing_account_binding_1 = args
             .partner_services_billing_account
-            .get_output(context)
+            .get_output(context);
+        let partner_services_billing_account_binding = partner_services_billing_account_binding_1
             .get_inner();
-        let provisioned_resources_parent_binding = args
+        let provisioned_resources_parent_binding_1 = args
             .provisioned_resources_parent
-            .get_output(context)
+            .get_output(context);
+        let provisioned_resources_parent_binding = provisioned_resources_parent_binding_1
             .get_inner();
-        let resource_settings_binding = args
-            .resource_settings
-            .get_output(context)
-            .get_inner();
-        let violation_notifications_enabled_binding = args
+        let resource_settings_binding_1 = args.resource_settings.get_output(context);
+        let resource_settings_binding = resource_settings_binding_1.get_inner();
+        let violation_notifications_enabled_binding_1 = args
             .violation_notifications_enabled
-            .get_output(context)
+            .get_output(context);
+        let violation_notifications_enabled_binding = violation_notifications_enabled_binding_1
             .get_inner();
-        let workload_options_binding = args
-            .workload_options
-            .get_output(context)
-            .get_inner();
+        let workload_options_binding_1 = args.workload_options.get_output(context);
+        let workload_options_binding = workload_options_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:assuredworkloads/workload:Workload".into(),
             name: name.to_string(),

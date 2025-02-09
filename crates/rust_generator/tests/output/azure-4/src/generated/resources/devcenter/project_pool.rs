@@ -159,29 +159,36 @@ pub mod project_pool {
     ) -> ProjectPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dev_box_definition_name_binding = args
+        let dev_box_definition_name_binding_1 = args
             .dev_box_definition_name
-            .get_output(context)
+            .get_output(context);
+        let dev_box_definition_name_binding = dev_box_definition_name_binding_1
             .get_inner();
-        let dev_center_attached_network_name_binding = args
+        let dev_center_attached_network_name_binding_1 = args
             .dev_center_attached_network_name
-            .get_output(context)
+            .get_output(context);
+        let dev_center_attached_network_name_binding = dev_center_attached_network_name_binding_1
             .get_inner();
-        let dev_center_project_id_binding = args
+        let dev_center_project_id_binding_1 = args
             .dev_center_project_id
-            .get_output(context)
-            .get_inner();
-        let local_administrator_enabled_binding = args
+            .get_output(context);
+        let dev_center_project_id_binding = dev_center_project_id_binding_1.get_inner();
+        let local_administrator_enabled_binding_1 = args
             .local_administrator_enabled
-            .get_output(context)
+            .get_output(context);
+        let local_administrator_enabled_binding = local_administrator_enabled_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let stop_on_disconnect_grace_period_minutes_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let stop_on_disconnect_grace_period_minutes_binding_1 = args
             .stop_on_disconnect_grace_period_minutes
-            .get_output(context)
+            .get_output(context);
+        let stop_on_disconnect_grace_period_minutes_binding = stop_on_disconnect_grace_period_minutes_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:devcenter/projectPool:ProjectPool".into(),
             name: name.to_string(),

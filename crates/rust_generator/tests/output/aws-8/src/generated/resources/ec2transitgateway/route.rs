@@ -94,18 +94,22 @@ pub mod route {
     ) -> RouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let blackhole_binding = args.blackhole.get_output(context).get_inner();
-        let destination_cidr_block_binding = args
+        let blackhole_binding_1 = args.blackhole.get_output(context);
+        let blackhole_binding = blackhole_binding_1.get_inner();
+        let destination_cidr_block_binding_1 = args
             .destination_cidr_block
-            .get_output(context)
+            .get_output(context);
+        let destination_cidr_block_binding = destination_cidr_block_binding_1
             .get_inner();
-        let transit_gateway_attachment_id_binding = args
+        let transit_gateway_attachment_id_binding_1 = args
             .transit_gateway_attachment_id
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_attachment_id_binding = transit_gateway_attachment_id_binding_1
             .get_inner();
-        let transit_gateway_route_table_id_binding = args
+        let transit_gateway_route_table_id_binding_1 = args
             .transit_gateway_route_table_id
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_route_table_id_binding = transit_gateway_route_table_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/route:Route".into(),

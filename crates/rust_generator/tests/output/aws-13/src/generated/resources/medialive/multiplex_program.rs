@@ -95,12 +95,15 @@ pub mod multiplex_program {
     ) -> MultiplexProgramResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let multiplex_id_binding = args.multiplex_id.get_output(context).get_inner();
-        let multiplex_program_settings_binding = args
+        let multiplex_id_binding_1 = args.multiplex_id.get_output(context);
+        let multiplex_id_binding = multiplex_id_binding_1.get_inner();
+        let multiplex_program_settings_binding_1 = args
             .multiplex_program_settings
-            .get_output(context)
+            .get_output(context);
+        let multiplex_program_settings_binding = multiplex_program_settings_binding_1
             .get_inner();
-        let program_name_binding = args.program_name.get_output(context).get_inner();
+        let program_name_binding_1 = args.program_name.get_output(context);
+        let program_name_binding = program_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:medialive/multiplexProgram:MultiplexProgram".into(),
             name: name.to_string(),

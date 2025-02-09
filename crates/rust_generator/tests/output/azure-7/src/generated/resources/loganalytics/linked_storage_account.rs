@@ -94,22 +94,16 @@ pub mod linked_storage_account {
     ) -> LinkedStorageAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_source_type_binding = args
-            .data_source_type
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let storage_account_ids_binding = args
-            .storage_account_ids
-            .get_output(context)
-            .get_inner();
-        let workspace_resource_id_binding = args
+        let data_source_type_binding_1 = args.data_source_type.get_output(context);
+        let data_source_type_binding = data_source_type_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let storage_account_ids_binding_1 = args.storage_account_ids.get_output(context);
+        let storage_account_ids_binding = storage_account_ids_binding_1.get_inner();
+        let workspace_resource_id_binding_1 = args
             .workspace_resource_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let workspace_resource_id_binding = workspace_resource_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:loganalytics/linkedStorageAccount:LinkedStorageAccount".into(),
             name: name.to_string(),

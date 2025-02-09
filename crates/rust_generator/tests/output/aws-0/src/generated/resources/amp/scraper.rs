@@ -82,15 +82,20 @@ pub mod scraper {
     ) -> ScraperResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_output(context).get_inner();
-        let destination_binding = args.destination.get_output(context).get_inner();
-        let scrape_configuration_binding = args
+        let alias_binding_1 = args.alias.get_output(context);
+        let alias_binding = alias_binding_1.get_inner();
+        let destination_binding_1 = args.destination.get_output(context);
+        let destination_binding = destination_binding_1.get_inner();
+        let scrape_configuration_binding_1 = args
             .scrape_configuration
-            .get_output(context)
-            .get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+            .get_output(context);
+        let scrape_configuration_binding = scrape_configuration_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:amp/scraper:Scraper".into(),
             name: name.to_string(),

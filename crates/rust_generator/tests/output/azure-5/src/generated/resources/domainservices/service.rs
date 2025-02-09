@@ -250,30 +250,35 @@ pub mod service {
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_configuration_type_binding = args
+        let domain_configuration_type_binding_1 = args
             .domain_configuration_type
-            .get_output(context)
+            .get_output(context);
+        let domain_configuration_type_binding = domain_configuration_type_binding_1
             .get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let filtered_sync_enabled_binding = args
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let filtered_sync_enabled_binding_1 = args
             .filtered_sync_enabled
-            .get_output(context)
-            .get_inner();
-        let initial_replica_set_binding = args
-            .initial_replica_set
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notifications_binding = args.notifications.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let secure_ldap_binding = args.secure_ldap.get_output(context).get_inner();
-        let security_binding = args.security.get_output(context).get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let filtered_sync_enabled_binding = filtered_sync_enabled_binding_1.get_inner();
+        let initial_replica_set_binding_1 = args.initial_replica_set.get_output(context);
+        let initial_replica_set_binding = initial_replica_set_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notifications_binding_1 = args.notifications.get_output(context);
+        let notifications_binding = notifications_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let secure_ldap_binding_1 = args.secure_ldap.get_output(context);
+        let secure_ldap_binding = secure_ldap_binding_1.get_inner();
+        let security_binding_1 = args.security.get_output(context);
+        let security_binding = security_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:domainservices/service:Service".into(),
             name: name.to_string(),

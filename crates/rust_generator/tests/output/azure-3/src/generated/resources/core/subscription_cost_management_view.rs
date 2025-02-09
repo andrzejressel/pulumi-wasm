@@ -124,19 +124,26 @@ pub mod subscription_cost_management_view {
     ) -> SubscriptionCostManagementViewResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accumulated_binding = args.accumulated.get_output(context).get_inner();
-        let chart_type_binding = args.chart_type.get_output(context).get_inner();
-        let dataset_binding = args.dataset.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let kpis_binding = args.kpis.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let pivots_binding = args.pivots.get_output(context).get_inner();
-        let report_type_binding = args.report_type.get_output(context).get_inner();
-        let subscription_id_binding = args
-            .subscription_id
-            .get_output(context)
-            .get_inner();
-        let timeframe_binding = args.timeframe.get_output(context).get_inner();
+        let accumulated_binding_1 = args.accumulated.get_output(context);
+        let accumulated_binding = accumulated_binding_1.get_inner();
+        let chart_type_binding_1 = args.chart_type.get_output(context);
+        let chart_type_binding = chart_type_binding_1.get_inner();
+        let dataset_binding_1 = args.dataset.get_output(context);
+        let dataset_binding = dataset_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let kpis_binding_1 = args.kpis.get_output(context);
+        let kpis_binding = kpis_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let pivots_binding_1 = args.pivots.get_output(context);
+        let pivots_binding = pivots_binding_1.get_inner();
+        let report_type_binding_1 = args.report_type.get_output(context);
+        let report_type_binding = report_type_binding_1.get_inner();
+        let subscription_id_binding_1 = args.subscription_id.get_output(context);
+        let subscription_id_binding = subscription_id_binding_1.get_inner();
+        let timeframe_binding_1 = args.timeframe.get_output(context);
+        let timeframe_binding = timeframe_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:core/subscriptionCostManagementView:SubscriptionCostManagementView"
                 .into(),

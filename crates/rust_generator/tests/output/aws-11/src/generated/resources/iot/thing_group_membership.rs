@@ -61,15 +61,15 @@ pub mod thing_group_membership {
     ) -> ThingGroupMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let override_dynamic_group_binding = args
+        let override_dynamic_group_binding_1 = args
             .override_dynamic_group
-            .get_output(context)
+            .get_output(context);
+        let override_dynamic_group_binding = override_dynamic_group_binding_1
             .get_inner();
-        let thing_group_name_binding = args
-            .thing_group_name
-            .get_output(context)
-            .get_inner();
-        let thing_name_binding = args.thing_name.get_output(context).get_inner();
+        let thing_group_name_binding_1 = args.thing_group_name.get_output(context);
+        let thing_group_name_binding = thing_group_name_binding_1.get_inner();
+        let thing_name_binding_1 = args.thing_name.get_output(context);
+        let thing_name_binding = thing_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/thingGroupMembership:ThingGroupMembership".into(),
             name: name.to_string(),

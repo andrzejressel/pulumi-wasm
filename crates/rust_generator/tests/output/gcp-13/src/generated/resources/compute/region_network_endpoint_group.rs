@@ -563,28 +563,36 @@ pub mod region_network_endpoint_group {
     ) -> RegionNetworkEndpointGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_engine_binding = args.app_engine.get_output(context).get_inner();
-        let cloud_function_binding = args.cloud_function.get_output(context).get_inner();
-        let cloud_run_binding = args.cloud_run.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let network_endpoint_type_binding = args
+        let app_engine_binding_1 = args.app_engine.get_output(context);
+        let app_engine_binding = app_engine_binding_1.get_inner();
+        let cloud_function_binding_1 = args.cloud_function.get_output(context);
+        let cloud_function_binding = cloud_function_binding_1.get_inner();
+        let cloud_run_binding_1 = args.cloud_run.get_output(context);
+        let cloud_run_binding = cloud_run_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let network_endpoint_type_binding_1 = args
             .network_endpoint_type
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let psc_data_binding = args.psc_data.get_output(context).get_inner();
-        let psc_target_service_binding = args
-            .psc_target_service
-            .get_output(context)
-            .get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let serverless_deployment_binding = args
+            .get_output(context);
+        let network_endpoint_type_binding = network_endpoint_type_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let psc_data_binding_1 = args.psc_data.get_output(context);
+        let psc_data_binding = psc_data_binding_1.get_inner();
+        let psc_target_service_binding_1 = args.psc_target_service.get_output(context);
+        let psc_target_service_binding = psc_target_service_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let serverless_deployment_binding_1 = args
             .serverless_deployment
-            .get_output(context)
-            .get_inner();
-        let subnetwork_binding = args.subnetwork.get_output(context).get_inner();
+            .get_output(context);
+        let serverless_deployment_binding = serverless_deployment_binding_1.get_inner();
+        let subnetwork_binding_1 = args.subnetwork.get_output(context);
+        let subnetwork_binding = subnetwork_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionNetworkEndpointGroup:RegionNetworkEndpointGroup"
                 .into(),

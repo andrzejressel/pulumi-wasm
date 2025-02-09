@@ -104,24 +104,30 @@ pub mod room {
     ) -> RoomResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let logging_configuration_identifiers_binding = args
+        let logging_configuration_identifiers_binding_1 = args
             .logging_configuration_identifiers
-            .get_output(context)
+            .get_output(context);
+        let logging_configuration_identifiers_binding = logging_configuration_identifiers_binding_1
             .get_inner();
-        let maximum_message_length_binding = args
+        let maximum_message_length_binding_1 = args
             .maximum_message_length
-            .get_output(context)
+            .get_output(context);
+        let maximum_message_length_binding = maximum_message_length_binding_1
             .get_inner();
-        let maximum_message_rate_per_second_binding = args
+        let maximum_message_rate_per_second_binding_1 = args
             .maximum_message_rate_per_second
-            .get_output(context)
+            .get_output(context);
+        let maximum_message_rate_per_second_binding = maximum_message_rate_per_second_binding_1
             .get_inner();
-        let message_review_handler_binding = args
+        let message_review_handler_binding_1 = args
             .message_review_handler
-            .get_output(context)
+            .get_output(context);
+        let message_review_handler_binding = message_review_handler_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ivschat/room:Room".into(),
             name: name.to_string(),

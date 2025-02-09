@@ -174,54 +174,65 @@ pub mod autonomous_database {
     ) -> AutonomousDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_password_binding = args.admin_password.get_output(context).get_inner();
-        let auto_scaling_enabled_binding = args
+        let admin_password_binding_1 = args.admin_password.get_output(context);
+        let admin_password_binding = admin_password_binding_1.get_inner();
+        let auto_scaling_enabled_binding_1 = args
             .auto_scaling_enabled
-            .get_output(context)
-            .get_inner();
-        let auto_scaling_for_storage_enabled_binding = args
+            .get_output(context);
+        let auto_scaling_enabled_binding = auto_scaling_enabled_binding_1.get_inner();
+        let auto_scaling_for_storage_enabled_binding_1 = args
             .auto_scaling_for_storage_enabled
-            .get_output(context)
+            .get_output(context);
+        let auto_scaling_for_storage_enabled_binding = auto_scaling_for_storage_enabled_binding_1
             .get_inner();
-        let backup_retention_period_in_days_binding = args
+        let backup_retention_period_in_days_binding_1 = args
             .backup_retention_period_in_days
-            .get_output(context)
+            .get_output(context);
+        let backup_retention_period_in_days_binding = backup_retention_period_in_days_binding_1
             .get_inner();
-        let character_set_binding = args.character_set.get_output(context).get_inner();
-        let compute_count_binding = args.compute_count.get_output(context).get_inner();
-        let compute_model_binding = args.compute_model.get_output(context).get_inner();
-        let customer_contacts_binding = args
-            .customer_contacts
-            .get_output(context)
-            .get_inner();
-        let data_storage_size_in_tbs_binding = args
+        let character_set_binding_1 = args.character_set.get_output(context);
+        let character_set_binding = character_set_binding_1.get_inner();
+        let compute_count_binding_1 = args.compute_count.get_output(context);
+        let compute_count_binding = compute_count_binding_1.get_inner();
+        let compute_model_binding_1 = args.compute_model.get_output(context);
+        let compute_model_binding = compute_model_binding_1.get_inner();
+        let customer_contacts_binding_1 = args.customer_contacts.get_output(context);
+        let customer_contacts_binding = customer_contacts_binding_1.get_inner();
+        let data_storage_size_in_tbs_binding_1 = args
             .data_storage_size_in_tbs
-            .get_output(context)
+            .get_output(context);
+        let data_storage_size_in_tbs_binding = data_storage_size_in_tbs_binding_1
             .get_inner();
-        let db_version_binding = args.db_version.get_output(context).get_inner();
-        let db_workload_binding = args.db_workload.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let license_model_binding = args.license_model.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let mtls_connection_required_binding = args
+        let db_version_binding_1 = args.db_version.get_output(context);
+        let db_version_binding = db_version_binding_1.get_inner();
+        let db_workload_binding_1 = args.db_workload.get_output(context);
+        let db_workload_binding = db_workload_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let license_model_binding_1 = args.license_model.get_output(context);
+        let license_model_binding = license_model_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let mtls_connection_required_binding_1 = args
             .mtls_connection_required
-            .get_output(context)
+            .get_output(context);
+        let mtls_connection_required_binding = mtls_connection_required_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let national_character_set_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let national_character_set_binding_1 = args
             .national_character_set
-            .get_output(context)
+            .get_output(context);
+        let national_character_set_binding = national_character_set_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let virtual_network_id_binding = args
-            .virtual_network_id
-            .get_output(context)
-            .get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
+        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:oracle/autonomousDatabase:AutonomousDatabase".into(),
             name: name.to_string(),

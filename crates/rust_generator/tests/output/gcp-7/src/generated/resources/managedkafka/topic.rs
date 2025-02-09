@@ -132,19 +132,20 @@ pub mod topic {
     ) -> TopicResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_binding = args.cluster.get_output(context).get_inner();
-        let configs_binding = args.configs.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let partition_count_binding = args
-            .partition_count
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let replication_factor_binding = args
-            .replication_factor
-            .get_output(context)
-            .get_inner();
-        let topic_id_binding = args.topic_id.get_output(context).get_inner();
+        let cluster_binding_1 = args.cluster.get_output(context);
+        let cluster_binding = cluster_binding_1.get_inner();
+        let configs_binding_1 = args.configs.get_output(context);
+        let configs_binding = configs_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let partition_count_binding_1 = args.partition_count.get_output(context);
+        let partition_count_binding = partition_count_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let replication_factor_binding_1 = args.replication_factor.get_output(context);
+        let replication_factor_binding = replication_factor_binding_1.get_inner();
+        let topic_id_binding_1 = args.topic_id.get_output(context);
+        let topic_id_binding = topic_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:managedkafka/topic:Topic".into(),
             name: name.to_string(),

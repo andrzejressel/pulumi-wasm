@@ -106,19 +106,18 @@ pub mod integration_runtime_self_hosted {
     ) -> IntegrationRuntimeSelfHostedResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_factory_id_binding = args
-            .data_factory_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let rbac_authorizations_binding = args
-            .rbac_authorizations
-            .get_output(context)
-            .get_inner();
-        let self_contained_interactive_authoring_enabled_binding = args
+        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
+        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let rbac_authorizations_binding_1 = args.rbac_authorizations.get_output(context);
+        let rbac_authorizations_binding = rbac_authorizations_binding_1.get_inner();
+        let self_contained_interactive_authoring_enabled_binding_1 = args
             .self_contained_interactive_authoring_enabled
-            .get_output(context)
+            .get_output(context);
+        let self_contained_interactive_authoring_enabled_binding = self_contained_interactive_authoring_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted"

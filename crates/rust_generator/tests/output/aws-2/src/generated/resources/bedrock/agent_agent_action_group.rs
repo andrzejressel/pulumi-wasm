@@ -247,36 +247,38 @@ pub mod agent_agent_action_group {
     ) -> AgentAgentActionGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_group_executor_binding = args
+        let action_group_executor_binding_1 = args
             .action_group_executor
-            .get_output(context)
-            .get_inner();
-        let action_group_name_binding = args
-            .action_group_name
-            .get_output(context)
-            .get_inner();
-        let action_group_state_binding = args
-            .action_group_state
-            .get_output(context)
-            .get_inner();
-        let agent_id_binding = args.agent_id.get_output(context).get_inner();
-        let agent_version_binding = args.agent_version.get_output(context).get_inner();
-        let api_schema_binding = args.api_schema.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let function_schema_binding = args
-            .function_schema
-            .get_output(context)
-            .get_inner();
-        let parent_action_group_signature_binding = args
+            .get_output(context);
+        let action_group_executor_binding = action_group_executor_binding_1.get_inner();
+        let action_group_name_binding_1 = args.action_group_name.get_output(context);
+        let action_group_name_binding = action_group_name_binding_1.get_inner();
+        let action_group_state_binding_1 = args.action_group_state.get_output(context);
+        let action_group_state_binding = action_group_state_binding_1.get_inner();
+        let agent_id_binding_1 = args.agent_id.get_output(context);
+        let agent_id_binding = agent_id_binding_1.get_inner();
+        let agent_version_binding_1 = args.agent_version.get_output(context);
+        let agent_version_binding = agent_version_binding_1.get_inner();
+        let api_schema_binding_1 = args.api_schema.get_output(context);
+        let api_schema_binding = api_schema_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let function_schema_binding_1 = args.function_schema.get_output(context);
+        let function_schema_binding = function_schema_binding_1.get_inner();
+        let parent_action_group_signature_binding_1 = args
             .parent_action_group_signature
-            .get_output(context)
+            .get_output(context);
+        let parent_action_group_signature_binding = parent_action_group_signature_binding_1
             .get_inner();
-        let prepare_agent_binding = args.prepare_agent.get_output(context).get_inner();
-        let skip_resource_in_use_check_binding = args
+        let prepare_agent_binding_1 = args.prepare_agent.get_output(context);
+        let prepare_agent_binding = prepare_agent_binding_1.get_inner();
+        let skip_resource_in_use_check_binding_1 = args
             .skip_resource_in_use_check
-            .get_output(context)
+            .get_output(context);
+        let skip_resource_in_use_check_binding = skip_resource_in_use_check_binding_1
             .get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup".into(),
             name: name.to_string(),

@@ -95,11 +95,10 @@ pub mod log_resource_policy {
     ) -> LogResourcePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_document_binding = args
-            .policy_document
-            .get_output(context)
-            .get_inner();
-        let policy_name_binding = args.policy_name.get_output(context).get_inner();
+        let policy_document_binding_1 = args.policy_document.get_output(context);
+        let policy_document_binding = policy_document_binding_1.get_inner();
+        let policy_name_binding_1 = args.policy_name.get_output(context);
+        let policy_name_binding = policy_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/logResourcePolicy:LogResourcePolicy".into(),
             name: name.to_string(),

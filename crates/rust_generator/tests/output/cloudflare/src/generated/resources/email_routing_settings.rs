@@ -57,9 +57,12 @@ pub mod email_routing_settings {
     ) -> EmailRoutingSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let skip_wizard_binding = args.skip_wizard.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let skip_wizard_binding_1 = args.skip_wizard.get_output(context);
+        let skip_wizard_binding = skip_wizard_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/emailRoutingSettings:EmailRoutingSettings".into(),
             name: name.to_string(),

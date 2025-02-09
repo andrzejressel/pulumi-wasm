@@ -94,16 +94,18 @@ pub mod connect_attachment {
     ) -> ConnectAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let core_network_id_binding = args
-            .core_network_id
-            .get_output(context)
-            .get_inner();
-        let edge_location_binding = args.edge_location.get_output(context).get_inner();
-        let options_binding = args.options.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let transport_attachment_id_binding = args
+        let core_network_id_binding_1 = args.core_network_id.get_output(context);
+        let core_network_id_binding = core_network_id_binding_1.get_inner();
+        let edge_location_binding_1 = args.edge_location.get_output(context);
+        let edge_location_binding = edge_location_binding_1.get_inner();
+        let options_binding_1 = args.options.get_output(context);
+        let options_binding = options_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let transport_attachment_id_binding_1 = args
             .transport_attachment_id
-            .get_output(context)
+            .get_output(context);
+        let transport_attachment_id_binding = transport_attachment_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/connectAttachment:ConnectAttachment".into(),

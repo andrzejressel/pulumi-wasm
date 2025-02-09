@@ -82,15 +82,14 @@ pub mod standards_control {
     ) -> StandardsControlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let control_status_binding = args.control_status.get_output(context).get_inner();
-        let disabled_reason_binding = args
-            .disabled_reason
-            .get_output(context)
-            .get_inner();
-        let standards_control_arn_binding = args
+        let control_status_binding_1 = args.control_status.get_output(context);
+        let control_status_binding = control_status_binding_1.get_inner();
+        let disabled_reason_binding_1 = args.disabled_reason.get_output(context);
+        let disabled_reason_binding = disabled_reason_binding_1.get_inner();
+        let standards_control_arn_binding_1 = args
             .standards_control_arn
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let standards_control_arn_binding = standards_control_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/standardsControl:StandardsControl".into(),
             name: name.to_string(),

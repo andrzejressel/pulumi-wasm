@@ -62,8 +62,10 @@ pub mod spot_datafeed_subscription {
     ) -> SpotDatafeedSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let prefix_binding = args.prefix.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let prefix_binding_1 = args.prefix.get_output(context);
+        let prefix_binding = prefix_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription".into(),
             name: name.to_string(),

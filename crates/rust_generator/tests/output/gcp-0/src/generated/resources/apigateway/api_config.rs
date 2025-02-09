@@ -164,25 +164,31 @@ pub mod api_config {
     ) -> ApiConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_binding = args.api.get_output(context).get_inner();
-        let api_config_id_binding = args.api_config_id.get_output(context).get_inner();
-        let api_config_id_prefix_binding = args
+        let api_binding_1 = args.api.get_output(context);
+        let api_binding = api_binding_1.get_inner();
+        let api_config_id_binding_1 = args.api_config_id.get_output(context);
+        let api_config_id_binding = api_config_id_binding_1.get_inner();
+        let api_config_id_prefix_binding_1 = args
             .api_config_id_prefix
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let gateway_config_binding = args.gateway_config.get_output(context).get_inner();
-        let grpc_services_binding = args.grpc_services.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let managed_service_configs_binding = args
+            .get_output(context);
+        let api_config_id_prefix_binding = api_config_id_prefix_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let gateway_config_binding_1 = args.gateway_config.get_output(context);
+        let gateway_config_binding = gateway_config_binding_1.get_inner();
+        let grpc_services_binding_1 = args.grpc_services.get_output(context);
+        let grpc_services_binding = grpc_services_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let managed_service_configs_binding_1 = args
             .managed_service_configs
-            .get_output(context)
+            .get_output(context);
+        let managed_service_configs_binding = managed_service_configs_binding_1
             .get_inner();
-        let openapi_documents_binding = args
-            .openapi_documents
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let openapi_documents_binding_1 = args.openapi_documents.get_output(context);
+        let openapi_documents_binding = openapi_documents_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigateway/apiConfig:ApiConfig".into(),
             name: name.to_string(),

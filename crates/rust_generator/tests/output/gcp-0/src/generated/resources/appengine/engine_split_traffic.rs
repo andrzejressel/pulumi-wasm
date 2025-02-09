@@ -135,13 +135,14 @@ pub mod engine_split_traffic {
     ) -> EngineSplitTrafficResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let migrate_traffic_binding = args
-            .migrate_traffic
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
-        let split_binding = args.split.get_output(context).get_inner();
+        let migrate_traffic_binding_1 = args.migrate_traffic.get_output(context);
+        let migrate_traffic_binding = migrate_traffic_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
+        let split_binding_1 = args.split.get_output(context);
+        let split_binding = split_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/engineSplitTraffic:EngineSplitTraffic".into(),
             name: name.to_string(),

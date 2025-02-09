@@ -91,27 +91,30 @@ pub mod application {
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_definition_id_binding = args
+        let application_definition_id_binding_1 = args
             .application_definition_id
-            .get_output(context)
+            .get_output(context);
+        let application_definition_id_binding = application_definition_id_binding_1
             .get_inner();
-        let kind_binding = args.kind.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let managed_resource_group_name_binding = args
+        let kind_binding_1 = args.kind.get_output(context);
+        let kind_binding = kind_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let managed_resource_group_name_binding_1 = args
             .managed_resource_group_name
-            .get_output(context)
+            .get_output(context);
+        let managed_resource_group_name_binding = managed_resource_group_name_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameter_values_binding = args
-            .parameter_values
-            .get_output(context)
-            .get_inner();
-        let plan_binding = args.plan.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameter_values_binding_1 = args.parameter_values.get_output(context);
+        let parameter_values_binding = parameter_values_binding_1.get_inner();
+        let plan_binding_1 = args.plan.get_output(context);
+        let plan_binding = plan_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:managedapplication/application:Application".into(),
             name: name.to_string(),

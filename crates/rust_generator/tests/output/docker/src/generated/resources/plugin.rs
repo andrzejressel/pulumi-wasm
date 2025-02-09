@@ -98,21 +98,26 @@ pub mod plugin {
     ) -> PluginResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_output(context).get_inner();
-        let enable_timeout_binding = args.enable_timeout.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let envs_binding = args.envs.get_output(context).get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let force_disable_binding = args.force_disable.get_output(context).get_inner();
-        let grant_all_permissions_binding = args
+        let alias_binding_1 = args.alias.get_output(context);
+        let alias_binding = alias_binding_1.get_inner();
+        let enable_timeout_binding_1 = args.enable_timeout.get_output(context);
+        let enable_timeout_binding = enable_timeout_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let envs_binding_1 = args.envs.get_output(context);
+        let envs_binding = envs_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let force_disable_binding_1 = args.force_disable.get_output(context);
+        let force_disable_binding = force_disable_binding_1.get_inner();
+        let grant_all_permissions_binding_1 = args
             .grant_all_permissions
-            .get_output(context)
-            .get_inner();
-        let grant_permissions_binding = args
-            .grant_permissions
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+            .get_output(context);
+        let grant_all_permissions_binding = grant_all_permissions_binding_1.get_inner();
+        let grant_permissions_binding_1 = args.grant_permissions.get_output(context);
+        let grant_permissions_binding = grant_permissions_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "docker:index/plugin:Plugin".into(),
             name: name.to_string(),

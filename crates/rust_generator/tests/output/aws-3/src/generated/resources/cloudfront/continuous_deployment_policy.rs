@@ -134,12 +134,15 @@ pub mod continuous_deployment_policy {
     ) -> ContinuousDeploymentPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let staging_distribution_dns_names_binding = args
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let staging_distribution_dns_names_binding_1 = args
             .staging_distribution_dns_names
-            .get_output(context)
+            .get_output(context);
+        let staging_distribution_dns_names_binding = staging_distribution_dns_names_binding_1
             .get_inner();
-        let traffic_config_binding = args.traffic_config.get_output(context).get_inner();
+        let traffic_config_binding_1 = args.traffic_config.get_output(context);
+        let traffic_config_binding = traffic_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy"
                 .into(),

@@ -106,7 +106,8 @@ pub mod invocation_logging_configuration {
     ) -> InvocationLoggingConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let logging_config_binding = args.logging_config.get_output(context).get_inner();
+        let logging_config_binding_1 = args.logging_config.get_output(context);
+        let logging_config_binding = logging_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration"
                 .into(),

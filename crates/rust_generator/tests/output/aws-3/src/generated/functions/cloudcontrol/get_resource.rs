@@ -40,13 +40,14 @@ pub mod get_resource {
     ) -> GetResourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identifier_binding = args.identifier.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let type_name_binding = args.type_name.get_output(context).get_inner();
-        let type_version_id_binding = args
-            .type_version_id
-            .get_output(context)
-            .get_inner();
+        let identifier_binding_1 = args.identifier.get_output(context);
+        let identifier_binding = identifier_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let type_name_binding_1 = args.type_name.get_output(context);
+        let type_name_binding = type_name_binding_1.get_inner();
+        let type_version_id_binding_1 = args.type_version_id.get_output(context);
+        let type_version_id_binding = type_version_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudcontrol/getResource:getResource".into(),
             version: super::super::super::get_version(),

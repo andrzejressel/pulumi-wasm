@@ -119,16 +119,19 @@ pub mod mongo_role_definition {
     ) -> MongoRoleDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cosmos_mongo_database_id_binding = args
+        let cosmos_mongo_database_id_binding_1 = args
             .cosmos_mongo_database_id
-            .get_output(context)
+            .get_output(context);
+        let cosmos_mongo_database_id_binding = cosmos_mongo_database_id_binding_1
             .get_inner();
-        let inherited_role_names_binding = args
+        let inherited_role_names_binding_1 = args
             .inherited_role_names
-            .get_output(context)
-            .get_inner();
-        let privileges_binding = args.privileges.get_output(context).get_inner();
-        let role_name_binding = args.role_name.get_output(context).get_inner();
+            .get_output(context);
+        let inherited_role_names_binding = inherited_role_names_binding_1.get_inner();
+        let privileges_binding_1 = args.privileges.get_output(context);
+        let privileges_binding = privileges_binding_1.get_inner();
+        let role_name_binding_1 = args.role_name.get_output(context);
+        let role_name_binding = role_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition".into(),
             name: name.to_string(),

@@ -196,14 +196,22 @@ pub mod certificate_map_entry {
     ) -> CertificateMapEntryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificates_binding = args.certificates.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let hostname_binding = args.hostname.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let map_binding = args.map.get_output(context).get_inner();
-        let matcher_binding = args.matcher.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let certificates_binding_1 = args.certificates.get_output(context);
+        let certificates_binding = certificates_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let hostname_binding_1 = args.hostname.get_output(context);
+        let hostname_binding = hostname_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let map_binding_1 = args.map.get_output(context);
+        let map_binding = map_binding_1.get_inner();
+        let matcher_binding_1 = args.matcher.get_output(context);
+        let matcher_binding = matcher_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificatemanager/certificateMapEntry:CertificateMapEntry"
                 .into(),

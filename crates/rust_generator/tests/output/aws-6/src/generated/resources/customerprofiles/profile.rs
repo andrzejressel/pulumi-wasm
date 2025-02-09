@@ -181,58 +181,61 @@ pub mod profile {
     ) -> ProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_number_binding = args.account_number.get_output(context).get_inner();
-        let additional_information_binding = args
+        let account_number_binding_1 = args.account_number.get_output(context);
+        let account_number_binding = account_number_binding_1.get_inner();
+        let additional_information_binding_1 = args
             .additional_information
-            .get_output(context)
+            .get_output(context);
+        let additional_information_binding = additional_information_binding_1
             .get_inner();
-        let address_binding = args.address.get_output(context).get_inner();
-        let attributes_binding = args.attributes.get_output(context).get_inner();
-        let billing_address_binding = args
-            .billing_address
-            .get_output(context)
-            .get_inner();
-        let birth_date_binding = args.birth_date.get_output(context).get_inner();
-        let business_email_address_binding = args
+        let address_binding_1 = args.address.get_output(context);
+        let address_binding = address_binding_1.get_inner();
+        let attributes_binding_1 = args.attributes.get_output(context);
+        let attributes_binding = attributes_binding_1.get_inner();
+        let billing_address_binding_1 = args.billing_address.get_output(context);
+        let billing_address_binding = billing_address_binding_1.get_inner();
+        let birth_date_binding_1 = args.birth_date.get_output(context);
+        let birth_date_binding = birth_date_binding_1.get_inner();
+        let business_email_address_binding_1 = args
             .business_email_address
-            .get_output(context)
+            .get_output(context);
+        let business_email_address_binding = business_email_address_binding_1
             .get_inner();
-        let business_name_binding = args.business_name.get_output(context).get_inner();
-        let business_phone_number_binding = args
+        let business_name_binding_1 = args.business_name.get_output(context);
+        let business_name_binding = business_name_binding_1.get_inner();
+        let business_phone_number_binding_1 = args
             .business_phone_number
-            .get_output(context)
-            .get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let email_address_binding = args.email_address.get_output(context).get_inner();
-        let first_name_binding = args.first_name.get_output(context).get_inner();
-        let gender_string_binding = args.gender_string.get_output(context).get_inner();
-        let home_phone_number_binding = args
-            .home_phone_number
-            .get_output(context)
-            .get_inner();
-        let last_name_binding = args.last_name.get_output(context).get_inner();
-        let mailing_address_binding = args
-            .mailing_address
-            .get_output(context)
-            .get_inner();
-        let middle_name_binding = args.middle_name.get_output(context).get_inner();
-        let mobile_phone_number_binding = args
-            .mobile_phone_number
-            .get_output(context)
-            .get_inner();
-        let party_type_string_binding = args
-            .party_type_string
-            .get_output(context)
-            .get_inner();
-        let personal_email_address_binding = args
+            .get_output(context);
+        let business_phone_number_binding = business_phone_number_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let email_address_binding_1 = args.email_address.get_output(context);
+        let email_address_binding = email_address_binding_1.get_inner();
+        let first_name_binding_1 = args.first_name.get_output(context);
+        let first_name_binding = first_name_binding_1.get_inner();
+        let gender_string_binding_1 = args.gender_string.get_output(context);
+        let gender_string_binding = gender_string_binding_1.get_inner();
+        let home_phone_number_binding_1 = args.home_phone_number.get_output(context);
+        let home_phone_number_binding = home_phone_number_binding_1.get_inner();
+        let last_name_binding_1 = args.last_name.get_output(context);
+        let last_name_binding = last_name_binding_1.get_inner();
+        let mailing_address_binding_1 = args.mailing_address.get_output(context);
+        let mailing_address_binding = mailing_address_binding_1.get_inner();
+        let middle_name_binding_1 = args.middle_name.get_output(context);
+        let middle_name_binding = middle_name_binding_1.get_inner();
+        let mobile_phone_number_binding_1 = args.mobile_phone_number.get_output(context);
+        let mobile_phone_number_binding = mobile_phone_number_binding_1.get_inner();
+        let party_type_string_binding_1 = args.party_type_string.get_output(context);
+        let party_type_string_binding = party_type_string_binding_1.get_inner();
+        let personal_email_address_binding_1 = args
             .personal_email_address
-            .get_output(context)
+            .get_output(context);
+        let personal_email_address_binding = personal_email_address_binding_1
             .get_inner();
-        let phone_number_binding = args.phone_number.get_output(context).get_inner();
-        let shipping_address_binding = args
-            .shipping_address
-            .get_output(context)
-            .get_inner();
+        let phone_number_binding_1 = args.phone_number.get_output(context);
+        let phone_number_binding = phone_number_binding_1.get_inner();
+        let shipping_address_binding_1 = args.shipping_address.get_output(context);
+        let shipping_address_binding = shipping_address_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:customerprofiles/profile:Profile".into(),
             name: name.to_string(),

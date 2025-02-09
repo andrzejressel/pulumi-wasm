@@ -269,50 +269,57 @@ pub mod branch {
     ) -> BranchResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_id_binding = args.app_id.get_output(context).get_inner();
-        let backend_environment_arn_binding = args
+        let app_id_binding_1 = args.app_id.get_output(context);
+        let app_id_binding = app_id_binding_1.get_inner();
+        let backend_environment_arn_binding_1 = args
             .backend_environment_arn
-            .get_output(context)
+            .get_output(context);
+        let backend_environment_arn_binding = backend_environment_arn_binding_1
             .get_inner();
-        let basic_auth_credentials_binding = args
+        let basic_auth_credentials_binding_1 = args
             .basic_auth_credentials
-            .get_output(context)
+            .get_output(context);
+        let basic_auth_credentials_binding = basic_auth_credentials_binding_1
             .get_inner();
-        let branch_name_binding = args.branch_name.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enable_auto_build_binding = args
-            .enable_auto_build
-            .get_output(context)
-            .get_inner();
-        let enable_basic_auth_binding = args
-            .enable_basic_auth
-            .get_output(context)
-            .get_inner();
-        let enable_notification_binding = args
-            .enable_notification
-            .get_output(context)
-            .get_inner();
-        let enable_performance_mode_binding = args
+        let branch_name_binding_1 = args.branch_name.get_output(context);
+        let branch_name_binding = branch_name_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enable_auto_build_binding_1 = args.enable_auto_build.get_output(context);
+        let enable_auto_build_binding = enable_auto_build_binding_1.get_inner();
+        let enable_basic_auth_binding_1 = args.enable_basic_auth.get_output(context);
+        let enable_basic_auth_binding = enable_basic_auth_binding_1.get_inner();
+        let enable_notification_binding_1 = args.enable_notification.get_output(context);
+        let enable_notification_binding = enable_notification_binding_1.get_inner();
+        let enable_performance_mode_binding_1 = args
             .enable_performance_mode
-            .get_output(context)
+            .get_output(context);
+        let enable_performance_mode_binding = enable_performance_mode_binding_1
             .get_inner();
-        let enable_pull_request_preview_binding = args
+        let enable_pull_request_preview_binding_1 = args
             .enable_pull_request_preview
-            .get_output(context)
+            .get_output(context);
+        let enable_pull_request_preview_binding = enable_pull_request_preview_binding_1
             .get_inner();
-        let environment_variables_binding = args
+        let environment_variables_binding_1 = args
             .environment_variables
-            .get_output(context)
-            .get_inner();
-        let framework_binding = args.framework.get_output(context).get_inner();
-        let pull_request_environment_name_binding = args
+            .get_output(context);
+        let environment_variables_binding = environment_variables_binding_1.get_inner();
+        let framework_binding_1 = args.framework.get_output(context);
+        let framework_binding = framework_binding_1.get_inner();
+        let pull_request_environment_name_binding_1 = args
             .pull_request_environment_name
-            .get_output(context)
+            .get_output(context);
+        let pull_request_environment_name_binding = pull_request_environment_name_binding_1
             .get_inner();
-        let stage_binding = args.stage.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let ttl_binding = args.ttl.get_output(context).get_inner();
+        let stage_binding_1 = args.stage.get_output(context);
+        let stage_binding = stage_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let ttl_binding_1 = args.ttl.get_output(context);
+        let ttl_binding = ttl_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:amplify/branch:Branch".into(),
             name: name.to_string(),

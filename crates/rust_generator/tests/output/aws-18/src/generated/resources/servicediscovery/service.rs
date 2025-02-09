@@ -167,21 +167,27 @@ pub mod service {
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let dns_config_binding = args.dns_config.get_output(context).get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let health_check_config_binding = args
-            .health_check_config
-            .get_output(context)
-            .get_inner();
-        let health_check_custom_config_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dns_config_binding_1 = args.dns_config.get_output(context);
+        let dns_config_binding = dns_config_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let health_check_config_binding_1 = args.health_check_config.get_output(context);
+        let health_check_config_binding = health_check_config_binding_1.get_inner();
+        let health_check_custom_config_binding_1 = args
             .health_check_custom_config
-            .get_output(context)
+            .get_output(context);
+        let health_check_custom_config_binding = health_check_custom_config_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let namespace_id_binding = args.namespace_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let namespace_id_binding_1 = args.namespace_id.get_output(context);
+        let namespace_id_binding = namespace_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicediscovery/service:Service".into(),
             name: name.to_string(),

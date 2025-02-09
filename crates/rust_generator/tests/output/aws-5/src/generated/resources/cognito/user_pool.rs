@@ -307,89 +307,88 @@ pub mod user_pool {
     ) -> UserPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_recovery_setting_binding = args
+        let account_recovery_setting_binding_1 = args
             .account_recovery_setting
-            .get_output(context)
+            .get_output(context);
+        let account_recovery_setting_binding = account_recovery_setting_binding_1
             .get_inner();
-        let admin_create_user_config_binding = args
+        let admin_create_user_config_binding_1 = args
             .admin_create_user_config
-            .get_output(context)
+            .get_output(context);
+        let admin_create_user_config_binding = admin_create_user_config_binding_1
             .get_inner();
-        let alias_attributes_binding = args
-            .alias_attributes
-            .get_output(context)
-            .get_inner();
-        let auto_verified_attributes_binding = args
+        let alias_attributes_binding_1 = args.alias_attributes.get_output(context);
+        let alias_attributes_binding = alias_attributes_binding_1.get_inner();
+        let auto_verified_attributes_binding_1 = args
             .auto_verified_attributes
-            .get_output(context)
+            .get_output(context);
+        let auto_verified_attributes_binding = auto_verified_attributes_binding_1
             .get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let device_configuration_binding = args
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let device_configuration_binding_1 = args
             .device_configuration
-            .get_output(context)
-            .get_inner();
-        let email_configuration_binding = args
-            .email_configuration
-            .get_output(context)
-            .get_inner();
-        let email_verification_message_binding = args
+            .get_output(context);
+        let device_configuration_binding = device_configuration_binding_1.get_inner();
+        let email_configuration_binding_1 = args.email_configuration.get_output(context);
+        let email_configuration_binding = email_configuration_binding_1.get_inner();
+        let email_verification_message_binding_1 = args
             .email_verification_message
-            .get_output(context)
+            .get_output(context);
+        let email_verification_message_binding = email_verification_message_binding_1
             .get_inner();
-        let email_verification_subject_binding = args
+        let email_verification_subject_binding_1 = args
             .email_verification_subject
-            .get_output(context)
+            .get_output(context);
+        let email_verification_subject_binding = email_verification_subject_binding_1
             .get_inner();
-        let lambda_config_binding = args.lambda_config.get_output(context).get_inner();
-        let mfa_configuration_binding = args
-            .mfa_configuration
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let password_policy_binding = args
-            .password_policy
-            .get_output(context)
-            .get_inner();
-        let schemas_binding = args.schemas.get_output(context).get_inner();
-        let sms_authentication_message_binding = args
+        let lambda_config_binding_1 = args.lambda_config.get_output(context);
+        let lambda_config_binding = lambda_config_binding_1.get_inner();
+        let mfa_configuration_binding_1 = args.mfa_configuration.get_output(context);
+        let mfa_configuration_binding = mfa_configuration_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let password_policy_binding_1 = args.password_policy.get_output(context);
+        let password_policy_binding = password_policy_binding_1.get_inner();
+        let schemas_binding_1 = args.schemas.get_output(context);
+        let schemas_binding = schemas_binding_1.get_inner();
+        let sms_authentication_message_binding_1 = args
             .sms_authentication_message
-            .get_output(context)
+            .get_output(context);
+        let sms_authentication_message_binding = sms_authentication_message_binding_1
             .get_inner();
-        let sms_configuration_binding = args
-            .sms_configuration
-            .get_output(context)
-            .get_inner();
-        let sms_verification_message_binding = args
+        let sms_configuration_binding_1 = args.sms_configuration.get_output(context);
+        let sms_configuration_binding = sms_configuration_binding_1.get_inner();
+        let sms_verification_message_binding_1 = args
             .sms_verification_message
-            .get_output(context)
+            .get_output(context);
+        let sms_verification_message_binding = sms_verification_message_binding_1
             .get_inner();
-        let software_token_mfa_configuration_binding = args
+        let software_token_mfa_configuration_binding_1 = args
             .software_token_mfa_configuration
-            .get_output(context)
+            .get_output(context);
+        let software_token_mfa_configuration_binding = software_token_mfa_configuration_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_attribute_update_settings_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_attribute_update_settings_binding_1 = args
             .user_attribute_update_settings
-            .get_output(context)
+            .get_output(context);
+        let user_attribute_update_settings_binding = user_attribute_update_settings_binding_1
             .get_inner();
-        let user_pool_add_ons_binding = args
-            .user_pool_add_ons
-            .get_output(context)
-            .get_inner();
-        let username_attributes_binding = args
-            .username_attributes
-            .get_output(context)
-            .get_inner();
-        let username_configuration_binding = args
+        let user_pool_add_ons_binding_1 = args.user_pool_add_ons.get_output(context);
+        let user_pool_add_ons_binding = user_pool_add_ons_binding_1.get_inner();
+        let username_attributes_binding_1 = args.username_attributes.get_output(context);
+        let username_attributes_binding = username_attributes_binding_1.get_inner();
+        let username_configuration_binding_1 = args
             .username_configuration
-            .get_output(context)
+            .get_output(context);
+        let username_configuration_binding = username_configuration_binding_1
             .get_inner();
-        let verification_message_template_binding = args
+        let verification_message_template_binding_1 = args
             .verification_message_template
-            .get_output(context)
+            .get_output(context);
+        let verification_message_template_binding = verification_message_template_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/userPool:UserPool".into(),

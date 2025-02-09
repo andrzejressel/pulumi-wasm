@@ -110,9 +110,12 @@ pub mod service {
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let namespace_binding = args.namespace.get_output(context).get_inner();
-        let service_id_binding = args.service_id.get_output(context).get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let namespace_binding_1 = args.namespace.get_output(context);
+        let namespace_binding = namespace_binding_1.get_inner();
+        let service_id_binding_1 = args.service_id.get_output(context);
+        let service_id_binding = service_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:servicedirectory/service:Service".into(),
             name: name.to_string(),

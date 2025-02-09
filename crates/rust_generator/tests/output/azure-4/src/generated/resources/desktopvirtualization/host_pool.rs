@@ -186,53 +186,58 @@ pub mod host_pool {
     ) -> HostPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_rdp_properties_binding = args
+        let custom_rdp_properties_binding_1 = args
             .custom_rdp_properties
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let friendly_name_binding = args.friendly_name.get_output(context).get_inner();
-        let load_balancer_type_binding = args
-            .load_balancer_type
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let maximum_sessions_allowed_binding = args
+            .get_output(context);
+        let custom_rdp_properties_binding = custom_rdp_properties_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let friendly_name_binding_1 = args.friendly_name.get_output(context);
+        let friendly_name_binding = friendly_name_binding_1.get_inner();
+        let load_balancer_type_binding_1 = args.load_balancer_type.get_output(context);
+        let load_balancer_type_binding = load_balancer_type_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maximum_sessions_allowed_binding_1 = args
             .maximum_sessions_allowed
-            .get_output(context)
+            .get_output(context);
+        let maximum_sessions_allowed_binding = maximum_sessions_allowed_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let personal_desktop_assignment_type_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let personal_desktop_assignment_type_binding_1 = args
             .personal_desktop_assignment_type
-            .get_output(context)
+            .get_output(context);
+        let personal_desktop_assignment_type_binding = personal_desktop_assignment_type_binding_1
             .get_inner();
-        let preferred_app_group_type_binding = args
+        let preferred_app_group_type_binding_1 = args
             .preferred_app_group_type
-            .get_output(context)
+            .get_output(context);
+        let preferred_app_group_type_binding = preferred_app_group_type_binding_1
             .get_inner();
-        let public_network_access_binding = args
+        let public_network_access_binding_1 = args
             .public_network_access
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let scheduled_agent_updates_binding = args
+            .get_output(context);
+        let public_network_access_binding = public_network_access_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let scheduled_agent_updates_binding_1 = args
             .scheduled_agent_updates
-            .get_output(context)
+            .get_output(context);
+        let scheduled_agent_updates_binding = scheduled_agent_updates_binding_1
             .get_inner();
-        let start_vm_on_connect_binding = args
-            .start_vm_on_connect
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let validate_environment_binding = args
+        let start_vm_on_connect_binding_1 = args.start_vm_on_connect.get_output(context);
+        let start_vm_on_connect_binding = start_vm_on_connect_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let validate_environment_binding_1 = args
             .validate_environment
-            .get_output(context)
-            .get_inner();
-        let vm_template_binding = args.vm_template.get_output(context).get_inner();
+            .get_output(context);
+        let validate_environment_binding = validate_environment_binding_1.get_inner();
+        let vm_template_binding_1 = args.vm_template.get_output(context);
+        let vm_template_binding = vm_template_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:desktopvirtualization/hostPool:HostPool".into(),
             name: name.to_string(),

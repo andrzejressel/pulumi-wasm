@@ -113,11 +113,10 @@ pub mod management_policy {
     ) -> ManagementPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let rules_binding = args.rules.get_output(context).get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/managementPolicy:ManagementPolicy".into(),
             name: name.to_string(),

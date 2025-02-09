@@ -84,35 +84,33 @@ pub mod protection_container_mapping {
     ) -> ProtectionContainerMappingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automatic_update_binding = args
-            .automatic_update
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let recovery_fabric_name_binding = args
+        let automatic_update_binding_1 = args.automatic_update.get_output(context);
+        let automatic_update_binding = automatic_update_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recovery_fabric_name_binding_1 = args
             .recovery_fabric_name
-            .get_output(context)
-            .get_inner();
-        let recovery_replication_policy_id_binding = args
+            .get_output(context);
+        let recovery_fabric_name_binding = recovery_fabric_name_binding_1.get_inner();
+        let recovery_replication_policy_id_binding_1 = args
             .recovery_replication_policy_id
-            .get_output(context)
+            .get_output(context);
+        let recovery_replication_policy_id_binding = recovery_replication_policy_id_binding_1
             .get_inner();
-        let recovery_source_protection_container_name_binding = args
+        let recovery_source_protection_container_name_binding_1 = args
             .recovery_source_protection_container_name
-            .get_output(context)
+            .get_output(context);
+        let recovery_source_protection_container_name_binding = recovery_source_protection_container_name_binding_1
             .get_inner();
-        let recovery_target_protection_container_id_binding = args
+        let recovery_target_protection_container_id_binding_1 = args
             .recovery_target_protection_container_id
-            .get_output(context)
+            .get_output(context);
+        let recovery_target_protection_container_id_binding = recovery_target_protection_container_id_binding_1
             .get_inner();
-        let recovery_vault_name_binding = args
-            .recovery_vault_name
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let recovery_vault_name_binding_1 = args.recovery_vault_name.get_output(context);
+        let recovery_vault_name_binding = recovery_vault_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping"
                 .into(),

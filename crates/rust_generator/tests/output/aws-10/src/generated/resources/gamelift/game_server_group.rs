@@ -223,35 +223,36 @@ pub mod game_server_group {
     ) -> GameServerGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_scaling_policy_binding = args
-            .auto_scaling_policy
-            .get_output(context)
-            .get_inner();
-        let balancing_strategy_binding = args
-            .balancing_strategy
-            .get_output(context)
-            .get_inner();
-        let game_server_group_name_binding = args
+        let auto_scaling_policy_binding_1 = args.auto_scaling_policy.get_output(context);
+        let auto_scaling_policy_binding = auto_scaling_policy_binding_1.get_inner();
+        let balancing_strategy_binding_1 = args.balancing_strategy.get_output(context);
+        let balancing_strategy_binding = balancing_strategy_binding_1.get_inner();
+        let game_server_group_name_binding_1 = args
             .game_server_group_name
-            .get_output(context)
+            .get_output(context);
+        let game_server_group_name_binding = game_server_group_name_binding_1
             .get_inner();
-        let game_server_protection_policy_binding = args
+        let game_server_protection_policy_binding_1 = args
             .game_server_protection_policy
-            .get_output(context)
+            .get_output(context);
+        let game_server_protection_policy_binding = game_server_protection_policy_binding_1
             .get_inner();
-        let instance_definitions_binding = args
+        let instance_definitions_binding_1 = args
             .instance_definitions
-            .get_output(context)
-            .get_inner();
-        let launch_template_binding = args
-            .launch_template
-            .get_output(context)
-            .get_inner();
-        let max_size_binding = args.max_size.get_output(context).get_inner();
-        let min_size_binding = args.min_size.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_subnets_binding = args.vpc_subnets.get_output(context).get_inner();
+            .get_output(context);
+        let instance_definitions_binding = instance_definitions_binding_1.get_inner();
+        let launch_template_binding_1 = args.launch_template.get_output(context);
+        let launch_template_binding = launch_template_binding_1.get_inner();
+        let max_size_binding_1 = args.max_size.get_output(context);
+        let max_size_binding = max_size_binding_1.get_inner();
+        let min_size_binding_1 = args.min_size.get_output(context);
+        let min_size_binding = min_size_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_subnets_binding_1 = args.vpc_subnets.get_output(context);
+        let vpc_subnets_binding = vpc_subnets_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:gamelift/gameServerGroup:GameServerGroup".into(),
             name: name.to_string(),

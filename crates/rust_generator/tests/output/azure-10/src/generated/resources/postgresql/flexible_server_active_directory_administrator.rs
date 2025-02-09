@@ -107,15 +107,18 @@ pub mod flexible_server_active_directory_administrator {
     ) -> FlexibleServerActiveDirectoryAdministratorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let object_id_binding = args.object_id.get_output(context).get_inner();
-        let principal_name_binding = args.principal_name.get_output(context).get_inner();
-        let principal_type_binding = args.principal_type.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let server_name_binding = args.server_name.get_output(context).get_inner();
-        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
+        let object_id_binding_1 = args.object_id.get_output(context);
+        let object_id_binding = object_id_binding_1.get_inner();
+        let principal_name_binding_1 = args.principal_name.get_output(context);
+        let principal_name_binding = principal_name_binding_1.get_inner();
+        let principal_type_binding_1 = args.principal_type.get_output(context);
+        let principal_type_binding = principal_type_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let server_name_binding_1 = args.server_name.get_output(context);
+        let server_name_binding = server_name_binding_1.get_inner();
+        let tenant_id_binding_1 = args.tenant_id.get_output(context);
+        let tenant_id_binding = tenant_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator"
                 .into(),

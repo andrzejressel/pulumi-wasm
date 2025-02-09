@@ -94,15 +94,18 @@ pub mod mover_source_endpoint {
     ) -> MoverSourceEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let export_binding = args.export.get_output(context).get_inner();
-        let host_binding = args.host.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let nfs_version_binding = args.nfs_version.get_output(context).get_inner();
-        let storage_mover_id_binding = args
-            .storage_mover_id
-            .get_output(context)
-            .get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let export_binding_1 = args.export.get_output(context);
+        let export_binding = export_binding_1.get_inner();
+        let host_binding_1 = args.host.get_output(context);
+        let host_binding = host_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let nfs_version_binding_1 = args.nfs_version.get_output(context);
+        let nfs_version_binding = nfs_version_binding_1.get_inner();
+        let storage_mover_id_binding_1 = args.storage_mover_id.get_output(context);
+        let storage_mover_id_binding = storage_mover_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/moverSourceEndpoint:MoverSourceEndpoint".into(),
             name: name.to_string(),

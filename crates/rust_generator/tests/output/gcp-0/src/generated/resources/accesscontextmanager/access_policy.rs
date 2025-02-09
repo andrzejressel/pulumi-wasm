@@ -114,9 +114,12 @@ pub mod access_policy {
     ) -> AccessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let scopes_binding = args.scopes.get_output(context).get_inner();
-        let title_binding = args.title.get_output(context).get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let scopes_binding_1 = args.scopes.get_output(context);
+        let scopes_binding = scopes_binding_1.get_inner();
+        let title_binding_1 = args.title.get_output(context);
+        let title_binding = title_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/accessPolicy:AccessPolicy".into(),
             name: name.to_string(),

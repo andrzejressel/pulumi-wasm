@@ -154,28 +154,28 @@ pub mod fleet {
     ) -> FleetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_capacity_binding = args.base_capacity.get_output(context).get_inner();
-        let compute_type_binding = args.compute_type.get_output(context).get_inner();
-        let environment_type_binding = args
-            .environment_type
-            .get_output(context)
-            .get_inner();
-        let fleet_service_role_binding = args
-            .fleet_service_role
-            .get_output(context)
-            .get_inner();
-        let image_id_binding = args.image_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let overflow_behavior_binding = args
-            .overflow_behavior
-            .get_output(context)
-            .get_inner();
-        let scaling_configuration_binding = args
+        let base_capacity_binding_1 = args.base_capacity.get_output(context);
+        let base_capacity_binding = base_capacity_binding_1.get_inner();
+        let compute_type_binding_1 = args.compute_type.get_output(context);
+        let compute_type_binding = compute_type_binding_1.get_inner();
+        let environment_type_binding_1 = args.environment_type.get_output(context);
+        let environment_type_binding = environment_type_binding_1.get_inner();
+        let fleet_service_role_binding_1 = args.fleet_service_role.get_output(context);
+        let fleet_service_role_binding = fleet_service_role_binding_1.get_inner();
+        let image_id_binding_1 = args.image_id.get_output(context);
+        let image_id_binding = image_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let overflow_behavior_binding_1 = args.overflow_behavior.get_output(context);
+        let overflow_behavior_binding = overflow_behavior_binding_1.get_inner();
+        let scaling_configuration_binding_1 = args
             .scaling_configuration
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_configs_binding = args.vpc_configs.get_output(context).get_inner();
+            .get_output(context);
+        let scaling_configuration_binding = scaling_configuration_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_configs_binding_1 = args.vpc_configs.get_output(context);
+        let vpc_configs_binding = vpc_configs_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codebuild/fleet:Fleet".into(),
             name: name.to_string(),

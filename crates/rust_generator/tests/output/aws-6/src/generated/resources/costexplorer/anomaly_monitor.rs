@@ -108,17 +108,18 @@ pub mod anomaly_monitor {
     ) -> AnomalyMonitorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let monitor_dimension_binding = args
-            .monitor_dimension
-            .get_output(context)
-            .get_inner();
-        let monitor_specification_binding = args
+        let monitor_dimension_binding_1 = args.monitor_dimension.get_output(context);
+        let monitor_dimension_binding = monitor_dimension_binding_1.get_inner();
+        let monitor_specification_binding_1 = args
             .monitor_specification
-            .get_output(context)
-            .get_inner();
-        let monitor_type_binding = args.monitor_type.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let monitor_specification_binding = monitor_specification_binding_1.get_inner();
+        let monitor_type_binding_1 = args.monitor_type.get_output(context);
+        let monitor_type_binding = monitor_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:costexplorer/anomalyMonitor:AnomalyMonitor".into(),
             name: name.to_string(),

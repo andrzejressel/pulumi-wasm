@@ -88,18 +88,21 @@ pub mod member {
     ) -> MemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let detector_id_binding = args.detector_id.get_output(context).get_inner();
-        let disable_email_notification_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let detector_id_binding_1 = args.detector_id.get_output(context);
+        let detector_id_binding = detector_id_binding_1.get_inner();
+        let disable_email_notification_binding_1 = args
             .disable_email_notification
-            .get_output(context)
+            .get_output(context);
+        let disable_email_notification_binding = disable_email_notification_binding_1
             .get_inner();
-        let email_binding = args.email.get_output(context).get_inner();
-        let invitation_message_binding = args
-            .invitation_message
-            .get_output(context)
-            .get_inner();
-        let invite_binding = args.invite.get_output(context).get_inner();
+        let email_binding_1 = args.email.get_output(context);
+        let email_binding = email_binding_1.get_inner();
+        let invitation_message_binding_1 = args.invitation_message.get_output(context);
+        let invitation_message_binding = invitation_message_binding_1.get_inner();
+        let invite_binding_1 = args.invite.get_output(context);
+        let invite_binding = invite_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:guardduty/member:Member".into(),
             name: name.to_string(),

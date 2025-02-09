@@ -709,73 +709,84 @@ pub mod router_peer {
     ) -> RouterPeerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advertise_mode_binding = args.advertise_mode.get_output(context).get_inner();
-        let advertised_groups_binding = args
-            .advertised_groups
-            .get_output(context)
-            .get_inner();
-        let advertised_ip_ranges_binding = args
+        let advertise_mode_binding_1 = args.advertise_mode.get_output(context);
+        let advertise_mode_binding = advertise_mode_binding_1.get_inner();
+        let advertised_groups_binding_1 = args.advertised_groups.get_output(context);
+        let advertised_groups_binding = advertised_groups_binding_1.get_inner();
+        let advertised_ip_ranges_binding_1 = args
             .advertised_ip_ranges
-            .get_output(context)
-            .get_inner();
-        let advertised_route_priority_binding = args
+            .get_output(context);
+        let advertised_ip_ranges_binding = advertised_ip_ranges_binding_1.get_inner();
+        let advertised_route_priority_binding_1 = args
             .advertised_route_priority
-            .get_output(context)
+            .get_output(context);
+        let advertised_route_priority_binding = advertised_route_priority_binding_1
             .get_inner();
-        let bfd_binding = args.bfd.get_output(context).get_inner();
-        let custom_learned_ip_ranges_binding = args
+        let bfd_binding_1 = args.bfd.get_output(context);
+        let bfd_binding = bfd_binding_1.get_inner();
+        let custom_learned_ip_ranges_binding_1 = args
             .custom_learned_ip_ranges
-            .get_output(context)
+            .get_output(context);
+        let custom_learned_ip_ranges_binding = custom_learned_ip_ranges_binding_1
             .get_inner();
-        let custom_learned_route_priority_binding = args
+        let custom_learned_route_priority_binding_1 = args
             .custom_learned_route_priority
-            .get_output(context)
+            .get_output(context);
+        let custom_learned_route_priority_binding = custom_learned_route_priority_binding_1
             .get_inner();
-        let enable_binding = args.enable.get_output(context).get_inner();
-        let enable_ipv4_binding = args.enable_ipv4.get_output(context).get_inner();
-        let enable_ipv6_binding = args.enable_ipv6.get_output(context).get_inner();
-        let export_policies_binding = args
-            .export_policies
-            .get_output(context)
-            .get_inner();
-        let import_policies_binding = args
-            .import_policies
-            .get_output(context)
-            .get_inner();
-        let interface_binding = args.interface.get_output(context).get_inner();
-        let ip_address_binding = args.ip_address.get_output(context).get_inner();
-        let ipv4_nexthop_address_binding = args
+        let enable_binding_1 = args.enable.get_output(context);
+        let enable_binding = enable_binding_1.get_inner();
+        let enable_ipv4_binding_1 = args.enable_ipv4.get_output(context);
+        let enable_ipv4_binding = enable_ipv4_binding_1.get_inner();
+        let enable_ipv6_binding_1 = args.enable_ipv6.get_output(context);
+        let enable_ipv6_binding = enable_ipv6_binding_1.get_inner();
+        let export_policies_binding_1 = args.export_policies.get_output(context);
+        let export_policies_binding = export_policies_binding_1.get_inner();
+        let import_policies_binding_1 = args.import_policies.get_output(context);
+        let import_policies_binding = import_policies_binding_1.get_inner();
+        let interface_binding_1 = args.interface.get_output(context);
+        let interface_binding = interface_binding_1.get_inner();
+        let ip_address_binding_1 = args.ip_address.get_output(context);
+        let ip_address_binding = ip_address_binding_1.get_inner();
+        let ipv4_nexthop_address_binding_1 = args
             .ipv4_nexthop_address
-            .get_output(context)
-            .get_inner();
-        let ipv6_nexthop_address_binding = args
+            .get_output(context);
+        let ipv4_nexthop_address_binding = ipv4_nexthop_address_binding_1.get_inner();
+        let ipv6_nexthop_address_binding_1 = args
             .ipv6_nexthop_address
-            .get_output(context)
-            .get_inner();
-        let md5_authentication_key_binding = args
+            .get_output(context);
+        let ipv6_nexthop_address_binding = ipv6_nexthop_address_binding_1.get_inner();
+        let md5_authentication_key_binding_1 = args
             .md5_authentication_key
-            .get_output(context)
+            .get_output(context);
+        let md5_authentication_key_binding = md5_authentication_key_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let peer_asn_binding = args.peer_asn.get_output(context).get_inner();
-        let peer_ip_address_binding = args
-            .peer_ip_address
-            .get_output(context)
-            .get_inner();
-        let peer_ipv4_nexthop_address_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let peer_asn_binding_1 = args.peer_asn.get_output(context);
+        let peer_asn_binding = peer_asn_binding_1.get_inner();
+        let peer_ip_address_binding_1 = args.peer_ip_address.get_output(context);
+        let peer_ip_address_binding = peer_ip_address_binding_1.get_inner();
+        let peer_ipv4_nexthop_address_binding_1 = args
             .peer_ipv4_nexthop_address
-            .get_output(context)
+            .get_output(context);
+        let peer_ipv4_nexthop_address_binding = peer_ipv4_nexthop_address_binding_1
             .get_inner();
-        let peer_ipv6_nexthop_address_binding = args
+        let peer_ipv6_nexthop_address_binding_1 = args
             .peer_ipv6_nexthop_address
-            .get_output(context)
+            .get_output(context);
+        let peer_ipv6_nexthop_address_binding = peer_ipv6_nexthop_address_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let router_binding = args.router.get_output(context).get_inner();
-        let router_appliance_instance_binding = args
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let router_binding_1 = args.router.get_output(context);
+        let router_binding = router_binding_1.get_inner();
+        let router_appliance_instance_binding_1 = args
             .router_appliance_instance
-            .get_output(context)
+            .get_output(context);
+        let router_appliance_instance_binding = router_appliance_instance_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/routerPeer:RouterPeer".into(),

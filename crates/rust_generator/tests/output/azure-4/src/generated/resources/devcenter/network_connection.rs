@@ -128,31 +128,26 @@ pub mod network_connection {
     ) -> NetworkConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_join_type_binding = args
-            .domain_join_type
-            .get_output(context)
-            .get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let domain_password_binding = args
-            .domain_password
-            .get_output(context)
-            .get_inner();
-        let domain_username_binding = args
-            .domain_username
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let organization_unit_binding = args
-            .organization_unit
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let domain_join_type_binding_1 = args.domain_join_type.get_output(context);
+        let domain_join_type_binding = domain_join_type_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let domain_password_binding_1 = args.domain_password.get_output(context);
+        let domain_password_binding = domain_password_binding_1.get_inner();
+        let domain_username_binding_1 = args.domain_username.get_output(context);
+        let domain_username_binding = domain_username_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let organization_unit_binding_1 = args.organization_unit.get_output(context);
+        let organization_unit_binding = organization_unit_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:devcenter/networkConnection:NetworkConnection".into(),
             name: name.to_string(),

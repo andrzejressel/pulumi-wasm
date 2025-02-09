@@ -135,15 +135,18 @@ pub mod snapshot {
     ) -> SnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding = args.account_name.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let pool_name_binding = args.pool_name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let volume_name_binding = args.volume_name.get_output(context).get_inner();
+        let account_name_binding_1 = args.account_name.get_output(context);
+        let account_name_binding = account_name_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let pool_name_binding_1 = args.pool_name.get_output(context);
+        let pool_name_binding = pool_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let volume_name_binding_1 = args.volume_name.get_output(context);
+        let volume_name_binding = volume_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:netapp/snapshot:Snapshot".into(),
             name: name.to_string(),

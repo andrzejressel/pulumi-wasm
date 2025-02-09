@@ -162,31 +162,32 @@ pub mod registered_domain {
     ) -> RegisteredDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_contact_binding = args.admin_contact.get_output(context).get_inner();
-        let admin_privacy_binding = args.admin_privacy.get_output(context).get_inner();
-        let auto_renew_binding = args.auto_renew.get_output(context).get_inner();
-        let billing_contact_binding = args
-            .billing_contact
-            .get_output(context)
-            .get_inner();
-        let billing_privacy_binding = args
-            .billing_privacy
-            .get_output(context)
-            .get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let name_servers_binding = args.name_servers.get_output(context).get_inner();
-        let registrant_contact_binding = args
-            .registrant_contact
-            .get_output(context)
-            .get_inner();
-        let registrant_privacy_binding = args
-            .registrant_privacy
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tech_contact_binding = args.tech_contact.get_output(context).get_inner();
-        let tech_privacy_binding = args.tech_privacy.get_output(context).get_inner();
-        let transfer_lock_binding = args.transfer_lock.get_output(context).get_inner();
+        let admin_contact_binding_1 = args.admin_contact.get_output(context);
+        let admin_contact_binding = admin_contact_binding_1.get_inner();
+        let admin_privacy_binding_1 = args.admin_privacy.get_output(context);
+        let admin_privacy_binding = admin_privacy_binding_1.get_inner();
+        let auto_renew_binding_1 = args.auto_renew.get_output(context);
+        let auto_renew_binding = auto_renew_binding_1.get_inner();
+        let billing_contact_binding_1 = args.billing_contact.get_output(context);
+        let billing_contact_binding = billing_contact_binding_1.get_inner();
+        let billing_privacy_binding_1 = args.billing_privacy.get_output(context);
+        let billing_privacy_binding = billing_privacy_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let name_servers_binding_1 = args.name_servers.get_output(context);
+        let name_servers_binding = name_servers_binding_1.get_inner();
+        let registrant_contact_binding_1 = args.registrant_contact.get_output(context);
+        let registrant_contact_binding = registrant_contact_binding_1.get_inner();
+        let registrant_privacy_binding_1 = args.registrant_privacy.get_output(context);
+        let registrant_privacy_binding = registrant_privacy_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tech_contact_binding_1 = args.tech_contact.get_output(context);
+        let tech_contact_binding = tech_contact_binding_1.get_inner();
+        let tech_privacy_binding_1 = args.tech_privacy.get_output(context);
+        let tech_privacy_binding = tech_privacy_binding_1.get_inner();
+        let transfer_lock_binding_1 = args.transfer_lock.get_output(context);
+        let transfer_lock_binding = transfer_lock_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53domains/registeredDomain:RegisteredDomain".into(),
             name: name.to_string(),

@@ -97,20 +97,23 @@ pub mod connect_peer {
     ) -> ConnectPeerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bgp_asn_binding = args.bgp_asn.get_output(context).get_inner();
-        let inside_cidr_blocks_binding = args
-            .inside_cidr_blocks
-            .get_output(context)
-            .get_inner();
-        let peer_address_binding = args.peer_address.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let transit_gateway_address_binding = args
+        let bgp_asn_binding_1 = args.bgp_asn.get_output(context);
+        let bgp_asn_binding = bgp_asn_binding_1.get_inner();
+        let inside_cidr_blocks_binding_1 = args.inside_cidr_blocks.get_output(context);
+        let inside_cidr_blocks_binding = inside_cidr_blocks_binding_1.get_inner();
+        let peer_address_binding_1 = args.peer_address.get_output(context);
+        let peer_address_binding = peer_address_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let transit_gateway_address_binding_1 = args
             .transit_gateway_address
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_address_binding = transit_gateway_address_binding_1
             .get_inner();
-        let transit_gateway_attachment_id_binding = args
+        let transit_gateway_attachment_id_binding_1 = args
             .transit_gateway_attachment_id
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_attachment_id_binding = transit_gateway_attachment_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/connectPeer:ConnectPeer".into(),

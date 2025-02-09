@@ -122,11 +122,16 @@ pub mod access_rule {
     ) -> AccessRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let configuration_binding = args.configuration.get_output(context).get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let notes_binding = args.notes.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let configuration_binding_1 = args.configuration.get_output(context);
+        let configuration_binding = configuration_binding_1.get_inner();
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let notes_binding_1 = args.notes.get_output(context);
+        let notes_binding = notes_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/accessRule:AccessRule".into(),
             name: name.to_string(),

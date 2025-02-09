@@ -129,14 +129,16 @@ pub mod webhook {
     ) -> WebhookResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let branch_filter_binding = args.branch_filter.get_output(context).get_inner();
-        let build_type_binding = args.build_type.get_output(context).get_inner();
-        let filter_groups_binding = args.filter_groups.get_output(context).get_inner();
-        let project_name_binding = args.project_name.get_output(context).get_inner();
-        let scope_configuration_binding = args
-            .scope_configuration
-            .get_output(context)
-            .get_inner();
+        let branch_filter_binding_1 = args.branch_filter.get_output(context);
+        let branch_filter_binding = branch_filter_binding_1.get_inner();
+        let build_type_binding_1 = args.build_type.get_output(context);
+        let build_type_binding = build_type_binding_1.get_inner();
+        let filter_groups_binding_1 = args.filter_groups.get_output(context);
+        let filter_groups_binding = filter_groups_binding_1.get_inner();
+        let project_name_binding_1 = args.project_name.get_output(context);
+        let project_name_binding = project_name_binding_1.get_inner();
+        let scope_configuration_binding_1 = args.scope_configuration.get_output(context);
+        let scope_configuration_binding = scope_configuration_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codebuild/webhook:Webhook".into(),
             name: name.to_string(),

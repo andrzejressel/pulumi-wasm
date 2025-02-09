@@ -72,12 +72,12 @@ pub mod data_share_authorization {
     ) -> DataShareAuthorizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_writes_binding = args.allow_writes.get_output(context).get_inner();
-        let consumer_identifier_binding = args
-            .consumer_identifier
-            .get_output(context)
-            .get_inner();
-        let data_share_arn_binding = args.data_share_arn.get_output(context).get_inner();
+        let allow_writes_binding_1 = args.allow_writes.get_output(context);
+        let allow_writes_binding = allow_writes_binding_1.get_inner();
+        let consumer_identifier_binding_1 = args.consumer_identifier.get_output(context);
+        let consumer_identifier_binding = consumer_identifier_binding_1.get_inner();
+        let data_share_arn_binding_1 = args.data_share_arn.get_output(context);
+        let data_share_arn_binding = data_share_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/dataShareAuthorization:DataShareAuthorization".into(),
             name: name.to_string(),

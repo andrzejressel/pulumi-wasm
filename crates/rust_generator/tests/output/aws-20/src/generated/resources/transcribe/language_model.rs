@@ -133,17 +133,16 @@ pub mod language_model {
     ) -> LanguageModelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_model_name_binding = args
-            .base_model_name
-            .get_output(context)
-            .get_inner();
-        let input_data_config_binding = args
-            .input_data_config
-            .get_output(context)
-            .get_inner();
-        let language_code_binding = args.language_code.get_output(context).get_inner();
-        let model_name_binding = args.model_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let base_model_name_binding_1 = args.base_model_name.get_output(context);
+        let base_model_name_binding = base_model_name_binding_1.get_inner();
+        let input_data_config_binding_1 = args.input_data_config.get_output(context);
+        let input_data_config_binding = input_data_config_binding_1.get_inner();
+        let language_code_binding_1 = args.language_code.get_output(context);
+        let language_code_binding = language_code_binding_1.get_inner();
+        let model_name_binding_1 = args.model_name.get_output(context);
+        let model_name_binding = model_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:transcribe/languageModel:LanguageModel".into(),
             name: name.to_string(),

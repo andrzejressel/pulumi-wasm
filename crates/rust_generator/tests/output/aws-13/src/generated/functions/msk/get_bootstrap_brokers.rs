@@ -48,7 +48,8 @@ pub mod get_bootstrap_brokers {
     ) -> GetBootstrapBrokersResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_arn_binding = args.cluster_arn.get_output(context).get_inner();
+        let cluster_arn_binding_1 = args.cluster_arn.get_output(context);
+        let cluster_arn_binding = cluster_arn_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:msk/getBootstrapBrokers:getBootstrapBrokers".into(),
             version: super::super::super::get_version(),

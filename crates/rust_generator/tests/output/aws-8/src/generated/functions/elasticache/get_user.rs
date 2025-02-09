@@ -55,19 +55,24 @@ pub mod get_user {
     ) -> GetUserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_string_binding = args.access_string.get_output(context).get_inner();
-        let authentication_modes_binding = args
+        let access_string_binding_1 = args.access_string.get_output(context);
+        let access_string_binding = access_string_binding_1.get_inner();
+        let authentication_modes_binding_1 = args
             .authentication_modes
-            .get_output(context)
-            .get_inner();
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let no_password_required_binding = args
+            .get_output(context);
+        let authentication_modes_binding = authentication_modes_binding_1.get_inner();
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let no_password_required_binding_1 = args
             .no_password_required
-            .get_output(context)
-            .get_inner();
-        let passwords_binding = args.passwords.get_output(context).get_inner();
-        let user_id_binding = args.user_id.get_output(context).get_inner();
-        let user_name_binding = args.user_name.get_output(context).get_inner();
+            .get_output(context);
+        let no_password_required_binding = no_password_required_binding_1.get_inner();
+        let passwords_binding_1 = args.passwords.get_output(context);
+        let passwords_binding = passwords_binding_1.get_inner();
+        let user_id_binding_1 = args.user_id.get_output(context);
+        let user_id_binding = user_id_binding_1.get_inner();
+        let user_name_binding_1 = args.user_name.get_output(context);
+        let user_name_binding = user_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:elasticache/getUser:getUser".into(),
             version: super::super::super::get_version(),

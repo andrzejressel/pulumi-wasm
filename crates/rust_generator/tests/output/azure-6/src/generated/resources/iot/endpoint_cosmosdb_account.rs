@@ -168,30 +168,33 @@ pub mod endpoint_cosmosdb_account {
     ) -> EndpointCosmosdbAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_type_binding = args
-            .authentication_type
-            .get_output(context)
-            .get_inner();
-        let container_name_binding = args.container_name.get_output(context).get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let endpoint_uri_binding = args.endpoint_uri.get_output(context).get_inner();
-        let identity_id_binding = args.identity_id.get_output(context).get_inner();
-        let iothub_id_binding = args.iothub_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let partition_key_name_binding = args
-            .partition_key_name
-            .get_output(context)
-            .get_inner();
-        let partition_key_template_binding = args
+        let authentication_type_binding_1 = args.authentication_type.get_output(context);
+        let authentication_type_binding = authentication_type_binding_1.get_inner();
+        let container_name_binding_1 = args.container_name.get_output(context);
+        let container_name_binding = container_name_binding_1.get_inner();
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let endpoint_uri_binding_1 = args.endpoint_uri.get_output(context);
+        let endpoint_uri_binding = endpoint_uri_binding_1.get_inner();
+        let identity_id_binding_1 = args.identity_id.get_output(context);
+        let identity_id_binding = identity_id_binding_1.get_inner();
+        let iothub_id_binding_1 = args.iothub_id.get_output(context);
+        let iothub_id_binding = iothub_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let partition_key_name_binding_1 = args.partition_key_name.get_output(context);
+        let partition_key_name_binding = partition_key_name_binding_1.get_inner();
+        let partition_key_template_binding_1 = args
             .partition_key_template
-            .get_output(context)
+            .get_output(context);
+        let partition_key_template_binding = partition_key_template_binding_1
             .get_inner();
-        let primary_key_binding = args.primary_key.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let secondary_key_binding = args.secondary_key.get_output(context).get_inner();
+        let primary_key_binding_1 = args.primary_key.get_output(context);
+        let primary_key_binding = primary_key_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let secondary_key_binding_1 = args.secondary_key.get_output(context);
+        let secondary_key_binding = secondary_key_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount".into(),
             name: name.to_string(),

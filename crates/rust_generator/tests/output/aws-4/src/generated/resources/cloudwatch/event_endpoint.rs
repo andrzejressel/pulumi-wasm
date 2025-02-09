@@ -123,15 +123,18 @@ pub mod event_endpoint {
     ) -> EventEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let event_buses_binding = args.event_buses.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let replication_config_binding = args
-            .replication_config
-            .get_output(context)
-            .get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let routing_config_binding = args.routing_config.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let event_buses_binding_1 = args.event_buses.get_output(context);
+        let event_buses_binding = event_buses_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let replication_config_binding_1 = args.replication_config.get_output(context);
+        let replication_config_binding = replication_config_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let routing_config_binding_1 = args.routing_config.get_output(context);
+        let routing_config_binding = routing_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventEndpoint:EventEndpoint".into(),
             name: name.to_string(),

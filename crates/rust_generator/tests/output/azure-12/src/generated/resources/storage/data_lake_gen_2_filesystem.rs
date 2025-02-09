@@ -108,19 +108,23 @@ pub mod data_lake_gen_2_filesystem {
     ) -> DataLakeGen2FilesystemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aces_binding = args.aces.get_output(context).get_inner();
-        let default_encryption_scope_binding = args
+        let aces_binding_1 = args.aces.get_output(context);
+        let aces_binding = aces_binding_1.get_inner();
+        let default_encryption_scope_binding_1 = args
             .default_encryption_scope
-            .get_output(context)
+            .get_output(context);
+        let default_encryption_scope_binding = default_encryption_scope_binding_1
             .get_inner();
-        let group_binding = args.group.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let owner_binding = args.owner.get_output(context).get_inner();
-        let properties_binding = args.properties.get_output(context).get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
+        let group_binding_1 = args.group.get_output(context);
+        let group_binding = group_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let owner_binding_1 = args.owner.get_output(context);
+        let owner_binding = owner_binding_1.get_inner();
+        let properties_binding_1 = args.properties.get_output(context);
+        let properties_binding = properties_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem".into(),
             name: name.to_string(),

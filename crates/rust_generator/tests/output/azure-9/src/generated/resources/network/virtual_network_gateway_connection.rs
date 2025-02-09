@@ -437,81 +437,86 @@ pub mod virtual_network_gateway_connection {
     ) -> VirtualNetworkGatewayConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorization_key_binding = args
-            .authorization_key
-            .get_output(context)
-            .get_inner();
-        let connection_mode_binding = args
-            .connection_mode
-            .get_output(context)
-            .get_inner();
-        let connection_protocol_binding = args
-            .connection_protocol
-            .get_output(context)
-            .get_inner();
-        let custom_bgp_addresses_binding = args
+        let authorization_key_binding_1 = args.authorization_key.get_output(context);
+        let authorization_key_binding = authorization_key_binding_1.get_inner();
+        let connection_mode_binding_1 = args.connection_mode.get_output(context);
+        let connection_mode_binding = connection_mode_binding_1.get_inner();
+        let connection_protocol_binding_1 = args.connection_protocol.get_output(context);
+        let connection_protocol_binding = connection_protocol_binding_1.get_inner();
+        let custom_bgp_addresses_binding_1 = args
             .custom_bgp_addresses
-            .get_output(context)
-            .get_inner();
-        let dpd_timeout_seconds_binding = args
-            .dpd_timeout_seconds
-            .get_output(context)
-            .get_inner();
-        let egress_nat_rule_ids_binding = args
-            .egress_nat_rule_ids
-            .get_output(context)
-            .get_inner();
-        let enable_bgp_binding = args.enable_bgp.get_output(context).get_inner();
-        let express_route_circuit_id_binding = args
+            .get_output(context);
+        let custom_bgp_addresses_binding = custom_bgp_addresses_binding_1.get_inner();
+        let dpd_timeout_seconds_binding_1 = args.dpd_timeout_seconds.get_output(context);
+        let dpd_timeout_seconds_binding = dpd_timeout_seconds_binding_1.get_inner();
+        let egress_nat_rule_ids_binding_1 = args.egress_nat_rule_ids.get_output(context);
+        let egress_nat_rule_ids_binding = egress_nat_rule_ids_binding_1.get_inner();
+        let enable_bgp_binding_1 = args.enable_bgp.get_output(context);
+        let enable_bgp_binding = enable_bgp_binding_1.get_inner();
+        let express_route_circuit_id_binding_1 = args
             .express_route_circuit_id
-            .get_output(context)
+            .get_output(context);
+        let express_route_circuit_id_binding = express_route_circuit_id_binding_1
             .get_inner();
-        let express_route_gateway_bypass_binding = args
+        let express_route_gateway_bypass_binding_1 = args
             .express_route_gateway_bypass
-            .get_output(context)
+            .get_output(context);
+        let express_route_gateway_bypass_binding = express_route_gateway_bypass_binding_1
             .get_inner();
-        let ingress_nat_rule_ids_binding = args
+        let ingress_nat_rule_ids_binding_1 = args
             .ingress_nat_rule_ids
-            .get_output(context)
-            .get_inner();
-        let ipsec_policy_binding = args.ipsec_policy.get_output(context).get_inner();
-        let local_azure_ip_address_enabled_binding = args
+            .get_output(context);
+        let ingress_nat_rule_ids_binding = ingress_nat_rule_ids_binding_1.get_inner();
+        let ipsec_policy_binding_1 = args.ipsec_policy.get_output(context);
+        let ipsec_policy_binding = ipsec_policy_binding_1.get_inner();
+        let local_azure_ip_address_enabled_binding_1 = args
             .local_azure_ip_address_enabled
-            .get_output(context)
+            .get_output(context);
+        let local_azure_ip_address_enabled_binding = local_azure_ip_address_enabled_binding_1
             .get_inner();
-        let local_network_gateway_id_binding = args
+        let local_network_gateway_id_binding_1 = args
             .local_network_gateway_id
-            .get_output(context)
+            .get_output(context);
+        let local_network_gateway_id_binding = local_network_gateway_id_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let peer_virtual_network_gateway_id_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let peer_virtual_network_gateway_id_binding_1 = args
             .peer_virtual_network_gateway_id
-            .get_output(context)
+            .get_output(context);
+        let peer_virtual_network_gateway_id_binding = peer_virtual_network_gateway_id_binding_1
             .get_inner();
-        let private_link_fast_path_enabled_binding = args
+        let private_link_fast_path_enabled_binding_1 = args
             .private_link_fast_path_enabled
-            .get_output(context)
+            .get_output(context);
+        let private_link_fast_path_enabled_binding = private_link_fast_path_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let routing_weight_binding = args.routing_weight.get_output(context).get_inner();
-        let shared_key_binding = args.shared_key.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let traffic_selector_policy_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let routing_weight_binding_1 = args.routing_weight.get_output(context);
+        let routing_weight_binding = routing_weight_binding_1.get_inner();
+        let shared_key_binding_1 = args.shared_key.get_output(context);
+        let shared_key_binding = shared_key_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let traffic_selector_policy_binding_1 = args
             .traffic_selector_policy
-            .get_output(context)
+            .get_output(context);
+        let traffic_selector_policy_binding = traffic_selector_policy_binding_1
             .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let use_policy_based_traffic_selectors_binding = args
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let use_policy_based_traffic_selectors_binding_1 = args
             .use_policy_based_traffic_selectors
-            .get_output(context)
+            .get_output(context);
+        let use_policy_based_traffic_selectors_binding = use_policy_based_traffic_selectors_binding_1
             .get_inner();
-        let virtual_network_gateway_id_binding = args
+        let virtual_network_gateway_id_binding_1 = args
             .virtual_network_gateway_id
-            .get_output(context)
+            .get_output(context);
+        let virtual_network_gateway_id_binding = virtual_network_gateway_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection"

@@ -98,25 +98,25 @@ pub mod custom_hostname {
     ) -> CustomHostnameResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_metadata_binding = args
-            .custom_metadata
-            .get_output(context)
-            .get_inner();
-        let custom_origin_server_binding = args
+        let custom_metadata_binding_1 = args.custom_metadata.get_output(context);
+        let custom_metadata_binding = custom_metadata_binding_1.get_inner();
+        let custom_origin_server_binding_1 = args
             .custom_origin_server
-            .get_output(context)
-            .get_inner();
-        let custom_origin_sni_binding = args
-            .custom_origin_sni
-            .get_output(context)
-            .get_inner();
-        let hostname_binding = args.hostname.get_output(context).get_inner();
-        let ssls_binding = args.ssls.get_output(context).get_inner();
-        let wait_for_ssl_pending_validation_binding = args
+            .get_output(context);
+        let custom_origin_server_binding = custom_origin_server_binding_1.get_inner();
+        let custom_origin_sni_binding_1 = args.custom_origin_sni.get_output(context);
+        let custom_origin_sni_binding = custom_origin_sni_binding_1.get_inner();
+        let hostname_binding_1 = args.hostname.get_output(context);
+        let hostname_binding = hostname_binding_1.get_inner();
+        let ssls_binding_1 = args.ssls.get_output(context);
+        let ssls_binding = ssls_binding_1.get_inner();
+        let wait_for_ssl_pending_validation_binding_1 = args
             .wait_for_ssl_pending_validation
-            .get_output(context)
+            .get_output(context);
+        let wait_for_ssl_pending_validation_binding = wait_for_ssl_pending_validation_binding_1
             .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/customHostname:CustomHostname".into(),
             name: name.to_string(),

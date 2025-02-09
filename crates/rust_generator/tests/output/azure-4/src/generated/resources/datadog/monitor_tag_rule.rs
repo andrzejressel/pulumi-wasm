@@ -97,13 +97,14 @@ pub mod monitor_tag_rule {
     ) -> MonitorTagRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let datadog_monitor_id_binding = args
-            .datadog_monitor_id
-            .get_output(context)
-            .get_inner();
-        let logs_binding = args.logs.get_output(context).get_inner();
-        let metrics_binding = args.metrics.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let datadog_monitor_id_binding_1 = args.datadog_monitor_id.get_output(context);
+        let datadog_monitor_id_binding = datadog_monitor_id_binding_1.get_inner();
+        let logs_binding_1 = args.logs.get_output(context);
+        let logs_binding = logs_binding_1.get_inner();
+        let metrics_binding_1 = args.metrics.get_output(context);
+        let metrics_binding = metrics_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datadog/monitorTagRule:MonitorTagRule".into(),
             name: name.to_string(),

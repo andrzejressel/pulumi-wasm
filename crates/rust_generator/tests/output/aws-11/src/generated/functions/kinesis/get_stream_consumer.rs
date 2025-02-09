@@ -36,9 +36,12 @@ pub mod get_stream_consumer {
     ) -> GetStreamConsumerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let stream_arn_binding = args.stream_arn.get_output(context).get_inner();
+        let arn_binding_1 = args.arn.get_output(context);
+        let arn_binding = arn_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let stream_arn_binding_1 = args.stream_arn.get_output(context);
+        let stream_arn_binding = stream_arn_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kinesis/getStreamConsumer:getStreamConsumer".into(),
             version: super::super::super::get_version(),

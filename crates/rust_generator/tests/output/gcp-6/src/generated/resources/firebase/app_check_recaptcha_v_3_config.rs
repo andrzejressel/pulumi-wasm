@@ -131,10 +131,14 @@ pub mod app_check_recaptcha_v_3_config {
     ) -> AppCheckRecaptchaV3ConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_id_binding = args.app_id.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let site_secret_binding = args.site_secret.get_output(context).get_inner();
-        let token_ttl_binding = args.token_ttl.get_output(context).get_inner();
+        let app_id_binding_1 = args.app_id.get_output(context);
+        let app_id_binding = app_id_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let site_secret_binding_1 = args.site_secret.get_output(context);
+        let site_secret_binding = site_secret_binding_1.get_inner();
+        let token_ttl_binding_1 = args.token_ttl.get_output(context);
+        let token_ttl_binding = token_ttl_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/appCheckRecaptchaV3Config:AppCheckRecaptchaV3Config"
                 .into(),

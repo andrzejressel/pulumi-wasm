@@ -146,18 +146,26 @@ pub mod s_quota_preference {
     ) -> SQuotaPreferenceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contact_email_binding = args.contact_email.get_output(context).get_inner();
-        let dimensions_binding = args.dimensions.get_output(context).get_inner();
-        let ignore_safety_checks_binding = args
+        let contact_email_binding_1 = args.contact_email.get_output(context);
+        let contact_email_binding = contact_email_binding_1.get_inner();
+        let dimensions_binding_1 = args.dimensions.get_output(context);
+        let dimensions_binding = dimensions_binding_1.get_inner();
+        let ignore_safety_checks_binding_1 = args
             .ignore_safety_checks
-            .get_output(context)
-            .get_inner();
-        let justification_binding = args.justification.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let quota_config_binding = args.quota_config.get_output(context).get_inner();
-        let quota_id_binding = args.quota_id.get_output(context).get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
+            .get_output(context);
+        let ignore_safety_checks_binding = ignore_safety_checks_binding_1.get_inner();
+        let justification_binding_1 = args.justification.get_output(context);
+        let justification_binding = justification_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let quota_config_binding_1 = args.quota_config.get_output(context);
+        let quota_config_binding = quota_config_binding_1.get_inner();
+        let quota_id_binding_1 = args.quota_id.get_output(context);
+        let quota_id_binding = quota_id_binding_1.get_inner();
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudquota/sQuotaPreference:SQuotaPreference".into(),
             name: name.to_string(),

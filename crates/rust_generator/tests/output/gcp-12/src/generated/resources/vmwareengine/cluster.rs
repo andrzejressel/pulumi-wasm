@@ -181,16 +181,16 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_settings_binding = args
+        let autoscaling_settings_binding_1 = args
             .autoscaling_settings
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_type_configs_binding = args
-            .node_type_configs
-            .get_output(context)
-            .get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
+            .get_output(context);
+        let autoscaling_settings_binding = autoscaling_settings_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_type_configs_binding_1 = args.node_type_configs.get_output(context);
+        let node_type_configs_binding = node_type_configs_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vmwareengine/cluster:Cluster".into(),
             name: name.to_string(),

@@ -76,14 +76,16 @@ pub mod directory_bucket {
     ) -> DirectoryBucketResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let data_redundancy_binding = args
-            .data_redundancy
-            .get_output(context)
-            .get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let data_redundancy_binding_1 = args.data_redundancy.get_output(context);
+        let data_redundancy_binding = data_redundancy_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/directoryBucket:DirectoryBucket".into(),
             name: name.to_string(),

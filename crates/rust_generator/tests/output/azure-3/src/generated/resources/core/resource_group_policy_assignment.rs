@@ -175,32 +175,39 @@ pub mod resource_group_policy_assignment {
     ) -> ResourceGroupPolicyAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enforce_binding = args.enforce.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let non_compliance_messages_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enforce_binding_1 = args.enforce.get_output(context);
+        let enforce_binding = enforce_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let non_compliance_messages_binding_1 = args
             .non_compliance_messages
-            .get_output(context)
+            .get_output(context);
+        let non_compliance_messages_binding = non_compliance_messages_binding_1
             .get_inner();
-        let not_scopes_binding = args.not_scopes.get_output(context).get_inner();
-        let overrides_binding = args.overrides.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let policy_definition_id_binding = args
+        let not_scopes_binding_1 = args.not_scopes.get_output(context);
+        let not_scopes_binding = not_scopes_binding_1.get_inner();
+        let overrides_binding_1 = args.overrides.get_output(context);
+        let overrides_binding = overrides_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let policy_definition_id_binding_1 = args
             .policy_definition_id
-            .get_output(context)
-            .get_inner();
-        let resource_group_id_binding = args
-            .resource_group_id
-            .get_output(context)
-            .get_inner();
-        let resource_selectors_binding = args
-            .resource_selectors
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let policy_definition_id_binding = policy_definition_id_binding_1.get_inner();
+        let resource_group_id_binding_1 = args.resource_group_id.get_output(context);
+        let resource_group_id_binding = resource_group_id_binding_1.get_inner();
+        let resource_selectors_binding_1 = args.resource_selectors.get_output(context);
+        let resource_selectors_binding = resource_selectors_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment"
                 .into(),

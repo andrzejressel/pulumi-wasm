@@ -57,16 +57,16 @@ pub mod hci_deployment_setting {
     ) -> HciDeploymentSettingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arc_resource_ids_binding = args
-            .arc_resource_ids
-            .get_output(context)
-            .get_inner();
-        let scale_units_binding = args.scale_units.get_output(context).get_inner();
-        let stack_hci_cluster_id_binding = args
+        let arc_resource_ids_binding_1 = args.arc_resource_ids.get_output(context);
+        let arc_resource_ids_binding = arc_resource_ids_binding_1.get_inner();
+        let scale_units_binding_1 = args.scale_units.get_output(context);
+        let scale_units_binding = scale_units_binding_1.get_inner();
+        let stack_hci_cluster_id_binding_1 = args
             .stack_hci_cluster_id
-            .get_output(context)
-            .get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+            .get_output(context);
+        let stack_hci_cluster_id_binding = stack_hci_cluster_id_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:stack/hciDeploymentSetting:HciDeploymentSetting".into(),
             name: name.to_string(),

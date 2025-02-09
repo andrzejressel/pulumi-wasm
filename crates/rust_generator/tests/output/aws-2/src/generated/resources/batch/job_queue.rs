@@ -172,27 +172,34 @@ pub mod job_queue {
     ) -> JobQueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compute_environment_orders_binding = args
+        let compute_environment_orders_binding_1 = args
             .compute_environment_orders
-            .get_output(context)
+            .get_output(context);
+        let compute_environment_orders_binding = compute_environment_orders_binding_1
             .get_inner();
-        let compute_environments_binding = args
+        let compute_environments_binding_1 = args
             .compute_environments
-            .get_output(context)
-            .get_inner();
-        let job_state_time_limit_actions_binding = args
+            .get_output(context);
+        let compute_environments_binding = compute_environments_binding_1.get_inner();
+        let job_state_time_limit_actions_binding_1 = args
             .job_state_time_limit_actions
-            .get_output(context)
+            .get_output(context);
+        let job_state_time_limit_actions_binding = job_state_time_limit_actions_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let scheduling_policy_arn_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let scheduling_policy_arn_binding_1 = args
             .scheduling_policy_arn
-            .get_output(context)
-            .get_inner();
-        let state_binding = args.state.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+            .get_output(context);
+        let scheduling_policy_arn_binding = scheduling_policy_arn_binding_1.get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:batch/jobQueue:JobQueue".into(),
             name: name.to_string(),

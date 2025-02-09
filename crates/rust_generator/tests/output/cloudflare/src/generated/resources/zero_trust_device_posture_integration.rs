@@ -88,12 +88,18 @@ pub mod zero_trust_device_posture_integration {
     ) -> ZeroTrustDevicePostureIntegrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let configs_binding = args.configs.get_output(context).get_inner();
-        let identifier_binding = args.identifier.get_output(context).get_inner();
-        let interval_binding = args.interval.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let configs_binding_1 = args.configs.get_output(context);
+        let configs_binding = configs_binding_1.get_inner();
+        let identifier_binding_1 = args.identifier.get_output(context);
+        let identifier_binding = identifier_binding_1.get_inner();
+        let interval_binding_1 = args.interval.get_output(context);
+        let interval_binding = interval_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustDevicePostureIntegration:ZeroTrustDevicePostureIntegration"
                 .into(),

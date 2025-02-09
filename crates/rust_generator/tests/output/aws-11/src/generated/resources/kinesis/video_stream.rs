@@ -91,15 +91,21 @@ pub mod video_stream {
     ) -> VideoStreamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_retention_in_hours_binding = args
+        let data_retention_in_hours_binding_1 = args
             .data_retention_in_hours
-            .get_output(context)
+            .get_output(context);
+        let data_retention_in_hours_binding = data_retention_in_hours_binding_1
             .get_inner();
-        let device_name_binding = args.device_name.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let media_type_binding = args.media_type.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let device_name_binding_1 = args.device_name.get_output(context);
+        let device_name_binding = device_name_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let media_type_binding_1 = args.media_type.get_output(context);
+        let media_type_binding = media_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kinesis/videoStream:VideoStream".into(),
             name: name.to_string(),

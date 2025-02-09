@@ -171,22 +171,24 @@ pub mod implicit_data_disk_from_source {
     ) -> ImplicitDataDiskFromSourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let caching_binding = args.caching.get_output(context).get_inner();
-        let create_option_binding = args.create_option.get_output(context).get_inner();
-        let disk_size_gb_binding = args.disk_size_gb.get_output(context).get_inner();
-        let lun_binding = args.lun.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let source_resource_id_binding = args
-            .source_resource_id
-            .get_output(context)
-            .get_inner();
-        let virtual_machine_id_binding = args
-            .virtual_machine_id
-            .get_output(context)
-            .get_inner();
-        let write_accelerator_enabled_binding = args
+        let caching_binding_1 = args.caching.get_output(context);
+        let caching_binding = caching_binding_1.get_inner();
+        let create_option_binding_1 = args.create_option.get_output(context);
+        let create_option_binding = create_option_binding_1.get_inner();
+        let disk_size_gb_binding_1 = args.disk_size_gb.get_output(context);
+        let disk_size_gb_binding = disk_size_gb_binding_1.get_inner();
+        let lun_binding_1 = args.lun.get_output(context);
+        let lun_binding = lun_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let source_resource_id_binding_1 = args.source_resource_id.get_output(context);
+        let source_resource_id_binding = source_resource_id_binding_1.get_inner();
+        let virtual_machine_id_binding_1 = args.virtual_machine_id.get_output(context);
+        let virtual_machine_id_binding = virtual_machine_id_binding_1.get_inner();
+        let write_accelerator_enabled_binding_1 = args
             .write_accelerator_enabled
-            .get_output(context)
+            .get_output(context);
+        let write_accelerator_enabled_binding = write_accelerator_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/implicitDataDiskFromSource:ImplicitDataDiskFromSource"

@@ -91,7 +91,8 @@ pub mod standards_subscription {
     ) -> StandardsSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let standards_arn_binding = args.standards_arn.get_output(context).get_inner();
+        let standards_arn_binding_1 = args.standards_arn.get_output(context);
+        let standards_arn_binding = standards_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/standardsSubscription:StandardsSubscription".into(),
             name: name.to_string(),

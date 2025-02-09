@@ -47,15 +47,18 @@ pub mod get_database_instances {
     ) -> GetDatabaseInstancesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_version_binding = args
-            .database_version
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let state_binding = args.state.get_output(context).get_inner();
-        let tier_binding = args.tier.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let database_version_binding_1 = args.database_version.get_output(context);
+        let database_version_binding = database_version_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
+        let tier_binding_1 = args.tier.get_output(context);
+        let tier_binding = tier_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:sql/getDatabaseInstances:getDatabaseInstances".into(),
             version: super::super::super::get_version(),

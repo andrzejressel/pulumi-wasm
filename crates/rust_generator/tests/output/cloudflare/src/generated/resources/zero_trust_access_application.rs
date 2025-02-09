@@ -239,97 +239,104 @@ pub mod zero_trust_access_application {
     ) -> ZeroTrustAccessApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let allow_authenticate_via_warp_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let allow_authenticate_via_warp_binding_1 = args
             .allow_authenticate_via_warp
-            .get_output(context)
+            .get_output(context);
+        let allow_authenticate_via_warp_binding = allow_authenticate_via_warp_binding_1
             .get_inner();
-        let allowed_idps_binding = args.allowed_idps.get_output(context).get_inner();
-        let app_launcher_logo_url_binding = args
+        let allowed_idps_binding_1 = args.allowed_idps.get_output(context);
+        let allowed_idps_binding = allowed_idps_binding_1.get_inner();
+        let app_launcher_logo_url_binding_1 = args
             .app_launcher_logo_url
-            .get_output(context)
-            .get_inner();
-        let app_launcher_visible_binding = args
+            .get_output(context);
+        let app_launcher_logo_url_binding = app_launcher_logo_url_binding_1.get_inner();
+        let app_launcher_visible_binding_1 = args
             .app_launcher_visible
-            .get_output(context)
-            .get_inner();
-        let auto_redirect_to_identity_binding = args
+            .get_output(context);
+        let app_launcher_visible_binding = app_launcher_visible_binding_1.get_inner();
+        let auto_redirect_to_identity_binding_1 = args
             .auto_redirect_to_identity
-            .get_output(context)
+            .get_output(context);
+        let auto_redirect_to_identity_binding = auto_redirect_to_identity_binding_1
             .get_inner();
-        let bg_color_binding = args.bg_color.get_output(context).get_inner();
-        let cors_headers_binding = args.cors_headers.get_output(context).get_inner();
-        let custom_deny_message_binding = args
-            .custom_deny_message
-            .get_output(context)
-            .get_inner();
-        let custom_deny_url_binding = args
-            .custom_deny_url
-            .get_output(context)
-            .get_inner();
-        let custom_non_identity_deny_url_binding = args
+        let bg_color_binding_1 = args.bg_color.get_output(context);
+        let bg_color_binding = bg_color_binding_1.get_inner();
+        let cors_headers_binding_1 = args.cors_headers.get_output(context);
+        let cors_headers_binding = cors_headers_binding_1.get_inner();
+        let custom_deny_message_binding_1 = args.custom_deny_message.get_output(context);
+        let custom_deny_message_binding = custom_deny_message_binding_1.get_inner();
+        let custom_deny_url_binding_1 = args.custom_deny_url.get_output(context);
+        let custom_deny_url_binding = custom_deny_url_binding_1.get_inner();
+        let custom_non_identity_deny_url_binding_1 = args
             .custom_non_identity_deny_url
-            .get_output(context)
+            .get_output(context);
+        let custom_non_identity_deny_url_binding = custom_non_identity_deny_url_binding_1
             .get_inner();
-        let custom_pages_binding = args.custom_pages.get_output(context).get_inner();
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let enable_binding_cookie_binding = args
+        let custom_pages_binding_1 = args.custom_pages.get_output(context);
+        let custom_pages_binding = custom_pages_binding_1.get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let enable_binding_cookie_binding_1 = args
             .enable_binding_cookie
-            .get_output(context)
-            .get_inner();
-        let footer_links_binding = args.footer_links.get_output(context).get_inner();
-        let header_bg_color_binding = args
-            .header_bg_color
-            .get_output(context)
-            .get_inner();
-        let http_only_cookie_attribute_binding = args
+            .get_output(context);
+        let enable_binding_cookie_binding = enable_binding_cookie_binding_1.get_inner();
+        let footer_links_binding_1 = args.footer_links.get_output(context);
+        let footer_links_binding = footer_links_binding_1.get_inner();
+        let header_bg_color_binding_1 = args.header_bg_color.get_output(context);
+        let header_bg_color_binding = header_bg_color_binding_1.get_inner();
+        let http_only_cookie_attribute_binding_1 = args
             .http_only_cookie_attribute
-            .get_output(context)
+            .get_output(context);
+        let http_only_cookie_attribute_binding = http_only_cookie_attribute_binding_1
             .get_inner();
-        let landing_page_design_binding = args
-            .landing_page_design
-            .get_output(context)
-            .get_inner();
-        let logo_url_binding = args.logo_url.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let options_preflight_bypass_binding = args
+        let landing_page_design_binding_1 = args.landing_page_design.get_output(context);
+        let landing_page_design_binding = landing_page_design_binding_1.get_inner();
+        let logo_url_binding_1 = args.logo_url.get_output(context);
+        let logo_url_binding = logo_url_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let options_preflight_bypass_binding_1 = args
             .options_preflight_bypass
-            .get_output(context)
+            .get_output(context);
+        let options_preflight_bypass_binding = options_preflight_bypass_binding_1
             .get_inner();
-        let policies_binding = args.policies.get_output(context).get_inner();
-        let saas_app_binding = args.saas_app.get_output(context).get_inner();
-        let same_site_cookie_attribute_binding = args
+        let policies_binding_1 = args.policies.get_output(context);
+        let policies_binding = policies_binding_1.get_inner();
+        let saas_app_binding_1 = args.saas_app.get_output(context);
+        let saas_app_binding = saas_app_binding_1.get_inner();
+        let same_site_cookie_attribute_binding_1 = args
             .same_site_cookie_attribute
-            .get_output(context)
+            .get_output(context);
+        let same_site_cookie_attribute_binding = same_site_cookie_attribute_binding_1
             .get_inner();
-        let scim_config_binding = args.scim_config.get_output(context).get_inner();
-        let self_hosted_domains_binding = args
-            .self_hosted_domains
-            .get_output(context)
-            .get_inner();
-        let service_auth401_redirect_binding = args
+        let scim_config_binding_1 = args.scim_config.get_output(context);
+        let scim_config_binding = scim_config_binding_1.get_inner();
+        let self_hosted_domains_binding_1 = args.self_hosted_domains.get_output(context);
+        let self_hosted_domains_binding = self_hosted_domains_binding_1.get_inner();
+        let service_auth401_redirect_binding_1 = args
             .service_auth401_redirect
-            .get_output(context)
+            .get_output(context);
+        let service_auth401_redirect_binding = service_auth401_redirect_binding_1
             .get_inner();
-        let session_duration_binding = args
-            .session_duration
-            .get_output(context)
-            .get_inner();
-        let skip_app_launcher_login_page_binding = args
+        let session_duration_binding_1 = args.session_duration.get_output(context);
+        let session_duration_binding = session_duration_binding_1.get_inner();
+        let skip_app_launcher_login_page_binding_1 = args
             .skip_app_launcher_login_page
-            .get_output(context)
+            .get_output(context);
+        let skip_app_launcher_login_page_binding = skip_app_launcher_login_page_binding_1
             .get_inner();
-        let skip_interstitial_binding = args
-            .skip_interstitial
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_criterias_binding = args
-            .target_criterias
-            .get_output(context)
-            .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let skip_interstitial_binding_1 = args.skip_interstitial.get_output(context);
+        let skip_interstitial_binding = skip_interstitial_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_criterias_binding_1 = args.target_criterias.get_output(context);
+        let target_criterias_binding = target_criterias_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustAccessApplication:ZeroTrustAccessApplication"
                 .into(),

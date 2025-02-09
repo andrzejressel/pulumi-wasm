@@ -64,7 +64,8 @@ pub mod classification_export_configuration {
     ) -> ClassificationExportConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let s3_destination_binding = args.s3_destination.get_output(context).get_inner();
+        let s3_destination_binding_1 = args.s3_destination.get_output(context);
+        let s3_destination_binding = s3_destination_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration"
                 .into(),

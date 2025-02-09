@@ -148,19 +148,26 @@ pub mod script {
     ) -> ScriptResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let continue_on_errors_enabled_binding = args
+        let continue_on_errors_enabled_binding_1 = args
             .continue_on_errors_enabled
-            .get_output(context)
+            .get_output(context);
+        let continue_on_errors_enabled_binding = continue_on_errors_enabled_binding_1
             .get_inner();
-        let database_id_binding = args.database_id.get_output(context).get_inner();
-        let force_an_update_when_value_changed_binding = args
+        let database_id_binding_1 = args.database_id.get_output(context);
+        let database_id_binding = database_id_binding_1.get_inner();
+        let force_an_update_when_value_changed_binding_1 = args
             .force_an_update_when_value_changed
-            .get_output(context)
+            .get_output(context);
+        let force_an_update_when_value_changed_binding = force_an_update_when_value_changed_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let sas_token_binding = args.sas_token.get_output(context).get_inner();
-        let script_content_binding = args.script_content.get_output(context).get_inner();
-        let url_binding = args.url.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let sas_token_binding_1 = args.sas_token.get_output(context);
+        let sas_token_binding = sas_token_binding_1.get_inner();
+        let script_content_binding_1 = args.script_content.get_output(context);
+        let script_content_binding = script_content_binding_1.get_inner();
+        let url_binding_1 = args.url.get_output(context);
+        let url_binding = url_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/script:Script".into(),
             name: name.to_string(),

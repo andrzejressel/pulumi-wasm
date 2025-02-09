@@ -153,16 +153,20 @@ pub mod folder {
     ) -> FolderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let folder_id_binding = args.folder_id.get_output(context).get_inner();
-        let folder_type_binding = args.folder_type.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_folder_arn_binding = args
-            .parent_folder_arn
-            .get_output(context)
-            .get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let folder_id_binding_1 = args.folder_id.get_output(context);
+        let folder_id_binding = folder_id_binding_1.get_inner();
+        let folder_type_binding_1 = args.folder_type.get_output(context);
+        let folder_type_binding = folder_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_folder_arn_binding_1 = args.parent_folder_arn.get_output(context);
+        let parent_folder_arn_binding = parent_folder_arn_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/folder:Folder".into(),
             name: name.to_string(),

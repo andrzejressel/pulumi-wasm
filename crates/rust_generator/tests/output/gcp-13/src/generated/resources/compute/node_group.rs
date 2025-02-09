@@ -264,29 +264,30 @@ pub mod node_group {
     ) -> NodeGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_policy_binding = args
-            .autoscaling_policy
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let initial_size_binding = args.initial_size.get_output(context).get_inner();
-        let maintenance_interval_binding = args
+        let autoscaling_policy_binding_1 = args.autoscaling_policy.get_output(context);
+        let autoscaling_policy_binding = autoscaling_policy_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let initial_size_binding_1 = args.initial_size.get_output(context);
+        let initial_size_binding = initial_size_binding_1.get_inner();
+        let maintenance_interval_binding_1 = args
             .maintenance_interval
-            .get_output(context)
-            .get_inner();
-        let maintenance_policy_binding = args
-            .maintenance_policy
-            .get_output(context)
-            .get_inner();
-        let maintenance_window_binding = args
-            .maintenance_window
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_template_binding = args.node_template.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let share_settings_binding = args.share_settings.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+            .get_output(context);
+        let maintenance_interval_binding = maintenance_interval_binding_1.get_inner();
+        let maintenance_policy_binding_1 = args.maintenance_policy.get_output(context);
+        let maintenance_policy_binding = maintenance_policy_binding_1.get_inner();
+        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
+        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_template_binding_1 = args.node_template.get_output(context);
+        let node_template_binding = node_template_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let share_settings_binding_1 = args.share_settings.get_output(context);
+        let share_settings_binding = share_settings_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/nodeGroup:NodeGroup".into(),
             name: name.to_string(),

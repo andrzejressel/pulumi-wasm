@@ -67,12 +67,18 @@ pub mod access_group {
     ) -> AccessGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let excludes_binding = args.excludes.get_output(context).get_inner();
-        let includes_binding = args.includes.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let requires_binding = args.requires.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let excludes_binding_1 = args.excludes.get_output(context);
+        let excludes_binding = excludes_binding_1.get_inner();
+        let includes_binding_1 = args.includes.get_output(context);
+        let includes_binding = includes_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let requires_binding_1 = args.requires.get_output(context);
+        let requires_binding = requires_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/accessGroup:AccessGroup".into(),
             name: name.to_string(),

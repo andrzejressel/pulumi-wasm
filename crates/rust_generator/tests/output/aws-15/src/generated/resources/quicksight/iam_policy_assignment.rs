@@ -93,18 +93,18 @@ pub mod iam_policy_assignment {
     ) -> IamPolicyAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assignment_name_binding = args
-            .assignment_name
-            .get_output(context)
-            .get_inner();
-        let assignment_status_binding = args
-            .assignment_status
-            .get_output(context)
-            .get_inner();
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let identities_binding = args.identities.get_output(context).get_inner();
-        let namespace_binding = args.namespace.get_output(context).get_inner();
-        let policy_arn_binding = args.policy_arn.get_output(context).get_inner();
+        let assignment_name_binding_1 = args.assignment_name.get_output(context);
+        let assignment_name_binding = assignment_name_binding_1.get_inner();
+        let assignment_status_binding_1 = args.assignment_status.get_output(context);
+        let assignment_status_binding = assignment_status_binding_1.get_inner();
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let identities_binding_1 = args.identities.get_output(context);
+        let identities_binding = identities_binding_1.get_inner();
+        let namespace_binding_1 = args.namespace.get_output(context);
+        let namespace_binding = namespace_binding_1.get_inner();
+        let policy_arn_binding_1 = args.policy_arn.get_output(context);
+        let policy_arn_binding = policy_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment".into(),
             name: name.to_string(),

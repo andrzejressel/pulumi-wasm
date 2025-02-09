@@ -54,10 +54,14 @@ pub mod get_policy {
     ) -> GetPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let path_prefix_binding = args.path_prefix.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let arn_binding_1 = args.arn.get_output(context);
+        let arn_binding = arn_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let path_prefix_binding_1 = args.path_prefix.get_output(context);
+        let path_prefix_binding = path_prefix_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getPolicy:getPolicy".into(),
             version: super::super::super::get_version(),

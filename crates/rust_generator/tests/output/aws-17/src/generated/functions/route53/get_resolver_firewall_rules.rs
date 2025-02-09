@@ -38,12 +38,15 @@ pub mod get_resolver_firewall_rules {
     ) -> GetResolverFirewallRulesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let firewall_rule_group_id_binding = args
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let firewall_rule_group_id_binding_1 = args
             .firewall_rule_group_id
-            .get_output(context)
+            .get_output(context);
+        let firewall_rule_group_id_binding = firewall_rule_group_id_binding_1
             .get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverFirewallRules:getResolverFirewallRules"
                 .into(),

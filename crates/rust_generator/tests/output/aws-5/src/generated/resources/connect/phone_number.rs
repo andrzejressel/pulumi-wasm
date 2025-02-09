@@ -129,12 +129,18 @@ pub mod phone_number {
     ) -> PhoneNumberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let country_code_binding = args.country_code.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let prefix_binding = args.prefix.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_arn_binding = args.target_arn.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let country_code_binding_1 = args.country_code.get_output(context);
+        let country_code_binding = country_code_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let prefix_binding_1 = args.prefix.get_output(context);
+        let prefix_binding = prefix_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_arn_binding_1 = args.target_arn.get_output(context);
+        let target_arn_binding = target_arn_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:connect/phoneNumber:PhoneNumber".into(),
             name: name.to_string(),

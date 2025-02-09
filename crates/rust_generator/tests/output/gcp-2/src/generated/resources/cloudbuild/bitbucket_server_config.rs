@@ -251,19 +251,29 @@ pub mod bitbucket_server_config {
     ) -> BitbucketServerConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_binding = args.api_key.get_output(context).get_inner();
-        let config_id_binding = args.config_id.get_output(context).get_inner();
-        let connected_repositories_binding = args
+        let api_key_binding_1 = args.api_key.get_output(context);
+        let api_key_binding = api_key_binding_1.get_inner();
+        let config_id_binding_1 = args.config_id.get_output(context);
+        let config_id_binding = config_id_binding_1.get_inner();
+        let connected_repositories_binding_1 = args
             .connected_repositories
-            .get_output(context)
+            .get_output(context);
+        let connected_repositories_binding = connected_repositories_binding_1
             .get_inner();
-        let host_uri_binding = args.host_uri.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let peered_network_binding = args.peered_network.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let secrets_binding = args.secrets.get_output(context).get_inner();
-        let ssl_ca_binding = args.ssl_ca.get_output(context).get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
+        let host_uri_binding_1 = args.host_uri.get_output(context);
+        let host_uri_binding = host_uri_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let peered_network_binding_1 = args.peered_network.get_output(context);
+        let peered_network_binding = peered_network_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let secrets_binding_1 = args.secrets.get_output(context);
+        let secrets_binding = secrets_binding_1.get_inner();
+        let ssl_ca_binding_1 = args.ssl_ca.get_output(context);
+        let ssl_ca_binding = ssl_ca_binding_1.get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudbuild/bitbucketServerConfig:BitbucketServerConfig".into(),
             name: name.to_string(),

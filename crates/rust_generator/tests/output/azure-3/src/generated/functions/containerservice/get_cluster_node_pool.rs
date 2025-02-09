@@ -84,15 +84,15 @@ pub mod get_cluster_node_pool {
     ) -> GetClusterNodePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let kubernetes_cluster_name_binding = args
+        let kubernetes_cluster_name_binding_1 = args
             .kubernetes_cluster_name
-            .get_output(context)
+            .get_output(context);
+        let kubernetes_cluster_name_binding = kubernetes_cluster_name_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:containerservice/getClusterNodePool:getClusterNodePool".into(),
             version: super::super::super::get_version(),

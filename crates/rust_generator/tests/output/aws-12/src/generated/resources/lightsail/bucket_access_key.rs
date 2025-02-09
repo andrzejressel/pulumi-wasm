@@ -57,7 +57,8 @@ pub mod bucket_access_key {
     ) -> BucketAccessKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_name_binding = args.bucket_name.get_output(context).get_inner();
+        let bucket_name_binding_1 = args.bucket_name.get_output(context);
+        let bucket_name_binding = bucket_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/bucketAccessKey:BucketAccessKey".into(),
             name: name.to_string(),

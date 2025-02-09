@@ -291,62 +291,62 @@ pub mod gateway {
     ) -> GatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let activation_key_binding = args.activation_key.get_output(context).get_inner();
-        let average_download_rate_limit_in_bits_per_sec_binding = args
+        let activation_key_binding_1 = args.activation_key.get_output(context);
+        let activation_key_binding = activation_key_binding_1.get_inner();
+        let average_download_rate_limit_in_bits_per_sec_binding_1 = args
             .average_download_rate_limit_in_bits_per_sec
-            .get_output(context)
+            .get_output(context);
+        let average_download_rate_limit_in_bits_per_sec_binding = average_download_rate_limit_in_bits_per_sec_binding_1
             .get_inner();
-        let average_upload_rate_limit_in_bits_per_sec_binding = args
+        let average_upload_rate_limit_in_bits_per_sec_binding_1 = args
             .average_upload_rate_limit_in_bits_per_sec
-            .get_output(context)
+            .get_output(context);
+        let average_upload_rate_limit_in_bits_per_sec_binding = average_upload_rate_limit_in_bits_per_sec_binding_1
             .get_inner();
-        let cloudwatch_log_group_arn_binding = args
+        let cloudwatch_log_group_arn_binding_1 = args
             .cloudwatch_log_group_arn
-            .get_output(context)
+            .get_output(context);
+        let cloudwatch_log_group_arn_binding = cloudwatch_log_group_arn_binding_1
             .get_inner();
-        let gateway_ip_address_binding = args
-            .gateway_ip_address
-            .get_output(context)
-            .get_inner();
-        let gateway_name_binding = args.gateway_name.get_output(context).get_inner();
-        let gateway_timezone_binding = args
-            .gateway_timezone
-            .get_output(context)
-            .get_inner();
-        let gateway_type_binding = args.gateway_type.get_output(context).get_inner();
-        let gateway_vpc_endpoint_binding = args
+        let gateway_ip_address_binding_1 = args.gateway_ip_address.get_output(context);
+        let gateway_ip_address_binding = gateway_ip_address_binding_1.get_inner();
+        let gateway_name_binding_1 = args.gateway_name.get_output(context);
+        let gateway_name_binding = gateway_name_binding_1.get_inner();
+        let gateway_timezone_binding_1 = args.gateway_timezone.get_output(context);
+        let gateway_timezone_binding = gateway_timezone_binding_1.get_inner();
+        let gateway_type_binding_1 = args.gateway_type.get_output(context);
+        let gateway_type_binding = gateway_type_binding_1.get_inner();
+        let gateway_vpc_endpoint_binding_1 = args
             .gateway_vpc_endpoint
-            .get_output(context)
-            .get_inner();
-        let maintenance_start_time_binding = args
+            .get_output(context);
+        let gateway_vpc_endpoint_binding = gateway_vpc_endpoint_binding_1.get_inner();
+        let maintenance_start_time_binding_1 = args
             .maintenance_start_time
-            .get_output(context)
+            .get_output(context);
+        let maintenance_start_time_binding = maintenance_start_time_binding_1
             .get_inner();
-        let medium_changer_type_binding = args
-            .medium_changer_type
-            .get_output(context)
-            .get_inner();
-        let smb_active_directory_settings_binding = args
+        let medium_changer_type_binding_1 = args.medium_changer_type.get_output(context);
+        let medium_changer_type_binding = medium_changer_type_binding_1.get_inner();
+        let smb_active_directory_settings_binding_1 = args
             .smb_active_directory_settings
-            .get_output(context)
+            .get_output(context);
+        let smb_active_directory_settings_binding = smb_active_directory_settings_binding_1
             .get_inner();
-        let smb_file_share_visibility_binding = args
+        let smb_file_share_visibility_binding_1 = args
             .smb_file_share_visibility
-            .get_output(context)
+            .get_output(context);
+        let smb_file_share_visibility_binding = smb_file_share_visibility_binding_1
             .get_inner();
-        let smb_guest_password_binding = args
-            .smb_guest_password
-            .get_output(context)
-            .get_inner();
-        let smb_security_strategy_binding = args
+        let smb_guest_password_binding_1 = args.smb_guest_password.get_output(context);
+        let smb_guest_password_binding = smb_guest_password_binding_1.get_inner();
+        let smb_security_strategy_binding_1 = args
             .smb_security_strategy
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tape_drive_type_binding = args
-            .tape_drive_type
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let smb_security_strategy_binding = smb_security_strategy_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tape_drive_type_binding_1 = args.tape_drive_type.get_output(context);
+        let tape_drive_type_binding = tape_drive_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:storagegateway/gateway:Gateway".into(),
             name: name.to_string(),

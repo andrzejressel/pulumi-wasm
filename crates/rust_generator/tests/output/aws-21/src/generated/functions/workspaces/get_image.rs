@@ -33,7 +33,8 @@ pub mod get_image {
     ) -> GetImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let image_id_binding = args.image_id.get_output(context).get_inner();
+        let image_id_binding_1 = args.image_id.get_output(context);
+        let image_id_binding = image_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:workspaces/getImage:getImage".into(),
             version: super::super::super::get_version(),

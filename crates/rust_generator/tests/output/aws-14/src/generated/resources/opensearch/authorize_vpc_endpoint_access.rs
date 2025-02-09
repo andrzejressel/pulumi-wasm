@@ -62,8 +62,10 @@ pub mod authorize_vpc_endpoint_access {
     ) -> AuthorizeVpcEndpointAccessResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_binding = args.account.get_output(context).get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let account_binding_1 = args.account.get_output(context);
+        let account_binding = account_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess"
                 .into(),

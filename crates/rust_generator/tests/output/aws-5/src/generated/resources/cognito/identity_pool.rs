@@ -139,39 +139,39 @@ pub mod identity_pool {
     ) -> IdentityPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_classic_flow_binding = args
-            .allow_classic_flow
-            .get_output(context)
-            .get_inner();
-        let allow_unauthenticated_identities_binding = args
+        let allow_classic_flow_binding_1 = args.allow_classic_flow.get_output(context);
+        let allow_classic_flow_binding = allow_classic_flow_binding_1.get_inner();
+        let allow_unauthenticated_identities_binding_1 = args
             .allow_unauthenticated_identities
-            .get_output(context)
+            .get_output(context);
+        let allow_unauthenticated_identities_binding = allow_unauthenticated_identities_binding_1
             .get_inner();
-        let cognito_identity_providers_binding = args
+        let cognito_identity_providers_binding_1 = args
             .cognito_identity_providers
-            .get_output(context)
+            .get_output(context);
+        let cognito_identity_providers_binding = cognito_identity_providers_binding_1
             .get_inner();
-        let developer_provider_name_binding = args
+        let developer_provider_name_binding_1 = args
             .developer_provider_name
-            .get_output(context)
+            .get_output(context);
+        let developer_provider_name_binding = developer_provider_name_binding_1
             .get_inner();
-        let identity_pool_name_binding = args
-            .identity_pool_name
-            .get_output(context)
-            .get_inner();
-        let openid_connect_provider_arns_binding = args
+        let identity_pool_name_binding_1 = args.identity_pool_name.get_output(context);
+        let identity_pool_name_binding = identity_pool_name_binding_1.get_inner();
+        let openid_connect_provider_arns_binding_1 = args
             .openid_connect_provider_arns
-            .get_output(context)
+            .get_output(context);
+        let openid_connect_provider_arns_binding = openid_connect_provider_arns_binding_1
             .get_inner();
-        let saml_provider_arns_binding = args
-            .saml_provider_arns
-            .get_output(context)
-            .get_inner();
-        let supported_login_providers_binding = args
+        let saml_provider_arns_binding_1 = args.saml_provider_arns.get_output(context);
+        let saml_provider_arns_binding = saml_provider_arns_binding_1.get_inner();
+        let supported_login_providers_binding_1 = args
             .supported_login_providers
-            .get_output(context)
+            .get_output(context);
+        let supported_login_providers_binding = supported_login_providers_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/identityPool:IdentityPool".into(),
             name: name.to_string(),

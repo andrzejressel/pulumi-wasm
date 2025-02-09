@@ -328,16 +328,24 @@ pub mod service_perimeter {
     ) -> ServicePerimeterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let perimeter_type_binding = args.perimeter_type.get_output(context).get_inner();
-        let spec_binding = args.spec.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let title_binding = args.title.get_output(context).get_inner();
-        let use_explicit_dry_run_spec_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let perimeter_type_binding_1 = args.perimeter_type.get_output(context);
+        let perimeter_type_binding = perimeter_type_binding_1.get_inner();
+        let spec_binding_1 = args.spec.get_output(context);
+        let spec_binding = spec_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let title_binding_1 = args.title.get_output(context);
+        let title_binding = title_binding_1.get_inner();
+        let use_explicit_dry_run_spec_binding_1 = args
             .use_explicit_dry_run_spec
-            .get_output(context)
+            .get_output(context);
+        let use_explicit_dry_run_spec_binding = use_explicit_dry_run_spec_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/servicePerimeter:ServicePerimeter".into(),

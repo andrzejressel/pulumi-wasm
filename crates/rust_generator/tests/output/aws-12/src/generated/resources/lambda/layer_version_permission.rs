@@ -91,16 +91,20 @@ pub mod layer_version_permission {
     ) -> LayerVersionPermissionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let layer_name_binding = args.layer_name.get_output(context).get_inner();
-        let organization_id_binding = args
-            .organization_id
-            .get_output(context)
-            .get_inner();
-        let principal_binding = args.principal.get_output(context).get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
-        let statement_id_binding = args.statement_id.get_output(context).get_inner();
-        let version_number_binding = args.version_number.get_output(context).get_inner();
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let layer_name_binding_1 = args.layer_name.get_output(context);
+        let layer_name_binding = layer_name_binding_1.get_inner();
+        let organization_id_binding_1 = args.organization_id.get_output(context);
+        let organization_id_binding = organization_id_binding_1.get_inner();
+        let principal_binding_1 = args.principal.get_output(context);
+        let principal_binding = principal_binding_1.get_inner();
+        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
+        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
+        let statement_id_binding_1 = args.statement_id.get_output(context);
+        let statement_id_binding = statement_id_binding_1.get_inner();
+        let version_number_binding_1 = args.version_number.get_output(context);
+        let version_number_binding = version_number_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/layerVersionPermission:LayerVersionPermission".into(),
             name: name.to_string(),

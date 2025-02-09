@@ -87,16 +87,14 @@ pub mod domain_permissions {
     ) -> DomainPermissionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let domain_owner_binding = args.domain_owner.get_output(context).get_inner();
-        let policy_document_binding = args
-            .policy_document
-            .get_output(context)
-            .get_inner();
-        let policy_revision_binding = args
-            .policy_revision
-            .get_output(context)
-            .get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let domain_owner_binding_1 = args.domain_owner.get_output(context);
+        let domain_owner_binding = domain_owner_binding_1.get_inner();
+        let policy_document_binding_1 = args.policy_document.get_output(context);
+        let policy_document_binding = policy_document_binding_1.get_inner();
+        let policy_revision_binding_1 = args.policy_revision.get_output(context);
+        let policy_revision_binding = policy_revision_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codeartifact/domainPermissions:DomainPermissions".into(),
             name: name.to_string(),

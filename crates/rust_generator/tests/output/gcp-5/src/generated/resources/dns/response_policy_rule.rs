@@ -135,15 +135,18 @@ pub mod response_policy_rule {
     ) -> ResponsePolicyRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let behavior_binding = args.behavior.get_output(context).get_inner();
-        let dns_name_binding = args.dns_name.get_output(context).get_inner();
-        let local_data_binding = args.local_data.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let response_policy_binding = args
-            .response_policy
-            .get_output(context)
-            .get_inner();
-        let rule_name_binding = args.rule_name.get_output(context).get_inner();
+        let behavior_binding_1 = args.behavior.get_output(context);
+        let behavior_binding = behavior_binding_1.get_inner();
+        let dns_name_binding_1 = args.dns_name.get_output(context);
+        let dns_name_binding = dns_name_binding_1.get_inner();
+        let local_data_binding_1 = args.local_data.get_output(context);
+        let local_data_binding = local_data_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let response_policy_binding_1 = args.response_policy.get_output(context);
+        let response_policy_binding = response_policy_binding_1.get_inner();
+        let rule_name_binding_1 = args.rule_name.get_output(context);
+        let rule_name_binding = rule_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dns/responsePolicyRule:ResponsePolicyRule".into(),
             name: name.to_string(),

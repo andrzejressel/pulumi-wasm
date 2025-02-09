@@ -206,31 +206,39 @@ pub mod v_2_models_slot_type {
     ) -> V2modelsSlotTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_id_binding = args.bot_id.get_output(context).get_inner();
-        let bot_version_binding = args.bot_version.get_output(context).get_inner();
-        let composite_slot_type_setting_binding = args
+        let bot_id_binding_1 = args.bot_id.get_output(context);
+        let bot_id_binding = bot_id_binding_1.get_inner();
+        let bot_version_binding_1 = args.bot_version.get_output(context);
+        let bot_version_binding = bot_version_binding_1.get_inner();
+        let composite_slot_type_setting_binding_1 = args
             .composite_slot_type_setting
-            .get_output(context)
+            .get_output(context);
+        let composite_slot_type_setting_binding = composite_slot_type_setting_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let external_source_setting_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let external_source_setting_binding_1 = args
             .external_source_setting
-            .get_output(context)
+            .get_output(context);
+        let external_source_setting_binding = external_source_setting_binding_1
             .get_inner();
-        let locale_id_binding = args.locale_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_slot_type_signature_binding = args
+        let locale_id_binding_1 = args.locale_id.get_output(context);
+        let locale_id_binding = locale_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_slot_type_signature_binding_1 = args
             .parent_slot_type_signature
-            .get_output(context)
+            .get_output(context);
+        let parent_slot_type_signature_binding = parent_slot_type_signature_binding_1
             .get_inner();
-        let slot_type_values_binding = args
-            .slot_type_values
-            .get_output(context)
-            .get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let value_selection_setting_binding = args
+        let slot_type_values_binding_1 = args.slot_type_values.get_output(context);
+        let slot_type_values_binding = slot_type_values_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let value_selection_setting_binding_1 = args
             .value_selection_setting
-            .get_output(context)
+            .get_output(context);
+        let value_selection_setting_binding = value_selection_setting_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lex/v2modelsSlotType:V2modelsSlotType".into(),

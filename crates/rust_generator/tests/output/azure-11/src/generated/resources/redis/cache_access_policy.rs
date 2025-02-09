@@ -77,9 +77,12 @@ pub mod cache_access_policy {
     ) -> CacheAccessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let redis_cache_id_binding = args.redis_cache_id.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let redis_cache_id_binding_1 = args.redis_cache_id.get_output(context);
+        let redis_cache_id_binding = redis_cache_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:redis/cacheAccessPolicy:CacheAccessPolicy".into(),
             name: name.to_string(),

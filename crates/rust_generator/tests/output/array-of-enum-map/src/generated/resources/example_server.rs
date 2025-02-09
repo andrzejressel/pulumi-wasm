@@ -40,7 +40,8 @@ pub mod example_server {
     ) -> ExampleServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let map_array_enum_binding = args.map_array_enum.get_output(context).get_inner();
+        let map_array_enum_binding_1 = args.map_array_enum.get_output(context);
+        let map_array_enum_binding = map_array_enum_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "example:index:ExampleServer".into(),
             name: name.to_string(),

@@ -31,10 +31,8 @@ pub mod get_standards_control_associations {
     ) -> GetStandardsControlAssociationsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let security_control_id_binding = args
-            .security_control_id
-            .get_output(context)
-            .get_inner();
+        let security_control_id_binding_1 = args.security_control_id.get_output(context);
+        let security_control_id_binding = security_control_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations"
                 .into(),

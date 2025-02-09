@@ -129,14 +129,16 @@ pub mod enrichment {
     ) -> EnrichmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_names_binding = args.endpoint_names.get_output(context).get_inner();
-        let iothub_name_binding = args.iothub_name.get_output(context).get_inner();
-        let key_binding = args.key.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let value_binding = args.value.get_output(context).get_inner();
+        let endpoint_names_binding_1 = args.endpoint_names.get_output(context);
+        let endpoint_names_binding = endpoint_names_binding_1.get_inner();
+        let iothub_name_binding_1 = args.iothub_name.get_output(context);
+        let iothub_name_binding = iothub_name_binding_1.get_inner();
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let value_binding_1 = args.value.get_output(context);
+        let value_binding = value_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/enrichment:Enrichment".into(),
             name: name.to_string(),

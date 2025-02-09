@@ -50,13 +50,16 @@ pub mod get_secret_version {
     ) -> GetSecretVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let is_secret_data_base64_binding = args
+        let is_secret_data_base64_binding_1 = args
             .is_secret_data_base64
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let secret_binding = args.secret.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+            .get_output(context);
+        let is_secret_data_base64_binding = is_secret_data_base64_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let secret_binding_1 = args.secret.get_output(context);
+        let secret_binding = secret_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:monitoring/getSecretVersion:getSecretVersion".into(),
             version: super::super::super::get_version(),

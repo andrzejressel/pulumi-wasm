@@ -135,11 +135,16 @@ pub mod firewall_rule {
     ) -> FirewallRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let source_range_binding = args.source_range.get_output(context).get_inner();
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let source_range_binding_1 = args.source_range.get_output(context);
+        let source_range_binding = source_range_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/firewallRule:FirewallRule".into(),
             name: name.to_string(),

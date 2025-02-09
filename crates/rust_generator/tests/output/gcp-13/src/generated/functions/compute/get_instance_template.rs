@@ -170,14 +170,16 @@ pub mod get_instance_template {
     ) -> GetInstanceTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let most_recent_binding = args.most_recent.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let self_link_unique_binding = args
-            .self_link_unique
-            .get_output(context)
-            .get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let most_recent_binding_1 = args.most_recent.get_output(context);
+        let most_recent_binding = most_recent_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let self_link_unique_binding_1 = args.self_link_unique.get_output(context);
+        let self_link_unique_binding = self_link_unique_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getInstanceTemplate:getInstanceTemplate".into(),
             version: super::super::super::get_version(),

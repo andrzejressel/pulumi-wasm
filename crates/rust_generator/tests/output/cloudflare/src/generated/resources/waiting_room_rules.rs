@@ -74,12 +74,12 @@ pub mod waiting_room_rules {
     ) -> WaitingRoomRulesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let rules_binding = args.rules.get_output(context).get_inner();
-        let waiting_room_id_binding = args
-            .waiting_room_id
-            .get_output(context)
-            .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
+        let waiting_room_id_binding_1 = args.waiting_room_id.get_output(context);
+        let waiting_room_id_binding = waiting_room_id_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/waitingRoomRules:WaitingRoomRules".into(),
             name: name.to_string(),

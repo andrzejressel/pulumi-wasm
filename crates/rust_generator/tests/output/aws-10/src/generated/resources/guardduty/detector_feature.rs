@@ -82,13 +82,17 @@ pub mod detector_feature {
     ) -> DetectorFeatureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_configurations_binding = args
+        let additional_configurations_binding_1 = args
             .additional_configurations
-            .get_output(context)
+            .get_output(context);
+        let additional_configurations_binding = additional_configurations_binding_1
             .get_inner();
-        let detector_id_binding = args.detector_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
+        let detector_id_binding_1 = args.detector_id.get_output(context);
+        let detector_id_binding = detector_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:guardduty/detectorFeature:DetectorFeature".into(),
             name: name.to_string(),

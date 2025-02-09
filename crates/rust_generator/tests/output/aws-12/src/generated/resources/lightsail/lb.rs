@@ -85,17 +85,16 @@ pub mod lb {
     ) -> LbResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let health_check_path_binding = args
-            .health_check_path
-            .get_output(context)
-            .get_inner();
-        let instance_port_binding = args.instance_port.get_output(context).get_inner();
-        let ip_address_type_binding = args
-            .ip_address_type
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let health_check_path_binding_1 = args.health_check_path.get_output(context);
+        let health_check_path_binding = health_check_path_binding_1.get_inner();
+        let instance_port_binding_1 = args.instance_port.get_output(context);
+        let instance_port_binding = instance_port_binding_1.get_inner();
+        let ip_address_type_binding_1 = args.ip_address_type.get_output(context);
+        let ip_address_type_binding = ip_address_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/lb:Lb".into(),
             name: name.to_string(),

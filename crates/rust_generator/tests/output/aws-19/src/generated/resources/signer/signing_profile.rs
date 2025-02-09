@@ -107,18 +107,21 @@ pub mod signing_profile {
     ) -> SigningProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let platform_id_binding = args.platform_id.get_output(context).get_inner();
-        let signature_validity_period_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let platform_id_binding_1 = args.platform_id.get_output(context);
+        let platform_id_binding = platform_id_binding_1.get_inner();
+        let signature_validity_period_binding_1 = args
             .signature_validity_period
-            .get_output(context)
+            .get_output(context);
+        let signature_validity_period_binding = signature_validity_period_binding_1
             .get_inner();
-        let signing_material_binding = args
-            .signing_material
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let signing_material_binding_1 = args.signing_material.get_output(context);
+        let signing_material_binding = signing_material_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:signer/signingProfile:SigningProfile".into(),
             name: name.to_string(),

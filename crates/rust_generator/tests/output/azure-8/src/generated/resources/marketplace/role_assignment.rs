@@ -53,29 +53,31 @@ pub mod role_assignment {
     ) -> RoleAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let condition_version_binding = args
-            .condition_version
-            .get_output(context)
-            .get_inner();
-        let delegated_managed_identity_resource_id_binding = args
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let condition_version_binding_1 = args.condition_version.get_output(context);
+        let condition_version_binding = condition_version_binding_1.get_inner();
+        let delegated_managed_identity_resource_id_binding_1 = args
             .delegated_managed_identity_resource_id
-            .get_output(context)
+            .get_output(context);
+        let delegated_managed_identity_resource_id_binding = delegated_managed_identity_resource_id_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let principal_id_binding = args.principal_id.get_output(context).get_inner();
-        let role_definition_id_binding = args
-            .role_definition_id
-            .get_output(context)
-            .get_inner();
-        let role_definition_name_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let principal_id_binding_1 = args.principal_id.get_output(context);
+        let principal_id_binding = principal_id_binding_1.get_inner();
+        let role_definition_id_binding_1 = args.role_definition_id.get_output(context);
+        let role_definition_id_binding = role_definition_id_binding_1.get_inner();
+        let role_definition_name_binding_1 = args
             .role_definition_name
-            .get_output(context)
-            .get_inner();
-        let skip_service_principal_aad_check_binding = args
+            .get_output(context);
+        let role_definition_name_binding = role_definition_name_binding_1.get_inner();
+        let skip_service_principal_aad_check_binding_1 = args
             .skip_service_principal_aad_check
-            .get_output(context)
+            .get_output(context);
+        let skip_service_principal_aad_check_binding = skip_service_principal_aad_check_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:marketplace/roleAssignment:RoleAssignment".into(),

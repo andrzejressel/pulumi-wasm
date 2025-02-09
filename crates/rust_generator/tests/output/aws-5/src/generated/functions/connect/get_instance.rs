@@ -58,9 +58,12 @@ pub mod get_instance {
     ) -> GetInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_alias_binding = args.instance_alias.get_output(context).get_inner();
-        let instance_id_binding = args.instance_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let instance_alias_binding_1 = args.instance_alias.get_output(context);
+        let instance_alias_binding = instance_alias_binding_1.get_inner();
+        let instance_id_binding_1 = args.instance_id.get_output(context);
+        let instance_id_binding = instance_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:connect/getInstance:getInstance".into(),
             version: super::super::super::get_version(),

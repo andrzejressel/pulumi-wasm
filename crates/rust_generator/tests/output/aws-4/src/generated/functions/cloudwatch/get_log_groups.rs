@@ -28,10 +28,10 @@ pub mod get_log_groups {
     ) -> GetLogGroupsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let log_group_name_prefix_binding = args
+        let log_group_name_prefix_binding_1 = args
             .log_group_name_prefix
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let log_group_name_prefix_binding = log_group_name_prefix_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudwatch/getLogGroups:getLogGroups".into(),
             version: super::super::super::get_version(),

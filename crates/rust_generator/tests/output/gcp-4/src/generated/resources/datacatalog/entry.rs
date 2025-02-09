@@ -240,28 +240,28 @@ pub mod entry {
     ) -> EntryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let entry_group_binding = args.entry_group.get_output(context).get_inner();
-        let entry_id_binding = args.entry_id.get_output(context).get_inner();
-        let gcs_fileset_spec_binding = args
-            .gcs_fileset_spec
-            .get_output(context)
-            .get_inner();
-        let linked_resource_binding = args
-            .linked_resource
-            .get_output(context)
-            .get_inner();
-        let schema_binding = args.schema.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let user_specified_system_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let entry_group_binding_1 = args.entry_group.get_output(context);
+        let entry_group_binding = entry_group_binding_1.get_inner();
+        let entry_id_binding_1 = args.entry_id.get_output(context);
+        let entry_id_binding = entry_id_binding_1.get_inner();
+        let gcs_fileset_spec_binding_1 = args.gcs_fileset_spec.get_output(context);
+        let gcs_fileset_spec_binding = gcs_fileset_spec_binding_1.get_inner();
+        let linked_resource_binding_1 = args.linked_resource.get_output(context);
+        let linked_resource_binding = linked_resource_binding_1.get_inner();
+        let schema_binding_1 = args.schema.get_output(context);
+        let schema_binding = schema_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let user_specified_system_binding_1 = args
             .user_specified_system
-            .get_output(context)
-            .get_inner();
-        let user_specified_type_binding = args
-            .user_specified_type
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let user_specified_system_binding = user_specified_system_binding_1.get_inner();
+        let user_specified_type_binding_1 = args.user_specified_type.get_output(context);
+        let user_specified_type_binding = user_specified_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/entry:Entry".into(),
             name: name.to_string(),

@@ -85,14 +85,19 @@ pub mod member {
     ) -> MemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let disable_email_notification_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let disable_email_notification_binding_1 = args
             .disable_email_notification
-            .get_output(context)
+            .get_output(context);
+        let disable_email_notification_binding = disable_email_notification_binding_1
             .get_inner();
-        let email_address_binding = args.email_address.get_output(context).get_inner();
-        let graph_arn_binding = args.graph_arn.get_output(context).get_inner();
-        let message_binding = args.message.get_output(context).get_inner();
+        let email_address_binding_1 = args.email_address.get_output(context);
+        let email_address_binding = email_address_binding_1.get_inner();
+        let graph_arn_binding_1 = args.graph_arn.get_output(context);
+        let graph_arn_binding = graph_arn_binding_1.get_inner();
+        let message_binding_1 = args.message.get_output(context);
+        let message_binding = message_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:detective/member:Member".into(),
             name: name.to_string(),

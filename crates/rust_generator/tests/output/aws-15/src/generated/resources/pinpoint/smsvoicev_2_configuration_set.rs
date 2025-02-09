@@ -76,16 +76,16 @@ pub mod smsvoicev_2_configuration_set {
     ) -> Smsvoicev2ConfigurationSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_message_type_binding = args
+        let default_message_type_binding_1 = args
             .default_message_type
-            .get_output(context)
-            .get_inner();
-        let default_sender_id_binding = args
-            .default_sender_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let default_message_type_binding = default_message_type_binding_1.get_inner();
+        let default_sender_id_binding_1 = args.default_sender_id.get_output(context);
+        let default_sender_id_binding = default_sender_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet"
                 .into(),

@@ -223,31 +223,35 @@ pub mod channel {
     ) -> ChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdi_input_specification_binding = args
+        let cdi_input_specification_binding_1 = args
             .cdi_input_specification
-            .get_output(context)
+            .get_output(context);
+        let cdi_input_specification_binding = cdi_input_specification_binding_1
             .get_inner();
-        let channel_class_binding = args.channel_class.get_output(context).get_inner();
-        let destinations_binding = args.destinations.get_output(context).get_inner();
-        let encoder_settings_binding = args
-            .encoder_settings
-            .get_output(context)
-            .get_inner();
-        let input_attachments_binding = args
-            .input_attachments
-            .get_output(context)
-            .get_inner();
-        let input_specification_binding = args
-            .input_specification
-            .get_output(context)
-            .get_inner();
-        let log_level_binding = args.log_level.get_output(context).get_inner();
-        let maintenance_binding = args.maintenance.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let start_channel_binding = args.start_channel.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_binding = args.vpc.get_output(context).get_inner();
+        let channel_class_binding_1 = args.channel_class.get_output(context);
+        let channel_class_binding = channel_class_binding_1.get_inner();
+        let destinations_binding_1 = args.destinations.get_output(context);
+        let destinations_binding = destinations_binding_1.get_inner();
+        let encoder_settings_binding_1 = args.encoder_settings.get_output(context);
+        let encoder_settings_binding = encoder_settings_binding_1.get_inner();
+        let input_attachments_binding_1 = args.input_attachments.get_output(context);
+        let input_attachments_binding = input_attachments_binding_1.get_inner();
+        let input_specification_binding_1 = args.input_specification.get_output(context);
+        let input_specification_binding = input_specification_binding_1.get_inner();
+        let log_level_binding_1 = args.log_level.get_output(context);
+        let log_level_binding = log_level_binding_1.get_inner();
+        let maintenance_binding_1 = args.maintenance.get_output(context);
+        let maintenance_binding = maintenance_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let start_channel_binding_1 = args.start_channel.get_output(context);
+        let start_channel_binding = start_channel_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_binding_1 = args.vpc.get_output(context);
+        let vpc_binding = vpc_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:medialive/channel:Channel".into(),
             name: name.to_string(),

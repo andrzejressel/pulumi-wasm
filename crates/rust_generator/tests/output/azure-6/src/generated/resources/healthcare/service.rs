@@ -170,43 +170,47 @@ pub mod service {
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_policy_object_ids_binding = args
+        let access_policy_object_ids_binding_1 = args
             .access_policy_object_ids
-            .get_output(context)
+            .get_output(context);
+        let access_policy_object_ids_binding = access_policy_object_ids_binding_1
             .get_inner();
-        let authentication_configuration_binding = args
+        let authentication_configuration_binding_1 = args
             .authentication_configuration
-            .get_output(context)
+            .get_output(context);
+        let authentication_configuration_binding = authentication_configuration_binding_1
             .get_inner();
-        let configuration_export_storage_account_name_binding = args
+        let configuration_export_storage_account_name_binding_1 = args
             .configuration_export_storage_account_name
-            .get_output(context)
+            .get_output(context);
+        let configuration_export_storage_account_name_binding = configuration_export_storage_account_name_binding_1
             .get_inner();
-        let cors_configuration_binding = args
-            .cors_configuration
-            .get_output(context)
-            .get_inner();
-        let cosmosdb_key_vault_key_versionless_id_binding = args
+        let cors_configuration_binding_1 = args.cors_configuration.get_output(context);
+        let cors_configuration_binding = cors_configuration_binding_1.get_inner();
+        let cosmosdb_key_vault_key_versionless_id_binding_1 = args
             .cosmosdb_key_vault_key_versionless_id
-            .get_output(context)
+            .get_output(context);
+        let cosmosdb_key_vault_key_versionless_id_binding = cosmosdb_key_vault_key_versionless_id_binding_1
             .get_inner();
-        let cosmosdb_throughput_binding = args
-            .cosmosdb_throughput
-            .get_output(context)
-            .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let kind_binding = args.kind.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+        let cosmosdb_throughput_binding_1 = args.cosmosdb_throughput.get_output(context);
+        let cosmosdb_throughput_binding = cosmosdb_throughput_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let kind_binding_1 = args.kind.get_output(context);
+        let kind_binding = kind_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:healthcare/service:Service".into(),
             name: name.to_string(),

@@ -158,53 +158,58 @@ pub mod graph_ql_api {
     ) -> GraphQLApiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_authentication_providers_binding = args
+        let additional_authentication_providers_binding_1 = args
             .additional_authentication_providers
-            .get_output(context)
+            .get_output(context);
+        let additional_authentication_providers_binding = additional_authentication_providers_binding_1
             .get_inner();
-        let api_type_binding = args.api_type.get_output(context).get_inner();
-        let authentication_type_binding = args
-            .authentication_type
-            .get_output(context)
-            .get_inner();
-        let enhanced_metrics_config_binding = args
+        let api_type_binding_1 = args.api_type.get_output(context);
+        let api_type_binding = api_type_binding_1.get_inner();
+        let authentication_type_binding_1 = args.authentication_type.get_output(context);
+        let authentication_type_binding = authentication_type_binding_1.get_inner();
+        let enhanced_metrics_config_binding_1 = args
             .enhanced_metrics_config
-            .get_output(context)
+            .get_output(context);
+        let enhanced_metrics_config_binding = enhanced_metrics_config_binding_1
             .get_inner();
-        let introspection_config_binding = args
+        let introspection_config_binding_1 = args
             .introspection_config
-            .get_output(context)
-            .get_inner();
-        let lambda_authorizer_config_binding = args
+            .get_output(context);
+        let introspection_config_binding = introspection_config_binding_1.get_inner();
+        let lambda_authorizer_config_binding_1 = args
             .lambda_authorizer_config
-            .get_output(context)
+            .get_output(context);
+        let lambda_authorizer_config_binding = lambda_authorizer_config_binding_1
             .get_inner();
-        let log_config_binding = args.log_config.get_output(context).get_inner();
-        let merged_api_execution_role_arn_binding = args
+        let log_config_binding_1 = args.log_config.get_output(context);
+        let log_config_binding = log_config_binding_1.get_inner();
+        let merged_api_execution_role_arn_binding_1 = args
             .merged_api_execution_role_arn
-            .get_output(context)
+            .get_output(context);
+        let merged_api_execution_role_arn_binding = merged_api_execution_role_arn_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let openid_connect_config_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let openid_connect_config_binding_1 = args
             .openid_connect_config
-            .get_output(context)
-            .get_inner();
-        let query_depth_limit_binding = args
-            .query_depth_limit
-            .get_output(context)
-            .get_inner();
-        let resolver_count_limit_binding = args
+            .get_output(context);
+        let openid_connect_config_binding = openid_connect_config_binding_1.get_inner();
+        let query_depth_limit_binding_1 = args.query_depth_limit.get_output(context);
+        let query_depth_limit_binding = query_depth_limit_binding_1.get_inner();
+        let resolver_count_limit_binding_1 = args
             .resolver_count_limit
-            .get_output(context)
-            .get_inner();
-        let schema_binding = args.schema.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_pool_config_binding = args
-            .user_pool_config
-            .get_output(context)
-            .get_inner();
-        let visibility_binding = args.visibility.get_output(context).get_inner();
-        let xray_enabled_binding = args.xray_enabled.get_output(context).get_inner();
+            .get_output(context);
+        let resolver_count_limit_binding = resolver_count_limit_binding_1.get_inner();
+        let schema_binding_1 = args.schema.get_output(context);
+        let schema_binding = schema_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_pool_config_binding_1 = args.user_pool_config.get_output(context);
+        let user_pool_config_binding = user_pool_config_binding_1.get_inner();
+        let visibility_binding_1 = args.visibility.get_output(context);
+        let visibility_binding = visibility_binding_1.get_inner();
+        let xray_enabled_binding_1 = args.xray_enabled.get_output(context);
+        let xray_enabled_binding = xray_enabled_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appsync/graphQLApi:GraphQLApi".into(),
             name: name.to_string(),

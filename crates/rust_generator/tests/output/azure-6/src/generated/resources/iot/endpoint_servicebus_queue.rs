@@ -132,23 +132,22 @@ pub mod endpoint_servicebus_queue {
     ) -> EndpointServicebusQueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_type_binding = args
-            .authentication_type
-            .get_output(context)
-            .get_inner();
-        let connection_string_binding = args
-            .connection_string
-            .get_output(context)
-            .get_inner();
-        let endpoint_uri_binding = args.endpoint_uri.get_output(context).get_inner();
-        let entity_path_binding = args.entity_path.get_output(context).get_inner();
-        let identity_id_binding = args.identity_id.get_output(context).get_inner();
-        let iothub_id_binding = args.iothub_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let authentication_type_binding_1 = args.authentication_type.get_output(context);
+        let authentication_type_binding = authentication_type_binding_1.get_inner();
+        let connection_string_binding_1 = args.connection_string.get_output(context);
+        let connection_string_binding = connection_string_binding_1.get_inner();
+        let endpoint_uri_binding_1 = args.endpoint_uri.get_output(context);
+        let endpoint_uri_binding = endpoint_uri_binding_1.get_inner();
+        let entity_path_binding_1 = args.entity_path.get_output(context);
+        let entity_path_binding = entity_path_binding_1.get_inner();
+        let identity_id_binding_1 = args.identity_id.get_output(context);
+        let identity_id_binding = identity_id_binding_1.get_inner();
+        let iothub_id_binding_1 = args.iothub_id.get_output(context);
+        let iothub_id_binding = iothub_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/endpointServicebusQueue:EndpointServicebusQueue".into(),
             name: name.to_string(),

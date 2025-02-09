@@ -257,26 +257,32 @@ pub mod node_template {
     ) -> NodeTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerators_binding = args.accelerators.get_output(context).get_inner();
-        let cpu_overcommit_type_binding = args
-            .cpu_overcommit_type
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disks_binding = args.disks.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_affinity_labels_binding = args
+        let accelerators_binding_1 = args.accelerators.get_output(context);
+        let accelerators_binding = accelerators_binding_1.get_inner();
+        let cpu_overcommit_type_binding_1 = args.cpu_overcommit_type.get_output(context);
+        let cpu_overcommit_type_binding = cpu_overcommit_type_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disks_binding_1 = args.disks.get_output(context);
+        let disks_binding = disks_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_affinity_labels_binding_1 = args
             .node_affinity_labels
-            .get_output(context)
-            .get_inner();
-        let node_type_binding = args.node_type.get_output(context).get_inner();
-        let node_type_flexibility_binding = args
+            .get_output(context);
+        let node_affinity_labels_binding = node_affinity_labels_binding_1.get_inner();
+        let node_type_binding_1 = args.node_type.get_output(context);
+        let node_type_binding = node_type_binding_1.get_inner();
+        let node_type_flexibility_binding_1 = args
             .node_type_flexibility
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let server_binding_binding = args.server_binding.get_output(context).get_inner();
+            .get_output(context);
+        let node_type_flexibility_binding = node_type_flexibility_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let server_binding_binding_1 = args.server_binding.get_output(context);
+        let server_binding_binding = server_binding_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/nodeTemplate:NodeTemplate".into(),
             name: name.to_string(),

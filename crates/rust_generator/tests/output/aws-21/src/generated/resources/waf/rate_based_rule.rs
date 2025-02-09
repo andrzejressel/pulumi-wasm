@@ -109,12 +109,18 @@ pub mod rate_based_rule {
     ) -> RateBasedRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let metric_name_binding = args.metric_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let predicates_binding = args.predicates.get_output(context).get_inner();
-        let rate_key_binding = args.rate_key.get_output(context).get_inner();
-        let rate_limit_binding = args.rate_limit.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let metric_name_binding_1 = args.metric_name.get_output(context);
+        let metric_name_binding = metric_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let predicates_binding_1 = args.predicates.get_output(context);
+        let predicates_binding = predicates_binding_1.get_inner();
+        let rate_key_binding_1 = args.rate_key.get_output(context);
+        let rate_key_binding = rate_key_binding_1.get_inner();
+        let rate_limit_binding_1 = args.rate_limit.get_output(context);
+        let rate_limit_binding = rate_limit_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:waf/rateBasedRule:RateBasedRule".into(),
             name: name.to_string(),

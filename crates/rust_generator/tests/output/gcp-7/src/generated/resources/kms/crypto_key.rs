@@ -231,35 +231,37 @@ pub mod crypto_key {
     ) -> CryptoKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let crypto_key_backend_binding = args
-            .crypto_key_backend
-            .get_output(context)
-            .get_inner();
-        let destroy_scheduled_duration_binding = args
+        let crypto_key_backend_binding_1 = args.crypto_key_backend.get_output(context);
+        let crypto_key_backend_binding = crypto_key_backend_binding_1.get_inner();
+        let destroy_scheduled_duration_binding_1 = args
             .destroy_scheduled_duration
-            .get_output(context)
+            .get_output(context);
+        let destroy_scheduled_duration_binding = destroy_scheduled_duration_binding_1
             .get_inner();
-        let import_only_binding = args.import_only.get_output(context).get_inner();
-        let key_access_justifications_policy_binding = args
+        let import_only_binding_1 = args.import_only.get_output(context);
+        let import_only_binding = import_only_binding_1.get_inner();
+        let key_access_justifications_policy_binding_1 = args
             .key_access_justifications_policy
-            .get_output(context)
+            .get_output(context);
+        let key_access_justifications_policy_binding = key_access_justifications_policy_binding_1
             .get_inner();
-        let key_ring_binding = args.key_ring.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let purpose_binding = args.purpose.get_output(context).get_inner();
-        let rotation_period_binding = args
-            .rotation_period
-            .get_output(context)
-            .get_inner();
-        let skip_initial_version_creation_binding = args
+        let key_ring_binding_1 = args.key_ring.get_output(context);
+        let key_ring_binding = key_ring_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let purpose_binding_1 = args.purpose.get_output(context);
+        let purpose_binding = purpose_binding_1.get_inner();
+        let rotation_period_binding_1 = args.rotation_period.get_output(context);
+        let rotation_period_binding = rotation_period_binding_1.get_inner();
+        let skip_initial_version_creation_binding_1 = args
             .skip_initial_version_creation
-            .get_output(context)
+            .get_output(context);
+        let skip_initial_version_creation_binding = skip_initial_version_creation_binding_1
             .get_inner();
-        let version_template_binding = args
-            .version_template
-            .get_output(context)
-            .get_inner();
+        let version_template_binding_1 = args.version_template.get_output(context);
+        let version_template_binding = version_template_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:kms/cryptoKey:CryptoKey".into(),
             name: name.to_string(),

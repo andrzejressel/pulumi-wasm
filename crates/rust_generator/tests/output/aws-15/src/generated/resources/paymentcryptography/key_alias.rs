@@ -69,8 +69,10 @@ pub mod key_alias {
     ) -> KeyAliasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_name_binding = args.alias_name.get_output(context).get_inner();
-        let key_arn_binding = args.key_arn.get_output(context).get_inner();
+        let alias_name_binding_1 = args.alias_name.get_output(context);
+        let alias_name_binding = alias_name_binding_1.get_inner();
+        let key_arn_binding_1 = args.key_arn.get_output(context);
+        let key_arn_binding = key_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:paymentcryptography/keyAlias:KeyAlias".into(),
             name: name.to_string(),

@@ -63,20 +63,22 @@ pub mod get_infrastructure_access_targets {
     ) -> GetInfrastructureAccessTargetsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let created_after_binding = args.created_after.get_output(context).get_inner();
-        let hostname_binding = args.hostname.get_output(context).get_inner();
-        let hostname_contains_binding = args
-            .hostname_contains
-            .get_output(context)
-            .get_inner();
-        let ipv4_binding = args.ipv4.get_output(context).get_inner();
-        let ipv6_binding = args.ipv6.get_output(context).get_inner();
-        let modified_after_binding = args.modified_after.get_output(context).get_inner();
-        let virtual_network_id_binding = args
-            .virtual_network_id
-            .get_output(context)
-            .get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let created_after_binding_1 = args.created_after.get_output(context);
+        let created_after_binding = created_after_binding_1.get_inner();
+        let hostname_binding_1 = args.hostname.get_output(context);
+        let hostname_binding = hostname_binding_1.get_inner();
+        let hostname_contains_binding_1 = args.hostname_contains.get_output(context);
+        let hostname_contains_binding = hostname_contains_binding_1.get_inner();
+        let ipv4_binding_1 = args.ipv4.get_output(context);
+        let ipv4_binding = ipv4_binding_1.get_inner();
+        let ipv6_binding_1 = args.ipv6.get_output(context);
+        let ipv6_binding = ipv6_binding_1.get_inner();
+        let modified_after_binding_1 = args.modified_after.get_output(context);
+        let modified_after_binding = modified_after_binding_1.get_inner();
+        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
+        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getInfrastructureAccessTargets:getInfrastructureAccessTargets"
                 .into(),

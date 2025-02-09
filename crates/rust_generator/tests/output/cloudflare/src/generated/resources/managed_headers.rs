@@ -73,15 +73,18 @@ pub mod managed_headers {
     ) -> ManagedHeadersResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let managed_request_headers_binding = args
+        let managed_request_headers_binding_1 = args
             .managed_request_headers
-            .get_output(context)
+            .get_output(context);
+        let managed_request_headers_binding = managed_request_headers_binding_1
             .get_inner();
-        let managed_response_headers_binding = args
+        let managed_response_headers_binding_1 = args
             .managed_response_headers
-            .get_output(context)
+            .get_output(context);
+        let managed_response_headers_binding = managed_response_headers_binding_1
             .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/managedHeaders:ManagedHeaders".into(),
             name: name.to_string(),

@@ -46,10 +46,14 @@ pub mod get_sdk {
     ) -> GetSdkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let rest_api_id_binding = args.rest_api_id.get_output(context).get_inner();
-        let sdk_type_binding = args.sdk_type.get_output(context).get_inner();
-        let stage_name_binding = args.stage_name.get_output(context).get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let rest_api_id_binding_1 = args.rest_api_id.get_output(context);
+        let rest_api_id_binding = rest_api_id_binding_1.get_inner();
+        let sdk_type_binding_1 = args.sdk_type.get_output(context);
+        let sdk_type_binding = sdk_type_binding_1.get_inner();
+        let stage_name_binding_1 = args.stage_name.get_output(context);
+        let stage_name_binding = stage_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:apigateway/getSdk:getSdk".into(),
             version: super::super::super::get_version(),

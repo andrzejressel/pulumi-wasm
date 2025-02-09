@@ -107,12 +107,18 @@ pub mod ip_set {
     ) -> IPSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let activate_binding = args.activate.get_output(context).get_inner();
-        let detector_id_binding = args.detector_id.get_output(context).get_inner();
-        let format_binding = args.format.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let activate_binding_1 = args.activate.get_output(context);
+        let activate_binding = activate_binding_1.get_inner();
+        let detector_id_binding_1 = args.detector_id.get_output(context);
+        let detector_id_binding = detector_id_binding_1.get_inner();
+        let format_binding_1 = args.format.get_output(context);
+        let format_binding = format_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:guardduty/iPSet:IPSet".into(),
             name: name.to_string(),

@@ -64,12 +64,12 @@ pub mod domain_name {
     ) -> DomainNameResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_arn_binding = args
-            .certificate_arn
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
+        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appsync/domainName:DomainName".into(),
             name: name.to_string(),

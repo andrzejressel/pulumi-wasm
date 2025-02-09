@@ -317,32 +317,38 @@ pub mod listing {
     ) -> ListingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bigquery_dataset_binding = args
-            .bigquery_dataset
-            .get_output(context)
-            .get_inner();
-        let categories_binding = args.categories.get_output(context).get_inner();
-        let data_exchange_id_binding = args
-            .data_exchange_id
-            .get_output(context)
-            .get_inner();
-        let data_provider_binding = args.data_provider.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let documentation_binding = args.documentation.get_output(context).get_inner();
-        let icon_binding = args.icon.get_output(context).get_inner();
-        let listing_id_binding = args.listing_id.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let primary_contact_binding = args
-            .primary_contact
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let publisher_binding = args.publisher.get_output(context).get_inner();
-        let request_access_binding = args.request_access.get_output(context).get_inner();
-        let restricted_export_config_binding = args
+        let bigquery_dataset_binding_1 = args.bigquery_dataset.get_output(context);
+        let bigquery_dataset_binding = bigquery_dataset_binding_1.get_inner();
+        let categories_binding_1 = args.categories.get_output(context);
+        let categories_binding = categories_binding_1.get_inner();
+        let data_exchange_id_binding_1 = args.data_exchange_id.get_output(context);
+        let data_exchange_id_binding = data_exchange_id_binding_1.get_inner();
+        let data_provider_binding_1 = args.data_provider.get_output(context);
+        let data_provider_binding = data_provider_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let documentation_binding_1 = args.documentation.get_output(context);
+        let documentation_binding = documentation_binding_1.get_inner();
+        let icon_binding_1 = args.icon.get_output(context);
+        let icon_binding = icon_binding_1.get_inner();
+        let listing_id_binding_1 = args.listing_id.get_output(context);
+        let listing_id_binding = listing_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let primary_contact_binding_1 = args.primary_contact.get_output(context);
+        let primary_contact_binding = primary_contact_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let publisher_binding_1 = args.publisher.get_output(context);
+        let publisher_binding = publisher_binding_1.get_inner();
+        let request_access_binding_1 = args.request_access.get_output(context);
+        let request_access_binding = request_access_binding_1.get_inner();
+        let restricted_export_config_binding_1 = args
             .restricted_export_config
-            .get_output(context)
+            .get_output(context);
+        let restricted_export_config_binding = restricted_export_config_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigqueryanalyticshub/listing:Listing".into(),

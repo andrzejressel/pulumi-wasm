@@ -40,9 +40,10 @@ pub mod get_resolver_firewall_rule_group_association {
     ) -> GetResolverFirewallRuleGroupAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let firewall_rule_group_association_id_binding = args
+        let firewall_rule_group_association_id_binding_1 = args
             .firewall_rule_group_association_id
-            .get_output(context)
+            .get_output(context);
+        let firewall_rule_group_association_id_binding = firewall_rule_group_association_id_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation"

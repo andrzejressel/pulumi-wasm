@@ -165,8 +165,10 @@ pub mod autokey_config {
     ) -> AutokeyConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let folder_binding = args.folder.get_output(context).get_inner();
-        let key_project_binding = args.key_project.get_output(context).get_inner();
+        let folder_binding_1 = args.folder.get_output(context);
+        let folder_binding = folder_binding_1.get_inner();
+        let key_project_binding_1 = args.key_project.get_output(context);
+        let key_project_binding = key_project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:kms/autokeyConfig:AutokeyConfig".into(),
             name: name.to_string(),

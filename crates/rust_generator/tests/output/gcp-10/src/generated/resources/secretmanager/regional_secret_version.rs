@@ -195,17 +195,18 @@ pub mod regional_secret_version {
     ) -> RegionalSecretVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_policy_binding = args
-            .deletion_policy
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let is_secret_data_base64_binding = args
+        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
+        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let is_secret_data_base64_binding_1 = args
             .is_secret_data_base64
-            .get_output(context)
-            .get_inner();
-        let secret_binding = args.secret.get_output(context).get_inner();
-        let secret_data_binding = args.secret_data.get_output(context).get_inner();
+            .get_output(context);
+        let is_secret_data_base64_binding = is_secret_data_base64_binding_1.get_inner();
+        let secret_binding_1 = args.secret.get_output(context);
+        let secret_binding = secret_binding_1.get_inner();
+        let secret_data_binding_1 = args.secret_data.get_output(context);
+        let secret_data_binding = secret_data_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:secretmanager/regionalSecretVersion:RegionalSecretVersion"
                 .into(),

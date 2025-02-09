@@ -38,8 +38,10 @@ pub mod bucket_resource_access {
     ) -> BucketResourceAccessResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_name_binding = args.bucket_name.get_output(context).get_inner();
-        let resource_name_binding = args.resource_name.get_output(context).get_inner();
+        let bucket_name_binding_1 = args.bucket_name.get_output(context);
+        let bucket_name_binding = bucket_name_binding_1.get_inner();
+        let resource_name_binding_1 = args.resource_name.get_output(context);
+        let resource_name_binding = resource_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/bucketResourceAccess:BucketResourceAccess".into(),
             name: name.to_string(),

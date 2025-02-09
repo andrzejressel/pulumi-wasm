@@ -108,25 +108,26 @@ pub mod control {
     ) -> ControlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_plan_instructions_binding = args
+        let action_plan_instructions_binding_1 = args
             .action_plan_instructions
-            .get_output(context)
+            .get_output(context);
+        let action_plan_instructions_binding = action_plan_instructions_binding_1
             .get_inner();
-        let action_plan_title_binding = args
-            .action_plan_title
-            .get_output(context)
-            .get_inner();
-        let control_mapping_sources_binding = args
+        let action_plan_title_binding_1 = args.action_plan_title.get_output(context);
+        let action_plan_title_binding = action_plan_title_binding_1.get_inner();
+        let control_mapping_sources_binding_1 = args
             .control_mapping_sources
-            .get_output(context)
+            .get_output(context);
+        let control_mapping_sources_binding = control_mapping_sources_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let testing_information_binding = args
-            .testing_information
-            .get_output(context)
-            .get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let testing_information_binding_1 = args.testing_information.get_output(context);
+        let testing_information_binding = testing_information_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:auditmanager/control:Control".into(),
             name: name.to_string(),

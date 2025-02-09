@@ -136,21 +136,30 @@ pub mod record {
     ) -> RecordResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_overwrite_binding = args
-            .allow_overwrite
-            .get_output(context)
-            .get_inner();
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let content_binding = args.content.get_output(context).get_inner();
-        let data_binding = args.data.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let proxied_binding = args.proxied.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let ttl_binding = args.ttl.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let value_binding = args.value.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let allow_overwrite_binding_1 = args.allow_overwrite.get_output(context);
+        let allow_overwrite_binding = allow_overwrite_binding_1.get_inner();
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let content_binding_1 = args.content.get_output(context);
+        let content_binding = content_binding_1.get_inner();
+        let data_binding_1 = args.data.get_output(context);
+        let data_binding = data_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let proxied_binding_1 = args.proxied.get_output(context);
+        let proxied_binding = proxied_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let ttl_binding_1 = args.ttl.get_output(context);
+        let ttl_binding = ttl_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let value_binding_1 = args.value.get_output(context);
+        let value_binding = value_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/record:Record".into(),
             name: name.to_string(),

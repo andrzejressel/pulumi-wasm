@@ -80,12 +80,12 @@ pub mod network_manager_network_group {
     ) -> NetworkManagerNetworkGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_manager_id_binding = args
-            .network_manager_id
-            .get_output(context)
-            .get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_manager_id_binding_1 = args.network_manager_id.get_output(context);
+        let network_manager_id_binding = network_manager_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup"
                 .into(),

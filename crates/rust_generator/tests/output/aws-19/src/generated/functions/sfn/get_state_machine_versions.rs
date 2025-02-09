@@ -26,10 +26,8 @@ pub mod get_state_machine_versions {
     ) -> GetStateMachineVersionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let statemachine_arn_binding = args
-            .statemachine_arn
-            .get_output(context)
-            .get_inner();
+        let statemachine_arn_binding_1 = args.statemachine_arn.get_output(context);
+        let statemachine_arn_binding = statemachine_arn_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:sfn/getStateMachineVersions:getStateMachineVersions".into(),
             version: super::super::super::get_version(),

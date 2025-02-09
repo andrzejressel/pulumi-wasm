@@ -213,52 +213,44 @@ pub mod bastion_host {
     ) -> BastionHostResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let copy_paste_enabled_binding = args
-            .copy_paste_enabled
-            .get_output(context)
-            .get_inner();
-        let file_copy_enabled_binding = args
-            .file_copy_enabled
-            .get_output(context)
-            .get_inner();
-        let ip_configuration_binding = args
-            .ip_configuration
-            .get_output(context)
-            .get_inner();
-        let ip_connect_enabled_binding = args
-            .ip_connect_enabled
-            .get_output(context)
-            .get_inner();
-        let kerberos_enabled_binding = args
-            .kerberos_enabled
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let scale_units_binding = args.scale_units.get_output(context).get_inner();
-        let session_recording_enabled_binding = args
+        let copy_paste_enabled_binding_1 = args.copy_paste_enabled.get_output(context);
+        let copy_paste_enabled_binding = copy_paste_enabled_binding_1.get_inner();
+        let file_copy_enabled_binding_1 = args.file_copy_enabled.get_output(context);
+        let file_copy_enabled_binding = file_copy_enabled_binding_1.get_inner();
+        let ip_configuration_binding_1 = args.ip_configuration.get_output(context);
+        let ip_configuration_binding = ip_configuration_binding_1.get_inner();
+        let ip_connect_enabled_binding_1 = args.ip_connect_enabled.get_output(context);
+        let ip_connect_enabled_binding = ip_connect_enabled_binding_1.get_inner();
+        let kerberos_enabled_binding_1 = args.kerberos_enabled.get_output(context);
+        let kerberos_enabled_binding = kerberos_enabled_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let scale_units_binding_1 = args.scale_units.get_output(context);
+        let scale_units_binding = scale_units_binding_1.get_inner();
+        let session_recording_enabled_binding_1 = args
             .session_recording_enabled
-            .get_output(context)
+            .get_output(context);
+        let session_recording_enabled_binding = session_recording_enabled_binding_1
             .get_inner();
-        let shareable_link_enabled_binding = args
+        let shareable_link_enabled_binding_1 = args
             .shareable_link_enabled
-            .get_output(context)
+            .get_output(context);
+        let shareable_link_enabled_binding = shareable_link_enabled_binding_1
             .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tunneling_enabled_binding = args
-            .tunneling_enabled
-            .get_output(context)
-            .get_inner();
-        let virtual_network_id_binding = args
-            .virtual_network_id
-            .get_output(context)
-            .get_inner();
-        let zones_binding = args.zones.get_output(context).get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tunneling_enabled_binding_1 = args.tunneling_enabled.get_output(context);
+        let tunneling_enabled_binding = tunneling_enabled_binding_1.get_inner();
+        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
+        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
+        let zones_binding_1 = args.zones.get_output(context);
+        let zones_binding = zones_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/bastionHost:BastionHost".into(),
             name: name.to_string(),

@@ -290,17 +290,25 @@ pub mod rule_group {
     ) -> RuleGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_binding = args.capacity.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let encryption_configuration_binding = args
+        let capacity_binding_1 = args.capacity.get_output(context);
+        let capacity_binding = capacity_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let encryption_configuration_binding_1 = args
             .encryption_configuration
-            .get_output(context)
+            .get_output(context);
+        let encryption_configuration_binding = encryption_configuration_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let rule_group_binding = args.rule_group.get_output(context).get_inner();
-        let rules_binding = args.rules.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let rule_group_binding_1 = args.rule_group.get_output(context);
+        let rule_group_binding = rule_group_binding_1.get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkfirewall/ruleGroup:RuleGroup".into(),
             name: name.to_string(),

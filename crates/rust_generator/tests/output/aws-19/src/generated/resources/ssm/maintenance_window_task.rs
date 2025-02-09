@@ -217,30 +217,33 @@ pub mod maintenance_window_task {
     ) -> MaintenanceWindowTaskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cutoff_behavior_binding = args
-            .cutoff_behavior
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let max_concurrency_binding = args
-            .max_concurrency
-            .get_output(context)
-            .get_inner();
-        let max_errors_binding = args.max_errors.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let service_role_arn_binding = args
-            .service_role_arn
-            .get_output(context)
-            .get_inner();
-        let targets_binding = args.targets.get_output(context).get_inner();
-        let task_arn_binding = args.task_arn.get_output(context).get_inner();
-        let task_invocation_parameters_binding = args
+        let cutoff_behavior_binding_1 = args.cutoff_behavior.get_output(context);
+        let cutoff_behavior_binding = cutoff_behavior_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let max_concurrency_binding_1 = args.max_concurrency.get_output(context);
+        let max_concurrency_binding = max_concurrency_binding_1.get_inner();
+        let max_errors_binding_1 = args.max_errors.get_output(context);
+        let max_errors_binding = max_errors_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let service_role_arn_binding_1 = args.service_role_arn.get_output(context);
+        let service_role_arn_binding = service_role_arn_binding_1.get_inner();
+        let targets_binding_1 = args.targets.get_output(context);
+        let targets_binding = targets_binding_1.get_inner();
+        let task_arn_binding_1 = args.task_arn.get_output(context);
+        let task_arn_binding = task_arn_binding_1.get_inner();
+        let task_invocation_parameters_binding_1 = args
             .task_invocation_parameters
-            .get_output(context)
+            .get_output(context);
+        let task_invocation_parameters_binding = task_invocation_parameters_binding_1
             .get_inner();
-        let task_type_binding = args.task_type.get_output(context).get_inner();
-        let window_id_binding = args.window_id.get_output(context).get_inner();
+        let task_type_binding_1 = args.task_type.get_output(context);
+        let task_type_binding = task_type_binding_1.get_inner();
+        let window_id_binding_1 = args.window_id.get_output(context);
+        let window_id_binding = window_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/maintenanceWindowTask:MaintenanceWindowTask".into(),
             name: name.to_string(),

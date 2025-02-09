@@ -530,45 +530,57 @@ pub mod bucket {
     ) -> BucketResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let acceleration_status_binding = args
-            .acceleration_status
-            .get_output(context)
-            .get_inner();
-        let acl_binding = args.acl.get_output(context).get_inner();
-        let arn_binding = args.arn.get_output(context).get_inner();
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let bucket_prefix_binding = args.bucket_prefix.get_output(context).get_inner();
-        let cors_rules_binding = args.cors_rules.get_output(context).get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let grants_binding = args.grants.get_output(context).get_inner();
-        let hosted_zone_id_binding = args.hosted_zone_id.get_output(context).get_inner();
-        let lifecycle_rules_binding = args
-            .lifecycle_rules
-            .get_output(context)
-            .get_inner();
-        let loggings_binding = args.loggings.get_output(context).get_inner();
-        let object_lock_configuration_binding = args
+        let acceleration_status_binding_1 = args.acceleration_status.get_output(context);
+        let acceleration_status_binding = acceleration_status_binding_1.get_inner();
+        let acl_binding_1 = args.acl.get_output(context);
+        let acl_binding = acl_binding_1.get_inner();
+        let arn_binding_1 = args.arn.get_output(context);
+        let arn_binding = arn_binding_1.get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let bucket_prefix_binding_1 = args.bucket_prefix.get_output(context);
+        let bucket_prefix_binding = bucket_prefix_binding_1.get_inner();
+        let cors_rules_binding_1 = args.cors_rules.get_output(context);
+        let cors_rules_binding = cors_rules_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let grants_binding_1 = args.grants.get_output(context);
+        let grants_binding = grants_binding_1.get_inner();
+        let hosted_zone_id_binding_1 = args.hosted_zone_id.get_output(context);
+        let hosted_zone_id_binding = hosted_zone_id_binding_1.get_inner();
+        let lifecycle_rules_binding_1 = args.lifecycle_rules.get_output(context);
+        let lifecycle_rules_binding = lifecycle_rules_binding_1.get_inner();
+        let loggings_binding_1 = args.loggings.get_output(context);
+        let loggings_binding = loggings_binding_1.get_inner();
+        let object_lock_configuration_binding_1 = args
             .object_lock_configuration
-            .get_output(context)
+            .get_output(context);
+        let object_lock_configuration_binding = object_lock_configuration_binding_1
             .get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let replication_configuration_binding = args
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let replication_configuration_binding_1 = args
             .replication_configuration
-            .get_output(context)
+            .get_output(context);
+        let replication_configuration_binding = replication_configuration_binding_1
             .get_inner();
-        let request_payer_binding = args.request_payer.get_output(context).get_inner();
-        let server_side_encryption_configuration_binding = args
+        let request_payer_binding_1 = args.request_payer.get_output(context);
+        let request_payer_binding = request_payer_binding_1.get_inner();
+        let server_side_encryption_configuration_binding_1 = args
             .server_side_encryption_configuration
-            .get_output(context)
+            .get_output(context);
+        let server_side_encryption_configuration_binding = server_side_encryption_configuration_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let versioning_binding = args.versioning.get_output(context).get_inner();
-        let website_binding = args.website.get_output(context).get_inner();
-        let website_domain_binding = args.website_domain.get_output(context).get_inner();
-        let website_endpoint_binding = args
-            .website_endpoint
-            .get_output(context)
-            .get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let versioning_binding_1 = args.versioning.get_output(context);
+        let versioning_binding = versioning_binding_1.get_inner();
+        let website_binding_1 = args.website.get_output(context);
+        let website_binding = website_binding_1.get_inner();
+        let website_domain_binding_1 = args.website_domain.get_output(context);
+        let website_domain_binding = website_domain_binding_1.get_inner();
+        let website_endpoint_binding_1 = args.website_endpoint.get_output(context);
+        let website_endpoint_binding = website_endpoint_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucket:Bucket".into(),
             name: name.to_string(),

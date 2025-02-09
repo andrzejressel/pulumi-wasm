@@ -156,21 +156,28 @@ pub mod organization_security_policy_rule {
     ) -> OrganizationSecurityPolicyRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let direction_binding = args.direction.get_output(context).get_inner();
-        let enable_logging_binding = args.enable_logging.get_output(context).get_inner();
-        let match__binding = args.match_.get_output(context).get_inner();
-        let policy_id_binding = args.policy_id.get_output(context).get_inner();
-        let preview_binding = args.preview.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let target_resources_binding = args
-            .target_resources
-            .get_output(context)
-            .get_inner();
-        let target_service_accounts_binding = args
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let direction_binding_1 = args.direction.get_output(context);
+        let direction_binding = direction_binding_1.get_inner();
+        let enable_logging_binding_1 = args.enable_logging.get_output(context);
+        let enable_logging_binding = enable_logging_binding_1.get_inner();
+        let match__binding_1 = args.match_.get_output(context);
+        let match__binding = match__binding_1.get_inner();
+        let policy_id_binding_1 = args.policy_id.get_output(context);
+        let policy_id_binding = policy_id_binding_1.get_inner();
+        let preview_binding_1 = args.preview.get_output(context);
+        let preview_binding = preview_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let target_resources_binding_1 = args.target_resources.get_output(context);
+        let target_resources_binding = target_resources_binding_1.get_inner();
+        let target_service_accounts_binding_1 = args
             .target_service_accounts
-            .get_output(context)
+            .get_output(context);
+        let target_service_accounts_binding = target_service_accounts_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/organizationSecurityPolicyRule:OrganizationSecurityPolicyRule"

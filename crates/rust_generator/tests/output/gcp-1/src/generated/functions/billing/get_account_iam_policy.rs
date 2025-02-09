@@ -28,10 +28,8 @@ pub mod get_account_iam_policy {
     ) -> GetAccountIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let billing_account_id_binding = args
-            .billing_account_id
-            .get_output(context)
-            .get_inner();
+        let billing_account_id_binding_1 = args.billing_account_id.get_output(context);
+        let billing_account_id_binding = billing_account_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:billing/getAccountIamPolicy:getAccountIamPolicy".into(),
             version: super::super::super::get_version(),

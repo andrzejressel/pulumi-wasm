@@ -107,14 +107,16 @@ pub mod vpc_attachment {
     ) -> VpcAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let core_network_id_binding = args
-            .core_network_id
-            .get_output(context)
-            .get_inner();
-        let options_binding = args.options.get_output(context).get_inner();
-        let subnet_arns_binding = args.subnet_arns.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_arn_binding = args.vpc_arn.get_output(context).get_inner();
+        let core_network_id_binding_1 = args.core_network_id.get_output(context);
+        let core_network_id_binding = core_network_id_binding_1.get_inner();
+        let options_binding_1 = args.options.get_output(context);
+        let options_binding = options_binding_1.get_inner();
+        let subnet_arns_binding_1 = args.subnet_arns.get_output(context);
+        let subnet_arns_binding = subnet_arns_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_arn_binding_1 = args.vpc_arn.get_output(context);
+        let vpc_arn_binding = vpc_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/vpcAttachment:VpcAttachment".into(),
             name: name.to_string(),

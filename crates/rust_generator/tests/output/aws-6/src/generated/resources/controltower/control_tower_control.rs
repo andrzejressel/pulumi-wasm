@@ -57,15 +57,12 @@ pub mod control_tower_control {
     ) -> ControlTowerControlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let control_identifier_binding = args
-            .control_identifier
-            .get_output(context)
-            .get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let target_identifier_binding = args
-            .target_identifier
-            .get_output(context)
-            .get_inner();
+        let control_identifier_binding_1 = args.control_identifier.get_output(context);
+        let control_identifier_binding = control_identifier_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let target_identifier_binding_1 = args.target_identifier.get_output(context);
+        let target_identifier_binding = target_identifier_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:controltower/controlTowerControl:ControlTowerControl".into(),
             name: name.to_string(),

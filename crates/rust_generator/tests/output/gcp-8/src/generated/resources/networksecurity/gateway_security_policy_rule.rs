@@ -201,28 +201,33 @@ pub mod gateway_security_policy_rule {
     ) -> GatewaySecurityPolicyRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_matcher_binding = args
-            .application_matcher
-            .get_output(context)
-            .get_inner();
-        let basic_profile_binding = args.basic_profile.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let gateway_security_policy_binding = args
+        let application_matcher_binding_1 = args.application_matcher.get_output(context);
+        let application_matcher_binding = application_matcher_binding_1.get_inner();
+        let basic_profile_binding_1 = args.basic_profile.get_output(context);
+        let basic_profile_binding = basic_profile_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let gateway_security_policy_binding_1 = args
             .gateway_security_policy
-            .get_output(context)
+            .get_output(context);
+        let gateway_security_policy_binding = gateway_security_policy_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let session_matcher_binding = args
-            .session_matcher
-            .get_output(context)
-            .get_inner();
-        let tls_inspection_enabled_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let session_matcher_binding_1 = args.session_matcher.get_output(context);
+        let session_matcher_binding = session_matcher_binding_1.get_inner();
+        let tls_inspection_enabled_binding_1 = args
             .tls_inspection_enabled
-            .get_output(context)
+            .get_output(context);
+        let tls_inspection_enabled_binding = tls_inspection_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networksecurity/gatewaySecurityPolicyRule:GatewaySecurityPolicyRule"

@@ -219,11 +219,16 @@ pub mod user {
     ) -> UserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_binding = args.cluster.get_output(context).get_inner();
-        let database_roles_binding = args.database_roles.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let user_id_binding = args.user_id.get_output(context).get_inner();
-        let user_type_binding = args.user_type.get_output(context).get_inner();
+        let cluster_binding_1 = args.cluster.get_output(context);
+        let cluster_binding = cluster_binding_1.get_inner();
+        let database_roles_binding_1 = args.database_roles.get_output(context);
+        let database_roles_binding = database_roles_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let user_id_binding_1 = args.user_id.get_output(context);
+        let user_id_binding = user_id_binding_1.get_inner();
+        let user_type_binding_1 = args.user_type.get_output(context);
+        let user_type_binding = user_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:alloydb/user:User".into(),
             name: name.to_string(),

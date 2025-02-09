@@ -180,25 +180,32 @@ pub mod firewall_policy {
     ) -> FirewallPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_block_response_body_binding = args
+        let custom_block_response_body_binding_1 = args
             .custom_block_response_body
-            .get_output(context)
+            .get_output(context);
+        let custom_block_response_body_binding = custom_block_response_body_binding_1
             .get_inner();
-        let custom_block_response_status_code_binding = args
+        let custom_block_response_status_code_binding_1 = args
             .custom_block_response_status_code
-            .get_output(context)
+            .get_output(context);
+        let custom_block_response_status_code_binding = custom_block_response_status_code_binding_1
             .get_inner();
-        let custom_rules_binding = args.custom_rules.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let managed_rules_binding = args.managed_rules.get_output(context).get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let redirect_url_binding = args.redirect_url.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let custom_rules_binding_1 = args.custom_rules.get_output(context);
+        let custom_rules_binding = custom_rules_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let managed_rules_binding_1 = args.managed_rules.get_output(context);
+        let managed_rules_binding = managed_rules_binding_1.get_inner();
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let redirect_url_binding_1 = args.redirect_url.get_output(context);
+        let redirect_url_binding = redirect_url_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:frontdoor/firewallPolicy:FirewallPolicy".into(),
             name: name.to_string(),

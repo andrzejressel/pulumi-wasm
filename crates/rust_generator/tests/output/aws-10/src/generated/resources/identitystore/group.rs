@@ -73,12 +73,12 @@ pub mod group {
     ) -> GroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let identity_store_id_binding = args
-            .identity_store_id
-            .get_output(context)
-            .get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let identity_store_id_binding_1 = args.identity_store_id.get_output(context);
+        let identity_store_id_binding = identity_store_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:identitystore/group:Group".into(),
             name: name.to_string(),

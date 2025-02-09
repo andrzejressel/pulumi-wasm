@@ -67,8 +67,10 @@ pub mod proxy_protocol_policy {
     ) -> ProxyProtocolPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_ports_binding = args.instance_ports.get_output(context).get_inner();
-        let load_balancer_binding = args.load_balancer.get_output(context).get_inner();
+        let instance_ports_binding_1 = args.instance_ports.get_output(context);
+        let instance_ports_binding = instance_ports_binding_1.get_inner();
+        let load_balancer_binding_1 = args.load_balancer.get_output(context);
+        let load_balancer_binding = load_balancer_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy".into(),
             name: name.to_string(),

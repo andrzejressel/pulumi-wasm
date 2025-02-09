@@ -38,12 +38,15 @@ pub mod get_configuration_keys {
     ) -> GetConfigurationKeysResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_store_id_binding = args
+        let configuration_store_id_binding_1 = args
             .configuration_store_id
-            .get_output(context)
+            .get_output(context);
+        let configuration_store_id_binding = configuration_store_id_binding_1
             .get_inner();
-        let key_binding = args.key.get_output(context).get_inner();
-        let label_binding = args.label.get_output(context).get_inner();
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let label_binding_1 = args.label.get_output(context);
+        let label_binding = label_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:appconfiguration/getConfigurationKeys:getConfigurationKeys"
                 .into(),

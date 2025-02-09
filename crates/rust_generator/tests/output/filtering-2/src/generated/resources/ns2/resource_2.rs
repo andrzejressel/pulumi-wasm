@@ -31,8 +31,10 @@ pub mod resource_2 {
     ) -> Resource2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let common_type_binding = args.common_type.get_output(context).get_inner();
-        let type2_binding = args.type2.get_output(context).get_inner();
+        let common_type_binding_1 = args.common_type.get_output(context);
+        let common_type_binding = common_type_binding_1.get_inner();
+        let type2_binding_1 = args.type2.get_output(context);
+        let type2_binding = type2_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "example:ns2:Resource2".into(),
             name: name.to_string(),

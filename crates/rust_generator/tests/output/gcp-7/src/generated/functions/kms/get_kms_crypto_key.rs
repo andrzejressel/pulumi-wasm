@@ -59,8 +59,10 @@ pub mod get_kms_crypto_key {
     ) -> GetKmsCryptoKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_ring_binding = args.key_ring.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let key_ring_binding_1 = args.key_ring.get_output(context);
+        let key_ring_binding = key_ring_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getKMSCryptoKey:getKMSCryptoKey".into(),
             version: super::super::super::get_version(),

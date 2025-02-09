@@ -119,11 +119,10 @@ pub mod project_cloud_armor_tier {
     ) -> ProjectCloudArmorTierResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloud_armor_tier_binding = args
-            .cloud_armor_tier
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let cloud_armor_tier_binding_1 = args.cloud_armor_tier.get_output(context);
+        let cloud_armor_tier_binding = cloud_armor_tier_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/projectCloudArmorTier:ProjectCloudArmorTier".into(),
             name: name.to_string(),

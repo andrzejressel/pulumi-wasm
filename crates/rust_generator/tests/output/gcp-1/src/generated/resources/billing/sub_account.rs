@@ -77,14 +77,14 @@ pub mod sub_account {
     ) -> SubAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_policy_binding = args
-            .deletion_policy
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let master_billing_account_binding = args
+        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
+        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let master_billing_account_binding_1 = args
             .master_billing_account
-            .get_output(context)
+            .get_output(context);
+        let master_billing_account_binding = master_billing_account_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:billing/subAccount:SubAccount".into(),

@@ -148,22 +148,25 @@ pub mod cassandra_table {
     ) -> CassandraTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let analytical_storage_ttl_binding = args
+        let analytical_storage_ttl_binding_1 = args
             .analytical_storage_ttl
-            .get_output(context)
+            .get_output(context);
+        let analytical_storage_ttl_binding = analytical_storage_ttl_binding_1
             .get_inner();
-        let autoscale_settings_binding = args
-            .autoscale_settings
-            .get_output(context)
-            .get_inner();
-        let cassandra_keyspace_id_binding = args
+        let autoscale_settings_binding_1 = args.autoscale_settings.get_output(context);
+        let autoscale_settings_binding = autoscale_settings_binding_1.get_inner();
+        let cassandra_keyspace_id_binding_1 = args
             .cassandra_keyspace_id
-            .get_output(context)
-            .get_inner();
-        let default_ttl_binding = args.default_ttl.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let schema_binding = args.schema.get_output(context).get_inner();
-        let throughput_binding = args.throughput.get_output(context).get_inner();
+            .get_output(context);
+        let cassandra_keyspace_id_binding = cassandra_keyspace_id_binding_1.get_inner();
+        let default_ttl_binding_1 = args.default_ttl.get_output(context);
+        let default_ttl_binding = default_ttl_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let schema_binding_1 = args.schema.get_output(context);
+        let schema_binding = schema_binding_1.get_inner();
+        let throughput_binding_1 = args.throughput.get_output(context);
+        let throughput_binding = throughput_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/cassandraTable:CassandraTable".into(),
             name: name.to_string(),

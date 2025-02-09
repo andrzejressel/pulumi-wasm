@@ -38,15 +38,12 @@ pub mod get_document {
     ) -> GetDocumentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let document_format_binding = args
-            .document_format
-            .get_output(context)
-            .get_inner();
-        let document_version_binding = args
-            .document_version
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let document_format_binding_1 = args.document_format.get_output(context);
+        let document_format_binding = document_format_binding_1.get_inner();
+        let document_version_binding_1 = args.document_version.get_output(context);
+        let document_version_binding = document_version_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssm/getDocument:getDocument".into(),
             version: super::super::super::get_version(),

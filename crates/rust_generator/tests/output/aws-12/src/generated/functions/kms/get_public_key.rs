@@ -46,8 +46,10 @@ pub mod get_public_key {
     ) -> GetPublicKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let grant_tokens_binding = args.grant_tokens.get_output(context).get_inner();
-        let key_id_binding = args.key_id.get_output(context).get_inner();
+        let grant_tokens_binding_1 = args.grant_tokens.get_output(context);
+        let grant_tokens_binding = grant_tokens_binding_1.get_inner();
+        let key_id_binding_1 = args.key_id.get_output(context);
+        let key_id_binding = key_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kms/getPublicKey:getPublicKey".into(),
             version: super::super::super::get_version(),

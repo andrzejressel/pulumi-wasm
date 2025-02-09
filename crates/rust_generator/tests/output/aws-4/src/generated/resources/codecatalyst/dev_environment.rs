@@ -109,20 +109,25 @@ pub mod dev_environment {
     ) -> DevEnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_output(context).get_inner();
-        let ides_binding = args.ides.get_output(context).get_inner();
-        let inactivity_timeout_minutes_binding = args
+        let alias_binding_1 = args.alias.get_output(context);
+        let alias_binding = alias_binding_1.get_inner();
+        let ides_binding_1 = args.ides.get_output(context);
+        let ides_binding = ides_binding_1.get_inner();
+        let inactivity_timeout_minutes_binding_1 = args
             .inactivity_timeout_minutes
-            .get_output(context)
+            .get_output(context);
+        let inactivity_timeout_minutes_binding = inactivity_timeout_minutes_binding_1
             .get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
-        let persistent_storage_binding = args
-            .persistent_storage
-            .get_output(context)
-            .get_inner();
-        let project_name_binding = args.project_name.get_output(context).get_inner();
-        let repositories_binding = args.repositories.get_output(context).get_inner();
-        let space_name_binding = args.space_name.get_output(context).get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
+        let persistent_storage_binding_1 = args.persistent_storage.get_output(context);
+        let persistent_storage_binding = persistent_storage_binding_1.get_inner();
+        let project_name_binding_1 = args.project_name.get_output(context);
+        let project_name_binding = project_name_binding_1.get_inner();
+        let repositories_binding_1 = args.repositories.get_output(context);
+        let repositories_binding = repositories_binding_1.get_inner();
+        let space_name_binding_1 = args.space_name.get_output(context);
+        let space_name_binding = space_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codecatalyst/devEnvironment:DevEnvironment".into(),
             name: name.to_string(),

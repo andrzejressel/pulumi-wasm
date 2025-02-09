@@ -159,27 +159,33 @@ pub mod file_system {
     ) -> FileSystemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let encryption_key_binding = args.encryption_key.get_output(context).get_inner();
-        let hsm_setting_binding = args.hsm_setting.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let maintenance_window_binding = args
-            .maintenance_window
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let storage_capacity_in_tb_binding = args
+        let encryption_key_binding_1 = args.encryption_key.get_output(context);
+        let encryption_key_binding = encryption_key_binding_1.get_inner();
+        let hsm_setting_binding_1 = args.hsm_setting.get_output(context);
+        let hsm_setting_binding = hsm_setting_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
+        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let storage_capacity_in_tb_binding_1 = args
             .storage_capacity_in_tb
-            .get_output(context)
+            .get_output(context);
+        let storage_capacity_in_tb_binding = storage_capacity_in_tb_binding_1
             .get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let zones_binding = args.zones.get_output(context).get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let zones_binding_1 = args.zones.get_output(context);
+        let zones_binding = zones_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:managedlustre/fileSystem:FileSystem".into(),
             name: name.to_string(),

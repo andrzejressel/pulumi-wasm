@@ -67,11 +67,10 @@ pub mod domain_policy {
     ) -> DomainPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_policies_binding = args
-            .access_policies
-            .get_output(context)
-            .get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let access_policies_binding_1 = args.access_policies.get_output(context);
+        let access_policies_binding = access_policies_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opensearch/domainPolicy:DomainPolicy".into(),
             name: name.to_string(),

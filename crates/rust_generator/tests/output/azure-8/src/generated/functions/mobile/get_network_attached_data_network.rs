@@ -58,13 +58,15 @@ pub mod get_network_attached_data_network {
     ) -> GetNetworkAttachedDataNetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mobile_network_data_network_name_binding = args
+        let mobile_network_data_network_name_binding_1 = args
             .mobile_network_data_network_name
-            .get_output(context)
+            .get_output(context);
+        let mobile_network_data_network_name_binding = mobile_network_data_network_name_binding_1
             .get_inner();
-        let mobile_network_packet_core_data_plane_id_binding = args
+        let mobile_network_packet_core_data_plane_id_binding_1 = args
             .mobile_network_packet_core_data_plane_id
-            .get_output(context)
+            .get_output(context);
+        let mobile_network_packet_core_data_plane_id_binding = mobile_network_packet_core_data_plane_id_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork"

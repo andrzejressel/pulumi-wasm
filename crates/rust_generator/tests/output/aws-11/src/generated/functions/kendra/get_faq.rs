@@ -59,9 +59,12 @@ pub mod get_faq {
     ) -> GetFaqResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let faq_id_binding = args.faq_id.get_output(context).get_inner();
-        let index_id_binding = args.index_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let faq_id_binding_1 = args.faq_id.get_output(context);
+        let faq_id_binding = faq_id_binding_1.get_inner();
+        let index_id_binding_1 = args.index_id.get_output(context);
+        let index_id_binding = index_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kendra/getFaq:getFaq".into(),
             version: super::super::super::get_version(),

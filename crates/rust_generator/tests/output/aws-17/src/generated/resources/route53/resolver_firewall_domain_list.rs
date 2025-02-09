@@ -67,9 +67,12 @@ pub mod resolver_firewall_domain_list {
     ) -> ResolverFirewallDomainListResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domains_binding = args.domains.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let domains_binding_1 = args.domains.get_output(context);
+        let domains_binding = domains_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList"
                 .into(),

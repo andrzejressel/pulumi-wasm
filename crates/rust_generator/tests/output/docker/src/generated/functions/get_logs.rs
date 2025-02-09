@@ -61,23 +61,31 @@ pub mod get_logs {
     ) -> GetLogsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let details_binding = args.details.get_output(context).get_inner();
-        let discard_headers_binding = args
-            .discard_headers
-            .get_output(context)
-            .get_inner();
-        let follow_binding = args.follow.get_output(context).get_inner();
-        let logs_list_string_enabled_binding = args
+        let details_binding_1 = args.details.get_output(context);
+        let details_binding = details_binding_1.get_inner();
+        let discard_headers_binding_1 = args.discard_headers.get_output(context);
+        let discard_headers_binding = discard_headers_binding_1.get_inner();
+        let follow_binding_1 = args.follow.get_output(context);
+        let follow_binding = follow_binding_1.get_inner();
+        let logs_list_string_enabled_binding_1 = args
             .logs_list_string_enabled
-            .get_output(context)
+            .get_output(context);
+        let logs_list_string_enabled_binding = logs_list_string_enabled_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let show_stderr_binding = args.show_stderr.get_output(context).get_inner();
-        let show_stdout_binding = args.show_stdout.get_output(context).get_inner();
-        let since_binding = args.since.get_output(context).get_inner();
-        let tail_binding = args.tail.get_output(context).get_inner();
-        let timestamps_binding = args.timestamps.get_output(context).get_inner();
-        let until_binding = args.until.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let show_stderr_binding_1 = args.show_stderr.get_output(context);
+        let show_stderr_binding = show_stderr_binding_1.get_inner();
+        let show_stdout_binding_1 = args.show_stdout.get_output(context);
+        let show_stdout_binding = show_stdout_binding_1.get_inner();
+        let since_binding_1 = args.since.get_output(context);
+        let since_binding = since_binding_1.get_inner();
+        let tail_binding_1 = args.tail.get_output(context);
+        let tail_binding = tail_binding_1.get_inner();
+        let timestamps_binding_1 = args.timestamps.get_output(context);
+        let timestamps_binding = timestamps_binding_1.get_inner();
+        let until_binding_1 = args.until.get_output(context);
+        let until_binding = until_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "docker:index/getLogs:getLogs".into(),
             version: super::super::get_version(),

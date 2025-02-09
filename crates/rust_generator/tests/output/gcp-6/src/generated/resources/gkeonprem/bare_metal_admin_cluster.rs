@@ -408,37 +408,38 @@ pub mod bare_metal_admin_cluster {
     ) -> BareMetalAdminClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let bare_metal_version_binding = args
-            .bare_metal_version
-            .get_output(context)
-            .get_inner();
-        let cluster_operations_binding = args
-            .cluster_operations
-            .get_output(context)
-            .get_inner();
-        let control_plane_binding = args.control_plane.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let load_balancer_binding = args.load_balancer.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let maintenance_config_binding = args
-            .maintenance_config
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_config_binding = args.network_config.get_output(context).get_inner();
-        let node_access_config_binding = args
-            .node_access_config
-            .get_output(context)
-            .get_inner();
-        let node_config_binding = args.node_config.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let proxy_binding = args.proxy.get_output(context).get_inner();
-        let security_config_binding = args
-            .security_config
-            .get_output(context)
-            .get_inner();
-        let storage_binding = args.storage.get_output(context).get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let bare_metal_version_binding_1 = args.bare_metal_version.get_output(context);
+        let bare_metal_version_binding = bare_metal_version_binding_1.get_inner();
+        let cluster_operations_binding_1 = args.cluster_operations.get_output(context);
+        let cluster_operations_binding = cluster_operations_binding_1.get_inner();
+        let control_plane_binding_1 = args.control_plane.get_output(context);
+        let control_plane_binding = control_plane_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let load_balancer_binding_1 = args.load_balancer.get_output(context);
+        let load_balancer_binding = load_balancer_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maintenance_config_binding_1 = args.maintenance_config.get_output(context);
+        let maintenance_config_binding = maintenance_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_config_binding_1 = args.network_config.get_output(context);
+        let network_config_binding = network_config_binding_1.get_inner();
+        let node_access_config_binding_1 = args.node_access_config.get_output(context);
+        let node_access_config_binding = node_access_config_binding_1.get_inner();
+        let node_config_binding_1 = args.node_config.get_output(context);
+        let node_config_binding = node_config_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let proxy_binding_1 = args.proxy.get_output(context);
+        let proxy_binding = proxy_binding_1.get_inner();
+        let security_config_binding_1 = args.security_config.get_output(context);
+        let security_config_binding = security_config_binding_1.get_inner();
+        let storage_binding_1 = args.storage.get_output(context);
+        let storage_binding = storage_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkeonprem/bareMetalAdminCluster:BareMetalAdminCluster".into(),
             name: name.to_string(),

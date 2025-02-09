@@ -47,10 +47,12 @@ pub mod get_route_table_associations {
     ) -> GetRouteTableAssociationsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let transit_gateway_route_table_id_binding = args
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let transit_gateway_route_table_id_binding_1 = args
             .transit_gateway_route_table_id
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_route_table_id_binding = transit_gateway_route_table_id_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations"

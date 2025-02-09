@@ -149,23 +149,24 @@ pub mod share {
     ) -> ShareResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_tier_binding = args.access_tier.get_output(context).get_inner();
-        let acls_binding = args.acls.get_output(context).get_inner();
-        let enabled_protocol_binding = args
-            .enabled_protocol
-            .get_output(context)
-            .get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let quota_binding = args.quota.get_output(context).get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
-        let storage_account_name_binding = args
+        let access_tier_binding_1 = args.access_tier.get_output(context);
+        let access_tier_binding = access_tier_binding_1.get_inner();
+        let acls_binding_1 = args.acls.get_output(context);
+        let acls_binding = acls_binding_1.get_inner();
+        let enabled_protocol_binding_1 = args.enabled_protocol.get_output(context);
+        let enabled_protocol_binding = enabled_protocol_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let quota_binding_1 = args.quota.get_output(context);
+        let quota_binding = quota_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
+        let storage_account_name_binding_1 = args
             .storage_account_name
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let storage_account_name_binding = storage_account_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/share:Share".into(),
             name: name.to_string(),

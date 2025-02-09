@@ -169,11 +169,16 @@ pub mod ai_feature_store_entity_type_feature {
     ) -> AiFeatureStoreEntityTypeFeatureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let entitytype_binding = args.entitytype.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let value_type_binding = args.value_type.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let entitytype_binding_1 = args.entitytype.get_output(context);
+        let entitytype_binding = entitytype_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let value_type_binding_1 = args.value_type.get_output(context);
+        let value_type_binding = value_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vertex/aiFeatureStoreEntityTypeFeature:AiFeatureStoreEntityTypeFeature"
                 .into(),

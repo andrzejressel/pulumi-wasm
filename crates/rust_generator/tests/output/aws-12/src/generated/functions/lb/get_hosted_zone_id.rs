@@ -29,11 +29,10 @@ pub mod get_hosted_zone_id {
     ) -> GetHostedZoneIdResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let load_balancer_type_binding = args
-            .load_balancer_type
-            .get_output(context)
-            .get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
+        let load_balancer_type_binding_1 = args.load_balancer_type.get_output(context);
+        let load_balancer_type_binding = load_balancer_type_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lb/getHostedZoneId:getHostedZoneId".into(),
             version: super::super::super::get_version(),

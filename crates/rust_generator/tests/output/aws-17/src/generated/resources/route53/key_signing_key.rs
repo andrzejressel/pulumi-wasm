@@ -142,13 +142,17 @@ pub mod key_signing_key {
     ) -> KeySigningKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hosted_zone_id_binding = args.hosted_zone_id.get_output(context).get_inner();
-        let key_management_service_arn_binding = args
+        let hosted_zone_id_binding_1 = args.hosted_zone_id.get_output(context);
+        let hosted_zone_id_binding = hosted_zone_id_binding_1.get_inner();
+        let key_management_service_arn_binding_1 = args
             .key_management_service_arn
-            .get_output(context)
+            .get_output(context);
+        let key_management_service_arn_binding = key_management_service_arn_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/keySigningKey:KeySigningKey".into(),
             name: name.to_string(),

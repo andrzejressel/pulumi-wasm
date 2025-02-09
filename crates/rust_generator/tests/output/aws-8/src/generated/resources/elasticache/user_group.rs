@@ -92,10 +92,14 @@ pub mod user_group {
     ) -> UserGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_group_id_binding = args.user_group_id.get_output(context).get_inner();
-        let user_ids_binding = args.user_ids.get_output(context).get_inner();
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_group_id_binding_1 = args.user_group_id.get_output(context);
+        let user_group_id_binding = user_group_id_binding_1.get_inner();
+        let user_ids_binding_1 = args.user_ids.get_output(context);
+        let user_ids_binding = user_ids_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticache/userGroup:UserGroup".into(),
             name: name.to_string(),

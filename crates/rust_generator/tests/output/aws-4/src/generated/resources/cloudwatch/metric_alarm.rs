@@ -331,58 +331,56 @@ pub mod metric_alarm {
     ) -> MetricAlarmResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_enabled_binding = args
-            .actions_enabled
-            .get_output(context)
-            .get_inner();
-        let alarm_actions_binding = args.alarm_actions.get_output(context).get_inner();
-        let alarm_description_binding = args
-            .alarm_description
-            .get_output(context)
-            .get_inner();
-        let comparison_operator_binding = args
-            .comparison_operator
-            .get_output(context)
-            .get_inner();
-        let datapoints_to_alarm_binding = args
-            .datapoints_to_alarm
-            .get_output(context)
-            .get_inner();
-        let dimensions_binding = args.dimensions.get_output(context).get_inner();
-        let evaluate_low_sample_count_percentiles_binding = args
+        let actions_enabled_binding_1 = args.actions_enabled.get_output(context);
+        let actions_enabled_binding = actions_enabled_binding_1.get_inner();
+        let alarm_actions_binding_1 = args.alarm_actions.get_output(context);
+        let alarm_actions_binding = alarm_actions_binding_1.get_inner();
+        let alarm_description_binding_1 = args.alarm_description.get_output(context);
+        let alarm_description_binding = alarm_description_binding_1.get_inner();
+        let comparison_operator_binding_1 = args.comparison_operator.get_output(context);
+        let comparison_operator_binding = comparison_operator_binding_1.get_inner();
+        let datapoints_to_alarm_binding_1 = args.datapoints_to_alarm.get_output(context);
+        let datapoints_to_alarm_binding = datapoints_to_alarm_binding_1.get_inner();
+        let dimensions_binding_1 = args.dimensions.get_output(context);
+        let dimensions_binding = dimensions_binding_1.get_inner();
+        let evaluate_low_sample_count_percentiles_binding_1 = args
             .evaluate_low_sample_count_percentiles
-            .get_output(context)
+            .get_output(context);
+        let evaluate_low_sample_count_percentiles_binding = evaluate_low_sample_count_percentiles_binding_1
             .get_inner();
-        let evaluation_periods_binding = args
-            .evaluation_periods
-            .get_output(context)
-            .get_inner();
-        let extended_statistic_binding = args
-            .extended_statistic
-            .get_output(context)
-            .get_inner();
-        let insufficient_data_actions_binding = args
+        let evaluation_periods_binding_1 = args.evaluation_periods.get_output(context);
+        let evaluation_periods_binding = evaluation_periods_binding_1.get_inner();
+        let extended_statistic_binding_1 = args.extended_statistic.get_output(context);
+        let extended_statistic_binding = extended_statistic_binding_1.get_inner();
+        let insufficient_data_actions_binding_1 = args
             .insufficient_data_actions
-            .get_output(context)
+            .get_output(context);
+        let insufficient_data_actions_binding = insufficient_data_actions_binding_1
             .get_inner();
-        let metric_name_binding = args.metric_name.get_output(context).get_inner();
-        let metric_queries_binding = args.metric_queries.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let namespace_binding = args.namespace.get_output(context).get_inner();
-        let ok_actions_binding = args.ok_actions.get_output(context).get_inner();
-        let period_binding = args.period.get_output(context).get_inner();
-        let statistic_binding = args.statistic.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let threshold_binding = args.threshold.get_output(context).get_inner();
-        let threshold_metric_id_binding = args
-            .threshold_metric_id
-            .get_output(context)
-            .get_inner();
-        let treat_missing_data_binding = args
-            .treat_missing_data
-            .get_output(context)
-            .get_inner();
-        let unit_binding = args.unit.get_output(context).get_inner();
+        let metric_name_binding_1 = args.metric_name.get_output(context);
+        let metric_name_binding = metric_name_binding_1.get_inner();
+        let metric_queries_binding_1 = args.metric_queries.get_output(context);
+        let metric_queries_binding = metric_queries_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let namespace_binding_1 = args.namespace.get_output(context);
+        let namespace_binding = namespace_binding_1.get_inner();
+        let ok_actions_binding_1 = args.ok_actions.get_output(context);
+        let ok_actions_binding = ok_actions_binding_1.get_inner();
+        let period_binding_1 = args.period.get_output(context);
+        let period_binding = period_binding_1.get_inner();
+        let statistic_binding_1 = args.statistic.get_output(context);
+        let statistic_binding = statistic_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let threshold_binding_1 = args.threshold.get_output(context);
+        let threshold_binding = threshold_binding_1.get_inner();
+        let threshold_metric_id_binding_1 = args.threshold_metric_id.get_output(context);
+        let threshold_metric_id_binding = threshold_metric_id_binding_1.get_inner();
+        let treat_missing_data_binding_1 = args.treat_missing_data.get_output(context);
+        let treat_missing_data_binding = treat_missing_data_binding_1.get_inner();
+        let unit_binding_1 = args.unit.get_output(context);
+        let unit_binding = unit_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/metricAlarm:MetricAlarm".into(),
             name: name.to_string(),

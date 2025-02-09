@@ -87,9 +87,12 @@ pub mod protection {
     ) -> ProtectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_arn_binding_1 = args.resource_arn.get_output(context);
+        let resource_arn_binding = resource_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:shield/protection:Protection".into(),
             name: name.to_string(),

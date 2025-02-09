@@ -56,8 +56,10 @@ pub mod custom_hostname_fallback_origin {
     ) -> CustomHostnameFallbackOriginResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let origin_binding = args.origin.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let origin_binding_1 = args.origin.get_output(context);
+        let origin_binding = origin_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/customHostnameFallbackOrigin:CustomHostnameFallbackOrigin"
                 .into(),

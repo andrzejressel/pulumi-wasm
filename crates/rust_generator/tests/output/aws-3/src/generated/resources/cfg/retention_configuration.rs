@@ -50,9 +50,10 @@ pub mod retention_configuration {
     ) -> RetentionConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let retention_period_in_days_binding = args
+        let retention_period_in_days_binding_1 = args
             .retention_period_in_days
-            .get_output(context)
+            .get_output(context);
+        let retention_period_in_days_binding = retention_period_in_days_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/retentionConfiguration:RetentionConfiguration".into(),

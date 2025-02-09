@@ -98,9 +98,12 @@ pub mod policy_attachment {
     ) -> PolicyAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_id_binding = args.policy_id.get_output(context).get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
-        let target_id_binding = args.target_id.get_output(context).get_inner();
+        let policy_id_binding_1 = args.policy_id.get_output(context);
+        let policy_id_binding = policy_id_binding_1.get_inner();
+        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
+        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
+        let target_id_binding_1 = args.target_id.get_output(context);
+        let target_id_binding = target_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:organizations/policyAttachment:PolicyAttachment".into(),
             name: name.to_string(),

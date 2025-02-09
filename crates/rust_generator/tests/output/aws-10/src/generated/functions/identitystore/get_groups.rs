@@ -28,10 +28,8 @@ pub mod get_groups {
     ) -> GetGroupsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identity_store_id_binding = args
-            .identity_store_id
-            .get_output(context)
-            .get_inner();
+        let identity_store_id_binding_1 = args.identity_store_id.get_output(context);
+        let identity_store_id_binding = identity_store_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:identitystore/getGroups:getGroups".into(),
             version: super::super::super::get_version(),

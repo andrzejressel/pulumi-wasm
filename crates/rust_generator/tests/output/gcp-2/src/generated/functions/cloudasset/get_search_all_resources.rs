@@ -36,9 +36,12 @@ pub mod get_search_all_resources {
     ) -> GetSearchAllResourcesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let asset_types_binding = args.asset_types.get_output(context).get_inner();
-        let query_binding = args.query.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
+        let asset_types_binding_1 = args.asset_types.get_output(context);
+        let asset_types_binding = asset_types_binding_1.get_inner();
+        let query_binding_1 = args.query.get_output(context);
+        let query_binding = query_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudasset/getSearchAllResources:getSearchAllResources".into(),
             version: super::super::super::get_version(),

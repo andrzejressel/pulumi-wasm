@@ -85,16 +85,17 @@ pub mod management_group {
     ) -> ManagementGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_management_group_id_binding = args
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_management_group_id_binding_1 = args
             .parent_management_group_id
-            .get_output(context)
+            .get_output(context);
+        let parent_management_group_id_binding = parent_management_group_id_binding_1
             .get_inner();
-        let subscription_ids_binding = args
-            .subscription_ids
-            .get_output(context)
-            .get_inner();
+        let subscription_ids_binding_1 = args.subscription_ids.get_output(context);
+        let subscription_ids_binding = subscription_ids_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:managementgroups/managementGroup:ManagementGroup".into(),
             name: name.to_string(),

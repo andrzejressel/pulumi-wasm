@@ -314,31 +314,41 @@ pub mod ai_endpoint {
     ) -> AiEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dedicated_endpoint_enabled_binding = args
+        let dedicated_endpoint_enabled_binding_1 = args
             .dedicated_endpoint_enabled
-            .get_output(context)
+            .get_output(context);
+        let dedicated_endpoint_enabled_binding = dedicated_endpoint_enabled_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let encryption_spec_binding = args
-            .encryption_spec
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let predict_request_response_logging_config_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let encryption_spec_binding_1 = args.encryption_spec.get_output(context);
+        let encryption_spec_binding = encryption_spec_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let predict_request_response_logging_config_binding_1 = args
             .predict_request_response_logging_config
-            .get_output(context)
+            .get_output(context);
+        let predict_request_response_logging_config_binding = predict_request_response_logging_config_binding_1
             .get_inner();
-        let private_service_connect_config_binding = args
+        let private_service_connect_config_binding_1 = args
             .private_service_connect_config
-            .get_output(context)
+            .get_output(context);
+        let private_service_connect_config_binding = private_service_connect_config_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let traffic_split_binding = args.traffic_split.get_output(context).get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let traffic_split_binding_1 = args.traffic_split.get_output(context);
+        let traffic_split_binding = traffic_split_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vertex/aiEndpoint:AiEndpoint".into(),
             name: name.to_string(),

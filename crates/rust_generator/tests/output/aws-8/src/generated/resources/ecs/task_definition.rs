@@ -365,49 +365,54 @@ pub mod task_definition {
     ) -> TaskDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_definitions_binding = args
+        let container_definitions_binding_1 = args
             .container_definitions
-            .get_output(context)
-            .get_inner();
-        let cpu_binding = args.cpu.get_output(context).get_inner();
-        let ephemeral_storage_binding = args
-            .ephemeral_storage
-            .get_output(context)
-            .get_inner();
-        let execution_role_arn_binding = args
-            .execution_role_arn
-            .get_output(context)
-            .get_inner();
-        let family_binding = args.family.get_output(context).get_inner();
-        let inference_accelerators_binding = args
+            .get_output(context);
+        let container_definitions_binding = container_definitions_binding_1.get_inner();
+        let cpu_binding_1 = args.cpu.get_output(context);
+        let cpu_binding = cpu_binding_1.get_inner();
+        let ephemeral_storage_binding_1 = args.ephemeral_storage.get_output(context);
+        let ephemeral_storage_binding = ephemeral_storage_binding_1.get_inner();
+        let execution_role_arn_binding_1 = args.execution_role_arn.get_output(context);
+        let execution_role_arn_binding = execution_role_arn_binding_1.get_inner();
+        let family_binding_1 = args.family.get_output(context);
+        let family_binding = family_binding_1.get_inner();
+        let inference_accelerators_binding_1 = args
             .inference_accelerators
-            .get_output(context)
+            .get_output(context);
+        let inference_accelerators_binding = inference_accelerators_binding_1
             .get_inner();
-        let ipc_mode_binding = args.ipc_mode.get_output(context).get_inner();
-        let memory_binding = args.memory.get_output(context).get_inner();
-        let network_mode_binding = args.network_mode.get_output(context).get_inner();
-        let pid_mode_binding = args.pid_mode.get_output(context).get_inner();
-        let placement_constraints_binding = args
+        let ipc_mode_binding_1 = args.ipc_mode.get_output(context);
+        let ipc_mode_binding = ipc_mode_binding_1.get_inner();
+        let memory_binding_1 = args.memory.get_output(context);
+        let memory_binding = memory_binding_1.get_inner();
+        let network_mode_binding_1 = args.network_mode.get_output(context);
+        let network_mode_binding = network_mode_binding_1.get_inner();
+        let pid_mode_binding_1 = args.pid_mode.get_output(context);
+        let pid_mode_binding = pid_mode_binding_1.get_inner();
+        let placement_constraints_binding_1 = args
             .placement_constraints
-            .get_output(context)
-            .get_inner();
-        let proxy_configuration_binding = args
-            .proxy_configuration
-            .get_output(context)
-            .get_inner();
-        let requires_compatibilities_binding = args
+            .get_output(context);
+        let placement_constraints_binding = placement_constraints_binding_1.get_inner();
+        let proxy_configuration_binding_1 = args.proxy_configuration.get_output(context);
+        let proxy_configuration_binding = proxy_configuration_binding_1.get_inner();
+        let requires_compatibilities_binding_1 = args
             .requires_compatibilities
-            .get_output(context)
+            .get_output(context);
+        let requires_compatibilities_binding = requires_compatibilities_binding_1
             .get_inner();
-        let runtime_platform_binding = args
-            .runtime_platform
-            .get_output(context)
-            .get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let task_role_arn_binding = args.task_role_arn.get_output(context).get_inner();
-        let track_latest_binding = args.track_latest.get_output(context).get_inner();
-        let volumes_binding = args.volumes.get_output(context).get_inner();
+        let runtime_platform_binding_1 = args.runtime_platform.get_output(context);
+        let runtime_platform_binding = runtime_platform_binding_1.get_inner();
+        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
+        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let task_role_arn_binding_1 = args.task_role_arn.get_output(context);
+        let task_role_arn_binding = task_role_arn_binding_1.get_inner();
+        let track_latest_binding_1 = args.track_latest.get_output(context);
+        let track_latest_binding = track_latest_binding_1.get_inner();
+        let volumes_binding_1 = args.volumes.get_output(context);
+        let volumes_binding = volumes_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecs/taskDefinition:TaskDefinition".into(),
             name: name.to_string(),

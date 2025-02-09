@@ -190,24 +190,27 @@ pub mod module {
     ) -> ModuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_output(context).get_inner();
-        let management_network_profile_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let management_network_profile_binding_1 = args
             .management_network_profile
-            .get_output(context)
+            .get_output(context);
+        let management_network_profile_binding = management_network_profile_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_profile_binding = args
-            .network_profile
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let stamp_id_binding = args.stamp_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let zones_binding = args.zones.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_profile_binding_1 = args.network_profile.get_output(context);
+        let network_profile_binding = network_profile_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let stamp_id_binding_1 = args.stamp_id.get_output(context);
+        let stamp_id_binding = stamp_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let zones_binding_1 = args.zones.get_output(context);
+        let zones_binding = zones_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:hsm/module:Module".into(),
             name: name.to_string(),

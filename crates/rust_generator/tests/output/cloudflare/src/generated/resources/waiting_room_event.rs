@@ -128,51 +128,44 @@ pub mod waiting_room_event {
     ) -> WaitingRoomEventResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_page_html_binding = args
-            .custom_page_html
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disable_session_renewal_binding = args
+        let custom_page_html_binding_1 = args.custom_page_html.get_output(context);
+        let custom_page_html_binding = custom_page_html_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disable_session_renewal_binding_1 = args
             .disable_session_renewal
-            .get_output(context)
+            .get_output(context);
+        let disable_session_renewal_binding = disable_session_renewal_binding_1
             .get_inner();
-        let event_end_time_binding = args.event_end_time.get_output(context).get_inner();
-        let event_start_time_binding = args
-            .event_start_time
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let new_users_per_minute_binding = args
+        let event_end_time_binding_1 = args.event_end_time.get_output(context);
+        let event_end_time_binding = event_end_time_binding_1.get_inner();
+        let event_start_time_binding_1 = args.event_start_time.get_output(context);
+        let event_start_time_binding = event_start_time_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let new_users_per_minute_binding_1 = args
             .new_users_per_minute
-            .get_output(context)
-            .get_inner();
-        let prequeue_start_time_binding = args
-            .prequeue_start_time
-            .get_output(context)
-            .get_inner();
-        let queueing_method_binding = args
-            .queueing_method
-            .get_output(context)
-            .get_inner();
-        let session_duration_binding = args
-            .session_duration
-            .get_output(context)
-            .get_inner();
-        let shuffle_at_event_start_binding = args
+            .get_output(context);
+        let new_users_per_minute_binding = new_users_per_minute_binding_1.get_inner();
+        let prequeue_start_time_binding_1 = args.prequeue_start_time.get_output(context);
+        let prequeue_start_time_binding = prequeue_start_time_binding_1.get_inner();
+        let queueing_method_binding_1 = args.queueing_method.get_output(context);
+        let queueing_method_binding = queueing_method_binding_1.get_inner();
+        let session_duration_binding_1 = args.session_duration.get_output(context);
+        let session_duration_binding = session_duration_binding_1.get_inner();
+        let shuffle_at_event_start_binding_1 = args
             .shuffle_at_event_start
-            .get_output(context)
+            .get_output(context);
+        let shuffle_at_event_start_binding = shuffle_at_event_start_binding_1
             .get_inner();
-        let suspended_binding = args.suspended.get_output(context).get_inner();
-        let total_active_users_binding = args
-            .total_active_users
-            .get_output(context)
-            .get_inner();
-        let waiting_room_id_binding = args
-            .waiting_room_id
-            .get_output(context)
-            .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let suspended_binding_1 = args.suspended.get_output(context);
+        let suspended_binding = suspended_binding_1.get_inner();
+        let total_active_users_binding_1 = args.total_active_users.get_output(context);
+        let total_active_users_binding = total_active_users_binding_1.get_inner();
+        let waiting_room_id_binding_1 = args.waiting_room_id.get_output(context);
+        let waiting_room_id_binding = waiting_room_id_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/waitingRoomEvent:WaitingRoomEvent".into(),
             name: name.to_string(),

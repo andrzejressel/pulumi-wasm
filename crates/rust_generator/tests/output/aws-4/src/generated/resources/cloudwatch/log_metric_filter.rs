@@ -83,13 +83,16 @@ pub mod log_metric_filter {
     ) -> LogMetricFilterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let log_group_name_binding = args.log_group_name.get_output(context).get_inner();
-        let metric_transformation_binding = args
+        let log_group_name_binding_1 = args.log_group_name.get_output(context);
+        let log_group_name_binding = log_group_name_binding_1.get_inner();
+        let metric_transformation_binding_1 = args
             .metric_transformation
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let pattern_binding = args.pattern.get_output(context).get_inner();
+            .get_output(context);
+        let metric_transformation_binding = metric_transformation_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let pattern_binding_1 = args.pattern.get_output(context);
+        let pattern_binding = pattern_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/logMetricFilter:LogMetricFilter".into(),
             name: name.to_string(),

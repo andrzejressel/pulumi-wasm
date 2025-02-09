@@ -40,16 +40,14 @@ pub mod get_encrypted_value {
     ) -> GetEncryptedValueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let algorithm_binding = args.algorithm.get_output(context).get_inner();
-        let encrypted_data_binding = args.encrypted_data.get_output(context).get_inner();
-        let key_vault_key_id_binding = args
-            .key_vault_key_id
-            .get_output(context)
-            .get_inner();
-        let plain_text_value_binding = args
-            .plain_text_value
-            .get_output(context)
-            .get_inner();
+        let algorithm_binding_1 = args.algorithm.get_output(context);
+        let algorithm_binding = algorithm_binding_1.get_inner();
+        let encrypted_data_binding_1 = args.encrypted_data.get_output(context);
+        let encrypted_data_binding = encrypted_data_binding_1.get_inner();
+        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
+        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
+        let plain_text_value_binding_1 = args.plain_text_value.get_output(context);
+        let plain_text_value_binding = plain_text_value_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:keyvault/getEncryptedValue:getEncryptedValue".into(),
             version: super::super::super::get_version(),

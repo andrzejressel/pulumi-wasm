@@ -223,15 +223,24 @@ pub mod workflow_template {
     ) -> WorkflowTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dag_timeout_binding = args.dag_timeout.get_output(context).get_inner();
-        let jobs_binding = args.jobs.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let placement_binding = args.placement.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let dag_timeout_binding_1 = args.dag_timeout.get_output(context);
+        let dag_timeout_binding = dag_timeout_binding_1.get_inner();
+        let jobs_binding_1 = args.jobs.get_output(context);
+        let jobs_binding = jobs_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let placement_binding_1 = args.placement.get_output(context);
+        let placement_binding = placement_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/workflowTemplate:WorkflowTemplate".into(),
             name: name.to_string(),

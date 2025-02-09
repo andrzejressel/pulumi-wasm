@@ -112,16 +112,17 @@ pub mod network_insights_analysis {
     ) -> NetworkInsightsAnalysisResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filter_in_arns_binding = args.filter_in_arns.get_output(context).get_inner();
-        let network_insights_path_id_binding = args
+        let filter_in_arns_binding_1 = args.filter_in_arns.get_output(context);
+        let filter_in_arns_binding = filter_in_arns_binding_1.get_inner();
+        let network_insights_path_id_binding_1 = args
             .network_insights_path_id
-            .get_output(context)
+            .get_output(context);
+        let network_insights_path_id_binding = network_insights_path_id_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let wait_for_completion_binding = args
-            .wait_for_completion
-            .get_output(context)
-            .get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let wait_for_completion_binding_1 = args.wait_for_completion.get_output(context);
+        let wait_for_completion_binding = wait_for_completion_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis".into(),
             name: name.to_string(),

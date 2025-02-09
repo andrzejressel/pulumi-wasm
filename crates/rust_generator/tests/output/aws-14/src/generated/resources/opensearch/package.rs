@@ -90,13 +90,14 @@ pub mod package {
     ) -> PackageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let package_description_binding = args
-            .package_description
-            .get_output(context)
-            .get_inner();
-        let package_name_binding = args.package_name.get_output(context).get_inner();
-        let package_source_binding = args.package_source.get_output(context).get_inner();
-        let package_type_binding = args.package_type.get_output(context).get_inner();
+        let package_description_binding_1 = args.package_description.get_output(context);
+        let package_description_binding = package_description_binding_1.get_inner();
+        let package_name_binding_1 = args.package_name.get_output(context);
+        let package_name_binding = package_name_binding_1.get_inner();
+        let package_source_binding_1 = args.package_source.get_output(context);
+        let package_source_binding = package_source_binding_1.get_inner();
+        let package_type_binding_1 = args.package_type.get_output(context);
+        let package_type_binding = package_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opensearch/package:Package".into(),
             name: name.to_string(),

@@ -109,16 +109,16 @@ pub mod organization_settings {
     ) -> OrganizationSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disable_default_sink_binding = args
+        let disable_default_sink_binding_1 = args
             .disable_default_sink
-            .get_output(context)
-            .get_inner();
-        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
-        let organization_binding = args.organization.get_output(context).get_inner();
-        let storage_location_binding = args
-            .storage_location
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let disable_default_sink_binding = disable_default_sink_binding_1.get_inner();
+        let kms_key_name_binding_1 = args.kms_key_name.get_output(context);
+        let kms_key_name_binding = kms_key_name_binding_1.get_inner();
+        let organization_binding_1 = args.organization.get_output(context);
+        let organization_binding = organization_binding_1.get_inner();
+        let storage_location_binding_1 = args.storage_location.get_output(context);
+        let storage_location_binding = storage_location_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:logging/organizationSettings:OrganizationSettings".into(),
             name: name.to_string(),

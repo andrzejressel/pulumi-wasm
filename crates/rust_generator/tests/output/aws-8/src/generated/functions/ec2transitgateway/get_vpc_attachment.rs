@@ -62,9 +62,12 @@ pub mod get_vpc_attachment {
     ) -> GetVpcAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let id_binding = args.id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let id_binding_1 = args.id.get_output(context);
+        let id_binding = id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2transitgateway/getVpcAttachment:getVpcAttachment".into(),
             version: super::super::super::get_version(),

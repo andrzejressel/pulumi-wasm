@@ -51,15 +51,15 @@ pub mod get_circuit_peering {
     ) -> GetCircuitPeeringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let express_route_circuit_name_binding = args
+        let express_route_circuit_name_binding_1 = args
             .express_route_circuit_name
-            .get_output(context)
+            .get_output(context);
+        let express_route_circuit_name_binding = express_route_circuit_name_binding_1
             .get_inner();
-        let peering_type_binding = args.peering_type.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let peering_type_binding_1 = args.peering_type.get_output(context);
+        let peering_type_binding = peering_type_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:expressroute/getCircuitPeering:getCircuitPeering".into(),
             version: super::super::super::get_version(),

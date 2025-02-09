@@ -156,14 +156,18 @@ pub mod response_policy {
     ) -> ResponsePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let gke_clusters_binding = args.gke_clusters.get_output(context).get_inner();
-        let networks_binding = args.networks.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let response_policy_name_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let gke_clusters_binding_1 = args.gke_clusters.get_output(context);
+        let gke_clusters_binding = gke_clusters_binding_1.get_inner();
+        let networks_binding_1 = args.networks.get_output(context);
+        let networks_binding = networks_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let response_policy_name_binding_1 = args
             .response_policy_name
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let response_policy_name_binding = response_policy_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dns/responsePolicy:ResponsePolicy".into(),
             name: name.to_string(),

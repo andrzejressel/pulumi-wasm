@@ -44,8 +44,10 @@ pub mod get_volume_group {
     ) -> GetVolumeGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let elastic_san_id_binding = args.elastic_san_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let elastic_san_id_binding_1 = args.elastic_san_id.get_output(context);
+        let elastic_san_id_binding = elastic_san_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:elasticsan/getVolumeGroup:getVolumeGroup".into(),
             version: super::super::super::get_version(),

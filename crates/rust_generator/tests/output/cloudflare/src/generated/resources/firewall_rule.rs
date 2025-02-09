@@ -103,13 +103,20 @@ pub mod firewall_rule {
     ) -> FirewallRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let filter_id_binding = args.filter_id.get_output(context).get_inner();
-        let paused_binding = args.paused.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let products_binding = args.products.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let filter_id_binding_1 = args.filter_id.get_output(context);
+        let filter_id_binding = filter_id_binding_1.get_inner();
+        let paused_binding_1 = args.paused.get_output(context);
+        let paused_binding = paused_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let products_binding_1 = args.products.get_output(context);
+        let products_binding = products_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/firewallRule:FirewallRule".into(),
             name: name.to_string(),

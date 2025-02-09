@@ -77,8 +77,10 @@ pub mod log_service {
     ) -> LogServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let directory_id_binding = args.directory_id.get_output(context).get_inner();
-        let log_group_name_binding = args.log_group_name.get_output(context).get_inner();
+        let directory_id_binding_1 = args.directory_id.get_output(context);
+        let directory_id_binding = directory_id_binding_1.get_inner();
+        let log_group_name_binding_1 = args.log_group_name.get_output(context);
+        let log_group_name_binding = log_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directoryservice/logService:LogService".into(),
             name: name.to_string(),

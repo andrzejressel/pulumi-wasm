@@ -202,19 +202,20 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_config_binding = args
-            .capacity_config
-            .get_output(context)
-            .get_inner();
-        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
-        let gcp_config_binding = args.gcp_config.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let rebalance_config_binding = args
-            .rebalance_config
-            .get_output(context)
-            .get_inner();
+        let capacity_config_binding_1 = args.capacity_config.get_output(context);
+        let capacity_config_binding = capacity_config_binding_1.get_inner();
+        let cluster_id_binding_1 = args.cluster_id.get_output(context);
+        let cluster_id_binding = cluster_id_binding_1.get_inner();
+        let gcp_config_binding_1 = args.gcp_config.get_output(context);
+        let gcp_config_binding = gcp_config_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let rebalance_config_binding_1 = args.rebalance_config.get_output(context);
+        let rebalance_config_binding = rebalance_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:managedkafka/cluster:Cluster".into(),
             name: name.to_string(),

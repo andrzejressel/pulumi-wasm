@@ -218,18 +218,14 @@ pub mod managed_instance_transparent_data_encryption {
     ) -> ManagedInstanceTransparentDataEncryptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_rotation_enabled_binding = args
+        let auto_rotation_enabled_binding_1 = args
             .auto_rotation_enabled
-            .get_output(context)
-            .get_inner();
-        let key_vault_key_id_binding = args
-            .key_vault_key_id
-            .get_output(context)
-            .get_inner();
-        let managed_instance_id_binding = args
-            .managed_instance_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let auto_rotation_enabled_binding = auto_rotation_enabled_binding_1.get_inner();
+        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
+        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
+        let managed_instance_id_binding_1 = args.managed_instance_id.get_output(context);
+        let managed_instance_id_binding = managed_instance_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption"
                 .into(),

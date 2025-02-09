@@ -101,9 +101,12 @@ pub mod instance_settings {
     ) -> InstanceSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/instanceSettings:InstanceSettings".into(),
             name: name.to_string(),

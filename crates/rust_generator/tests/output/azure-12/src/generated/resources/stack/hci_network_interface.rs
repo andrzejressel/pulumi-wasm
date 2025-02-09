@@ -129,23 +129,22 @@ pub mod hci_network_interface {
     ) -> HciNetworkInterfaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_location_id_binding = args
-            .custom_location_id
-            .get_output(context)
-            .get_inner();
-        let dns_servers_binding = args.dns_servers.get_output(context).get_inner();
-        let ip_configuration_binding = args
-            .ip_configuration
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let mac_address_binding = args.mac_address.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let custom_location_id_binding_1 = args.custom_location_id.get_output(context);
+        let custom_location_id_binding = custom_location_id_binding_1.get_inner();
+        let dns_servers_binding_1 = args.dns_servers.get_output(context);
+        let dns_servers_binding = dns_servers_binding_1.get_inner();
+        let ip_configuration_binding_1 = args.ip_configuration.get_output(context);
+        let ip_configuration_binding = ip_configuration_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let mac_address_binding_1 = args.mac_address.get_output(context);
+        let mac_address_binding = mac_address_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:stack/hciNetworkInterface:HciNetworkInterface".into(),
             name: name.to_string(),

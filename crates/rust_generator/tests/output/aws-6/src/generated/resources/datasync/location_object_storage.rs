@@ -110,25 +110,26 @@ pub mod location_object_storage {
     ) -> LocationObjectStorageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_key_binding = args.access_key.get_output(context).get_inner();
-        let agent_arns_binding = args.agent_arns.get_output(context).get_inner();
-        let bucket_name_binding = args.bucket_name.get_output(context).get_inner();
-        let secret_key_binding = args.secret_key.get_output(context).get_inner();
-        let server_certificate_binding = args
-            .server_certificate
-            .get_output(context)
-            .get_inner();
-        let server_hostname_binding = args
-            .server_hostname
-            .get_output(context)
-            .get_inner();
-        let server_port_binding = args.server_port.get_output(context).get_inner();
-        let server_protocol_binding = args
-            .server_protocol
-            .get_output(context)
-            .get_inner();
-        let subdirectory_binding = args.subdirectory.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let access_key_binding_1 = args.access_key.get_output(context);
+        let access_key_binding = access_key_binding_1.get_inner();
+        let agent_arns_binding_1 = args.agent_arns.get_output(context);
+        let agent_arns_binding = agent_arns_binding_1.get_inner();
+        let bucket_name_binding_1 = args.bucket_name.get_output(context);
+        let bucket_name_binding = bucket_name_binding_1.get_inner();
+        let secret_key_binding_1 = args.secret_key.get_output(context);
+        let secret_key_binding = secret_key_binding_1.get_inner();
+        let server_certificate_binding_1 = args.server_certificate.get_output(context);
+        let server_certificate_binding = server_certificate_binding_1.get_inner();
+        let server_hostname_binding_1 = args.server_hostname.get_output(context);
+        let server_hostname_binding = server_hostname_binding_1.get_inner();
+        let server_port_binding_1 = args.server_port.get_output(context);
+        let server_port_binding = server_port_binding_1.get_inner();
+        let server_protocol_binding_1 = args.server_protocol.get_output(context);
+        let server_protocol_binding = server_protocol_binding_1.get_inner();
+        let subdirectory_binding_1 = args.subdirectory.get_output(context);
+        let subdirectory_binding = subdirectory_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/locationObjectStorage:LocationObjectStorage".into(),
             name: name.to_string(),

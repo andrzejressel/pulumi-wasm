@@ -103,13 +103,20 @@ pub mod certificate_issuer {
     ) -> CertificateIssuerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let admins_binding = args.admins.get_output(context).get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let provider_name_binding = args.provider_name.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let admins_binding_1 = args.admins.get_output(context);
+        let admins_binding = admins_binding_1.get_inner();
+        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
+        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let provider_name_binding_1 = args.provider_name.get_output(context);
+        let provider_name_binding = provider_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/certificateIssuer:CertificateIssuer".into(),
             name: name.to_string(),

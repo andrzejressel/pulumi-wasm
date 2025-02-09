@@ -110,20 +110,25 @@ pub mod saved_search {
     ) -> SavedSearchResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let category_binding = args.category.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let function_alias_binding = args.function_alias.get_output(context).get_inner();
-        let function_parameters_binding = args
-            .function_parameters
-            .get_output(context)
-            .get_inner();
-        let log_analytics_workspace_id_binding = args
+        let category_binding_1 = args.category.get_output(context);
+        let category_binding = category_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let function_alias_binding_1 = args.function_alias.get_output(context);
+        let function_alias_binding = function_alias_binding_1.get_inner();
+        let function_parameters_binding_1 = args.function_parameters.get_output(context);
+        let function_parameters_binding = function_parameters_binding_1.get_inner();
+        let log_analytics_workspace_id_binding_1 = args
             .log_analytics_workspace_id
-            .get_output(context)
+            .get_output(context);
+        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let query_binding = args.query.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let query_binding_1 = args.query.get_output(context);
+        let query_binding = query_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:loganalytics/savedSearch:SavedSearch".into(),
             name: name.to_string(),

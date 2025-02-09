@@ -79,16 +79,17 @@ pub mod user_login_profile {
     ) -> UserLoginProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let password_length_binding = args
-            .password_length
-            .get_output(context)
-            .get_inner();
-        let password_reset_required_binding = args
+        let password_length_binding_1 = args.password_length.get_output(context);
+        let password_length_binding = password_length_binding_1.get_inner();
+        let password_reset_required_binding_1 = args
             .password_reset_required
-            .get_output(context)
+            .get_output(context);
+        let password_reset_required_binding = password_reset_required_binding_1
             .get_inner();
-        let pgp_key_binding = args.pgp_key.get_output(context).get_inner();
-        let user_binding = args.user.get_output(context).get_inner();
+        let pgp_key_binding_1 = args.pgp_key.get_output(context);
+        let pgp_key_binding = pgp_key_binding_1.get_inner();
+        let user_binding_1 = args.user.get_output(context);
+        let user_binding = user_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/userLoginProfile:UserLoginProfile".into(),
             name: name.to_string(),

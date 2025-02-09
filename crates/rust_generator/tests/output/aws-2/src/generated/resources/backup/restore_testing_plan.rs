@@ -97,24 +97,24 @@ pub mod restore_testing_plan {
     ) -> RestoreTestingPlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let recovery_point_selection_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recovery_point_selection_binding_1 = args
             .recovery_point_selection
-            .get_output(context)
+            .get_output(context);
+        let recovery_point_selection_binding = recovery_point_selection_binding_1
             .get_inner();
-        let schedule_expression_binding = args
-            .schedule_expression
-            .get_output(context)
-            .get_inner();
-        let schedule_expression_timezone_binding = args
+        let schedule_expression_binding_1 = args.schedule_expression.get_output(context);
+        let schedule_expression_binding = schedule_expression_binding_1.get_inner();
+        let schedule_expression_timezone_binding_1 = args
             .schedule_expression_timezone
-            .get_output(context)
+            .get_output(context);
+        let schedule_expression_timezone_binding = schedule_expression_timezone_binding_1
             .get_inner();
-        let start_window_hours_binding = args
-            .start_window_hours
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let start_window_hours_binding_1 = args.start_window_hours.get_output(context);
+        let start_window_hours_binding = start_window_hours_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:backup/restoreTestingPlan:RestoreTestingPlan".into(),
             name: name.to_string(),

@@ -248,20 +248,22 @@ pub mod enterprise_key {
     ) -> EnterpriseKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let android_settings_binding = args
-            .android_settings
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let ios_settings_binding = args.ios_settings.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let testing_options_binding = args
-            .testing_options
-            .get_output(context)
-            .get_inner();
-        let waf_settings_binding = args.waf_settings.get_output(context).get_inner();
-        let web_settings_binding = args.web_settings.get_output(context).get_inner();
+        let android_settings_binding_1 = args.android_settings.get_output(context);
+        let android_settings_binding = android_settings_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let ios_settings_binding_1 = args.ios_settings.get_output(context);
+        let ios_settings_binding = ios_settings_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let testing_options_binding_1 = args.testing_options.get_output(context);
+        let testing_options_binding = testing_options_binding_1.get_inner();
+        let waf_settings_binding_1 = args.waf_settings.get_output(context);
+        let waf_settings_binding = waf_settings_binding_1.get_inner();
+        let web_settings_binding_1 = args.web_settings.get_output(context);
+        let web_settings_binding = web_settings_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:recaptcha/enterpriseKey:EnterpriseKey".into(),
             name: name.to_string(),

@@ -67,10 +67,14 @@ pub mod random_shuffle {
     ) -> RandomShuffleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let inputs_binding = args.inputs.get_output(context).get_inner();
-        let keepers_binding = args.keepers.get_output(context).get_inner();
-        let result_count_binding = args.result_count.get_output(context).get_inner();
-        let seed_binding = args.seed.get_output(context).get_inner();
+        let inputs_binding_1 = args.inputs.get_output(context);
+        let inputs_binding = inputs_binding_1.get_inner();
+        let keepers_binding_1 = args.keepers.get_output(context);
+        let keepers_binding = keepers_binding_1.get_inner();
+        let result_count_binding_1 = args.result_count.get_output(context);
+        let result_count_binding = result_count_binding_1.get_inner();
+        let seed_binding_1 = args.seed.get_output(context);
+        let seed_binding = seed_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "random:index/randomShuffle:RandomShuffle".into(),
             name: name.to_string(),

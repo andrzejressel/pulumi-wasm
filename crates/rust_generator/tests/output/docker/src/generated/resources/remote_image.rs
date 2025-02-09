@@ -133,13 +133,20 @@ pub mod remote_image {
     ) -> RemoteImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let build_binding = args.build.get_output(context).get_inner();
-        let force_remove_binding = args.force_remove.get_output(context).get_inner();
-        let keep_locally_binding = args.keep_locally.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let platform_binding = args.platform.get_output(context).get_inner();
-        let pull_triggers_binding = args.pull_triggers.get_output(context).get_inner();
-        let triggers_binding = args.triggers.get_output(context).get_inner();
+        let build_binding_1 = args.build.get_output(context);
+        let build_binding = build_binding_1.get_inner();
+        let force_remove_binding_1 = args.force_remove.get_output(context);
+        let force_remove_binding = force_remove_binding_1.get_inner();
+        let keep_locally_binding_1 = args.keep_locally.get_output(context);
+        let keep_locally_binding = keep_locally_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let platform_binding_1 = args.platform.get_output(context);
+        let platform_binding = platform_binding_1.get_inner();
+        let pull_triggers_binding_1 = args.pull_triggers.get_output(context);
+        let pull_triggers_binding = pull_triggers_binding_1.get_inner();
+        let triggers_binding_1 = args.triggers.get_output(context);
+        let triggers_binding = triggers_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "docker:index/remoteImage:RemoteImage".into(),
             name: name.to_string(),

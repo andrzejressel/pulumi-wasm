@@ -48,9 +48,12 @@ pub mod get_certificate_data {
     ) -> GetCertificateDataResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
+        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:keyvault/getCertificateData:getCertificateData".into(),
             version: super::super::super::get_version(),

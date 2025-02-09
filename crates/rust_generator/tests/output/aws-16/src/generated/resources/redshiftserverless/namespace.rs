@@ -116,29 +116,35 @@ pub mod namespace {
     ) -> NamespaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_password_secret_kms_key_id_binding = args
+        let admin_password_secret_kms_key_id_binding_1 = args
             .admin_password_secret_kms_key_id
-            .get_output(context)
+            .get_output(context);
+        let admin_password_secret_kms_key_id_binding = admin_password_secret_kms_key_id_binding_1
             .get_inner();
-        let admin_user_password_binding = args
-            .admin_user_password
-            .get_output(context)
-            .get_inner();
-        let admin_username_binding = args.admin_username.get_output(context).get_inner();
-        let db_name_binding = args.db_name.get_output(context).get_inner();
-        let default_iam_role_arn_binding = args
+        let admin_user_password_binding_1 = args.admin_user_password.get_output(context);
+        let admin_user_password_binding = admin_user_password_binding_1.get_inner();
+        let admin_username_binding_1 = args.admin_username.get_output(context);
+        let admin_username_binding = admin_username_binding_1.get_inner();
+        let db_name_binding_1 = args.db_name.get_output(context);
+        let db_name_binding = db_name_binding_1.get_inner();
+        let default_iam_role_arn_binding_1 = args
             .default_iam_role_arn
-            .get_output(context)
-            .get_inner();
-        let iam_roles_binding = args.iam_roles.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let log_exports_binding = args.log_exports.get_output(context).get_inner();
-        let manage_admin_password_binding = args
+            .get_output(context);
+        let default_iam_role_arn_binding = default_iam_role_arn_binding_1.get_inner();
+        let iam_roles_binding_1 = args.iam_roles.get_output(context);
+        let iam_roles_binding = iam_roles_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let log_exports_binding_1 = args.log_exports.get_output(context);
+        let log_exports_binding = log_exports_binding_1.get_inner();
+        let manage_admin_password_binding_1 = args
             .manage_admin_password
-            .get_output(context)
-            .get_inner();
-        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let manage_admin_password_binding = manage_admin_password_binding_1.get_inner();
+        let namespace_name_binding_1 = args.namespace_name.get_output(context);
+        let namespace_name_binding = namespace_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshiftserverless/namespace:Namespace".into(),
             name: name.to_string(),

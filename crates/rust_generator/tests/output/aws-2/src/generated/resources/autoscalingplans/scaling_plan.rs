@@ -60,15 +60,14 @@ pub mod scaling_plan {
     ) -> ScalingPlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_source_binding = args
-            .application_source
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let scaling_instructions_binding = args
+        let application_source_binding_1 = args.application_source.get_output(context);
+        let application_source_binding = application_source_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let scaling_instructions_binding_1 = args
             .scaling_instructions
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let scaling_instructions_binding = scaling_instructions_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:autoscalingplans/scalingPlan:ScalingPlan".into(),
             name: name.to_string(),

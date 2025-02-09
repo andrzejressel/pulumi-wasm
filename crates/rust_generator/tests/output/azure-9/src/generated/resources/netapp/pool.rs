@@ -122,21 +122,24 @@ pub mod pool {
     ) -> PoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding = args.account_name.get_output(context).get_inner();
-        let encryption_type_binding = args
-            .encryption_type
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let qos_type_binding = args.qos_type.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let service_level_binding = args.service_level.get_output(context).get_inner();
-        let size_in_tb_binding = args.size_in_tb.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let account_name_binding_1 = args.account_name.get_output(context);
+        let account_name_binding = account_name_binding_1.get_inner();
+        let encryption_type_binding_1 = args.encryption_type.get_output(context);
+        let encryption_type_binding = encryption_type_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let qos_type_binding_1 = args.qos_type.get_output(context);
+        let qos_type_binding = qos_type_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let service_level_binding_1 = args.service_level.get_output(context);
+        let service_level_binding = service_level_binding_1.get_inner();
+        let size_in_tb_binding_1 = args.size_in_tb.get_output(context);
+        let size_in_tb_binding = size_in_tb_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:netapp/pool:Pool".into(),
             name: name.to_string(),

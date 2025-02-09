@@ -532,64 +532,62 @@ pub mod domain {
     ) -> DomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_policies_binding = args
-            .access_policies
-            .get_output(context)
-            .get_inner();
-        let advanced_options_binding = args
-            .advanced_options
-            .get_output(context)
-            .get_inner();
-        let advanced_security_options_binding = args
+        let access_policies_binding_1 = args.access_policies.get_output(context);
+        let access_policies_binding = access_policies_binding_1.get_inner();
+        let advanced_options_binding_1 = args.advanced_options.get_output(context);
+        let advanced_options_binding = advanced_options_binding_1.get_inner();
+        let advanced_security_options_binding_1 = args
             .advanced_security_options
-            .get_output(context)
+            .get_output(context);
+        let advanced_security_options_binding = advanced_security_options_binding_1
             .get_inner();
-        let auto_tune_options_binding = args
-            .auto_tune_options
-            .get_output(context)
-            .get_inner();
-        let cluster_config_binding = args.cluster_config.get_output(context).get_inner();
-        let cognito_options_binding = args
-            .cognito_options
-            .get_output(context)
-            .get_inner();
-        let domain_endpoint_options_binding = args
+        let auto_tune_options_binding_1 = args.auto_tune_options.get_output(context);
+        let auto_tune_options_binding = auto_tune_options_binding_1.get_inner();
+        let cluster_config_binding_1 = args.cluster_config.get_output(context);
+        let cluster_config_binding = cluster_config_binding_1.get_inner();
+        let cognito_options_binding_1 = args.cognito_options.get_output(context);
+        let cognito_options_binding = cognito_options_binding_1.get_inner();
+        let domain_endpoint_options_binding_1 = args
             .domain_endpoint_options
-            .get_output(context)
+            .get_output(context);
+        let domain_endpoint_options_binding = domain_endpoint_options_binding_1
             .get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let ebs_options_binding = args.ebs_options.get_output(context).get_inner();
-        let encrypt_at_rest_binding = args
-            .encrypt_at_rest
-            .get_output(context)
-            .get_inner();
-        let engine_version_binding = args.engine_version.get_output(context).get_inner();
-        let ip_address_type_binding = args
-            .ip_address_type
-            .get_output(context)
-            .get_inner();
-        let log_publishing_options_binding = args
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let ebs_options_binding_1 = args.ebs_options.get_output(context);
+        let ebs_options_binding = ebs_options_binding_1.get_inner();
+        let encrypt_at_rest_binding_1 = args.encrypt_at_rest.get_output(context);
+        let encrypt_at_rest_binding = encrypt_at_rest_binding_1.get_inner();
+        let engine_version_binding_1 = args.engine_version.get_output(context);
+        let engine_version_binding = engine_version_binding_1.get_inner();
+        let ip_address_type_binding_1 = args.ip_address_type.get_output(context);
+        let ip_address_type_binding = ip_address_type_binding_1.get_inner();
+        let log_publishing_options_binding_1 = args
             .log_publishing_options
-            .get_output(context)
+            .get_output(context);
+        let log_publishing_options_binding = log_publishing_options_binding_1
             .get_inner();
-        let node_to_node_encryption_binding = args
+        let node_to_node_encryption_binding_1 = args
             .node_to_node_encryption
-            .get_output(context)
+            .get_output(context);
+        let node_to_node_encryption_binding = node_to_node_encryption_binding_1
             .get_inner();
-        let off_peak_window_options_binding = args
+        let off_peak_window_options_binding_1 = args
             .off_peak_window_options
-            .get_output(context)
+            .get_output(context);
+        let off_peak_window_options_binding = off_peak_window_options_binding_1
             .get_inner();
-        let snapshot_options_binding = args
-            .snapshot_options
-            .get_output(context)
-            .get_inner();
-        let software_update_options_binding = args
+        let snapshot_options_binding_1 = args.snapshot_options.get_output(context);
+        let snapshot_options_binding = snapshot_options_binding_1.get_inner();
+        let software_update_options_binding_1 = args
             .software_update_options
-            .get_output(context)
+            .get_output(context);
+        let software_update_options_binding = software_update_options_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_options_binding = args.vpc_options.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_options_binding_1 = args.vpc_options.get_output(context);
+        let vpc_options_binding = vpc_options_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opensearch/domain:Domain".into(),
             name: name.to_string(),

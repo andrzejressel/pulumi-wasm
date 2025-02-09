@@ -103,14 +103,17 @@ pub mod field_level_encryption_config {
     ) -> FieldLevelEncryptionConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let content_type_profile_config_binding = args
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let content_type_profile_config_binding_1 = args
             .content_type_profile_config
-            .get_output(context)
+            .get_output(context);
+        let content_type_profile_config_binding = content_type_profile_config_binding_1
             .get_inner();
-        let query_arg_profile_config_binding = args
+        let query_arg_profile_config_binding_1 = args
             .query_arg_profile_config
-            .get_output(context)
+            .get_output(context);
+        let query_arg_profile_config_binding = query_arg_profile_config_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig"

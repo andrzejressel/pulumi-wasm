@@ -146,32 +146,25 @@ pub mod configuration_set {
     ) -> ConfigurationSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_set_name_binding = args
+        let configuration_set_name_binding_1 = args
             .configuration_set_name
-            .get_output(context)
+            .get_output(context);
+        let configuration_set_name_binding = configuration_set_name_binding_1
             .get_inner();
-        let delivery_options_binding = args
-            .delivery_options
-            .get_output(context)
-            .get_inner();
-        let reputation_options_binding = args
-            .reputation_options
-            .get_output(context)
-            .get_inner();
-        let sending_options_binding = args
-            .sending_options
-            .get_output(context)
-            .get_inner();
-        let suppression_options_binding = args
-            .suppression_options
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tracking_options_binding = args
-            .tracking_options
-            .get_output(context)
-            .get_inner();
-        let vdm_options_binding = args.vdm_options.get_output(context).get_inner();
+        let delivery_options_binding_1 = args.delivery_options.get_output(context);
+        let delivery_options_binding = delivery_options_binding_1.get_inner();
+        let reputation_options_binding_1 = args.reputation_options.get_output(context);
+        let reputation_options_binding = reputation_options_binding_1.get_inner();
+        let sending_options_binding_1 = args.sending_options.get_output(context);
+        let sending_options_binding = sending_options_binding_1.get_inner();
+        let suppression_options_binding_1 = args.suppression_options.get_output(context);
+        let suppression_options_binding = suppression_options_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tracking_options_binding_1 = args.tracking_options.get_output(context);
+        let tracking_options_binding = tracking_options_binding_1.get_inner();
+        let vdm_options_binding_1 = args.vdm_options.get_output(context);
+        let vdm_options_binding = vdm_options_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/configurationSet:ConfigurationSet".into(),
             name: name.to_string(),

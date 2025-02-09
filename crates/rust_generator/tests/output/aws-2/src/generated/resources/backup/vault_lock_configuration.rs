@@ -69,22 +69,14 @@ pub mod vault_lock_configuration {
     ) -> VaultLockConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_vault_name_binding = args
-            .backup_vault_name
-            .get_output(context)
-            .get_inner();
-        let changeable_for_days_binding = args
-            .changeable_for_days
-            .get_output(context)
-            .get_inner();
-        let max_retention_days_binding = args
-            .max_retention_days
-            .get_output(context)
-            .get_inner();
-        let min_retention_days_binding = args
-            .min_retention_days
-            .get_output(context)
-            .get_inner();
+        let backup_vault_name_binding_1 = args.backup_vault_name.get_output(context);
+        let backup_vault_name_binding = backup_vault_name_binding_1.get_inner();
+        let changeable_for_days_binding_1 = args.changeable_for_days.get_output(context);
+        let changeable_for_days_binding = changeable_for_days_binding_1.get_inner();
+        let max_retention_days_binding_1 = args.max_retention_days.get_output(context);
+        let max_retention_days_binding = max_retention_days_binding_1.get_inner();
+        let min_retention_days_binding_1 = args.min_retention_days.get_output(context);
+        let min_retention_days_binding = min_retention_days_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:backup/vaultLockConfiguration:VaultLockConfiguration".into(),
             name: name.to_string(),

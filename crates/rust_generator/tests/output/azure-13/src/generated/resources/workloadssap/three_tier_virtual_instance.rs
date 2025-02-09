@@ -100,25 +100,33 @@ pub mod three_tier_virtual_instance {
     ) -> ThreeTierVirtualInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_location_binding = args.app_location.get_output(context).get_inner();
-        let environment_binding = args.environment.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let managed_resource_group_name_binding = args
+        let app_location_binding_1 = args.app_location.get_output(context);
+        let app_location_binding = app_location_binding_1.get_inner();
+        let environment_binding_1 = args.environment.get_output(context);
+        let environment_binding = environment_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let managed_resource_group_name_binding_1 = args
             .managed_resource_group_name
-            .get_output(context)
+            .get_output(context);
+        let managed_resource_group_name_binding = managed_resource_group_name_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sap_fqdn_binding = args.sap_fqdn.get_output(context).get_inner();
-        let sap_product_binding = args.sap_product.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let three_tier_configuration_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sap_fqdn_binding_1 = args.sap_fqdn.get_output(context);
+        let sap_fqdn_binding = sap_fqdn_binding_1.get_inner();
+        let sap_product_binding_1 = args.sap_product.get_output(context);
+        let sap_product_binding = sap_product_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let three_tier_configuration_binding_1 = args
             .three_tier_configuration
-            .get_output(context)
+            .get_output(context);
+        let three_tier_configuration_binding = three_tier_configuration_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:workloadssap/threeTierVirtualInstance:ThreeTierVirtualInstance"

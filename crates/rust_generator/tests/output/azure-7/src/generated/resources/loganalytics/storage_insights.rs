@@ -113,25 +113,22 @@ pub mod storage_insights {
     ) -> StorageInsightsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let blob_container_names_binding = args
+        let blob_container_names_binding_1 = args
             .blob_container_names
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
-        let storage_account_key_binding = args
-            .storage_account_key
-            .get_output(context)
-            .get_inner();
-        let table_names_binding = args.table_names.get_output(context).get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+            .get_output(context);
+        let blob_container_names_binding = blob_container_names_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
+        let storage_account_key_binding_1 = args.storage_account_key.get_output(context);
+        let storage_account_key_binding = storage_account_key_binding_1.get_inner();
+        let table_names_binding_1 = args.table_names.get_output(context);
+        let table_names_binding = table_names_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:loganalytics/storageInsights:StorageInsights".into(),
             name: name.to_string(),

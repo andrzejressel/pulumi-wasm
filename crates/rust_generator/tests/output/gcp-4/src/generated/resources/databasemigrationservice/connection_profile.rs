@@ -553,19 +553,28 @@ pub mod connection_profile {
     ) -> ConnectionProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alloydb_binding = args.alloydb.get_output(context).get_inner();
-        let cloudsql_binding = args.cloudsql.get_output(context).get_inner();
-        let connection_profile_id_binding = args
+        let alloydb_binding_1 = args.alloydb.get_output(context);
+        let alloydb_binding = alloydb_binding_1.get_inner();
+        let cloudsql_binding_1 = args.cloudsql.get_output(context);
+        let cloudsql_binding = cloudsql_binding_1.get_inner();
+        let connection_profile_id_binding_1 = args
             .connection_profile_id
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let mysql_binding = args.mysql.get_output(context).get_inner();
-        let oracle_binding = args.oracle.get_output(context).get_inner();
-        let postgresql_binding = args.postgresql.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+            .get_output(context);
+        let connection_profile_id_binding = connection_profile_id_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let mysql_binding_1 = args.mysql.get_output(context);
+        let mysql_binding = mysql_binding_1.get_inner();
+        let oracle_binding_1 = args.oracle.get_output(context);
+        let oracle_binding = oracle_binding_1.get_inner();
+        let postgresql_binding_1 = args.postgresql.get_output(context);
+        let postgresql_binding = postgresql_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:databasemigrationservice/connectionProfile:ConnectionProfile"
                 .into(),

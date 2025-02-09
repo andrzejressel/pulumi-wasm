@@ -74,10 +74,12 @@ pub mod data_catalog_encryption_settings {
     ) -> DataCatalogEncryptionSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
-        let data_catalog_encryption_settings_binding = args
+        let catalog_id_binding_1 = args.catalog_id.get_output(context);
+        let catalog_id_binding = catalog_id_binding_1.get_inner();
+        let data_catalog_encryption_settings_binding_1 = args
             .data_catalog_encryption_settings
-            .get_output(context)
+            .get_output(context);
+        let data_catalog_encryption_settings_binding = data_catalog_encryption_settings_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings"

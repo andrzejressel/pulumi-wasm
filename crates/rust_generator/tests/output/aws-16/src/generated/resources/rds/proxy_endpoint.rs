@@ -78,18 +78,24 @@ pub mod proxy_endpoint {
     ) -> ProxyEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_proxy_endpoint_name_binding = args
+        let db_proxy_endpoint_name_binding_1 = args
             .db_proxy_endpoint_name
-            .get_output(context)
+            .get_output(context);
+        let db_proxy_endpoint_name_binding = db_proxy_endpoint_name_binding_1
             .get_inner();
-        let db_proxy_name_binding = args.db_proxy_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_role_binding = args.target_role.get_output(context).get_inner();
-        let vpc_security_group_ids_binding = args
+        let db_proxy_name_binding_1 = args.db_proxy_name.get_output(context);
+        let db_proxy_name_binding = db_proxy_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_role_binding_1 = args.target_role.get_output(context);
+        let target_role_binding = target_role_binding_1.get_inner();
+        let vpc_security_group_ids_binding_1 = args
             .vpc_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
             .get_inner();
-        let vpc_subnet_ids_binding = args.vpc_subnet_ids.get_output(context).get_inner();
+        let vpc_subnet_ids_binding_1 = args.vpc_subnet_ids.get_output(context);
+        let vpc_subnet_ids_binding = vpc_subnet_ids_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/proxyEndpoint:ProxyEndpoint".into(),
             name: name.to_string(),

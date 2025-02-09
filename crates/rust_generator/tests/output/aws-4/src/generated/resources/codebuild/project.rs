@@ -368,53 +368,62 @@ pub mod project {
     ) -> ProjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let artifacts_binding = args.artifacts.get_output(context).get_inner();
-        let badge_enabled_binding = args.badge_enabled.get_output(context).get_inner();
-        let build_batch_config_binding = args
-            .build_batch_config
-            .get_output(context)
-            .get_inner();
-        let build_timeout_binding = args.build_timeout.get_output(context).get_inner();
-        let cache_binding = args.cache.get_output(context).get_inner();
-        let concurrent_build_limit_binding = args
+        let artifacts_binding_1 = args.artifacts.get_output(context);
+        let artifacts_binding = artifacts_binding_1.get_inner();
+        let badge_enabled_binding_1 = args.badge_enabled.get_output(context);
+        let badge_enabled_binding = badge_enabled_binding_1.get_inner();
+        let build_batch_config_binding_1 = args.build_batch_config.get_output(context);
+        let build_batch_config_binding = build_batch_config_binding_1.get_inner();
+        let build_timeout_binding_1 = args.build_timeout.get_output(context);
+        let build_timeout_binding = build_timeout_binding_1.get_inner();
+        let cache_binding_1 = args.cache.get_output(context);
+        let cache_binding = cache_binding_1.get_inner();
+        let concurrent_build_limit_binding_1 = args
             .concurrent_build_limit
-            .get_output(context)
+            .get_output(context);
+        let concurrent_build_limit_binding = concurrent_build_limit_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let encryption_key_binding = args.encryption_key.get_output(context).get_inner();
-        let environment_binding = args.environment.get_output(context).get_inner();
-        let file_system_locations_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let encryption_key_binding_1 = args.encryption_key.get_output(context);
+        let encryption_key_binding = encryption_key_binding_1.get_inner();
+        let environment_binding_1 = args.environment.get_output(context);
+        let environment_binding = environment_binding_1.get_inner();
+        let file_system_locations_binding_1 = args
             .file_system_locations
-            .get_output(context)
-            .get_inner();
-        let logs_config_binding = args.logs_config.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_visibility_binding = args
-            .project_visibility
-            .get_output(context)
-            .get_inner();
-        let queued_timeout_binding = args.queued_timeout.get_output(context).get_inner();
-        let resource_access_role_binding = args
+            .get_output(context);
+        let file_system_locations_binding = file_system_locations_binding_1.get_inner();
+        let logs_config_binding_1 = args.logs_config.get_output(context);
+        let logs_config_binding = logs_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_visibility_binding_1 = args.project_visibility.get_output(context);
+        let project_visibility_binding = project_visibility_binding_1.get_inner();
+        let queued_timeout_binding_1 = args.queued_timeout.get_output(context);
+        let queued_timeout_binding = queued_timeout_binding_1.get_inner();
+        let resource_access_role_binding_1 = args
             .resource_access_role
-            .get_output(context)
-            .get_inner();
-        let secondary_artifacts_binding = args
-            .secondary_artifacts
-            .get_output(context)
-            .get_inner();
-        let secondary_source_versions_binding = args
+            .get_output(context);
+        let resource_access_role_binding = resource_access_role_binding_1.get_inner();
+        let secondary_artifacts_binding_1 = args.secondary_artifacts.get_output(context);
+        let secondary_artifacts_binding = secondary_artifacts_binding_1.get_inner();
+        let secondary_source_versions_binding_1 = args
             .secondary_source_versions
-            .get_output(context)
+            .get_output(context);
+        let secondary_source_versions_binding = secondary_source_versions_binding_1
             .get_inner();
-        let secondary_sources_binding = args
-            .secondary_sources
-            .get_output(context)
-            .get_inner();
-        let service_role_binding = args.service_role.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let source_version_binding = args.source_version.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_config_binding = args.vpc_config.get_output(context).get_inner();
+        let secondary_sources_binding_1 = args.secondary_sources.get_output(context);
+        let secondary_sources_binding = secondary_sources_binding_1.get_inner();
+        let service_role_binding_1 = args.service_role.get_output(context);
+        let service_role_binding = service_role_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let source_version_binding_1 = args.source_version.get_output(context);
+        let source_version_binding = source_version_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_config_binding_1 = args.vpc_config.get_output(context);
+        let vpc_config_binding = vpc_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codebuild/project:Project".into(),
             name: name.to_string(),

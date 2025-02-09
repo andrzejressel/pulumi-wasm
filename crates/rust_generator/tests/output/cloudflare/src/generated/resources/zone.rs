@@ -90,16 +90,20 @@ pub mod zone {
     ) -> ZoneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let jump_start_binding = args.jump_start.get_output(context).get_inner();
-        let paused_binding = args.paused.get_output(context).get_inner();
-        let plan_binding = args.plan.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let vanity_name_servers_binding = args
-            .vanity_name_servers
-            .get_output(context)
-            .get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let jump_start_binding_1 = args.jump_start.get_output(context);
+        let jump_start_binding = jump_start_binding_1.get_inner();
+        let paused_binding_1 = args.paused.get_output(context);
+        let paused_binding = paused_binding_1.get_inner();
+        let plan_binding_1 = args.plan.get_output(context);
+        let plan_binding = plan_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let vanity_name_servers_binding_1 = args.vanity_name_servers.get_output(context);
+        let vanity_name_servers_binding = vanity_name_servers_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zone:Zone".into(),
             name: name.to_string(),

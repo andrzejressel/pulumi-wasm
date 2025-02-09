@@ -99,20 +99,22 @@ pub mod dedicated_host {
     ) -> DedicatedHostResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let asset_id_binding = args.asset_id.get_output(context).get_inner();
-        let auto_placement_binding = args.auto_placement.get_output(context).get_inner();
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let host_recovery_binding = args.host_recovery.get_output(context).get_inner();
-        let instance_family_binding = args
-            .instance_family
-            .get_output(context)
-            .get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
-        let outpost_arn_binding = args.outpost_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let asset_id_binding_1 = args.asset_id.get_output(context);
+        let asset_id_binding = asset_id_binding_1.get_inner();
+        let auto_placement_binding_1 = args.auto_placement.get_output(context);
+        let auto_placement_binding = auto_placement_binding_1.get_inner();
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let host_recovery_binding_1 = args.host_recovery.get_output(context);
+        let host_recovery_binding = host_recovery_binding_1.get_inner();
+        let instance_family_binding_1 = args.instance_family.get_output(context);
+        let instance_family_binding = instance_family_binding_1.get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
+        let outpost_arn_binding_1 = args.outpost_arn.get_output(context);
+        let outpost_arn_binding = outpost_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/dedicatedHost:DedicatedHost".into(),
             name: name.to_string(),

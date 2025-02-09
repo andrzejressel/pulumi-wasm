@@ -67,7 +67,8 @@ pub mod license_grant_accepter {
     ) -> LicenseGrantAccepterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let grant_arn_binding = args.grant_arn.get_output(context).get_inner();
+        let grant_arn_binding_1 = args.grant_arn.get_output(context);
+        let grant_arn_binding = grant_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter".into(),
             name: name.to_string(),

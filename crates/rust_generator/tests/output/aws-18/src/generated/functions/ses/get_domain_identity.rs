@@ -29,7 +29,8 @@ pub mod get_domain_identity {
     ) -> GetDomainIdentityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_binding = args.domain.get_output(context).get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ses/getDomainIdentity:getDomainIdentity".into(),
             version: super::super::super::get_version(),

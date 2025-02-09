@@ -64,10 +64,14 @@ pub mod group {
     ) -> GroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let group_name_binding = args.group_name.get_output(context).get_inner();
-        let namespace_binding = args.namespace.get_output(context).get_inner();
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let group_name_binding_1 = args.group_name.get_output(context);
+        let group_name_binding = group_name_binding_1.get_inner();
+        let namespace_binding_1 = args.namespace.get_output(context);
+        let namespace_binding = namespace_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/group:Group".into(),
             name: name.to_string(),

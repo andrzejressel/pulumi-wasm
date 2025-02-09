@@ -124,15 +124,21 @@ pub mod environment_storage {
     ) -> EnvironmentStorageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_key_binding = args.access_key.get_output(context).get_inner();
-        let access_mode_binding = args.access_mode.get_output(context).get_inner();
-        let account_name_binding = args.account_name.get_output(context).get_inner();
-        let container_app_environment_id_binding = args
+        let access_key_binding_1 = args.access_key.get_output(context);
+        let access_key_binding = access_key_binding_1.get_inner();
+        let access_mode_binding_1 = args.access_mode.get_output(context);
+        let access_mode_binding = access_mode_binding_1.get_inner();
+        let account_name_binding_1 = args.account_name.get_output(context);
+        let account_name_binding = account_name_binding_1.get_inner();
+        let container_app_environment_id_binding_1 = args
             .container_app_environment_id
-            .get_output(context)
+            .get_output(context);
+        let container_app_environment_id_binding = container_app_environment_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let share_name_binding = args.share_name.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let share_name_binding_1 = args.share_name.get_output(context);
+        let share_name_binding = share_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerapp/environmentStorage:EnvironmentStorage".into(),
             name: name.to_string(),

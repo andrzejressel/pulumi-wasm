@@ -41,10 +41,14 @@ pub mod zero_trust_access_tag {
     ) -> ZeroTrustAccessTagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let app_count_binding = args.app_count.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let app_count_binding_1 = args.app_count.get_output(context);
+        let app_count_binding = app_count_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustAccessTag:ZeroTrustAccessTag".into(),
             name: name.to_string(),

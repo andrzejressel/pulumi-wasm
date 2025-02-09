@@ -27,7 +27,8 @@ pub mod get_secret {
     ) -> GetSecretResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let secrets_binding = args.secrets.get_output(context).get_inner();
+        let secrets_binding_1 = args.secrets.get_output(context);
+        let secrets_binding = secrets_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kms/getSecret:getSecret".into(),
             version: super::super::super::get_version(),

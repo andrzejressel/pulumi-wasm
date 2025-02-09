@@ -179,17 +179,19 @@ pub mod consent_store {
     ) -> ConsentStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dataset_binding = args.dataset.get_output(context).get_inner();
-        let default_consent_ttl_binding = args
-            .default_consent_ttl
-            .get_output(context)
-            .get_inner();
-        let enable_consent_create_on_update_binding = args
+        let dataset_binding_1 = args.dataset.get_output(context);
+        let dataset_binding = dataset_binding_1.get_inner();
+        let default_consent_ttl_binding_1 = args.default_consent_ttl.get_output(context);
+        let default_consent_ttl_binding = default_consent_ttl_binding_1.get_inner();
+        let enable_consent_create_on_update_binding_1 = args
             .enable_consent_create_on_update
-            .get_output(context)
+            .get_output(context);
+        let enable_consent_create_on_update_binding = enable_consent_create_on_update_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/consentStore:ConsentStore".into(),
             name: name.to_string(),

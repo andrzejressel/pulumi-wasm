@@ -211,14 +211,22 @@ pub mod vpc_peering_connection {
     ) -> VpcPeeringConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accepter_binding = args.accepter.get_output(context).get_inner();
-        let auto_accept_binding = args.auto_accept.get_output(context).get_inner();
-        let peer_owner_id_binding = args.peer_owner_id.get_output(context).get_inner();
-        let peer_region_binding = args.peer_region.get_output(context).get_inner();
-        let peer_vpc_id_binding = args.peer_vpc_id.get_output(context).get_inner();
-        let requester_binding = args.requester.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let accepter_binding_1 = args.accepter.get_output(context);
+        let accepter_binding = accepter_binding_1.get_inner();
+        let auto_accept_binding_1 = args.auto_accept.get_output(context);
+        let auto_accept_binding = auto_accept_binding_1.get_inner();
+        let peer_owner_id_binding_1 = args.peer_owner_id.get_output(context);
+        let peer_owner_id_binding = peer_owner_id_binding_1.get_inner();
+        let peer_region_binding_1 = args.peer_region.get_output(context);
+        let peer_region_binding = peer_region_binding_1.get_inner();
+        let peer_vpc_id_binding_1 = args.peer_vpc_id.get_output(context);
+        let peer_vpc_id_binding = peer_vpc_id_binding_1.get_inner();
+        let requester_binding_1 = args.requester.get_output(context);
+        let requester_binding = requester_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcPeeringConnection:VpcPeeringConnection".into(),
             name: name.to_string(),

@@ -184,21 +184,24 @@ pub mod environment {
     ) -> EnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_proxy_type_binding = args.api_proxy_type.get_output(context).get_inner();
-        let deployment_type_binding = args
-            .deployment_type
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let forward_proxy_uri_binding = args
-            .forward_proxy_uri
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_config_binding = args.node_config.get_output(context).get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let api_proxy_type_binding_1 = args.api_proxy_type.get_output(context);
+        let api_proxy_type_binding = api_proxy_type_binding_1.get_inner();
+        let deployment_type_binding_1 = args.deployment_type.get_output(context);
+        let deployment_type_binding = deployment_type_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let forward_proxy_uri_binding_1 = args.forward_proxy_uri.get_output(context);
+        let forward_proxy_uri_binding = forward_proxy_uri_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_config_binding_1 = args.node_config.get_output(context);
+        let node_config_binding = node_config_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/environment:Environment".into(),
             name: name.to_string(),

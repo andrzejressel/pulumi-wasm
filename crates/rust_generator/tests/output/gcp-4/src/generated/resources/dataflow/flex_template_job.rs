@@ -265,62 +265,74 @@ pub mod flex_template_job {
     ) -> FlexTemplateJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_experiments_binding = args
+        let additional_experiments_binding_1 = args
             .additional_experiments
-            .get_output(context)
+            .get_output(context);
+        let additional_experiments_binding = additional_experiments_binding_1
             .get_inner();
-        let autoscaling_algorithm_binding = args
+        let autoscaling_algorithm_binding_1 = args
             .autoscaling_algorithm
-            .get_output(context)
-            .get_inner();
-        let container_spec_gcs_path_binding = args
+            .get_output(context);
+        let autoscaling_algorithm_binding = autoscaling_algorithm_binding_1.get_inner();
+        let container_spec_gcs_path_binding_1 = args
             .container_spec_gcs_path
-            .get_output(context)
+            .get_output(context);
+        let container_spec_gcs_path_binding = container_spec_gcs_path_binding_1
             .get_inner();
-        let enable_streaming_engine_binding = args
+        let enable_streaming_engine_binding_1 = args
             .enable_streaming_engine
-            .get_output(context)
+            .get_output(context);
+        let enable_streaming_engine_binding = enable_streaming_engine_binding_1
             .get_inner();
-        let ip_configuration_binding = args
-            .ip_configuration
-            .get_output(context)
-            .get_inner();
-        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let launcher_machine_type_binding = args
+        let ip_configuration_binding_1 = args.ip_configuration.get_output(context);
+        let ip_configuration_binding = ip_configuration_binding_1.get_inner();
+        let kms_key_name_binding_1 = args.kms_key_name.get_output(context);
+        let kms_key_name_binding = kms_key_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let launcher_machine_type_binding_1 = args
             .launcher_machine_type
-            .get_output(context)
-            .get_inner();
-        let machine_type_binding = args.machine_type.get_output(context).get_inner();
-        let max_workers_binding = args.max_workers.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let num_workers_binding = args.num_workers.get_output(context).get_inner();
-        let on_delete_binding = args.on_delete.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let sdk_container_image_binding = args
-            .sdk_container_image
-            .get_output(context)
-            .get_inner();
-        let service_account_email_binding = args
+            .get_output(context);
+        let launcher_machine_type_binding = launcher_machine_type_binding_1.get_inner();
+        let machine_type_binding_1 = args.machine_type.get_output(context);
+        let machine_type_binding = machine_type_binding_1.get_inner();
+        let max_workers_binding_1 = args.max_workers.get_output(context);
+        let max_workers_binding = max_workers_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let num_workers_binding_1 = args.num_workers.get_output(context);
+        let num_workers_binding = num_workers_binding_1.get_inner();
+        let on_delete_binding_1 = args.on_delete.get_output(context);
+        let on_delete_binding = on_delete_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let sdk_container_image_binding_1 = args.sdk_container_image.get_output(context);
+        let sdk_container_image_binding = sdk_container_image_binding_1.get_inner();
+        let service_account_email_binding_1 = args
             .service_account_email
-            .get_output(context)
-            .get_inner();
-        let skip_wait_on_job_termination_binding = args
+            .get_output(context);
+        let service_account_email_binding = service_account_email_binding_1.get_inner();
+        let skip_wait_on_job_termination_binding_1 = args
             .skip_wait_on_job_termination
-            .get_output(context)
+            .get_output(context);
+        let skip_wait_on_job_termination_binding = skip_wait_on_job_termination_binding_1
             .get_inner();
-        let staging_location_binding = args
-            .staging_location
-            .get_output(context)
-            .get_inner();
-        let subnetwork_binding = args.subnetwork.get_output(context).get_inner();
-        let temp_location_binding = args.temp_location.get_output(context).get_inner();
-        let transform_name_mapping_binding = args
+        let staging_location_binding_1 = args.staging_location.get_output(context);
+        let staging_location_binding = staging_location_binding_1.get_inner();
+        let subnetwork_binding_1 = args.subnetwork.get_output(context);
+        let subnetwork_binding = subnetwork_binding_1.get_inner();
+        let temp_location_binding_1 = args.temp_location.get_output(context);
+        let temp_location_binding = temp_location_binding_1.get_inner();
+        let transform_name_mapping_binding_1 = args
             .transform_name_mapping
-            .get_output(context)
+            .get_output(context);
+        let transform_name_mapping_binding = transform_name_mapping_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataflow/flexTemplateJob:FlexTemplateJob".into(),

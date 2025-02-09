@@ -200,34 +200,38 @@ pub mod network_peering {
     ) -> NetworkPeeringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let export_custom_routes_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let export_custom_routes_binding_1 = args
             .export_custom_routes
-            .get_output(context)
-            .get_inner();
-        let export_custom_routes_with_public_ip_binding = args
+            .get_output(context);
+        let export_custom_routes_binding = export_custom_routes_binding_1.get_inner();
+        let export_custom_routes_with_public_ip_binding_1 = args
             .export_custom_routes_with_public_ip
-            .get_output(context)
+            .get_output(context);
+        let export_custom_routes_with_public_ip_binding = export_custom_routes_with_public_ip_binding_1
             .get_inner();
-        let import_custom_routes_binding = args
+        let import_custom_routes_binding_1 = args
             .import_custom_routes
-            .get_output(context)
-            .get_inner();
-        let import_custom_routes_with_public_ip_binding = args
+            .get_output(context);
+        let import_custom_routes_binding = import_custom_routes_binding_1.get_inner();
+        let import_custom_routes_with_public_ip_binding_1 = args
             .import_custom_routes_with_public_ip
-            .get_output(context)
+            .get_output(context);
+        let import_custom_routes_with_public_ip_binding = import_custom_routes_with_public_ip_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let peer_network_binding = args.peer_network.get_output(context).get_inner();
-        let peer_network_type_binding = args
-            .peer_network_type
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let vmware_engine_network_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let peer_network_binding_1 = args.peer_network.get_output(context);
+        let peer_network_binding = peer_network_binding_1.get_inner();
+        let peer_network_type_binding_1 = args.peer_network_type.get_output(context);
+        let peer_network_type_binding = peer_network_type_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let vmware_engine_network_binding_1 = args
             .vmware_engine_network
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let vmware_engine_network_binding = vmware_engine_network_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vmwareengine/networkPeering:NetworkPeering".into(),
             name: name.to_string(),

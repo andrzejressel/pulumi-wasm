@@ -149,21 +149,20 @@ pub mod cache_blob_target {
     ) -> CacheBlobTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_policy_name_binding = args
-            .access_policy_name
-            .get_output(context)
-            .get_inner();
-        let cache_name_binding = args.cache_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let namespace_path_binding = args.namespace_path.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let storage_container_id_binding = args
+        let access_policy_name_binding_1 = args.access_policy_name.get_output(context);
+        let access_policy_name_binding = access_policy_name_binding_1.get_inner();
+        let cache_name_binding_1 = args.cache_name.get_output(context);
+        let cache_name_binding = cache_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let namespace_path_binding_1 = args.namespace_path.get_output(context);
+        let namespace_path_binding = namespace_path_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let storage_container_id_binding_1 = args
             .storage_container_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let storage_container_id_binding = storage_container_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:hpc/cacheBlobTarget:CacheBlobTarget".into(),
             name: name.to_string(),

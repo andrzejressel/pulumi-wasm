@@ -289,59 +289,76 @@ pub mod virtual_network_gateway {
     ) -> VirtualNetworkGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_active_binding = args.active_active.get_output(context).get_inner();
-        let bgp_route_translation_for_nat_enabled_binding = args
+        let active_active_binding_1 = args.active_active.get_output(context);
+        let active_active_binding = active_active_binding_1.get_inner();
+        let bgp_route_translation_for_nat_enabled_binding_1 = args
             .bgp_route_translation_for_nat_enabled
-            .get_output(context)
+            .get_output(context);
+        let bgp_route_translation_for_nat_enabled_binding = bgp_route_translation_for_nat_enabled_binding_1
             .get_inner();
-        let bgp_settings_binding = args.bgp_settings.get_output(context).get_inner();
-        let custom_route_binding = args.custom_route.get_output(context).get_inner();
-        let default_local_network_gateway_id_binding = args
+        let bgp_settings_binding_1 = args.bgp_settings.get_output(context);
+        let bgp_settings_binding = bgp_settings_binding_1.get_inner();
+        let custom_route_binding_1 = args.custom_route.get_output(context);
+        let custom_route_binding = custom_route_binding_1.get_inner();
+        let default_local_network_gateway_id_binding_1 = args
             .default_local_network_gateway_id
-            .get_output(context)
+            .get_output(context);
+        let default_local_network_gateway_id_binding = default_local_network_gateway_id_binding_1
             .get_inner();
-        let dns_forwarding_enabled_binding = args
+        let dns_forwarding_enabled_binding_1 = args
             .dns_forwarding_enabled
-            .get_output(context)
+            .get_output(context);
+        let dns_forwarding_enabled_binding = dns_forwarding_enabled_binding_1
             .get_inner();
-        let edge_zone_binding = args.edge_zone.get_output(context).get_inner();
-        let enable_bgp_binding = args.enable_bgp.get_output(context).get_inner();
-        let generation_binding = args.generation.get_output(context).get_inner();
-        let ip_configurations_binding = args
-            .ip_configurations
-            .get_output(context)
-            .get_inner();
-        let ip_sec_replay_protection_enabled_binding = args
+        let edge_zone_binding_1 = args.edge_zone.get_output(context);
+        let edge_zone_binding = edge_zone_binding_1.get_inner();
+        let enable_bgp_binding_1 = args.enable_bgp.get_output(context);
+        let enable_bgp_binding = enable_bgp_binding_1.get_inner();
+        let generation_binding_1 = args.generation.get_output(context);
+        let generation_binding = generation_binding_1.get_inner();
+        let ip_configurations_binding_1 = args.ip_configurations.get_output(context);
+        let ip_configurations_binding = ip_configurations_binding_1.get_inner();
+        let ip_sec_replay_protection_enabled_binding_1 = args
             .ip_sec_replay_protection_enabled
-            .get_output(context)
+            .get_output(context);
+        let ip_sec_replay_protection_enabled_binding = ip_sec_replay_protection_enabled_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let policy_groups_binding = args.policy_groups.get_output(context).get_inner();
-        let private_ip_address_enabled_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let policy_groups_binding_1 = args.policy_groups.get_output(context);
+        let policy_groups_binding = policy_groups_binding_1.get_inner();
+        let private_ip_address_enabled_binding_1 = args
             .private_ip_address_enabled
-            .get_output(context)
+            .get_output(context);
+        let private_ip_address_enabled_binding = private_ip_address_enabled_binding_1
             .get_inner();
-        let remote_vnet_traffic_enabled_binding = args
+        let remote_vnet_traffic_enabled_binding_1 = args
             .remote_vnet_traffic_enabled
-            .get_output(context)
+            .get_output(context);
+        let remote_vnet_traffic_enabled_binding = remote_vnet_traffic_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let virtual_wan_traffic_enabled_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let virtual_wan_traffic_enabled_binding_1 = args
             .virtual_wan_traffic_enabled
-            .get_output(context)
+            .get_output(context);
+        let virtual_wan_traffic_enabled_binding = virtual_wan_traffic_enabled_binding_1
             .get_inner();
-        let vpn_client_configuration_binding = args
+        let vpn_client_configuration_binding_1 = args
             .vpn_client_configuration
-            .get_output(context)
+            .get_output(context);
+        let vpn_client_configuration_binding = vpn_client_configuration_binding_1
             .get_inner();
-        let vpn_type_binding = args.vpn_type.get_output(context).get_inner();
+        let vpn_type_binding_1 = args.vpn_type.get_output(context);
+        let vpn_type_binding = vpn_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/virtualNetworkGateway:VirtualNetworkGateway".into(),
             name: name.to_string(),

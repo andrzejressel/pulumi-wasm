@@ -142,18 +142,21 @@ pub mod resolver_forwarding_rule {
     ) -> ResolverForwardingRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_forwarding_ruleset_id_binding = args
+        let dns_forwarding_ruleset_id_binding_1 = args
             .dns_forwarding_ruleset_id
-            .get_output(context)
+            .get_output(context);
+        let dns_forwarding_ruleset_id_binding = dns_forwarding_ruleset_id_binding_1
             .get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let target_dns_servers_binding = args
-            .target_dns_servers
-            .get_output(context)
-            .get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let target_dns_servers_binding_1 = args.target_dns_servers.get_output(context);
+        let target_dns_servers_binding = target_dns_servers_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:privatedns/resolverForwardingRule:ResolverForwardingRule"
                 .into(),

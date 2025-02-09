@@ -75,15 +75,17 @@ pub mod account_registration {
     ) -> AccountRegistrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delegated_admin_account_binding = args
+        let delegated_admin_account_binding_1 = args
             .delegated_admin_account
-            .get_output(context)
+            .get_output(context);
+        let delegated_admin_account_binding = delegated_admin_account_binding_1
             .get_inner();
-        let deregister_on_destroy_binding = args
+        let deregister_on_destroy_binding_1 = args
             .deregister_on_destroy
-            .get_output(context)
-            .get_inner();
-        let kms_key_binding = args.kms_key.get_output(context).get_inner();
+            .get_output(context);
+        let deregister_on_destroy_binding = deregister_on_destroy_binding_1.get_inner();
+        let kms_key_binding_1 = args.kms_key.get_output(context);
+        let kms_key_binding = kms_key_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:auditmanager/accountRegistration:AccountRegistration".into(),
             name: name.to_string(),

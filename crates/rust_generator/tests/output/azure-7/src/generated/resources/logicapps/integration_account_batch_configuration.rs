@@ -107,24 +107,21 @@ pub mod integration_account_batch_configuration {
     ) -> IntegrationAccountBatchConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let batch_group_name_binding = args
-            .batch_group_name
-            .get_output(context)
-            .get_inner();
-        let integration_account_name_binding = args
+        let batch_group_name_binding_1 = args.batch_group_name.get_output(context);
+        let batch_group_name_binding = batch_group_name_binding_1.get_inner();
+        let integration_account_name_binding_1 = args
             .integration_account_name
-            .get_output(context)
+            .get_output(context);
+        let integration_account_name_binding = integration_account_name_binding_1
             .get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let release_criteria_binding = args
-            .release_criteria
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let release_criteria_binding_1 = args.release_criteria.get_output(context);
+        let release_criteria_binding = release_criteria_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration"
                 .into(),

@@ -123,19 +123,20 @@ pub mod cost_category {
     ) -> CostCategoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_value_binding = args.default_value.get_output(context).get_inner();
-        let effective_start_binding = args
-            .effective_start
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let rule_version_binding = args.rule_version.get_output(context).get_inner();
-        let rules_binding = args.rules.get_output(context).get_inner();
-        let split_charge_rules_binding = args
-            .split_charge_rules
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let default_value_binding_1 = args.default_value.get_output(context);
+        let default_value_binding = default_value_binding_1.get_inner();
+        let effective_start_binding_1 = args.effective_start.get_output(context);
+        let effective_start_binding = effective_start_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let rule_version_binding_1 = args.rule_version.get_output(context);
+        let rule_version_binding = rule_version_binding_1.get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
+        let split_charge_rules_binding_1 = args.split_charge_rules.get_output(context);
+        let split_charge_rules_binding = split_charge_rules_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:costexplorer/costCategory:CostCategory".into(),
             name: name.to_string(),

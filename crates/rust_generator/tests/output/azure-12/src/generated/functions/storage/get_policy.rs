@@ -28,10 +28,8 @@ pub mod get_policy {
     ) -> GetPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getPolicy:getPolicy".into(),
             version: super::super::super::get_version(),

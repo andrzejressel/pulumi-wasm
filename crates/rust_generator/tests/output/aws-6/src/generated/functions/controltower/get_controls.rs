@@ -26,10 +26,8 @@ pub mod get_controls {
     ) -> GetControlsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let target_identifier_binding = args
-            .target_identifier
-            .get_output(context)
-            .get_inner();
+        let target_identifier_binding_1 = args.target_identifier.get_output(context);
+        let target_identifier_binding = target_identifier_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:controltower/getControls:getControls".into(),
             version: super::super::super::get_version(),

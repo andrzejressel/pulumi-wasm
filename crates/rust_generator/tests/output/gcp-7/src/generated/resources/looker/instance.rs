@@ -450,49 +450,47 @@ pub mod instance {
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_settings_binding = args.admin_settings.get_output(context).get_inner();
-        let consumer_network_binding = args
-            .consumer_network
-            .get_output(context)
-            .get_inner();
-        let custom_domain_binding = args.custom_domain.get_output(context).get_inner();
-        let deletion_policy_binding = args
-            .deletion_policy
-            .get_output(context)
-            .get_inner();
-        let deny_maintenance_period_binding = args
+        let admin_settings_binding_1 = args.admin_settings.get_output(context);
+        let admin_settings_binding = admin_settings_binding_1.get_inner();
+        let consumer_network_binding_1 = args.consumer_network.get_output(context);
+        let consumer_network_binding = consumer_network_binding_1.get_inner();
+        let custom_domain_binding_1 = args.custom_domain.get_output(context);
+        let custom_domain_binding = custom_domain_binding_1.get_inner();
+        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
+        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
+        let deny_maintenance_period_binding_1 = args
             .deny_maintenance_period
-            .get_output(context)
+            .get_output(context);
+        let deny_maintenance_period_binding = deny_maintenance_period_binding_1
             .get_inner();
-        let encryption_config_binding = args
-            .encryption_config
-            .get_output(context)
-            .get_inner();
-        let fips_enabled_binding = args.fips_enabled.get_output(context).get_inner();
-        let maintenance_window_binding = args
-            .maintenance_window
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let oauth_config_binding = args.oauth_config.get_output(context).get_inner();
-        let platform_edition_binding = args
-            .platform_edition
-            .get_output(context)
-            .get_inner();
-        let private_ip_enabled_binding = args
-            .private_ip_enabled
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let psc_config_binding = args.psc_config.get_output(context).get_inner();
-        let psc_enabled_binding = args.psc_enabled.get_output(context).get_inner();
-        let public_ip_enabled_binding = args
-            .public_ip_enabled
-            .get_output(context)
-            .get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let reserved_range_binding = args.reserved_range.get_output(context).get_inner();
-        let user_metadata_binding = args.user_metadata.get_output(context).get_inner();
+        let encryption_config_binding_1 = args.encryption_config.get_output(context);
+        let encryption_config_binding = encryption_config_binding_1.get_inner();
+        let fips_enabled_binding_1 = args.fips_enabled.get_output(context);
+        let fips_enabled_binding = fips_enabled_binding_1.get_inner();
+        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
+        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let oauth_config_binding_1 = args.oauth_config.get_output(context);
+        let oauth_config_binding = oauth_config_binding_1.get_inner();
+        let platform_edition_binding_1 = args.platform_edition.get_output(context);
+        let platform_edition_binding = platform_edition_binding_1.get_inner();
+        let private_ip_enabled_binding_1 = args.private_ip_enabled.get_output(context);
+        let private_ip_enabled_binding = private_ip_enabled_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let psc_config_binding_1 = args.psc_config.get_output(context);
+        let psc_config_binding = psc_config_binding_1.get_inner();
+        let psc_enabled_binding_1 = args.psc_enabled.get_output(context);
+        let psc_enabled_binding = psc_enabled_binding_1.get_inner();
+        let public_ip_enabled_binding_1 = args.public_ip_enabled.get_output(context);
+        let public_ip_enabled_binding = public_ip_enabled_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let reserved_range_binding_1 = args.reserved_range.get_output(context);
+        let reserved_range_binding = reserved_range_binding_1.get_inner();
+        let user_metadata_binding_1 = args.user_metadata.get_output(context);
+        let user_metadata_binding = user_metadata_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:looker/instance:Instance".into(),
             name: name.to_string(),

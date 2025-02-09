@@ -71,18 +71,18 @@ pub mod vpc_connection {
     ) -> VpcConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_binding = args.authentication.get_output(context).get_inner();
-        let client_subnets_binding = args.client_subnets.get_output(context).get_inner();
-        let security_groups_binding = args
-            .security_groups
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_cluster_arn_binding = args
-            .target_cluster_arn
-            .get_output(context)
-            .get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let authentication_binding_1 = args.authentication.get_output(context);
+        let authentication_binding = authentication_binding_1.get_inner();
+        let client_subnets_binding_1 = args.client_subnets.get_output(context);
+        let client_subnets_binding = client_subnets_binding_1.get_inner();
+        let security_groups_binding_1 = args.security_groups.get_output(context);
+        let security_groups_binding = security_groups_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_cluster_arn_binding_1 = args.target_cluster_arn.get_output(context);
+        let target_cluster_arn_binding = target_cluster_arn_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:msk/vpcConnection:VpcConnection".into(),
             name: name.to_string(),

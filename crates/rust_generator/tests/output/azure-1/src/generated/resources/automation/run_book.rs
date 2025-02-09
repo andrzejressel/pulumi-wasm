@@ -156,32 +156,42 @@ pub mod run_book {
     ) -> RunBookResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding = args
+        let automation_account_name_binding_1 = args
             .automation_account_name
-            .get_output(context)
+            .get_output(context);
+        let automation_account_name_binding = automation_account_name_binding_1
             .get_inner();
-        let content_binding = args.content.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let draft_binding = args.draft.get_output(context).get_inner();
-        let job_schedules_binding = args.job_schedules.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let log_activity_trace_level_binding = args
+        let content_binding_1 = args.content.get_output(context);
+        let content_binding = content_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let draft_binding_1 = args.draft.get_output(context);
+        let draft_binding = draft_binding_1.get_inner();
+        let job_schedules_binding_1 = args.job_schedules.get_output(context);
+        let job_schedules_binding = job_schedules_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let log_activity_trace_level_binding_1 = args
             .log_activity_trace_level
-            .get_output(context)
+            .get_output(context);
+        let log_activity_trace_level_binding = log_activity_trace_level_binding_1
             .get_inner();
-        let log_progress_binding = args.log_progress.get_output(context).get_inner();
-        let log_verbose_binding = args.log_verbose.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let publish_content_link_binding = args
+        let log_progress_binding_1 = args.log_progress.get_output(context);
+        let log_progress_binding = log_progress_binding_1.get_inner();
+        let log_verbose_binding_1 = args.log_verbose.get_output(context);
+        let log_verbose_binding = log_verbose_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let publish_content_link_binding_1 = args
             .publish_content_link
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let runbook_type_binding = args.runbook_type.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let publish_content_link_binding = publish_content_link_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let runbook_type_binding_1 = args.runbook_type.get_output(context);
+        let runbook_type_binding = runbook_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/runBook:RunBook".into(),
             name: name.to_string(),

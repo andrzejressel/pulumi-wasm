@@ -169,32 +169,33 @@ pub mod user {
     ) -> UserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attributes_binding = args.attributes.get_output(context).get_inner();
-        let client_metadata_binding = args
-            .client_metadata
-            .get_output(context)
-            .get_inner();
-        let desired_delivery_mediums_binding = args
+        let attributes_binding_1 = args.attributes.get_output(context);
+        let attributes_binding = attributes_binding_1.get_inner();
+        let client_metadata_binding_1 = args.client_metadata.get_output(context);
+        let client_metadata_binding = client_metadata_binding_1.get_inner();
+        let desired_delivery_mediums_binding_1 = args
             .desired_delivery_mediums
-            .get_output(context)
+            .get_output(context);
+        let desired_delivery_mediums_binding = desired_delivery_mediums_binding_1
             .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let force_alias_creation_binding = args
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let force_alias_creation_binding_1 = args
             .force_alias_creation
-            .get_output(context)
-            .get_inner();
-        let message_action_binding = args.message_action.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let temporary_password_binding = args
-            .temporary_password
-            .get_output(context)
-            .get_inner();
-        let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
-        let validation_data_binding = args
-            .validation_data
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let force_alias_creation_binding = force_alias_creation_binding_1.get_inner();
+        let message_action_binding_1 = args.message_action.get_output(context);
+        let message_action_binding = message_action_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let temporary_password_binding_1 = args.temporary_password.get_output(context);
+        let temporary_password_binding = temporary_password_binding_1.get_inner();
+        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
+        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
+        let validation_data_binding_1 = args.validation_data.get_output(context);
+        let validation_data_binding = validation_data_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/user:User".into(),
             name: name.to_string(),

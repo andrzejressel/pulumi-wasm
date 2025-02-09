@@ -179,18 +179,18 @@ pub mod ssl_policy {
     ) -> SSLPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_features_binding = args
-            .custom_features
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let min_tls_version_binding = args
-            .min_tls_version
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let profile_binding = args.profile.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let custom_features_binding_1 = args.custom_features.get_output(context);
+        let custom_features_binding = custom_features_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let min_tls_version_binding_1 = args.min_tls_version.get_output(context);
+        let min_tls_version_binding = min_tls_version_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let profile_binding_1 = args.profile.get_output(context);
+        let profile_binding = profile_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/sSLPolicy:SSLPolicy".into(),
             name: name.to_string(),

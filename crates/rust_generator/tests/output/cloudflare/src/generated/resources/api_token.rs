@@ -62,11 +62,16 @@ pub mod api_token {
     ) -> ApiTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let expires_on_binding = args.expires_on.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let not_before_binding = args.not_before.get_output(context).get_inner();
-        let policies_binding = args.policies.get_output(context).get_inner();
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let expires_on_binding_1 = args.expires_on.get_output(context);
+        let expires_on_binding = expires_on_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let not_before_binding_1 = args.not_before.get_output(context);
+        let not_before_binding = not_before_binding_1.get_inner();
+        let policies_binding_1 = args.policies.get_output(context);
+        let policies_binding = policies_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/apiToken:ApiToken".into(),
             name: name.to_string(),

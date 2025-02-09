@@ -199,39 +199,41 @@ pub mod application {
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let architecture_binding = args.architecture.get_output(context).get_inner();
-        let auto_start_configuration_binding = args
+        let architecture_binding_1 = args.architecture.get_output(context);
+        let architecture_binding = architecture_binding_1.get_inner();
+        let auto_start_configuration_binding_1 = args
             .auto_start_configuration
-            .get_output(context)
+            .get_output(context);
+        let auto_start_configuration_binding = auto_start_configuration_binding_1
             .get_inner();
-        let auto_stop_configuration_binding = args
+        let auto_stop_configuration_binding_1 = args
             .auto_stop_configuration
-            .get_output(context)
+            .get_output(context);
+        let auto_stop_configuration_binding = auto_stop_configuration_binding_1
             .get_inner();
-        let image_configuration_binding = args
-            .image_configuration
-            .get_output(context)
-            .get_inner();
-        let initial_capacities_binding = args
-            .initial_capacities
-            .get_output(context)
-            .get_inner();
-        let interactive_configuration_binding = args
+        let image_configuration_binding_1 = args.image_configuration.get_output(context);
+        let image_configuration_binding = image_configuration_binding_1.get_inner();
+        let initial_capacities_binding_1 = args.initial_capacities.get_output(context);
+        let initial_capacities_binding = initial_capacities_binding_1.get_inner();
+        let interactive_configuration_binding_1 = args
             .interactive_configuration
-            .get_output(context)
+            .get_output(context);
+        let interactive_configuration_binding = interactive_configuration_binding_1
             .get_inner();
-        let maximum_capacity_binding = args
-            .maximum_capacity
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_configuration_binding = args
+        let maximum_capacity_binding_1 = args.maximum_capacity.get_output(context);
+        let maximum_capacity_binding = maximum_capacity_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_configuration_binding_1 = args
             .network_configuration
-            .get_output(context)
-            .get_inner();
-        let release_label_binding = args.release_label.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+            .get_output(context);
+        let network_configuration_binding = network_configuration_binding_1.get_inner();
+        let release_label_binding_1 = args.release_label.get_output(context);
+        let release_label_binding = release_label_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:emrserverless/application:Application".into(),
             name: name.to_string(),

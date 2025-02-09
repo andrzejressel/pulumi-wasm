@@ -52,7 +52,8 @@ pub mod auto_provisioning {
     ) -> AutoProvisioningResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_provision_binding = args.auto_provision.get_output(context).get_inner();
+        let auto_provision_binding_1 = args.auto_provision.get_output(context);
+        let auto_provision_binding = auto_provision_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:securitycenter/autoProvisioning:AutoProvisioning".into(),
             name: name.to_string(),

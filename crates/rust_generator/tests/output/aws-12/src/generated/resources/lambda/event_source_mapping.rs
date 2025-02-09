@@ -434,86 +434,101 @@ pub mod event_source_mapping {
     ) -> EventSourceMappingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let amazon_managed_kafka_event_source_config_binding = args
+        let amazon_managed_kafka_event_source_config_binding_1 = args
             .amazon_managed_kafka_event_source_config
-            .get_output(context)
+            .get_output(context);
+        let amazon_managed_kafka_event_source_config_binding = amazon_managed_kafka_event_source_config_binding_1
             .get_inner();
-        let batch_size_binding = args.batch_size.get_output(context).get_inner();
-        let bisect_batch_on_function_error_binding = args
+        let batch_size_binding_1 = args.batch_size.get_output(context);
+        let batch_size_binding = batch_size_binding_1.get_inner();
+        let bisect_batch_on_function_error_binding_1 = args
             .bisect_batch_on_function_error
-            .get_output(context)
+            .get_output(context);
+        let bisect_batch_on_function_error_binding = bisect_batch_on_function_error_binding_1
             .get_inner();
-        let destination_config_binding = args
-            .destination_config
-            .get_output(context)
-            .get_inner();
-        let document_db_event_source_config_binding = args
+        let destination_config_binding_1 = args.destination_config.get_output(context);
+        let destination_config_binding = destination_config_binding_1.get_inner();
+        let document_db_event_source_config_binding_1 = args
             .document_db_event_source_config
-            .get_output(context)
+            .get_output(context);
+        let document_db_event_source_config_binding = document_db_event_source_config_binding_1
             .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let event_source_arn_binding = args
-            .event_source_arn
-            .get_output(context)
-            .get_inner();
-        let filter_criteria_binding = args
-            .filter_criteria
-            .get_output(context)
-            .get_inner();
-        let function_name_binding = args.function_name.get_output(context).get_inner();
-        let function_response_types_binding = args
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let event_source_arn_binding_1 = args.event_source_arn.get_output(context);
+        let event_source_arn_binding = event_source_arn_binding_1.get_inner();
+        let filter_criteria_binding_1 = args.filter_criteria.get_output(context);
+        let filter_criteria_binding = filter_criteria_binding_1.get_inner();
+        let function_name_binding_1 = args.function_name.get_output(context);
+        let function_name_binding = function_name_binding_1.get_inner();
+        let function_response_types_binding_1 = args
             .function_response_types
-            .get_output(context)
+            .get_output(context);
+        let function_response_types_binding = function_response_types_binding_1
             .get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
-        let maximum_batching_window_in_seconds_binding = args
+        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
+        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
+        let maximum_batching_window_in_seconds_binding_1 = args
             .maximum_batching_window_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let maximum_batching_window_in_seconds_binding = maximum_batching_window_in_seconds_binding_1
             .get_inner();
-        let maximum_record_age_in_seconds_binding = args
+        let maximum_record_age_in_seconds_binding_1 = args
             .maximum_record_age_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let maximum_record_age_in_seconds_binding = maximum_record_age_in_seconds_binding_1
             .get_inner();
-        let maximum_retry_attempts_binding = args
+        let maximum_retry_attempts_binding_1 = args
             .maximum_retry_attempts
-            .get_output(context)
+            .get_output(context);
+        let maximum_retry_attempts_binding = maximum_retry_attempts_binding_1
             .get_inner();
-        let metrics_config_binding = args.metrics_config.get_output(context).get_inner();
-        let parallelization_factor_binding = args
+        let metrics_config_binding_1 = args.metrics_config.get_output(context);
+        let metrics_config_binding = metrics_config_binding_1.get_inner();
+        let parallelization_factor_binding_1 = args
             .parallelization_factor
-            .get_output(context)
+            .get_output(context);
+        let parallelization_factor_binding = parallelization_factor_binding_1
             .get_inner();
-        let provisioned_poller_config_binding = args
+        let provisioned_poller_config_binding_1 = args
             .provisioned_poller_config
-            .get_output(context)
+            .get_output(context);
+        let provisioned_poller_config_binding = provisioned_poller_config_binding_1
             .get_inner();
-        let queues_binding = args.queues.get_output(context).get_inner();
-        let scaling_config_binding = args.scaling_config.get_output(context).get_inner();
-        let self_managed_event_source_binding = args
+        let queues_binding_1 = args.queues.get_output(context);
+        let queues_binding = queues_binding_1.get_inner();
+        let scaling_config_binding_1 = args.scaling_config.get_output(context);
+        let scaling_config_binding = scaling_config_binding_1.get_inner();
+        let self_managed_event_source_binding_1 = args
             .self_managed_event_source
-            .get_output(context)
+            .get_output(context);
+        let self_managed_event_source_binding = self_managed_event_source_binding_1
             .get_inner();
-        let self_managed_kafka_event_source_config_binding = args
+        let self_managed_kafka_event_source_config_binding_1 = args
             .self_managed_kafka_event_source_config
-            .get_output(context)
+            .get_output(context);
+        let self_managed_kafka_event_source_config_binding = self_managed_kafka_event_source_config_binding_1
             .get_inner();
-        let source_access_configurations_binding = args
+        let source_access_configurations_binding_1 = args
             .source_access_configurations
-            .get_output(context)
+            .get_output(context);
+        let source_access_configurations_binding = source_access_configurations_binding_1
             .get_inner();
-        let starting_position_binding = args
-            .starting_position
-            .get_output(context)
-            .get_inner();
-        let starting_position_timestamp_binding = args
+        let starting_position_binding_1 = args.starting_position.get_output(context);
+        let starting_position_binding = starting_position_binding_1.get_inner();
+        let starting_position_timestamp_binding_1 = args
             .starting_position_timestamp
-            .get_output(context)
+            .get_output(context);
+        let starting_position_timestamp_binding = starting_position_timestamp_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let topics_binding = args.topics.get_output(context).get_inner();
-        let tumbling_window_in_seconds_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let topics_binding_1 = args.topics.get_output(context);
+        let topics_binding = topics_binding_1.get_inner();
+        let tumbling_window_in_seconds_binding_1 = args
             .tumbling_window_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let tumbling_window_in_seconds_binding = tumbling_window_in_seconds_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/eventSourceMapping:EventSourceMapping".into(),

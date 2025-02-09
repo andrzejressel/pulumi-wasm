@@ -231,54 +231,58 @@ pub mod replication_instance {
     ) -> ReplicationInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocated_storage_binding = args
-            .allocated_storage
-            .get_output(context)
-            .get_inner();
-        let allow_major_version_upgrade_binding = args
+        let allocated_storage_binding_1 = args.allocated_storage.get_output(context);
+        let allocated_storage_binding = allocated_storage_binding_1.get_inner();
+        let allow_major_version_upgrade_binding_1 = args
             .allow_major_version_upgrade
-            .get_output(context)
+            .get_output(context);
+        let allow_major_version_upgrade_binding = allow_major_version_upgrade_binding_1
             .get_inner();
-        let apply_immediately_binding = args
-            .apply_immediately
-            .get_output(context)
-            .get_inner();
-        let auto_minor_version_upgrade_binding = args
+        let apply_immediately_binding_1 = args.apply_immediately.get_output(context);
+        let apply_immediately_binding = apply_immediately_binding_1.get_inner();
+        let auto_minor_version_upgrade_binding_1 = args
             .auto_minor_version_upgrade
-            .get_output(context)
+            .get_output(context);
+        let auto_minor_version_upgrade_binding = auto_minor_version_upgrade_binding_1
             .get_inner();
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let engine_version_binding = args.engine_version.get_output(context).get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
-        let multi_az_binding = args.multi_az.get_output(context).get_inner();
-        let network_type_binding = args.network_type.get_output(context).get_inner();
-        let preferred_maintenance_window_binding = args
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let engine_version_binding_1 = args.engine_version.get_output(context);
+        let engine_version_binding = engine_version_binding_1.get_inner();
+        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
+        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
+        let multi_az_binding_1 = args.multi_az.get_output(context);
+        let multi_az_binding = multi_az_binding_1.get_inner();
+        let network_type_binding_1 = args.network_type.get_output(context);
+        let network_type_binding = network_type_binding_1.get_inner();
+        let preferred_maintenance_window_binding_1 = args
             .preferred_maintenance_window
-            .get_output(context)
+            .get_output(context);
+        let preferred_maintenance_window_binding = preferred_maintenance_window_binding_1
             .get_inner();
-        let publicly_accessible_binding = args
-            .publicly_accessible
-            .get_output(context)
-            .get_inner();
-        let replication_instance_class_binding = args
+        let publicly_accessible_binding_1 = args.publicly_accessible.get_output(context);
+        let publicly_accessible_binding = publicly_accessible_binding_1.get_inner();
+        let replication_instance_class_binding_1 = args
             .replication_instance_class
-            .get_output(context)
+            .get_output(context);
+        let replication_instance_class_binding = replication_instance_class_binding_1
             .get_inner();
-        let replication_instance_id_binding = args
+        let replication_instance_id_binding_1 = args
             .replication_instance_id
-            .get_output(context)
+            .get_output(context);
+        let replication_instance_id_binding = replication_instance_id_binding_1
             .get_inner();
-        let replication_subnet_group_id_binding = args
+        let replication_subnet_group_id_binding_1 = args
             .replication_subnet_group_id
-            .get_output(context)
+            .get_output(context);
+        let replication_subnet_group_id_binding = replication_subnet_group_id_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_security_group_ids_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_security_group_ids_binding_1 = args
             .vpc_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dms/replicationInstance:ReplicationInstance".into(),

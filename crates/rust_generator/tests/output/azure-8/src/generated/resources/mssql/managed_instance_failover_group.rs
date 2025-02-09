@@ -179,23 +179,26 @@ pub mod managed_instance_failover_group {
     ) -> ManagedInstanceFailoverGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_output(context).get_inner();
-        let managed_instance_id_binding = args
-            .managed_instance_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let partner_managed_instance_id_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let managed_instance_id_binding_1 = args.managed_instance_id.get_output(context);
+        let managed_instance_id_binding = managed_instance_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let partner_managed_instance_id_binding_1 = args
             .partner_managed_instance_id
-            .get_output(context)
+            .get_output(context);
+        let partner_managed_instance_id_binding = partner_managed_instance_id_binding_1
             .get_inner();
-        let read_write_endpoint_failover_policy_binding = args
+        let read_write_endpoint_failover_policy_binding_1 = args
             .read_write_endpoint_failover_policy
-            .get_output(context)
+            .get_output(context);
+        let read_write_endpoint_failover_policy_binding = read_write_endpoint_failover_policy_binding_1
             .get_inner();
-        let readonly_endpoint_failover_policy_enabled_binding = args
+        let readonly_endpoint_failover_policy_enabled_binding_1 = args
             .readonly_endpoint_failover_policy_enabled
-            .get_output(context)
+            .get_output(context);
+        let readonly_endpoint_failover_policy_enabled_binding = readonly_endpoint_failover_policy_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup"

@@ -129,19 +129,32 @@ pub mod sampling_rule {
     ) -> SamplingRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attributes_binding = args.attributes.get_output(context).get_inner();
-        let fixed_rate_binding = args.fixed_rate.get_output(context).get_inner();
-        let host_binding = args.host.get_output(context).get_inner();
-        let http_method_binding = args.http_method.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let reservoir_size_binding = args.reservoir_size.get_output(context).get_inner();
-        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
-        let rule_name_binding = args.rule_name.get_output(context).get_inner();
-        let service_name_binding = args.service_name.get_output(context).get_inner();
-        let service_type_binding = args.service_type.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let url_path_binding = args.url_path.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let attributes_binding_1 = args.attributes.get_output(context);
+        let attributes_binding = attributes_binding_1.get_inner();
+        let fixed_rate_binding_1 = args.fixed_rate.get_output(context);
+        let fixed_rate_binding = fixed_rate_binding_1.get_inner();
+        let host_binding_1 = args.host.get_output(context);
+        let host_binding = host_binding_1.get_inner();
+        let http_method_binding_1 = args.http_method.get_output(context);
+        let http_method_binding = http_method_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let reservoir_size_binding_1 = args.reservoir_size.get_output(context);
+        let reservoir_size_binding = reservoir_size_binding_1.get_inner();
+        let resource_arn_binding_1 = args.resource_arn.get_output(context);
+        let resource_arn_binding = resource_arn_binding_1.get_inner();
+        let rule_name_binding_1 = args.rule_name.get_output(context);
+        let rule_name_binding = rule_name_binding_1.get_inner();
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
+        let service_type_binding_1 = args.service_type.get_output(context);
+        let service_type_binding = service_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let url_path_binding_1 = args.url_path.get_output(context);
+        let url_path_binding = url_path_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:xray/samplingRule:SamplingRule".into(),
             name: name.to_string(),

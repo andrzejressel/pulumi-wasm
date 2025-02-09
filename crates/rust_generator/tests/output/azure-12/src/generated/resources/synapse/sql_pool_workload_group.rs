@@ -134,29 +134,35 @@ pub mod sql_pool_workload_group {
     ) -> SqlPoolWorkloadGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let importance_binding = args.importance.get_output(context).get_inner();
-        let max_resource_percent_binding = args
+        let importance_binding_1 = args.importance.get_output(context);
+        let importance_binding = importance_binding_1.get_inner();
+        let max_resource_percent_binding_1 = args
             .max_resource_percent
-            .get_output(context)
-            .get_inner();
-        let max_resource_percent_per_request_binding = args
+            .get_output(context);
+        let max_resource_percent_binding = max_resource_percent_binding_1.get_inner();
+        let max_resource_percent_per_request_binding_1 = args
             .max_resource_percent_per_request
-            .get_output(context)
+            .get_output(context);
+        let max_resource_percent_per_request_binding = max_resource_percent_per_request_binding_1
             .get_inner();
-        let min_resource_percent_binding = args
+        let min_resource_percent_binding_1 = args
             .min_resource_percent
-            .get_output(context)
-            .get_inner();
-        let min_resource_percent_per_request_binding = args
+            .get_output(context);
+        let min_resource_percent_binding = min_resource_percent_binding_1.get_inner();
+        let min_resource_percent_per_request_binding_1 = args
             .min_resource_percent_per_request
-            .get_output(context)
+            .get_output(context);
+        let min_resource_percent_per_request_binding = min_resource_percent_per_request_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let query_execution_timeout_in_seconds_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let query_execution_timeout_in_seconds_binding_1 = args
             .query_execution_timeout_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let query_execution_timeout_in_seconds_binding = query_execution_timeout_in_seconds_binding_1
             .get_inner();
-        let sql_pool_id_binding = args.sql_pool_id.get_output(context).get_inner();
+        let sql_pool_id_binding_1 = args.sql_pool_id.get_output(context);
+        let sql_pool_id_binding = sql_pool_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup".into(),
             name: name.to_string(),

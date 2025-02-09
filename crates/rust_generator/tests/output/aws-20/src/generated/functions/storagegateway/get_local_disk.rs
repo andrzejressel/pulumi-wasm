@@ -34,9 +34,12 @@ pub mod get_local_disk {
     ) -> GetLocalDiskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disk_node_binding = args.disk_node.get_output(context).get_inner();
-        let disk_path_binding = args.disk_path.get_output(context).get_inner();
-        let gateway_arn_binding = args.gateway_arn.get_output(context).get_inner();
+        let disk_node_binding_1 = args.disk_node.get_output(context);
+        let disk_node_binding = disk_node_binding_1.get_inner();
+        let disk_path_binding_1 = args.disk_path.get_output(context);
+        let disk_path_binding = disk_path_binding_1.get_inner();
+        let gateway_arn_binding_1 = args.gateway_arn.get_output(context);
+        let gateway_arn_binding = gateway_arn_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:storagegateway/getLocalDisk:getLocalDisk".into(),
             version: super::super::super::get_version(),

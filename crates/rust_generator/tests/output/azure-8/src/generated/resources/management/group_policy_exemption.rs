@@ -113,26 +113,28 @@ pub mod group_policy_exemption {
     ) -> GroupPolicyExemptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let exemption_category_binding = args
-            .exemption_category
-            .get_output(context)
-            .get_inner();
-        let expires_on_binding = args.expires_on.get_output(context).get_inner();
-        let management_group_id_binding = args
-            .management_group_id
-            .get_output(context)
-            .get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let policy_assignment_id_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let exemption_category_binding_1 = args.exemption_category.get_output(context);
+        let exemption_category_binding = exemption_category_binding_1.get_inner();
+        let expires_on_binding_1 = args.expires_on.get_output(context);
+        let expires_on_binding = expires_on_binding_1.get_inner();
+        let management_group_id_binding_1 = args.management_group_id.get_output(context);
+        let management_group_id_binding = management_group_id_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let policy_assignment_id_binding_1 = args
             .policy_assignment_id
-            .get_output(context)
-            .get_inner();
-        let policy_definition_reference_ids_binding = args
+            .get_output(context);
+        let policy_assignment_id_binding = policy_assignment_id_binding_1.get_inner();
+        let policy_definition_reference_ids_binding_1 = args
             .policy_definition_reference_ids
-            .get_output(context)
+            .get_output(context);
+        let policy_definition_reference_ids_binding = policy_definition_reference_ids_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:management/groupPolicyExemption:GroupPolicyExemption".into(),

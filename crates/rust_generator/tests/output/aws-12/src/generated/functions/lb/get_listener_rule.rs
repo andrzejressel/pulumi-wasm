@@ -60,11 +60,16 @@ pub mod get_listener_rule {
     ) -> GetListenerRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_output(context).get_inner();
-        let arn_binding = args.arn.get_output(context).get_inner();
-        let conditions_binding = args.conditions.get_output(context).get_inner();
-        let listener_arn_binding = args.listener_arn.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
+        let actions_binding_1 = args.actions.get_output(context);
+        let actions_binding = actions_binding_1.get_inner();
+        let arn_binding_1 = args.arn.get_output(context);
+        let arn_binding = arn_binding_1.get_inner();
+        let conditions_binding_1 = args.conditions.get_output(context);
+        let conditions_binding = conditions_binding_1.get_inner();
+        let listener_arn_binding_1 = args.listener_arn.get_output(context);
+        let listener_arn_binding = listener_arn_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lb/getListenerRule:getListenerRule".into(),
             version: super::super::super::get_version(),

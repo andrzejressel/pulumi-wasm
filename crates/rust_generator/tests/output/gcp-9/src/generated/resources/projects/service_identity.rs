@@ -82,8 +82,10 @@ pub mod service_identity {
     ) -> ServiceIdentityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let project_binding = args.project.get_output(context).get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:projects/serviceIdentity:ServiceIdentity".into(),
             name: name.to_string(),

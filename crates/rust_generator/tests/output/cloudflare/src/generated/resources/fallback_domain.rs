@@ -49,9 +49,12 @@ pub mod fallback_domain {
     ) -> FallbackDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let domains_binding = args.domains.get_output(context).get_inner();
-        let policy_id_binding = args.policy_id.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let domains_binding_1 = args.domains.get_output(context);
+        let domains_binding = domains_binding_1.get_inner();
+        let policy_id_binding_1 = args.policy_id.get_output(context);
+        let policy_id_binding = policy_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/fallbackDomain:FallbackDomain".into(),
             name: name.to_string(),

@@ -40,11 +40,16 @@ pub mod get_platform_image {
     ) -> GetPlatformImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_output(context).get_inner();
-        let offer_binding = args.offer.get_output(context).get_inner();
-        let publisher_binding = args.publisher.get_output(context).get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let offer_binding_1 = args.offer.get_output(context);
+        let offer_binding = offer_binding_1.get_inner();
+        let publisher_binding_1 = args.publisher.get_output(context);
+        let publisher_binding = publisher_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:compute/getPlatformImage:getPlatformImage".into(),
             version: super::super::super::get_version(),

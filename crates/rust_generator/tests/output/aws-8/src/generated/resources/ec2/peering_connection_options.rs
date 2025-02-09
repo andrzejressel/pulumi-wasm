@@ -155,11 +155,14 @@ pub mod peering_connection_options {
     ) -> PeeringConnectionOptionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accepter_binding = args.accepter.get_output(context).get_inner();
-        let requester_binding = args.requester.get_output(context).get_inner();
-        let vpc_peering_connection_id_binding = args
+        let accepter_binding_1 = args.accepter.get_output(context);
+        let accepter_binding = accepter_binding_1.get_inner();
+        let requester_binding_1 = args.requester.get_output(context);
+        let requester_binding = requester_binding_1.get_inner();
+        let vpc_peering_connection_id_binding_1 = args
             .vpc_peering_connection_id
-            .get_output(context)
+            .get_output(context);
+        let vpc_peering_connection_id_binding = vpc_peering_connection_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/peeringConnectionOptions:PeeringConnectionOptions".into(),

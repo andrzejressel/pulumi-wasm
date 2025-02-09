@@ -32,11 +32,12 @@ pub mod get_registry_image {
     ) -> GetRegistryImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let insecure_skip_verify_binding = args
+        let insecure_skip_verify_binding_1 = args
             .insecure_skip_verify
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+            .get_output(context);
+        let insecure_skip_verify_binding = insecure_skip_verify_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "docker:index/getRegistryImage:getRegistryImage".into(),
             version: super::super::get_version(),

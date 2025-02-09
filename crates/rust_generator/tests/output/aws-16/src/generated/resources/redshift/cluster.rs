@@ -372,132 +372,139 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_version_upgrade_binding = args
+        let allow_version_upgrade_binding_1 = args
             .allow_version_upgrade
-            .get_output(context)
-            .get_inner();
-        let apply_immediately_binding = args
-            .apply_immediately
-            .get_output(context)
-            .get_inner();
-        let aqua_configuration_status_binding = args
+            .get_output(context);
+        let allow_version_upgrade_binding = allow_version_upgrade_binding_1.get_inner();
+        let apply_immediately_binding_1 = args.apply_immediately.get_output(context);
+        let apply_immediately_binding = apply_immediately_binding_1.get_inner();
+        let aqua_configuration_status_binding_1 = args
             .aqua_configuration_status
-            .get_output(context)
+            .get_output(context);
+        let aqua_configuration_status_binding = aqua_configuration_status_binding_1
             .get_inner();
-        let automated_snapshot_retention_period_binding = args
+        let automated_snapshot_retention_period_binding_1 = args
             .automated_snapshot_retention_period
-            .get_output(context)
+            .get_output(context);
+        let automated_snapshot_retention_period_binding = automated_snapshot_retention_period_binding_1
             .get_inner();
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let availability_zone_relocation_enabled_binding = args
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let availability_zone_relocation_enabled_binding_1 = args
             .availability_zone_relocation_enabled
-            .get_output(context)
+            .get_output(context);
+        let availability_zone_relocation_enabled_binding = availability_zone_relocation_enabled_binding_1
             .get_inner();
-        let cluster_identifier_binding = args
-            .cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let cluster_parameter_group_name_binding = args
+        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
+        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
+        let cluster_parameter_group_name_binding_1 = args
             .cluster_parameter_group_name
-            .get_output(context)
+            .get_output(context);
+        let cluster_parameter_group_name_binding = cluster_parameter_group_name_binding_1
             .get_inner();
-        let cluster_public_key_binding = args
-            .cluster_public_key
-            .get_output(context)
-            .get_inner();
-        let cluster_revision_number_binding = args
+        let cluster_public_key_binding_1 = args.cluster_public_key.get_output(context);
+        let cluster_public_key_binding = cluster_public_key_binding_1.get_inner();
+        let cluster_revision_number_binding_1 = args
             .cluster_revision_number
-            .get_output(context)
+            .get_output(context);
+        let cluster_revision_number_binding = cluster_revision_number_binding_1
             .get_inner();
-        let cluster_subnet_group_name_binding = args
+        let cluster_subnet_group_name_binding_1 = args
             .cluster_subnet_group_name
-            .get_output(context)
+            .get_output(context);
+        let cluster_subnet_group_name_binding = cluster_subnet_group_name_binding_1
             .get_inner();
-        let cluster_type_binding = args.cluster_type.get_output(context).get_inner();
-        let cluster_version_binding = args
-            .cluster_version
-            .get_output(context)
-            .get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let default_iam_role_arn_binding = args
+        let cluster_type_binding_1 = args.cluster_type.get_output(context);
+        let cluster_type_binding = cluster_type_binding_1.get_inner();
+        let cluster_version_binding_1 = args.cluster_version.get_output(context);
+        let cluster_version_binding = cluster_version_binding_1.get_inner();
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let default_iam_role_arn_binding_1 = args
             .default_iam_role_arn
-            .get_output(context)
-            .get_inner();
-        let elastic_ip_binding = args.elastic_ip.get_output(context).get_inner();
-        let encrypted_binding = args.encrypted.get_output(context).get_inner();
-        let endpoint_binding = args.endpoint.get_output(context).get_inner();
-        let enhanced_vpc_routing_binding = args
+            .get_output(context);
+        let default_iam_role_arn_binding = default_iam_role_arn_binding_1.get_inner();
+        let elastic_ip_binding_1 = args.elastic_ip.get_output(context);
+        let elastic_ip_binding = elastic_ip_binding_1.get_inner();
+        let encrypted_binding_1 = args.encrypted.get_output(context);
+        let encrypted_binding = encrypted_binding_1.get_inner();
+        let endpoint_binding_1 = args.endpoint.get_output(context);
+        let endpoint_binding = endpoint_binding_1.get_inner();
+        let enhanced_vpc_routing_binding_1 = args
             .enhanced_vpc_routing
-            .get_output(context)
-            .get_inner();
-        let final_snapshot_identifier_binding = args
+            .get_output(context);
+        let enhanced_vpc_routing_binding = enhanced_vpc_routing_binding_1.get_inner();
+        let final_snapshot_identifier_binding_1 = args
             .final_snapshot_identifier
-            .get_output(context)
+            .get_output(context);
+        let final_snapshot_identifier_binding = final_snapshot_identifier_binding_1
             .get_inner();
-        let iam_roles_binding = args.iam_roles.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let logging_binding = args.logging.get_output(context).get_inner();
-        let maintenance_track_name_binding = args
+        let iam_roles_binding_1 = args.iam_roles.get_output(context);
+        let iam_roles_binding = iam_roles_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let logging_binding_1 = args.logging.get_output(context);
+        let logging_binding = logging_binding_1.get_inner();
+        let maintenance_track_name_binding_1 = args
             .maintenance_track_name
-            .get_output(context)
+            .get_output(context);
+        let maintenance_track_name_binding = maintenance_track_name_binding_1
             .get_inner();
-        let manage_master_password_binding = args
+        let manage_master_password_binding_1 = args
             .manage_master_password
-            .get_output(context)
+            .get_output(context);
+        let manage_master_password_binding = manage_master_password_binding_1
             .get_inner();
-        let manual_snapshot_retention_period_binding = args
+        let manual_snapshot_retention_period_binding_1 = args
             .manual_snapshot_retention_period
-            .get_output(context)
+            .get_output(context);
+        let manual_snapshot_retention_period_binding = manual_snapshot_retention_period_binding_1
             .get_inner();
-        let master_password_binding = args
-            .master_password
-            .get_output(context)
-            .get_inner();
-        let master_password_secret_kms_key_id_binding = args
+        let master_password_binding_1 = args.master_password.get_output(context);
+        let master_password_binding = master_password_binding_1.get_inner();
+        let master_password_secret_kms_key_id_binding_1 = args
             .master_password_secret_kms_key_id
-            .get_output(context)
+            .get_output(context);
+        let master_password_secret_kms_key_id_binding = master_password_secret_kms_key_id_binding_1
             .get_inner();
-        let master_username_binding = args
-            .master_username
-            .get_output(context)
-            .get_inner();
-        let multi_az_binding = args.multi_az.get_output(context).get_inner();
-        let node_type_binding = args.node_type.get_output(context).get_inner();
-        let number_of_nodes_binding = args
-            .number_of_nodes
-            .get_output(context)
-            .get_inner();
-        let owner_account_binding = args.owner_account.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let preferred_maintenance_window_binding = args
+        let master_username_binding_1 = args.master_username.get_output(context);
+        let master_username_binding = master_username_binding_1.get_inner();
+        let multi_az_binding_1 = args.multi_az.get_output(context);
+        let multi_az_binding = multi_az_binding_1.get_inner();
+        let node_type_binding_1 = args.node_type.get_output(context);
+        let node_type_binding = node_type_binding_1.get_inner();
+        let number_of_nodes_binding_1 = args.number_of_nodes.get_output(context);
+        let number_of_nodes_binding = number_of_nodes_binding_1.get_inner();
+        let owner_account_binding_1 = args.owner_account.get_output(context);
+        let owner_account_binding = owner_account_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let preferred_maintenance_window_binding_1 = args
             .preferred_maintenance_window
-            .get_output(context)
+            .get_output(context);
+        let preferred_maintenance_window_binding = preferred_maintenance_window_binding_1
             .get_inner();
-        let publicly_accessible_binding = args
-            .publicly_accessible
-            .get_output(context)
-            .get_inner();
-        let skip_final_snapshot_binding = args
-            .skip_final_snapshot
-            .get_output(context)
-            .get_inner();
-        let snapshot_arn_binding = args.snapshot_arn.get_output(context).get_inner();
-        let snapshot_cluster_identifier_binding = args
+        let publicly_accessible_binding_1 = args.publicly_accessible.get_output(context);
+        let publicly_accessible_binding = publicly_accessible_binding_1.get_inner();
+        let skip_final_snapshot_binding_1 = args.skip_final_snapshot.get_output(context);
+        let skip_final_snapshot_binding = skip_final_snapshot_binding_1.get_inner();
+        let snapshot_arn_binding_1 = args.snapshot_arn.get_output(context);
+        let snapshot_arn_binding = snapshot_arn_binding_1.get_inner();
+        let snapshot_cluster_identifier_binding_1 = args
             .snapshot_cluster_identifier
-            .get_output(context)
+            .get_output(context);
+        let snapshot_cluster_identifier_binding = snapshot_cluster_identifier_binding_1
             .get_inner();
-        let snapshot_copy_binding = args.snapshot_copy.get_output(context).get_inner();
-        let snapshot_identifier_binding = args
-            .snapshot_identifier
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_security_group_ids_binding = args
+        let snapshot_copy_binding_1 = args.snapshot_copy.get_output(context);
+        let snapshot_copy_binding = snapshot_copy_binding_1.get_inner();
+        let snapshot_identifier_binding_1 = args.snapshot_identifier.get_output(context);
+        let snapshot_identifier_binding = snapshot_identifier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_security_group_ids_binding_1 = args
             .vpc_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/cluster:Cluster".into(),

@@ -73,8 +73,10 @@ pub mod drt_access_role_arn_association {
     ) -> DrtAccessRoleArnAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation"
                 .into(),

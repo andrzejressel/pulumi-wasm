@@ -65,16 +65,14 @@ pub mod metrics_destination {
     ) -> MetricsDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_monitor_name_binding = args
-            .app_monitor_name
-            .get_output(context)
-            .get_inner();
-        let destination_binding = args.destination.get_output(context).get_inner();
-        let destination_arn_binding = args
-            .destination_arn
-            .get_output(context)
-            .get_inner();
-        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
+        let app_monitor_name_binding_1 = args.app_monitor_name.get_output(context);
+        let app_monitor_name_binding = app_monitor_name_binding_1.get_inner();
+        let destination_binding_1 = args.destination.get_output(context);
+        let destination_binding = destination_binding_1.get_inner();
+        let destination_arn_binding_1 = args.destination_arn.get_output(context);
+        let destination_arn_binding = destination_arn_binding_1.get_inner();
+        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
+        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rum/metricsDestination:MetricsDestination".into(),
             name: name.to_string(),

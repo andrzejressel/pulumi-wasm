@@ -28,7 +28,8 @@ pub mod get_resolver_firewall_config {
     ) -> GetResolverFirewallConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let resource_id_binding = args.resource_id.get_output(context).get_inner();
+        let resource_id_binding_1 = args.resource_id.get_output(context);
+        let resource_id_binding = resource_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverFirewallConfig:getResolverFirewallConfig"
                 .into(),

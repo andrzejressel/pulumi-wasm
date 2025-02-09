@@ -312,19 +312,26 @@ pub mod backup {
     ) -> BackupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let backup_id_binding = args.backup_id.get_output(context).get_inner();
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let encryption_config_binding = args
-            .encryption_config
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let backup_id_binding_1 = args.backup_id.get_output(context);
+        let backup_id_binding = backup_id_binding_1.get_inner();
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let encryption_config_binding_1 = args.encryption_config.get_output(context);
+        let encryption_config_binding = encryption_config_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:alloydb/backup:Backup".into(),
             name: name.to_string(),

@@ -180,31 +180,30 @@ pub mod endpoint_policy {
     ) -> EndpointPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorization_policy_binding = args
+        let authorization_policy_binding_1 = args
             .authorization_policy
-            .get_output(context)
-            .get_inner();
-        let client_tls_policy_binding = args
-            .client_tls_policy
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let endpoint_matcher_binding = args
-            .endpoint_matcher
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let server_tls_policy_binding = args
-            .server_tls_policy
-            .get_output(context)
-            .get_inner();
-        let traffic_port_selector_binding = args
+            .get_output(context);
+        let authorization_policy_binding = authorization_policy_binding_1.get_inner();
+        let client_tls_policy_binding_1 = args.client_tls_policy.get_output(context);
+        let client_tls_policy_binding = client_tls_policy_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let endpoint_matcher_binding_1 = args.endpoint_matcher.get_output(context);
+        let endpoint_matcher_binding = endpoint_matcher_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let server_tls_policy_binding_1 = args.server_tls_policy.get_output(context);
+        let server_tls_policy_binding = server_tls_policy_binding_1.get_inner();
+        let traffic_port_selector_binding_1 = args
             .traffic_port_selector
-            .get_output(context)
-            .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+            .get_output(context);
+        let traffic_port_selector_binding = traffic_port_selector_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkservices/endpointPolicy:EndpointPolicy".into(),
             name: name.to_string(),

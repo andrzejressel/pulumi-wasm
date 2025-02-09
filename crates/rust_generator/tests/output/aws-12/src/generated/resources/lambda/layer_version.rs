@@ -135,29 +135,31 @@ pub mod layer_version {
     ) -> LayerVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let code_binding = args.code.get_output(context).get_inner();
-        let compatible_architectures_binding = args
+        let code_binding_1 = args.code.get_output(context);
+        let code_binding = code_binding_1.get_inner();
+        let compatible_architectures_binding_1 = args
             .compatible_architectures
-            .get_output(context)
+            .get_output(context);
+        let compatible_architectures_binding = compatible_architectures_binding_1
             .get_inner();
-        let compatible_runtimes_binding = args
-            .compatible_runtimes
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let layer_name_binding = args.layer_name.get_output(context).get_inner();
-        let license_info_binding = args.license_info.get_output(context).get_inner();
-        let s3_bucket_binding = args.s3_bucket.get_output(context).get_inner();
-        let s3_key_binding = args.s3_key.get_output(context).get_inner();
-        let s3_object_version_binding = args
-            .s3_object_version
-            .get_output(context)
-            .get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
-        let source_code_hash_binding = args
-            .source_code_hash
-            .get_output(context)
-            .get_inner();
+        let compatible_runtimes_binding_1 = args.compatible_runtimes.get_output(context);
+        let compatible_runtimes_binding = compatible_runtimes_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let layer_name_binding_1 = args.layer_name.get_output(context);
+        let layer_name_binding = layer_name_binding_1.get_inner();
+        let license_info_binding_1 = args.license_info.get_output(context);
+        let license_info_binding = license_info_binding_1.get_inner();
+        let s3_bucket_binding_1 = args.s3_bucket.get_output(context);
+        let s3_bucket_binding = s3_bucket_binding_1.get_inner();
+        let s3_key_binding_1 = args.s3_key.get_output(context);
+        let s3_key_binding = s3_key_binding_1.get_inner();
+        let s3_object_version_binding_1 = args.s3_object_version.get_output(context);
+        let s3_object_version_binding = s3_object_version_binding_1.get_inner();
+        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
+        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
+        let source_code_hash_binding_1 = args.source_code_hash.get_output(context);
+        let source_code_hash_binding = source_code_hash_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/layerVersion:LayerVersion".into(),
             name: name.to_string(),

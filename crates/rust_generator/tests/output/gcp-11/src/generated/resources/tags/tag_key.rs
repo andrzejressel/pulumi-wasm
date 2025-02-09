@@ -120,11 +120,16 @@ pub mod tag_key {
     ) -> TagKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let purpose_binding = args.purpose.get_output(context).get_inner();
-        let purpose_data_binding = args.purpose_data.get_output(context).get_inner();
-        let short_name_binding = args.short_name.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let purpose_binding_1 = args.purpose.get_output(context);
+        let purpose_binding = purpose_binding_1.get_inner();
+        let purpose_data_binding_1 = args.purpose_data.get_output(context);
+        let purpose_data_binding = purpose_data_binding_1.get_inner();
+        let short_name_binding_1 = args.short_name.get_output(context);
+        let short_name_binding = short_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:tags/tagKey:TagKey".into(),
             name: name.to_string(),

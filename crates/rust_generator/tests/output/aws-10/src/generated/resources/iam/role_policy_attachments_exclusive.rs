@@ -84,8 +84,10 @@ pub mod role_policy_attachments_exclusive {
     ) -> RolePolicyAttachmentsExclusiveResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_arns_binding = args.policy_arns.get_output(context).get_inner();
-        let role_name_binding = args.role_name.get_output(context).get_inner();
+        let policy_arns_binding_1 = args.policy_arns.get_output(context);
+        let policy_arns_binding = policy_arns_binding_1.get_inner();
+        let role_name_binding_1 = args.role_name.get_output(context);
+        let role_name_binding = role_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive"
                 .into(),

@@ -37,15 +37,14 @@ pub mod get_testable_permissions {
     ) -> GetTestablePermissionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_support_level_binding = args
+        let custom_support_level_binding_1 = args
             .custom_support_level
-            .get_output(context)
-            .get_inner();
-        let full_resource_name_binding = args
-            .full_resource_name
-            .get_output(context)
-            .get_inner();
-        let stages_binding = args.stages.get_output(context).get_inner();
+            .get_output(context);
+        let custom_support_level_binding = custom_support_level_binding_1.get_inner();
+        let full_resource_name_binding_1 = args.full_resource_name.get_output(context);
+        let full_resource_name_binding = full_resource_name_binding_1.get_inner();
+        let stages_binding_1 = args.stages.get_output(context);
+        let stages_binding = stages_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:iam/getTestablePermissions:getTestablePermissions".into(),
             version: super::super::super::get_version(),

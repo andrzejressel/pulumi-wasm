@@ -106,21 +106,20 @@ pub mod eip_association {
     ) -> EipAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocation_id_binding = args.allocation_id.get_output(context).get_inner();
-        let allow_reassociation_binding = args
-            .allow_reassociation
-            .get_output(context)
-            .get_inner();
-        let instance_id_binding = args.instance_id.get_output(context).get_inner();
-        let network_interface_id_binding = args
+        let allocation_id_binding_1 = args.allocation_id.get_output(context);
+        let allocation_id_binding = allocation_id_binding_1.get_inner();
+        let allow_reassociation_binding_1 = args.allow_reassociation.get_output(context);
+        let allow_reassociation_binding = allow_reassociation_binding_1.get_inner();
+        let instance_id_binding_1 = args.instance_id.get_output(context);
+        let instance_id_binding = instance_id_binding_1.get_inner();
+        let network_interface_id_binding_1 = args
             .network_interface_id
-            .get_output(context)
-            .get_inner();
-        let private_ip_address_binding = args
-            .private_ip_address
-            .get_output(context)
-            .get_inner();
-        let public_ip_binding = args.public_ip.get_output(context).get_inner();
+            .get_output(context);
+        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
+        let private_ip_address_binding_1 = args.private_ip_address.get_output(context);
+        let private_ip_address_binding = private_ip_address_binding_1.get_inner();
+        let public_ip_binding_1 = args.public_ip.get_output(context);
+        let public_ip_binding = public_ip_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/eipAssociation:EipAssociation".into(),
             name: name.to_string(),

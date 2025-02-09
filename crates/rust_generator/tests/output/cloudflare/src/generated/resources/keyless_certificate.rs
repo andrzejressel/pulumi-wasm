@@ -86,13 +86,20 @@ pub mod keyless_certificate {
     ) -> KeylessCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bundle_method_binding = args.bundle_method.get_output(context).get_inner();
-        let certificate_binding = args.certificate.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let host_binding = args.host.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let bundle_method_binding_1 = args.bundle_method.get_output(context);
+        let bundle_method_binding = bundle_method_binding_1.get_inner();
+        let certificate_binding_1 = args.certificate.get_output(context);
+        let certificate_binding = certificate_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let host_binding_1 = args.host.get_output(context);
+        let host_binding = host_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/keylessCertificate:KeylessCertificate".into(),
             name: name.to_string(),

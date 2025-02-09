@@ -146,29 +146,33 @@ pub mod stage {
     ) -> StageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_log_settings_binding = args
-            .access_log_settings
-            .get_output(context)
-            .get_inner();
-        let api_id_binding = args.api_id.get_output(context).get_inner();
-        let auto_deploy_binding = args.auto_deploy.get_output(context).get_inner();
-        let client_certificate_id_binding = args
+        let access_log_settings_binding_1 = args.access_log_settings.get_output(context);
+        let access_log_settings_binding = access_log_settings_binding_1.get_inner();
+        let api_id_binding_1 = args.api_id.get_output(context);
+        let api_id_binding = api_id_binding_1.get_inner();
+        let auto_deploy_binding_1 = args.auto_deploy.get_output(context);
+        let auto_deploy_binding = auto_deploy_binding_1.get_inner();
+        let client_certificate_id_binding_1 = args
             .client_certificate_id
-            .get_output(context)
-            .get_inner();
-        let default_route_settings_binding = args
+            .get_output(context);
+        let client_certificate_id_binding = client_certificate_id_binding_1.get_inner();
+        let default_route_settings_binding_1 = args
             .default_route_settings
-            .get_output(context)
+            .get_output(context);
+        let default_route_settings_binding = default_route_settings_binding_1
             .get_inner();
-        let deployment_id_binding = args.deployment_id.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let route_settings_binding = args.route_settings.get_output(context).get_inner();
-        let stage_variables_binding = args
-            .stage_variables
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let deployment_id_binding_1 = args.deployment_id.get_output(context);
+        let deployment_id_binding = deployment_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let route_settings_binding_1 = args.route_settings.get_output(context);
+        let route_settings_binding = route_settings_binding_1.get_inner();
+        let stage_variables_binding_1 = args.stage_variables.get_output(context);
+        let stage_variables_binding = stage_variables_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigatewayv2/stage:Stage".into(),
             name: name.to_string(),

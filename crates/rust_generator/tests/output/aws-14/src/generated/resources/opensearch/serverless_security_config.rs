@@ -60,10 +60,14 @@ pub mod serverless_security_config {
     ) -> ServerlessSecurityConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let saml_options_binding = args.saml_options.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let saml_options_binding_1 = args.saml_options.get_output(context);
+        let saml_options_binding = saml_options_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig"
                 .into(),

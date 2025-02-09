@@ -229,28 +229,35 @@ pub mod data_store {
     ) -> DataStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let content_config_binding = args.content_config.get_output(context).get_inner();
-        let create_advanced_site_search_binding = args
+        let content_config_binding_1 = args.content_config.get_output(context);
+        let content_config_binding = content_config_binding_1.get_inner();
+        let create_advanced_site_search_binding_1 = args
             .create_advanced_site_search
-            .get_output(context)
+            .get_output(context);
+        let create_advanced_site_search_binding = create_advanced_site_search_binding_1
             .get_inner();
-        let data_store_id_binding = args.data_store_id.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let document_processing_config_binding = args
+        let data_store_id_binding_1 = args.data_store_id.get_output(context);
+        let data_store_id_binding = data_store_id_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let document_processing_config_binding_1 = args
             .document_processing_config
-            .get_output(context)
+            .get_output(context);
+        let document_processing_config_binding = document_processing_config_binding_1
             .get_inner();
-        let industry_vertical_binding = args
-            .industry_vertical
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let skip_default_schema_creation_binding = args
+        let industry_vertical_binding_1 = args.industry_vertical.get_output(context);
+        let industry_vertical_binding = industry_vertical_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let skip_default_schema_creation_binding_1 = args
             .skip_default_schema_creation
-            .get_output(context)
+            .get_output(context);
+        let skip_default_schema_creation_binding = skip_default_schema_creation_binding_1
             .get_inner();
-        let solution_types_binding = args.solution_types.get_output(context).get_inner();
+        let solution_types_binding_1 = args.solution_types.get_output(context);
+        let solution_types_binding = solution_types_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:discoveryengine/dataStore:DataStore".into(),
             name: name.to_string(),

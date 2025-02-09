@@ -99,20 +99,16 @@ pub mod multiplex {
     ) -> MultiplexResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zones_binding = args
-            .availability_zones
-            .get_output(context)
-            .get_inner();
-        let multiplex_settings_binding = args
-            .multiplex_settings
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let start_multiplex_binding = args
-            .start_multiplex
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let availability_zones_binding_1 = args.availability_zones.get_output(context);
+        let availability_zones_binding = availability_zones_binding_1.get_inner();
+        let multiplex_settings_binding_1 = args.multiplex_settings.get_output(context);
+        let multiplex_settings_binding = multiplex_settings_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let start_multiplex_binding_1 = args.start_multiplex.get_output(context);
+        let start_multiplex_binding = start_multiplex_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:medialive/multiplex:Multiplex".into(),
             name: name.to_string(),

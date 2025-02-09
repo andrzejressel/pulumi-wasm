@@ -396,31 +396,35 @@ pub mod route {
     ) -> RouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let dest_range_binding = args.dest_range.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let next_hop_gateway_binding = args
-            .next_hop_gateway
-            .get_output(context)
-            .get_inner();
-        let next_hop_ilb_binding = args.next_hop_ilb.get_output(context).get_inner();
-        let next_hop_instance_binding = args
-            .next_hop_instance
-            .get_output(context)
-            .get_inner();
-        let next_hop_instance_zone_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dest_range_binding_1 = args.dest_range.get_output(context);
+        let dest_range_binding = dest_range_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let next_hop_gateway_binding_1 = args.next_hop_gateway.get_output(context);
+        let next_hop_gateway_binding = next_hop_gateway_binding_1.get_inner();
+        let next_hop_ilb_binding_1 = args.next_hop_ilb.get_output(context);
+        let next_hop_ilb_binding = next_hop_ilb_binding_1.get_inner();
+        let next_hop_instance_binding_1 = args.next_hop_instance.get_output(context);
+        let next_hop_instance_binding = next_hop_instance_binding_1.get_inner();
+        let next_hop_instance_zone_binding_1 = args
             .next_hop_instance_zone
-            .get_output(context)
+            .get_output(context);
+        let next_hop_instance_zone_binding = next_hop_instance_zone_binding_1
             .get_inner();
-        let next_hop_ip_binding = args.next_hop_ip.get_output(context).get_inner();
-        let next_hop_vpn_tunnel_binding = args
-            .next_hop_vpn_tunnel
-            .get_output(context)
-            .get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let next_hop_ip_binding_1 = args.next_hop_ip.get_output(context);
+        let next_hop_ip_binding = next_hop_ip_binding_1.get_inner();
+        let next_hop_vpn_tunnel_binding_1 = args.next_hop_vpn_tunnel.get_output(context);
+        let next_hop_vpn_tunnel_binding = next_hop_vpn_tunnel_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/route:Route".into(),
             name: name.to_string(),

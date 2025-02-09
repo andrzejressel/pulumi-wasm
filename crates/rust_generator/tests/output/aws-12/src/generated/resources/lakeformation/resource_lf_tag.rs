@@ -109,15 +109,18 @@ pub mod resource_lf_tag {
     ) -> ResourceLfTagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
-        let database_binding = args.database.get_output(context).get_inner();
-        let lf_tag_binding = args.lf_tag.get_output(context).get_inner();
-        let table_binding = args.table.get_output(context).get_inner();
-        let table_with_columns_binding = args
-            .table_with_columns
-            .get_output(context)
-            .get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let catalog_id_binding_1 = args.catalog_id.get_output(context);
+        let catalog_id_binding = catalog_id_binding_1.get_inner();
+        let database_binding_1 = args.database.get_output(context);
+        let database_binding = database_binding_1.get_inner();
+        let lf_tag_binding_1 = args.lf_tag.get_output(context);
+        let lf_tag_binding = lf_tag_binding_1.get_inner();
+        let table_binding_1 = args.table.get_output(context);
+        let table_binding = table_binding_1.get_inner();
+        let table_with_columns_binding_1 = args.table_with_columns.get_output(context);
+        let table_with_columns_binding = table_with_columns_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lakeformation/resourceLfTag:ResourceLfTag".into(),
             name: name.to_string(),

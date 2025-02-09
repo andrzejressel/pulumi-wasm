@@ -105,16 +105,18 @@ pub mod ami_launch_permission {
     ) -> AmiLaunchPermissionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let group_binding = args.group.get_output(context).get_inner();
-        let image_id_binding = args.image_id.get_output(context).get_inner();
-        let organization_arn_binding = args
-            .organization_arn
-            .get_output(context)
-            .get_inner();
-        let organizational_unit_arn_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let group_binding_1 = args.group.get_output(context);
+        let group_binding = group_binding_1.get_inner();
+        let image_id_binding_1 = args.image_id.get_output(context);
+        let image_id_binding = image_id_binding_1.get_inner();
+        let organization_arn_binding_1 = args.organization_arn.get_output(context);
+        let organization_arn_binding = organization_arn_binding_1.get_inner();
+        let organizational_unit_arn_binding_1 = args
             .organizational_unit_arn
-            .get_output(context)
+            .get_output(context);
+        let organizational_unit_arn_binding = organizational_unit_arn_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/amiLaunchPermission:AmiLaunchPermission".into(),

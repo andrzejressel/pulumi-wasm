@@ -88,14 +88,22 @@ pub mod user {
     ) -> UserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let email_binding = args.email.get_output(context).get_inner();
-        let iam_arn_binding = args.iam_arn.get_output(context).get_inner();
-        let identity_type_binding = args.identity_type.get_output(context).get_inner();
-        let namespace_binding = args.namespace.get_output(context).get_inner();
-        let session_name_binding = args.session_name.get_output(context).get_inner();
-        let user_name_binding = args.user_name.get_output(context).get_inner();
-        let user_role_binding = args.user_role.get_output(context).get_inner();
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let email_binding_1 = args.email.get_output(context);
+        let email_binding = email_binding_1.get_inner();
+        let iam_arn_binding_1 = args.iam_arn.get_output(context);
+        let iam_arn_binding = iam_arn_binding_1.get_inner();
+        let identity_type_binding_1 = args.identity_type.get_output(context);
+        let identity_type_binding = identity_type_binding_1.get_inner();
+        let namespace_binding_1 = args.namespace.get_output(context);
+        let namespace_binding = namespace_binding_1.get_inner();
+        let session_name_binding_1 = args.session_name.get_output(context);
+        let session_name_binding = session_name_binding_1.get_inner();
+        let user_name_binding_1 = args.user_name.get_output(context);
+        let user_name_binding = user_name_binding_1.get_inner();
+        let user_role_binding_1 = args.user_role.get_output(context);
+        let user_role_binding = user_role_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/user:User".into(),
             name: name.to_string(),

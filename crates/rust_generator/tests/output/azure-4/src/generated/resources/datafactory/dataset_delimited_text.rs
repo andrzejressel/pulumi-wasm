@@ -226,63 +226,58 @@ pub mod dataset_delimited_text {
     ) -> DatasetDelimitedTextResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_properties_binding = args
+        let additional_properties_binding_1 = args
             .additional_properties
-            .get_output(context)
-            .get_inner();
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let azure_blob_fs_location_binding = args
+            .get_output(context);
+        let additional_properties_binding = additional_properties_binding_1.get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let azure_blob_fs_location_binding_1 = args
             .azure_blob_fs_location
-            .get_output(context)
+            .get_output(context);
+        let azure_blob_fs_location_binding = azure_blob_fs_location_binding_1
             .get_inner();
-        let azure_blob_storage_location_binding = args
+        let azure_blob_storage_location_binding_1 = args
             .azure_blob_storage_location
-            .get_output(context)
+            .get_output(context);
+        let azure_blob_storage_location_binding = azure_blob_storage_location_binding_1
             .get_inner();
-        let column_delimiter_binding = args
-            .column_delimiter
-            .get_output(context)
-            .get_inner();
-        let compression_codec_binding = args
-            .compression_codec
-            .get_output(context)
-            .get_inner();
-        let compression_level_binding = args
-            .compression_level
-            .get_output(context)
-            .get_inner();
-        let data_factory_id_binding = args
-            .data_factory_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let encoding_binding = args.encoding.get_output(context).get_inner();
-        let escape_character_binding = args
-            .escape_character
-            .get_output(context)
-            .get_inner();
-        let first_row_as_header_binding = args
-            .first_row_as_header
-            .get_output(context)
-            .get_inner();
-        let folder_binding = args.folder.get_output(context).get_inner();
-        let http_server_location_binding = args
+        let column_delimiter_binding_1 = args.column_delimiter.get_output(context);
+        let column_delimiter_binding = column_delimiter_binding_1.get_inner();
+        let compression_codec_binding_1 = args.compression_codec.get_output(context);
+        let compression_codec_binding = compression_codec_binding_1.get_inner();
+        let compression_level_binding_1 = args.compression_level.get_output(context);
+        let compression_level_binding = compression_level_binding_1.get_inner();
+        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
+        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let encoding_binding_1 = args.encoding.get_output(context);
+        let encoding_binding = encoding_binding_1.get_inner();
+        let escape_character_binding_1 = args.escape_character.get_output(context);
+        let escape_character_binding = escape_character_binding_1.get_inner();
+        let first_row_as_header_binding_1 = args.first_row_as_header.get_output(context);
+        let first_row_as_header_binding = first_row_as_header_binding_1.get_inner();
+        let folder_binding_1 = args.folder.get_output(context);
+        let folder_binding = folder_binding_1.get_inner();
+        let http_server_location_binding_1 = args
             .http_server_location
-            .get_output(context)
-            .get_inner();
-        let linked_service_name_binding = args
-            .linked_service_name
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let null_value_binding = args.null_value.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let quote_character_binding = args
-            .quote_character
-            .get_output(context)
-            .get_inner();
-        let row_delimiter_binding = args.row_delimiter.get_output(context).get_inner();
-        let schema_columns_binding = args.schema_columns.get_output(context).get_inner();
+            .get_output(context);
+        let http_server_location_binding = http_server_location_binding_1.get_inner();
+        let linked_service_name_binding_1 = args.linked_service_name.get_output(context);
+        let linked_service_name_binding = linked_service_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let null_value_binding_1 = args.null_value.get_output(context);
+        let null_value_binding = null_value_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let quote_character_binding_1 = args.quote_character.get_output(context);
+        let quote_character_binding = quote_character_binding_1.get_inner();
+        let row_delimiter_binding_1 = args.row_delimiter.get_output(context);
+        let row_delimiter_binding = row_delimiter_binding_1.get_inner();
+        let schema_columns_binding_1 = args.schema_columns.get_output(context);
+        let schema_columns_binding = schema_columns_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/datasetDelimitedText:DatasetDelimitedText".into(),
             name: name.to_string(),

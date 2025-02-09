@@ -183,16 +183,20 @@ pub mod android_app {
     ) -> AndroidAppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_id_binding = args.api_key_id.get_output(context).get_inner();
-        let deletion_policy_binding = args
-            .deletion_policy
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let package_name_binding = args.package_name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let sha1_hashes_binding = args.sha1_hashes.get_output(context).get_inner();
-        let sha256_hashes_binding = args.sha256_hashes.get_output(context).get_inner();
+        let api_key_id_binding_1 = args.api_key_id.get_output(context);
+        let api_key_id_binding = api_key_id_binding_1.get_inner();
+        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
+        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let package_name_binding_1 = args.package_name.get_output(context);
+        let package_name_binding = package_name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let sha1_hashes_binding_1 = args.sha1_hashes.get_output(context);
+        let sha1_hashes_binding = sha1_hashes_binding_1.get_inner();
+        let sha256_hashes_binding_1 = args.sha256_hashes.get_output(context);
+        let sha256_hashes_binding = sha256_hashes_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/androidApp:AndroidApp".into(),
             name: name.to_string(),

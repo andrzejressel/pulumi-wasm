@@ -329,24 +329,25 @@ pub mod policy {
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let policy_type_binding = args.policy_type.get_output(context).get_inner();
-        let resource_id_binding = args.resource_id.get_output(context).get_inner();
-        let scalable_dimension_binding = args
-            .scalable_dimension
-            .get_output(context)
-            .get_inner();
-        let service_namespace_binding = args
-            .service_namespace
-            .get_output(context)
-            .get_inner();
-        let step_scaling_policy_configuration_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let policy_type_binding_1 = args.policy_type.get_output(context);
+        let policy_type_binding = policy_type_binding_1.get_inner();
+        let resource_id_binding_1 = args.resource_id.get_output(context);
+        let resource_id_binding = resource_id_binding_1.get_inner();
+        let scalable_dimension_binding_1 = args.scalable_dimension.get_output(context);
+        let scalable_dimension_binding = scalable_dimension_binding_1.get_inner();
+        let service_namespace_binding_1 = args.service_namespace.get_output(context);
+        let service_namespace_binding = service_namespace_binding_1.get_inner();
+        let step_scaling_policy_configuration_binding_1 = args
             .step_scaling_policy_configuration
-            .get_output(context)
+            .get_output(context);
+        let step_scaling_policy_configuration_binding = step_scaling_policy_configuration_binding_1
             .get_inner();
-        let target_tracking_scaling_policy_configuration_binding = args
+        let target_tracking_scaling_policy_configuration_binding_1 = args
             .target_tracking_scaling_policy_configuration
-            .get_output(context)
+            .get_output(context);
+        let target_tracking_scaling_policy_configuration_binding = target_tracking_scaling_policy_configuration_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appautoscaling/policy:Policy".into(),

@@ -142,13 +142,15 @@ pub mod block_public_access_configuration {
     ) -> BlockPublicAccessConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let block_public_security_group_rules_binding = args
+        let block_public_security_group_rules_binding_1 = args
             .block_public_security_group_rules
-            .get_output(context)
+            .get_output(context);
+        let block_public_security_group_rules_binding = block_public_security_group_rules_binding_1
             .get_inner();
-        let permitted_public_security_group_rule_ranges_binding = args
+        let permitted_public_security_group_rule_ranges_binding_1 = args
             .permitted_public_security_group_rule_ranges
-            .get_output(context)
+            .get_output(context);
+        let permitted_public_security_group_rule_ranges_binding = permitted_public_security_group_rule_ranges_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration"

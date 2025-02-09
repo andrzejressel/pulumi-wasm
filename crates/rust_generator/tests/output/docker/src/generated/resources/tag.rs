@@ -32,8 +32,10 @@ pub mod tag {
     ) -> TagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let source_image_binding = args.source_image.get_output(context).get_inner();
-        let target_image_binding = args.target_image.get_output(context).get_inner();
+        let source_image_binding_1 = args.source_image.get_output(context);
+        let source_image_binding = source_image_binding_1.get_inner();
+        let target_image_binding_1 = args.target_image.get_output(context);
+        let target_image_binding = target_image_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "docker:index/tag:Tag".into(),
             name: name.to_string(),

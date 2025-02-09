@@ -104,25 +104,25 @@ pub mod efs_location {
     ) -> EfsLocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_point_arn_binding = args
-            .access_point_arn
-            .get_output(context)
-            .get_inner();
-        let ec2_config_binding = args.ec2_config.get_output(context).get_inner();
-        let efs_file_system_arn_binding = args
-            .efs_file_system_arn
-            .get_output(context)
-            .get_inner();
-        let file_system_access_role_arn_binding = args
+        let access_point_arn_binding_1 = args.access_point_arn.get_output(context);
+        let access_point_arn_binding = access_point_arn_binding_1.get_inner();
+        let ec2_config_binding_1 = args.ec2_config.get_output(context);
+        let ec2_config_binding = ec2_config_binding_1.get_inner();
+        let efs_file_system_arn_binding_1 = args.efs_file_system_arn.get_output(context);
+        let efs_file_system_arn_binding = efs_file_system_arn_binding_1.get_inner();
+        let file_system_access_role_arn_binding_1 = args
             .file_system_access_role_arn
-            .get_output(context)
+            .get_output(context);
+        let file_system_access_role_arn_binding = file_system_access_role_arn_binding_1
             .get_inner();
-        let in_transit_encryption_binding = args
+        let in_transit_encryption_binding_1 = args
             .in_transit_encryption
-            .get_output(context)
-            .get_inner();
-        let subdirectory_binding = args.subdirectory.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let in_transit_encryption_binding = in_transit_encryption_binding_1.get_inner();
+        let subdirectory_binding_1 = args.subdirectory.get_output(context);
+        let subdirectory_binding = subdirectory_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/efsLocation:EfsLocation".into(),
             name: name.to_string(),

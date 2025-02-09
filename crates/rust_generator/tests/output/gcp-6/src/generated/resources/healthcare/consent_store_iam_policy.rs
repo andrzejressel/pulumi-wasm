@@ -233,12 +233,12 @@ pub mod consent_store_iam_policy {
     ) -> ConsentStoreIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let consent_store_id_binding = args
-            .consent_store_id
-            .get_output(context)
-            .get_inner();
-        let dataset_binding = args.dataset.get_output(context).get_inner();
-        let policy_data_binding = args.policy_data.get_output(context).get_inner();
+        let consent_store_id_binding_1 = args.consent_store_id.get_output(context);
+        let consent_store_id_binding = consent_store_id_binding_1.get_inner();
+        let dataset_binding_1 = args.dataset.get_output(context);
+        let dataset_binding = dataset_binding_1.get_inner();
+        let policy_data_binding_1 = args.policy_data.get_output(context);
+        let policy_data_binding = policy_data_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/consentStoreIamPolicy:ConsentStoreIamPolicy".into(),
             name: name.to_string(),

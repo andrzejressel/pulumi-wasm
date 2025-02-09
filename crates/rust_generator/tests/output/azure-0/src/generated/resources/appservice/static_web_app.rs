@@ -142,30 +142,39 @@ pub mod static_web_app {
     ) -> StaticWebAppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_settings_binding = args.app_settings.get_output(context).get_inner();
-        let basic_auth_binding = args.basic_auth.get_output(context).get_inner();
-        let configuration_file_changes_enabled_binding = args
+        let app_settings_binding_1 = args.app_settings.get_output(context);
+        let app_settings_binding = app_settings_binding_1.get_inner();
+        let basic_auth_binding_1 = args.basic_auth.get_output(context);
+        let basic_auth_binding = basic_auth_binding_1.get_inner();
+        let configuration_file_changes_enabled_binding_1 = args
             .configuration_file_changes_enabled
-            .get_output(context)
+            .get_output(context);
+        let configuration_file_changes_enabled_binding = configuration_file_changes_enabled_binding_1
             .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let preview_environments_enabled_binding = args
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let preview_environments_enabled_binding_1 = args
             .preview_environments_enabled
-            .get_output(context)
+            .get_output(context);
+        let preview_environments_enabled_binding = preview_environments_enabled_binding_1
             .get_inner();
-        let public_network_access_enabled_binding = args
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_size_binding = args.sku_size.get_output(context).get_inner();
-        let sku_tier_binding = args.sku_tier.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_size_binding_1 = args.sku_size.get_output(context);
+        let sku_size_binding = sku_size_binding_1.get_inner();
+        let sku_tier_binding_1 = args.sku_tier.get_output(context);
+        let sku_tier_binding = sku_tier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/staticWebApp:StaticWebApp".into(),
             name: name.to_string(),

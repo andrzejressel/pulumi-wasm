@@ -37,9 +37,12 @@ pub mod get_framework {
     ) -> GetFrameworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let control_sets_binding = args.control_sets.get_output(context).get_inner();
-        let framework_type_binding = args.framework_type.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let control_sets_binding_1 = args.control_sets.get_output(context);
+        let control_sets_binding = control_sets_binding_1.get_inner();
+        let framework_type_binding_1 = args.framework_type.get_output(context);
+        let framework_type_binding = framework_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:auditmanager/getFramework:getFramework".into(),
             version: super::super::super::get_version(),

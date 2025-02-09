@@ -71,10 +71,14 @@ pub mod template {
     ) -> TemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let html_binding = args.html.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let subject_binding = args.subject.get_output(context).get_inner();
-        let text_binding = args.text.get_output(context).get_inner();
+        let html_binding_1 = args.html.get_output(context);
+        let html_binding = html_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let subject_binding_1 = args.subject.get_output(context);
+        let subject_binding = subject_binding_1.get_inner();
+        let text_binding_1 = args.text.get_output(context);
+        let text_binding = text_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/template:Template".into(),
             name: name.to_string(),

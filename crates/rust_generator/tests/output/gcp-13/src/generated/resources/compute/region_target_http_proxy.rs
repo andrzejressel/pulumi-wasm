@@ -287,15 +287,21 @@ pub mod region_target_http_proxy {
     ) -> RegionTargetHttpProxyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let http_keep_alive_timeout_sec_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let http_keep_alive_timeout_sec_binding_1 = args
             .http_keep_alive_timeout_sec
-            .get_output(context)
+            .get_output(context);
+        let http_keep_alive_timeout_sec_binding = http_keep_alive_timeout_sec_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let url_map_binding = args.url_map.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let url_map_binding_1 = args.url_map.get_output(context);
+        let url_map_binding = url_map_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionTargetHttpProxy:RegionTargetHttpProxy".into(),
             name: name.to_string(),

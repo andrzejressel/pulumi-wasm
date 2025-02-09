@@ -133,27 +133,36 @@ pub mod teams_channel_configuration {
     ) -> TeamsChannelConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let channel_id_binding = args.channel_id.get_output(context).get_inner();
-        let channel_name_binding = args.channel_name.get_output(context).get_inner();
-        let configuration_name_binding = args
-            .configuration_name
-            .get_output(context)
-            .get_inner();
-        let guardrail_policy_arns_binding = args
+        let channel_id_binding_1 = args.channel_id.get_output(context);
+        let channel_id_binding = channel_id_binding_1.get_inner();
+        let channel_name_binding_1 = args.channel_name.get_output(context);
+        let channel_name_binding = channel_name_binding_1.get_inner();
+        let configuration_name_binding_1 = args.configuration_name.get_output(context);
+        let configuration_name_binding = configuration_name_binding_1.get_inner();
+        let guardrail_policy_arns_binding_1 = args
             .guardrail_policy_arns
-            .get_output(context)
-            .get_inner();
-        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
-        let logging_level_binding = args.logging_level.get_output(context).get_inner();
-        let sns_topic_arns_binding = args.sns_topic_arns.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let team_id_binding = args.team_id.get_output(context).get_inner();
-        let team_name_binding = args.team_name.get_output(context).get_inner();
-        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let user_authorization_required_binding = args
+            .get_output(context);
+        let guardrail_policy_arns_binding = guardrail_policy_arns_binding_1.get_inner();
+        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
+        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
+        let logging_level_binding_1 = args.logging_level.get_output(context);
+        let logging_level_binding = logging_level_binding_1.get_inner();
+        let sns_topic_arns_binding_1 = args.sns_topic_arns.get_output(context);
+        let sns_topic_arns_binding = sns_topic_arns_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let team_id_binding_1 = args.team_id.get_output(context);
+        let team_id_binding = team_id_binding_1.get_inner();
+        let team_name_binding_1 = args.team_name.get_output(context);
+        let team_name_binding = team_name_binding_1.get_inner();
+        let tenant_id_binding_1 = args.tenant_id.get_output(context);
+        let tenant_id_binding = tenant_id_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let user_authorization_required_binding_1 = args
             .user_authorization_required
-            .get_output(context)
+            .get_output(context);
+        let user_authorization_required_binding = user_authorization_required_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration"

@@ -98,19 +98,22 @@ pub mod custom_routing_endpoint_group {
     ) -> CustomRoutingEndpointGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_configurations_binding = args
+        let destination_configurations_binding_1 = args
             .destination_configurations
-            .get_output(context)
+            .get_output(context);
+        let destination_configurations_binding = destination_configurations_binding_1
             .get_inner();
-        let endpoint_configurations_binding = args
+        let endpoint_configurations_binding_1 = args
             .endpoint_configurations
-            .get_output(context)
+            .get_output(context);
+        let endpoint_configurations_binding = endpoint_configurations_binding_1
             .get_inner();
-        let endpoint_group_region_binding = args
+        let endpoint_group_region_binding_1 = args
             .endpoint_group_region
-            .get_output(context)
-            .get_inner();
-        let listener_arn_binding = args.listener_arn.get_output(context).get_inner();
+            .get_output(context);
+        let endpoint_group_region_binding = endpoint_group_region_binding_1.get_inner();
+        let listener_arn_binding_1 = args.listener_arn.get_output(context);
+        let listener_arn_binding = listener_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup"
                 .into(),

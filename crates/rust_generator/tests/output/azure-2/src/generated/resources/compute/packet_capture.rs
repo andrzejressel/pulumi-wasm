@@ -213,32 +213,31 @@ pub mod packet_capture {
     ) -> PacketCaptureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let maximum_bytes_per_packet_binding = args
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let maximum_bytes_per_packet_binding_1 = args
             .maximum_bytes_per_packet
-            .get_output(context)
+            .get_output(context);
+        let maximum_bytes_per_packet_binding = maximum_bytes_per_packet_binding_1
             .get_inner();
-        let maximum_bytes_per_session_binding = args
+        let maximum_bytes_per_session_binding_1 = args
             .maximum_bytes_per_session
-            .get_output(context)
+            .get_output(context);
+        let maximum_bytes_per_session_binding = maximum_bytes_per_session_binding_1
             .get_inner();
-        let maximum_capture_duration_in_seconds_binding = args
+        let maximum_capture_duration_in_seconds_binding_1 = args
             .maximum_capture_duration_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let maximum_capture_duration_in_seconds_binding = maximum_capture_duration_in_seconds_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_watcher_id_binding = args
-            .network_watcher_id
-            .get_output(context)
-            .get_inner();
-        let storage_location_binding = args
-            .storage_location
-            .get_output(context)
-            .get_inner();
-        let virtual_machine_id_binding = args
-            .virtual_machine_id
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_watcher_id_binding_1 = args.network_watcher_id.get_output(context);
+        let network_watcher_id_binding = network_watcher_id_binding_1.get_inner();
+        let storage_location_binding_1 = args.storage_location.get_output(context);
+        let storage_location_binding = storage_location_binding_1.get_inner();
+        let virtual_machine_id_binding_1 = args.virtual_machine_id.get_output(context);
+        let virtual_machine_id_binding = virtual_machine_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/packetCapture:PacketCapture".into(),
             name: name.to_string(),

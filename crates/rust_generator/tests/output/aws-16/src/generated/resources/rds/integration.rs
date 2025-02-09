@@ -171,19 +171,23 @@ pub mod integration {
     ) -> IntegrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_encryption_context_binding = args
+        let additional_encryption_context_binding_1 = args
             .additional_encryption_context
-            .get_output(context)
+            .get_output(context);
+        let additional_encryption_context_binding = additional_encryption_context_binding_1
             .get_inner();
-        let integration_name_binding = args
-            .integration_name
-            .get_output(context)
-            .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let source_arn_binding = args.source_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_arn_binding = args.target_arn.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let integration_name_binding_1 = args.integration_name.get_output(context);
+        let integration_name_binding = integration_name_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let source_arn_binding_1 = args.source_arn.get_output(context);
+        let source_arn_binding = source_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_arn_binding_1 = args.target_arn.get_output(context);
+        let target_arn_binding = target_arn_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/integration:Integration".into(),
             name: name.to_string(),

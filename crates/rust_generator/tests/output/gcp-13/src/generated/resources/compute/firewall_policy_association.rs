@@ -92,15 +92,12 @@ pub mod firewall_policy_association {
     ) -> FirewallPolicyAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attachment_target_binding = args
-            .attachment_target
-            .get_output(context)
-            .get_inner();
-        let firewall_policy_binding = args
-            .firewall_policy
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let attachment_target_binding_1 = args.attachment_target.get_output(context);
+        let attachment_target_binding = attachment_target_binding_1.get_inner();
+        let firewall_policy_binding_1 = args.firewall_policy.get_output(context);
+        let firewall_policy_binding = firewall_policy_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/firewallPolicyAssociation:FirewallPolicyAssociation"
                 .into(),

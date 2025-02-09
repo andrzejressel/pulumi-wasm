@@ -179,11 +179,16 @@ pub mod occurence {
     ) -> OccurenceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attestation_binding = args.attestation.get_output(context).get_inner();
-        let note_name_binding = args.note_name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let remediation_binding = args.remediation.get_output(context).get_inner();
-        let resource_uri_binding = args.resource_uri.get_output(context).get_inner();
+        let attestation_binding_1 = args.attestation.get_output(context);
+        let attestation_binding = attestation_binding_1.get_inner();
+        let note_name_binding_1 = args.note_name.get_output(context);
+        let note_name_binding = note_name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let remediation_binding_1 = args.remediation.get_output(context);
+        let remediation_binding = remediation_binding_1.get_inner();
+        let resource_uri_binding_1 = args.resource_uri.get_output(context);
+        let resource_uri_binding = resource_uri_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:containeranalysis/occurence:Occurence".into(),
             name: name.to_string(),

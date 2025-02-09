@@ -89,12 +89,15 @@ pub mod file_system_policy {
     ) -> FileSystemPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bypass_policy_lockout_safety_check_binding = args
+        let bypass_policy_lockout_safety_check_binding_1 = args
             .bypass_policy_lockout_safety_check
-            .get_output(context)
+            .get_output(context);
+        let bypass_policy_lockout_safety_check_binding = bypass_policy_lockout_safety_check_binding_1
             .get_inner();
-        let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
+        let file_system_id_binding_1 = args.file_system_id.get_output(context);
+        let file_system_id_binding = file_system_id_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:efs/fileSystemPolicy:FileSystemPolicy".into(),
             name: name.to_string(),

@@ -120,23 +120,16 @@ pub mod backend_address_pool {
     ) -> BackendAddressPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let loadbalancer_id_binding = args
-            .loadbalancer_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let synchronous_mode_binding = args
-            .synchronous_mode
-            .get_output(context)
-            .get_inner();
-        let tunnel_interfaces_binding = args
-            .tunnel_interfaces
-            .get_output(context)
-            .get_inner();
-        let virtual_network_id_binding = args
-            .virtual_network_id
-            .get_output(context)
-            .get_inner();
+        let loadbalancer_id_binding_1 = args.loadbalancer_id.get_output(context);
+        let loadbalancer_id_binding = loadbalancer_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let synchronous_mode_binding_1 = args.synchronous_mode.get_output(context);
+        let synchronous_mode_binding = synchronous_mode_binding_1.get_inner();
+        let tunnel_interfaces_binding_1 = args.tunnel_interfaces.get_output(context);
+        let tunnel_interfaces_binding = tunnel_interfaces_binding_1.get_inner();
+        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
+        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:lb/backendAddressPool:BackendAddressPool".into(),
             name: name.to_string(),

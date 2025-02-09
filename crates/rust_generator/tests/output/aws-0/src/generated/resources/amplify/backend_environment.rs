@@ -73,16 +73,16 @@ pub mod backend_environment {
     ) -> BackendEnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_id_binding = args.app_id.get_output(context).get_inner();
-        let deployment_artifacts_binding = args
+        let app_id_binding_1 = args.app_id.get_output(context);
+        let app_id_binding = app_id_binding_1.get_inner();
+        let deployment_artifacts_binding_1 = args
             .deployment_artifacts
-            .get_output(context)
-            .get_inner();
-        let environment_name_binding = args
-            .environment_name
-            .get_output(context)
-            .get_inner();
-        let stack_name_binding = args.stack_name.get_output(context).get_inner();
+            .get_output(context);
+        let deployment_artifacts_binding = deployment_artifacts_binding_1.get_inner();
+        let environment_name_binding_1 = args.environment_name.get_output(context);
+        let environment_name_binding = environment_name_binding_1.get_inner();
+        let stack_name_binding_1 = args.stack_name.get_output(context);
+        let stack_name_binding = stack_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:amplify/backendEnvironment:BackendEnvironment".into(),
             name: name.to_string(),

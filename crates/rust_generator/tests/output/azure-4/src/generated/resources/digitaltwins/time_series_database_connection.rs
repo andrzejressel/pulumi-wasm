@@ -189,40 +189,34 @@ pub mod time_series_database_connection {
     ) -> TimeSeriesDatabaseConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let digital_twins_id_binding = args
-            .digital_twins_id
-            .get_output(context)
-            .get_inner();
-        let eventhub_consumer_group_name_binding = args
+        let digital_twins_id_binding_1 = args.digital_twins_id.get_output(context);
+        let digital_twins_id_binding = digital_twins_id_binding_1.get_inner();
+        let eventhub_consumer_group_name_binding_1 = args
             .eventhub_consumer_group_name
-            .get_output(context)
+            .get_output(context);
+        let eventhub_consumer_group_name_binding = eventhub_consumer_group_name_binding_1
             .get_inner();
-        let eventhub_name_binding = args.eventhub_name.get_output(context).get_inner();
-        let eventhub_namespace_endpoint_uri_binding = args
+        let eventhub_name_binding_1 = args.eventhub_name.get_output(context);
+        let eventhub_name_binding = eventhub_name_binding_1.get_inner();
+        let eventhub_namespace_endpoint_uri_binding_1 = args
             .eventhub_namespace_endpoint_uri
-            .get_output(context)
+            .get_output(context);
+        let eventhub_namespace_endpoint_uri_binding = eventhub_namespace_endpoint_uri_binding_1
             .get_inner();
-        let eventhub_namespace_id_binding = args
+        let eventhub_namespace_id_binding_1 = args
             .eventhub_namespace_id
-            .get_output(context)
-            .get_inner();
-        let kusto_cluster_id_binding = args
-            .kusto_cluster_id
-            .get_output(context)
-            .get_inner();
-        let kusto_cluster_uri_binding = args
-            .kusto_cluster_uri
-            .get_output(context)
-            .get_inner();
-        let kusto_database_name_binding = args
-            .kusto_database_name
-            .get_output(context)
-            .get_inner();
-        let kusto_table_name_binding = args
-            .kusto_table_name
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+            .get_output(context);
+        let eventhub_namespace_id_binding = eventhub_namespace_id_binding_1.get_inner();
+        let kusto_cluster_id_binding_1 = args.kusto_cluster_id.get_output(context);
+        let kusto_cluster_id_binding = kusto_cluster_id_binding_1.get_inner();
+        let kusto_cluster_uri_binding_1 = args.kusto_cluster_uri.get_output(context);
+        let kusto_cluster_uri_binding = kusto_cluster_uri_binding_1.get_inner();
+        let kusto_database_name_binding_1 = args.kusto_database_name.get_output(context);
+        let kusto_database_name_binding = kusto_database_name_binding_1.get_inner();
+        let kusto_table_name_binding_1 = args.kusto_table_name.get_output(context);
+        let kusto_table_name_binding = kusto_table_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection"
                 .into(),

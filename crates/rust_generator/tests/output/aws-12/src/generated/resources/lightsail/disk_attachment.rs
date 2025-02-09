@@ -80,9 +80,12 @@ pub mod disk_attachment {
     ) -> Disk_attachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disk_name_binding = args.disk_name.get_output(context).get_inner();
-        let disk_path_binding = args.disk_path.get_output(context).get_inner();
-        let instance_name_binding = args.instance_name.get_output(context).get_inner();
+        let disk_name_binding_1 = args.disk_name.get_output(context);
+        let disk_name_binding = disk_name_binding_1.get_inner();
+        let disk_path_binding_1 = args.disk_path.get_output(context);
+        let disk_path_binding = disk_path_binding_1.get_inner();
+        let instance_name_binding_1 = args.instance_name.get_output(context);
+        let instance_name_binding = instance_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/disk_attachment:Disk_attachment".into(),
             name: name.to_string(),

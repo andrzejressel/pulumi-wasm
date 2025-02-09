@@ -104,22 +104,24 @@ pub mod connect_peer {
     ) -> ConnectPeerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bgp_options_binding = args.bgp_options.get_output(context).get_inner();
-        let connect_attachment_id_binding = args
+        let bgp_options_binding_1 = args.bgp_options.get_output(context);
+        let bgp_options_binding = bgp_options_binding_1.get_inner();
+        let connect_attachment_id_binding_1 = args
             .connect_attachment_id
-            .get_output(context)
-            .get_inner();
-        let core_network_address_binding = args
+            .get_output(context);
+        let connect_attachment_id_binding = connect_attachment_id_binding_1.get_inner();
+        let core_network_address_binding_1 = args
             .core_network_address
-            .get_output(context)
-            .get_inner();
-        let inside_cidr_blocks_binding = args
-            .inside_cidr_blocks
-            .get_output(context)
-            .get_inner();
-        let peer_address_binding = args.peer_address.get_output(context).get_inner();
-        let subnet_arn_binding = args.subnet_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let core_network_address_binding = core_network_address_binding_1.get_inner();
+        let inside_cidr_blocks_binding_1 = args.inside_cidr_blocks.get_output(context);
+        let inside_cidr_blocks_binding = inside_cidr_blocks_binding_1.get_inner();
+        let peer_address_binding_1 = args.peer_address.get_output(context);
+        let peer_address_binding = peer_address_binding_1.get_inner();
+        let subnet_arn_binding_1 = args.subnet_arn.get_output(context);
+        let subnet_arn_binding = subnet_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/connectPeer:ConnectPeer".into(),
             name: name.to_string(),

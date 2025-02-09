@@ -80,17 +80,19 @@ pub mod tape_pool {
     ) -> TapePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let pool_name_binding = args.pool_name.get_output(context).get_inner();
-        let retention_lock_time_in_days_binding = args
+        let pool_name_binding_1 = args.pool_name.get_output(context);
+        let pool_name_binding = pool_name_binding_1.get_inner();
+        let retention_lock_time_in_days_binding_1 = args
             .retention_lock_time_in_days
-            .get_output(context)
+            .get_output(context);
+        let retention_lock_time_in_days_binding = retention_lock_time_in_days_binding_1
             .get_inner();
-        let retention_lock_type_binding = args
-            .retention_lock_type
-            .get_output(context)
-            .get_inner();
-        let storage_class_binding = args.storage_class.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let retention_lock_type_binding_1 = args.retention_lock_type.get_output(context);
+        let retention_lock_type_binding = retention_lock_type_binding_1.get_inner();
+        let storage_class_binding_1 = args.storage_class.get_output(context);
+        let storage_class_binding = storage_class_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:storagegateway/tapePool:TapePool".into(),
             name: name.to_string(),

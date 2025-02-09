@@ -116,19 +116,22 @@ pub mod certificate {
     ) -> CertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding = args.account_name.get_output(context).get_inner();
-        let certificate_binding = args.certificate.get_output(context).get_inner();
-        let format_binding = args.format.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let thumbprint_binding = args.thumbprint.get_output(context).get_inner();
-        let thumbprint_algorithm_binding = args
+        let account_name_binding_1 = args.account_name.get_output(context);
+        let account_name_binding = account_name_binding_1.get_inner();
+        let certificate_binding_1 = args.certificate.get_output(context);
+        let certificate_binding = certificate_binding_1.get_inner();
+        let format_binding_1 = args.format.get_output(context);
+        let format_binding = format_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let thumbprint_binding_1 = args.thumbprint.get_output(context);
+        let thumbprint_binding = thumbprint_binding_1.get_inner();
+        let thumbprint_algorithm_binding_1 = args
             .thumbprint_algorithm
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let thumbprint_algorithm_binding = thumbprint_algorithm_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:batch/certificate:Certificate".into(),
             name: name.to_string(),

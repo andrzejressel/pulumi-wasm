@@ -92,21 +92,18 @@ pub mod identity_provider {
     ) -> IdentityProviderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attribute_mapping_binding = args
-            .attribute_mapping
-            .get_output(context)
-            .get_inner();
-        let idp_identifiers_binding = args
-            .idp_identifiers
-            .get_output(context)
-            .get_inner();
-        let provider_details_binding = args
-            .provider_details
-            .get_output(context)
-            .get_inner();
-        let provider_name_binding = args.provider_name.get_output(context).get_inner();
-        let provider_type_binding = args.provider_type.get_output(context).get_inner();
-        let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
+        let attribute_mapping_binding_1 = args.attribute_mapping.get_output(context);
+        let attribute_mapping_binding = attribute_mapping_binding_1.get_inner();
+        let idp_identifiers_binding_1 = args.idp_identifiers.get_output(context);
+        let idp_identifiers_binding = idp_identifiers_binding_1.get_inner();
+        let provider_details_binding_1 = args.provider_details.get_output(context);
+        let provider_details_binding = provider_details_binding_1.get_inner();
+        let provider_name_binding_1 = args.provider_name.get_output(context);
+        let provider_name_binding = provider_name_binding_1.get_inner();
+        let provider_type_binding_1 = args.provider_type.get_output(context);
+        let provider_type_binding = provider_type_binding_1.get_inner();
+        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
+        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/identityProvider:IdentityProvider".into(),
             name: name.to_string(),

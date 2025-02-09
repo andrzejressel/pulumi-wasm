@@ -27,7 +27,8 @@ pub mod get_source_control_token {
     ) -> GetSourceControlTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let type__binding = args.type_.get_output(context).get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:appservice/getSourceControlToken:getSourceControlToken".into(),
             version: super::super::super::get_version(),

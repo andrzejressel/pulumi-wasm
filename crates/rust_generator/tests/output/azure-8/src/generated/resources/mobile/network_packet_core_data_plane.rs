@@ -140,28 +140,36 @@ pub mod network_packet_core_data_plane {
     ) -> NetworkPacketCoreDataPlaneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_output(context).get_inner();
-        let mobile_network_packet_core_control_plane_id_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let mobile_network_packet_core_control_plane_id_binding_1 = args
             .mobile_network_packet_core_control_plane_id
-            .get_output(context)
+            .get_output(context);
+        let mobile_network_packet_core_control_plane_id_binding = mobile_network_packet_core_control_plane_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_plane_access_ipv4_address_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_plane_access_ipv4_address_binding_1 = args
             .user_plane_access_ipv4_address
-            .get_output(context)
+            .get_output(context);
+        let user_plane_access_ipv4_address_binding = user_plane_access_ipv4_address_binding_1
             .get_inner();
-        let user_plane_access_ipv4_gateway_binding = args
+        let user_plane_access_ipv4_gateway_binding_1 = args
             .user_plane_access_ipv4_gateway
-            .get_output(context)
+            .get_output(context);
+        let user_plane_access_ipv4_gateway_binding = user_plane_access_ipv4_gateway_binding_1
             .get_inner();
-        let user_plane_access_ipv4_subnet_binding = args
+        let user_plane_access_ipv4_subnet_binding_1 = args
             .user_plane_access_ipv4_subnet
-            .get_output(context)
+            .get_output(context);
+        let user_plane_access_ipv4_subnet_binding = user_plane_access_ipv4_subnet_binding_1
             .get_inner();
-        let user_plane_access_name_binding = args
+        let user_plane_access_name_binding_1 = args
             .user_plane_access_name
-            .get_output(context)
+            .get_output(context);
+        let user_plane_access_name_binding = user_plane_access_name_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane"

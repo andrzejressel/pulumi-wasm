@@ -188,15 +188,18 @@ pub mod database {
     ) -> DatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let charset_binding = args.charset.get_output(context).get_inner();
-        let collation_binding = args.collation.get_output(context).get_inner();
-        let deletion_policy_binding = args
-            .deletion_policy
-            .get_output(context)
-            .get_inner();
-        let instance_binding = args.instance.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let charset_binding_1 = args.charset.get_output(context);
+        let charset_binding = charset_binding_1.get_inner();
+        let collation_binding_1 = args.collation.get_output(context);
+        let collation_binding = collation_binding_1.get_inner();
+        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
+        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
+        let instance_binding_1 = args.instance.get_output(context);
+        let instance_binding = instance_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:sql/database:Database".into(),
             name: name.to_string(),

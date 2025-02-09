@@ -52,8 +52,10 @@ pub mod organization_configuration {
     ) -> OrganizationConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_enable_binding = args.auto_enable.get_output(context).get_inner();
-        let graph_arn_binding = args.graph_arn.get_output(context).get_inner();
+        let auto_enable_binding_1 = args.auto_enable.get_output(context);
+        let auto_enable_binding = auto_enable_binding_1.get_inner();
+        let graph_arn_binding_1 = args.graph_arn.get_output(context);
+        let graph_arn_binding = graph_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:detective/organizationConfiguration:OrganizationConfiguration"
                 .into(),

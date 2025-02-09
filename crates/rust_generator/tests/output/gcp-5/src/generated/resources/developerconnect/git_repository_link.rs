@@ -197,20 +197,25 @@ pub mod git_repository_link {
     ) -> GitRepositoryLinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let clone_uri_binding = args.clone_uri.get_output(context).get_inner();
-        let etag_binding = args.etag.get_output(context).get_inner();
-        let git_repository_link_id_binding = args
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let clone_uri_binding_1 = args.clone_uri.get_output(context);
+        let clone_uri_binding = clone_uri_binding_1.get_inner();
+        let etag_binding_1 = args.etag.get_output(context);
+        let etag_binding = etag_binding_1.get_inner();
+        let git_repository_link_id_binding_1 = args
             .git_repository_link_id
-            .get_output(context)
+            .get_output(context);
+        let git_repository_link_id_binding = git_repository_link_id_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let parent_connection_binding = args
-            .parent_connection
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let parent_connection_binding_1 = args.parent_connection.get_output(context);
+        let parent_connection_binding = parent_connection_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:developerconnect/gitRepositoryLink:GitRepositoryLink".into(),
             name: name.to_string(),

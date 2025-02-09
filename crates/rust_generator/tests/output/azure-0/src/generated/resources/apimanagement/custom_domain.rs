@@ -158,18 +158,18 @@ pub mod custom_domain {
     ) -> CustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding = args
-            .api_management_id
-            .get_output(context)
-            .get_inner();
-        let developer_portals_binding = args
-            .developer_portals
-            .get_output(context)
-            .get_inner();
-        let gateways_binding = args.gateways.get_output(context).get_inner();
-        let managements_binding = args.managements.get_output(context).get_inner();
-        let portals_binding = args.portals.get_output(context).get_inner();
-        let scms_binding = args.scms.get_output(context).get_inner();
+        let api_management_id_binding_1 = args.api_management_id.get_output(context);
+        let api_management_id_binding = api_management_id_binding_1.get_inner();
+        let developer_portals_binding_1 = args.developer_portals.get_output(context);
+        let developer_portals_binding = developer_portals_binding_1.get_inner();
+        let gateways_binding_1 = args.gateways.get_output(context);
+        let gateways_binding = gateways_binding_1.get_inner();
+        let managements_binding_1 = args.managements.get_output(context);
+        let managements_binding = managements_binding_1.get_inner();
+        let portals_binding_1 = args.portals.get_output(context);
+        let portals_binding = portals_binding_1.get_inner();
+        let scms_binding_1 = args.scms.get_output(context);
+        let scms_binding = scms_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/customDomain:CustomDomain".into(),
             name: name.to_string(),

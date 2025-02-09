@@ -213,13 +213,14 @@ pub mod folder_custom_module {
     ) -> FolderCustomModuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_config_binding = args.custom_config.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enablement_state_binding = args
-            .enablement_state
-            .get_output(context)
-            .get_inner();
-        let folder_binding = args.folder.get_output(context).get_inner();
+        let custom_config_binding_1 = args.custom_config.get_output(context);
+        let custom_config_binding = custom_config_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enablement_state_binding_1 = args.enablement_state.get_output(context);
+        let enablement_state_binding = enablement_state_binding_1.get_inner();
+        let folder_binding_1 = args.folder.get_output(context);
+        let folder_binding = folder_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/folderCustomModule:FolderCustomModule".into(),
             name: name.to_string(),

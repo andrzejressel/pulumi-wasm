@@ -140,11 +140,16 @@ pub mod virtual_gateway {
     ) -> VirtualGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mesh_name_binding = args.mesh_name.get_output(context).get_inner();
-        let mesh_owner_binding = args.mesh_owner.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let spec_binding = args.spec.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let mesh_name_binding_1 = args.mesh_name.get_output(context);
+        let mesh_name_binding = mesh_name_binding_1.get_inner();
+        let mesh_owner_binding_1 = args.mesh_owner.get_output(context);
+        let mesh_owner_binding = mesh_owner_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let spec_binding_1 = args.spec.get_output(context);
+        let spec_binding = spec_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appmesh/virtualGateway:VirtualGateway".into(),
             name: name.to_string(),

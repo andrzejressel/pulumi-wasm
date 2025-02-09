@@ -199,24 +199,24 @@ pub mod project {
     ) -> ProjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_create_network_binding = args
-            .auto_create_network
-            .get_output(context)
-            .get_inner();
-        let billing_account_binding = args
-            .billing_account
-            .get_output(context)
-            .get_inner();
-        let deletion_policy_binding = args
-            .deletion_policy
-            .get_output(context)
-            .get_inner();
-        let folder_id_binding = args.folder_id.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
-        let project_id_binding = args.project_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let auto_create_network_binding_1 = args.auto_create_network.get_output(context);
+        let auto_create_network_binding = auto_create_network_binding_1.get_inner();
+        let billing_account_binding_1 = args.billing_account.get_output(context);
+        let billing_account_binding = billing_account_binding_1.get_inner();
+        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
+        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
+        let folder_id_binding_1 = args.folder_id.get_output(context);
+        let folder_id_binding = folder_id_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
+        let project_id_binding_1 = args.project_id.get_output(context);
+        let project_id_binding = project_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:organizations/project:Project".into(),
             name: name.to_string(),

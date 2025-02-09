@@ -142,26 +142,25 @@ pub mod access_policy {
     ) -> AccessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_output(context).get_inner();
-        let certificate_permissions_binding = args
+        let application_id_binding_1 = args.application_id.get_output(context);
+        let application_id_binding = application_id_binding_1.get_inner();
+        let certificate_permissions_binding_1 = args
             .certificate_permissions
-            .get_output(context)
+            .get_output(context);
+        let certificate_permissions_binding = certificate_permissions_binding_1
             .get_inner();
-        let key_permissions_binding = args
-            .key_permissions
-            .get_output(context)
-            .get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
-        let object_id_binding = args.object_id.get_output(context).get_inner();
-        let secret_permissions_binding = args
-            .secret_permissions
-            .get_output(context)
-            .get_inner();
-        let storage_permissions_binding = args
-            .storage_permissions
-            .get_output(context)
-            .get_inner();
-        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
+        let key_permissions_binding_1 = args.key_permissions.get_output(context);
+        let key_permissions_binding = key_permissions_binding_1.get_inner();
+        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
+        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
+        let object_id_binding_1 = args.object_id.get_output(context);
+        let object_id_binding = object_id_binding_1.get_inner();
+        let secret_permissions_binding_1 = args.secret_permissions.get_output(context);
+        let secret_permissions_binding = secret_permissions_binding_1.get_inner();
+        let storage_permissions_binding_1 = args.storage_permissions.get_output(context);
+        let storage_permissions_binding = storage_permissions_binding_1.get_inner();
+        let tenant_id_binding_1 = args.tenant_id.get_output(context);
+        let tenant_id_binding = tenant_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/accessPolicy:AccessPolicy".into(),
             name: name.to_string(),

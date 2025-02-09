@@ -96,18 +96,21 @@ pub mod credential {
     ) -> CredentialResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding = args
+        let automation_account_name_binding_1 = args
             .automation_account_name
-            .get_output(context)
+            .get_output(context);
+        let automation_account_name_binding = automation_account_name_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/credential:Credential".into(),
             name: name.to_string(),

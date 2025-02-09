@@ -67,11 +67,10 @@ pub mod byte_match_set {
     ) -> ByteMatchSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let byte_match_tuples_binding = args
-            .byte_match_tuples
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let byte_match_tuples_binding_1 = args.byte_match_tuples.get_output(context);
+        let byte_match_tuples_binding = byte_match_tuples_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:wafregional/byteMatchSet:ByteMatchSet".into(),
             name: name.to_string(),

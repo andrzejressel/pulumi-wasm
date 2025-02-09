@@ -182,19 +182,26 @@ pub mod region_resize_request {
     ) -> RegionResizeRequestResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let instance_group_manager_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let instance_group_manager_binding_1 = args
             .instance_group_manager
-            .get_output(context)
+            .get_output(context);
+        let instance_group_manager_binding = instance_group_manager_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let requested_run_duration_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let requested_run_duration_binding_1 = args
             .requested_run_duration
-            .get_output(context)
+            .get_output(context);
+        let requested_run_duration_binding = requested_run_duration_binding_1
             .get_inner();
-        let resize_by_binding = args.resize_by.get_output(context).get_inner();
+        let resize_by_binding_1 = args.resize_by.get_output(context);
+        let resize_by_binding = resize_by_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionResizeRequest:RegionResizeRequest".into(),
             name: name.to_string(),

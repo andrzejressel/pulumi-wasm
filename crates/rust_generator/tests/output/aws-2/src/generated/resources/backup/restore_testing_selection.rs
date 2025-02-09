@@ -121,31 +121,39 @@ pub mod restore_testing_selection {
     ) -> RestoreTestingSelectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let protected_resource_arns_binding = args
+        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
+        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let protected_resource_arns_binding_1 = args
             .protected_resource_arns
-            .get_output(context)
+            .get_output(context);
+        let protected_resource_arns_binding = protected_resource_arns_binding_1
             .get_inner();
-        let protected_resource_conditions_binding = args
+        let protected_resource_conditions_binding_1 = args
             .protected_resource_conditions
-            .get_output(context)
+            .get_output(context);
+        let protected_resource_conditions_binding = protected_resource_conditions_binding_1
             .get_inner();
-        let protected_resource_type_binding = args
+        let protected_resource_type_binding_1 = args
             .protected_resource_type
-            .get_output(context)
+            .get_output(context);
+        let protected_resource_type_binding = protected_resource_type_binding_1
             .get_inner();
-        let restore_metadata_overrides_binding = args
+        let restore_metadata_overrides_binding_1 = args
             .restore_metadata_overrides
-            .get_output(context)
+            .get_output(context);
+        let restore_metadata_overrides_binding = restore_metadata_overrides_binding_1
             .get_inner();
-        let restore_testing_plan_name_binding = args
+        let restore_testing_plan_name_binding_1 = args
             .restore_testing_plan_name
-            .get_output(context)
+            .get_output(context);
+        let restore_testing_plan_name_binding = restore_testing_plan_name_binding_1
             .get_inner();
-        let validation_window_hours_binding = args
+        let validation_window_hours_binding_1 = args
             .validation_window_hours
-            .get_output(context)
+            .get_output(context);
+        let validation_window_hours_binding = validation_window_hours_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:backup/restoreTestingSelection:RestoreTestingSelection".into(),
