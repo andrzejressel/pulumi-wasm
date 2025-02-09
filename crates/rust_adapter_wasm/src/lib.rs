@@ -1,6 +1,6 @@
 pub mod runner;
 
-use anyhow::{anyhow, Context, Error, Result};
+use anyhow::{anyhow, Error, Result};
 use pulumi_gestalt_rust_adapter::{
     GestaltCompositeOutput, GestaltContext, GestaltOutput, InvokeResourceRequest,
     RegisterResourceRequest,
