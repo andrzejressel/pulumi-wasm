@@ -30,10 +30,8 @@ pub mod get_delegated_administrators {
     ) -> GetDelegatedAdministratorsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let service_principal_binding = args
-            .service_principal
-            .get_output(context)
-            .get_inner();
+        let service_principal_binding_1 = args.service_principal.get_output(context);
+        let service_principal_binding = service_principal_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators"
                 .into(),

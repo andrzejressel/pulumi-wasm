@@ -115,22 +115,20 @@ pub mod sql_role_definition {
     ) -> SqlRoleDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding = args.account_name.get_output(context).get_inner();
-        let assignable_scopes_binding = args
-            .assignable_scopes
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let role_definition_id_binding = args
-            .role_definition_id
-            .get_output(context)
-            .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let account_name_binding_1 = args.account_name.get_output(context);
+        let account_name_binding = account_name_binding_1.get_inner();
+        let assignable_scopes_binding_1 = args.assignable_scopes.get_output(context);
+        let assignable_scopes_binding = assignable_scopes_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let role_definition_id_binding_1 = args.role_definition_id.get_output(context);
+        let role_definition_id_binding = role_definition_id_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/sqlRoleDefinition:SqlRoleDefinition".into(),
             name: name.to_string(),

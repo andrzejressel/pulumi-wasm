@@ -38,14 +38,13 @@ pub mod model_package_group_policy {
     ) -> ModelPackageGroupPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let model_package_group_name_binding = args
+        let model_package_group_name_binding_1 = args
             .model_package_group_name
-            .get_output(context)
+            .get_output(context);
+        let model_package_group_name_binding = model_package_group_name_binding_1
             .get_inner();
-        let resource_policy_binding = args
-            .resource_policy
-            .get_output(context)
-            .get_inner();
+        let resource_policy_binding_1 = args.resource_policy.get_output(context);
+        let resource_policy_binding = resource_policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy"
                 .into(),

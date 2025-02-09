@@ -153,20 +153,23 @@ pub mod account_network_rules {
     ) -> AccountNetworkRulesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bypasses_binding = args.bypasses.get_output(context).get_inner();
-        let default_action_binding = args.default_action.get_output(context).get_inner();
-        let ip_rules_binding = args.ip_rules.get_output(context).get_inner();
-        let private_link_access_rules_binding = args
+        let bypasses_binding_1 = args.bypasses.get_output(context);
+        let bypasses_binding = bypasses_binding_1.get_inner();
+        let default_action_binding_1 = args.default_action.get_output(context);
+        let default_action_binding = default_action_binding_1.get_inner();
+        let ip_rules_binding_1 = args.ip_rules.get_output(context);
+        let ip_rules_binding = ip_rules_binding_1.get_inner();
+        let private_link_access_rules_binding_1 = args
             .private_link_access_rules
-            .get_output(context)
+            .get_output(context);
+        let private_link_access_rules_binding = private_link_access_rules_binding_1
             .get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
-        let virtual_network_subnet_ids_binding = args
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
+        let virtual_network_subnet_ids_binding_1 = args
             .virtual_network_subnet_ids
-            .get_output(context)
+            .get_output(context);
+        let virtual_network_subnet_ids_binding = virtual_network_subnet_ids_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/accountNetworkRules:AccountNetworkRules".into(),

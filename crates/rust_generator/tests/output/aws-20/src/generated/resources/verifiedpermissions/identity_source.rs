@@ -146,15 +146,14 @@ pub mod identity_source {
     ) -> IdentitySourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_binding = args.configuration.get_output(context).get_inner();
-        let policy_store_id_binding = args
-            .policy_store_id
-            .get_output(context)
-            .get_inner();
-        let principal_entity_type_binding = args
+        let configuration_binding_1 = args.configuration.get_output(context);
+        let configuration_binding = configuration_binding_1.get_inner();
+        let policy_store_id_binding_1 = args.policy_store_id.get_output(context);
+        let policy_store_id_binding = policy_store_id_binding_1.get_inner();
+        let principal_entity_type_binding_1 = args
             .principal_entity_type
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let principal_entity_type_binding = principal_entity_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:verifiedpermissions/identitySource:IdentitySource".into(),
             name: name.to_string(),

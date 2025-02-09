@@ -78,11 +78,16 @@ pub mod domain_entry {
     ) -> DomainEntryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let is_alias_binding = args.is_alias.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let target_binding = args.target.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let is_alias_binding_1 = args.is_alias.get_output(context);
+        let is_alias_binding = is_alias_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let target_binding_1 = args.target.get_output(context);
+        let target_binding = target_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/domainEntry:DomainEntry".into(),
             name: name.to_string(),

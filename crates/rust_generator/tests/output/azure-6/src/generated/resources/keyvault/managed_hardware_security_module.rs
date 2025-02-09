@@ -147,40 +147,47 @@ pub mod managed_hardware_security_module {
     ) -> ManagedHardwareSecurityModuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_object_ids_binding = args
-            .admin_object_ids
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_acls_binding = args.network_acls.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+        let admin_object_ids_binding_1 = args.admin_object_ids.get_output(context);
+        let admin_object_ids_binding = admin_object_ids_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_acls_binding_1 = args.network_acls.get_output(context);
+        let network_acls_binding = network_acls_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let purge_protection_enabled_binding = args
+        let purge_protection_enabled_binding_1 = args
             .purge_protection_enabled
-            .get_output(context)
+            .get_output(context);
+        let purge_protection_enabled_binding = purge_protection_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let security_domain_key_vault_certificate_ids_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let security_domain_key_vault_certificate_ids_binding_1 = args
             .security_domain_key_vault_certificate_ids
-            .get_output(context)
+            .get_output(context);
+        let security_domain_key_vault_certificate_ids_binding = security_domain_key_vault_certificate_ids_binding_1
             .get_inner();
-        let security_domain_quorum_binding = args
+        let security_domain_quorum_binding_1 = args
             .security_domain_quorum
-            .get_output(context)
+            .get_output(context);
+        let security_domain_quorum_binding = security_domain_quorum_binding_1
             .get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let soft_delete_retention_days_binding = args
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let soft_delete_retention_days_binding_1 = args
             .soft_delete_retention_days
-            .get_output(context)
+            .get_output(context);
+        let soft_delete_retention_days_binding = soft_delete_retention_days_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tenant_id_binding_1 = args.tenant_id.get_output(context);
+        let tenant_id_binding = tenant_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule"
                 .into(),

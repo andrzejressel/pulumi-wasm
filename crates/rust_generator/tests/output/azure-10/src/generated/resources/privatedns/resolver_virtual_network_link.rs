@@ -126,16 +126,17 @@ pub mod resolver_virtual_network_link {
     ) -> ResolverVirtualNetworkLinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_forwarding_ruleset_id_binding = args
+        let dns_forwarding_ruleset_id_binding_1 = args
             .dns_forwarding_ruleset_id
-            .get_output(context)
+            .get_output(context);
+        let dns_forwarding_ruleset_id_binding = dns_forwarding_ruleset_id_binding_1
             .get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let virtual_network_id_binding = args
-            .virtual_network_id
-            .get_output(context)
-            .get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
+        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink"
                 .into(),

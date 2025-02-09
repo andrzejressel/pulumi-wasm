@@ -115,23 +115,24 @@ pub mod named_value {
     ) -> NamedValueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args
-            .api_management_name
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let secret_binding = args.secret.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let value_binding = args.value.get_output(context).get_inner();
-        let value_from_key_vault_binding = args
+        let api_management_name_binding_1 = args.api_management_name.get_output(context);
+        let api_management_name_binding = api_management_name_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let secret_binding_1 = args.secret.get_output(context);
+        let secret_binding = secret_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let value_binding_1 = args.value.get_output(context);
+        let value_binding = value_binding_1.get_inner();
+        let value_from_key_vault_binding_1 = args
             .value_from_key_vault
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let value_from_key_vault_binding = value_from_key_vault_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/namedValue:NamedValue".into(),
             name: name.to_string(),

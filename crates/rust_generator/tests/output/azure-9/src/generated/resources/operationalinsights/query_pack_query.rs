@@ -119,19 +119,29 @@ pub mod query_pack_query {
     ) -> QueryPackQueryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_settings_json_binding = args
+        let additional_settings_json_binding_1 = args
             .additional_settings_json
-            .get_output(context)
+            .get_output(context);
+        let additional_settings_json_binding = additional_settings_json_binding_1
             .get_inner();
-        let body_binding = args.body.get_output(context).get_inner();
-        let categories_binding = args.categories.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let query_pack_id_binding = args.query_pack_id.get_output(context).get_inner();
-        let resource_types_binding = args.resource_types.get_output(context).get_inner();
-        let solutions_binding = args.solutions.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let body_binding_1 = args.body.get_output(context);
+        let body_binding = body_binding_1.get_inner();
+        let categories_binding_1 = args.categories.get_output(context);
+        let categories_binding = categories_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let query_pack_id_binding_1 = args.query_pack_id.get_output(context);
+        let query_pack_id_binding = query_pack_id_binding_1.get_inner();
+        let resource_types_binding_1 = args.resource_types.get_output(context);
+        let resource_types_binding = resource_types_binding_1.get_inner();
+        let solutions_binding_1 = args.solutions.get_output(context);
+        let solutions_binding = solutions_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:operationalinsights/queryPackQuery:QueryPackQuery".into(),
             name: name.to_string(),

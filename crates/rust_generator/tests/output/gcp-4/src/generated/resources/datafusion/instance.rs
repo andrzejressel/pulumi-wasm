@@ -494,43 +494,55 @@ pub mod instance {
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerators_binding = args.accelerators.get_output(context).get_inner();
-        let crypto_key_config_binding = args
-            .crypto_key_config
-            .get_output(context)
-            .get_inner();
-        let dataproc_service_account_binding = args
+        let accelerators_binding_1 = args.accelerators.get_output(context);
+        let accelerators_binding = accelerators_binding_1.get_inner();
+        let crypto_key_config_binding_1 = args.crypto_key_config.get_output(context);
+        let crypto_key_config_binding = crypto_key_config_binding_1.get_inner();
+        let dataproc_service_account_binding_1 = args
             .dataproc_service_account
-            .get_output(context)
+            .get_output(context);
+        let dataproc_service_account_binding = dataproc_service_account_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enable_rbac_binding = args.enable_rbac.get_output(context).get_inner();
-        let enable_stackdriver_logging_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enable_rbac_binding_1 = args.enable_rbac.get_output(context);
+        let enable_rbac_binding = enable_rbac_binding_1.get_inner();
+        let enable_stackdriver_logging_binding_1 = args
             .enable_stackdriver_logging
-            .get_output(context)
+            .get_output(context);
+        let enable_stackdriver_logging_binding = enable_stackdriver_logging_binding_1
             .get_inner();
-        let enable_stackdriver_monitoring_binding = args
+        let enable_stackdriver_monitoring_binding_1 = args
             .enable_stackdriver_monitoring
-            .get_output(context)
+            .get_output(context);
+        let enable_stackdriver_monitoring_binding = enable_stackdriver_monitoring_binding_1
             .get_inner();
-        let event_publish_config_binding = args
+        let event_publish_config_binding_1 = args
             .event_publish_config
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_config_binding = args.network_config.get_output(context).get_inner();
-        let options_binding = args.options.get_output(context).get_inner();
-        let private_instance_binding = args
-            .private_instance
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+            .get_output(context);
+        let event_publish_config_binding = event_publish_config_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_config_binding_1 = args.network_config.get_output(context);
+        let network_config_binding = network_config_binding_1.get_inner();
+        let options_binding_1 = args.options.get_output(context);
+        let options_binding = options_binding_1.get_inner();
+        let private_instance_binding_1 = args.private_instance.get_output(context);
+        let private_instance_binding = private_instance_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datafusion/instance:Instance".into(),
             name: name.to_string(),

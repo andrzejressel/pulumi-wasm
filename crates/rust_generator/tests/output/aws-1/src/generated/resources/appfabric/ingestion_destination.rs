@@ -124,18 +124,24 @@ pub mod ingestion_destination {
     ) -> IngestionDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_bundle_arn_binding = args.app_bundle_arn.get_output(context).get_inner();
-        let destination_configuration_binding = args
+        let app_bundle_arn_binding_1 = args.app_bundle_arn.get_output(context);
+        let app_bundle_arn_binding = app_bundle_arn_binding_1.get_inner();
+        let destination_configuration_binding_1 = args
             .destination_configuration
-            .get_output(context)
+            .get_output(context);
+        let destination_configuration_binding = destination_configuration_binding_1
             .get_inner();
-        let ingestion_arn_binding = args.ingestion_arn.get_output(context).get_inner();
-        let processing_configuration_binding = args
+        let ingestion_arn_binding_1 = args.ingestion_arn.get_output(context);
+        let ingestion_arn_binding = ingestion_arn_binding_1.get_inner();
+        let processing_configuration_binding_1 = args
             .processing_configuration
-            .get_output(context)
+            .get_output(context);
+        let processing_configuration_binding = processing_configuration_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appfabric/ingestionDestination:IngestionDestination".into(),
             name: name.to_string(),

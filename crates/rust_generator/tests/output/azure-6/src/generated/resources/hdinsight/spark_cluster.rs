@@ -287,60 +287,56 @@ pub mod spark_cluster {
     ) -> SparkClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_version_binding = args
-            .cluster_version
-            .get_output(context)
-            .get_inner();
-        let component_version_binding = args
-            .component_version
-            .get_output(context)
-            .get_inner();
-        let compute_isolation_binding = args
-            .compute_isolation
-            .get_output(context)
-            .get_inner();
-        let disk_encryptions_binding = args
-            .disk_encryptions
-            .get_output(context)
-            .get_inner();
-        let encryption_in_transit_enabled_binding = args
+        let cluster_version_binding_1 = args.cluster_version.get_output(context);
+        let cluster_version_binding = cluster_version_binding_1.get_inner();
+        let component_version_binding_1 = args.component_version.get_output(context);
+        let component_version_binding = component_version_binding_1.get_inner();
+        let compute_isolation_binding_1 = args.compute_isolation.get_output(context);
+        let compute_isolation_binding = compute_isolation_binding_1.get_inner();
+        let disk_encryptions_binding_1 = args.disk_encryptions.get_output(context);
+        let disk_encryptions_binding = disk_encryptions_binding_1.get_inner();
+        let encryption_in_transit_enabled_binding_1 = args
             .encryption_in_transit_enabled
-            .get_output(context)
+            .get_output(context);
+        let encryption_in_transit_enabled_binding = encryption_in_transit_enabled_binding_1
             .get_inner();
-        let extension_binding = args.extension.get_output(context).get_inner();
-        let gateway_binding = args.gateway.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let metastores_binding = args.metastores.get_output(context).get_inner();
-        let monitor_binding = args.monitor.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let private_link_configuration_binding = args
+        let extension_binding_1 = args.extension.get_output(context);
+        let extension_binding = extension_binding_1.get_inner();
+        let gateway_binding_1 = args.gateway.get_output(context);
+        let gateway_binding = gateway_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let metastores_binding_1 = args.metastores.get_output(context);
+        let metastores_binding = metastores_binding_1.get_inner();
+        let monitor_binding_1 = args.monitor.get_output(context);
+        let monitor_binding = monitor_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let private_link_configuration_binding_1 = args
             .private_link_configuration
-            .get_output(context)
+            .get_output(context);
+        let private_link_configuration_binding = private_link_configuration_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let roles_binding = args.roles.get_output(context).get_inner();
-        let security_profile_binding = args
-            .security_profile
-            .get_output(context)
-            .get_inner();
-        let storage_account_gen2_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let roles_binding_1 = args.roles.get_output(context);
+        let roles_binding = roles_binding_1.get_inner();
+        let security_profile_binding_1 = args.security_profile.get_output(context);
+        let security_profile_binding = security_profile_binding_1.get_inner();
+        let storage_account_gen2_binding_1 = args
             .storage_account_gen2
-            .get_output(context)
-            .get_inner();
-        let storage_accounts_binding = args
-            .storage_accounts
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tier_binding = args.tier.get_output(context).get_inner();
-        let tls_min_version_binding = args
-            .tls_min_version
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let storage_account_gen2_binding = storage_account_gen2_binding_1.get_inner();
+        let storage_accounts_binding_1 = args.storage_accounts.get_output(context);
+        let storage_accounts_binding = storage_accounts_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tier_binding_1 = args.tier.get_output(context);
+        let tier_binding = tier_binding_1.get_inner();
+        let tls_min_version_binding_1 = args.tls_min_version.get_output(context);
+        let tls_min_version_binding = tls_min_version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:hdinsight/sparkCluster:SparkCluster".into(),
             name: name.to_string(),

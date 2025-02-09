@@ -311,10 +311,14 @@ pub mod tag {
     ) -> TagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let column_binding = args.column.get_output(context).get_inner();
-        let fields_binding = args.fields.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let template_binding = args.template.get_output(context).get_inner();
+        let column_binding_1 = args.column.get_output(context);
+        let column_binding = column_binding_1.get_inner();
+        let fields_binding_1 = args.fields.get_output(context);
+        let fields_binding = fields_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let template_binding_1 = args.template.get_output(context);
+        let template_binding = template_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/tag:Tag".into(),
             name: name.to_string(),

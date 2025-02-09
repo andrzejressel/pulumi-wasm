@@ -249,19 +249,20 @@ pub mod ca_pool {
     ) -> CaPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let issuance_policy_binding = args
-            .issuance_policy
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let publishing_options_binding = args
-            .publishing_options
-            .get_output(context)
-            .get_inner();
-        let tier_binding = args.tier.get_output(context).get_inner();
+        let issuance_policy_binding_1 = args.issuance_policy.get_output(context);
+        let issuance_policy_binding = issuance_policy_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let publishing_options_binding_1 = args.publishing_options.get_output(context);
+        let publishing_options_binding = publishing_options_binding_1.get_inner();
+        let tier_binding_1 = args.tier.get_output(context);
+        let tier_binding = tier_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificateauthority/caPool:CaPool".into(),
             name: name.to_string(),

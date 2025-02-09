@@ -54,34 +54,24 @@ pub mod get_random_password {
     ) -> GetRandomPasswordResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let exclude_characters_binding = args
-            .exclude_characters
-            .get_output(context)
-            .get_inner();
-        let exclude_lowercase_binding = args
-            .exclude_lowercase
-            .get_output(context)
-            .get_inner();
-        let exclude_numbers_binding = args
-            .exclude_numbers
-            .get_output(context)
-            .get_inner();
-        let exclude_punctuation_binding = args
-            .exclude_punctuation
-            .get_output(context)
-            .get_inner();
-        let exclude_uppercase_binding = args
-            .exclude_uppercase
-            .get_output(context)
-            .get_inner();
-        let include_space_binding = args.include_space.get_output(context).get_inner();
-        let password_length_binding = args
-            .password_length
-            .get_output(context)
-            .get_inner();
-        let require_each_included_type_binding = args
+        let exclude_characters_binding_1 = args.exclude_characters.get_output(context);
+        let exclude_characters_binding = exclude_characters_binding_1.get_inner();
+        let exclude_lowercase_binding_1 = args.exclude_lowercase.get_output(context);
+        let exclude_lowercase_binding = exclude_lowercase_binding_1.get_inner();
+        let exclude_numbers_binding_1 = args.exclude_numbers.get_output(context);
+        let exclude_numbers_binding = exclude_numbers_binding_1.get_inner();
+        let exclude_punctuation_binding_1 = args.exclude_punctuation.get_output(context);
+        let exclude_punctuation_binding = exclude_punctuation_binding_1.get_inner();
+        let exclude_uppercase_binding_1 = args.exclude_uppercase.get_output(context);
+        let exclude_uppercase_binding = exclude_uppercase_binding_1.get_inner();
+        let include_space_binding_1 = args.include_space.get_output(context);
+        let include_space_binding = include_space_binding_1.get_inner();
+        let password_length_binding_1 = args.password_length.get_output(context);
+        let password_length_binding = password_length_binding_1.get_inner();
+        let require_each_included_type_binding_1 = args
             .require_each_included_type
-            .get_output(context)
+            .get_output(context);
+        let require_each_included_type_binding = require_each_included_type_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:secretsmanager/getRandomPassword:getRandomPassword".into(),

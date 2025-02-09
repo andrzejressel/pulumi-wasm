@@ -98,11 +98,16 @@ pub mod event_permission {
     ) -> EventPermissionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let event_bus_name_binding = args.event_bus_name.get_output(context).get_inner();
-        let principal_binding = args.principal.get_output(context).get_inner();
-        let statement_id_binding = args.statement_id.get_output(context).get_inner();
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let event_bus_name_binding_1 = args.event_bus_name.get_output(context);
+        let event_bus_name_binding = event_bus_name_binding_1.get_inner();
+        let principal_binding_1 = args.principal.get_output(context);
+        let principal_binding = principal_binding_1.get_inner();
+        let statement_id_binding_1 = args.statement_id.get_output(context);
+        let statement_id_binding = statement_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventPermission:EventPermission".into(),
             name: name.to_string(),

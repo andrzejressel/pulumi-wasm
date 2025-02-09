@@ -154,12 +154,18 @@ pub mod group {
     ) -> GroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_accept_binding = args.auto_accept.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let hub_binding = args.hub.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let auto_accept_binding_1 = args.auto_accept.get_output(context);
+        let auto_accept_binding = auto_accept_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let hub_binding_1 = args.hub.get_output(context);
+        let hub_binding = hub_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkconnectivity/group:Group".into(),
             name: name.to_string(),

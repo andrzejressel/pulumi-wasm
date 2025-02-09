@@ -176,38 +176,43 @@ pub mod container_recipe {
     ) -> ContainerRecipeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let components_binding = args.components.get_output(context).get_inner();
-        let container_type_binding = args.container_type.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let dockerfile_template_data_binding = args
+        let components_binding_1 = args.components.get_output(context);
+        let components_binding = components_binding_1.get_inner();
+        let container_type_binding_1 = args.container_type.get_output(context);
+        let container_type_binding = container_type_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dockerfile_template_data_binding_1 = args
             .dockerfile_template_data
-            .get_output(context)
+            .get_output(context);
+        let dockerfile_template_data_binding = dockerfile_template_data_binding_1
             .get_inner();
-        let dockerfile_template_uri_binding = args
+        let dockerfile_template_uri_binding_1 = args
             .dockerfile_template_uri
-            .get_output(context)
+            .get_output(context);
+        let dockerfile_template_uri_binding = dockerfile_template_uri_binding_1
             .get_inner();
-        let instance_configuration_binding = args
+        let instance_configuration_binding_1 = args
             .instance_configuration
-            .get_output(context)
+            .get_output(context);
+        let instance_configuration_binding = instance_configuration_binding_1
             .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_image_binding = args.parent_image.get_output(context).get_inner();
-        let platform_override_binding = args
-            .platform_override
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_repository_binding = args
-            .target_repository
-            .get_output(context)
-            .get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
-        let working_directory_binding = args
-            .working_directory
-            .get_output(context)
-            .get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_image_binding_1 = args.parent_image.get_output(context);
+        let parent_image_binding = parent_image_binding_1.get_inner();
+        let platform_override_binding_1 = args.platform_override.get_output(context);
+        let platform_override_binding = platform_override_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_repository_binding_1 = args.target_repository.get_output(context);
+        let target_repository_binding = target_repository_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
+        let working_directory_binding_1 = args.working_directory.get_output(context);
+        let working_directory_binding = working_directory_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:imagebuilder/containerRecipe:ContainerRecipe".into(),
             name: name.to_string(),

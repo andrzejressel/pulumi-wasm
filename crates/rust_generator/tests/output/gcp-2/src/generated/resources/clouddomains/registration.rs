@@ -209,25 +209,26 @@ pub mod registration {
     ) -> RegistrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contact_notices_binding = args
-            .contact_notices
-            .get_output(context)
-            .get_inner();
-        let contact_settings_binding = args
-            .contact_settings
-            .get_output(context)
-            .get_inner();
-        let dns_settings_binding = args.dns_settings.get_output(context).get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let domain_notices_binding = args.domain_notices.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let management_settings_binding = args
-            .management_settings
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let yearly_price_binding = args.yearly_price.get_output(context).get_inner();
+        let contact_notices_binding_1 = args.contact_notices.get_output(context);
+        let contact_notices_binding = contact_notices_binding_1.get_inner();
+        let contact_settings_binding_1 = args.contact_settings.get_output(context);
+        let contact_settings_binding = contact_settings_binding_1.get_inner();
+        let dns_settings_binding_1 = args.dns_settings.get_output(context);
+        let dns_settings_binding = dns_settings_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let domain_notices_binding_1 = args.domain_notices.get_output(context);
+        let domain_notices_binding = domain_notices_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let management_settings_binding_1 = args.management_settings.get_output(context);
+        let management_settings_binding = management_settings_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let yearly_price_binding_1 = args.yearly_price.get_output(context);
+        let yearly_price_binding = yearly_price_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:clouddomains/registration:Registration".into(),
             name: name.to_string(),

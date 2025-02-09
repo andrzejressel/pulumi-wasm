@@ -36,13 +36,14 @@ pub mod get_recommendations {
     ) -> GetRecommendationsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filter_by_categories_binding = args
+        let filter_by_categories_binding_1 = args
             .filter_by_categories
-            .get_output(context)
-            .get_inner();
-        let filter_by_resource_groups_binding = args
+            .get_output(context);
+        let filter_by_categories_binding = filter_by_categories_binding_1.get_inner();
+        let filter_by_resource_groups_binding_1 = args
             .filter_by_resource_groups
-            .get_output(context)
+            .get_output(context);
+        let filter_by_resource_groups_binding = filter_by_resource_groups_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:advisor/getRecommendations:getRecommendations".into(),

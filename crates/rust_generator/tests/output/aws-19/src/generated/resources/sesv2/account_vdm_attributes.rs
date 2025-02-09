@@ -83,15 +83,14 @@ pub mod account_vdm_attributes {
     ) -> AccountVdmAttributesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dashboard_attributes_binding = args
+        let dashboard_attributes_binding_1 = args
             .dashboard_attributes
-            .get_output(context)
-            .get_inner();
-        let guardian_attributes_binding = args
-            .guardian_attributes
-            .get_output(context)
-            .get_inner();
-        let vdm_enabled_binding = args.vdm_enabled.get_output(context).get_inner();
+            .get_output(context);
+        let dashboard_attributes_binding = dashboard_attributes_binding_1.get_inner();
+        let guardian_attributes_binding_1 = args.guardian_attributes.get_output(context);
+        let guardian_attributes_binding = guardian_attributes_binding_1.get_inner();
+        let vdm_enabled_binding_1 = args.vdm_enabled.get_output(context);
+        let vdm_enabled_binding = vdm_enabled_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/accountVdmAttributes:AccountVdmAttributes".into(),
             name: name.to_string(),

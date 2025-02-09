@@ -48,10 +48,8 @@ pub mod global_settings {
     ) -> GlobalSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let global_settings_binding = args
-            .global_settings
-            .get_output(context)
-            .get_inner();
+        let global_settings_binding_1 = args.global_settings.get_output(context);
+        let global_settings_binding = global_settings_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:backup/globalSettings:GlobalSettings".into(),
             name: name.to_string(),

@@ -230,29 +230,31 @@ pub mod config {
     ) -> ConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorized_domains_binding = args
-            .authorized_domains
-            .get_output(context)
-            .get_inner();
-        let autodelete_anonymous_users_binding = args
+        let authorized_domains_binding_1 = args.authorized_domains.get_output(context);
+        let authorized_domains_binding = authorized_domains_binding_1.get_inner();
+        let autodelete_anonymous_users_binding_1 = args
             .autodelete_anonymous_users
-            .get_output(context)
+            .get_output(context);
+        let autodelete_anonymous_users_binding = autodelete_anonymous_users_binding_1
             .get_inner();
-        let blocking_functions_binding = args
-            .blocking_functions
-            .get_output(context)
-            .get_inner();
-        let client_binding = args.client.get_output(context).get_inner();
-        let mfa_binding = args.mfa.get_output(context).get_inner();
-        let monitoring_binding = args.monitoring.get_output(context).get_inner();
-        let multi_tenant_binding = args.multi_tenant.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let quota_binding = args.quota.get_output(context).get_inner();
-        let sign_in_binding = args.sign_in.get_output(context).get_inner();
-        let sms_region_config_binding = args
-            .sms_region_config
-            .get_output(context)
-            .get_inner();
+        let blocking_functions_binding_1 = args.blocking_functions.get_output(context);
+        let blocking_functions_binding = blocking_functions_binding_1.get_inner();
+        let client_binding_1 = args.client.get_output(context);
+        let client_binding = client_binding_1.get_inner();
+        let mfa_binding_1 = args.mfa.get_output(context);
+        let mfa_binding = mfa_binding_1.get_inner();
+        let monitoring_binding_1 = args.monitoring.get_output(context);
+        let monitoring_binding = monitoring_binding_1.get_inner();
+        let multi_tenant_binding_1 = args.multi_tenant.get_output(context);
+        let multi_tenant_binding = multi_tenant_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let quota_binding_1 = args.quota.get_output(context);
+        let quota_binding = quota_binding_1.get_inner();
+        let sign_in_binding_1 = args.sign_in.get_output(context);
+        let sign_in_binding = sign_in_binding_1.get_inner();
+        let sms_region_config_binding_1 = args.sms_region_config.get_output(context);
+        let sms_region_config_binding = sms_region_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:identityplatform/config:Config".into(),
             name: name.to_string(),

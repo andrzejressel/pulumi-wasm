@@ -81,11 +81,16 @@ pub mod filter {
     ) -> FilterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let expression_binding = args.expression.get_output(context).get_inner();
-        let paused_binding = args.paused.get_output(context).get_inner();
-        let ref__binding = args.ref_.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let expression_binding_1 = args.expression.get_output(context);
+        let expression_binding = expression_binding_1.get_inner();
+        let paused_binding_1 = args.paused.get_output(context);
+        let paused_binding = paused_binding_1.get_inner();
+        let ref__binding_1 = args.ref_.get_output(context);
+        let ref__binding = ref__binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/filter:Filter".into(),
             name: name.to_string(),

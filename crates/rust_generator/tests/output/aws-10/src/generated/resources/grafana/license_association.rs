@@ -82,9 +82,12 @@ pub mod license_association {
     ) -> LicenseAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let grafana_token_binding = args.grafana_token.get_output(context).get_inner();
-        let license_type_binding = args.license_type.get_output(context).get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+        let grafana_token_binding_1 = args.grafana_token.get_output(context);
+        let grafana_token_binding = grafana_token_binding_1.get_inner();
+        let license_type_binding_1 = args.license_type.get_output(context);
+        let license_type_binding = license_type_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:grafana/licenseAssociation:LicenseAssociation".into(),
             name: name.to_string(),

@@ -126,20 +126,22 @@ pub mod kx_volume {
     ) -> KxVolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zones_binding = args
-            .availability_zones
-            .get_output(context)
-            .get_inner();
-        let az_mode_binding = args.az_mode.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let environment_id_binding = args.environment_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let nas1_configurations_binding = args
-            .nas1_configurations
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let availability_zones_binding_1 = args.availability_zones.get_output(context);
+        let availability_zones_binding = availability_zones_binding_1.get_inner();
+        let az_mode_binding_1 = args.az_mode.get_output(context);
+        let az_mode_binding = az_mode_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let environment_id_binding_1 = args.environment_id.get_output(context);
+        let environment_id_binding = environment_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let nas1_configurations_binding_1 = args.nas1_configurations.get_output(context);
+        let nas1_configurations_binding = nas1_configurations_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:finspace/kxVolume:KxVolume".into(),
             name: name.to_string(),

@@ -61,10 +61,14 @@ pub mod shared_directory {
     ) -> SharedDirectoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let directory_id_binding = args.directory_id.get_output(context).get_inner();
-        let method_binding = args.method.get_output(context).get_inner();
-        let notes_binding = args.notes.get_output(context).get_inner();
-        let target_binding = args.target.get_output(context).get_inner();
+        let directory_id_binding_1 = args.directory_id.get_output(context);
+        let directory_id_binding = directory_id_binding_1.get_inner();
+        let method_binding_1 = args.method.get_output(context);
+        let method_binding = method_binding_1.get_inner();
+        let notes_binding_1 = args.notes.get_output(context);
+        let notes_binding = notes_binding_1.get_inner();
+        let target_binding_1 = args.target.get_output(context);
+        let target_binding = target_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directoryservice/sharedDirectory:SharedDirectory".into(),
             name: name.to_string(),

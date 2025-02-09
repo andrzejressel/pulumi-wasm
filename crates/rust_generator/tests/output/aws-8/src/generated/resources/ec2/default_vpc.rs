@@ -109,40 +109,37 @@ pub mod default_vpc {
     ) -> DefaultVpcResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assign_generated_ipv6_cidr_block_binding = args
+        let assign_generated_ipv6_cidr_block_binding_1 = args
             .assign_generated_ipv6_cidr_block
-            .get_output(context)
+            .get_output(context);
+        let assign_generated_ipv6_cidr_block_binding = assign_generated_ipv6_cidr_block_binding_1
             .get_inner();
-        let enable_dns_hostnames_binding = args
+        let enable_dns_hostnames_binding_1 = args
             .enable_dns_hostnames
-            .get_output(context)
-            .get_inner();
-        let enable_dns_support_binding = args
-            .enable_dns_support
-            .get_output(context)
-            .get_inner();
-        let enable_network_address_usage_metrics_binding = args
+            .get_output(context);
+        let enable_dns_hostnames_binding = enable_dns_hostnames_binding_1.get_inner();
+        let enable_dns_support_binding_1 = args.enable_dns_support.get_output(context);
+        let enable_dns_support_binding = enable_dns_support_binding_1.get_inner();
+        let enable_network_address_usage_metrics_binding_1 = args
             .enable_network_address_usage_metrics
-            .get_output(context)
+            .get_output(context);
+        let enable_network_address_usage_metrics_binding = enable_network_address_usage_metrics_binding_1
             .get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let ipv6_cidr_block_binding = args
-            .ipv6_cidr_block
-            .get_output(context)
-            .get_inner();
-        let ipv6_cidr_block_network_border_group_binding = args
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let ipv6_cidr_block_binding_1 = args.ipv6_cidr_block.get_output(context);
+        let ipv6_cidr_block_binding = ipv6_cidr_block_binding_1.get_inner();
+        let ipv6_cidr_block_network_border_group_binding_1 = args
             .ipv6_cidr_block_network_border_group
-            .get_output(context)
+            .get_output(context);
+        let ipv6_cidr_block_network_border_group_binding = ipv6_cidr_block_network_border_group_binding_1
             .get_inner();
-        let ipv6_ipam_pool_id_binding = args
-            .ipv6_ipam_pool_id
-            .get_output(context)
-            .get_inner();
-        let ipv6_netmask_length_binding = args
-            .ipv6_netmask_length
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let ipv6_ipam_pool_id_binding_1 = args.ipv6_ipam_pool_id.get_output(context);
+        let ipv6_ipam_pool_id_binding = ipv6_ipam_pool_id_binding_1.get_inner();
+        let ipv6_netmask_length_binding_1 = args.ipv6_netmask_length.get_output(context);
+        let ipv6_netmask_length_binding = ipv6_netmask_length_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/defaultVpc:DefaultVpc".into(),
             name: name.to_string(),

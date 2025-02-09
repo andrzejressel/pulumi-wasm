@@ -206,19 +206,23 @@ pub mod container_service {
     ) -> ContainerServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let is_disabled_binding = args.is_disabled.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let power_binding = args.power.get_output(context).get_inner();
-        let private_registry_access_binding = args
+        let is_disabled_binding_1 = args.is_disabled.get_output(context);
+        let is_disabled_binding = is_disabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let power_binding_1 = args.power.get_output(context);
+        let power_binding = power_binding_1.get_inner();
+        let private_registry_access_binding_1 = args
             .private_registry_access
-            .get_output(context)
+            .get_output(context);
+        let private_registry_access_binding = private_registry_access_binding_1
             .get_inner();
-        let public_domain_names_binding = args
-            .public_domain_names
-            .get_output(context)
-            .get_inner();
-        let scale_binding = args.scale.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let public_domain_names_binding_1 = args.public_domain_names.get_output(context);
+        let public_domain_names_binding = public_domain_names_binding_1.get_inner();
+        let scale_binding_1 = args.scale.get_output(context);
+        let scale_binding = scale_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/containerService:ContainerService".into(),
             name: name.to_string(),

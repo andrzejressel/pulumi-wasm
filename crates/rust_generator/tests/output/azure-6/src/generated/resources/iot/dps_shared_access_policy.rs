@@ -123,32 +123,22 @@ pub mod dps_shared_access_policy {
     ) -> DpsSharedAccessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enrollment_read_binding = args
-            .enrollment_read
-            .get_output(context)
-            .get_inner();
-        let enrollment_write_binding = args
-            .enrollment_write
-            .get_output(context)
-            .get_inner();
-        let iothub_dps_name_binding = args
-            .iothub_dps_name
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let registration_read_binding = args
-            .registration_read
-            .get_output(context)
-            .get_inner();
-        let registration_write_binding = args
-            .registration_write
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let service_config_binding = args.service_config.get_output(context).get_inner();
+        let enrollment_read_binding_1 = args.enrollment_read.get_output(context);
+        let enrollment_read_binding = enrollment_read_binding_1.get_inner();
+        let enrollment_write_binding_1 = args.enrollment_write.get_output(context);
+        let enrollment_write_binding = enrollment_write_binding_1.get_inner();
+        let iothub_dps_name_binding_1 = args.iothub_dps_name.get_output(context);
+        let iothub_dps_name_binding = iothub_dps_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let registration_read_binding_1 = args.registration_read.get_output(context);
+        let registration_read_binding = registration_read_binding_1.get_inner();
+        let registration_write_binding_1 = args.registration_write.get_output(context);
+        let registration_write_binding = registration_write_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let service_config_binding_1 = args.service_config.get_output(context);
+        let service_config_binding = service_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy".into(),
             name: name.to_string(),

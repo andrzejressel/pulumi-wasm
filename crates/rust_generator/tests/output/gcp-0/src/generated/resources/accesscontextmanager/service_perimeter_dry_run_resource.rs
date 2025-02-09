@@ -104,8 +104,10 @@ pub mod service_perimeter_dry_run_resource {
     ) -> ServicePerimeterDryRunResourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let perimeter_name_binding = args.perimeter_name.get_output(context).get_inner();
-        let resource_binding = args.resource.get_output(context).get_inner();
+        let perimeter_name_binding_1 = args.perimeter_name.get_output(context);
+        let perimeter_name_binding = perimeter_name_binding_1.get_inner();
+        let resource_binding_1 = args.resource.get_output(context);
+        let resource_binding = resource_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/servicePerimeterDryRunResource:ServicePerimeterDryRunResource"
                 .into(),

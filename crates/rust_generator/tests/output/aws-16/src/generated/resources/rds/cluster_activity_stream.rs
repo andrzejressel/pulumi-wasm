@@ -107,13 +107,17 @@ pub mod cluster_activity_stream {
     ) -> ClusterActivityStreamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let engine_native_audit_fields_included_binding = args
+        let engine_native_audit_fields_included_binding_1 = args
             .engine_native_audit_fields_included
-            .get_output(context)
+            .get_output(context);
+        let engine_native_audit_fields_included_binding = engine_native_audit_fields_included_binding_1
             .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let resource_arn_binding_1 = args.resource_arn.get_output(context);
+        let resource_arn_binding = resource_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/clusterActivityStream:ClusterActivityStream".into(),
             name: name.to_string(),

@@ -116,13 +116,20 @@ pub mod app_authorization {
     ) -> AppAuthorizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_binding = args.app.get_output(context).get_inner();
-        let app_bundle_arn_binding = args.app_bundle_arn.get_output(context).get_inner();
-        let auth_type_binding = args.auth_type.get_output(context).get_inner();
-        let credential_binding = args.credential.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tenants_binding = args.tenants.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let app_binding_1 = args.app.get_output(context);
+        let app_binding = app_binding_1.get_inner();
+        let app_bundle_arn_binding_1 = args.app_bundle_arn.get_output(context);
+        let app_bundle_arn_binding = app_bundle_arn_binding_1.get_inner();
+        let auth_type_binding_1 = args.auth_type.get_output(context);
+        let auth_type_binding = auth_type_binding_1.get_inner();
+        let credential_binding_1 = args.credential.get_output(context);
+        let credential_binding = credential_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tenants_binding_1 = args.tenants.get_output(context);
+        let tenants_binding = tenants_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appfabric/appAuthorization:AppAuthorization".into(),
             name: name.to_string(),

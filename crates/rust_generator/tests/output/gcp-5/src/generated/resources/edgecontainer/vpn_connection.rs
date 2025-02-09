@@ -200,19 +200,29 @@ pub mod vpn_connection {
     ) -> VpnConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_binding = args.cluster.get_output(context).get_inner();
-        let enable_high_availability_binding = args
+        let cluster_binding_1 = args.cluster.get_output(context);
+        let cluster_binding = cluster_binding_1.get_inner();
+        let enable_high_availability_binding_1 = args
             .enable_high_availability
-            .get_output(context)
+            .get_output(context);
+        let enable_high_availability_binding = enable_high_availability_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let nat_gateway_ip_binding = args.nat_gateway_ip.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let router_binding = args.router.get_output(context).get_inner();
-        let vpc_binding = args.vpc.get_output(context).get_inner();
-        let vpc_project_binding = args.vpc_project.get_output(context).get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let nat_gateway_ip_binding_1 = args.nat_gateway_ip.get_output(context);
+        let nat_gateway_ip_binding = nat_gateway_ip_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let router_binding_1 = args.router.get_output(context);
+        let router_binding = router_binding_1.get_inner();
+        let vpc_binding_1 = args.vpc.get_output(context);
+        let vpc_binding = vpc_binding_1.get_inner();
+        let vpc_project_binding_1 = args.vpc_project.get_output(context);
+        let vpc_project_binding = vpc_project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:edgecontainer/vpnConnection:VpnConnection".into(),
             name: name.to_string(),

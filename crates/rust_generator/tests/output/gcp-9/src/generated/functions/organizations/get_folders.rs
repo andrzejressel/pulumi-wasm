@@ -28,7 +28,8 @@ pub mod get_folders {
     ) -> GetFoldersResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parent_id_binding = args.parent_id.get_output(context).get_inner();
+        let parent_id_binding_1 = args.parent_id.get_output(context);
+        let parent_id_binding = parent_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:organizations/getFolders:getFolders".into(),
             version: super::super::super::get_version(),

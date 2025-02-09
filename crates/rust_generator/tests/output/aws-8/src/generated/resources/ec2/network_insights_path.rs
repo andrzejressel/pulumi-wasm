@@ -99,16 +99,20 @@ pub mod network_insights_path {
     ) -> NetworkInsightsPathResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_binding = args.destination.get_output(context).get_inner();
-        let destination_ip_binding = args.destination_ip.get_output(context).get_inner();
-        let destination_port_binding = args
-            .destination_port
-            .get_output(context)
-            .get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let source_ip_binding = args.source_ip.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let destination_binding_1 = args.destination.get_output(context);
+        let destination_binding = destination_binding_1.get_inner();
+        let destination_ip_binding_1 = args.destination_ip.get_output(context);
+        let destination_ip_binding = destination_ip_binding_1.get_inner();
+        let destination_port_binding_1 = args.destination_port.get_output(context);
+        let destination_port_binding = destination_port_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let source_ip_binding_1 = args.source_ip.get_output(context);
+        let source_ip_binding = source_ip_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/networkInsightsPath:NetworkInsightsPath".into(),
             name: name.to_string(),

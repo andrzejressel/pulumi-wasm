@@ -19,7 +19,8 @@ pub mod func_with_const_input {
     ) {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let plain_input_binding = args.plain_input.get_output(context).get_inner();
+        let plain_input_binding_1 = args.plain_input.get_output(context);
+        let plain_input_binding = plain_input_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "mypkg::funcWithConstInput".into(),
             version: super::super::get_version(),

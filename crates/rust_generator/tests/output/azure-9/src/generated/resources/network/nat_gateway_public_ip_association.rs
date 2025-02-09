@@ -82,11 +82,12 @@ pub mod nat_gateway_public_ip_association {
     ) -> NatGatewayPublicIpAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let nat_gateway_id_binding = args.nat_gateway_id.get_output(context).get_inner();
-        let public_ip_address_id_binding = args
+        let nat_gateway_id_binding_1 = args.nat_gateway_id.get_output(context);
+        let nat_gateway_id_binding = nat_gateway_id_binding_1.get_inner();
+        let public_ip_address_id_binding_1 = args
             .public_ip_address_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let public_ip_address_id_binding = public_ip_address_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation"
                 .into(),

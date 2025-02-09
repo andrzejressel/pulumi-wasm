@@ -126,29 +126,30 @@ pub mod workgroup {
     ) -> WorkgroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_capacity_binding = args.base_capacity.get_output(context).get_inner();
-        let config_parameters_binding = args
-            .config_parameters
-            .get_output(context)
-            .get_inner();
-        let enhanced_vpc_routing_binding = args
+        let base_capacity_binding_1 = args.base_capacity.get_output(context);
+        let base_capacity_binding = base_capacity_binding_1.get_inner();
+        let config_parameters_binding_1 = args.config_parameters.get_output(context);
+        let config_parameters_binding = config_parameters_binding_1.get_inner();
+        let enhanced_vpc_routing_binding_1 = args
             .enhanced_vpc_routing
-            .get_output(context)
-            .get_inner();
-        let max_capacity_binding = args.max_capacity.get_output(context).get_inner();
-        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let publicly_accessible_binding = args
-            .publicly_accessible
-            .get_output(context)
-            .get_inner();
-        let security_group_ids_binding = args
-            .security_group_ids
-            .get_output(context)
-            .get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let workgroup_name_binding = args.workgroup_name.get_output(context).get_inner();
+            .get_output(context);
+        let enhanced_vpc_routing_binding = enhanced_vpc_routing_binding_1.get_inner();
+        let max_capacity_binding_1 = args.max_capacity.get_output(context);
+        let max_capacity_binding = max_capacity_binding_1.get_inner();
+        let namespace_name_binding_1 = args.namespace_name.get_output(context);
+        let namespace_name_binding = namespace_name_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let publicly_accessible_binding_1 = args.publicly_accessible.get_output(context);
+        let publicly_accessible_binding = publicly_accessible_binding_1.get_inner();
+        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
+        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let workgroup_name_binding_1 = args.workgroup_name.get_output(context);
+        let workgroup_name_binding = workgroup_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshiftserverless/workgroup:Workgroup".into(),
             name: name.to_string(),

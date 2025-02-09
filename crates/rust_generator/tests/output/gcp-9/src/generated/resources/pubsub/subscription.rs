@@ -724,49 +724,53 @@ pub mod subscription {
     ) -> SubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ack_deadline_seconds_binding = args
+        let ack_deadline_seconds_binding_1 = args
             .ack_deadline_seconds
-            .get_output(context)
-            .get_inner();
-        let bigquery_config_binding = args
-            .bigquery_config
-            .get_output(context)
-            .get_inner();
-        let cloud_storage_config_binding = args
+            .get_output(context);
+        let ack_deadline_seconds_binding = ack_deadline_seconds_binding_1.get_inner();
+        let bigquery_config_binding_1 = args.bigquery_config.get_output(context);
+        let bigquery_config_binding = bigquery_config_binding_1.get_inner();
+        let cloud_storage_config_binding_1 = args
             .cloud_storage_config
-            .get_output(context)
-            .get_inner();
-        let dead_letter_policy_binding = args
-            .dead_letter_policy
-            .get_output(context)
-            .get_inner();
-        let enable_exactly_once_delivery_binding = args
+            .get_output(context);
+        let cloud_storage_config_binding = cloud_storage_config_binding_1.get_inner();
+        let dead_letter_policy_binding_1 = args.dead_letter_policy.get_output(context);
+        let dead_letter_policy_binding = dead_letter_policy_binding_1.get_inner();
+        let enable_exactly_once_delivery_binding_1 = args
             .enable_exactly_once_delivery
-            .get_output(context)
+            .get_output(context);
+        let enable_exactly_once_delivery_binding = enable_exactly_once_delivery_binding_1
             .get_inner();
-        let enable_message_ordering_binding = args
+        let enable_message_ordering_binding_1 = args
             .enable_message_ordering
-            .get_output(context)
+            .get_output(context);
+        let enable_message_ordering_binding = enable_message_ordering_binding_1
             .get_inner();
-        let expiration_policy_binding = args
-            .expiration_policy
-            .get_output(context)
-            .get_inner();
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let message_retention_duration_binding = args
+        let expiration_policy_binding_1 = args.expiration_policy.get_output(context);
+        let expiration_policy_binding = expiration_policy_binding_1.get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let message_retention_duration_binding_1 = args
             .message_retention_duration
-            .get_output(context)
+            .get_output(context);
+        let message_retention_duration_binding = message_retention_duration_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let push_config_binding = args.push_config.get_output(context).get_inner();
-        let retain_acked_messages_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let push_config_binding_1 = args.push_config.get_output(context);
+        let push_config_binding = push_config_binding_1.get_inner();
+        let retain_acked_messages_binding_1 = args
             .retain_acked_messages
-            .get_output(context)
-            .get_inner();
-        let retry_policy_binding = args.retry_policy.get_output(context).get_inner();
-        let topic_binding = args.topic.get_output(context).get_inner();
+            .get_output(context);
+        let retain_acked_messages_binding = retain_acked_messages_binding_1.get_inner();
+        let retry_policy_binding_1 = args.retry_policy.get_output(context);
+        let retry_policy_binding = retry_policy_binding_1.get_inner();
+        let topic_binding_1 = args.topic.get_output(context);
+        let topic_binding = topic_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:pubsub/subscription:Subscription".into(),
             name: name.to_string(),

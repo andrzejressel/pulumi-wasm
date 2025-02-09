@@ -31,7 +31,8 @@ pub mod get_endpoint {
     ) -> GetEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_type_binding = args.endpoint_type.get_output(context).get_inner();
+        let endpoint_type_binding_1 = args.endpoint_type.get_output(context);
+        let endpoint_type_binding = endpoint_type_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iot/getEndpoint:getEndpoint".into(),
             version: super::super::super::get_version(),

@@ -104,26 +104,31 @@ pub mod virtual_wan {
     ) -> VirtualWanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_branch_to_branch_traffic_binding = args
+        let allow_branch_to_branch_traffic_binding_1 = args
             .allow_branch_to_branch_traffic
-            .get_output(context)
+            .get_output(context);
+        let allow_branch_to_branch_traffic_binding = allow_branch_to_branch_traffic_binding_1
             .get_inner();
-        let disable_vpn_encryption_binding = args
+        let disable_vpn_encryption_binding_1 = args
             .disable_vpn_encryption
-            .get_output(context)
+            .get_output(context);
+        let disable_vpn_encryption_binding = disable_vpn_encryption_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let office365_local_breakout_category_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let office365_local_breakout_category_binding_1 = args
             .office365_local_breakout_category
-            .get_output(context)
+            .get_output(context);
+        let office365_local_breakout_category_binding = office365_local_breakout_category_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/virtualWan:VirtualWan".into(),
             name: name.to_string(),

@@ -373,40 +373,45 @@ pub mod instance {
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let availability_type_binding = args
-            .availability_type
-            .get_output(context)
-            .get_inner();
-        let client_connection_config_binding = args
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let availability_type_binding_1 = args.availability_type.get_output(context);
+        let availability_type_binding = availability_type_binding_1.get_inner();
+        let client_connection_config_binding_1 = args
             .client_connection_config
-            .get_output(context)
+            .get_output(context);
+        let client_connection_config_binding = client_connection_config_binding_1
             .get_inner();
-        let cluster_binding = args.cluster.get_output(context).get_inner();
-        let database_flags_binding = args.database_flags.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let gce_zone_binding = args.gce_zone.get_output(context).get_inner();
-        let instance_id_binding = args.instance_id.get_output(context).get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let machine_config_binding = args.machine_config.get_output(context).get_inner();
-        let network_config_binding = args.network_config.get_output(context).get_inner();
-        let observability_config_binding = args
+        let cluster_binding_1 = args.cluster.get_output(context);
+        let cluster_binding = cluster_binding_1.get_inner();
+        let database_flags_binding_1 = args.database_flags.get_output(context);
+        let database_flags_binding = database_flags_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let gce_zone_binding_1 = args.gce_zone.get_output(context);
+        let gce_zone_binding = gce_zone_binding_1.get_inner();
+        let instance_id_binding_1 = args.instance_id.get_output(context);
+        let instance_id_binding = instance_id_binding_1.get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let machine_config_binding_1 = args.machine_config.get_output(context);
+        let machine_config_binding = machine_config_binding_1.get_inner();
+        let network_config_binding_1 = args.network_config.get_output(context);
+        let network_config_binding = network_config_binding_1.get_inner();
+        let observability_config_binding_1 = args
             .observability_config
-            .get_output(context)
-            .get_inner();
-        let psc_instance_config_binding = args
-            .psc_instance_config
-            .get_output(context)
-            .get_inner();
-        let query_insights_config_binding = args
+            .get_output(context);
+        let observability_config_binding = observability_config_binding_1.get_inner();
+        let psc_instance_config_binding_1 = args.psc_instance_config.get_output(context);
+        let psc_instance_config_binding = psc_instance_config_binding_1.get_inner();
+        let query_insights_config_binding_1 = args
             .query_insights_config
-            .get_output(context)
-            .get_inner();
-        let read_pool_config_binding = args
-            .read_pool_config
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let query_insights_config_binding = query_insights_config_binding_1.get_inner();
+        let read_pool_config_binding_1 = args.read_pool_config.get_output(context);
+        let read_pool_config_binding = read_pool_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:alloydb/instance:Instance".into(),
             name: name.to_string(),

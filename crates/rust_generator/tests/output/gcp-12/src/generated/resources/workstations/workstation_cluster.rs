@@ -286,21 +286,31 @@ pub mod workstation_cluster {
     ) -> WorkstationClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let domain_config_binding = args.domain_config.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let private_cluster_config_binding = args
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let domain_config_binding_1 = args.domain_config.get_output(context);
+        let domain_config_binding = domain_config_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let private_cluster_config_binding_1 = args
             .private_cluster_config
-            .get_output(context)
+            .get_output(context);
+        let private_cluster_config_binding = private_cluster_config_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let subnetwork_binding = args.subnetwork.get_output(context).get_inner();
-        let workstation_cluster_id_binding = args
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let subnetwork_binding_1 = args.subnetwork.get_output(context);
+        let subnetwork_binding = subnetwork_binding_1.get_inner();
+        let workstation_cluster_id_binding_1 = args
             .workstation_cluster_id
-            .get_output(context)
+            .get_output(context);
+        let workstation_cluster_id_binding = workstation_cluster_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:workstations/workstationCluster:WorkstationCluster".into(),

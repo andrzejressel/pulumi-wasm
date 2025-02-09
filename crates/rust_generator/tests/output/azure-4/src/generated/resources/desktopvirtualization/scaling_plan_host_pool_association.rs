@@ -126,12 +126,12 @@ pub mod scaling_plan_host_pool_association {
     ) -> ScalingPlanHostPoolAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let host_pool_id_binding = args.host_pool_id.get_output(context).get_inner();
-        let scaling_plan_id_binding = args
-            .scaling_plan_id
-            .get_output(context)
-            .get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let host_pool_id_binding_1 = args.host_pool_id.get_output(context);
+        let host_pool_id_binding = host_pool_id_binding_1.get_inner();
+        let scaling_plan_id_binding_1 = args.scaling_plan_id.get_output(context);
+        let scaling_plan_id_binding = scaling_plan_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation"
                 .into(),

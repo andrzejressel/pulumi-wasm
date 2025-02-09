@@ -83,18 +83,18 @@ pub mod partition {
     ) -> PartitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let partition_values_binding = args
-            .partition_values
-            .get_output(context)
-            .get_inner();
-        let storage_descriptor_binding = args
-            .storage_descriptor
-            .get_output(context)
-            .get_inner();
-        let table_name_binding = args.table_name.get_output(context).get_inner();
+        let catalog_id_binding_1 = args.catalog_id.get_output(context);
+        let catalog_id_binding = catalog_id_binding_1.get_inner();
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let partition_values_binding_1 = args.partition_values.get_output(context);
+        let partition_values_binding = partition_values_binding_1.get_inner();
+        let storage_descriptor_binding_1 = args.storage_descriptor.get_output(context);
+        let storage_descriptor_binding = storage_descriptor_binding_1.get_inner();
+        let table_name_binding_1 = args.table_name.get_output(context);
+        let table_name_binding = table_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/partition:Partition".into(),
             name: name.to_string(),

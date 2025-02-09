@@ -137,21 +137,24 @@ pub mod instance_group {
     ) -> InstanceGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_policy_binding = args
-            .autoscaling_policy
-            .get_output(context)
-            .get_inner();
-        let bid_price_binding = args.bid_price.get_output(context).get_inner();
-        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
-        let configurations_json_binding = args
-            .configurations_json
-            .get_output(context)
-            .get_inner();
-        let ebs_configs_binding = args.ebs_configs.get_output(context).get_inner();
-        let ebs_optimized_binding = args.ebs_optimized.get_output(context).get_inner();
-        let instance_count_binding = args.instance_count.get_output(context).get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let autoscaling_policy_binding_1 = args.autoscaling_policy.get_output(context);
+        let autoscaling_policy_binding = autoscaling_policy_binding_1.get_inner();
+        let bid_price_binding_1 = args.bid_price.get_output(context);
+        let bid_price_binding = bid_price_binding_1.get_inner();
+        let cluster_id_binding_1 = args.cluster_id.get_output(context);
+        let cluster_id_binding = cluster_id_binding_1.get_inner();
+        let configurations_json_binding_1 = args.configurations_json.get_output(context);
+        let configurations_json_binding = configurations_json_binding_1.get_inner();
+        let ebs_configs_binding_1 = args.ebs_configs.get_output(context);
+        let ebs_configs_binding = ebs_configs_binding_1.get_inner();
+        let ebs_optimized_binding_1 = args.ebs_optimized.get_output(context);
+        let ebs_optimized_binding = ebs_optimized_binding_1.get_inner();
+        let instance_count_binding_1 = args.instance_count.get_output(context);
+        let instance_count_binding = instance_count_binding_1.get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:emr/instanceGroup:InstanceGroup".into(),
             name: name.to_string(),

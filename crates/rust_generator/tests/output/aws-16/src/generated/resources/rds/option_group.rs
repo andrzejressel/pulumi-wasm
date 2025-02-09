@@ -128,20 +128,27 @@ pub mod option_group {
     ) -> OptionGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let engine_name_binding = args.engine_name.get_output(context).get_inner();
-        let major_engine_version_binding = args
+        let engine_name_binding_1 = args.engine_name.get_output(context);
+        let engine_name_binding = engine_name_binding_1.get_inner();
+        let major_engine_version_binding_1 = args
             .major_engine_version
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let option_group_description_binding = args
+            .get_output(context);
+        let major_engine_version_binding = major_engine_version_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let option_group_description_binding_1 = args
             .option_group_description
-            .get_output(context)
+            .get_output(context);
+        let option_group_description_binding = option_group_description_binding_1
             .get_inner();
-        let options_binding = args.options.get_output(context).get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let options_binding_1 = args.options.get_output(context);
+        let options_binding = options_binding_1.get_inner();
+        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
+        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/optionGroup:OptionGroup".into(),
             name: name.to_string(),

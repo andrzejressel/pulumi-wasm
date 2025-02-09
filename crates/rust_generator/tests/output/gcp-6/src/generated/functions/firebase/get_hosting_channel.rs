@@ -42,8 +42,10 @@ pub mod get_hosting_channel {
     ) -> GetHostingChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let channel_id_binding = args.channel_id.get_output(context).get_inner();
-        let site_id_binding = args.site_id.get_output(context).get_inner();
+        let channel_id_binding_1 = args.channel_id.get_output(context);
+        let channel_id_binding = channel_id_binding_1.get_inner();
+        let site_id_binding_1 = args.site_id.get_output(context);
+        let site_id_binding = site_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:firebase/getHostingChannel:getHostingChannel".into(),
             version: super::super::super::get_version(),

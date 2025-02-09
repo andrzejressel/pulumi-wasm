@@ -114,21 +114,25 @@ pub mod domain_association {
     ) -> DomainAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_id_binding = args.app_id.get_output(context).get_inner();
-        let certificate_settings_binding = args
+        let app_id_binding_1 = args.app_id.get_output(context);
+        let app_id_binding = app_id_binding_1.get_inner();
+        let certificate_settings_binding_1 = args
             .certificate_settings
-            .get_output(context)
-            .get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let enable_auto_sub_domain_binding = args
+            .get_output(context);
+        let certificate_settings_binding = certificate_settings_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let enable_auto_sub_domain_binding_1 = args
             .enable_auto_sub_domain
-            .get_output(context)
+            .get_output(context);
+        let enable_auto_sub_domain_binding = enable_auto_sub_domain_binding_1
             .get_inner();
-        let sub_domains_binding = args.sub_domains.get_output(context).get_inner();
-        let wait_for_verification_binding = args
+        let sub_domains_binding_1 = args.sub_domains.get_output(context);
+        let sub_domains_binding = sub_domains_binding_1.get_inner();
+        let wait_for_verification_binding_1 = args
             .wait_for_verification
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let wait_for_verification_binding = wait_for_verification_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:amplify/domainAssociation:DomainAssociation".into(),
             name: name.to_string(),

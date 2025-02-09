@@ -37,10 +37,8 @@ pub mod get_runtime_versions {
     ) -> GetRuntimeVersionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let runtime_versions_binding = args
-            .runtime_versions
-            .get_output(context)
-            .get_inner();
+        let runtime_versions_binding_1 = args.runtime_versions.get_output(context);
+        let runtime_versions_binding = runtime_versions_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:synthetics/getRuntimeVersions:getRuntimeVersions".into(),
             version: super::super::super::get_version(),

@@ -89,14 +89,16 @@ pub mod placement_group {
     ) -> PlacementGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let partition_count_binding = args
-            .partition_count
-            .get_output(context)
-            .get_inner();
-        let spread_level_binding = args.spread_level.get_output(context).get_inner();
-        let strategy_binding = args.strategy.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let partition_count_binding_1 = args.partition_count.get_output(context);
+        let partition_count_binding = partition_count_binding_1.get_inner();
+        let spread_level_binding_1 = args.spread_level.get_output(context);
+        let spread_level_binding = spread_level_binding_1.get_inner();
+        let strategy_binding_1 = args.strategy.get_output(context);
+        let strategy_binding = strategy_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/placementGroup:PlacementGroup".into(),
             name: name.to_string(),

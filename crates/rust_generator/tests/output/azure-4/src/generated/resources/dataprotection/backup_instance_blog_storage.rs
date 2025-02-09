@@ -124,21 +124,21 @@ pub mod backup_instance_blog_storage {
     ) -> BackupInstanceBlogStorageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_policy_id_binding = args
-            .backup_policy_id
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let storage_account_container_names_binding = args
+        let backup_policy_id_binding_1 = args.backup_policy_id.get_output(context);
+        let backup_policy_id_binding = backup_policy_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let storage_account_container_names_binding_1 = args
             .storage_account_container_names
-            .get_output(context)
+            .get_output(context);
+        let storage_account_container_names_binding = storage_account_container_names_binding_1
             .get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
-        let vault_id_binding = args.vault_id.get_output(context).get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
+        let vault_id_binding_1 = args.vault_id.get_output(context);
+        let vault_id_binding = vault_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage"
                 .into(),

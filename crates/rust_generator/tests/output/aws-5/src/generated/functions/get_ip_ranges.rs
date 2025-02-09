@@ -51,10 +51,14 @@ pub mod get_ip_ranges {
     ) -> GetIpRangesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let id_binding = args.id.get_output(context).get_inner();
-        let regions_binding = args.regions.get_output(context).get_inner();
-        let services_binding = args.services.get_output(context).get_inner();
-        let url_binding = args.url.get_output(context).get_inner();
+        let id_binding_1 = args.id.get_output(context);
+        let id_binding = id_binding_1.get_inner();
+        let regions_binding_1 = args.regions.get_output(context);
+        let regions_binding = regions_binding_1.get_inner();
+        let services_binding_1 = args.services.get_output(context);
+        let services_binding = services_binding_1.get_inner();
+        let url_binding_1 = args.url.get_output(context);
+        let url_binding = url_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:index/getIpRanges:getIpRanges".into(),
             version: super::super::get_version(),

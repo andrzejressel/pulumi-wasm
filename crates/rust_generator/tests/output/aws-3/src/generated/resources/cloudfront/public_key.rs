@@ -73,10 +73,14 @@ pub mod public_key {
     ) -> PublicKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let encoded_key_binding = args.encoded_key.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let encoded_key_binding_1 = args.encoded_key.get_output(context);
+        let encoded_key_binding = encoded_key_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/publicKey:PublicKey".into(),
             name: name.to_string(),

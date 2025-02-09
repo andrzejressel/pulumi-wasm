@@ -175,23 +175,26 @@ pub mod data_exchange {
     ) -> DataExchangeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_exchange_id_binding = args
-            .data_exchange_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let documentation_binding = args.documentation.get_output(context).get_inner();
-        let icon_binding = args.icon.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let primary_contact_binding = args
-            .primary_contact
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let sharing_environment_config_binding = args
+        let data_exchange_id_binding_1 = args.data_exchange_id.get_output(context);
+        let data_exchange_id_binding = data_exchange_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let documentation_binding_1 = args.documentation.get_output(context);
+        let documentation_binding = documentation_binding_1.get_inner();
+        let icon_binding_1 = args.icon.get_output(context);
+        let icon_binding = icon_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let primary_contact_binding_1 = args.primary_contact.get_output(context);
+        let primary_contact_binding = primary_contact_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let sharing_environment_config_binding_1 = args
             .sharing_environment_config
-            .get_output(context)
+            .get_output(context);
+        let sharing_environment_config_binding = sharing_environment_config_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigqueryanalyticshub/dataExchange:DataExchange".into(),

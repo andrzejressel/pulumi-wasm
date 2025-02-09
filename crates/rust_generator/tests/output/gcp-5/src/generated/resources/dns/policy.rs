@@ -153,19 +153,26 @@ pub mod policy {
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alternative_name_server_config_binding = args
+        let alternative_name_server_config_binding_1 = args
             .alternative_name_server_config
-            .get_output(context)
+            .get_output(context);
+        let alternative_name_server_config_binding = alternative_name_server_config_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enable_inbound_forwarding_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enable_inbound_forwarding_binding_1 = args
             .enable_inbound_forwarding
-            .get_output(context)
+            .get_output(context);
+        let enable_inbound_forwarding_binding = enable_inbound_forwarding_binding_1
             .get_inner();
-        let enable_logging_binding = args.enable_logging.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let networks_binding = args.networks.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let enable_logging_binding_1 = args.enable_logging.get_output(context);
+        let enable_logging_binding = enable_logging_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let networks_binding_1 = args.networks.get_output(context);
+        let networks_binding = networks_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dns/policy:Policy".into(),
             name: name.to_string(),

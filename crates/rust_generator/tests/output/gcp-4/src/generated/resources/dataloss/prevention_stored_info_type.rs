@@ -232,19 +232,23 @@ pub mod prevention_stored_info_type {
     ) -> PreventionStoredInfoTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let dictionary_binding = args.dictionary.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let large_custom_dictionary_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dictionary_binding_1 = args.dictionary.get_output(context);
+        let dictionary_binding = dictionary_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let large_custom_dictionary_binding_1 = args
             .large_custom_dictionary
-            .get_output(context)
+            .get_output(context);
+        let large_custom_dictionary_binding = large_custom_dictionary_binding_1
             .get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let regex_binding = args.regex.get_output(context).get_inner();
-        let stored_info_type_id_binding = args
-            .stored_info_type_id
-            .get_output(context)
-            .get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let regex_binding_1 = args.regex.get_output(context);
+        let regex_binding = regex_binding_1.get_inner();
+        let stored_info_type_id_binding_1 = args.stored_info_type_id.get_output(context);
+        let stored_info_type_id_binding = stored_info_type_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataloss/preventionStoredInfoType:PreventionStoredInfoType"
                 .into(),

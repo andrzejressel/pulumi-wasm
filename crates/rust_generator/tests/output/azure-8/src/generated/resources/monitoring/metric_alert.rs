@@ -221,37 +221,46 @@ pub mod metric_alert {
     ) -> MetricAlertResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_output(context).get_inner();
-        let application_insights_web_test_location_availability_criteria_binding = args
+        let actions_binding_1 = args.actions.get_output(context);
+        let actions_binding = actions_binding_1.get_inner();
+        let application_insights_web_test_location_availability_criteria_binding_1 = args
             .application_insights_web_test_location_availability_criteria
-            .get_output(context)
+            .get_output(context);
+        let application_insights_web_test_location_availability_criteria_binding = application_insights_web_test_location_availability_criteria_binding_1
             .get_inner();
-        let auto_mitigate_binding = args.auto_mitigate.get_output(context).get_inner();
-        let criterias_binding = args.criterias.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let dynamic_criteria_binding = args
-            .dynamic_criteria
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let frequency_binding = args.frequency.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let scopes_binding = args.scopes.get_output(context).get_inner();
-        let severity_binding = args.severity.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_resource_location_binding = args
+        let auto_mitigate_binding_1 = args.auto_mitigate.get_output(context);
+        let auto_mitigate_binding = auto_mitigate_binding_1.get_inner();
+        let criterias_binding_1 = args.criterias.get_output(context);
+        let criterias_binding = criterias_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dynamic_criteria_binding_1 = args.dynamic_criteria.get_output(context);
+        let dynamic_criteria_binding = dynamic_criteria_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let frequency_binding_1 = args.frequency.get_output(context);
+        let frequency_binding = frequency_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let scopes_binding_1 = args.scopes.get_output(context);
+        let scopes_binding = scopes_binding_1.get_inner();
+        let severity_binding_1 = args.severity.get_output(context);
+        let severity_binding = severity_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_resource_location_binding_1 = args
             .target_resource_location
-            .get_output(context)
+            .get_output(context);
+        let target_resource_location_binding = target_resource_location_binding_1
             .get_inner();
-        let target_resource_type_binding = args
+        let target_resource_type_binding_1 = args
             .target_resource_type
-            .get_output(context)
-            .get_inner();
-        let window_size_binding = args.window_size.get_output(context).get_inner();
+            .get_output(context);
+        let target_resource_type_binding = target_resource_type_binding_1.get_inner();
+        let window_size_binding_1 = args.window_size.get_output(context);
+        let window_size_binding = window_size_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/metricAlert:MetricAlert".into(),
             name: name.to_string(),

@@ -65,14 +65,10 @@ pub mod transit_gateway_registration {
     ) -> TransitGatewayRegistrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let global_network_id_binding = args
-            .global_network_id
-            .get_output(context)
-            .get_inner();
-        let transit_gateway_arn_binding = args
-            .transit_gateway_arn
-            .get_output(context)
-            .get_inner();
+        let global_network_id_binding_1 = args.global_network_id.get_output(context);
+        let global_network_id_binding = global_network_id_binding_1.get_inner();
+        let transit_gateway_arn_binding_1 = args.transit_gateway_arn.get_output(context);
+        let transit_gateway_arn_binding = transit_gateway_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration"
                 .into(),

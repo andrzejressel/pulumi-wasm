@@ -27,8 +27,10 @@ pub mod get_android_app_config {
     ) -> GetAndroidAppConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_id_binding = args.app_id.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let app_id_binding_1 = args.app_id.get_output(context);
+        let app_id_binding = app_id_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:firebase/getAndroidAppConfig:getAndroidAppConfig".into(),
             version: super::super::super::get_version(),

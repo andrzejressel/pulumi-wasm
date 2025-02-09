@@ -30,11 +30,10 @@ pub mod get_sas {
     ) -> GetSasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_string_binding = args
-            .connection_string
-            .get_output(context)
-            .get_inner();
-        let expiry_binding = args.expiry.get_output(context).get_inner();
+        let connection_string_binding_1 = args.connection_string.get_output(context);
+        let connection_string_binding = connection_string_binding_1.get_inner();
+        let expiry_binding_1 = args.expiry.get_output(context);
+        let expiry_binding = expiry_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:eventhub/getSas:getSas".into(),
             version: super::super::super::get_version(),

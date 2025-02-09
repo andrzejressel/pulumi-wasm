@@ -45,16 +45,19 @@ pub mod get_table_item {
     ) -> GetTableItemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let expression_attribute_names_binding = args
+        let expression_attribute_names_binding_1 = args
             .expression_attribute_names
-            .get_output(context)
+            .get_output(context);
+        let expression_attribute_names_binding = expression_attribute_names_binding_1
             .get_inner();
-        let key_binding = args.key.get_output(context).get_inner();
-        let projection_expression_binding = args
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let projection_expression_binding_1 = args
             .projection_expression
-            .get_output(context)
-            .get_inner();
-        let table_name_binding = args.table_name.get_output(context).get_inner();
+            .get_output(context);
+        let projection_expression_binding = projection_expression_binding_1.get_inner();
+        let table_name_binding_1 = args.table_name.get_output(context);
+        let table_name_binding = table_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:dynamodb/getTableItem:getTableItem".into(),
             version: super::super::super::get_version(),

@@ -364,101 +364,111 @@ pub mod kubernetes_cluster_node_pool {
     ) -> KubernetesClusterNodePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_scaling_enabled_binding = args
+        let auto_scaling_enabled_binding_1 = args
             .auto_scaling_enabled
-            .get_output(context)
-            .get_inner();
-        let capacity_reservation_group_id_binding = args
+            .get_output(context);
+        let auto_scaling_enabled_binding = auto_scaling_enabled_binding_1.get_inner();
+        let capacity_reservation_group_id_binding_1 = args
             .capacity_reservation_group_id
-            .get_output(context)
+            .get_output(context);
+        let capacity_reservation_group_id_binding = capacity_reservation_group_id_binding_1
             .get_inner();
-        let eviction_policy_binding = args
-            .eviction_policy
-            .get_output(context)
-            .get_inner();
-        let fips_enabled_binding = args.fips_enabled.get_output(context).get_inner();
-        let gpu_instance_binding = args.gpu_instance.get_output(context).get_inner();
-        let host_encryption_enabled_binding = args
+        let eviction_policy_binding_1 = args.eviction_policy.get_output(context);
+        let eviction_policy_binding = eviction_policy_binding_1.get_inner();
+        let fips_enabled_binding_1 = args.fips_enabled.get_output(context);
+        let fips_enabled_binding = fips_enabled_binding_1.get_inner();
+        let gpu_instance_binding_1 = args.gpu_instance.get_output(context);
+        let gpu_instance_binding = gpu_instance_binding_1.get_inner();
+        let host_encryption_enabled_binding_1 = args
             .host_encryption_enabled
-            .get_output(context)
+            .get_output(context);
+        let host_encryption_enabled_binding = host_encryption_enabled_binding_1
             .get_inner();
-        let host_group_id_binding = args.host_group_id.get_output(context).get_inner();
-        let kubelet_config_binding = args.kubelet_config.get_output(context).get_inner();
-        let kubelet_disk_type_binding = args
-            .kubelet_disk_type
-            .get_output(context)
-            .get_inner();
-        let kubernetes_cluster_id_binding = args
+        let host_group_id_binding_1 = args.host_group_id.get_output(context);
+        let host_group_id_binding = host_group_id_binding_1.get_inner();
+        let kubelet_config_binding_1 = args.kubelet_config.get_output(context);
+        let kubelet_config_binding = kubelet_config_binding_1.get_inner();
+        let kubelet_disk_type_binding_1 = args.kubelet_disk_type.get_output(context);
+        let kubelet_disk_type_binding = kubelet_disk_type_binding_1.get_inner();
+        let kubernetes_cluster_id_binding_1 = args
             .kubernetes_cluster_id
-            .get_output(context)
-            .get_inner();
-        let linux_os_config_binding = args
-            .linux_os_config
-            .get_output(context)
-            .get_inner();
-        let max_count_binding = args.max_count.get_output(context).get_inner();
-        let max_pods_binding = args.max_pods.get_output(context).get_inner();
-        let min_count_binding = args.min_count.get_output(context).get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_count_binding = args.node_count.get_output(context).get_inner();
-        let node_labels_binding = args.node_labels.get_output(context).get_inner();
-        let node_network_profile_binding = args
+            .get_output(context);
+        let kubernetes_cluster_id_binding = kubernetes_cluster_id_binding_1.get_inner();
+        let linux_os_config_binding_1 = args.linux_os_config.get_output(context);
+        let linux_os_config_binding = linux_os_config_binding_1.get_inner();
+        let max_count_binding_1 = args.max_count.get_output(context);
+        let max_count_binding = max_count_binding_1.get_inner();
+        let max_pods_binding_1 = args.max_pods.get_output(context);
+        let max_pods_binding = max_pods_binding_1.get_inner();
+        let min_count_binding_1 = args.min_count.get_output(context);
+        let min_count_binding = min_count_binding_1.get_inner();
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_count_binding_1 = args.node_count.get_output(context);
+        let node_count_binding = node_count_binding_1.get_inner();
+        let node_labels_binding_1 = args.node_labels.get_output(context);
+        let node_labels_binding = node_labels_binding_1.get_inner();
+        let node_network_profile_binding_1 = args
             .node_network_profile
-            .get_output(context)
-            .get_inner();
-        let node_public_ip_enabled_binding = args
+            .get_output(context);
+        let node_network_profile_binding = node_network_profile_binding_1.get_inner();
+        let node_public_ip_enabled_binding_1 = args
             .node_public_ip_enabled
-            .get_output(context)
+            .get_output(context);
+        let node_public_ip_enabled_binding = node_public_ip_enabled_binding_1
             .get_inner();
-        let node_public_ip_prefix_id_binding = args
+        let node_public_ip_prefix_id_binding_1 = args
             .node_public_ip_prefix_id
-            .get_output(context)
+            .get_output(context);
+        let node_public_ip_prefix_id_binding = node_public_ip_prefix_id_binding_1
             .get_inner();
-        let node_taints_binding = args.node_taints.get_output(context).get_inner();
-        let orchestrator_version_binding = args
+        let node_taints_binding_1 = args.node_taints.get_output(context);
+        let node_taints_binding = node_taints_binding_1.get_inner();
+        let orchestrator_version_binding_1 = args
             .orchestrator_version
-            .get_output(context)
-            .get_inner();
-        let os_disk_size_gb_binding = args
-            .os_disk_size_gb
-            .get_output(context)
-            .get_inner();
-        let os_disk_type_binding = args.os_disk_type.get_output(context).get_inner();
-        let os_sku_binding = args.os_sku.get_output(context).get_inner();
-        let os_type_binding = args.os_type.get_output(context).get_inner();
-        let pod_subnet_id_binding = args.pod_subnet_id.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let proximity_placement_group_id_binding = args
+            .get_output(context);
+        let orchestrator_version_binding = orchestrator_version_binding_1.get_inner();
+        let os_disk_size_gb_binding_1 = args.os_disk_size_gb.get_output(context);
+        let os_disk_size_gb_binding = os_disk_size_gb_binding_1.get_inner();
+        let os_disk_type_binding_1 = args.os_disk_type.get_output(context);
+        let os_disk_type_binding = os_disk_type_binding_1.get_inner();
+        let os_sku_binding_1 = args.os_sku.get_output(context);
+        let os_sku_binding = os_sku_binding_1.get_inner();
+        let os_type_binding_1 = args.os_type.get_output(context);
+        let os_type_binding = os_type_binding_1.get_inner();
+        let pod_subnet_id_binding_1 = args.pod_subnet_id.get_output(context);
+        let pod_subnet_id_binding = pod_subnet_id_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let proximity_placement_group_id_binding_1 = args
             .proximity_placement_group_id
-            .get_output(context)
+            .get_output(context);
+        let proximity_placement_group_id_binding = proximity_placement_group_id_binding_1
             .get_inner();
-        let scale_down_mode_binding = args
-            .scale_down_mode
-            .get_output(context)
-            .get_inner();
-        let snapshot_id_binding = args.snapshot_id.get_output(context).get_inner();
-        let spot_max_price_binding = args.spot_max_price.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let ultra_ssd_enabled_binding = args
-            .ultra_ssd_enabled
-            .get_output(context)
-            .get_inner();
-        let upgrade_settings_binding = args
-            .upgrade_settings
-            .get_output(context)
-            .get_inner();
-        let vm_size_binding = args.vm_size.get_output(context).get_inner();
-        let vnet_subnet_id_binding = args.vnet_subnet_id.get_output(context).get_inner();
-        let windows_profile_binding = args
-            .windows_profile
-            .get_output(context)
-            .get_inner();
-        let workload_runtime_binding = args
-            .workload_runtime
-            .get_output(context)
-            .get_inner();
-        let zones_binding = args.zones.get_output(context).get_inner();
+        let scale_down_mode_binding_1 = args.scale_down_mode.get_output(context);
+        let scale_down_mode_binding = scale_down_mode_binding_1.get_inner();
+        let snapshot_id_binding_1 = args.snapshot_id.get_output(context);
+        let snapshot_id_binding = snapshot_id_binding_1.get_inner();
+        let spot_max_price_binding_1 = args.spot_max_price.get_output(context);
+        let spot_max_price_binding = spot_max_price_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let ultra_ssd_enabled_binding_1 = args.ultra_ssd_enabled.get_output(context);
+        let ultra_ssd_enabled_binding = ultra_ssd_enabled_binding_1.get_inner();
+        let upgrade_settings_binding_1 = args.upgrade_settings.get_output(context);
+        let upgrade_settings_binding = upgrade_settings_binding_1.get_inner();
+        let vm_size_binding_1 = args.vm_size.get_output(context);
+        let vm_size_binding = vm_size_binding_1.get_inner();
+        let vnet_subnet_id_binding_1 = args.vnet_subnet_id.get_output(context);
+        let vnet_subnet_id_binding = vnet_subnet_id_binding_1.get_inner();
+        let windows_profile_binding_1 = args.windows_profile.get_output(context);
+        let windows_profile_binding = windows_profile_binding_1.get_inner();
+        let workload_runtime_binding_1 = args.workload_runtime.get_output(context);
+        let workload_runtime_binding = workload_runtime_binding_1.get_inner();
+        let zones_binding_1 = args.zones.get_output(context);
+        let zones_binding = zones_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool"
                 .into(),

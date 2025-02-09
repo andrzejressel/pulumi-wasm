@@ -124,13 +124,16 @@ pub mod workspace {
     ) -> WorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_output(context).get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
-        let logging_configuration_binding = args
+        let alias_binding_1 = args.alias.get_output(context);
+        let alias_binding = alias_binding_1.get_inner();
+        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
+        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
+        let logging_configuration_binding_1 = args
             .logging_configuration
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let logging_configuration_binding = logging_configuration_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:amp/workspace:Workspace".into(),
             name: name.to_string(),

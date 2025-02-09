@@ -117,24 +117,32 @@ pub mod volume {
     ) -> VolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let encrypted_binding = args.encrypted.get_output(context).get_inner();
-        let final_snapshot_binding = args.final_snapshot.get_output(context).get_inner();
-        let iops_binding = args.iops.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let multi_attach_enabled_binding = args
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let encrypted_binding_1 = args.encrypted.get_output(context);
+        let encrypted_binding = encrypted_binding_1.get_inner();
+        let final_snapshot_binding_1 = args.final_snapshot.get_output(context);
+        let final_snapshot_binding = final_snapshot_binding_1.get_inner();
+        let iops_binding_1 = args.iops.get_output(context);
+        let iops_binding = iops_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let multi_attach_enabled_binding_1 = args
             .multi_attach_enabled
-            .get_output(context)
-            .get_inner();
-        let outpost_arn_binding = args.outpost_arn.get_output(context).get_inner();
-        let size_binding = args.size.get_output(context).get_inner();
-        let snapshot_id_binding = args.snapshot_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let throughput_binding = args.throughput.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+            .get_output(context);
+        let multi_attach_enabled_binding = multi_attach_enabled_binding_1.get_inner();
+        let outpost_arn_binding_1 = args.outpost_arn.get_output(context);
+        let outpost_arn_binding = outpost_arn_binding_1.get_inner();
+        let size_binding_1 = args.size.get_output(context);
+        let size_binding = size_binding_1.get_inner();
+        let snapshot_id_binding_1 = args.snapshot_id.get_output(context);
+        let snapshot_id_binding = snapshot_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let throughput_binding_1 = args.throughput.get_output(context);
+        let throughput_binding = throughput_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ebs/volume:Volume".into(),
             name: name.to_string(),

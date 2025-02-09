@@ -80,11 +80,16 @@ pub mod usage_limit {
     ) -> UsageLimitResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let amount_binding = args.amount.get_output(context).get_inner();
-        let breach_action_binding = args.breach_action.get_output(context).get_inner();
-        let period_binding = args.period.get_output(context).get_inner();
-        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
-        let usage_type_binding = args.usage_type.get_output(context).get_inner();
+        let amount_binding_1 = args.amount.get_output(context);
+        let amount_binding = amount_binding_1.get_inner();
+        let breach_action_binding_1 = args.breach_action.get_output(context);
+        let breach_action_binding = breach_action_binding_1.get_inner();
+        let period_binding_1 = args.period.get_output(context);
+        let period_binding = period_binding_1.get_inner();
+        let resource_arn_binding_1 = args.resource_arn.get_output(context);
+        let resource_arn_binding = resource_arn_binding_1.get_inner();
+        let usage_type_binding_1 = args.usage_type.get_output(context);
+        let usage_type_binding = usage_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshiftserverless/usageLimit:UsageLimit".into(),
             name: name.to_string(),

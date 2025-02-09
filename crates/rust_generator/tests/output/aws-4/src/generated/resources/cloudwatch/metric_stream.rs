@@ -268,28 +268,32 @@ pub mod metric_stream {
     ) -> MetricStreamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let exclude_filters_binding = args
-            .exclude_filters
-            .get_output(context)
-            .get_inner();
-        let firehose_arn_binding = args.firehose_arn.get_output(context).get_inner();
-        let include_filters_binding = args
-            .include_filters
-            .get_output(context)
-            .get_inner();
-        let include_linked_accounts_metrics_binding = args
+        let exclude_filters_binding_1 = args.exclude_filters.get_output(context);
+        let exclude_filters_binding = exclude_filters_binding_1.get_inner();
+        let firehose_arn_binding_1 = args.firehose_arn.get_output(context);
+        let firehose_arn_binding = firehose_arn_binding_1.get_inner();
+        let include_filters_binding_1 = args.include_filters.get_output(context);
+        let include_filters_binding = include_filters_binding_1.get_inner();
+        let include_linked_accounts_metrics_binding_1 = args
             .include_linked_accounts_metrics
-            .get_output(context)
+            .get_output(context);
+        let include_linked_accounts_metrics_binding = include_linked_accounts_metrics_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let output_format_binding = args.output_format.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let statistics_configurations_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let output_format_binding_1 = args.output_format.get_output(context);
+        let output_format_binding = output_format_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let statistics_configurations_binding_1 = args
             .statistics_configurations
-            .get_output(context)
+            .get_output(context);
+        let statistics_configurations_binding = statistics_configurations_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/metricStream:MetricStream".into(),
             name: name.to_string(),

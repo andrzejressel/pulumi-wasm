@@ -199,13 +199,14 @@ pub mod project_custom_module {
     ) -> ProjectCustomModuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_config_binding = args.custom_config.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enablement_state_binding = args
-            .enablement_state
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let custom_config_binding_1 = args.custom_config.get_output(context);
+        let custom_config_binding = custom_config_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enablement_state_binding_1 = args.enablement_state.get_output(context);
+        let enablement_state_binding = enablement_state_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/projectCustomModule:ProjectCustomModule".into(),
             name: name.to_string(),

@@ -104,14 +104,10 @@ pub mod account {
     ) -> AccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_role_arn_binding = args
-            .cloudwatch_role_arn
-            .get_output(context)
-            .get_inner();
-        let reset_on_delete_binding = args
-            .reset_on_delete
-            .get_output(context)
-            .get_inner();
+        let cloudwatch_role_arn_binding_1 = args.cloudwatch_role_arn.get_output(context);
+        let cloudwatch_role_arn_binding = cloudwatch_role_arn_binding_1.get_inner();
+        let reset_on_delete_binding_1 = args.reset_on_delete.get_output(context);
+        let reset_on_delete_binding = reset_on_delete_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/account:Account".into(),
             name: name.to_string(),

@@ -181,25 +181,35 @@ pub mod pipeline {
     ) -> PipelineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let buffer_options_binding = args.buffer_options.get_output(context).get_inner();
-        let encryption_at_rest_options_binding = args
+        let buffer_options_binding_1 = args.buffer_options.get_output(context);
+        let buffer_options_binding = buffer_options_binding_1.get_inner();
+        let encryption_at_rest_options_binding_1 = args
             .encryption_at_rest_options
-            .get_output(context)
+            .get_output(context);
+        let encryption_at_rest_options_binding = encryption_at_rest_options_binding_1
             .get_inner();
-        let log_publishing_options_binding = args
+        let log_publishing_options_binding_1 = args
             .log_publishing_options
-            .get_output(context)
+            .get_output(context);
+        let log_publishing_options_binding = log_publishing_options_binding_1
             .get_inner();
-        let max_units_binding = args.max_units.get_output(context).get_inner();
-        let min_units_binding = args.min_units.get_output(context).get_inner();
-        let pipeline_configuration_body_binding = args
+        let max_units_binding_1 = args.max_units.get_output(context);
+        let max_units_binding = max_units_binding_1.get_inner();
+        let min_units_binding_1 = args.min_units.get_output(context);
+        let min_units_binding = min_units_binding_1.get_inner();
+        let pipeline_configuration_body_binding_1 = args
             .pipeline_configuration_body
-            .get_output(context)
+            .get_output(context);
+        let pipeline_configuration_body_binding = pipeline_configuration_body_binding_1
             .get_inner();
-        let pipeline_name_binding = args.pipeline_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let vpc_options_binding = args.vpc_options.get_output(context).get_inner();
+        let pipeline_name_binding_1 = args.pipeline_name.get_output(context);
+        let pipeline_name_binding = pipeline_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let vpc_options_binding_1 = args.vpc_options.get_output(context);
+        let vpc_options_binding = vpc_options_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opensearchingest/pipeline:Pipeline".into(),
             name: name.to_string(),

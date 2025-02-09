@@ -67,10 +67,14 @@ pub mod byo_ip_prefix {
     ) -> ByoIpPrefixResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let advertisement_binding = args.advertisement.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let prefix_id_binding = args.prefix_id.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let advertisement_binding_1 = args.advertisement.get_output(context);
+        let advertisement_binding = advertisement_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let prefix_id_binding_1 = args.prefix_id.get_output(context);
+        let prefix_id_binding = prefix_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/byoIpPrefix:ByoIpPrefix".into(),
             name: name.to_string(),

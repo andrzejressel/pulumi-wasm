@@ -108,21 +108,21 @@ pub mod data_connector_office_365 {
     ) -> DataConnectorOffice365Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let exchange_enabled_binding = args
-            .exchange_enabled
-            .get_output(context)
-            .get_inner();
-        let log_analytics_workspace_id_binding = args
+        let exchange_enabled_binding_1 = args.exchange_enabled.get_output(context);
+        let exchange_enabled_binding = exchange_enabled_binding_1.get_inner();
+        let log_analytics_workspace_id_binding_1 = args
             .log_analytics_workspace_id
-            .get_output(context)
+            .get_output(context);
+        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let sharepoint_enabled_binding = args
-            .sharepoint_enabled
-            .get_output(context)
-            .get_inner();
-        let teams_enabled_binding = args.teams_enabled.get_output(context).get_inner();
-        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let sharepoint_enabled_binding_1 = args.sharepoint_enabled.get_output(context);
+        let sharepoint_enabled_binding = sharepoint_enabled_binding_1.get_inner();
+        let teams_enabled_binding_1 = args.teams_enabled.get_output(context);
+        let teams_enabled_binding = teams_enabled_binding_1.get_inner();
+        let tenant_id_binding_1 = args.tenant_id.get_output(context);
+        let tenant_id_binding = tenant_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365".into(),
             name: name.to_string(),

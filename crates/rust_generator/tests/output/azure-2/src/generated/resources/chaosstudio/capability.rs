@@ -85,13 +85,12 @@ pub mod capability {
     ) -> CapabilityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capability_type_binding = args
-            .capability_type
-            .get_output(context)
-            .get_inner();
-        let chaos_studio_target_id_binding = args
+        let capability_type_binding_1 = args.capability_type.get_output(context);
+        let capability_type_binding = capability_type_binding_1.get_inner();
+        let chaos_studio_target_id_binding_1 = args
             .chaos_studio_target_id
-            .get_output(context)
+            .get_output(context);
+        let chaos_studio_target_id_binding = chaos_studio_target_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:chaosstudio/capability:Capability".into(),

@@ -149,33 +149,34 @@ pub mod traffic_mirror_filter_rule {
     ) -> TrafficMirrorFilterRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let destination_cidr_block_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let destination_cidr_block_binding_1 = args
             .destination_cidr_block
-            .get_output(context)
+            .get_output(context);
+        let destination_cidr_block_binding = destination_cidr_block_binding_1
             .get_inner();
-        let destination_port_range_binding = args
+        let destination_port_range_binding_1 = args
             .destination_port_range
-            .get_output(context)
+            .get_output(context);
+        let destination_port_range_binding = destination_port_range_binding_1
             .get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let rule_action_binding = args.rule_action.get_output(context).get_inner();
-        let rule_number_binding = args.rule_number.get_output(context).get_inner();
-        let source_cidr_block_binding = args
-            .source_cidr_block
-            .get_output(context)
-            .get_inner();
-        let source_port_range_binding = args
-            .source_port_range
-            .get_output(context)
-            .get_inner();
-        let traffic_direction_binding = args
-            .traffic_direction
-            .get_output(context)
-            .get_inner();
-        let traffic_mirror_filter_id_binding = args
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let rule_action_binding_1 = args.rule_action.get_output(context);
+        let rule_action_binding = rule_action_binding_1.get_inner();
+        let rule_number_binding_1 = args.rule_number.get_output(context);
+        let rule_number_binding = rule_number_binding_1.get_inner();
+        let source_cidr_block_binding_1 = args.source_cidr_block.get_output(context);
+        let source_cidr_block_binding = source_cidr_block_binding_1.get_inner();
+        let source_port_range_binding_1 = args.source_port_range.get_output(context);
+        let source_port_range_binding = source_port_range_binding_1.get_inner();
+        let traffic_direction_binding_1 = args.traffic_direction.get_output(context);
+        let traffic_direction_binding = traffic_direction_binding_1.get_inner();
+        let traffic_mirror_filter_id_binding_1 = args
             .traffic_mirror_filter_id
-            .get_output(context)
+            .get_output(context);
+        let traffic_mirror_filter_id_binding = traffic_mirror_filter_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule".into(),

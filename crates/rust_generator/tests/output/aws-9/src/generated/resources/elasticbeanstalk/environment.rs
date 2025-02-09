@@ -235,24 +235,34 @@ pub mod environment {
     ) -> EnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_binding = args.application.get_output(context).get_inner();
-        let cname_prefix_binding = args.cname_prefix.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let platform_arn_binding = args.platform_arn.get_output(context).get_inner();
-        let poll_interval_binding = args.poll_interval.get_output(context).get_inner();
-        let settings_binding = args.settings.get_output(context).get_inner();
-        let solution_stack_name_binding = args
-            .solution_stack_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let template_name_binding = args.template_name.get_output(context).get_inner();
-        let tier_binding = args.tier.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
-        let wait_for_ready_timeout_binding = args
+        let application_binding_1 = args.application.get_output(context);
+        let application_binding = application_binding_1.get_inner();
+        let cname_prefix_binding_1 = args.cname_prefix.get_output(context);
+        let cname_prefix_binding = cname_prefix_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let platform_arn_binding_1 = args.platform_arn.get_output(context);
+        let platform_arn_binding = platform_arn_binding_1.get_inner();
+        let poll_interval_binding_1 = args.poll_interval.get_output(context);
+        let poll_interval_binding = poll_interval_binding_1.get_inner();
+        let settings_binding_1 = args.settings.get_output(context);
+        let settings_binding = settings_binding_1.get_inner();
+        let solution_stack_name_binding_1 = args.solution_stack_name.get_output(context);
+        let solution_stack_name_binding = solution_stack_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let template_name_binding_1 = args.template_name.get_output(context);
+        let template_name_binding = template_name_binding_1.get_inner();
+        let tier_binding_1 = args.tier.get_output(context);
+        let tier_binding = tier_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
+        let wait_for_ready_timeout_binding_1 = args
             .wait_for_ready_timeout
-            .get_output(context)
+            .get_output(context);
+        let wait_for_ready_timeout_binding = wait_for_ready_timeout_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticbeanstalk/environment:Environment".into(),

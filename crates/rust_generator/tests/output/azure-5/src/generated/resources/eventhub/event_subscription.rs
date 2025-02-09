@@ -235,75 +235,77 @@ pub mod event_subscription {
     ) -> EventSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advanced_filter_binding = args
-            .advanced_filter
-            .get_output(context)
-            .get_inner();
-        let advanced_filtering_on_arrays_enabled_binding = args
+        let advanced_filter_binding_1 = args.advanced_filter.get_output(context);
+        let advanced_filter_binding = advanced_filter_binding_1.get_inner();
+        let advanced_filtering_on_arrays_enabled_binding_1 = args
             .advanced_filtering_on_arrays_enabled
-            .get_output(context)
+            .get_output(context);
+        let advanced_filtering_on_arrays_enabled_binding = advanced_filtering_on_arrays_enabled_binding_1
             .get_inner();
-        let azure_function_endpoint_binding = args
+        let azure_function_endpoint_binding_1 = args
             .azure_function_endpoint
-            .get_output(context)
+            .get_output(context);
+        let azure_function_endpoint_binding = azure_function_endpoint_binding_1
             .get_inner();
-        let dead_letter_identity_binding = args
+        let dead_letter_identity_binding_1 = args
             .dead_letter_identity
-            .get_output(context)
-            .get_inner();
-        let delivery_identity_binding = args
-            .delivery_identity
-            .get_output(context)
-            .get_inner();
-        let delivery_properties_binding = args
-            .delivery_properties
-            .get_output(context)
-            .get_inner();
-        let event_delivery_schema_binding = args
+            .get_output(context);
+        let dead_letter_identity_binding = dead_letter_identity_binding_1.get_inner();
+        let delivery_identity_binding_1 = args.delivery_identity.get_output(context);
+        let delivery_identity_binding = delivery_identity_binding_1.get_inner();
+        let delivery_properties_binding_1 = args.delivery_properties.get_output(context);
+        let delivery_properties_binding = delivery_properties_binding_1.get_inner();
+        let event_delivery_schema_binding_1 = args
             .event_delivery_schema
-            .get_output(context)
-            .get_inner();
-        let eventhub_endpoint_id_binding = args
+            .get_output(context);
+        let event_delivery_schema_binding = event_delivery_schema_binding_1.get_inner();
+        let eventhub_endpoint_id_binding_1 = args
             .eventhub_endpoint_id
-            .get_output(context)
-            .get_inner();
-        let expiration_time_utc_binding = args
-            .expiration_time_utc
-            .get_output(context)
-            .get_inner();
-        let hybrid_connection_endpoint_id_binding = args
+            .get_output(context);
+        let eventhub_endpoint_id_binding = eventhub_endpoint_id_binding_1.get_inner();
+        let expiration_time_utc_binding_1 = args.expiration_time_utc.get_output(context);
+        let expiration_time_utc_binding = expiration_time_utc_binding_1.get_inner();
+        let hybrid_connection_endpoint_id_binding_1 = args
             .hybrid_connection_endpoint_id
-            .get_output(context)
+            .get_output(context);
+        let hybrid_connection_endpoint_id_binding = hybrid_connection_endpoint_id_binding_1
             .get_inner();
-        let included_event_types_binding = args
+        let included_event_types_binding_1 = args
             .included_event_types
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let retry_policy_binding = args.retry_policy.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
-        let service_bus_queue_endpoint_id_binding = args
+            .get_output(context);
+        let included_event_types_binding = included_event_types_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let retry_policy_binding_1 = args.retry_policy.get_output(context);
+        let retry_policy_binding = retry_policy_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
+        let service_bus_queue_endpoint_id_binding_1 = args
             .service_bus_queue_endpoint_id
-            .get_output(context)
+            .get_output(context);
+        let service_bus_queue_endpoint_id_binding = service_bus_queue_endpoint_id_binding_1
             .get_inner();
-        let service_bus_topic_endpoint_id_binding = args
+        let service_bus_topic_endpoint_id_binding_1 = args
             .service_bus_topic_endpoint_id
-            .get_output(context)
+            .get_output(context);
+        let service_bus_topic_endpoint_id_binding = service_bus_topic_endpoint_id_binding_1
             .get_inner();
-        let storage_blob_dead_letter_destination_binding = args
+        let storage_blob_dead_letter_destination_binding_1 = args
             .storage_blob_dead_letter_destination
-            .get_output(context)
+            .get_output(context);
+        let storage_blob_dead_letter_destination_binding = storage_blob_dead_letter_destination_binding_1
             .get_inner();
-        let storage_queue_endpoint_binding = args
+        let storage_queue_endpoint_binding_1 = args
             .storage_queue_endpoint
-            .get_output(context)
+            .get_output(context);
+        let storage_queue_endpoint_binding = storage_queue_endpoint_binding_1
             .get_inner();
-        let subject_filter_binding = args.subject_filter.get_output(context).get_inner();
-        let webhook_endpoint_binding = args
-            .webhook_endpoint
-            .get_output(context)
-            .get_inner();
+        let subject_filter_binding_1 = args.subject_filter.get_output(context);
+        let subject_filter_binding = subject_filter_binding_1.get_inner();
+        let webhook_endpoint_binding_1 = args.webhook_endpoint.get_output(context);
+        let webhook_endpoint_binding = webhook_endpoint_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:eventhub/eventSubscription:EventSubscription".into(),
             name: name.to_string(),

@@ -228,23 +228,25 @@ pub mod rule {
     ) -> RuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let evaluation_modes_binding = args
-            .evaluation_modes
-            .get_output(context)
-            .get_inner();
-        let input_parameters_binding = args
-            .input_parameters
-            .get_output(context)
-            .get_inner();
-        let maximum_execution_frequency_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let evaluation_modes_binding_1 = args.evaluation_modes.get_output(context);
+        let evaluation_modes_binding = evaluation_modes_binding_1.get_inner();
+        let input_parameters_binding_1 = args.input_parameters.get_output(context);
+        let input_parameters_binding = input_parameters_binding_1.get_inner();
+        let maximum_execution_frequency_binding_1 = args
             .maximum_execution_frequency
-            .get_output(context)
+            .get_output(context);
+        let maximum_execution_frequency_binding = maximum_execution_frequency_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/rule:Rule".into(),
             name: name.to_string(),

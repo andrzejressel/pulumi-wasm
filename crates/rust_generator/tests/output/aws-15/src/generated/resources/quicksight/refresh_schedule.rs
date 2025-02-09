@@ -155,10 +155,14 @@ pub mod refresh_schedule {
     ) -> RefreshScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let data_set_id_binding = args.data_set_id.get_output(context).get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let schedule_id_binding = args.schedule_id.get_output(context).get_inner();
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let data_set_id_binding_1 = args.data_set_id.get_output(context);
+        let data_set_id_binding = data_set_id_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let schedule_id_binding_1 = args.schedule_id.get_output(context);
+        let schedule_id_binding = schedule_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/refreshSchedule:RefreshSchedule".into(),
             name: name.to_string(),

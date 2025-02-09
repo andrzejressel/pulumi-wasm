@@ -60,14 +60,10 @@ pub mod endpoint_private_dns {
     ) -> EndpointPrivateDnsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let private_dns_enabled_binding = args
-            .private_dns_enabled
-            .get_output(context)
-            .get_inner();
-        let vpc_endpoint_id_binding = args
-            .vpc_endpoint_id
-            .get_output(context)
-            .get_inner();
+        let private_dns_enabled_binding_1 = args.private_dns_enabled.get_output(context);
+        let private_dns_enabled_binding = private_dns_enabled_binding_1.get_inner();
+        let vpc_endpoint_id_binding_1 = args.vpc_endpoint_id.get_output(context);
+        let vpc_endpoint_id_binding = vpc_endpoint_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpc/endpointPrivateDns:EndpointPrivateDns".into(),
             name: name.to_string(),

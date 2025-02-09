@@ -64,14 +64,10 @@ pub mod group_subscription_association {
     ) -> GroupSubscriptionAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let management_group_id_binding = args
-            .management_group_id
-            .get_output(context)
-            .get_inner();
-        let subscription_id_binding = args
-            .subscription_id
-            .get_output(context)
-            .get_inner();
+        let management_group_id_binding_1 = args.management_group_id.get_output(context);
+        let management_group_id_binding = management_group_id_binding_1.get_inner();
+        let subscription_id_binding_1 = args.subscription_id.get_output(context);
+        let subscription_id_binding = subscription_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation"
                 .into(),

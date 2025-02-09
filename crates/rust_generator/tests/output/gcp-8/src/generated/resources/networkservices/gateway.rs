@@ -441,34 +441,44 @@ pub mod gateway {
     ) -> GatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addresses_binding = args.addresses.get_output(context).get_inner();
-        let certificate_urls_binding = args
-            .certificate_urls
-            .get_output(context)
-            .get_inner();
-        let delete_swg_autogen_router_on_destroy_binding = args
+        let addresses_binding_1 = args.addresses.get_output(context);
+        let addresses_binding = addresses_binding_1.get_inner();
+        let certificate_urls_binding_1 = args.certificate_urls.get_output(context);
+        let certificate_urls_binding = certificate_urls_binding_1.get_inner();
+        let delete_swg_autogen_router_on_destroy_binding_1 = args
             .delete_swg_autogen_router_on_destroy
-            .get_output(context)
+            .get_output(context);
+        let delete_swg_autogen_router_on_destroy_binding = delete_swg_autogen_router_on_destroy_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let gateway_security_policy_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let gateway_security_policy_binding_1 = args
             .gateway_security_policy
-            .get_output(context)
+            .get_output(context);
+        let gateway_security_policy_binding = gateway_security_policy_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let ports_binding = args.ports.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let routing_mode_binding = args.routing_mode.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
-        let server_tls_policy_binding = args
-            .server_tls_policy
-            .get_output(context)
-            .get_inner();
-        let subnetwork_binding = args.subnetwork.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let ports_binding_1 = args.ports.get_output(context);
+        let ports_binding = ports_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let routing_mode_binding_1 = args.routing_mode.get_output(context);
+        let routing_mode_binding = routing_mode_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
+        let server_tls_policy_binding_1 = args.server_tls_policy.get_output(context);
+        let server_tls_policy_binding = server_tls_policy_binding_1.get_inner();
+        let subnetwork_binding_1 = args.subnetwork.get_output(context);
+        let subnetwork_binding = subnetwork_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkservices/gateway:Gateway".into(),
             name: name.to_string(),

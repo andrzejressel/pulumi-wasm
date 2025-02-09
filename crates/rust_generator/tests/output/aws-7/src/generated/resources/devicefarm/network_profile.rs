@@ -126,43 +126,39 @@ pub mod network_profile {
     ) -> NetworkProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let downlink_bandwidth_bits_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let downlink_bandwidth_bits_binding_1 = args
             .downlink_bandwidth_bits
-            .get_output(context)
+            .get_output(context);
+        let downlink_bandwidth_bits_binding = downlink_bandwidth_bits_binding_1
             .get_inner();
-        let downlink_delay_ms_binding = args
-            .downlink_delay_ms
-            .get_output(context)
-            .get_inner();
-        let downlink_jitter_ms_binding = args
-            .downlink_jitter_ms
-            .get_output(context)
-            .get_inner();
-        let downlink_loss_percent_binding = args
+        let downlink_delay_ms_binding_1 = args.downlink_delay_ms.get_output(context);
+        let downlink_delay_ms_binding = downlink_delay_ms_binding_1.get_inner();
+        let downlink_jitter_ms_binding_1 = args.downlink_jitter_ms.get_output(context);
+        let downlink_jitter_ms_binding = downlink_jitter_ms_binding_1.get_inner();
+        let downlink_loss_percent_binding_1 = args
             .downlink_loss_percent
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_arn_binding = args.project_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let uplink_bandwidth_bits_binding = args
+            .get_output(context);
+        let downlink_loss_percent_binding = downlink_loss_percent_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_arn_binding_1 = args.project_arn.get_output(context);
+        let project_arn_binding = project_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let uplink_bandwidth_bits_binding_1 = args
             .uplink_bandwidth_bits
-            .get_output(context)
-            .get_inner();
-        let uplink_delay_ms_binding = args
-            .uplink_delay_ms
-            .get_output(context)
-            .get_inner();
-        let uplink_jitter_ms_binding = args
-            .uplink_jitter_ms
-            .get_output(context)
-            .get_inner();
-        let uplink_loss_percent_binding = args
-            .uplink_loss_percent
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let uplink_bandwidth_bits_binding = uplink_bandwidth_bits_binding_1.get_inner();
+        let uplink_delay_ms_binding_1 = args.uplink_delay_ms.get_output(context);
+        let uplink_delay_ms_binding = uplink_delay_ms_binding_1.get_inner();
+        let uplink_jitter_ms_binding_1 = args.uplink_jitter_ms.get_output(context);
+        let uplink_jitter_ms_binding = uplink_jitter_ms_binding_1.get_inner();
+        let uplink_loss_percent_binding_1 = args.uplink_loss_percent.get_output(context);
+        let uplink_loss_percent_binding = uplink_loss_percent_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:devicefarm/networkProfile:NetworkProfile".into(),
             name: name.to_string(),

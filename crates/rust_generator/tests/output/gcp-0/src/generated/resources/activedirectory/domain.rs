@@ -147,23 +147,22 @@ pub mod domain {
     ) -> DomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_binding = args.admin.get_output(context).get_inner();
-        let authorized_networks_binding = args
-            .authorized_networks
-            .get_output(context)
-            .get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let locations_binding = args.locations.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let reserved_ip_range_binding = args
-            .reserved_ip_range
-            .get_output(context)
-            .get_inner();
+        let admin_binding_1 = args.admin.get_output(context);
+        let admin_binding = admin_binding_1.get_inner();
+        let authorized_networks_binding_1 = args.authorized_networks.get_output(context);
+        let authorized_networks_binding = authorized_networks_binding_1.get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let locations_binding_1 = args.locations.get_output(context);
+        let locations_binding = locations_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let reserved_ip_range_binding_1 = args.reserved_ip_range.get_output(context);
+        let reserved_ip_range_binding = reserved_ip_range_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:activedirectory/domain:Domain".into(),
             name: name.to_string(),

@@ -70,10 +70,14 @@ pub mod account_member {
     ) -> AccountMemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let email_address_binding = args.email_address.get_output(context).get_inner();
-        let role_ids_binding = args.role_ids.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let email_address_binding_1 = args.email_address.get_output(context);
+        let email_address_binding = email_address_binding_1.get_inner();
+        let role_ids_binding_1 = args.role_ids.get_output(context);
+        let role_ids_binding = role_ids_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/accountMember:AccountMember".into(),
             name: name.to_string(),

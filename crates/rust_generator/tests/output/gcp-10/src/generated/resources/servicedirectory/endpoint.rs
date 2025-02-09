@@ -174,12 +174,18 @@ pub mod endpoint {
     ) -> EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_binding = args.address.get_output(context).get_inner();
-        let endpoint_id_binding = args.endpoint_id.get_output(context).get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
+        let address_binding_1 = args.address.get_output(context);
+        let address_binding = address_binding_1.get_inner();
+        let endpoint_id_binding_1 = args.endpoint_id.get_output(context);
+        let endpoint_id_binding = endpoint_id_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:servicedirectory/endpoint:Endpoint".into(),
             name: name.to_string(),

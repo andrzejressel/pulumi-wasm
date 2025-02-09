@@ -179,48 +179,44 @@ pub mod location_hdfs {
     ) -> LocationHdfsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_arns_binding = args.agent_arns.get_output(context).get_inner();
-        let authentication_type_binding = args
-            .authentication_type
-            .get_output(context)
-            .get_inner();
-        let block_size_binding = args.block_size.get_output(context).get_inner();
-        let kerberos_keytab_binding = args
-            .kerberos_keytab
-            .get_output(context)
-            .get_inner();
-        let kerberos_keytab_base64_binding = args
+        let agent_arns_binding_1 = args.agent_arns.get_output(context);
+        let agent_arns_binding = agent_arns_binding_1.get_inner();
+        let authentication_type_binding_1 = args.authentication_type.get_output(context);
+        let authentication_type_binding = authentication_type_binding_1.get_inner();
+        let block_size_binding_1 = args.block_size.get_output(context);
+        let block_size_binding = block_size_binding_1.get_inner();
+        let kerberos_keytab_binding_1 = args.kerberos_keytab.get_output(context);
+        let kerberos_keytab_binding = kerberos_keytab_binding_1.get_inner();
+        let kerberos_keytab_base64_binding_1 = args
             .kerberos_keytab_base64
-            .get_output(context)
+            .get_output(context);
+        let kerberos_keytab_base64_binding = kerberos_keytab_base64_binding_1
             .get_inner();
-        let kerberos_krb5_conf_binding = args
-            .kerberos_krb5_conf
-            .get_output(context)
-            .get_inner();
-        let kerberos_krb5_conf_base64_binding = args
+        let kerberos_krb5_conf_binding_1 = args.kerberos_krb5_conf.get_output(context);
+        let kerberos_krb5_conf_binding = kerberos_krb5_conf_binding_1.get_inner();
+        let kerberos_krb5_conf_base64_binding_1 = args
             .kerberos_krb5_conf_base64
-            .get_output(context)
+            .get_output(context);
+        let kerberos_krb5_conf_base64_binding = kerberos_krb5_conf_base64_binding_1
             .get_inner();
-        let kerberos_principal_binding = args
-            .kerberos_principal
-            .get_output(context)
-            .get_inner();
-        let kms_key_provider_uri_binding = args
+        let kerberos_principal_binding_1 = args.kerberos_principal.get_output(context);
+        let kerberos_principal_binding = kerberos_principal_binding_1.get_inner();
+        let kms_key_provider_uri_binding_1 = args
             .kms_key_provider_uri
-            .get_output(context)
-            .get_inner();
-        let name_nodes_binding = args.name_nodes.get_output(context).get_inner();
-        let qop_configuration_binding = args
-            .qop_configuration
-            .get_output(context)
-            .get_inner();
-        let replication_factor_binding = args
-            .replication_factor
-            .get_output(context)
-            .get_inner();
-        let simple_user_binding = args.simple_user.get_output(context).get_inner();
-        let subdirectory_binding = args.subdirectory.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let kms_key_provider_uri_binding = kms_key_provider_uri_binding_1.get_inner();
+        let name_nodes_binding_1 = args.name_nodes.get_output(context);
+        let name_nodes_binding = name_nodes_binding_1.get_inner();
+        let qop_configuration_binding_1 = args.qop_configuration.get_output(context);
+        let qop_configuration_binding = qop_configuration_binding_1.get_inner();
+        let replication_factor_binding_1 = args.replication_factor.get_output(context);
+        let replication_factor_binding = replication_factor_binding_1.get_inner();
+        let simple_user_binding_1 = args.simple_user.get_output(context);
+        let simple_user_binding = simple_user_binding_1.get_inner();
+        let subdirectory_binding_1 = args.subdirectory.get_output(context);
+        let subdirectory_binding = subdirectory_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/locationHdfs:LocationHdfs".into(),
             name: name.to_string(),

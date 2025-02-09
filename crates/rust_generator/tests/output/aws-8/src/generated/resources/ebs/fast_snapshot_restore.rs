@@ -66,12 +66,12 @@ pub mod fast_snapshot_restore {
     ) -> FastSnapshotRestoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let snapshot_id_binding = args.snapshot_id.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let snapshot_id_binding_1 = args.snapshot_id.get_output(context);
+        let snapshot_id_binding = snapshot_id_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ebs/fastSnapshotRestore:FastSnapshotRestore".into(),
             name: name.to_string(),

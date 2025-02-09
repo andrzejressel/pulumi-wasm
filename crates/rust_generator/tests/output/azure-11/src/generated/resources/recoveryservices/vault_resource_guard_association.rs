@@ -81,11 +81,10 @@ pub mod vault_resource_guard_association {
     ) -> VaultResourceGuardAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let resource_guard_id_binding = args
-            .resource_guard_id
-            .get_output(context)
-            .get_inner();
-        let vault_id_binding = args.vault_id.get_output(context).get_inner();
+        let resource_guard_id_binding_1 = args.resource_guard_id.get_output(context);
+        let resource_guard_id_binding = resource_guard_id_binding_1.get_inner();
+        let vault_id_binding_1 = args.vault_id.get_output(context);
+        let vault_id_binding = vault_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation"
                 .into(),

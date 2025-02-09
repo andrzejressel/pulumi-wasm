@@ -47,13 +47,14 @@ pub mod get_resources {
     ) -> GetResourcesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let required_tags_binding = args.required_tags.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let required_tags_binding_1 = args.required_tags.get_output(context);
+        let required_tags_binding = required_tags_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:core/getResources:getResources".into(),
             version: super::super::super::get_version(),

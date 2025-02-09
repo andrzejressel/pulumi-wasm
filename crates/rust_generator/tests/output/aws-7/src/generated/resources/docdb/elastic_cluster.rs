@@ -142,37 +142,45 @@ pub mod elastic_cluster {
     ) -> ElasticClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_user_name_binding = args
-            .admin_user_name
-            .get_output(context)
-            .get_inner();
-        let admin_user_password_binding = args
-            .admin_user_password
-            .get_output(context)
-            .get_inner();
-        let auth_type_binding = args.auth_type.get_output(context).get_inner();
-        let backup_retention_period_binding = args
+        let admin_user_name_binding_1 = args.admin_user_name.get_output(context);
+        let admin_user_name_binding = admin_user_name_binding_1.get_inner();
+        let admin_user_password_binding_1 = args.admin_user_password.get_output(context);
+        let admin_user_password_binding = admin_user_password_binding_1.get_inner();
+        let auth_type_binding_1 = args.auth_type.get_output(context);
+        let auth_type_binding = auth_type_binding_1.get_inner();
+        let backup_retention_period_binding_1 = args
             .backup_retention_period
-            .get_output(context)
+            .get_output(context);
+        let backup_retention_period_binding = backup_retention_period_binding_1
             .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let preferred_backup_window_binding = args
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let preferred_backup_window_binding_1 = args
             .preferred_backup_window
-            .get_output(context)
+            .get_output(context);
+        let preferred_backup_window_binding = preferred_backup_window_binding_1
             .get_inner();
-        let preferred_maintenance_window_binding = args
+        let preferred_maintenance_window_binding_1 = args
             .preferred_maintenance_window
-            .get_output(context)
+            .get_output(context);
+        let preferred_maintenance_window_binding = preferred_maintenance_window_binding_1
             .get_inner();
-        let shard_capacity_binding = args.shard_capacity.get_output(context).get_inner();
-        let shard_count_binding = args.shard_count.get_output(context).get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let vpc_security_group_ids_binding = args
+        let shard_capacity_binding_1 = args.shard_capacity.get_output(context);
+        let shard_capacity_binding = shard_capacity_binding_1.get_inner();
+        let shard_count_binding_1 = args.shard_count.get_output(context);
+        let shard_count_binding = shard_count_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let vpc_security_group_ids_binding_1 = args
             .vpc_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:docdb/elasticCluster:ElasticCluster".into(),

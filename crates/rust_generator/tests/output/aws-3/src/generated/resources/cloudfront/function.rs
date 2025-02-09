@@ -80,15 +80,21 @@ pub mod function {
     ) -> FunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let code_binding = args.code.get_output(context).get_inner();
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let key_value_store_associations_binding = args
+        let code_binding_1 = args.code.get_output(context);
+        let code_binding = code_binding_1.get_inner();
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let key_value_store_associations_binding_1 = args
             .key_value_store_associations
-            .get_output(context)
+            .get_output(context);
+        let key_value_store_associations_binding = key_value_store_associations_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let publish_binding = args.publish.get_output(context).get_inner();
-        let runtime_binding = args.runtime.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let publish_binding_1 = args.publish.get_output(context);
+        let publish_binding = publish_binding_1.get_inner();
+        let runtime_binding_1 = args.runtime.get_output(context);
+        let runtime_binding = runtime_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/function:Function".into(),
             name: name.to_string(),

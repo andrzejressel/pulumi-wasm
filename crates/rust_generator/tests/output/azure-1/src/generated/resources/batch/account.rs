@@ -187,47 +187,48 @@ pub mod account {
     ) -> AccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_authentication_modes_binding = args
+        let allowed_authentication_modes_binding_1 = args
             .allowed_authentication_modes
-            .get_output(context)
+            .get_output(context);
+        let allowed_authentication_modes_binding = allowed_authentication_modes_binding_1
             .get_inner();
-        let encryption_binding = args.encryption.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let key_vault_reference_binding = args
-            .key_vault_reference
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_profile_binding = args
-            .network_profile
-            .get_output(context)
-            .get_inner();
-        let pool_allocation_mode_binding = args
+        let encryption_binding_1 = args.encryption.get_output(context);
+        let encryption_binding = encryption_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let key_vault_reference_binding_1 = args.key_vault_reference.get_output(context);
+        let key_vault_reference_binding = key_vault_reference_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_profile_binding_1 = args.network_profile.get_output(context);
+        let network_profile_binding = network_profile_binding_1.get_inner();
+        let pool_allocation_mode_binding_1 = args
             .pool_allocation_mode
-            .get_output(context)
-            .get_inner();
-        let public_network_access_enabled_binding = args
+            .get_output(context);
+        let pool_allocation_mode_binding = pool_allocation_mode_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let storage_account_authentication_mode_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let storage_account_authentication_mode_binding_1 = args
             .storage_account_authentication_mode
-            .get_output(context)
+            .get_output(context);
+        let storage_account_authentication_mode_binding = storage_account_authentication_mode_binding_1
             .get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
-        let storage_account_node_identity_binding = args
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
+        let storage_account_node_identity_binding_1 = args
             .storage_account_node_identity
-            .get_output(context)
+            .get_output(context);
+        let storage_account_node_identity_binding = storage_account_node_identity_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:batch/account:Account".into(),
             name: name.to_string(),

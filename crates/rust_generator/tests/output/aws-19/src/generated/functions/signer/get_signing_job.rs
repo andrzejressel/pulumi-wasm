@@ -60,7 +60,8 @@ pub mod get_signing_job {
     ) -> GetSigningJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let job_id_binding = args.job_id.get_output(context).get_inner();
+        let job_id_binding_1 = args.job_id.get_output(context);
+        let job_id_binding = job_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:signer/getSigningJob:getSigningJob".into(),
             version: super::super::super::get_version(),

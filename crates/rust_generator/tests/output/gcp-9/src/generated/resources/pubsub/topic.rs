@@ -336,26 +336,31 @@ pub mod topic {
     ) -> TopicResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ingestion_data_source_settings_binding = args
+        let ingestion_data_source_settings_binding_1 = args
             .ingestion_data_source_settings
-            .get_output(context)
+            .get_output(context);
+        let ingestion_data_source_settings_binding = ingestion_data_source_settings_binding_1
             .get_inner();
-        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let message_retention_duration_binding = args
+        let kms_key_name_binding_1 = args.kms_key_name.get_output(context);
+        let kms_key_name_binding = kms_key_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let message_retention_duration_binding_1 = args
             .message_retention_duration
-            .get_output(context)
+            .get_output(context);
+        let message_retention_duration_binding = message_retention_duration_binding_1
             .get_inner();
-        let message_storage_policy_binding = args
+        let message_storage_policy_binding_1 = args
             .message_storage_policy
-            .get_output(context)
+            .get_output(context);
+        let message_storage_policy_binding = message_storage_policy_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let schema_settings_binding = args
-            .schema_settings
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let schema_settings_binding_1 = args.schema_settings.get_output(context);
+        let schema_settings_binding = schema_settings_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:pubsub/topic:Topic".into(),
             name: name.to_string(),

@@ -66,12 +66,15 @@ pub mod get_table {
     ) -> GetTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let server_side_encryption_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let server_side_encryption_binding_1 = args
             .server_side_encryption
-            .get_output(context)
+            .get_output(context);
+        let server_side_encryption_binding = server_side_encryption_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:dynamodb/getTable:getTable".into(),
             version: super::super::super::get_version(),

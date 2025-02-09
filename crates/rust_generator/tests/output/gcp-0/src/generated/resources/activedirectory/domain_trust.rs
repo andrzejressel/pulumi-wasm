@@ -130,29 +130,31 @@ pub mod domain_trust {
     ) -> DomainTrustResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let selective_authentication_binding = args
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let selective_authentication_binding_1 = args
             .selective_authentication
-            .get_output(context)
+            .get_output(context);
+        let selective_authentication_binding = selective_authentication_binding_1
             .get_inner();
-        let target_dns_ip_addresses_binding = args
+        let target_dns_ip_addresses_binding_1 = args
             .target_dns_ip_addresses
-            .get_output(context)
+            .get_output(context);
+        let target_dns_ip_addresses_binding = target_dns_ip_addresses_binding_1
             .get_inner();
-        let target_domain_name_binding = args
-            .target_domain_name
-            .get_output(context)
-            .get_inner();
-        let trust_direction_binding = args
-            .trust_direction
-            .get_output(context)
-            .get_inner();
-        let trust_handshake_secret_binding = args
+        let target_domain_name_binding_1 = args.target_domain_name.get_output(context);
+        let target_domain_name_binding = target_domain_name_binding_1.get_inner();
+        let trust_direction_binding_1 = args.trust_direction.get_output(context);
+        let trust_direction_binding = trust_direction_binding_1.get_inner();
+        let trust_handshake_secret_binding_1 = args
             .trust_handshake_secret
-            .get_output(context)
+            .get_output(context);
+        let trust_handshake_secret_binding = trust_handshake_secret_binding_1
             .get_inner();
-        let trust_type_binding = args.trust_type.get_output(context).get_inner();
+        let trust_type_binding_1 = args.trust_type.get_output(context);
+        let trust_type_binding = trust_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:activedirectory/domainTrust:DomainTrust".into(),
             name: name.to_string(),

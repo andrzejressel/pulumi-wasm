@@ -158,37 +158,38 @@ pub mod authorizer {
     ) -> AuthorizerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_output(context).get_inner();
-        let authorizer_credentials_arn_binding = args
+        let api_id_binding_1 = args.api_id.get_output(context);
+        let api_id_binding = api_id_binding_1.get_inner();
+        let authorizer_credentials_arn_binding_1 = args
             .authorizer_credentials_arn
-            .get_output(context)
+            .get_output(context);
+        let authorizer_credentials_arn_binding = authorizer_credentials_arn_binding_1
             .get_inner();
-        let authorizer_payload_format_version_binding = args
+        let authorizer_payload_format_version_binding_1 = args
             .authorizer_payload_format_version
-            .get_output(context)
+            .get_output(context);
+        let authorizer_payload_format_version_binding = authorizer_payload_format_version_binding_1
             .get_inner();
-        let authorizer_result_ttl_in_seconds_binding = args
+        let authorizer_result_ttl_in_seconds_binding_1 = args
             .authorizer_result_ttl_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let authorizer_result_ttl_in_seconds_binding = authorizer_result_ttl_in_seconds_binding_1
             .get_inner();
-        let authorizer_type_binding = args
-            .authorizer_type
-            .get_output(context)
-            .get_inner();
-        let authorizer_uri_binding = args.authorizer_uri.get_output(context).get_inner();
-        let enable_simple_responses_binding = args
+        let authorizer_type_binding_1 = args.authorizer_type.get_output(context);
+        let authorizer_type_binding = authorizer_type_binding_1.get_inner();
+        let authorizer_uri_binding_1 = args.authorizer_uri.get_output(context);
+        let authorizer_uri_binding = authorizer_uri_binding_1.get_inner();
+        let enable_simple_responses_binding_1 = args
             .enable_simple_responses
-            .get_output(context)
+            .get_output(context);
+        let enable_simple_responses_binding = enable_simple_responses_binding_1
             .get_inner();
-        let identity_sources_binding = args
-            .identity_sources
-            .get_output(context)
-            .get_inner();
-        let jwt_configuration_binding = args
-            .jwt_configuration
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let identity_sources_binding_1 = args.identity_sources.get_output(context);
+        let identity_sources_binding = identity_sources_binding_1.get_inner();
+        let jwt_configuration_binding_1 = args.jwt_configuration.get_output(context);
+        let jwt_configuration_binding = jwt_configuration_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigatewayv2/authorizer:Authorizer".into(),
             name: name.to_string(),

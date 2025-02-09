@@ -145,16 +145,23 @@ pub mod assessment {
     ) -> AssessmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assessment_reports_destination_binding = args
+        let assessment_reports_destination_binding_1 = args
             .assessment_reports_destination
-            .get_output(context)
+            .get_output(context);
+        let assessment_reports_destination_binding = assessment_reports_destination_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let framework_id_binding = args.framework_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let roles_binding = args.roles.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let framework_id_binding_1 = args.framework_id.get_output(context);
+        let framework_id_binding = framework_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let roles_binding_1 = args.roles.get_output(context);
+        let roles_binding = roles_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:auditmanager/assessment:Assessment".into(),
             name: name.to_string(),

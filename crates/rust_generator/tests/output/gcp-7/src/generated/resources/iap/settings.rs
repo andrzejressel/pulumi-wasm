@@ -174,15 +174,14 @@ pub mod settings {
     ) -> SettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_settings_binding = args
-            .access_settings
-            .get_output(context)
-            .get_inner();
-        let application_settings_binding = args
+        let access_settings_binding_1 = args.access_settings.get_output(context);
+        let access_settings_binding = access_settings_binding_1.get_inner();
+        let application_settings_binding_1 = args
             .application_settings
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+            .get_output(context);
+        let application_settings_binding = application_settings_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iap/settings:Settings".into(),
             name: name.to_string(),

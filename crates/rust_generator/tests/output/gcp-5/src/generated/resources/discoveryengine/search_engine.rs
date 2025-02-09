@@ -156,21 +156,26 @@ pub mod search_engine {
     ) -> SearchEngineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let collection_id_binding = args.collection_id.get_output(context).get_inner();
-        let common_config_binding = args.common_config.get_output(context).get_inner();
-        let data_store_ids_binding = args.data_store_ids.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let engine_id_binding = args.engine_id.get_output(context).get_inner();
-        let industry_vertical_binding = args
-            .industry_vertical
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let search_engine_config_binding = args
+        let collection_id_binding_1 = args.collection_id.get_output(context);
+        let collection_id_binding = collection_id_binding_1.get_inner();
+        let common_config_binding_1 = args.common_config.get_output(context);
+        let common_config_binding = common_config_binding_1.get_inner();
+        let data_store_ids_binding_1 = args.data_store_ids.get_output(context);
+        let data_store_ids_binding = data_store_ids_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let engine_id_binding_1 = args.engine_id.get_output(context);
+        let engine_id_binding = engine_id_binding_1.get_inner();
+        let industry_vertical_binding_1 = args.industry_vertical.get_output(context);
+        let industry_vertical_binding = industry_vertical_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let search_engine_config_binding_1 = args
             .search_engine_config
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let search_engine_config_binding = search_engine_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:discoveryengine/searchEngine:SearchEngine".into(),
             name: name.to_string(),

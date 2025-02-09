@@ -67,13 +67,15 @@ pub mod instance_trust_provider_attachment {
     ) -> InstanceTrustProviderAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let verifiedaccess_instance_id_binding = args
+        let verifiedaccess_instance_id_binding_1 = args
             .verifiedaccess_instance_id
-            .get_output(context)
+            .get_output(context);
+        let verifiedaccess_instance_id_binding = verifiedaccess_instance_id_binding_1
             .get_inner();
-        let verifiedaccess_trust_provider_id_binding = args
+        let verifiedaccess_trust_provider_id_binding_1 = args
             .verifiedaccess_trust_provider_id
-            .get_output(context)
+            .get_output(context);
+        let verifiedaccess_trust_provider_id_binding = verifiedaccess_trust_provider_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment"

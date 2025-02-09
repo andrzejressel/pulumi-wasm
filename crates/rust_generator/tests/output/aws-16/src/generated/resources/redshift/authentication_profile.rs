@@ -53,13 +53,15 @@ pub mod authentication_profile {
     ) -> AuthenticationProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_profile_content_binding = args
+        let authentication_profile_content_binding_1 = args
             .authentication_profile_content
-            .get_output(context)
+            .get_output(context);
+        let authentication_profile_content_binding = authentication_profile_content_binding_1
             .get_inner();
-        let authentication_profile_name_binding = args
+        let authentication_profile_name_binding_1 = args
             .authentication_profile_name
-            .get_output(context)
+            .get_output(context);
+        let authentication_profile_name_binding = authentication_profile_name_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/authenticationProfile:AuthenticationProfile".into(),

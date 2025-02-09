@@ -88,18 +88,19 @@ pub mod organization {
     ) -> OrganizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let iotcentral_application_id_binding = args
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let iotcentral_application_id_binding_1 = args
             .iotcentral_application_id
-            .get_output(context)
+            .get_output(context);
+        let iotcentral_application_id_binding = iotcentral_application_id_binding_1
             .get_inner();
-        let organization_id_binding = args
-            .organization_id
-            .get_output(context)
-            .get_inner();
-        let parent_organization_id_binding = args
+        let organization_id_binding_1 = args.organization_id.get_output(context);
+        let organization_id_binding = organization_id_binding_1.get_inner();
+        let parent_organization_id_binding_1 = args
             .parent_organization_id
-            .get_output(context)
+            .get_output(context);
+        let parent_organization_id_binding = parent_organization_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iotcentral/organization:Organization".into(),

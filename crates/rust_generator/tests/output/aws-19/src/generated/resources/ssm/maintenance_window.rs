@@ -115,27 +115,33 @@ pub mod maintenance_window {
     ) -> MaintenanceWindowResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_unassociated_targets_binding = args
+        let allow_unassociated_targets_binding_1 = args
             .allow_unassociated_targets
-            .get_output(context)
+            .get_output(context);
+        let allow_unassociated_targets_binding = allow_unassociated_targets_binding_1
             .get_inner();
-        let cutoff_binding = args.cutoff.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let duration_binding = args.duration.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let end_date_binding = args.end_date.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let schedule_offset_binding = args
-            .schedule_offset
-            .get_output(context)
-            .get_inner();
-        let schedule_timezone_binding = args
-            .schedule_timezone
-            .get_output(context)
-            .get_inner();
-        let start_date_binding = args.start_date.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let cutoff_binding_1 = args.cutoff.get_output(context);
+        let cutoff_binding = cutoff_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let duration_binding_1 = args.duration.get_output(context);
+        let duration_binding = duration_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let end_date_binding_1 = args.end_date.get_output(context);
+        let end_date_binding = end_date_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let schedule_offset_binding_1 = args.schedule_offset.get_output(context);
+        let schedule_offset_binding = schedule_offset_binding_1.get_inner();
+        let schedule_timezone_binding_1 = args.schedule_timezone.get_output(context);
+        let schedule_timezone_binding = schedule_timezone_binding_1.get_inner();
+        let start_date_binding_1 = args.start_date.get_output(context);
+        let start_date_binding = start_date_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/maintenanceWindow:MaintenanceWindow".into(),
             name: name.to_string(),

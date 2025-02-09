@@ -40,12 +40,12 @@ pub mod get_parameters_by_path {
     ) -> GetParametersByPathResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let path_binding = args.path.get_output(context).get_inner();
-        let recursive_binding = args.recursive.get_output(context).get_inner();
-        let with_decryption_binding = args
-            .with_decryption
-            .get_output(context)
-            .get_inner();
+        let path_binding_1 = args.path.get_output(context);
+        let path_binding = path_binding_1.get_inner();
+        let recursive_binding_1 = args.recursive.get_output(context);
+        let recursive_binding = recursive_binding_1.get_inner();
+        let with_decryption_binding_1 = args.with_decryption.get_output(context);
+        let with_decryption_binding = with_decryption_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssm/getParametersByPath:getParametersByPath".into(),
             version: super::super::super::get_version(),

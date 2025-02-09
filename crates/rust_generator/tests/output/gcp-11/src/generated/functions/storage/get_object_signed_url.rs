@@ -65,17 +65,22 @@ pub mod get_object_signed_url {
     ) -> GetObjectSignedUrlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let content_md5_binding = args.content_md5.get_output(context).get_inner();
-        let content_type_binding = args.content_type.get_output(context).get_inner();
-        let credentials_binding = args.credentials.get_output(context).get_inner();
-        let duration_binding = args.duration.get_output(context).get_inner();
-        let extension_headers_binding = args
-            .extension_headers
-            .get_output(context)
-            .get_inner();
-        let http_method_binding = args.http_method.get_output(context).get_inner();
-        let path_binding = args.path.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let content_md5_binding_1 = args.content_md5.get_output(context);
+        let content_md5_binding = content_md5_binding_1.get_inner();
+        let content_type_binding_1 = args.content_type.get_output(context);
+        let content_type_binding = content_type_binding_1.get_inner();
+        let credentials_binding_1 = args.credentials.get_output(context);
+        let credentials_binding = credentials_binding_1.get_inner();
+        let duration_binding_1 = args.duration.get_output(context);
+        let duration_binding = duration_binding_1.get_inner();
+        let extension_headers_binding_1 = args.extension_headers.get_output(context);
+        let extension_headers_binding = extension_headers_binding_1.get_inner();
+        let http_method_binding_1 = args.http_method.get_output(context);
+        let http_method_binding = http_method_binding_1.get_inner();
+        let path_binding_1 = args.path.get_output(context);
+        let path_binding = path_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:storage/getObjectSignedUrl:getObjectSignedUrl".into(),
             version: super::super::super::get_version(),

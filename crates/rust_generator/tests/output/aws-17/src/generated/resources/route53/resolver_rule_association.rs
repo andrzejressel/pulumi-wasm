@@ -60,12 +60,12 @@ pub mod resolver_rule_association {
     ) -> ResolverRuleAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let resolver_rule_id_binding = args
-            .resolver_rule_id
-            .get_output(context)
-            .get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resolver_rule_id_binding_1 = args.resolver_rule_id.get_output(context);
+        let resolver_rule_id_binding = resolver_rule_id_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/resolverRuleAssociation:ResolverRuleAssociation".into(),
             name: name.to_string(),

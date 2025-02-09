@@ -129,11 +129,16 @@ pub mod schema {
     ) -> SchemaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_store_id_binding = args.data_store_id.get_output(context).get_inner();
-        let json_schema_binding = args.json_schema.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let schema_id_binding = args.schema_id.get_output(context).get_inner();
+        let data_store_id_binding_1 = args.data_store_id.get_output(context);
+        let data_store_id_binding = data_store_id_binding_1.get_inner();
+        let json_schema_binding_1 = args.json_schema.get_output(context);
+        let json_schema_binding = json_schema_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let schema_id_binding_1 = args.schema_id.get_output(context);
+        let schema_id_binding = schema_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:discoveryengine/schema:Schema".into(),
             name: name.to_string(),

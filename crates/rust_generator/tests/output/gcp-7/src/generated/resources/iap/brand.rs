@@ -118,12 +118,12 @@ pub mod brand {
     ) -> BrandResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_title_binding = args
-            .application_title
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let support_email_binding = args.support_email.get_output(context).get_inner();
+        let application_title_binding_1 = args.application_title.get_output(context);
+        let application_title_binding = application_title_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let support_email_binding_1 = args.support_email.get_output(context);
+        let support_email_binding = support_email_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iap/brand:Brand".into(),
             name: name.to_string(),

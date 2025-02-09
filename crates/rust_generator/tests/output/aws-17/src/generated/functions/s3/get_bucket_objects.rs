@@ -54,13 +54,20 @@ pub mod get_bucket_objects {
     ) -> GetBucketObjectsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let delimiter_binding = args.delimiter.get_output(context).get_inner();
-        let encoding_type_binding = args.encoding_type.get_output(context).get_inner();
-        let fetch_owner_binding = args.fetch_owner.get_output(context).get_inner();
-        let max_keys_binding = args.max_keys.get_output(context).get_inner();
-        let prefix_binding = args.prefix.get_output(context).get_inner();
-        let start_after_binding = args.start_after.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let delimiter_binding_1 = args.delimiter.get_output(context);
+        let delimiter_binding = delimiter_binding_1.get_inner();
+        let encoding_type_binding_1 = args.encoding_type.get_output(context);
+        let encoding_type_binding = encoding_type_binding_1.get_inner();
+        let fetch_owner_binding_1 = args.fetch_owner.get_output(context);
+        let fetch_owner_binding = fetch_owner_binding_1.get_inner();
+        let max_keys_binding_1 = args.max_keys.get_output(context);
+        let max_keys_binding = max_keys_binding_1.get_inner();
+        let prefix_binding_1 = args.prefix.get_output(context);
+        let prefix_binding = prefix_binding_1.get_inner();
+        let start_after_binding_1 = args.start_after.get_output(context);
+        let start_after_binding = start_after_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:s3/getBucketObjects:getBucketObjects".into(),
             version: super::super::super::get_version(),

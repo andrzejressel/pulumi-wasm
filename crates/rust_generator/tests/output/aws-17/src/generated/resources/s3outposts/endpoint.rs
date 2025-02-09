@@ -81,17 +81,19 @@ pub mod endpoint {
     ) -> EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_type_binding = args.access_type.get_output(context).get_inner();
-        let customer_owned_ipv4_pool_binding = args
+        let access_type_binding_1 = args.access_type.get_output(context);
+        let access_type_binding = access_type_binding_1.get_inner();
+        let customer_owned_ipv4_pool_binding_1 = args
             .customer_owned_ipv4_pool
-            .get_output(context)
+            .get_output(context);
+        let customer_owned_ipv4_pool_binding = customer_owned_ipv4_pool_binding_1
             .get_inner();
-        let outpost_id_binding = args.outpost_id.get_output(context).get_inner();
-        let security_group_id_binding = args
-            .security_group_id
-            .get_output(context)
-            .get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
+        let outpost_id_binding_1 = args.outpost_id.get_output(context);
+        let outpost_id_binding = outpost_id_binding_1.get_inner();
+        let security_group_id_binding_1 = args.security_group_id.get_output(context);
+        let security_group_id_binding = security_group_id_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3outposts/endpoint:Endpoint".into(),
             name: name.to_string(),

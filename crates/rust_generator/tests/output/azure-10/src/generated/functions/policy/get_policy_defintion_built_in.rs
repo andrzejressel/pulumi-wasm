@@ -50,12 +50,14 @@ pub mod get_policy_defintion_built_in {
     ) -> GetPolicyDefintionBuiltInResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let management_group_name_binding = args
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let management_group_name_binding_1 = args
             .management_group_name
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+            .get_output(context);
+        let management_group_name_binding = management_group_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn"
                 .into(),

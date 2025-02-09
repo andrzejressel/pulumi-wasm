@@ -212,22 +212,29 @@ pub mod configuration_key {
     ) -> ConfigurationKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_store_id_binding = args
+        let configuration_store_id_binding_1 = args
             .configuration_store_id
-            .get_output(context)
+            .get_output(context);
+        let configuration_store_id_binding = configuration_store_id_binding_1
             .get_inner();
-        let content_type_binding = args.content_type.get_output(context).get_inner();
-        let etag_binding = args.etag.get_output(context).get_inner();
-        let key_binding = args.key.get_output(context).get_inner();
-        let label_binding = args.label.get_output(context).get_inner();
-        let locked_binding = args.locked.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let value_binding = args.value.get_output(context).get_inner();
-        let vault_key_reference_binding = args
-            .vault_key_reference
-            .get_output(context)
-            .get_inner();
+        let content_type_binding_1 = args.content_type.get_output(context);
+        let content_type_binding = content_type_binding_1.get_inner();
+        let etag_binding_1 = args.etag.get_output(context);
+        let etag_binding = etag_binding_1.get_inner();
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let label_binding_1 = args.label.get_output(context);
+        let label_binding = label_binding_1.get_inner();
+        let locked_binding_1 = args.locked.get_output(context);
+        let locked_binding = locked_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let value_binding_1 = args.value.get_output(context);
+        let value_binding = value_binding_1.get_inner();
+        let vault_key_reference_binding_1 = args.vault_key_reference.get_output(context);
+        let vault_key_reference_binding = vault_key_reference_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appconfiguration/configurationKey:ConfigurationKey".into(),
             name: name.to_string(),

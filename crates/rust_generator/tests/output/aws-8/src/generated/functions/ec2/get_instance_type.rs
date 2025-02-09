@@ -138,7 +138,8 @@ pub mod get_instance_type {
     ) -> GetInstanceTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getInstanceType:getInstanceType".into(),
             version: super::super::super::get_version(),

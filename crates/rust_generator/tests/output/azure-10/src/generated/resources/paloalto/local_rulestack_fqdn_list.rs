@@ -89,14 +89,19 @@ pub mod local_rulestack_fqdn_list {
     ) -> LocalRulestackFqdnListResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_comment_binding = args.audit_comment.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let fully_qualified_domain_names_binding = args
+        let audit_comment_binding_1 = args.audit_comment.get_output(context);
+        let audit_comment_binding = audit_comment_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let fully_qualified_domain_names_binding_1 = args
             .fully_qualified_domain_names
-            .get_output(context)
+            .get_output(context);
+        let fully_qualified_domain_names_binding = fully_qualified_domain_names_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let rulestack_id_binding = args.rulestack_id.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let rulestack_id_binding_1 = args.rulestack_id.get_output(context);
+        let rulestack_id_binding = rulestack_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList".into(),
             name: name.to_string(),

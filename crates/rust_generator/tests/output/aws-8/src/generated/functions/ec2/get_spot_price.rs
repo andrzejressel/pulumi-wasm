@@ -40,12 +40,12 @@ pub mod get_spot_price {
     ) -> GetSpotPriceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getSpotPrice:getSpotPrice".into(),
             version: super::super::super::get_version(),

@@ -229,16 +229,20 @@ pub mod listener {
     ) -> ListenerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_action_binding = args.default_action.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let service_arn_binding = args.service_arn.get_output(context).get_inner();
-        let service_identifier_binding = args
-            .service_identifier
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let default_action_binding_1 = args.default_action.get_output(context);
+        let default_action_binding = default_action_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let service_arn_binding_1 = args.service_arn.get_output(context);
+        let service_arn_binding = service_arn_binding_1.get_inner();
+        let service_identifier_binding_1 = args.service_identifier.get_output(context);
+        let service_identifier_binding = service_identifier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpclattice/listener:Listener".into(),
             name: name.to_string(),

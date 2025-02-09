@@ -79,8 +79,10 @@ pub mod rest_api_policy {
     ) -> RestApiPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let rest_api_id_binding = args.rest_api_id.get_output(context).get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let rest_api_id_binding_1 = args.rest_api_id.get_output(context);
+        let rest_api_id_binding = rest_api_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/restApiPolicy:RestApiPolicy".into(),
             name: name.to_string(),

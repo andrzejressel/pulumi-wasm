@@ -439,41 +439,44 @@ pub mod connection_profile {
     ) -> ConnectionProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bigquery_profile_binding = args
-            .bigquery_profile
-            .get_output(context)
-            .get_inner();
-        let connection_profile_id_binding = args
+        let bigquery_profile_binding_1 = args.bigquery_profile.get_output(context);
+        let bigquery_profile_binding = bigquery_profile_binding_1.get_inner();
+        let connection_profile_id_binding_1 = args
             .connection_profile_id
-            .get_output(context)
-            .get_inner();
-        let create_without_validation_binding = args
+            .get_output(context);
+        let connection_profile_id_binding = connection_profile_id_binding_1.get_inner();
+        let create_without_validation_binding_1 = args
             .create_without_validation
-            .get_output(context)
+            .get_output(context);
+        let create_without_validation_binding = create_without_validation_binding_1
             .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let forward_ssh_connectivity_binding = args
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let forward_ssh_connectivity_binding_1 = args
             .forward_ssh_connectivity
-            .get_output(context)
+            .get_output(context);
+        let forward_ssh_connectivity_binding = forward_ssh_connectivity_binding_1
             .get_inner();
-        let gcs_profile_binding = args.gcs_profile.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let mysql_profile_binding = args.mysql_profile.get_output(context).get_inner();
-        let oracle_profile_binding = args.oracle_profile.get_output(context).get_inner();
-        let postgresql_profile_binding = args
-            .postgresql_profile
-            .get_output(context)
-            .get_inner();
-        let private_connectivity_binding = args
+        let gcs_profile_binding_1 = args.gcs_profile.get_output(context);
+        let gcs_profile_binding = gcs_profile_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let mysql_profile_binding_1 = args.mysql_profile.get_output(context);
+        let mysql_profile_binding = mysql_profile_binding_1.get_inner();
+        let oracle_profile_binding_1 = args.oracle_profile.get_output(context);
+        let oracle_profile_binding = oracle_profile_binding_1.get_inner();
+        let postgresql_profile_binding_1 = args.postgresql_profile.get_output(context);
+        let postgresql_profile_binding = postgresql_profile_binding_1.get_inner();
+        let private_connectivity_binding_1 = args
             .private_connectivity
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let sql_server_profile_binding = args
-            .sql_server_profile
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let private_connectivity_binding = private_connectivity_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let sql_server_profile_binding_1 = args.sql_server_profile.get_output(context);
+        let sql_server_profile_binding = sql_server_profile_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datastream/connectionProfile:ConnectionProfile".into(),
             name: name.to_string(),

@@ -138,20 +138,22 @@ pub mod zero_trust_dlp_profile {
     ) -> ZeroTrustDlpProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let allowed_match_count_binding = args
-            .allowed_match_count
-            .get_output(context)
-            .get_inner();
-        let context_awareness_binding = args
-            .context_awareness
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let entries_binding = args.entries.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let ocr_enabled_binding = args.ocr_enabled.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let allowed_match_count_binding_1 = args.allowed_match_count.get_output(context);
+        let allowed_match_count_binding = allowed_match_count_binding_1.get_inner();
+        let context_awareness_binding_1 = args.context_awareness.get_output(context);
+        let context_awareness_binding = context_awareness_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let entries_binding_1 = args.entries.get_output(context);
+        let entries_binding = entries_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let ocr_enabled_binding_1 = args.ocr_enabled.get_output(context);
+        let ocr_enabled_binding = ocr_enabled_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustDlpProfile:ZeroTrustDlpProfile".into(),
             name: name.to_string(),

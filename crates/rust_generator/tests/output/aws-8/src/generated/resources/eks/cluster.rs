@@ -457,44 +457,54 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_config_binding = args.access_config.get_output(context).get_inner();
-        let bootstrap_self_managed_addons_binding = args
+        let access_config_binding_1 = args.access_config.get_output(context);
+        let access_config_binding = access_config_binding_1.get_inner();
+        let bootstrap_self_managed_addons_binding_1 = args
             .bootstrap_self_managed_addons
-            .get_output(context)
+            .get_output(context);
+        let bootstrap_self_managed_addons_binding = bootstrap_self_managed_addons_binding_1
             .get_inner();
-        let compute_config_binding = args.compute_config.get_output(context).get_inner();
-        let default_addons_to_removes_binding = args
+        let compute_config_binding_1 = args.compute_config.get_output(context);
+        let compute_config_binding = compute_config_binding_1.get_inner();
+        let default_addons_to_removes_binding_1 = args
             .default_addons_to_removes
-            .get_output(context)
+            .get_output(context);
+        let default_addons_to_removes_binding = default_addons_to_removes_binding_1
             .get_inner();
-        let enabled_cluster_log_types_binding = args
+        let enabled_cluster_log_types_binding_1 = args
             .enabled_cluster_log_types
-            .get_output(context)
+            .get_output(context);
+        let enabled_cluster_log_types_binding = enabled_cluster_log_types_binding_1
             .get_inner();
-        let encryption_config_binding = args
-            .encryption_config
-            .get_output(context)
-            .get_inner();
-        let kubernetes_network_config_binding = args
+        let encryption_config_binding_1 = args.encryption_config.get_output(context);
+        let encryption_config_binding = encryption_config_binding_1.get_inner();
+        let kubernetes_network_config_binding_1 = args
             .kubernetes_network_config
-            .get_output(context)
+            .get_output(context);
+        let kubernetes_network_config_binding = kubernetes_network_config_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let outpost_config_binding = args.outpost_config.get_output(context).get_inner();
-        let remote_network_config_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let outpost_config_binding_1 = args.outpost_config.get_output(context);
+        let outpost_config_binding = outpost_config_binding_1.get_inner();
+        let remote_network_config_binding_1 = args
             .remote_network_config
-            .get_output(context)
-            .get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let storage_config_binding = args.storage_config.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let upgrade_policy_binding = args.upgrade_policy.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
-        let vpc_config_binding = args.vpc_config.get_output(context).get_inner();
-        let zonal_shift_config_binding = args
-            .zonal_shift_config
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let remote_network_config_binding = remote_network_config_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let storage_config_binding_1 = args.storage_config.get_output(context);
+        let storage_config_binding = storage_config_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let upgrade_policy_binding_1 = args.upgrade_policy.get_output(context);
+        let upgrade_policy_binding = upgrade_policy_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
+        let vpc_config_binding_1 = args.vpc_config.get_output(context);
+        let vpc_config_binding = vpc_config_binding_1.get_inner();
+        let zonal_shift_config_binding_1 = args.zonal_shift_config.get_output(context);
+        let zonal_shift_config_binding = zonal_shift_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:eks/cluster:Cluster".into(),
             name: name.to_string(),

@@ -60,11 +60,10 @@ pub mod application_snapshot {
     ) -> ApplicationSnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_name_binding = args
-            .application_name
-            .get_output(context)
-            .get_inner();
-        let snapshot_name_binding = args.snapshot_name.get_output(context).get_inner();
+        let application_name_binding_1 = args.application_name.get_output(context);
+        let application_name_binding = application_name_binding_1.get_inner();
+        let snapshot_name_binding_1 = args.snapshot_name.get_output(context);
+        let snapshot_name_binding = snapshot_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot"
                 .into(),

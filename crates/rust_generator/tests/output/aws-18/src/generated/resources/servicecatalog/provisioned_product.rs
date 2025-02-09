@@ -183,41 +183,49 @@ pub mod provisioned_product {
     ) -> ProvisionedProductResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding = args
-            .accept_language
-            .get_output(context)
-            .get_inner();
-        let ignore_errors_binding = args.ignore_errors.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notification_arns_binding = args
-            .notification_arns
-            .get_output(context)
-            .get_inner();
-        let path_id_binding = args.path_id.get_output(context).get_inner();
-        let path_name_binding = args.path_name.get_output(context).get_inner();
-        let product_id_binding = args.product_id.get_output(context).get_inner();
-        let product_name_binding = args.product_name.get_output(context).get_inner();
-        let provisioning_artifact_id_binding = args
+        let accept_language_binding_1 = args.accept_language.get_output(context);
+        let accept_language_binding = accept_language_binding_1.get_inner();
+        let ignore_errors_binding_1 = args.ignore_errors.get_output(context);
+        let ignore_errors_binding = ignore_errors_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notification_arns_binding_1 = args.notification_arns.get_output(context);
+        let notification_arns_binding = notification_arns_binding_1.get_inner();
+        let path_id_binding_1 = args.path_id.get_output(context);
+        let path_id_binding = path_id_binding_1.get_inner();
+        let path_name_binding_1 = args.path_name.get_output(context);
+        let path_name_binding = path_name_binding_1.get_inner();
+        let product_id_binding_1 = args.product_id.get_output(context);
+        let product_id_binding = product_id_binding_1.get_inner();
+        let product_name_binding_1 = args.product_name.get_output(context);
+        let product_name_binding = product_name_binding_1.get_inner();
+        let provisioning_artifact_id_binding_1 = args
             .provisioning_artifact_id
-            .get_output(context)
+            .get_output(context);
+        let provisioning_artifact_id_binding = provisioning_artifact_id_binding_1
             .get_inner();
-        let provisioning_artifact_name_binding = args
+        let provisioning_artifact_name_binding_1 = args
             .provisioning_artifact_name
-            .get_output(context)
+            .get_output(context);
+        let provisioning_artifact_name_binding = provisioning_artifact_name_binding_1
             .get_inner();
-        let provisioning_parameters_binding = args
+        let provisioning_parameters_binding_1 = args
             .provisioning_parameters
-            .get_output(context)
+            .get_output(context);
+        let provisioning_parameters_binding = provisioning_parameters_binding_1
             .get_inner();
-        let retain_physical_resources_binding = args
+        let retain_physical_resources_binding_1 = args
             .retain_physical_resources
-            .get_output(context)
+            .get_output(context);
+        let retain_physical_resources_binding = retain_physical_resources_binding_1
             .get_inner();
-        let stack_set_provisioning_preferences_binding = args
+        let stack_set_provisioning_preferences_binding_1 = args
             .stack_set_provisioning_preferences
-            .get_output(context)
+            .get_output(context);
+        let stack_set_provisioning_preferences_binding = stack_set_provisioning_preferences_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/provisionedProduct:ProvisionedProduct".into(),
             name: name.to_string(),

@@ -28,7 +28,8 @@ pub mod get_iam_policy {
     ) -> GetIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let folder_binding = args.folder.get_output(context).get_inner();
+        let folder_binding_1 = args.folder.get_output(context);
+        let folder_binding = folder_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:folder/getIamPolicy:getIamPolicy".into(),
             version: super::super::super::get_version(),

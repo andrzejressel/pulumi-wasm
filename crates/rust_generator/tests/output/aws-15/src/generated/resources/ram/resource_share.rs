@@ -71,16 +71,17 @@ pub mod resource_share {
     ) -> ResourceShareResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_external_principals_binding = args
+        let allow_external_principals_binding_1 = args
             .allow_external_principals
-            .get_output(context)
+            .get_output(context);
+        let allow_external_principals_binding = allow_external_principals_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let permission_arns_binding = args
-            .permission_arns
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let permission_arns_binding_1 = args.permission_arns.get_output(context);
+        let permission_arns_binding = permission_arns_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ram/resourceShare:ResourceShare".into(),
             name: name.to_string(),

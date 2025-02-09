@@ -133,18 +133,19 @@ pub mod private_link_association {
     ) -> PrivateLinkAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let management_group_id_binding = args
-            .management_group_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+        let management_group_id_binding_1 = args.management_group_id.get_output(context);
+        let management_group_id_binding = management_group_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_management_private_link_id_binding = args
+        let resource_management_private_link_id_binding_1 = args
             .resource_management_private_link_id
-            .get_output(context)
+            .get_output(context);
+        let resource_management_private_link_id_binding = resource_management_private_link_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:management/privateLinkAssociation:PrivateLinkAssociation"

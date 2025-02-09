@@ -101,8 +101,10 @@ pub mod certificate_contacts {
     ) -> CertificateContactsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contacts_binding = args.contacts.get_output(context).get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
+        let contacts_binding_1 = args.contacts.get_output(context);
+        let contacts_binding = contacts_binding_1.get_inner();
+        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
+        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/certificateContacts:CertificateContacts".into(),
             name: name.to_string(),

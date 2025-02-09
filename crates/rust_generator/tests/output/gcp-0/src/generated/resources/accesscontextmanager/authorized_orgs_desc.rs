@@ -163,18 +163,21 @@ pub mod authorized_orgs_desc {
     ) -> AuthorizedOrgsDescResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let asset_type_binding = args.asset_type.get_output(context).get_inner();
-        let authorization_direction_binding = args
+        let asset_type_binding_1 = args.asset_type.get_output(context);
+        let asset_type_binding = asset_type_binding_1.get_inner();
+        let authorization_direction_binding_1 = args
             .authorization_direction
-            .get_output(context)
+            .get_output(context);
+        let authorization_direction_binding = authorization_direction_binding_1
             .get_inner();
-        let authorization_type_binding = args
-            .authorization_type
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let orgs_binding = args.orgs.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
+        let authorization_type_binding_1 = args.authorization_type.get_output(context);
+        let authorization_type_binding = authorization_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let orgs_binding_1 = args.orgs.get_output(context);
+        let orgs_binding = orgs_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/authorizedOrgsDesc:AuthorizedOrgsDesc"
                 .into(),

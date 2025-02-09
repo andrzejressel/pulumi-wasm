@@ -818,13 +818,20 @@ pub mod prevention_job_trigger {
     ) -> PreventionJobTriggerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let inspect_job_binding = args.inspect_job.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let trigger_id_binding = args.trigger_id.get_output(context).get_inner();
-        let triggers_binding = args.triggers.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let inspect_job_binding_1 = args.inspect_job.get_output(context);
+        let inspect_job_binding = inspect_job_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let trigger_id_binding_1 = args.trigger_id.get_output(context);
+        let trigger_id_binding = trigger_id_binding_1.get_inner();
+        let triggers_binding_1 = args.triggers.get_output(context);
+        let triggers_binding = triggers_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataloss/preventionJobTrigger:PreventionJobTrigger".into(),
             name: name.to_string(),

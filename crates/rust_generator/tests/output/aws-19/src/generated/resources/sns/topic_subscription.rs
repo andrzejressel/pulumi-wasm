@@ -264,36 +264,40 @@ pub mod topic_subscription {
     ) -> TopicSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let confirmation_timeout_in_minutes_binding = args
+        let confirmation_timeout_in_minutes_binding_1 = args
             .confirmation_timeout_in_minutes
-            .get_output(context)
+            .get_output(context);
+        let confirmation_timeout_in_minutes_binding = confirmation_timeout_in_minutes_binding_1
             .get_inner();
-        let delivery_policy_binding = args
-            .delivery_policy
-            .get_output(context)
-            .get_inner();
-        let endpoint_binding = args.endpoint.get_output(context).get_inner();
-        let endpoint_auto_confirms_binding = args
+        let delivery_policy_binding_1 = args.delivery_policy.get_output(context);
+        let delivery_policy_binding = delivery_policy_binding_1.get_inner();
+        let endpoint_binding_1 = args.endpoint.get_output(context);
+        let endpoint_binding = endpoint_binding_1.get_inner();
+        let endpoint_auto_confirms_binding_1 = args
             .endpoint_auto_confirms
-            .get_output(context)
+            .get_output(context);
+        let endpoint_auto_confirms_binding = endpoint_auto_confirms_binding_1
             .get_inner();
-        let filter_policy_binding = args.filter_policy.get_output(context).get_inner();
-        let filter_policy_scope_binding = args
-            .filter_policy_scope
-            .get_output(context)
-            .get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let raw_message_delivery_binding = args
+        let filter_policy_binding_1 = args.filter_policy.get_output(context);
+        let filter_policy_binding = filter_policy_binding_1.get_inner();
+        let filter_policy_scope_binding_1 = args.filter_policy_scope.get_output(context);
+        let filter_policy_scope_binding = filter_policy_scope_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let raw_message_delivery_binding_1 = args
             .raw_message_delivery
-            .get_output(context)
-            .get_inner();
-        let redrive_policy_binding = args.redrive_policy.get_output(context).get_inner();
-        let replay_policy_binding = args.replay_policy.get_output(context).get_inner();
-        let subscription_role_arn_binding = args
+            .get_output(context);
+        let raw_message_delivery_binding = raw_message_delivery_binding_1.get_inner();
+        let redrive_policy_binding_1 = args.redrive_policy.get_output(context);
+        let redrive_policy_binding = redrive_policy_binding_1.get_inner();
+        let replay_policy_binding_1 = args.replay_policy.get_output(context);
+        let replay_policy_binding = replay_policy_binding_1.get_inner();
+        let subscription_role_arn_binding_1 = args
             .subscription_role_arn
-            .get_output(context)
-            .get_inner();
-        let topic_binding = args.topic.get_output(context).get_inner();
+            .get_output(context);
+        let subscription_role_arn_binding = subscription_role_arn_binding_1.get_inner();
+        let topic_binding_1 = args.topic.get_output(context);
+        let topic_binding = topic_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sns/topicSubscription:TopicSubscription".into(),
             name: name.to_string(),

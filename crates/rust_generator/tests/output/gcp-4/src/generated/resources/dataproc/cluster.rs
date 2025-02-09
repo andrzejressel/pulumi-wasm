@@ -194,18 +194,25 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_config_binding = args.cluster_config.get_output(context).get_inner();
-        let graceful_decommission_timeout_binding = args
+        let cluster_config_binding_1 = args.cluster_config.get_output(context);
+        let cluster_config_binding = cluster_config_binding_1.get_inner();
+        let graceful_decommission_timeout_binding_1 = args
             .graceful_decommission_timeout
-            .get_output(context)
+            .get_output(context);
+        let graceful_decommission_timeout_binding = graceful_decommission_timeout_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let virtual_cluster_config_binding = args
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let virtual_cluster_config_binding_1 = args
             .virtual_cluster_config
-            .get_output(context)
+            .get_output(context);
+        let virtual_cluster_config_binding = virtual_cluster_config_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/cluster:Cluster".into(),

@@ -119,18 +119,27 @@ pub mod apns_voip_sandbox_channel {
     ) -> ApnsVoipSandboxChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_output(context).get_inner();
-        let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
-        let certificate_binding = args.certificate.get_output(context).get_inner();
-        let default_authentication_method_binding = args
+        let application_id_binding_1 = args.application_id.get_output(context);
+        let application_id_binding = application_id_binding_1.get_inner();
+        let bundle_id_binding_1 = args.bundle_id.get_output(context);
+        let bundle_id_binding = bundle_id_binding_1.get_inner();
+        let certificate_binding_1 = args.certificate.get_output(context);
+        let certificate_binding = certificate_binding_1.get_inner();
+        let default_authentication_method_binding_1 = args
             .default_authentication_method
-            .get_output(context)
+            .get_output(context);
+        let default_authentication_method_binding = default_authentication_method_binding_1
             .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let private_key_binding = args.private_key.get_output(context).get_inner();
-        let team_id_binding = args.team_id.get_output(context).get_inner();
-        let token_key_binding = args.token_key.get_output(context).get_inner();
-        let token_key_id_binding = args.token_key_id.get_output(context).get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let private_key_binding_1 = args.private_key.get_output(context);
+        let private_key_binding = private_key_binding_1.get_inner();
+        let team_id_binding_1 = args.team_id.get_output(context);
+        let team_id_binding = team_id_binding_1.get_inner();
+        let token_key_binding_1 = args.token_key.get_output(context);
+        let token_key_binding = token_key_binding_1.get_inner();
+        let token_key_id_binding_1 = args.token_key_id.get_output(context);
+        let token_key_id_binding = token_key_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel".into(),
             name: name.to_string(),

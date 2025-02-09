@@ -422,45 +422,49 @@ pub mod policy {
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let adjustment_type_binding = args
-            .adjustment_type
-            .get_output(context)
-            .get_inner();
-        let autoscaling_group_name_binding = args
+        let adjustment_type_binding_1 = args.adjustment_type.get_output(context);
+        let adjustment_type_binding = adjustment_type_binding_1.get_inner();
+        let autoscaling_group_name_binding_1 = args
             .autoscaling_group_name
-            .get_output(context)
+            .get_output(context);
+        let autoscaling_group_name_binding = autoscaling_group_name_binding_1
             .get_inner();
-        let cooldown_binding = args.cooldown.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let estimated_instance_warmup_binding = args
+        let cooldown_binding_1 = args.cooldown.get_output(context);
+        let cooldown_binding = cooldown_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let estimated_instance_warmup_binding_1 = args
             .estimated_instance_warmup
-            .get_output(context)
+            .get_output(context);
+        let estimated_instance_warmup_binding = estimated_instance_warmup_binding_1
             .get_inner();
-        let metric_aggregation_type_binding = args
+        let metric_aggregation_type_binding_1 = args
             .metric_aggregation_type
-            .get_output(context)
+            .get_output(context);
+        let metric_aggregation_type_binding = metric_aggregation_type_binding_1
             .get_inner();
-        let min_adjustment_magnitude_binding = args
+        let min_adjustment_magnitude_binding_1 = args
             .min_adjustment_magnitude
-            .get_output(context)
+            .get_output(context);
+        let min_adjustment_magnitude_binding = min_adjustment_magnitude_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let policy_type_binding = args.policy_type.get_output(context).get_inner();
-        let predictive_scaling_configuration_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let policy_type_binding_1 = args.policy_type.get_output(context);
+        let policy_type_binding = policy_type_binding_1.get_inner();
+        let predictive_scaling_configuration_binding_1 = args
             .predictive_scaling_configuration
-            .get_output(context)
+            .get_output(context);
+        let predictive_scaling_configuration_binding = predictive_scaling_configuration_binding_1
             .get_inner();
-        let scaling_adjustment_binding = args
-            .scaling_adjustment
-            .get_output(context)
-            .get_inner();
-        let step_adjustments_binding = args
-            .step_adjustments
-            .get_output(context)
-            .get_inner();
-        let target_tracking_configuration_binding = args
+        let scaling_adjustment_binding_1 = args.scaling_adjustment.get_output(context);
+        let scaling_adjustment_binding = scaling_adjustment_binding_1.get_inner();
+        let step_adjustments_binding_1 = args.step_adjustments.get_output(context);
+        let step_adjustments_binding = step_adjustments_binding_1.get_inner();
+        let target_tracking_configuration_binding_1 = args
             .target_tracking_configuration
-            .get_output(context)
+            .get_output(context);
+        let target_tracking_configuration_binding = target_tracking_configuration_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:autoscaling/policy:Policy".into(),

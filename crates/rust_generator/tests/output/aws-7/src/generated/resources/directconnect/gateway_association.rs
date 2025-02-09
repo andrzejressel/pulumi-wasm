@@ -161,21 +161,23 @@ pub mod gateway_association {
     ) -> GatewayAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_prefixes_binding = args
-            .allowed_prefixes
-            .get_output(context)
-            .get_inner();
-        let associated_gateway_id_binding = args
+        let allowed_prefixes_binding_1 = args.allowed_prefixes.get_output(context);
+        let allowed_prefixes_binding = allowed_prefixes_binding_1.get_inner();
+        let associated_gateway_id_binding_1 = args
             .associated_gateway_id
-            .get_output(context)
-            .get_inner();
-        let associated_gateway_owner_account_id_binding = args
+            .get_output(context);
+        let associated_gateway_id_binding = associated_gateway_id_binding_1.get_inner();
+        let associated_gateway_owner_account_id_binding_1 = args
             .associated_gateway_owner_account_id
-            .get_output(context)
+            .get_output(context);
+        let associated_gateway_owner_account_id_binding = associated_gateway_owner_account_id_binding_1
             .get_inner();
-        let dx_gateway_id_binding = args.dx_gateway_id.get_output(context).get_inner();
-        let proposal_id_binding = args.proposal_id.get_output(context).get_inner();
-        let vpn_gateway_id_binding = args.vpn_gateway_id.get_output(context).get_inner();
+        let dx_gateway_id_binding_1 = args.dx_gateway_id.get_output(context);
+        let dx_gateway_id_binding = dx_gateway_id_binding_1.get_inner();
+        let proposal_id_binding_1 = args.proposal_id.get_output(context);
+        let proposal_id_binding = proposal_id_binding_1.get_inner();
+        let vpn_gateway_id_binding_1 = args.vpn_gateway_id.get_output(context);
+        let vpn_gateway_id_binding = vpn_gateway_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/gatewayAssociation:GatewayAssociation".into(),
             name: name.to_string(),

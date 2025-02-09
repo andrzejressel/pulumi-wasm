@@ -34,8 +34,10 @@ pub mod get_image_iam_policy {
     ) -> GetImageIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let image_binding = args.image.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let image_binding_1 = args.image.get_output(context);
+        let image_binding = image_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getImageIamPolicy:getImageIamPolicy".into(),
             version: super::super::super::get_version(),

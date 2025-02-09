@@ -60,10 +60,10 @@ pub mod event_configurations {
     ) -> EventConfigurationsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let event_configurations_binding = args
+        let event_configurations_binding_1 = args
             .event_configurations
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let event_configurations_binding = event_configurations_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/eventConfigurations:EventConfigurations".into(),
             name: name.to_string(),

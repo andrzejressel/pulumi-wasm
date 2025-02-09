@@ -76,13 +76,14 @@ pub mod vpc_link {
     ) -> VpcLinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let security_group_ids_binding = args
-            .security_group_ids
-            .get_output(context)
-            .get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
+        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigatewayv2/vpcLink:VpcLink".into(),
             name: name.to_string(),

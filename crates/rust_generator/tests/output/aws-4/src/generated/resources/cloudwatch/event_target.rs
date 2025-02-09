@@ -724,41 +724,49 @@ pub mod event_target {
     ) -> EventTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let appsync_target_binding = args.appsync_target.get_output(context).get_inner();
-        let arn_binding = args.arn.get_output(context).get_inner();
-        let batch_target_binding = args.batch_target.get_output(context).get_inner();
-        let dead_letter_config_binding = args
-            .dead_letter_config
-            .get_output(context)
-            .get_inner();
-        let ecs_target_binding = args.ecs_target.get_output(context).get_inner();
-        let event_bus_name_binding = args.event_bus_name.get_output(context).get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let http_target_binding = args.http_target.get_output(context).get_inner();
-        let input_binding = args.input.get_output(context).get_inner();
-        let input_path_binding = args.input_path.get_output(context).get_inner();
-        let input_transformer_binding = args
-            .input_transformer
-            .get_output(context)
-            .get_inner();
-        let kinesis_target_binding = args.kinesis_target.get_output(context).get_inner();
-        let redshift_target_binding = args
-            .redshift_target
-            .get_output(context)
-            .get_inner();
-        let retry_policy_binding = args.retry_policy.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let rule_binding = args.rule.get_output(context).get_inner();
-        let run_command_targets_binding = args
-            .run_command_targets
-            .get_output(context)
-            .get_inner();
-        let sagemaker_pipeline_target_binding = args
+        let appsync_target_binding_1 = args.appsync_target.get_output(context);
+        let appsync_target_binding = appsync_target_binding_1.get_inner();
+        let arn_binding_1 = args.arn.get_output(context);
+        let arn_binding = arn_binding_1.get_inner();
+        let batch_target_binding_1 = args.batch_target.get_output(context);
+        let batch_target_binding = batch_target_binding_1.get_inner();
+        let dead_letter_config_binding_1 = args.dead_letter_config.get_output(context);
+        let dead_letter_config_binding = dead_letter_config_binding_1.get_inner();
+        let ecs_target_binding_1 = args.ecs_target.get_output(context);
+        let ecs_target_binding = ecs_target_binding_1.get_inner();
+        let event_bus_name_binding_1 = args.event_bus_name.get_output(context);
+        let event_bus_name_binding = event_bus_name_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let http_target_binding_1 = args.http_target.get_output(context);
+        let http_target_binding = http_target_binding_1.get_inner();
+        let input_binding_1 = args.input.get_output(context);
+        let input_binding = input_binding_1.get_inner();
+        let input_path_binding_1 = args.input_path.get_output(context);
+        let input_path_binding = input_path_binding_1.get_inner();
+        let input_transformer_binding_1 = args.input_transformer.get_output(context);
+        let input_transformer_binding = input_transformer_binding_1.get_inner();
+        let kinesis_target_binding_1 = args.kinesis_target.get_output(context);
+        let kinesis_target_binding = kinesis_target_binding_1.get_inner();
+        let redshift_target_binding_1 = args.redshift_target.get_output(context);
+        let redshift_target_binding = redshift_target_binding_1.get_inner();
+        let retry_policy_binding_1 = args.retry_policy.get_output(context);
+        let retry_policy_binding = retry_policy_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let rule_binding_1 = args.rule.get_output(context);
+        let rule_binding = rule_binding_1.get_inner();
+        let run_command_targets_binding_1 = args.run_command_targets.get_output(context);
+        let run_command_targets_binding = run_command_targets_binding_1.get_inner();
+        let sagemaker_pipeline_target_binding_1 = args
             .sagemaker_pipeline_target
-            .get_output(context)
+            .get_output(context);
+        let sagemaker_pipeline_target_binding = sagemaker_pipeline_target_binding_1
             .get_inner();
-        let sqs_target_binding = args.sqs_target.get_output(context).get_inner();
-        let target_id_binding = args.target_id.get_output(context).get_inner();
+        let sqs_target_binding_1 = args.sqs_target.get_output(context);
+        let sqs_target_binding = sqs_target_binding_1.get_inner();
+        let target_id_binding_1 = args.target_id.get_output(context);
+        let target_id_binding = target_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventTarget:EventTarget".into(),
             name: name.to_string(),

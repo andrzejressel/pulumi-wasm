@@ -134,50 +134,45 @@ pub mod spring_cloud_app_dynamics_application_performance_monitoring {
     ) -> SpringCloudAppDynamicsApplicationPerformanceMonitoringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_account_access_key_binding = args
+        let agent_account_access_key_binding_1 = args
             .agent_account_access_key
-            .get_output(context)
+            .get_output(context);
+        let agent_account_access_key_binding = agent_account_access_key_binding_1
             .get_inner();
-        let agent_account_name_binding = args
-            .agent_account_name
-            .get_output(context)
-            .get_inner();
-        let agent_application_name_binding = args
+        let agent_account_name_binding_1 = args.agent_account_name.get_output(context);
+        let agent_account_name_binding = agent_account_name_binding_1.get_inner();
+        let agent_application_name_binding_1 = args
             .agent_application_name
-            .get_output(context)
+            .get_output(context);
+        let agent_application_name_binding = agent_application_name_binding_1
             .get_inner();
-        let agent_node_name_binding = args
-            .agent_node_name
-            .get_output(context)
-            .get_inner();
-        let agent_tier_name_binding = args
-            .agent_tier_name
-            .get_output(context)
-            .get_inner();
-        let agent_unique_host_id_binding = args
+        let agent_node_name_binding_1 = args.agent_node_name.get_output(context);
+        let agent_node_name_binding = agent_node_name_binding_1.get_inner();
+        let agent_tier_name_binding_1 = args.agent_tier_name.get_output(context);
+        let agent_tier_name_binding = agent_tier_name_binding_1.get_inner();
+        let agent_unique_host_id_binding_1 = args
             .agent_unique_host_id
-            .get_output(context)
-            .get_inner();
-        let controller_host_name_binding = args
+            .get_output(context);
+        let agent_unique_host_id_binding = agent_unique_host_id_binding_1.get_inner();
+        let controller_host_name_binding_1 = args
             .controller_host_name
-            .get_output(context)
-            .get_inner();
-        let controller_port_binding = args
-            .controller_port
-            .get_output(context)
-            .get_inner();
-        let controller_ssl_enabled_binding = args
+            .get_output(context);
+        let controller_host_name_binding = controller_host_name_binding_1.get_inner();
+        let controller_port_binding_1 = args.controller_port.get_output(context);
+        let controller_port_binding = controller_port_binding_1.get_inner();
+        let controller_ssl_enabled_binding_1 = args
             .controller_ssl_enabled
-            .get_output(context)
+            .get_output(context);
+        let controller_ssl_enabled_binding = controller_ssl_enabled_binding_1
             .get_inner();
-        let globally_enabled_binding = args
-            .globally_enabled
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let spring_cloud_service_id_binding = args
+        let globally_enabled_binding_1 = args.globally_enabled.get_output(context);
+        let globally_enabled_binding = globally_enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let spring_cloud_service_id_binding_1 = args
             .spring_cloud_service_id
-            .get_output(context)
+            .get_output(context);
+        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring"

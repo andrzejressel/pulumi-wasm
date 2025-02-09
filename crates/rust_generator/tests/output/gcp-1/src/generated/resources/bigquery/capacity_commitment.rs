@@ -145,20 +145,28 @@ pub mod capacity_commitment {
     ) -> CapacityCommitmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_commitment_id_binding = args
+        let capacity_commitment_id_binding_1 = args
             .capacity_commitment_id
-            .get_output(context)
+            .get_output(context);
+        let capacity_commitment_id_binding = capacity_commitment_id_binding_1
             .get_inner();
-        let edition_binding = args.edition.get_output(context).get_inner();
-        let enforce_single_admin_project_per_org_binding = args
+        let edition_binding_1 = args.edition.get_output(context);
+        let edition_binding = edition_binding_1.get_inner();
+        let enforce_single_admin_project_per_org_binding_1 = args
             .enforce_single_admin_project_per_org
-            .get_output(context)
+            .get_output(context);
+        let enforce_single_admin_project_per_org_binding = enforce_single_admin_project_per_org_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let plan_binding = args.plan.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let renewal_plan_binding = args.renewal_plan.get_output(context).get_inner();
-        let slot_count_binding = args.slot_count.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let plan_binding_1 = args.plan.get_output(context);
+        let plan_binding = plan_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let renewal_plan_binding_1 = args.renewal_plan.get_output(context);
+        let renewal_plan_binding = renewal_plan_binding_1.get_inner();
+        let slot_count_binding_1 = args.slot_count.get_output(context);
+        let slot_count_binding = slot_count_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/capacityCommitment:CapacityCommitment".into(),
             name: name.to_string(),

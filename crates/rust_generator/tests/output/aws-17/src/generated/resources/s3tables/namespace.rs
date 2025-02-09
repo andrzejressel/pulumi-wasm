@@ -71,11 +71,10 @@ pub mod namespace {
     ) -> NamespaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let namespace_binding = args.namespace.get_output(context).get_inner();
-        let table_bucket_arn_binding = args
-            .table_bucket_arn
-            .get_output(context)
-            .get_inner();
+        let namespace_binding_1 = args.namespace.get_output(context);
+        let namespace_binding = namespace_binding_1.get_inner();
+        let table_bucket_arn_binding_1 = args.table_bucket_arn.get_output(context);
+        let table_bucket_arn_binding = table_bucket_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3tables/namespace:Namespace".into(),
             name: name.to_string(),

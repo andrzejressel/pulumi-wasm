@@ -84,10 +84,14 @@ pub mod access_grants_location {
     ) -> AccessGrantsLocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
-        let location_scope_binding = args.location_scope.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
+        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
+        let location_scope_binding_1 = args.location_scope.get_output(context);
+        let location_scope_binding = location_scope_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3control/accessGrantsLocation:AccessGrantsLocation".into(),
             name: name.to_string(),

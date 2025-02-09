@@ -78,20 +78,19 @@ pub mod service_trust {
     ) -> ServiceTrustResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_service_id_binding = args
-            .domain_service_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let trusted_domain_dns_ips_binding = args
+        let domain_service_id_binding_1 = args.domain_service_id.get_output(context);
+        let domain_service_id_binding = domain_service_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let trusted_domain_dns_ips_binding_1 = args
             .trusted_domain_dns_ips
-            .get_output(context)
+            .get_output(context);
+        let trusted_domain_dns_ips_binding = trusted_domain_dns_ips_binding_1
             .get_inner();
-        let trusted_domain_fqdn_binding = args
-            .trusted_domain_fqdn
-            .get_output(context)
-            .get_inner();
+        let trusted_domain_fqdn_binding_1 = args.trusted_domain_fqdn.get_output(context);
+        let trusted_domain_fqdn_binding = trusted_domain_fqdn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:domainservices/serviceTrust:ServiceTrust".into(),
             name: name.to_string(),

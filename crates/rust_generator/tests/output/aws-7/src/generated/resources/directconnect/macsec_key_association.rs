@@ -95,10 +95,14 @@ pub mod macsec_key_association {
     ) -> MacsecKeyAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cak_binding = args.cak.get_output(context).get_inner();
-        let ckn_binding = args.ckn.get_output(context).get_inner();
-        let connection_id_binding = args.connection_id.get_output(context).get_inner();
-        let secret_arn_binding = args.secret_arn.get_output(context).get_inner();
+        let cak_binding_1 = args.cak.get_output(context);
+        let cak_binding = cak_binding_1.get_inner();
+        let ckn_binding_1 = args.ckn.get_output(context);
+        let ckn_binding = ckn_binding_1.get_inner();
+        let connection_id_binding_1 = args.connection_id.get_output(context);
+        let connection_id_binding = connection_id_binding_1.get_inner();
+        let secret_arn_binding_1 = args.secret_arn.get_output(context);
+        let secret_arn_binding = secret_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation".into(),
             name: name.to_string(),

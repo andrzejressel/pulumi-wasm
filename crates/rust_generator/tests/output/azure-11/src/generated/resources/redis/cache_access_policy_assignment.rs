@@ -94,17 +94,16 @@ pub mod cache_access_policy_assignment {
     ) -> CacheAccessPolicyAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_policy_name_binding = args
-            .access_policy_name
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let object_id_binding = args.object_id.get_output(context).get_inner();
-        let object_id_alias_binding = args
-            .object_id_alias
-            .get_output(context)
-            .get_inner();
-        let redis_cache_id_binding = args.redis_cache_id.get_output(context).get_inner();
+        let access_policy_name_binding_1 = args.access_policy_name.get_output(context);
+        let access_policy_name_binding = access_policy_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let object_id_binding_1 = args.object_id.get_output(context);
+        let object_id_binding = object_id_binding_1.get_inner();
+        let object_id_alias_binding_1 = args.object_id_alias.get_output(context);
+        let object_id_alias_binding = object_id_alias_binding_1.get_inner();
+        let redis_cache_id_binding_1 = args.redis_cache_id.get_output(context);
+        let redis_cache_id_binding = redis_cache_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment"
                 .into(),

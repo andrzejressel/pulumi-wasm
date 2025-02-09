@@ -309,21 +309,30 @@ pub mod internal_range {
     ) -> InternalRangeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let ip_cidr_range_binding = args.ip_cidr_range.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let migration_binding = args.migration.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let overlaps_binding = args.overlaps.get_output(context).get_inner();
-        let peering_binding = args.peering.get_output(context).get_inner();
-        let prefix_length_binding = args.prefix_length.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let target_cidr_ranges_binding = args
-            .target_cidr_ranges
-            .get_output(context)
-            .get_inner();
-        let usage_binding = args.usage.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let ip_cidr_range_binding_1 = args.ip_cidr_range.get_output(context);
+        let ip_cidr_range_binding = ip_cidr_range_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let migration_binding_1 = args.migration.get_output(context);
+        let migration_binding = migration_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let overlaps_binding_1 = args.overlaps.get_output(context);
+        let overlaps_binding = overlaps_binding_1.get_inner();
+        let peering_binding_1 = args.peering.get_output(context);
+        let peering_binding = peering_binding_1.get_inner();
+        let prefix_length_binding_1 = args.prefix_length.get_output(context);
+        let prefix_length_binding = prefix_length_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let target_cidr_ranges_binding_1 = args.target_cidr_ranges.get_output(context);
+        let target_cidr_ranges_binding = target_cidr_ranges_binding_1.get_inner();
+        let usage_binding_1 = args.usage.get_output(context);
+        let usage_binding = usage_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkconnectivity/internalRange:InternalRange".into(),
             name: name.to_string(),

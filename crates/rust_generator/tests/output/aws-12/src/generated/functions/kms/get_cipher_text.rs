@@ -38,9 +38,12 @@ pub mod get_cipher_text {
     ) -> GetCipherTextResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let context_binding = args.context.get_output(context).get_inner();
-        let key_id_binding = args.key_id.get_output(context).get_inner();
-        let plaintext_binding = args.plaintext.get_output(context).get_inner();
+        let context_binding_1 = args.context.get_output(context);
+        let context_binding = context_binding_1.get_inner();
+        let key_id_binding_1 = args.key_id.get_output(context);
+        let key_id_binding = key_id_binding_1.get_inner();
+        let plaintext_binding_1 = args.plaintext.get_output(context);
+        let plaintext_binding = plaintext_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kms/getCipherText:getCipherText".into(),
             version: super::super::super::get_version(),

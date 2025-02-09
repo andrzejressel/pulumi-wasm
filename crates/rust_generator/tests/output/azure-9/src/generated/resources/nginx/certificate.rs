@@ -168,23 +168,19 @@ pub mod certificate {
     ) -> CertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_virtual_path_binding = args
+        let certificate_virtual_path_binding_1 = args
             .certificate_virtual_path
-            .get_output(context)
+            .get_output(context);
+        let certificate_virtual_path_binding = certificate_virtual_path_binding_1
             .get_inner();
-        let key_vault_secret_id_binding = args
-            .key_vault_secret_id
-            .get_output(context)
-            .get_inner();
-        let key_virtual_path_binding = args
-            .key_virtual_path
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let nginx_deployment_id_binding = args
-            .nginx_deployment_id
-            .get_output(context)
-            .get_inner();
+        let key_vault_secret_id_binding_1 = args.key_vault_secret_id.get_output(context);
+        let key_vault_secret_id_binding = key_vault_secret_id_binding_1.get_inner();
+        let key_virtual_path_binding_1 = args.key_virtual_path.get_output(context);
+        let key_virtual_path_binding = key_virtual_path_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let nginx_deployment_id_binding_1 = args.nginx_deployment_id.get_output(context);
+        let nginx_deployment_id_binding = nginx_deployment_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:nginx/certificate:Certificate".into(),
             name: name.to_string(),

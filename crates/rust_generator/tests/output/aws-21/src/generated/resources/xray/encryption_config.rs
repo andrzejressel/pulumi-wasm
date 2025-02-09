@@ -94,8 +94,10 @@ pub mod encryption_config {
     ) -> EncryptionConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_id_binding = args.key_id.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let key_id_binding_1 = args.key_id.get_output(context);
+        let key_id_binding = key_id_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:xray/encryptionConfig:EncryptionConfig".into(),
             name: name.to_string(),

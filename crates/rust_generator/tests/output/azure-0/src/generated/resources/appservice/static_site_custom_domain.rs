@@ -138,12 +138,12 @@ pub mod static_site_custom_domain {
     ) -> StaticSiteCustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let static_site_id_binding = args.static_site_id.get_output(context).get_inner();
-        let validation_type_binding = args
-            .validation_type
-            .get_output(context)
-            .get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let static_site_id_binding_1 = args.static_site_id.get_output(context);
+        let static_site_id_binding = static_site_id_binding_1.get_inner();
+        let validation_type_binding_1 = args.validation_type.get_output(context);
+        let validation_type_binding = validation_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain"
                 .into(),

@@ -149,26 +149,31 @@ pub mod router_interface {
     ) -> RouterInterfaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let interconnect_attachment_binding = args
+        let interconnect_attachment_binding_1 = args
             .interconnect_attachment
-            .get_output(context)
+            .get_output(context);
+        let interconnect_attachment_binding = interconnect_attachment_binding_1
             .get_inner();
-        let ip_range_binding = args.ip_range.get_output(context).get_inner();
-        let ip_version_binding = args.ip_version.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let private_ip_address_binding = args
-            .private_ip_address
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let redundant_interface_binding = args
-            .redundant_interface
-            .get_output(context)
-            .get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let router_binding = args.router.get_output(context).get_inner();
-        let subnetwork_binding = args.subnetwork.get_output(context).get_inner();
-        let vpn_tunnel_binding = args.vpn_tunnel.get_output(context).get_inner();
+        let ip_range_binding_1 = args.ip_range.get_output(context);
+        let ip_range_binding = ip_range_binding_1.get_inner();
+        let ip_version_binding_1 = args.ip_version.get_output(context);
+        let ip_version_binding = ip_version_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let private_ip_address_binding_1 = args.private_ip_address.get_output(context);
+        let private_ip_address_binding = private_ip_address_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let redundant_interface_binding_1 = args.redundant_interface.get_output(context);
+        let redundant_interface_binding = redundant_interface_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let router_binding_1 = args.router.get_output(context);
+        let router_binding = router_binding_1.get_inner();
+        let subnetwork_binding_1 = args.subnetwork.get_output(context);
+        let subnetwork_binding = subnetwork_binding_1.get_inner();
+        let vpn_tunnel_binding_1 = args.vpn_tunnel.get_output(context);
+        let vpn_tunnel_binding = vpn_tunnel_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/routerInterface:RouterInterface".into(),
             name: name.to_string(),

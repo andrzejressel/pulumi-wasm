@@ -97,11 +97,10 @@ pub mod proactive_engagement {
     ) -> ProactiveEngagementResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let emergency_contacts_binding = args
-            .emergency_contacts
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let emergency_contacts_binding_1 = args.emergency_contacts.get_output(context);
+        let emergency_contacts_binding = emergency_contacts_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:shield/proactiveEngagement:ProactiveEngagement".into(),
             name: name.to_string(),

@@ -75,8 +75,10 @@ pub mod package_association {
     ) -> PackageAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let package_id_binding = args.package_id.get_output(context).get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let package_id_binding_1 = args.package_id.get_output(context);
+        let package_id_binding = package_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opensearch/packageAssociation:PackageAssociation".into(),
             name: name.to_string(),

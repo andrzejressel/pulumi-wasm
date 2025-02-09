@@ -82,14 +82,19 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hsm_type_binding = args.hsm_type.get_output(context).get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let source_backup_identifier_binding = args
+        let hsm_type_binding_1 = args.hsm_type.get_output(context);
+        let hsm_type_binding = hsm_type_binding_1.get_inner();
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let source_backup_identifier_binding_1 = args
             .source_backup_identifier
-            .get_output(context)
+            .get_output(context);
+        let source_backup_identifier_binding = source_backup_identifier_binding_1
             .get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudhsmv2/cluster:Cluster".into(),
             name: name.to_string(),

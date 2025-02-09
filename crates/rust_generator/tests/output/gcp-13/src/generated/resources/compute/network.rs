@@ -328,47 +328,54 @@ pub mod network {
     ) -> NetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_create_subnetworks_binding = args
+        let auto_create_subnetworks_binding_1 = args
             .auto_create_subnetworks
-            .get_output(context)
+            .get_output(context);
+        let auto_create_subnetworks_binding = auto_create_subnetworks_binding_1
             .get_inner();
-        let bgp_always_compare_med_binding = args
+        let bgp_always_compare_med_binding_1 = args
             .bgp_always_compare_med
-            .get_output(context)
+            .get_output(context);
+        let bgp_always_compare_med_binding = bgp_always_compare_med_binding_1
             .get_inner();
-        let bgp_best_path_selection_mode_binding = args
+        let bgp_best_path_selection_mode_binding_1 = args
             .bgp_best_path_selection_mode
-            .get_output(context)
+            .get_output(context);
+        let bgp_best_path_selection_mode_binding = bgp_best_path_selection_mode_binding_1
             .get_inner();
-        let bgp_inter_region_cost_binding = args
+        let bgp_inter_region_cost_binding_1 = args
             .bgp_inter_region_cost
-            .get_output(context)
-            .get_inner();
-        let delete_default_routes_on_create_binding = args
+            .get_output(context);
+        let bgp_inter_region_cost_binding = bgp_inter_region_cost_binding_1.get_inner();
+        let delete_default_routes_on_create_binding_1 = args
             .delete_default_routes_on_create
-            .get_output(context)
+            .get_output(context);
+        let delete_default_routes_on_create_binding = delete_default_routes_on_create_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enable_ula_internal_ipv6_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enable_ula_internal_ipv6_binding_1 = args
             .enable_ula_internal_ipv6
-            .get_output(context)
+            .get_output(context);
+        let enable_ula_internal_ipv6_binding = enable_ula_internal_ipv6_binding_1
             .get_inner();
-        let internal_ipv6_range_binding = args
-            .internal_ipv6_range
-            .get_output(context)
-            .get_inner();
-        let mtu_binding = args.mtu.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_firewall_policy_enforcement_order_binding = args
+        let internal_ipv6_range_binding_1 = args.internal_ipv6_range.get_output(context);
+        let internal_ipv6_range_binding = internal_ipv6_range_binding_1.get_inner();
+        let mtu_binding_1 = args.mtu.get_output(context);
+        let mtu_binding = mtu_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_firewall_policy_enforcement_order_binding_1 = args
             .network_firewall_policy_enforcement_order
-            .get_output(context)
+            .get_output(context);
+        let network_firewall_policy_enforcement_order_binding = network_firewall_policy_enforcement_order_binding_1
             .get_inner();
-        let network_profile_binding = args
-            .network_profile
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let routing_mode_binding = args.routing_mode.get_output(context).get_inner();
+        let network_profile_binding_1 = args.network_profile.get_output(context);
+        let network_profile_binding = network_profile_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let routing_mode_binding_1 = args.routing_mode.get_output(context);
+        let routing_mode_binding = routing_mode_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/network:Network".into(),
             name: name.to_string(),

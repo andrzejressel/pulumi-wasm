@@ -28,7 +28,8 @@ pub mod get_email_identity_mail_from_attributes {
     ) -> GetEmailIdentityMailFromAttributesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let email_identity_binding = args.email_identity.get_output(context).get_inner();
+        let email_identity_binding_1 = args.email_identity.get_output(context);
+        let email_identity_binding = email_identity_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes"
                 .into(),

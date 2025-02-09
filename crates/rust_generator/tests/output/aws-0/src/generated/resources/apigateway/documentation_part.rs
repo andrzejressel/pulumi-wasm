@@ -69,9 +69,12 @@ pub mod documentation_part {
     ) -> DocumentationPartResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_output(context).get_inner();
-        let properties_binding = args.properties.get_output(context).get_inner();
-        let rest_api_id_binding = args.rest_api_id.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let properties_binding_1 = args.properties.get_output(context);
+        let properties_binding = properties_binding_1.get_inner();
+        let rest_api_id_binding_1 = args.rest_api_id.get_output(context);
+        let rest_api_id_binding = rest_api_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/documentationPart:DocumentationPart".into(),
             name: name.to_string(),

@@ -86,17 +86,19 @@ pub mod auto_scaling_configuration_version {
     ) -> AutoScalingConfigurationVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_scaling_configuration_name_binding = args
+        let auto_scaling_configuration_name_binding_1 = args
             .auto_scaling_configuration_name
-            .get_output(context)
+            .get_output(context);
+        let auto_scaling_configuration_name_binding = auto_scaling_configuration_name_binding_1
             .get_inner();
-        let max_concurrency_binding = args
-            .max_concurrency
-            .get_output(context)
-            .get_inner();
-        let max_size_binding = args.max_size.get_output(context).get_inner();
-        let min_size_binding = args.min_size.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let max_concurrency_binding_1 = args.max_concurrency.get_output(context);
+        let max_concurrency_binding = max_concurrency_binding_1.get_inner();
+        let max_size_binding_1 = args.max_size.get_output(context);
+        let max_size_binding = max_size_binding_1.get_inner();
+        let min_size_binding_1 = args.min_size.get_output(context);
+        let min_size_binding = min_size_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion"
                 .into(),

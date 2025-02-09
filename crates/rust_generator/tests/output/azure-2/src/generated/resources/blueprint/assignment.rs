@@ -192,31 +192,34 @@ pub mod assignment {
     ) -> AssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let lock_exclude_actions_binding = args
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let lock_exclude_actions_binding_1 = args
             .lock_exclude_actions
-            .get_output(context)
-            .get_inner();
-        let lock_exclude_principals_binding = args
+            .get_output(context);
+        let lock_exclude_actions_binding = lock_exclude_actions_binding_1.get_inner();
+        let lock_exclude_principals_binding_1 = args
             .lock_exclude_principals
-            .get_output(context)
+            .get_output(context);
+        let lock_exclude_principals_binding = lock_exclude_principals_binding_1
             .get_inner();
-        let lock_mode_binding = args.lock_mode.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameter_values_binding = args
-            .parameter_values
-            .get_output(context)
-            .get_inner();
-        let resource_groups_binding = args
-            .resource_groups
-            .get_output(context)
-            .get_inner();
-        let target_subscription_id_binding = args
+        let lock_mode_binding_1 = args.lock_mode.get_output(context);
+        let lock_mode_binding = lock_mode_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameter_values_binding_1 = args.parameter_values.get_output(context);
+        let parameter_values_binding = parameter_values_binding_1.get_inner();
+        let resource_groups_binding_1 = args.resource_groups.get_output(context);
+        let resource_groups_binding = resource_groups_binding_1.get_inner();
+        let target_subscription_id_binding_1 = args
             .target_subscription_id
-            .get_output(context)
+            .get_output(context);
+        let target_subscription_id_binding = target_subscription_id_binding_1
             .get_inner();
-        let version_id_binding = args.version_id.get_output(context).get_inner();
+        let version_id_binding_1 = args.version_id.get_output(context);
+        let version_id_binding = version_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:blueprint/assignment:Assignment".into(),
             name: name.to_string(),

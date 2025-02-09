@@ -103,16 +103,17 @@ pub mod capacity_block_reservation {
     ) -> CapacityBlockReservationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_block_offering_id_binding = args
+        let capacity_block_offering_id_binding_1 = args
             .capacity_block_offering_id
-            .get_output(context)
+            .get_output(context);
+        let capacity_block_offering_id_binding = capacity_block_offering_id_binding_1
             .get_inner();
-        let instance_platform_binding = args
-            .instance_platform
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let instance_platform_binding_1 = args.instance_platform.get_output(context);
+        let instance_platform_binding = instance_platform_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/capacityBlockReservation:CapacityBlockReservation".into(),
             name: name.to_string(),

@@ -99,14 +99,22 @@ pub mod keystores_aliases_key_cert_file {
     ) -> KeystoresAliasesKeyCertFileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_output(context).get_inner();
-        let cert_binding = args.cert.get_output(context).get_inner();
-        let certs_info_binding = args.certs_info.get_output(context).get_inner();
-        let environment_binding = args.environment.get_output(context).get_inner();
-        let key_binding = args.key.get_output(context).get_inner();
-        let keystore_binding = args.keystore.get_output(context).get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
+        let alias_binding_1 = args.alias.get_output(context);
+        let alias_binding = alias_binding_1.get_inner();
+        let cert_binding_1 = args.cert.get_output(context);
+        let cert_binding = cert_binding_1.get_inner();
+        let certs_info_binding_1 = args.certs_info.get_output(context);
+        let certs_info_binding = certs_info_binding_1.get_inner();
+        let environment_binding_1 = args.environment.get_output(context);
+        let environment_binding = environment_binding_1.get_inner();
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let keystore_binding_1 = args.keystore.get_output(context);
+        let keystore_binding = keystore_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/keystoresAliasesKeyCertFile:KeystoresAliasesKeyCertFile"
                 .into(),

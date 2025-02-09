@@ -236,84 +236,96 @@ pub mod shared_image {
     ) -> SharedImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerated_network_support_enabled_binding = args
+        let accelerated_network_support_enabled_binding_1 = args
             .accelerated_network_support_enabled
-            .get_output(context)
+            .get_output(context);
+        let accelerated_network_support_enabled_binding = accelerated_network_support_enabled_binding_1
             .get_inner();
-        let architecture_binding = args.architecture.get_output(context).get_inner();
-        let confidential_vm_enabled_binding = args
+        let architecture_binding_1 = args.architecture.get_output(context);
+        let architecture_binding = architecture_binding_1.get_inner();
+        let confidential_vm_enabled_binding_1 = args
             .confidential_vm_enabled
-            .get_output(context)
+            .get_output(context);
+        let confidential_vm_enabled_binding = confidential_vm_enabled_binding_1
             .get_inner();
-        let confidential_vm_supported_binding = args
+        let confidential_vm_supported_binding_1 = args
             .confidential_vm_supported
-            .get_output(context)
+            .get_output(context);
+        let confidential_vm_supported_binding = confidential_vm_supported_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disk_controller_type_nvme_enabled_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disk_controller_type_nvme_enabled_binding_1 = args
             .disk_controller_type_nvme_enabled
-            .get_output(context)
+            .get_output(context);
+        let disk_controller_type_nvme_enabled_binding = disk_controller_type_nvme_enabled_binding_1
             .get_inner();
-        let disk_types_not_alloweds_binding = args
+        let disk_types_not_alloweds_binding_1 = args
             .disk_types_not_alloweds
-            .get_output(context)
+            .get_output(context);
+        let disk_types_not_alloweds_binding = disk_types_not_alloweds_binding_1
             .get_inner();
-        let end_of_life_date_binding = args
-            .end_of_life_date
-            .get_output(context)
-            .get_inner();
-        let eula_binding = args.eula.get_output(context).get_inner();
-        let gallery_name_binding = args.gallery_name.get_output(context).get_inner();
-        let hibernation_enabled_binding = args
-            .hibernation_enabled
-            .get_output(context)
-            .get_inner();
-        let hyper_v_generation_binding = args
-            .hyper_v_generation
-            .get_output(context)
-            .get_inner();
-        let identifier_binding = args.identifier.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let max_recommended_memory_in_gb_binding = args
+        let end_of_life_date_binding_1 = args.end_of_life_date.get_output(context);
+        let end_of_life_date_binding = end_of_life_date_binding_1.get_inner();
+        let eula_binding_1 = args.eula.get_output(context);
+        let eula_binding = eula_binding_1.get_inner();
+        let gallery_name_binding_1 = args.gallery_name.get_output(context);
+        let gallery_name_binding = gallery_name_binding_1.get_inner();
+        let hibernation_enabled_binding_1 = args.hibernation_enabled.get_output(context);
+        let hibernation_enabled_binding = hibernation_enabled_binding_1.get_inner();
+        let hyper_v_generation_binding_1 = args.hyper_v_generation.get_output(context);
+        let hyper_v_generation_binding = hyper_v_generation_binding_1.get_inner();
+        let identifier_binding_1 = args.identifier.get_output(context);
+        let identifier_binding = identifier_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let max_recommended_memory_in_gb_binding_1 = args
             .max_recommended_memory_in_gb
-            .get_output(context)
+            .get_output(context);
+        let max_recommended_memory_in_gb_binding = max_recommended_memory_in_gb_binding_1
             .get_inner();
-        let max_recommended_vcpu_count_binding = args
+        let max_recommended_vcpu_count_binding_1 = args
             .max_recommended_vcpu_count
-            .get_output(context)
+            .get_output(context);
+        let max_recommended_vcpu_count_binding = max_recommended_vcpu_count_binding_1
             .get_inner();
-        let min_recommended_memory_in_gb_binding = args
+        let min_recommended_memory_in_gb_binding_1 = args
             .min_recommended_memory_in_gb
-            .get_output(context)
+            .get_output(context);
+        let min_recommended_memory_in_gb_binding = min_recommended_memory_in_gb_binding_1
             .get_inner();
-        let min_recommended_vcpu_count_binding = args
+        let min_recommended_vcpu_count_binding_1 = args
             .min_recommended_vcpu_count
-            .get_output(context)
+            .get_output(context);
+        let min_recommended_vcpu_count_binding = min_recommended_vcpu_count_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let os_type_binding = args.os_type.get_output(context).get_inner();
-        let privacy_statement_uri_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let os_type_binding_1 = args.os_type.get_output(context);
+        let os_type_binding = os_type_binding_1.get_inner();
+        let privacy_statement_uri_binding_1 = args
             .privacy_statement_uri
-            .get_output(context)
-            .get_inner();
-        let purchase_plan_binding = args.purchase_plan.get_output(context).get_inner();
-        let release_note_uri_binding = args
-            .release_note_uri
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let specialized_binding = args.specialized.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let trusted_launch_enabled_binding = args
+            .get_output(context);
+        let privacy_statement_uri_binding = privacy_statement_uri_binding_1.get_inner();
+        let purchase_plan_binding_1 = args.purchase_plan.get_output(context);
+        let purchase_plan_binding = purchase_plan_binding_1.get_inner();
+        let release_note_uri_binding_1 = args.release_note_uri.get_output(context);
+        let release_note_uri_binding = release_note_uri_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let specialized_binding_1 = args.specialized.get_output(context);
+        let specialized_binding = specialized_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let trusted_launch_enabled_binding_1 = args
             .trusted_launch_enabled
-            .get_output(context)
+            .get_output(context);
+        let trusted_launch_enabled_binding = trusted_launch_enabled_binding_1
             .get_inner();
-        let trusted_launch_supported_binding = args
+        let trusted_launch_supported_binding_1 = args
             .trusted_launch_supported
-            .get_output(context)
+            .get_output(context);
+        let trusted_launch_supported_binding = trusted_launch_supported_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/sharedImage:SharedImage".into(),

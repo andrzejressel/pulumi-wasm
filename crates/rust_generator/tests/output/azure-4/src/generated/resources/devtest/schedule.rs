@@ -146,33 +146,32 @@ pub mod schedule {
     ) -> ScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let daily_recurrence_binding = args
-            .daily_recurrence
-            .get_output(context)
-            .get_inner();
-        let hourly_recurrence_binding = args
-            .hourly_recurrence
-            .get_output(context)
-            .get_inner();
-        let lab_name_binding = args.lab_name.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notification_settings_binding = args
+        let daily_recurrence_binding_1 = args.daily_recurrence.get_output(context);
+        let daily_recurrence_binding = daily_recurrence_binding_1.get_inner();
+        let hourly_recurrence_binding_1 = args.hourly_recurrence.get_output(context);
+        let hourly_recurrence_binding = hourly_recurrence_binding_1.get_inner();
+        let lab_name_binding_1 = args.lab_name.get_output(context);
+        let lab_name_binding = lab_name_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notification_settings_binding_1 = args
             .notification_settings
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let task_type_binding = args.task_type.get_output(context).get_inner();
-        let time_zone_id_binding = args.time_zone_id.get_output(context).get_inner();
-        let weekly_recurrence_binding = args
-            .weekly_recurrence
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let notification_settings_binding = notification_settings_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let task_type_binding_1 = args.task_type.get_output(context);
+        let task_type_binding = task_type_binding_1.get_inner();
+        let time_zone_id_binding_1 = args.time_zone_id.get_output(context);
+        let time_zone_id_binding = time_zone_id_binding_1.get_inner();
+        let weekly_recurrence_binding_1 = args.weekly_recurrence.get_output(context);
+        let weekly_recurrence_binding = weekly_recurrence_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:devtest/schedule:Schedule".into(),
             name: name.to_string(),

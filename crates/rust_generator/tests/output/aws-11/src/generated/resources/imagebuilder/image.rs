@@ -144,37 +144,43 @@ pub mod image {
     ) -> ImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_recipe_arn_binding = args
+        let container_recipe_arn_binding_1 = args
             .container_recipe_arn
-            .get_output(context)
-            .get_inner();
-        let distribution_configuration_arn_binding = args
+            .get_output(context);
+        let container_recipe_arn_binding = container_recipe_arn_binding_1.get_inner();
+        let distribution_configuration_arn_binding_1 = args
             .distribution_configuration_arn
-            .get_output(context)
+            .get_output(context);
+        let distribution_configuration_arn_binding = distribution_configuration_arn_binding_1
             .get_inner();
-        let enhanced_image_metadata_enabled_binding = args
+        let enhanced_image_metadata_enabled_binding_1 = args
             .enhanced_image_metadata_enabled
-            .get_output(context)
+            .get_output(context);
+        let enhanced_image_metadata_enabled_binding = enhanced_image_metadata_enabled_binding_1
             .get_inner();
-        let execution_role_binding = args.execution_role.get_output(context).get_inner();
-        let image_recipe_arn_binding = args
-            .image_recipe_arn
-            .get_output(context)
-            .get_inner();
-        let image_scanning_configuration_binding = args
+        let execution_role_binding_1 = args.execution_role.get_output(context);
+        let execution_role_binding = execution_role_binding_1.get_inner();
+        let image_recipe_arn_binding_1 = args.image_recipe_arn.get_output(context);
+        let image_recipe_arn_binding = image_recipe_arn_binding_1.get_inner();
+        let image_scanning_configuration_binding_1 = args
             .image_scanning_configuration
-            .get_output(context)
+            .get_output(context);
+        let image_scanning_configuration_binding = image_scanning_configuration_binding_1
             .get_inner();
-        let image_tests_configuration_binding = args
+        let image_tests_configuration_binding_1 = args
             .image_tests_configuration
-            .get_output(context)
+            .get_output(context);
+        let image_tests_configuration_binding = image_tests_configuration_binding_1
             .get_inner();
-        let infrastructure_configuration_arn_binding = args
+        let infrastructure_configuration_arn_binding_1 = args
             .infrastructure_configuration_arn
-            .get_output(context)
+            .get_output(context);
+        let infrastructure_configuration_arn_binding = infrastructure_configuration_arn_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let workflows_binding = args.workflows.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let workflows_binding_1 = args.workflows.get_output(context);
+        let workflows_binding = workflows_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:imagebuilder/image:Image".into(),
             name: name.to_string(),

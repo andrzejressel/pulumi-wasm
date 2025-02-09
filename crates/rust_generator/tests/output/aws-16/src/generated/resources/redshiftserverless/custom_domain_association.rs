@@ -78,15 +78,15 @@ pub mod custom_domain_association {
     ) -> CustomDomainAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_domain_certificate_arn_binding = args
+        let custom_domain_certificate_arn_binding_1 = args
             .custom_domain_certificate_arn
-            .get_output(context)
+            .get_output(context);
+        let custom_domain_certificate_arn_binding = custom_domain_certificate_arn_binding_1
             .get_inner();
-        let custom_domain_name_binding = args
-            .custom_domain_name
-            .get_output(context)
-            .get_inner();
-        let workgroup_name_binding = args.workgroup_name.get_output(context).get_inner();
+        let custom_domain_name_binding_1 = args.custom_domain_name.get_output(context);
+        let custom_domain_name_binding = custom_domain_name_binding_1.get_inner();
+        let workgroup_name_binding_1 = args.workgroup_name.get_output(context);
+        let workgroup_name_binding = workgroup_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation"
                 .into(),

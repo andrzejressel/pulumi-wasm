@@ -167,19 +167,22 @@ pub mod workspace_key {
     ) -> WorkspaceKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_binding = args.active.get_output(context).get_inner();
-        let customer_managed_key_name_binding = args
+        let active_binding_1 = args.active.get_output(context);
+        let active_binding = active_binding_1.get_inner();
+        let customer_managed_key_name_binding_1 = args
             .customer_managed_key_name
-            .get_output(context)
+            .get_output(context);
+        let customer_managed_key_name_binding = customer_managed_key_name_binding_1
             .get_inner();
-        let customer_managed_key_versionless_id_binding = args
+        let customer_managed_key_versionless_id_binding_1 = args
             .customer_managed_key_versionless_id
-            .get_output(context)
+            .get_output(context);
+        let customer_managed_key_versionless_id_binding = customer_managed_key_versionless_id_binding_1
             .get_inner();
-        let synapse_workspace_id_binding = args
+        let synapse_workspace_id_binding_1 = args
             .synapse_workspace_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let synapse_workspace_id_binding = synapse_workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/workspaceKey:WorkspaceKey".into(),
             name: name.to_string(),

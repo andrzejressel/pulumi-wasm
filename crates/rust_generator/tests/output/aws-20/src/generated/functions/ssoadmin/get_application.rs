@@ -45,11 +45,10 @@ pub mod get_application {
     ) -> GetApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_arn_binding = args
-            .application_arn
-            .get_output(context)
-            .get_inner();
-        let portal_options_binding = args.portal_options.get_output(context).get_inner();
+        let application_arn_binding_1 = args.application_arn.get_output(context);
+        let application_arn_binding = application_arn_binding_1.get_inner();
+        let portal_options_binding_1 = args.portal_options.get_output(context);
+        let portal_options_binding = portal_options_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssoadmin/getApplication:getApplication".into(),
             version: super::super::super::get_version(),

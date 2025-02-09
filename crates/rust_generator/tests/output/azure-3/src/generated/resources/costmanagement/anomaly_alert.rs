@@ -81,18 +81,18 @@ pub mod anomaly_alert {
     ) -> AnomalyAlertResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let email_addresses_binding = args
-            .email_addresses
-            .get_output(context)
-            .get_inner();
-        let email_subject_binding = args.email_subject.get_output(context).get_inner();
-        let message_binding = args.message.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let subscription_id_binding = args
-            .subscription_id
-            .get_output(context)
-            .get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let email_addresses_binding_1 = args.email_addresses.get_output(context);
+        let email_addresses_binding = email_addresses_binding_1.get_inner();
+        let email_subject_binding_1 = args.email_subject.get_output(context);
+        let email_subject_binding = email_subject_binding_1.get_inner();
+        let message_binding_1 = args.message.get_output(context);
+        let message_binding = message_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let subscription_id_binding_1 = args.subscription_id.get_output(context);
+        let subscription_id_binding = subscription_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:costmanagement/anomalyAlert:AnomalyAlert".into(),
             name: name.to_string(),

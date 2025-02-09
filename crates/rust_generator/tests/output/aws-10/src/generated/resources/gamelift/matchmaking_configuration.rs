@@ -126,51 +126,48 @@ pub mod matchmaking_configuration {
     ) -> MatchmakingConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let acceptance_required_binding = args
-            .acceptance_required
-            .get_output(context)
-            .get_inner();
-        let acceptance_timeout_seconds_binding = args
+        let acceptance_required_binding_1 = args.acceptance_required.get_output(context);
+        let acceptance_required_binding = acceptance_required_binding_1.get_inner();
+        let acceptance_timeout_seconds_binding_1 = args
             .acceptance_timeout_seconds
-            .get_output(context)
+            .get_output(context);
+        let acceptance_timeout_seconds_binding = acceptance_timeout_seconds_binding_1
             .get_inner();
-        let additional_player_count_binding = args
+        let additional_player_count_binding_1 = args
             .additional_player_count
-            .get_output(context)
+            .get_output(context);
+        let additional_player_count_binding = additional_player_count_binding_1
             .get_inner();
-        let backfill_mode_binding = args.backfill_mode.get_output(context).get_inner();
-        let custom_event_data_binding = args
-            .custom_event_data
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let flex_match_mode_binding = args
-            .flex_match_mode
-            .get_output(context)
-            .get_inner();
-        let game_properties_binding = args
-            .game_properties
-            .get_output(context)
-            .get_inner();
-        let game_session_data_binding = args
-            .game_session_data
-            .get_output(context)
-            .get_inner();
-        let game_session_queue_arns_binding = args
+        let backfill_mode_binding_1 = args.backfill_mode.get_output(context);
+        let backfill_mode_binding = backfill_mode_binding_1.get_inner();
+        let custom_event_data_binding_1 = args.custom_event_data.get_output(context);
+        let custom_event_data_binding = custom_event_data_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let flex_match_mode_binding_1 = args.flex_match_mode.get_output(context);
+        let flex_match_mode_binding = flex_match_mode_binding_1.get_inner();
+        let game_properties_binding_1 = args.game_properties.get_output(context);
+        let game_properties_binding = game_properties_binding_1.get_inner();
+        let game_session_data_binding_1 = args.game_session_data.get_output(context);
+        let game_session_data_binding = game_session_data_binding_1.get_inner();
+        let game_session_queue_arns_binding_1 = args
             .game_session_queue_arns
-            .get_output(context)
+            .get_output(context);
+        let game_session_queue_arns_binding = game_session_queue_arns_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notification_target_binding = args
-            .notification_target
-            .get_output(context)
-            .get_inner();
-        let request_timeout_seconds_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notification_target_binding_1 = args.notification_target.get_output(context);
+        let notification_target_binding = notification_target_binding_1.get_inner();
+        let request_timeout_seconds_binding_1 = args
             .request_timeout_seconds
-            .get_output(context)
+            .get_output(context);
+        let request_timeout_seconds_binding = request_timeout_seconds_binding_1
             .get_inner();
-        let rule_set_name_binding = args.rule_set_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let rule_set_name_binding_1 = args.rule_set_name.get_output(context);
+        let rule_set_name_binding = rule_set_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration"
                 .into(),

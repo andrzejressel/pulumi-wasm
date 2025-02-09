@@ -58,18 +58,18 @@ pub mod get_ami_ids {
     ) -> GetAmiIdsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let executable_users_binding = args
-            .executable_users
-            .get_output(context)
-            .get_inner();
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let include_deprecated_binding = args
-            .include_deprecated
-            .get_output(context)
-            .get_inner();
-        let name_regex_binding = args.name_regex.get_output(context).get_inner();
-        let owners_binding = args.owners.get_output(context).get_inner();
-        let sort_ascending_binding = args.sort_ascending.get_output(context).get_inner();
+        let executable_users_binding_1 = args.executable_users.get_output(context);
+        let executable_users_binding = executable_users_binding_1.get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let include_deprecated_binding_1 = args.include_deprecated.get_output(context);
+        let include_deprecated_binding = include_deprecated_binding_1.get_inner();
+        let name_regex_binding_1 = args.name_regex.get_output(context);
+        let name_regex_binding = name_regex_binding_1.get_inner();
+        let owners_binding_1 = args.owners.get_output(context);
+        let owners_binding = owners_binding_1.get_inner();
+        let sort_ascending_binding_1 = args.sort_ascending.get_output(context);
+        let sort_ascending_binding = sort_ascending_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getAmiIds:getAmiIds".into(),
             version: super::super::super::get_version(),

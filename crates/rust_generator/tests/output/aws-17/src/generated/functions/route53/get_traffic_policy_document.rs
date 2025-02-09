@@ -66,12 +66,18 @@ pub mod get_traffic_policy_document {
     ) -> GetTrafficPolicyDocumentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoints_binding = args.endpoints.get_output(context).get_inner();
-        let record_type_binding = args.record_type.get_output(context).get_inner();
-        let rules_binding = args.rules.get_output(context).get_inner();
-        let start_endpoint_binding = args.start_endpoint.get_output(context).get_inner();
-        let start_rule_binding = args.start_rule.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let endpoints_binding_1 = args.endpoints.get_output(context);
+        let endpoints_binding = endpoints_binding_1.get_inner();
+        let record_type_binding_1 = args.record_type.get_output(context);
+        let record_type_binding = record_type_binding_1.get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
+        let start_endpoint_binding_1 = args.start_endpoint.get_output(context);
+        let start_endpoint_binding = start_endpoint_binding_1.get_inner();
+        let start_rule_binding_1 = args.start_rule.get_output(context);
+        let start_rule_binding = start_rule_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument"
                 .into(),

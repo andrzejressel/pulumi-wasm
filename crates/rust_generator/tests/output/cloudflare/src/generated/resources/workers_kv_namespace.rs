@@ -54,8 +54,10 @@ pub mod workers_kv_namespace {
     ) -> WorkersKvNamespaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let title_binding = args.title.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let title_binding_1 = args.title.get_output(context);
+        let title_binding = title_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/workersKvNamespace:WorkersKvNamespace".into(),
             name: name.to_string(),

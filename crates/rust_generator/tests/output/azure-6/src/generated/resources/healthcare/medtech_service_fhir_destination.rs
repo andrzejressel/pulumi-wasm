@@ -159,24 +159,27 @@ pub mod medtech_service_fhir_destination {
     ) -> MedtechServiceFhirDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_fhir_mapping_json_binding = args
+        let destination_fhir_mapping_json_binding_1 = args
             .destination_fhir_mapping_json
-            .get_output(context)
+            .get_output(context);
+        let destination_fhir_mapping_json_binding = destination_fhir_mapping_json_binding_1
             .get_inner();
-        let destination_fhir_service_id_binding = args
+        let destination_fhir_service_id_binding_1 = args
             .destination_fhir_service_id
-            .get_output(context)
+            .get_output(context);
+        let destination_fhir_service_id_binding = destination_fhir_service_id_binding_1
             .get_inner();
-        let destination_identity_resolution_type_binding = args
+        let destination_identity_resolution_type_binding_1 = args
             .destination_identity_resolution_type
-            .get_output(context)
+            .get_output(context);
+        let destination_identity_resolution_type_binding = destination_identity_resolution_type_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let medtech_service_id_binding = args
-            .medtech_service_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let medtech_service_id_binding_1 = args.medtech_service_id.get_output(context);
+        let medtech_service_id_binding = medtech_service_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination"
                 .into(),

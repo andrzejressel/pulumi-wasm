@@ -49,9 +49,12 @@ pub mod get_bundle {
     ) -> GetBundleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let owner_binding = args.owner.get_output(context).get_inner();
+        let bundle_id_binding_1 = args.bundle_id.get_output(context);
+        let bundle_id_binding = bundle_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let owner_binding_1 = args.owner.get_output(context);
+        let owner_binding = owner_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:workspaces/getBundle:getBundle".into(),
             version: super::super::super::get_version(),

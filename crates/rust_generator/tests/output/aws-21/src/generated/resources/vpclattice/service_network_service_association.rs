@@ -86,15 +86,15 @@ pub mod service_network_service_association {
     ) -> ServiceNetworkServiceAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let service_identifier_binding = args
-            .service_identifier
-            .get_output(context)
-            .get_inner();
-        let service_network_identifier_binding = args
+        let service_identifier_binding_1 = args.service_identifier.get_output(context);
+        let service_identifier_binding = service_identifier_binding_1.get_inner();
+        let service_network_identifier_binding_1 = args
             .service_network_identifier
-            .get_output(context)
+            .get_output(context);
+        let service_network_identifier_binding = service_network_identifier_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation"
                 .into(),

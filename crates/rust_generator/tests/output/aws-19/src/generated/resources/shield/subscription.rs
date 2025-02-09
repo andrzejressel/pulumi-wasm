@@ -58,8 +58,10 @@ pub mod subscription {
     ) -> SubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_renew_binding = args.auto_renew.get_output(context).get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
+        let auto_renew_binding_1 = args.auto_renew.get_output(context);
+        let auto_renew_binding = auto_renew_binding_1.get_inner();
+        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
+        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:shield/subscription:Subscription".into(),
             name: name.to_string(),

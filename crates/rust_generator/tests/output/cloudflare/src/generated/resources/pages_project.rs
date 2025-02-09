@@ -81,18 +81,18 @@ pub mod pages_project {
     ) -> PagesProjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let build_config_binding = args.build_config.get_output(context).get_inner();
-        let deployment_configs_binding = args
-            .deployment_configs
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let production_branch_binding = args
-            .production_branch
-            .get_output(context)
-            .get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let build_config_binding_1 = args.build_config.get_output(context);
+        let build_config_binding = build_config_binding_1.get_inner();
+        let deployment_configs_binding_1 = args.deployment_configs.get_output(context);
+        let deployment_configs_binding = deployment_configs_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let production_branch_binding_1 = args.production_branch.get_output(context);
+        let production_branch_binding = production_branch_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/pagesProject:PagesProject".into(),
             name: name.to_string(),

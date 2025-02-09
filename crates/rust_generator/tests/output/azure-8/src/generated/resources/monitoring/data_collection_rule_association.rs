@@ -190,20 +190,22 @@ pub mod data_collection_rule_association {
     ) -> DataCollectionRuleAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_collection_endpoint_id_binding = args
+        let data_collection_endpoint_id_binding_1 = args
             .data_collection_endpoint_id
-            .get_output(context)
+            .get_output(context);
+        let data_collection_endpoint_id_binding = data_collection_endpoint_id_binding_1
             .get_inner();
-        let data_collection_rule_id_binding = args
+        let data_collection_rule_id_binding_1 = args
             .data_collection_rule_id
-            .get_output(context)
+            .get_output(context);
+        let data_collection_rule_id_binding = data_collection_rule_id_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let target_resource_id_binding = args
-            .target_resource_id
-            .get_output(context)
-            .get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
+        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation"
                 .into(),

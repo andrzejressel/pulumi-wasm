@@ -116,18 +116,21 @@ pub mod job {
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let batch_pool_id_binding = args.batch_pool_id.get_output(context).get_inner();
-        let common_environment_properties_binding = args
+        let batch_pool_id_binding_1 = args.batch_pool_id.get_output(context);
+        let batch_pool_id_binding = batch_pool_id_binding_1.get_inner();
+        let common_environment_properties_binding_1 = args
             .common_environment_properties
-            .get_output(context)
+            .get_output(context);
+        let common_environment_properties_binding = common_environment_properties_binding_1
             .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let task_retry_maximum_binding = args
-            .task_retry_maximum
-            .get_output(context)
-            .get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let task_retry_maximum_binding_1 = args.task_retry_maximum.get_output(context);
+        let task_retry_maximum_binding = task_retry_maximum_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:batch/job:Job".into(),
             name: name.to_string(),

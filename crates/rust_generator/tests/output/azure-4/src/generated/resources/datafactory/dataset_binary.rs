@@ -172,36 +172,39 @@ pub mod dataset_binary {
     ) -> DatasetBinaryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_properties_binding = args
+        let additional_properties_binding_1 = args
             .additional_properties
-            .get_output(context)
-            .get_inner();
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let azure_blob_storage_location_binding = args
+            .get_output(context);
+        let additional_properties_binding = additional_properties_binding_1.get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let azure_blob_storage_location_binding_1 = args
             .azure_blob_storage_location
-            .get_output(context)
+            .get_output(context);
+        let azure_blob_storage_location_binding = azure_blob_storage_location_binding_1
             .get_inner();
-        let compression_binding = args.compression.get_output(context).get_inner();
-        let data_factory_id_binding = args
-            .data_factory_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let folder_binding = args.folder.get_output(context).get_inner();
-        let http_server_location_binding = args
+        let compression_binding_1 = args.compression.get_output(context);
+        let compression_binding = compression_binding_1.get_inner();
+        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
+        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let folder_binding_1 = args.folder.get_output(context);
+        let folder_binding = folder_binding_1.get_inner();
+        let http_server_location_binding_1 = args
             .http_server_location
-            .get_output(context)
-            .get_inner();
-        let linked_service_name_binding = args
-            .linked_service_name
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let sftp_server_location_binding = args
+            .get_output(context);
+        let http_server_location_binding = http_server_location_binding_1.get_inner();
+        let linked_service_name_binding_1 = args.linked_service_name.get_output(context);
+        let linked_service_name_binding = linked_service_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let sftp_server_location_binding_1 = args
             .sftp_server_location
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let sftp_server_location_binding = sftp_server_location_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/datasetBinary:DatasetBinary".into(),
             name: name.to_string(),

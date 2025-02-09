@@ -104,17 +104,16 @@ pub mod email_template {
     ) -> EmailTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args
-            .api_management_name
-            .get_output(context)
-            .get_inner();
-        let body_binding = args.body.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let subject_binding = args.subject.get_output(context).get_inner();
-        let template_name_binding = args.template_name.get_output(context).get_inner();
+        let api_management_name_binding_1 = args.api_management_name.get_output(context);
+        let api_management_name_binding = api_management_name_binding_1.get_inner();
+        let body_binding_1 = args.body.get_output(context);
+        let body_binding = body_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let subject_binding_1 = args.subject.get_output(context);
+        let subject_binding = subject_binding_1.get_inner();
+        let template_name_binding_1 = args.template_name.get_output(context);
+        let template_name_binding = template_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/emailTemplate:EmailTemplate".into(),
             name: name.to_string(),

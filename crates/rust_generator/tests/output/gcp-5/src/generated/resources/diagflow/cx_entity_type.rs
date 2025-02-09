@@ -178,24 +178,27 @@ pub mod cx_entity_type {
     ) -> CxEntityTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_expansion_mode_binding = args
-            .auto_expansion_mode
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enable_fuzzy_extraction_binding = args
+        let auto_expansion_mode_binding_1 = args.auto_expansion_mode.get_output(context);
+        let auto_expansion_mode_binding = auto_expansion_mode_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enable_fuzzy_extraction_binding_1 = args
             .enable_fuzzy_extraction
-            .get_output(context)
+            .get_output(context);
+        let enable_fuzzy_extraction_binding = enable_fuzzy_extraction_binding_1
             .get_inner();
-        let entities_binding = args.entities.get_output(context).get_inner();
-        let excluded_phrases_binding = args
-            .excluded_phrases
-            .get_output(context)
-            .get_inner();
-        let kind_binding = args.kind.get_output(context).get_inner();
-        let language_code_binding = args.language_code.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let redact_binding = args.redact.get_output(context).get_inner();
+        let entities_binding_1 = args.entities.get_output(context);
+        let entities_binding = entities_binding_1.get_inner();
+        let excluded_phrases_binding_1 = args.excluded_phrases.get_output(context);
+        let excluded_phrases_binding = excluded_phrases_binding_1.get_inner();
+        let kind_binding_1 = args.kind.get_output(context);
+        let kind_binding = kind_binding_1.get_inner();
+        let language_code_binding_1 = args.language_code.get_output(context);
+        let language_code_binding = language_code_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let redact_binding_1 = args.redact.get_output(context);
+        let redact_binding = redact_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/cxEntityType:CxEntityType".into(),
             name: name.to_string(),

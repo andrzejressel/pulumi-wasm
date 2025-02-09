@@ -765,53 +765,62 @@ pub mod workstation_config {
     ) -> WorkstationConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_ports_binding = args.allowed_ports.get_output(context).get_inner();
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let container_binding = args.container.get_output(context).get_inner();
-        let disable_tcp_connections_binding = args
+        let allowed_ports_binding_1 = args.allowed_ports.get_output(context);
+        let allowed_ports_binding = allowed_ports_binding_1.get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let container_binding_1 = args.container.get_output(context);
+        let container_binding = container_binding_1.get_inner();
+        let disable_tcp_connections_binding_1 = args
             .disable_tcp_connections
-            .get_output(context)
+            .get_output(context);
+        let disable_tcp_connections_binding = disable_tcp_connections_binding_1
             .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enable_audit_agent_binding = args
-            .enable_audit_agent
-            .get_output(context)
-            .get_inner();
-        let encryption_key_binding = args.encryption_key.get_output(context).get_inner();
-        let ephemeral_directories_binding = args
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enable_audit_agent_binding_1 = args.enable_audit_agent.get_output(context);
+        let enable_audit_agent_binding = enable_audit_agent_binding_1.get_inner();
+        let encryption_key_binding_1 = args.encryption_key.get_output(context);
+        let encryption_key_binding = encryption_key_binding_1.get_inner();
+        let ephemeral_directories_binding_1 = args
             .ephemeral_directories
-            .get_output(context)
-            .get_inner();
-        let host_binding = args.host.get_output(context).get_inner();
-        let idle_timeout_binding = args.idle_timeout.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let max_usable_workstations_binding = args
+            .get_output(context);
+        let ephemeral_directories_binding = ephemeral_directories_binding_1.get_inner();
+        let host_binding_1 = args.host.get_output(context);
+        let host_binding = host_binding_1.get_inner();
+        let idle_timeout_binding_1 = args.idle_timeout.get_output(context);
+        let idle_timeout_binding = idle_timeout_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let max_usable_workstations_binding_1 = args
             .max_usable_workstations
-            .get_output(context)
+            .get_output(context);
+        let max_usable_workstations_binding = max_usable_workstations_binding_1
             .get_inner();
-        let persistent_directories_binding = args
+        let persistent_directories_binding_1 = args
             .persistent_directories
-            .get_output(context)
+            .get_output(context);
+        let persistent_directories_binding = persistent_directories_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let readiness_checks_binding = args
-            .readiness_checks
-            .get_output(context)
-            .get_inner();
-        let replica_zones_binding = args.replica_zones.get_output(context).get_inner();
-        let running_timeout_binding = args
-            .running_timeout
-            .get_output(context)
-            .get_inner();
-        let workstation_cluster_id_binding = args
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let readiness_checks_binding_1 = args.readiness_checks.get_output(context);
+        let readiness_checks_binding = readiness_checks_binding_1.get_inner();
+        let replica_zones_binding_1 = args.replica_zones.get_output(context);
+        let replica_zones_binding = replica_zones_binding_1.get_inner();
+        let running_timeout_binding_1 = args.running_timeout.get_output(context);
+        let running_timeout_binding = running_timeout_binding_1.get_inner();
+        let workstation_cluster_id_binding_1 = args
             .workstation_cluster_id
-            .get_output(context)
+            .get_output(context);
+        let workstation_cluster_id_binding = workstation_cluster_id_binding_1
             .get_inner();
-        let workstation_config_id_binding = args
+        let workstation_config_id_binding_1 = args
             .workstation_config_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let workstation_config_id_binding = workstation_config_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:workstations/workstationConfig:WorkstationConfig".into(),
             name: name.to_string(),

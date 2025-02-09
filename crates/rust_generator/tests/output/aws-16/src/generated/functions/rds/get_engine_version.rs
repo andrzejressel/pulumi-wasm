@@ -113,36 +113,39 @@ pub mod get_engine_version {
     ) -> GetEngineVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_only_binding = args.default_only.get_output(context).get_inner();
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let has_major_target_binding = args
-            .has_major_target
-            .get_output(context)
-            .get_inner();
-        let has_minor_target_binding = args
-            .has_minor_target
-            .get_output(context)
-            .get_inner();
-        let include_all_binding = args.include_all.get_output(context).get_inner();
-        let latest_binding = args.latest.get_output(context).get_inner();
-        let parameter_group_family_binding = args
+        let default_only_binding_1 = args.default_only.get_output(context);
+        let default_only_binding = default_only_binding_1.get_inner();
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let has_major_target_binding_1 = args.has_major_target.get_output(context);
+        let has_major_target_binding = has_major_target_binding_1.get_inner();
+        let has_minor_target_binding_1 = args.has_minor_target.get_output(context);
+        let has_minor_target_binding = has_minor_target_binding_1.get_inner();
+        let include_all_binding_1 = args.include_all.get_output(context);
+        let include_all_binding = include_all_binding_1.get_inner();
+        let latest_binding_1 = args.latest.get_output(context);
+        let latest_binding = latest_binding_1.get_inner();
+        let parameter_group_family_binding_1 = args
             .parameter_group_family
-            .get_output(context)
+            .get_output(context);
+        let parameter_group_family_binding = parameter_group_family_binding_1
             .get_inner();
-        let preferred_major_targets_binding = args
+        let preferred_major_targets_binding_1 = args
             .preferred_major_targets
-            .get_output(context)
+            .get_output(context);
+        let preferred_major_targets_binding = preferred_major_targets_binding_1
             .get_inner();
-        let preferred_upgrade_targets_binding = args
+        let preferred_upgrade_targets_binding_1 = args
             .preferred_upgrade_targets
-            .get_output(context)
+            .get_output(context);
+        let preferred_upgrade_targets_binding = preferred_upgrade_targets_binding_1
             .get_inner();
-        let preferred_versions_binding = args
-            .preferred_versions
-            .get_output(context)
-            .get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let preferred_versions_binding_1 = args.preferred_versions.get_output(context);
+        let preferred_versions_binding = preferred_versions_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:rds/getEngineVersion:getEngineVersion".into(),
             version: super::super::super::get_version(),

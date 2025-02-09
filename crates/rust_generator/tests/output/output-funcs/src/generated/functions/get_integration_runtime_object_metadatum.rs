@@ -45,16 +45,17 @@ pub mod get_integration_runtime_object_metadatum {
     ) -> GetIntegrationRuntimeObjectMetadatumResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let factory_name_binding = args.factory_name.get_output(context).get_inner();
-        let integration_runtime_name_binding = args
+        let factory_name_binding_1 = args.factory_name.get_output(context);
+        let factory_name_binding = factory_name_binding_1.get_inner();
+        let integration_runtime_name_binding_1 = args
             .integration_runtime_name
-            .get_output(context)
+            .get_output(context);
+        let integration_runtime_name_binding = integration_runtime_name_binding_1
             .get_inner();
-        let metadata_path_binding = args.metadata_path.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let metadata_path_binding_1 = args.metadata_path.get_output(context);
+        let metadata_path_binding = metadata_path_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "mypkg::getIntegrationRuntimeObjectMetadatum".into(),
             version: super::super::get_version(),

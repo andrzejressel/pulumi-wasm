@@ -114,22 +114,28 @@ pub mod public_virtual_interface {
     ) -> PublicVirtualInterfaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_family_binding = args.address_family.get_output(context).get_inner();
-        let amazon_address_binding = args.amazon_address.get_output(context).get_inner();
-        let bgp_asn_binding = args.bgp_asn.get_output(context).get_inner();
-        let bgp_auth_key_binding = args.bgp_auth_key.get_output(context).get_inner();
-        let connection_id_binding = args.connection_id.get_output(context).get_inner();
-        let customer_address_binding = args
-            .customer_address
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let route_filter_prefixes_binding = args
+        let address_family_binding_1 = args.address_family.get_output(context);
+        let address_family_binding = address_family_binding_1.get_inner();
+        let amazon_address_binding_1 = args.amazon_address.get_output(context);
+        let amazon_address_binding = amazon_address_binding_1.get_inner();
+        let bgp_asn_binding_1 = args.bgp_asn.get_output(context);
+        let bgp_asn_binding = bgp_asn_binding_1.get_inner();
+        let bgp_auth_key_binding_1 = args.bgp_auth_key.get_output(context);
+        let bgp_auth_key_binding = bgp_auth_key_binding_1.get_inner();
+        let connection_id_binding_1 = args.connection_id.get_output(context);
+        let connection_id_binding = connection_id_binding_1.get_inner();
+        let customer_address_binding_1 = args.customer_address.get_output(context);
+        let customer_address_binding = customer_address_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let route_filter_prefixes_binding_1 = args
             .route_filter_prefixes
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vlan_binding = args.vlan.get_output(context).get_inner();
+            .get_output(context);
+        let route_filter_prefixes_binding = route_filter_prefixes_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vlan_binding_1 = args.vlan.get_output(context);
+        let vlan_binding = vlan_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/publicVirtualInterface:PublicVirtualInterface"
                 .into(),

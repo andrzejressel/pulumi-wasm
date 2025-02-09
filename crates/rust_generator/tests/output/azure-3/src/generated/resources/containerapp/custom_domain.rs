@@ -187,19 +187,20 @@ pub mod custom_domain {
     ) -> CustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_binding_type_binding = args
+        let certificate_binding_type_binding_1 = args
             .certificate_binding_type
-            .get_output(context)
+            .get_output(context);
+        let certificate_binding_type_binding = certificate_binding_type_binding_1
             .get_inner();
-        let container_app_environment_certificate_id_binding = args
+        let container_app_environment_certificate_id_binding_1 = args
             .container_app_environment_certificate_id
-            .get_output(context)
+            .get_output(context);
+        let container_app_environment_certificate_id_binding = container_app_environment_certificate_id_binding_1
             .get_inner();
-        let container_app_id_binding = args
-            .container_app_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let container_app_id_binding_1 = args.container_app_id.get_output(context);
+        let container_app_id_binding = container_app_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerapp/customDomain:CustomDomain".into(),
             name: name.to_string(),

@@ -206,44 +206,48 @@ pub mod cache {
     ) -> CacheResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automatically_rotate_key_to_latest_enabled_binding = args
+        let automatically_rotate_key_to_latest_enabled_binding_1 = args
             .automatically_rotate_key_to_latest_enabled
-            .get_output(context)
+            .get_output(context);
+        let automatically_rotate_key_to_latest_enabled_binding = automatically_rotate_key_to_latest_enabled_binding_1
             .get_inner();
-        let cache_size_in_gb_binding = args
-            .cache_size_in_gb
-            .get_output(context)
-            .get_inner();
-        let default_access_policy_binding = args
+        let cache_size_in_gb_binding_1 = args.cache_size_in_gb.get_output(context);
+        let cache_size_in_gb_binding = cache_size_in_gb_binding_1.get_inner();
+        let default_access_policy_binding_1 = args
             .default_access_policy
-            .get_output(context)
-            .get_inner();
-        let directory_active_directory_binding = args
+            .get_output(context);
+        let default_access_policy_binding = default_access_policy_binding_1.get_inner();
+        let directory_active_directory_binding_1 = args
             .directory_active_directory
-            .get_output(context)
+            .get_output(context);
+        let directory_active_directory_binding = directory_active_directory_binding_1
             .get_inner();
-        let directory_flat_file_binding = args
-            .directory_flat_file
-            .get_output(context)
-            .get_inner();
-        let directory_ldap_binding = args.directory_ldap.get_output(context).get_inner();
-        let dns_binding = args.dns.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let key_vault_key_id_binding = args
-            .key_vault_key_id
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let mtu_binding = args.mtu.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let ntp_server_binding = args.ntp_server.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let directory_flat_file_binding_1 = args.directory_flat_file.get_output(context);
+        let directory_flat_file_binding = directory_flat_file_binding_1.get_inner();
+        let directory_ldap_binding_1 = args.directory_ldap.get_output(context);
+        let directory_ldap_binding = directory_ldap_binding_1.get_inner();
+        let dns_binding_1 = args.dns.get_output(context);
+        let dns_binding = dns_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
+        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let mtu_binding_1 = args.mtu.get_output(context);
+        let mtu_binding = mtu_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let ntp_server_binding_1 = args.ntp_server.get_output(context);
+        let ntp_server_binding = ntp_server_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:hpc/cache:Cache".into(),
             name: name.to_string(),

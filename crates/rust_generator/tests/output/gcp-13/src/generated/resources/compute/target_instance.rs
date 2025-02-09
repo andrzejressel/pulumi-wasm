@@ -290,17 +290,22 @@ pub mod target_instance {
     ) -> TargetInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let instance_binding = args.instance.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let nat_policy_binding = args.nat_policy.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let security_policy_binding = args
-            .security_policy
-            .get_output(context)
-            .get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let instance_binding_1 = args.instance.get_output(context);
+        let instance_binding = instance_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let nat_policy_binding_1 = args.nat_policy.get_output(context);
+        let nat_policy_binding = nat_policy_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let security_policy_binding_1 = args.security_policy.get_output(context);
+        let security_policy_binding = security_policy_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/targetInstance:TargetInstance".into(),
             name: name.to_string(),

@@ -161,13 +161,20 @@ pub mod list_item {
     ) -> ListItemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let asn_binding = args.asn.get_output(context).get_inner();
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let hostname_binding = args.hostname.get_output(context).get_inner();
-        let ip_binding = args.ip.get_output(context).get_inner();
-        let list_id_binding = args.list_id.get_output(context).get_inner();
-        let redirect_binding = args.redirect.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let asn_binding_1 = args.asn.get_output(context);
+        let asn_binding = asn_binding_1.get_inner();
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let hostname_binding_1 = args.hostname.get_output(context);
+        let hostname_binding = hostname_binding_1.get_inner();
+        let ip_binding_1 = args.ip.get_output(context);
+        let ip_binding = ip_binding_1.get_inner();
+        let list_id_binding_1 = args.list_id.get_output(context);
+        let list_id_binding = list_id_binding_1.get_inner();
+        let redirect_binding_1 = args.redirect.get_output(context);
+        let redirect_binding = redirect_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/listItem:ListItem".into(),
             name: name.to_string(),

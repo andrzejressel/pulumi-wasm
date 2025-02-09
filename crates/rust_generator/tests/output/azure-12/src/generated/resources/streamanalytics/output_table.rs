@@ -126,31 +126,31 @@ pub mod output_table {
     ) -> OutputTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let batch_size_binding = args.batch_size.get_output(context).get_inner();
-        let columns_to_removes_binding = args
-            .columns_to_removes
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let partition_key_binding = args.partition_key.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let row_key_binding = args.row_key.get_output(context).get_inner();
-        let storage_account_key_binding = args
-            .storage_account_key
-            .get_output(context)
-            .get_inner();
-        let storage_account_name_binding = args
+        let batch_size_binding_1 = args.batch_size.get_output(context);
+        let batch_size_binding = batch_size_binding_1.get_inner();
+        let columns_to_removes_binding_1 = args.columns_to_removes.get_output(context);
+        let columns_to_removes_binding = columns_to_removes_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let partition_key_binding_1 = args.partition_key.get_output(context);
+        let partition_key_binding = partition_key_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let row_key_binding_1 = args.row_key.get_output(context);
+        let row_key_binding = row_key_binding_1.get_inner();
+        let storage_account_key_binding_1 = args.storage_account_key.get_output(context);
+        let storage_account_key_binding = storage_account_key_binding_1.get_inner();
+        let storage_account_name_binding_1 = args
             .storage_account_name
-            .get_output(context)
-            .get_inner();
-        let stream_analytics_job_name_binding = args
+            .get_output(context);
+        let storage_account_name_binding = storage_account_name_binding_1.get_inner();
+        let stream_analytics_job_name_binding_1 = args
             .stream_analytics_job_name
-            .get_output(context)
+            .get_output(context);
+        let stream_analytics_job_name_binding = stream_analytics_job_name_binding_1
             .get_inner();
-        let table_binding = args.table.get_output(context).get_inner();
+        let table_binding_1 = args.table.get_output(context);
+        let table_binding = table_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/outputTable:OutputTable".into(),
             name: name.to_string(),

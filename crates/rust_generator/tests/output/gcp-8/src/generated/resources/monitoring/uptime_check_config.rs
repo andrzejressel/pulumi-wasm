@@ -361,31 +361,32 @@ pub mod uptime_check_config {
     ) -> UptimeCheckConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let checker_type_binding = args.checker_type.get_output(context).get_inner();
-        let content_matchers_binding = args
-            .content_matchers
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let http_check_binding = args.http_check.get_output(context).get_inner();
-        let monitored_resource_binding = args
-            .monitored_resource
-            .get_output(context)
-            .get_inner();
-        let period_binding = args.period.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let resource_group_binding = args.resource_group.get_output(context).get_inner();
-        let selected_regions_binding = args
-            .selected_regions
-            .get_output(context)
-            .get_inner();
-        let synthetic_monitor_binding = args
-            .synthetic_monitor
-            .get_output(context)
-            .get_inner();
-        let tcp_check_binding = args.tcp_check.get_output(context).get_inner();
-        let timeout_binding = args.timeout.get_output(context).get_inner();
-        let user_labels_binding = args.user_labels.get_output(context).get_inner();
+        let checker_type_binding_1 = args.checker_type.get_output(context);
+        let checker_type_binding = checker_type_binding_1.get_inner();
+        let content_matchers_binding_1 = args.content_matchers.get_output(context);
+        let content_matchers_binding = content_matchers_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let http_check_binding_1 = args.http_check.get_output(context);
+        let http_check_binding = http_check_binding_1.get_inner();
+        let monitored_resource_binding_1 = args.monitored_resource.get_output(context);
+        let monitored_resource_binding = monitored_resource_binding_1.get_inner();
+        let period_binding_1 = args.period.get_output(context);
+        let period_binding = period_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let resource_group_binding_1 = args.resource_group.get_output(context);
+        let resource_group_binding = resource_group_binding_1.get_inner();
+        let selected_regions_binding_1 = args.selected_regions.get_output(context);
+        let selected_regions_binding = selected_regions_binding_1.get_inner();
+        let synthetic_monitor_binding_1 = args.synthetic_monitor.get_output(context);
+        let synthetic_monitor_binding = synthetic_monitor_binding_1.get_inner();
+        let tcp_check_binding_1 = args.tcp_check.get_output(context);
+        let tcp_check_binding = tcp_check_binding_1.get_inner();
+        let timeout_binding_1 = args.timeout.get_output(context);
+        let timeout_binding = timeout_binding_1.get_inner();
+        let user_labels_binding_1 = args.user_labels.get_output(context);
+        let user_labels_binding = user_labels_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:monitoring/uptimeCheckConfig:UptimeCheckConfig".into(),
             name: name.to_string(),

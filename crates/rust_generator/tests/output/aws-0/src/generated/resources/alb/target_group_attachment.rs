@@ -137,16 +137,14 @@ pub mod target_group_attachment {
     ) -> TargetGroupAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let target_group_arn_binding = args
-            .target_group_arn
-            .get_output(context)
-            .get_inner();
-        let target_id_binding = args.target_id.get_output(context).get_inner();
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let target_group_arn_binding_1 = args.target_group_arn.get_output(context);
+        let target_group_arn_binding = target_group_arn_binding_1.get_inner();
+        let target_id_binding_1 = args.target_id.get_output(context);
+        let target_id_binding = target_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:alb/targetGroupAttachment:TargetGroupAttachment".into(),
             name: name.to_string(),

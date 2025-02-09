@@ -94,12 +94,12 @@ pub mod gallery {
     ) -> GalleryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dev_center_id_binding = args.dev_center_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let shared_gallery_id_binding = args
-            .shared_gallery_id
-            .get_output(context)
-            .get_inner();
+        let dev_center_id_binding_1 = args.dev_center_id.get_output(context);
+        let dev_center_id_binding = dev_center_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let shared_gallery_id_binding_1 = args.shared_gallery_id.get_output(context);
+        let shared_gallery_id_binding = shared_gallery_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:devcenter/gallery:Gallery".into(),
             name: name.to_string(),

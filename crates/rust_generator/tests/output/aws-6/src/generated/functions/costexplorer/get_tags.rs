@@ -56,11 +56,16 @@ pub mod get_tags {
     ) -> GetTagsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let search_string_binding = args.search_string.get_output(context).get_inner();
-        let sort_bies_binding = args.sort_bies.get_output(context).get_inner();
-        let tag_key_binding = args.tag_key.get_output(context).get_inner();
-        let time_period_binding = args.time_period.get_output(context).get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let search_string_binding_1 = args.search_string.get_output(context);
+        let search_string_binding = search_string_binding_1.get_inner();
+        let sort_bies_binding_1 = args.sort_bies.get_output(context);
+        let sort_bies_binding = sort_bies_binding_1.get_inner();
+        let tag_key_binding_1 = args.tag_key.get_output(context);
+        let tag_key_binding = tag_key_binding_1.get_inner();
+        let time_period_binding_1 = args.time_period.get_output(context);
+        let time_period_binding = time_period_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:costexplorer/getTags:getTags".into(),
             version: super::super::super::get_version(),

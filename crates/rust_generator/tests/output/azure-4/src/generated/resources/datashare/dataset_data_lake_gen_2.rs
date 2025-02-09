@@ -130,18 +130,18 @@ pub mod dataset_data_lake_gen_2 {
     ) -> DatasetDataLakeGen2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let file_path_binding = args.file_path.get_output(context).get_inner();
-        let file_system_name_binding = args
-            .file_system_name
-            .get_output(context)
-            .get_inner();
-        let folder_path_binding = args.folder_path.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let share_id_binding = args.share_id.get_output(context).get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
+        let file_path_binding_1 = args.file_path.get_output(context);
+        let file_path_binding = file_path_binding_1.get_inner();
+        let file_system_name_binding_1 = args.file_system_name.get_output(context);
+        let file_system_name_binding = file_system_name_binding_1.get_inner();
+        let folder_path_binding_1 = args.folder_path.get_output(context);
+        let folder_path_binding = folder_path_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let share_id_binding_1 = args.share_id.get_output(context);
+        let share_id_binding = share_id_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2".into(),
             name: name.to_string(),

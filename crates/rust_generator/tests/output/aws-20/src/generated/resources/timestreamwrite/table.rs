@@ -133,18 +133,23 @@ pub mod table {
     ) -> TableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let magnetic_store_write_properties_binding = args
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let magnetic_store_write_properties_binding_1 = args
             .magnetic_store_write_properties
-            .get_output(context)
+            .get_output(context);
+        let magnetic_store_write_properties_binding = magnetic_store_write_properties_binding_1
             .get_inner();
-        let retention_properties_binding = args
+        let retention_properties_binding_1 = args
             .retention_properties
-            .get_output(context)
-            .get_inner();
-        let schema_binding = args.schema.get_output(context).get_inner();
-        let table_name_binding = args.table_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let retention_properties_binding = retention_properties_binding_1.get_inner();
+        let schema_binding_1 = args.schema.get_output(context);
+        let schema_binding = schema_binding_1.get_inner();
+        let table_name_binding_1 = args.table_name.get_output(context);
+        let table_name_binding = table_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:timestreamwrite/table:Table".into(),
             name: name.to_string(),

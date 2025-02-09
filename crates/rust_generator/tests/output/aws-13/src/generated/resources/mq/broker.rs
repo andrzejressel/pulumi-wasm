@@ -287,63 +287,64 @@ pub mod broker {
     ) -> BrokerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let apply_immediately_binding = args
-            .apply_immediately
-            .get_output(context)
-            .get_inner();
-        let authentication_strategy_binding = args
+        let apply_immediately_binding_1 = args.apply_immediately.get_output(context);
+        let apply_immediately_binding = apply_immediately_binding_1.get_inner();
+        let authentication_strategy_binding_1 = args
             .authentication_strategy
-            .get_output(context)
+            .get_output(context);
+        let authentication_strategy_binding = authentication_strategy_binding_1
             .get_inner();
-        let auto_minor_version_upgrade_binding = args
+        let auto_minor_version_upgrade_binding_1 = args
             .auto_minor_version_upgrade
-            .get_output(context)
+            .get_output(context);
+        let auto_minor_version_upgrade_binding = auto_minor_version_upgrade_binding_1
             .get_inner();
-        let broker_name_binding = args.broker_name.get_output(context).get_inner();
-        let configuration_binding = args.configuration.get_output(context).get_inner();
-        let data_replication_mode_binding = args
+        let broker_name_binding_1 = args.broker_name.get_output(context);
+        let broker_name_binding = broker_name_binding_1.get_inner();
+        let configuration_binding_1 = args.configuration.get_output(context);
+        let configuration_binding = configuration_binding_1.get_inner();
+        let data_replication_mode_binding_1 = args
             .data_replication_mode
-            .get_output(context)
-            .get_inner();
-        let data_replication_primary_broker_arn_binding = args
+            .get_output(context);
+        let data_replication_mode_binding = data_replication_mode_binding_1.get_inner();
+        let data_replication_primary_broker_arn_binding_1 = args
             .data_replication_primary_broker_arn
-            .get_output(context)
+            .get_output(context);
+        let data_replication_primary_broker_arn_binding = data_replication_primary_broker_arn_binding_1
             .get_inner();
-        let deployment_mode_binding = args
-            .deployment_mode
-            .get_output(context)
-            .get_inner();
-        let encryption_options_binding = args
-            .encryption_options
-            .get_output(context)
-            .get_inner();
-        let engine_type_binding = args.engine_type.get_output(context).get_inner();
-        let engine_version_binding = args.engine_version.get_output(context).get_inner();
-        let host_instance_type_binding = args
-            .host_instance_type
-            .get_output(context)
-            .get_inner();
-        let ldap_server_metadata_binding = args
+        let deployment_mode_binding_1 = args.deployment_mode.get_output(context);
+        let deployment_mode_binding = deployment_mode_binding_1.get_inner();
+        let encryption_options_binding_1 = args.encryption_options.get_output(context);
+        let encryption_options_binding = encryption_options_binding_1.get_inner();
+        let engine_type_binding_1 = args.engine_type.get_output(context);
+        let engine_type_binding = engine_type_binding_1.get_inner();
+        let engine_version_binding_1 = args.engine_version.get_output(context);
+        let engine_version_binding = engine_version_binding_1.get_inner();
+        let host_instance_type_binding_1 = args.host_instance_type.get_output(context);
+        let host_instance_type_binding = host_instance_type_binding_1.get_inner();
+        let ldap_server_metadata_binding_1 = args
             .ldap_server_metadata
-            .get_output(context)
-            .get_inner();
-        let logs_binding = args.logs.get_output(context).get_inner();
-        let maintenance_window_start_time_binding = args
+            .get_output(context);
+        let ldap_server_metadata_binding = ldap_server_metadata_binding_1.get_inner();
+        let logs_binding_1 = args.logs.get_output(context);
+        let logs_binding = logs_binding_1.get_inner();
+        let maintenance_window_start_time_binding_1 = args
             .maintenance_window_start_time
-            .get_output(context)
+            .get_output(context);
+        let maintenance_window_start_time_binding = maintenance_window_start_time_binding_1
             .get_inner();
-        let publicly_accessible_binding = args
-            .publicly_accessible
-            .get_output(context)
-            .get_inner();
-        let security_groups_binding = args
-            .security_groups
-            .get_output(context)
-            .get_inner();
-        let storage_type_binding = args.storage_type.get_output(context).get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let users_binding = args.users.get_output(context).get_inner();
+        let publicly_accessible_binding_1 = args.publicly_accessible.get_output(context);
+        let publicly_accessible_binding = publicly_accessible_binding_1.get_inner();
+        let security_groups_binding_1 = args.security_groups.get_output(context);
+        let security_groups_binding = security_groups_binding_1.get_inner();
+        let storage_type_binding_1 = args.storage_type.get_output(context);
+        let storage_type_binding = storage_type_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let users_binding_1 = args.users.get_output(context);
+        let users_binding = users_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:mq/broker:Broker".into(),
             name: name.to_string(),

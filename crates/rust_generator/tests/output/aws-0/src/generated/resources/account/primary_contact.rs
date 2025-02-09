@@ -118,25 +118,32 @@ pub mod primary_contact {
     ) -> PrimaryContactResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let address_line1_binding = args.address_line1.get_output(context).get_inner();
-        let address_line2_binding = args.address_line2.get_output(context).get_inner();
-        let address_line3_binding = args.address_line3.get_output(context).get_inner();
-        let city_binding = args.city.get_output(context).get_inner();
-        let company_name_binding = args.company_name.get_output(context).get_inner();
-        let country_code_binding = args.country_code.get_output(context).get_inner();
-        let district_or_county_binding = args
-            .district_or_county
-            .get_output(context)
-            .get_inner();
-        let full_name_binding = args.full_name.get_output(context).get_inner();
-        let phone_number_binding = args.phone_number.get_output(context).get_inner();
-        let postal_code_binding = args.postal_code.get_output(context).get_inner();
-        let state_or_region_binding = args
-            .state_or_region
-            .get_output(context)
-            .get_inner();
-        let website_url_binding = args.website_url.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let address_line1_binding_1 = args.address_line1.get_output(context);
+        let address_line1_binding = address_line1_binding_1.get_inner();
+        let address_line2_binding_1 = args.address_line2.get_output(context);
+        let address_line2_binding = address_line2_binding_1.get_inner();
+        let address_line3_binding_1 = args.address_line3.get_output(context);
+        let address_line3_binding = address_line3_binding_1.get_inner();
+        let city_binding_1 = args.city.get_output(context);
+        let city_binding = city_binding_1.get_inner();
+        let company_name_binding_1 = args.company_name.get_output(context);
+        let company_name_binding = company_name_binding_1.get_inner();
+        let country_code_binding_1 = args.country_code.get_output(context);
+        let country_code_binding = country_code_binding_1.get_inner();
+        let district_or_county_binding_1 = args.district_or_county.get_output(context);
+        let district_or_county_binding = district_or_county_binding_1.get_inner();
+        let full_name_binding_1 = args.full_name.get_output(context);
+        let full_name_binding = full_name_binding_1.get_inner();
+        let phone_number_binding_1 = args.phone_number.get_output(context);
+        let phone_number_binding = phone_number_binding_1.get_inner();
+        let postal_code_binding_1 = args.postal_code.get_output(context);
+        let postal_code_binding = postal_code_binding_1.get_inner();
+        let state_or_region_binding_1 = args.state_or_region.get_output(context);
+        let state_or_region_binding = state_or_region_binding_1.get_inner();
+        let website_url_binding_1 = args.website_url.get_output(context);
+        let website_url_binding = website_url_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:account/primaryContact:PrimaryContact".into(),
             name: name.to_string(),

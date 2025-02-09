@@ -31,7 +31,8 @@ pub mod get_dataset_iam_policy {
     ) -> GetDatasetIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dataset_id_binding = args.dataset_id.get_output(context).get_inner();
+        let dataset_id_binding_1 = args.dataset_id.get_output(context);
+        let dataset_id_binding = dataset_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:healthcare/getDatasetIamPolicy:getDatasetIamPolicy".into(),
             version: super::super::super::get_version(),

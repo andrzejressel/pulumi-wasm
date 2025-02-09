@@ -106,38 +106,38 @@ pub mod account_password_policy {
     ) -> AccountPasswordPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_users_to_change_password_binding = args
+        let allow_users_to_change_password_binding_1 = args
             .allow_users_to_change_password
-            .get_output(context)
+            .get_output(context);
+        let allow_users_to_change_password_binding = allow_users_to_change_password_binding_1
             .get_inner();
-        let hard_expiry_binding = args.hard_expiry.get_output(context).get_inner();
-        let max_password_age_binding = args
-            .max_password_age
-            .get_output(context)
-            .get_inner();
-        let minimum_password_length_binding = args
+        let hard_expiry_binding_1 = args.hard_expiry.get_output(context);
+        let hard_expiry_binding = hard_expiry_binding_1.get_inner();
+        let max_password_age_binding_1 = args.max_password_age.get_output(context);
+        let max_password_age_binding = max_password_age_binding_1.get_inner();
+        let minimum_password_length_binding_1 = args
             .minimum_password_length
-            .get_output(context)
+            .get_output(context);
+        let minimum_password_length_binding = minimum_password_length_binding_1
             .get_inner();
-        let password_reuse_prevention_binding = args
+        let password_reuse_prevention_binding_1 = args
             .password_reuse_prevention
-            .get_output(context)
+            .get_output(context);
+        let password_reuse_prevention_binding = password_reuse_prevention_binding_1
             .get_inner();
-        let require_lowercase_characters_binding = args
+        let require_lowercase_characters_binding_1 = args
             .require_lowercase_characters
-            .get_output(context)
+            .get_output(context);
+        let require_lowercase_characters_binding = require_lowercase_characters_binding_1
             .get_inner();
-        let require_numbers_binding = args
-            .require_numbers
-            .get_output(context)
-            .get_inner();
-        let require_symbols_binding = args
-            .require_symbols
-            .get_output(context)
-            .get_inner();
-        let require_uppercase_characters_binding = args
+        let require_numbers_binding_1 = args.require_numbers.get_output(context);
+        let require_numbers_binding = require_numbers_binding_1.get_inner();
+        let require_symbols_binding_1 = args.require_symbols.get_output(context);
+        let require_symbols_binding = require_symbols_binding_1.get_inner();
+        let require_uppercase_characters_binding_1 = args
             .require_uppercase_characters
-            .get_output(context)
+            .get_output(context);
+        let require_uppercase_characters_binding = require_uppercase_characters_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/accountPasswordPolicy:AccountPasswordPolicy".into(),

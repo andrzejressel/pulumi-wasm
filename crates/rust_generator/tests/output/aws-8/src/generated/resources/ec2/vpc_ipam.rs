@@ -108,18 +108,18 @@ pub mod vpc_ipam {
     ) -> VpcIpamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cascade_binding = args.cascade.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enable_private_gua_binding = args
-            .enable_private_gua
-            .get_output(context)
-            .get_inner();
-        let operating_regions_binding = args
-            .operating_regions
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tier_binding = args.tier.get_output(context).get_inner();
+        let cascade_binding_1 = args.cascade.get_output(context);
+        let cascade_binding = cascade_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enable_private_gua_binding_1 = args.enable_private_gua.get_output(context);
+        let enable_private_gua_binding = enable_private_gua_binding_1.get_inner();
+        let operating_regions_binding_1 = args.operating_regions.get_output(context);
+        let operating_regions_binding = operating_regions_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tier_binding_1 = args.tier.get_output(context);
+        let tier_binding = tier_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpam:VpcIpam".into(),
             name: name.to_string(),

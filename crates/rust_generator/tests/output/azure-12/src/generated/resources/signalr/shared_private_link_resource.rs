@@ -112,23 +112,16 @@ pub mod shared_private_link_resource {
     ) -> SharedPrivateLinkResourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let request_message_binding = args
-            .request_message
-            .get_output(context)
-            .get_inner();
-        let signalr_service_id_binding = args
-            .signalr_service_id
-            .get_output(context)
-            .get_inner();
-        let sub_resource_name_binding = args
-            .sub_resource_name
-            .get_output(context)
-            .get_inner();
-        let target_resource_id_binding = args
-            .target_resource_id
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let request_message_binding_1 = args.request_message.get_output(context);
+        let request_message_binding = request_message_binding_1.get_inner();
+        let signalr_service_id_binding_1 = args.signalr_service_id.get_output(context);
+        let signalr_service_id_binding = signalr_service_id_binding_1.get_inner();
+        let sub_resource_name_binding_1 = args.sub_resource_name.get_output(context);
+        let sub_resource_name_binding = sub_resource_name_binding_1.get_inner();
+        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
+        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:signalr/sharedPrivateLinkResource:SharedPrivateLinkResource"
                 .into(),

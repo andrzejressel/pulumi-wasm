@@ -87,23 +87,26 @@ pub mod integration_response {
     ) -> IntegrationResponseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_output(context).get_inner();
-        let content_handling_strategy_binding = args
+        let api_id_binding_1 = args.api_id.get_output(context);
+        let api_id_binding = api_id_binding_1.get_inner();
+        let content_handling_strategy_binding_1 = args
             .content_handling_strategy
-            .get_output(context)
+            .get_output(context);
+        let content_handling_strategy_binding = content_handling_strategy_binding_1
             .get_inner();
-        let integration_id_binding = args.integration_id.get_output(context).get_inner();
-        let integration_response_key_binding = args
+        let integration_id_binding_1 = args.integration_id.get_output(context);
+        let integration_id_binding = integration_id_binding_1.get_inner();
+        let integration_response_key_binding_1 = args
             .integration_response_key
-            .get_output(context)
+            .get_output(context);
+        let integration_response_key_binding = integration_response_key_binding_1
             .get_inner();
-        let response_templates_binding = args
-            .response_templates
-            .get_output(context)
-            .get_inner();
-        let template_selection_expression_binding = args
+        let response_templates_binding_1 = args.response_templates.get_output(context);
+        let response_templates_binding = response_templates_binding_1.get_inner();
+        let template_selection_expression_binding_1 = args
             .template_selection_expression
-            .get_output(context)
+            .get_output(context);
+        let template_selection_expression_binding = template_selection_expression_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigatewayv2/integrationResponse:IntegrationResponse".into(),

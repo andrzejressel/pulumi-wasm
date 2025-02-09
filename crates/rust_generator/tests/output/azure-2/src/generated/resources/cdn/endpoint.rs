@@ -194,51 +194,53 @@ pub mod endpoint {
     ) -> EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let content_types_to_compresses_binding = args
+        let content_types_to_compresses_binding_1 = args
             .content_types_to_compresses
-            .get_output(context)
+            .get_output(context);
+        let content_types_to_compresses_binding = content_types_to_compresses_binding_1
             .get_inner();
-        let delivery_rules_binding = args.delivery_rules.get_output(context).get_inner();
-        let geo_filters_binding = args.geo_filters.get_output(context).get_inner();
-        let global_delivery_rule_binding = args
+        let delivery_rules_binding_1 = args.delivery_rules.get_output(context);
+        let delivery_rules_binding = delivery_rules_binding_1.get_inner();
+        let geo_filters_binding_1 = args.geo_filters.get_output(context);
+        let geo_filters_binding = geo_filters_binding_1.get_inner();
+        let global_delivery_rule_binding_1 = args
             .global_delivery_rule
-            .get_output(context)
-            .get_inner();
-        let is_compression_enabled_binding = args
+            .get_output(context);
+        let global_delivery_rule_binding = global_delivery_rule_binding_1.get_inner();
+        let is_compression_enabled_binding_1 = args
             .is_compression_enabled
-            .get_output(context)
+            .get_output(context);
+        let is_compression_enabled_binding = is_compression_enabled_binding_1
             .get_inner();
-        let is_http_allowed_binding = args
-            .is_http_allowed
-            .get_output(context)
-            .get_inner();
-        let is_https_allowed_binding = args
-            .is_https_allowed
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let optimization_type_binding = args
-            .optimization_type
-            .get_output(context)
-            .get_inner();
-        let origin_host_header_binding = args
-            .origin_host_header
-            .get_output(context)
-            .get_inner();
-        let origin_path_binding = args.origin_path.get_output(context).get_inner();
-        let origins_binding = args.origins.get_output(context).get_inner();
-        let probe_path_binding = args.probe_path.get_output(context).get_inner();
-        let profile_name_binding = args.profile_name.get_output(context).get_inner();
-        let querystring_caching_behaviour_binding = args
+        let is_http_allowed_binding_1 = args.is_http_allowed.get_output(context);
+        let is_http_allowed_binding = is_http_allowed_binding_1.get_inner();
+        let is_https_allowed_binding_1 = args.is_https_allowed.get_output(context);
+        let is_https_allowed_binding = is_https_allowed_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let optimization_type_binding_1 = args.optimization_type.get_output(context);
+        let optimization_type_binding = optimization_type_binding_1.get_inner();
+        let origin_host_header_binding_1 = args.origin_host_header.get_output(context);
+        let origin_host_header_binding = origin_host_header_binding_1.get_inner();
+        let origin_path_binding_1 = args.origin_path.get_output(context);
+        let origin_path_binding = origin_path_binding_1.get_inner();
+        let origins_binding_1 = args.origins.get_output(context);
+        let origins_binding = origins_binding_1.get_inner();
+        let probe_path_binding_1 = args.probe_path.get_output(context);
+        let probe_path_binding = probe_path_binding_1.get_inner();
+        let profile_name_binding_1 = args.profile_name.get_output(context);
+        let profile_name_binding = profile_name_binding_1.get_inner();
+        let querystring_caching_behaviour_binding_1 = args
             .querystring_caching_behaviour
-            .get_output(context)
+            .get_output(context);
+        let querystring_caching_behaviour_binding = querystring_caching_behaviour_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/endpoint:Endpoint".into(),
             name: name.to_string(),

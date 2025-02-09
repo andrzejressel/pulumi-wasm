@@ -162,17 +162,16 @@ pub mod classifier {
     ) -> ClassifierResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let csv_classifier_binding = args.csv_classifier.get_output(context).get_inner();
-        let grok_classifier_binding = args
-            .grok_classifier
-            .get_output(context)
-            .get_inner();
-        let json_classifier_binding = args
-            .json_classifier
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let xml_classifier_binding = args.xml_classifier.get_output(context).get_inner();
+        let csv_classifier_binding_1 = args.csv_classifier.get_output(context);
+        let csv_classifier_binding = csv_classifier_binding_1.get_inner();
+        let grok_classifier_binding_1 = args.grok_classifier.get_output(context);
+        let grok_classifier_binding = grok_classifier_binding_1.get_inner();
+        let json_classifier_binding_1 = args.json_classifier.get_output(context);
+        let json_classifier_binding = json_classifier_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let xml_classifier_binding_1 = args.xml_classifier.get_output(context);
+        let xml_classifier_binding = xml_classifier_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/classifier:Classifier".into(),
             name: name.to_string(),

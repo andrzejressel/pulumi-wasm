@@ -548,213 +548,239 @@ pub mod vpn_connection {
     ) -> VpnConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let customer_gateway_id_binding = args
-            .customer_gateway_id
-            .get_output(context)
-            .get_inner();
-        let enable_acceleration_binding = args
-            .enable_acceleration
-            .get_output(context)
-            .get_inner();
-        let local_ipv4_network_cidr_binding = args
+        let customer_gateway_id_binding_1 = args.customer_gateway_id.get_output(context);
+        let customer_gateway_id_binding = customer_gateway_id_binding_1.get_inner();
+        let enable_acceleration_binding_1 = args.enable_acceleration.get_output(context);
+        let enable_acceleration_binding = enable_acceleration_binding_1.get_inner();
+        let local_ipv4_network_cidr_binding_1 = args
             .local_ipv4_network_cidr
-            .get_output(context)
+            .get_output(context);
+        let local_ipv4_network_cidr_binding = local_ipv4_network_cidr_binding_1
             .get_inner();
-        let local_ipv6_network_cidr_binding = args
+        let local_ipv6_network_cidr_binding_1 = args
             .local_ipv6_network_cidr
-            .get_output(context)
+            .get_output(context);
+        let local_ipv6_network_cidr_binding = local_ipv6_network_cidr_binding_1
             .get_inner();
-        let outside_ip_address_type_binding = args
+        let outside_ip_address_type_binding_1 = args
             .outside_ip_address_type
-            .get_output(context)
+            .get_output(context);
+        let outside_ip_address_type_binding = outside_ip_address_type_binding_1
             .get_inner();
-        let remote_ipv4_network_cidr_binding = args
+        let remote_ipv4_network_cidr_binding_1 = args
             .remote_ipv4_network_cidr
-            .get_output(context)
+            .get_output(context);
+        let remote_ipv4_network_cidr_binding = remote_ipv4_network_cidr_binding_1
             .get_inner();
-        let remote_ipv6_network_cidr_binding = args
+        let remote_ipv6_network_cidr_binding_1 = args
             .remote_ipv6_network_cidr
-            .get_output(context)
+            .get_output(context);
+        let remote_ipv6_network_cidr_binding = remote_ipv6_network_cidr_binding_1
             .get_inner();
-        let static_routes_only_binding = args
-            .static_routes_only
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let transit_gateway_id_binding = args
-            .transit_gateway_id
-            .get_output(context)
-            .get_inner();
-        let transport_transit_gateway_attachment_id_binding = args
+        let static_routes_only_binding_1 = args.static_routes_only.get_output(context);
+        let static_routes_only_binding = static_routes_only_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let transit_gateway_id_binding_1 = args.transit_gateway_id.get_output(context);
+        let transit_gateway_id_binding = transit_gateway_id_binding_1.get_inner();
+        let transport_transit_gateway_attachment_id_binding_1 = args
             .transport_transit_gateway_attachment_id
-            .get_output(context)
+            .get_output(context);
+        let transport_transit_gateway_attachment_id_binding = transport_transit_gateway_attachment_id_binding_1
             .get_inner();
-        let tunnel1_dpd_timeout_action_binding = args
+        let tunnel1_dpd_timeout_action_binding_1 = args
             .tunnel1_dpd_timeout_action
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_dpd_timeout_action_binding = tunnel1_dpd_timeout_action_binding_1
             .get_inner();
-        let tunnel1_dpd_timeout_seconds_binding = args
+        let tunnel1_dpd_timeout_seconds_binding_1 = args
             .tunnel1_dpd_timeout_seconds
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_dpd_timeout_seconds_binding = tunnel1_dpd_timeout_seconds_binding_1
             .get_inner();
-        let tunnel1_enable_tunnel_lifecycle_control_binding = args
+        let tunnel1_enable_tunnel_lifecycle_control_binding_1 = args
             .tunnel1_enable_tunnel_lifecycle_control
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_enable_tunnel_lifecycle_control_binding = tunnel1_enable_tunnel_lifecycle_control_binding_1
             .get_inner();
-        let tunnel1_ike_versions_binding = args
+        let tunnel1_ike_versions_binding_1 = args
             .tunnel1_ike_versions
-            .get_output(context)
-            .get_inner();
-        let tunnel1_inside_cidr_binding = args
-            .tunnel1_inside_cidr
-            .get_output(context)
-            .get_inner();
-        let tunnel1_inside_ipv6_cidr_binding = args
+            .get_output(context);
+        let tunnel1_ike_versions_binding = tunnel1_ike_versions_binding_1.get_inner();
+        let tunnel1_inside_cidr_binding_1 = args.tunnel1_inside_cidr.get_output(context);
+        let tunnel1_inside_cidr_binding = tunnel1_inside_cidr_binding_1.get_inner();
+        let tunnel1_inside_ipv6_cidr_binding_1 = args
             .tunnel1_inside_ipv6_cidr
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_inside_ipv6_cidr_binding = tunnel1_inside_ipv6_cidr_binding_1
             .get_inner();
-        let tunnel1_log_options_binding = args
-            .tunnel1_log_options
-            .get_output(context)
-            .get_inner();
-        let tunnel1_phase1_dh_group_numbers_binding = args
+        let tunnel1_log_options_binding_1 = args.tunnel1_log_options.get_output(context);
+        let tunnel1_log_options_binding = tunnel1_log_options_binding_1.get_inner();
+        let tunnel1_phase1_dh_group_numbers_binding_1 = args
             .tunnel1_phase1_dh_group_numbers
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_phase1_dh_group_numbers_binding = tunnel1_phase1_dh_group_numbers_binding_1
             .get_inner();
-        let tunnel1_phase1_encryption_algorithms_binding = args
+        let tunnel1_phase1_encryption_algorithms_binding_1 = args
             .tunnel1_phase1_encryption_algorithms
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_phase1_encryption_algorithms_binding = tunnel1_phase1_encryption_algorithms_binding_1
             .get_inner();
-        let tunnel1_phase1_integrity_algorithms_binding = args
+        let tunnel1_phase1_integrity_algorithms_binding_1 = args
             .tunnel1_phase1_integrity_algorithms
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_phase1_integrity_algorithms_binding = tunnel1_phase1_integrity_algorithms_binding_1
             .get_inner();
-        let tunnel1_phase1_lifetime_seconds_binding = args
+        let tunnel1_phase1_lifetime_seconds_binding_1 = args
             .tunnel1_phase1_lifetime_seconds
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_phase1_lifetime_seconds_binding = tunnel1_phase1_lifetime_seconds_binding_1
             .get_inner();
-        let tunnel1_phase2_dh_group_numbers_binding = args
+        let tunnel1_phase2_dh_group_numbers_binding_1 = args
             .tunnel1_phase2_dh_group_numbers
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_phase2_dh_group_numbers_binding = tunnel1_phase2_dh_group_numbers_binding_1
             .get_inner();
-        let tunnel1_phase2_encryption_algorithms_binding = args
+        let tunnel1_phase2_encryption_algorithms_binding_1 = args
             .tunnel1_phase2_encryption_algorithms
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_phase2_encryption_algorithms_binding = tunnel1_phase2_encryption_algorithms_binding_1
             .get_inner();
-        let tunnel1_phase2_integrity_algorithms_binding = args
+        let tunnel1_phase2_integrity_algorithms_binding_1 = args
             .tunnel1_phase2_integrity_algorithms
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_phase2_integrity_algorithms_binding = tunnel1_phase2_integrity_algorithms_binding_1
             .get_inner();
-        let tunnel1_phase2_lifetime_seconds_binding = args
+        let tunnel1_phase2_lifetime_seconds_binding_1 = args
             .tunnel1_phase2_lifetime_seconds
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_phase2_lifetime_seconds_binding = tunnel1_phase2_lifetime_seconds_binding_1
             .get_inner();
-        let tunnel1_preshared_key_binding = args
+        let tunnel1_preshared_key_binding_1 = args
             .tunnel1_preshared_key
-            .get_output(context)
-            .get_inner();
-        let tunnel1_rekey_fuzz_percentage_binding = args
+            .get_output(context);
+        let tunnel1_preshared_key_binding = tunnel1_preshared_key_binding_1.get_inner();
+        let tunnel1_rekey_fuzz_percentage_binding_1 = args
             .tunnel1_rekey_fuzz_percentage
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_rekey_fuzz_percentage_binding = tunnel1_rekey_fuzz_percentage_binding_1
             .get_inner();
-        let tunnel1_rekey_margin_time_seconds_binding = args
+        let tunnel1_rekey_margin_time_seconds_binding_1 = args
             .tunnel1_rekey_margin_time_seconds
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_rekey_margin_time_seconds_binding = tunnel1_rekey_margin_time_seconds_binding_1
             .get_inner();
-        let tunnel1_replay_window_size_binding = args
+        let tunnel1_replay_window_size_binding_1 = args
             .tunnel1_replay_window_size
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_replay_window_size_binding = tunnel1_replay_window_size_binding_1
             .get_inner();
-        let tunnel1_startup_action_binding = args
+        let tunnel1_startup_action_binding_1 = args
             .tunnel1_startup_action
-            .get_output(context)
+            .get_output(context);
+        let tunnel1_startup_action_binding = tunnel1_startup_action_binding_1
             .get_inner();
-        let tunnel2_dpd_timeout_action_binding = args
+        let tunnel2_dpd_timeout_action_binding_1 = args
             .tunnel2_dpd_timeout_action
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_dpd_timeout_action_binding = tunnel2_dpd_timeout_action_binding_1
             .get_inner();
-        let tunnel2_dpd_timeout_seconds_binding = args
+        let tunnel2_dpd_timeout_seconds_binding_1 = args
             .tunnel2_dpd_timeout_seconds
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_dpd_timeout_seconds_binding = tunnel2_dpd_timeout_seconds_binding_1
             .get_inner();
-        let tunnel2_enable_tunnel_lifecycle_control_binding = args
+        let tunnel2_enable_tunnel_lifecycle_control_binding_1 = args
             .tunnel2_enable_tunnel_lifecycle_control
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_enable_tunnel_lifecycle_control_binding = tunnel2_enable_tunnel_lifecycle_control_binding_1
             .get_inner();
-        let tunnel2_ike_versions_binding = args
+        let tunnel2_ike_versions_binding_1 = args
             .tunnel2_ike_versions
-            .get_output(context)
-            .get_inner();
-        let tunnel2_inside_cidr_binding = args
-            .tunnel2_inside_cidr
-            .get_output(context)
-            .get_inner();
-        let tunnel2_inside_ipv6_cidr_binding = args
+            .get_output(context);
+        let tunnel2_ike_versions_binding = tunnel2_ike_versions_binding_1.get_inner();
+        let tunnel2_inside_cidr_binding_1 = args.tunnel2_inside_cidr.get_output(context);
+        let tunnel2_inside_cidr_binding = tunnel2_inside_cidr_binding_1.get_inner();
+        let tunnel2_inside_ipv6_cidr_binding_1 = args
             .tunnel2_inside_ipv6_cidr
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_inside_ipv6_cidr_binding = tunnel2_inside_ipv6_cidr_binding_1
             .get_inner();
-        let tunnel2_log_options_binding = args
-            .tunnel2_log_options
-            .get_output(context)
-            .get_inner();
-        let tunnel2_phase1_dh_group_numbers_binding = args
+        let tunnel2_log_options_binding_1 = args.tunnel2_log_options.get_output(context);
+        let tunnel2_log_options_binding = tunnel2_log_options_binding_1.get_inner();
+        let tunnel2_phase1_dh_group_numbers_binding_1 = args
             .tunnel2_phase1_dh_group_numbers
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_phase1_dh_group_numbers_binding = tunnel2_phase1_dh_group_numbers_binding_1
             .get_inner();
-        let tunnel2_phase1_encryption_algorithms_binding = args
+        let tunnel2_phase1_encryption_algorithms_binding_1 = args
             .tunnel2_phase1_encryption_algorithms
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_phase1_encryption_algorithms_binding = tunnel2_phase1_encryption_algorithms_binding_1
             .get_inner();
-        let tunnel2_phase1_integrity_algorithms_binding = args
+        let tunnel2_phase1_integrity_algorithms_binding_1 = args
             .tunnel2_phase1_integrity_algorithms
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_phase1_integrity_algorithms_binding = tunnel2_phase1_integrity_algorithms_binding_1
             .get_inner();
-        let tunnel2_phase1_lifetime_seconds_binding = args
+        let tunnel2_phase1_lifetime_seconds_binding_1 = args
             .tunnel2_phase1_lifetime_seconds
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_phase1_lifetime_seconds_binding = tunnel2_phase1_lifetime_seconds_binding_1
             .get_inner();
-        let tunnel2_phase2_dh_group_numbers_binding = args
+        let tunnel2_phase2_dh_group_numbers_binding_1 = args
             .tunnel2_phase2_dh_group_numbers
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_phase2_dh_group_numbers_binding = tunnel2_phase2_dh_group_numbers_binding_1
             .get_inner();
-        let tunnel2_phase2_encryption_algorithms_binding = args
+        let tunnel2_phase2_encryption_algorithms_binding_1 = args
             .tunnel2_phase2_encryption_algorithms
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_phase2_encryption_algorithms_binding = tunnel2_phase2_encryption_algorithms_binding_1
             .get_inner();
-        let tunnel2_phase2_integrity_algorithms_binding = args
+        let tunnel2_phase2_integrity_algorithms_binding_1 = args
             .tunnel2_phase2_integrity_algorithms
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_phase2_integrity_algorithms_binding = tunnel2_phase2_integrity_algorithms_binding_1
             .get_inner();
-        let tunnel2_phase2_lifetime_seconds_binding = args
+        let tunnel2_phase2_lifetime_seconds_binding_1 = args
             .tunnel2_phase2_lifetime_seconds
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_phase2_lifetime_seconds_binding = tunnel2_phase2_lifetime_seconds_binding_1
             .get_inner();
-        let tunnel2_preshared_key_binding = args
+        let tunnel2_preshared_key_binding_1 = args
             .tunnel2_preshared_key
-            .get_output(context)
-            .get_inner();
-        let tunnel2_rekey_fuzz_percentage_binding = args
+            .get_output(context);
+        let tunnel2_preshared_key_binding = tunnel2_preshared_key_binding_1.get_inner();
+        let tunnel2_rekey_fuzz_percentage_binding_1 = args
             .tunnel2_rekey_fuzz_percentage
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_rekey_fuzz_percentage_binding = tunnel2_rekey_fuzz_percentage_binding_1
             .get_inner();
-        let tunnel2_rekey_margin_time_seconds_binding = args
+        let tunnel2_rekey_margin_time_seconds_binding_1 = args
             .tunnel2_rekey_margin_time_seconds
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_rekey_margin_time_seconds_binding = tunnel2_rekey_margin_time_seconds_binding_1
             .get_inner();
-        let tunnel2_replay_window_size_binding = args
+        let tunnel2_replay_window_size_binding_1 = args
             .tunnel2_replay_window_size
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_replay_window_size_binding = tunnel2_replay_window_size_binding_1
             .get_inner();
-        let tunnel2_startup_action_binding = args
+        let tunnel2_startup_action_binding_1 = args
             .tunnel2_startup_action
-            .get_output(context)
+            .get_output(context);
+        let tunnel2_startup_action_binding = tunnel2_startup_action_binding_1
             .get_inner();
-        let tunnel_inside_ip_version_binding = args
+        let tunnel_inside_ip_version_binding_1 = args
             .tunnel_inside_ip_version
-            .get_output(context)
+            .get_output(context);
+        let tunnel_inside_ip_version_binding = tunnel_inside_ip_version_binding_1
             .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let vpn_gateway_id_binding = args.vpn_gateway_id.get_output(context).get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let vpn_gateway_id_binding_1 = args.vpn_gateway_id.get_output(context);
+        let vpn_gateway_id_binding = vpn_gateway_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpnConnection:VpnConnection".into(),
             name: name.to_string(),

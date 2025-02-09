@@ -291,34 +291,29 @@ pub mod disk_encryption_set {
     ) -> DiskEncryptionSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_key_rotation_enabled_binding = args
+        let auto_key_rotation_enabled_binding_1 = args
             .auto_key_rotation_enabled
-            .get_output(context)
+            .get_output(context);
+        let auto_key_rotation_enabled_binding = auto_key_rotation_enabled_binding_1
             .get_inner();
-        let encryption_type_binding = args
-            .encryption_type
-            .get_output(context)
-            .get_inner();
-        let federated_client_id_binding = args
-            .federated_client_id
-            .get_output(context)
-            .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let key_vault_key_id_binding = args
-            .key_vault_key_id
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let managed_hsm_key_id_binding = args
-            .managed_hsm_key_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let encryption_type_binding_1 = args.encryption_type.get_output(context);
+        let encryption_type_binding = encryption_type_binding_1.get_inner();
+        let federated_client_id_binding_1 = args.federated_client_id.get_output(context);
+        let federated_client_id_binding = federated_client_id_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
+        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let managed_hsm_key_id_binding_1 = args.managed_hsm_key_id.get_output(context);
+        let managed_hsm_key_id_binding = managed_hsm_key_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/diskEncryptionSet:DiskEncryptionSet".into(),
             name: name.to_string(),

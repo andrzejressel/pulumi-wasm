@@ -214,17 +214,25 @@ pub mod export_task {
     ) -> ExportTaskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let export_onlies_binding = args.export_onlies.get_output(context).get_inner();
-        let export_task_identifier_binding = args
+        let export_onlies_binding_1 = args.export_onlies.get_output(context);
+        let export_onlies_binding = export_onlies_binding_1.get_inner();
+        let export_task_identifier_binding_1 = args
             .export_task_identifier
-            .get_output(context)
+            .get_output(context);
+        let export_task_identifier_binding = export_task_identifier_binding_1
             .get_inner();
-        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let s3_bucket_name_binding = args.s3_bucket_name.get_output(context).get_inner();
-        let s3_prefix_binding = args.s3_prefix.get_output(context).get_inner();
-        let source_arn_binding = args.source_arn.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
+        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let s3_bucket_name_binding_1 = args.s3_bucket_name.get_output(context);
+        let s3_bucket_name_binding = s3_bucket_name_binding_1.get_inner();
+        let s3_prefix_binding_1 = args.s3_prefix.get_output(context);
+        let s3_prefix_binding = s3_prefix_binding_1.get_inner();
+        let source_arn_binding_1 = args.source_arn.get_output(context);
+        let source_arn_binding = source_arn_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/exportTask:ExportTask".into(),
             name: name.to_string(),

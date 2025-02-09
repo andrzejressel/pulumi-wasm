@@ -551,58 +551,59 @@ pub mod instance {
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alternative_location_id_binding = args
+        let alternative_location_id_binding_1 = args
             .alternative_location_id
-            .get_output(context)
+            .get_output(context);
+        let alternative_location_id_binding = alternative_location_id_binding_1
             .get_inner();
-        let auth_enabled_binding = args.auth_enabled.get_output(context).get_inner();
-        let authorized_network_binding = args
-            .authorized_network
-            .get_output(context)
-            .get_inner();
-        let connect_mode_binding = args.connect_mode.get_output(context).get_inner();
-        let customer_managed_key_binding = args
+        let auth_enabled_binding_1 = args.auth_enabled.get_output(context);
+        let auth_enabled_binding = auth_enabled_binding_1.get_inner();
+        let authorized_network_binding_1 = args.authorized_network.get_output(context);
+        let authorized_network_binding = authorized_network_binding_1.get_inner();
+        let connect_mode_binding_1 = args.connect_mode.get_output(context);
+        let connect_mode_binding = connect_mode_binding_1.get_inner();
+        let customer_managed_key_binding_1 = args
             .customer_managed_key
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_id_binding = args.location_id.get_output(context).get_inner();
-        let maintenance_policy_binding = args
-            .maintenance_policy
-            .get_output(context)
-            .get_inner();
-        let maintenance_version_binding = args
-            .maintenance_version
-            .get_output(context)
-            .get_inner();
-        let memory_size_gb_binding = args.memory_size_gb.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let persistence_config_binding = args
-            .persistence_config
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let read_replicas_mode_binding = args
-            .read_replicas_mode
-            .get_output(context)
-            .get_inner();
-        let redis_configs_binding = args.redis_configs.get_output(context).get_inner();
-        let redis_version_binding = args.redis_version.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let replica_count_binding = args.replica_count.get_output(context).get_inner();
-        let reserved_ip_range_binding = args
-            .reserved_ip_range
-            .get_output(context)
-            .get_inner();
-        let secondary_ip_range_binding = args
-            .secondary_ip_range
-            .get_output(context)
-            .get_inner();
-        let tier_binding = args.tier.get_output(context).get_inner();
-        let transit_encryption_mode_binding = args
+            .get_output(context);
+        let customer_managed_key_binding = customer_managed_key_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_id_binding_1 = args.location_id.get_output(context);
+        let location_id_binding = location_id_binding_1.get_inner();
+        let maintenance_policy_binding_1 = args.maintenance_policy.get_output(context);
+        let maintenance_policy_binding = maintenance_policy_binding_1.get_inner();
+        let maintenance_version_binding_1 = args.maintenance_version.get_output(context);
+        let maintenance_version_binding = maintenance_version_binding_1.get_inner();
+        let memory_size_gb_binding_1 = args.memory_size_gb.get_output(context);
+        let memory_size_gb_binding = memory_size_gb_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let persistence_config_binding_1 = args.persistence_config.get_output(context);
+        let persistence_config_binding = persistence_config_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let read_replicas_mode_binding_1 = args.read_replicas_mode.get_output(context);
+        let read_replicas_mode_binding = read_replicas_mode_binding_1.get_inner();
+        let redis_configs_binding_1 = args.redis_configs.get_output(context);
+        let redis_configs_binding = redis_configs_binding_1.get_inner();
+        let redis_version_binding_1 = args.redis_version.get_output(context);
+        let redis_version_binding = redis_version_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let replica_count_binding_1 = args.replica_count.get_output(context);
+        let replica_count_binding = replica_count_binding_1.get_inner();
+        let reserved_ip_range_binding_1 = args.reserved_ip_range.get_output(context);
+        let reserved_ip_range_binding = reserved_ip_range_binding_1.get_inner();
+        let secondary_ip_range_binding_1 = args.secondary_ip_range.get_output(context);
+        let secondary_ip_range_binding = secondary_ip_range_binding_1.get_inner();
+        let tier_binding_1 = args.tier.get_output(context);
+        let tier_binding = tier_binding_1.get_inner();
+        let transit_encryption_mode_binding_1 = args
             .transit_encryption_mode
-            .get_output(context)
+            .get_output(context);
+        let transit_encryption_mode_binding = transit_encryption_mode_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:redis/instance:Instance".into(),

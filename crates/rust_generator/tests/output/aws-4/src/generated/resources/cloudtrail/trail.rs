@@ -428,49 +428,57 @@ pub mod trail {
     ) -> TrailResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advanced_event_selectors_binding = args
+        let advanced_event_selectors_binding_1 = args
             .advanced_event_selectors
-            .get_output(context)
+            .get_output(context);
+        let advanced_event_selectors_binding = advanced_event_selectors_binding_1
             .get_inner();
-        let cloud_watch_logs_group_arn_binding = args
+        let cloud_watch_logs_group_arn_binding_1 = args
             .cloud_watch_logs_group_arn
-            .get_output(context)
+            .get_output(context);
+        let cloud_watch_logs_group_arn_binding = cloud_watch_logs_group_arn_binding_1
             .get_inner();
-        let cloud_watch_logs_role_arn_binding = args
+        let cloud_watch_logs_role_arn_binding_1 = args
             .cloud_watch_logs_role_arn
-            .get_output(context)
+            .get_output(context);
+        let cloud_watch_logs_role_arn_binding = cloud_watch_logs_role_arn_binding_1
             .get_inner();
-        let enable_log_file_validation_binding = args
+        let enable_log_file_validation_binding_1 = args
             .enable_log_file_validation
-            .get_output(context)
+            .get_output(context);
+        let enable_log_file_validation_binding = enable_log_file_validation_binding_1
             .get_inner();
-        let enable_logging_binding = args.enable_logging.get_output(context).get_inner();
-        let event_selectors_binding = args
-            .event_selectors
-            .get_output(context)
-            .get_inner();
-        let include_global_service_events_binding = args
+        let enable_logging_binding_1 = args.enable_logging.get_output(context);
+        let enable_logging_binding = enable_logging_binding_1.get_inner();
+        let event_selectors_binding_1 = args.event_selectors.get_output(context);
+        let event_selectors_binding = event_selectors_binding_1.get_inner();
+        let include_global_service_events_binding_1 = args
             .include_global_service_events
-            .get_output(context)
+            .get_output(context);
+        let include_global_service_events_binding = include_global_service_events_binding_1
             .get_inner();
-        let insight_selectors_binding = args
-            .insight_selectors
-            .get_output(context)
-            .get_inner();
-        let is_multi_region_trail_binding = args
+        let insight_selectors_binding_1 = args.insight_selectors.get_output(context);
+        let insight_selectors_binding = insight_selectors_binding_1.get_inner();
+        let is_multi_region_trail_binding_1 = args
             .is_multi_region_trail
-            .get_output(context)
-            .get_inner();
-        let is_organization_trail_binding = args
+            .get_output(context);
+        let is_multi_region_trail_binding = is_multi_region_trail_binding_1.get_inner();
+        let is_organization_trail_binding_1 = args
             .is_organization_trail
-            .get_output(context)
-            .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let s3_bucket_name_binding = args.s3_bucket_name.get_output(context).get_inner();
-        let s3_key_prefix_binding = args.s3_key_prefix.get_output(context).get_inner();
-        let sns_topic_name_binding = args.sns_topic_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let is_organization_trail_binding = is_organization_trail_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let s3_bucket_name_binding_1 = args.s3_bucket_name.get_output(context);
+        let s3_bucket_name_binding = s3_bucket_name_binding_1.get_inner();
+        let s3_key_prefix_binding_1 = args.s3_key_prefix.get_output(context);
+        let s3_key_prefix_binding = s3_key_prefix_binding_1.get_inner();
+        let sns_topic_name_binding_1 = args.sns_topic_name.get_output(context);
+        let sns_topic_name_binding = sns_topic_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudtrail/trail:Trail".into(),
             name: name.to_string(),

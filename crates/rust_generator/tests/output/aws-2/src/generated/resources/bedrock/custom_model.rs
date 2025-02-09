@@ -164,43 +164,42 @@ pub mod custom_model {
     ) -> CustomModelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_model_identifier_binding = args
+        let base_model_identifier_binding_1 = args
             .base_model_identifier
-            .get_output(context)
-            .get_inner();
-        let custom_model_kms_key_id_binding = args
+            .get_output(context);
+        let base_model_identifier_binding = base_model_identifier_binding_1.get_inner();
+        let custom_model_kms_key_id_binding_1 = args
             .custom_model_kms_key_id
-            .get_output(context)
+            .get_output(context);
+        let custom_model_kms_key_id_binding = custom_model_kms_key_id_binding_1
             .get_inner();
-        let custom_model_name_binding = args
-            .custom_model_name
-            .get_output(context)
-            .get_inner();
-        let customization_type_binding = args
-            .customization_type
-            .get_output(context)
-            .get_inner();
-        let hyperparameters_binding = args
-            .hyperparameters
-            .get_output(context)
-            .get_inner();
-        let job_name_binding = args.job_name.get_output(context).get_inner();
-        let output_data_config_binding = args
-            .output_data_config
-            .get_output(context)
-            .get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let training_data_config_binding = args
+        let custom_model_name_binding_1 = args.custom_model_name.get_output(context);
+        let custom_model_name_binding = custom_model_name_binding_1.get_inner();
+        let customization_type_binding_1 = args.customization_type.get_output(context);
+        let customization_type_binding = customization_type_binding_1.get_inner();
+        let hyperparameters_binding_1 = args.hyperparameters.get_output(context);
+        let hyperparameters_binding = hyperparameters_binding_1.get_inner();
+        let job_name_binding_1 = args.job_name.get_output(context);
+        let job_name_binding = job_name_binding_1.get_inner();
+        let output_data_config_binding_1 = args.output_data_config.get_output(context);
+        let output_data_config_binding = output_data_config_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let training_data_config_binding_1 = args
             .training_data_config
-            .get_output(context)
-            .get_inner();
-        let validation_data_config_binding = args
+            .get_output(context);
+        let training_data_config_binding = training_data_config_binding_1.get_inner();
+        let validation_data_config_binding_1 = args
             .validation_data_config
-            .get_output(context)
+            .get_output(context);
+        let validation_data_config_binding = validation_data_config_binding_1
             .get_inner();
-        let vpc_config_binding = args.vpc_config.get_output(context).get_inner();
+        let vpc_config_binding_1 = args.vpc_config.get_output(context);
+        let vpc_config_binding = vpc_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:bedrock/customModel:CustomModel".into(),
             name: name.to_string(),

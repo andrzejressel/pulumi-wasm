@@ -77,13 +77,17 @@ pub mod permission {
     ) -> PermissionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_output(context).get_inner();
-        let certificate_authority_arn_binding = args
+        let actions_binding_1 = args.actions.get_output(context);
+        let actions_binding = actions_binding_1.get_inner();
+        let certificate_authority_arn_binding_1 = args
             .certificate_authority_arn
-            .get_output(context)
+            .get_output(context);
+        let certificate_authority_arn_binding = certificate_authority_arn_binding_1
             .get_inner();
-        let principal_binding = args.principal.get_output(context).get_inner();
-        let source_account_binding = args.source_account.get_output(context).get_inner();
+        let principal_binding_1 = args.principal.get_output(context);
+        let principal_binding = principal_binding_1.get_inner();
+        let source_account_binding_1 = args.source_account.get_output(context);
+        let source_account_binding = source_account_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:acmpca/permission:Permission".into(),
             name: name.to_string(),

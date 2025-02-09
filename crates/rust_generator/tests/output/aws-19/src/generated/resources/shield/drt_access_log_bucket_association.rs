@@ -73,12 +73,15 @@ pub mod drt_access_log_bucket_association {
     ) -> DrtAccessLogBucketAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let log_bucket_binding = args.log_bucket.get_output(context).get_inner();
-        let role_arn_association_id_binding = args
+        let log_bucket_binding_1 = args.log_bucket.get_output(context);
+        let log_bucket_binding = log_bucket_binding_1.get_inner();
+        let role_arn_association_id_binding_1 = args
             .role_arn_association_id
-            .get_output(context)
+            .get_output(context);
+        let role_arn_association_id_binding = role_arn_association_id_binding_1
             .get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation"
                 .into(),

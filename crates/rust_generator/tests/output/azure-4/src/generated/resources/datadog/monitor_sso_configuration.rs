@@ -86,18 +86,19 @@ pub mod monitor_sso_configuration {
     ) -> MonitorSsoConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let datadog_monitor_id_binding = args
-            .datadog_monitor_id
-            .get_output(context)
-            .get_inner();
-        let enterprise_application_id_binding = args
+        let datadog_monitor_id_binding_1 = args.datadog_monitor_id.get_output(context);
+        let datadog_monitor_id_binding = datadog_monitor_id_binding_1.get_inner();
+        let enterprise_application_id_binding_1 = args
             .enterprise_application_id
-            .get_output(context)
+            .get_output(context);
+        let enterprise_application_id_binding = enterprise_application_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let single_sign_on_enabled_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let single_sign_on_enabled_binding_1 = args
             .single_sign_on_enabled
-            .get_output(context)
+            .get_output(context);
+        let single_sign_on_enabled_binding = single_sign_on_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration"

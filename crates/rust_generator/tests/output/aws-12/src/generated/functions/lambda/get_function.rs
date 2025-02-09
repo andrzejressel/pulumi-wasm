@@ -107,9 +107,12 @@ pub mod get_function {
     ) -> GetFunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let function_name_binding = args.function_name.get_output(context).get_inner();
-        let qualifier_binding = args.qualifier.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let function_name_binding_1 = args.function_name.get_output(context);
+        let function_name_binding = function_name_binding_1.get_inner();
+        let qualifier_binding_1 = args.qualifier.get_output(context);
+        let qualifier_binding = qualifier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lambda/getFunction:getFunction".into(),
             version: super::super::super::get_version(),

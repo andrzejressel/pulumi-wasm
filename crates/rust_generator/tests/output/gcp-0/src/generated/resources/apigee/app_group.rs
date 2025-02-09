@@ -241,13 +241,20 @@ pub mod app_group {
     ) -> AppGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attributes_binding = args.attributes.get_output(context).get_inner();
-        let channel_id_binding = args.channel_id.get_output(context).get_inner();
-        let channel_uri_binding = args.channel_uri.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
+        let attributes_binding_1 = args.attributes.get_output(context);
+        let attributes_binding = attributes_binding_1.get_inner();
+        let channel_id_binding_1 = args.channel_id.get_output(context);
+        let channel_id_binding = channel_id_binding_1.get_inner();
+        let channel_uri_binding_1 = args.channel_uri.get_output(context);
+        let channel_uri_binding = channel_uri_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/appGroup:AppGroup".into(),
             name: name.to_string(),

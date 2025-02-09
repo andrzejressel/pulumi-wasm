@@ -68,12 +68,16 @@ pub mod template_alias {
     ) -> TemplateAliasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_name_binding = args.alias_name.get_output(context).get_inner();
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let template_id_binding = args.template_id.get_output(context).get_inner();
-        let template_version_number_binding = args
+        let alias_name_binding_1 = args.alias_name.get_output(context);
+        let alias_name_binding = alias_name_binding_1.get_inner();
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let template_id_binding_1 = args.template_id.get_output(context);
+        let template_id_binding = template_id_binding_1.get_inner();
+        let template_version_number_binding_1 = args
             .template_version_number
-            .get_output(context)
+            .get_output(context);
+        let template_version_number_binding = template_version_number_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/templateAlias:TemplateAlias".into(),

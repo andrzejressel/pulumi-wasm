@@ -82,14 +82,19 @@ pub mod endpoint_access {
     ) -> EndpointAccessResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_name_binding = args.endpoint_name.get_output(context).get_inner();
-        let owner_account_binding = args.owner_account.get_output(context).get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let vpc_security_group_ids_binding = args
+        let endpoint_name_binding_1 = args.endpoint_name.get_output(context);
+        let endpoint_name_binding = endpoint_name_binding_1.get_inner();
+        let owner_account_binding_1 = args.owner_account.get_output(context);
+        let owner_account_binding = owner_account_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let vpc_security_group_ids_binding_1 = args
             .vpc_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
             .get_inner();
-        let workgroup_name_binding = args.workgroup_name.get_output(context).get_inner();
+        let workgroup_name_binding_1 = args.workgroup_name.get_output(context);
+        let workgroup_name_binding = workgroup_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshiftserverless/endpointAccess:EndpointAccess".into(),
             name: name.to_string(),

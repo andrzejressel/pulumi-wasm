@@ -73,9 +73,12 @@ pub mod type_ {
     ) -> TypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_output(context).get_inner();
-        let definition_binding = args.definition.get_output(context).get_inner();
-        let format_binding = args.format.get_output(context).get_inner();
+        let api_id_binding_1 = args.api_id.get_output(context);
+        let api_id_binding = api_id_binding_1.get_inner();
+        let definition_binding_1 = args.definition.get_output(context);
+        let definition_binding = definition_binding_1.get_inner();
+        let format_binding_1 = args.format.get_output(context);
+        let format_binding = format_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appsync/type:Type".into(),
             name: name.to_string(),

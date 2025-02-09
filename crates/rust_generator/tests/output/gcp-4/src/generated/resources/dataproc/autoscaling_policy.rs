@@ -161,18 +161,21 @@ pub mod autoscaling_policy {
     ) -> AutoscalingPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let basic_algorithm_binding = args
-            .basic_algorithm
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let policy_id_binding = args.policy_id.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let secondary_worker_config_binding = args
+        let basic_algorithm_binding_1 = args.basic_algorithm.get_output(context);
+        let basic_algorithm_binding = basic_algorithm_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let policy_id_binding_1 = args.policy_id.get_output(context);
+        let policy_id_binding = policy_id_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let secondary_worker_config_binding_1 = args
             .secondary_worker_config
-            .get_output(context)
+            .get_output(context);
+        let secondary_worker_config_binding = secondary_worker_config_binding_1
             .get_inner();
-        let worker_config_binding = args.worker_config.get_output(context).get_inner();
+        let worker_config_binding_1 = args.worker_config.get_output(context);
+        let worker_config_binding = worker_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/autoscalingPolicy:AutoscalingPolicy".into(),
             name: name.to_string(),

@@ -169,41 +169,48 @@ pub mod application {
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_sources_binding = args.app_sources.get_output(context).get_inner();
-        let auto_bundle_on_deploy_binding = args
+        let app_sources_binding_1 = args.app_sources.get_output(context);
+        let app_sources_binding = app_sources_binding_1.get_inner();
+        let auto_bundle_on_deploy_binding_1 = args
             .auto_bundle_on_deploy
-            .get_output(context)
-            .get_inner();
-        let aws_flow_ruby_settings_binding = args
+            .get_output(context);
+        let auto_bundle_on_deploy_binding = auto_bundle_on_deploy_binding_1.get_inner();
+        let aws_flow_ruby_settings_binding_1 = args
             .aws_flow_ruby_settings
-            .get_output(context)
+            .get_output(context);
+        let aws_flow_ruby_settings_binding = aws_flow_ruby_settings_binding_1
             .get_inner();
-        let data_source_arn_binding = args
-            .data_source_arn
-            .get_output(context)
-            .get_inner();
-        let data_source_database_name_binding = args
+        let data_source_arn_binding_1 = args.data_source_arn.get_output(context);
+        let data_source_arn_binding = data_source_arn_binding_1.get_inner();
+        let data_source_database_name_binding_1 = args
             .data_source_database_name
-            .get_output(context)
+            .get_output(context);
+        let data_source_database_name_binding = data_source_database_name_binding_1
             .get_inner();
-        let data_source_type_binding = args
-            .data_source_type
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let document_root_binding = args.document_root.get_output(context).get_inner();
-        let domains_binding = args.domains.get_output(context).get_inner();
-        let enable_ssl_binding = args.enable_ssl.get_output(context).get_inner();
-        let environments_binding = args.environments.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let rails_env_binding = args.rails_env.get_output(context).get_inner();
-        let short_name_binding = args.short_name.get_output(context).get_inner();
-        let ssl_configurations_binding = args
-            .ssl_configurations
-            .get_output(context)
-            .get_inner();
-        let stack_id_binding = args.stack_id.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let data_source_type_binding_1 = args.data_source_type.get_output(context);
+        let data_source_type_binding = data_source_type_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let document_root_binding_1 = args.document_root.get_output(context);
+        let document_root_binding = document_root_binding_1.get_inner();
+        let domains_binding_1 = args.domains.get_output(context);
+        let domains_binding = domains_binding_1.get_inner();
+        let enable_ssl_binding_1 = args.enable_ssl.get_output(context);
+        let enable_ssl_binding = enable_ssl_binding_1.get_inner();
+        let environments_binding_1 = args.environments.get_output(context);
+        let environments_binding = environments_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let rails_env_binding_1 = args.rails_env.get_output(context);
+        let rails_env_binding = rails_env_binding_1.get_inner();
+        let short_name_binding_1 = args.short_name.get_output(context);
+        let short_name_binding = short_name_binding_1.get_inner();
+        let ssl_configurations_binding_1 = args.ssl_configurations.get_output(context);
+        let ssl_configurations_binding = ssl_configurations_binding_1.get_inner();
+        let stack_id_binding_1 = args.stack_id.get_output(context);
+        let stack_id_binding = stack_id_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opsworks/application:Application".into(),
             name: name.to_string(),

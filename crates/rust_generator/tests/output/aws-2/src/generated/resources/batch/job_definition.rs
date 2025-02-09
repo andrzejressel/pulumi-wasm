@@ -340,35 +340,41 @@ pub mod job_definition {
     ) -> JobDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_properties_binding = args
+        let container_properties_binding_1 = args
             .container_properties
-            .get_output(context)
-            .get_inner();
-        let deregister_on_new_revision_binding = args
+            .get_output(context);
+        let container_properties_binding = container_properties_binding_1.get_inner();
+        let deregister_on_new_revision_binding_1 = args
             .deregister_on_new_revision
-            .get_output(context)
+            .get_output(context);
+        let deregister_on_new_revision_binding = deregister_on_new_revision_binding_1
             .get_inner();
-        let ecs_properties_binding = args.ecs_properties.get_output(context).get_inner();
-        let eks_properties_binding = args.eks_properties.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_properties_binding = args
-            .node_properties
-            .get_output(context)
-            .get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let platform_capabilities_binding = args
+        let ecs_properties_binding_1 = args.ecs_properties.get_output(context);
+        let ecs_properties_binding = ecs_properties_binding_1.get_inner();
+        let eks_properties_binding_1 = args.eks_properties.get_output(context);
+        let eks_properties_binding = eks_properties_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_properties_binding_1 = args.node_properties.get_output(context);
+        let node_properties_binding = node_properties_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let platform_capabilities_binding_1 = args
             .platform_capabilities
-            .get_output(context)
-            .get_inner();
-        let propagate_tags_binding = args.propagate_tags.get_output(context).get_inner();
-        let retry_strategy_binding = args.retry_strategy.get_output(context).get_inner();
-        let scheduling_priority_binding = args
-            .scheduling_priority
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeout_binding = args.timeout.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+            .get_output(context);
+        let platform_capabilities_binding = platform_capabilities_binding_1.get_inner();
+        let propagate_tags_binding_1 = args.propagate_tags.get_output(context);
+        let propagate_tags_binding = propagate_tags_binding_1.get_inner();
+        let retry_strategy_binding_1 = args.retry_strategy.get_output(context);
+        let retry_strategy_binding = retry_strategy_binding_1.get_inner();
+        let scheduling_priority_binding_1 = args.scheduling_priority.get_output(context);
+        let scheduling_priority_binding = scheduling_priority_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeout_binding_1 = args.timeout.get_output(context);
+        let timeout_binding = timeout_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:batch/jobDefinition:JobDefinition".into(),
             name: name.to_string(),

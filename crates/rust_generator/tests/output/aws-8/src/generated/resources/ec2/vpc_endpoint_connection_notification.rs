@@ -99,21 +99,19 @@ pub mod vpc_endpoint_connection_notification {
     ) -> VpcEndpointConnectionNotificationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_events_binding = args
-            .connection_events
-            .get_output(context)
-            .get_inner();
-        let connection_notification_arn_binding = args
+        let connection_events_binding_1 = args.connection_events.get_output(context);
+        let connection_events_binding = connection_events_binding_1.get_inner();
+        let connection_notification_arn_binding_1 = args
             .connection_notification_arn
-            .get_output(context)
+            .get_output(context);
+        let connection_notification_arn_binding = connection_notification_arn_binding_1
             .get_inner();
-        let vpc_endpoint_id_binding = args
-            .vpc_endpoint_id
-            .get_output(context)
-            .get_inner();
-        let vpc_endpoint_service_id_binding = args
+        let vpc_endpoint_id_binding_1 = args.vpc_endpoint_id.get_output(context);
+        let vpc_endpoint_id_binding = vpc_endpoint_id_binding_1.get_inner();
+        let vpc_endpoint_service_id_binding_1 = args
             .vpc_endpoint_service_id
-            .get_output(context)
+            .get_output(context);
+        let vpc_endpoint_service_id_binding = vpc_endpoint_service_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification"

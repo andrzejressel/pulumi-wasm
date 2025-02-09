@@ -121,19 +121,14 @@ pub mod load_balancer_policy {
     ) -> LoadBalancerPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let load_balancer_name_binding = args
-            .load_balancer_name
-            .get_output(context)
-            .get_inner();
-        let policy_attributes_binding = args
-            .policy_attributes
-            .get_output(context)
-            .get_inner();
-        let policy_name_binding = args.policy_name.get_output(context).get_inner();
-        let policy_type_name_binding = args
-            .policy_type_name
-            .get_output(context)
-            .get_inner();
+        let load_balancer_name_binding_1 = args.load_balancer_name.get_output(context);
+        let load_balancer_name_binding = load_balancer_name_binding_1.get_inner();
+        let policy_attributes_binding_1 = args.policy_attributes.get_output(context);
+        let policy_attributes_binding = policy_attributes_binding_1.get_inner();
+        let policy_name_binding_1 = args.policy_name.get_output(context);
+        let policy_name_binding = policy_name_binding_1.get_inner();
+        let policy_type_name_binding_1 = args.policy_type_name.get_output(context);
+        let policy_type_name_binding = policy_type_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elb/loadBalancerPolicy:LoadBalancerPolicy".into(),
             name: name.to_string(),

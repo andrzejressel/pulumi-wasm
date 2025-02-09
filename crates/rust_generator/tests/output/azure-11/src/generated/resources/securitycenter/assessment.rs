@@ -133,19 +133,16 @@ pub mod assessment {
     ) -> AssessmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_data_binding = args
-            .additional_data
-            .get_output(context)
-            .get_inner();
-        let assessment_policy_id_binding = args
+        let additional_data_binding_1 = args.additional_data.get_output(context);
+        let additional_data_binding = additional_data_binding_1.get_inner();
+        let assessment_policy_id_binding_1 = args
             .assessment_policy_id
-            .get_output(context)
-            .get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let target_resource_id_binding = args
-            .target_resource_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let assessment_policy_id_binding = assessment_policy_id_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
+        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:securitycenter/assessment:Assessment".into(),
             name: name.to_string(),

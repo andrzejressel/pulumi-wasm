@@ -447,41 +447,43 @@ pub mod connection {
     ) -> ConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auth_config_binding = args.auth_config.get_output(context).get_inner();
-        let config_variables_binding = args
-            .config_variables
-            .get_output(context)
-            .get_inner();
-        let connector_version_binding = args
-            .connector_version
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let destination_configs_binding = args
-            .destination_configs
-            .get_output(context)
-            .get_inner();
-        let eventing_config_binding = args
-            .eventing_config
-            .get_output(context)
-            .get_inner();
-        let eventing_enablement_type_binding = args
+        let auth_config_binding_1 = args.auth_config.get_output(context);
+        let auth_config_binding = auth_config_binding_1.get_inner();
+        let config_variables_binding_1 = args.config_variables.get_output(context);
+        let config_variables_binding = config_variables_binding_1.get_inner();
+        let connector_version_binding_1 = args.connector_version.get_output(context);
+        let connector_version_binding = connector_version_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let destination_configs_binding_1 = args.destination_configs.get_output(context);
+        let destination_configs_binding = destination_configs_binding_1.get_inner();
+        let eventing_config_binding_1 = args.eventing_config.get_output(context);
+        let eventing_config_binding = eventing_config_binding_1.get_inner();
+        let eventing_enablement_type_binding_1 = args
             .eventing_enablement_type
-            .get_output(context)
+            .get_output(context);
+        let eventing_enablement_type_binding = eventing_enablement_type_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let lock_config_binding = args.lock_config.get_output(context).get_inner();
-        let log_config_binding = args.log_config.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_config_binding = args.node_config.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let service_account_binding = args
-            .service_account
-            .get_output(context)
-            .get_inner();
-        let ssl_config_binding = args.ssl_config.get_output(context).get_inner();
-        let suspended_binding = args.suspended.get_output(context).get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let lock_config_binding_1 = args.lock_config.get_output(context);
+        let lock_config_binding = lock_config_binding_1.get_inner();
+        let log_config_binding_1 = args.log_config.get_output(context);
+        let log_config_binding = log_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_config_binding_1 = args.node_config.get_output(context);
+        let node_config_binding = node_config_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let service_account_binding_1 = args.service_account.get_output(context);
+        let service_account_binding = service_account_binding_1.get_inner();
+        let ssl_config_binding_1 = args.ssl_config.get_output(context);
+        let ssl_config_binding = ssl_config_binding_1.get_inner();
+        let suspended_binding_1 = args.suspended.get_output(context);
+        let suspended_binding = suspended_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:integrationconnectors/connection:Connection".into(),
             name: name.to_string(),

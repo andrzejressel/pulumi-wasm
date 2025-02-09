@@ -66,8 +66,10 @@ pub mod backup_policy {
     ) -> BackupPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_policy_binding = args.backup_policy.get_output(context).get_inner();
-        let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
+        let backup_policy_binding_1 = args.backup_policy.get_output(context);
+        let backup_policy_binding = backup_policy_binding_1.get_inner();
+        let file_system_id_binding_1 = args.file_system_id.get_output(context);
+        let file_system_id_binding = file_system_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:efs/backupPolicy:BackupPolicy".into(),
             name: name.to_string(),

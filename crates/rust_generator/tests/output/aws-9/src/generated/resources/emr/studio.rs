@@ -134,30 +134,40 @@ pub mod studio {
     ) -> StudioResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auth_mode_binding = args.auth_mode.get_output(context).get_inner();
-        let default_s3_location_binding = args
-            .default_s3_location
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let engine_security_group_id_binding = args
+        let auth_mode_binding_1 = args.auth_mode.get_output(context);
+        let auth_mode_binding = auth_mode_binding_1.get_inner();
+        let default_s3_location_binding_1 = args.default_s3_location.get_output(context);
+        let default_s3_location_binding = default_s3_location_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let engine_security_group_id_binding_1 = args
             .engine_security_group_id
-            .get_output(context)
+            .get_output(context);
+        let engine_security_group_id_binding = engine_security_group_id_binding_1
             .get_inner();
-        let idp_auth_url_binding = args.idp_auth_url.get_output(context).get_inner();
-        let idp_relay_state_parameter_name_binding = args
+        let idp_auth_url_binding_1 = args.idp_auth_url.get_output(context);
+        let idp_auth_url_binding = idp_auth_url_binding_1.get_inner();
+        let idp_relay_state_parameter_name_binding_1 = args
             .idp_relay_state_parameter_name
-            .get_output(context)
+            .get_output(context);
+        let idp_relay_state_parameter_name_binding = idp_relay_state_parameter_name_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let service_role_binding = args.service_role.get_output(context).get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_role_binding = args.user_role.get_output(context).get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
-        let workspace_security_group_id_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let service_role_binding_1 = args.service_role.get_output(context);
+        let service_role_binding = service_role_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_role_binding_1 = args.user_role.get_output(context);
+        let user_role_binding = user_role_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
+        let workspace_security_group_id_binding_1 = args
             .workspace_security_group_id
-            .get_output(context)
+            .get_output(context);
+        let workspace_security_group_id_binding = workspace_security_group_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:emr/studio:Studio".into(),

@@ -51,10 +51,14 @@ pub mod get_workspace {
     ) -> GetWorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let directory_id_binding = args.directory_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_name_binding = args.user_name.get_output(context).get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+        let directory_id_binding_1 = args.directory_id.get_output(context);
+        let directory_id_binding = directory_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_name_binding_1 = args.user_name.get_output(context);
+        let user_name_binding = user_name_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:workspaces/getWorkspace:getWorkspace".into(),
             version: super::super::super::get_version(),

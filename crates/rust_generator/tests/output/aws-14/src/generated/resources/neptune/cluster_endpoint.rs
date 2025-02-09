@@ -88,21 +88,21 @@ pub mod cluster_endpoint {
     ) -> ClusterEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_endpoint_identifier_binding = args
+        let cluster_endpoint_identifier_binding_1 = args
             .cluster_endpoint_identifier
-            .get_output(context)
+            .get_output(context);
+        let cluster_endpoint_identifier_binding = cluster_endpoint_identifier_binding_1
             .get_inner();
-        let cluster_identifier_binding = args
-            .cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let endpoint_type_binding = args.endpoint_type.get_output(context).get_inner();
-        let excluded_members_binding = args
-            .excluded_members
-            .get_output(context)
-            .get_inner();
-        let static_members_binding = args.static_members.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
+        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
+        let endpoint_type_binding_1 = args.endpoint_type.get_output(context);
+        let endpoint_type_binding = endpoint_type_binding_1.get_inner();
+        let excluded_members_binding_1 = args.excluded_members.get_output(context);
+        let excluded_members_binding = excluded_members_binding_1.get_inner();
+        let static_members_binding_1 = args.static_members.get_output(context);
+        let static_members_binding = static_members_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:neptune/clusterEndpoint:ClusterEndpoint".into(),
             name: name.to_string(),

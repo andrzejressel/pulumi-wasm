@@ -184,42 +184,50 @@ pub mod canary {
     ) -> CanaryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let artifact_config_binding = args
-            .artifact_config
-            .get_output(context)
-            .get_inner();
-        let artifact_s3_location_binding = args
+        let artifact_config_binding_1 = args.artifact_config.get_output(context);
+        let artifact_config_binding = artifact_config_binding_1.get_inner();
+        let artifact_s3_location_binding_1 = args
             .artifact_s3_location
-            .get_output(context)
-            .get_inner();
-        let delete_lambda_binding = args.delete_lambda.get_output(context).get_inner();
-        let execution_role_arn_binding = args
-            .execution_role_arn
-            .get_output(context)
-            .get_inner();
-        let failure_retention_period_binding = args
+            .get_output(context);
+        let artifact_s3_location_binding = artifact_s3_location_binding_1.get_inner();
+        let delete_lambda_binding_1 = args.delete_lambda.get_output(context);
+        let delete_lambda_binding = delete_lambda_binding_1.get_inner();
+        let execution_role_arn_binding_1 = args.execution_role_arn.get_output(context);
+        let execution_role_arn_binding = execution_role_arn_binding_1.get_inner();
+        let failure_retention_period_binding_1 = args
             .failure_retention_period
-            .get_output(context)
+            .get_output(context);
+        let failure_retention_period_binding = failure_retention_period_binding_1
             .get_inner();
-        let handler_binding = args.handler.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let run_config_binding = args.run_config.get_output(context).get_inner();
-        let runtime_version_binding = args
-            .runtime_version
-            .get_output(context)
-            .get_inner();
-        let s3_bucket_binding = args.s3_bucket.get_output(context).get_inner();
-        let s3_key_binding = args.s3_key.get_output(context).get_inner();
-        let s3_version_binding = args.s3_version.get_output(context).get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let start_canary_binding = args.start_canary.get_output(context).get_inner();
-        let success_retention_period_binding = args
+        let handler_binding_1 = args.handler.get_output(context);
+        let handler_binding = handler_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let run_config_binding_1 = args.run_config.get_output(context);
+        let run_config_binding = run_config_binding_1.get_inner();
+        let runtime_version_binding_1 = args.runtime_version.get_output(context);
+        let runtime_version_binding = runtime_version_binding_1.get_inner();
+        let s3_bucket_binding_1 = args.s3_bucket.get_output(context);
+        let s3_bucket_binding = s3_bucket_binding_1.get_inner();
+        let s3_key_binding_1 = args.s3_key.get_output(context);
+        let s3_key_binding = s3_key_binding_1.get_inner();
+        let s3_version_binding_1 = args.s3_version.get_output(context);
+        let s3_version_binding = s3_version_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let start_canary_binding_1 = args.start_canary.get_output(context);
+        let start_canary_binding = start_canary_binding_1.get_inner();
+        let success_retention_period_binding_1 = args
             .success_retention_period
-            .get_output(context)
+            .get_output(context);
+        let success_retention_period_binding = success_retention_period_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_config_binding = args.vpc_config.get_output(context).get_inner();
-        let zip_file_binding = args.zip_file.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_config_binding_1 = args.vpc_config.get_output(context);
+        let vpc_config_binding = vpc_config_binding_1.get_inner();
+        let zip_file_binding_1 = args.zip_file.get_output(context);
+        let zip_file_binding = zip_file_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:synthetics/canary:Canary".into(),
             name: name.to_string(),

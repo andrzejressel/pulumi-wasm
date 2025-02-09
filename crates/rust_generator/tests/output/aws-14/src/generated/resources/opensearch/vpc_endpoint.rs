@@ -68,8 +68,10 @@ pub mod vpc_endpoint {
     ) -> VpcEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_arn_binding = args.domain_arn.get_output(context).get_inner();
-        let vpc_options_binding = args.vpc_options.get_output(context).get_inner();
+        let domain_arn_binding_1 = args.domain_arn.get_output(context);
+        let domain_arn_binding = domain_arn_binding_1.get_inner();
+        let vpc_options_binding_1 = args.vpc_options.get_output(context);
+        let vpc_options_binding = vpc_options_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opensearch/vpcEndpoint:VpcEndpoint".into(),
             name: name.to_string(),

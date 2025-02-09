@@ -61,11 +61,10 @@ pub mod size_constraint_set {
     ) -> SizeConstraintSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let size_constraints_binding = args
-            .size_constraints
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let size_constraints_binding_1 = args.size_constraints.get_output(context);
+        let size_constraints_binding = size_constraints_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:waf/sizeConstraintSet:SizeConstraintSet".into(),
             name: name.to_string(),

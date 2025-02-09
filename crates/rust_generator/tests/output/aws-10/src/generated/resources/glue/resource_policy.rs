@@ -74,8 +74,10 @@ pub mod resource_policy {
     ) -> ResourcePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enable_hybrid_binding = args.enable_hybrid.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
+        let enable_hybrid_binding_1 = args.enable_hybrid.get_output(context);
+        let enable_hybrid_binding = enable_hybrid_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/resourcePolicy:ResourcePolicy".into(),
             name: name.to_string(),

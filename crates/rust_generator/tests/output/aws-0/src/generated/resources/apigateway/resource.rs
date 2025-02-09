@@ -70,9 +70,12 @@ pub mod resource {
     ) -> ResourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parent_id_binding = args.parent_id.get_output(context).get_inner();
-        let path_part_binding = args.path_part.get_output(context).get_inner();
-        let rest_api_binding = args.rest_api.get_output(context).get_inner();
+        let parent_id_binding_1 = args.parent_id.get_output(context);
+        let parent_id_binding = parent_id_binding_1.get_inner();
+        let path_part_binding_1 = args.path_part.get_output(context);
+        let path_part_binding = path_part_binding_1.get_inner();
+        let rest_api_binding_1 = args.rest_api.get_output(context);
+        let rest_api_binding = rest_api_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/resource:Resource".into(),
             name: name.to_string(),

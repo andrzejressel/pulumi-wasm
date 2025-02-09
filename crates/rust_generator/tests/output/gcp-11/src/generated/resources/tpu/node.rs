@@ -250,29 +250,31 @@ pub mod node {
     ) -> NodeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerator_type_binding = args
-            .accelerator_type
-            .get_output(context)
-            .get_inner();
-        let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let scheduling_config_binding = args
-            .scheduling_config
-            .get_output(context)
-            .get_inner();
-        let tensorflow_version_binding = args
-            .tensorflow_version
-            .get_output(context)
-            .get_inner();
-        let use_service_networking_binding = args
+        let accelerator_type_binding_1 = args.accelerator_type.get_output(context);
+        let accelerator_type_binding = accelerator_type_binding_1.get_inner();
+        let cidr_block_binding_1 = args.cidr_block.get_output(context);
+        let cidr_block_binding = cidr_block_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let scheduling_config_binding_1 = args.scheduling_config.get_output(context);
+        let scheduling_config_binding = scheduling_config_binding_1.get_inner();
+        let tensorflow_version_binding_1 = args.tensorflow_version.get_output(context);
+        let tensorflow_version_binding = tensorflow_version_binding_1.get_inner();
+        let use_service_networking_binding_1 = args
             .use_service_networking
-            .get_output(context)
+            .get_output(context);
+        let use_service_networking_binding = use_service_networking_binding_1
             .get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:tpu/node:Node".into(),
             name: name.to_string(),

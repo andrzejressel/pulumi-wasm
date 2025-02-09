@@ -118,14 +118,16 @@ pub mod organization_configuration {
     ) -> OrganizationConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_enable_binding = args.auto_enable.get_output(context).get_inner();
-        let auto_enable_standards_binding = args
+        let auto_enable_binding_1 = args.auto_enable.get_output(context);
+        let auto_enable_binding = auto_enable_binding_1.get_inner();
+        let auto_enable_standards_binding_1 = args
             .auto_enable_standards
-            .get_output(context)
-            .get_inner();
-        let organization_configuration_binding = args
+            .get_output(context);
+        let auto_enable_standards_binding = auto_enable_standards_binding_1.get_inner();
+        let organization_configuration_binding_1 = args
             .organization_configuration
-            .get_output(context)
+            .get_output(context);
+        let organization_configuration_binding = organization_configuration_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/organizationConfiguration:OrganizationConfiguration"

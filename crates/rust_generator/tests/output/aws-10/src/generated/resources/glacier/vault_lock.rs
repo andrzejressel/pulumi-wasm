@@ -100,13 +100,16 @@ pub mod vault_lock {
     ) -> VaultLockResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let complete_lock_binding = args.complete_lock.get_output(context).get_inner();
-        let ignore_deletion_error_binding = args
+        let complete_lock_binding_1 = args.complete_lock.get_output(context);
+        let complete_lock_binding = complete_lock_binding_1.get_inner();
+        let ignore_deletion_error_binding_1 = args
             .ignore_deletion_error
-            .get_output(context)
-            .get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let vault_name_binding = args.vault_name.get_output(context).get_inner();
+            .get_output(context);
+        let ignore_deletion_error_binding = ignore_deletion_error_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let vault_name_binding_1 = args.vault_name.get_output(context);
+        let vault_name_binding = vault_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glacier/vaultLock:VaultLock".into(),
             name: name.to_string(),

@@ -126,24 +126,26 @@ pub mod managed_database {
     ) -> ManagedDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let long_term_retention_policy_binding = args
+        let long_term_retention_policy_binding_1 = args
             .long_term_retention_policy
-            .get_output(context)
+            .get_output(context);
+        let long_term_retention_policy_binding = long_term_retention_policy_binding_1
             .get_inner();
-        let managed_instance_id_binding = args
-            .managed_instance_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let point_in_time_restore_binding = args
+        let managed_instance_id_binding_1 = args.managed_instance_id.get_output(context);
+        let managed_instance_id_binding = managed_instance_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let point_in_time_restore_binding_1 = args
             .point_in_time_restore
-            .get_output(context)
-            .get_inner();
-        let short_term_retention_days_binding = args
+            .get_output(context);
+        let point_in_time_restore_binding = point_in_time_restore_binding_1.get_inner();
+        let short_term_retention_days_binding_1 = args
             .short_term_retention_days
-            .get_output(context)
+            .get_output(context);
+        let short_term_retention_days_binding = short_term_retention_days_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/managedDatabase:ManagedDatabase".into(),
             name: name.to_string(),

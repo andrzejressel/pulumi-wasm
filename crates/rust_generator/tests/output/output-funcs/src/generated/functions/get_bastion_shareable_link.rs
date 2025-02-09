@@ -31,15 +31,12 @@ pub mod get_bastion_shareable_link {
     ) -> GetBastionShareableLinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bastion_host_name_binding = args
-            .bastion_host_name
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let vms_binding = args.vms.get_output(context).get_inner();
+        let bastion_host_name_binding_1 = args.bastion_host_name.get_output(context);
+        let bastion_host_name_binding = bastion_host_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let vms_binding_1 = args.vms.get_output(context);
+        let vms_binding = vms_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "mypkg::getBastionShareableLink".into(),
             version: super::super::get_version(),

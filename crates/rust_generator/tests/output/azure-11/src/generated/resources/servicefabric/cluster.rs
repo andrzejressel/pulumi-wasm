@@ -263,73 +263,77 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let add_on_features_binding = args
-            .add_on_features
-            .get_output(context)
-            .get_inner();
-        let azure_active_directory_binding = args
+        let add_on_features_binding_1 = args.add_on_features.get_output(context);
+        let add_on_features_binding = add_on_features_binding_1.get_inner();
+        let azure_active_directory_binding_1 = args
             .azure_active_directory
-            .get_output(context)
+            .get_output(context);
+        let azure_active_directory_binding = azure_active_directory_binding_1
             .get_inner();
-        let certificate_binding = args.certificate.get_output(context).get_inner();
-        let certificate_common_names_binding = args
+        let certificate_binding_1 = args.certificate.get_output(context);
+        let certificate_binding = certificate_binding_1.get_inner();
+        let certificate_common_names_binding_1 = args
             .certificate_common_names
-            .get_output(context)
+            .get_output(context);
+        let certificate_common_names_binding = certificate_common_names_binding_1
             .get_inner();
-        let client_certificate_common_names_binding = args
+        let client_certificate_common_names_binding_1 = args
             .client_certificate_common_names
-            .get_output(context)
+            .get_output(context);
+        let client_certificate_common_names_binding = client_certificate_common_names_binding_1
             .get_inner();
-        let client_certificate_thumbprints_binding = args
+        let client_certificate_thumbprints_binding_1 = args
             .client_certificate_thumbprints
-            .get_output(context)
+            .get_output(context);
+        let client_certificate_thumbprints_binding = client_certificate_thumbprints_binding_1
             .get_inner();
-        let cluster_code_version_binding = args
+        let cluster_code_version_binding_1 = args
             .cluster_code_version
-            .get_output(context)
-            .get_inner();
-        let diagnostics_config_binding = args
-            .diagnostics_config
-            .get_output(context)
-            .get_inner();
-        let fabric_settings_binding = args
-            .fabric_settings
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let management_endpoint_binding = args
-            .management_endpoint
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_types_binding = args.node_types.get_output(context).get_inner();
-        let reliability_level_binding = args
-            .reliability_level
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let reverse_proxy_certificate_binding = args
+            .get_output(context);
+        let cluster_code_version_binding = cluster_code_version_binding_1.get_inner();
+        let diagnostics_config_binding_1 = args.diagnostics_config.get_output(context);
+        let diagnostics_config_binding = diagnostics_config_binding_1.get_inner();
+        let fabric_settings_binding_1 = args.fabric_settings.get_output(context);
+        let fabric_settings_binding = fabric_settings_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let management_endpoint_binding_1 = args.management_endpoint.get_output(context);
+        let management_endpoint_binding = management_endpoint_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_types_binding_1 = args.node_types.get_output(context);
+        let node_types_binding = node_types_binding_1.get_inner();
+        let reliability_level_binding_1 = args.reliability_level.get_output(context);
+        let reliability_level_binding = reliability_level_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let reverse_proxy_certificate_binding_1 = args
             .reverse_proxy_certificate
-            .get_output(context)
+            .get_output(context);
+        let reverse_proxy_certificate_binding = reverse_proxy_certificate_binding_1
             .get_inner();
-        let reverse_proxy_certificate_common_names_binding = args
+        let reverse_proxy_certificate_common_names_binding_1 = args
             .reverse_proxy_certificate_common_names
-            .get_output(context)
+            .get_output(context);
+        let reverse_proxy_certificate_common_names_binding = reverse_proxy_certificate_common_names_binding_1
             .get_inner();
-        let service_fabric_zonal_upgrade_mode_binding = args
+        let service_fabric_zonal_upgrade_mode_binding_1 = args
             .service_fabric_zonal_upgrade_mode
-            .get_output(context)
+            .get_output(context);
+        let service_fabric_zonal_upgrade_mode_binding = service_fabric_zonal_upgrade_mode_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let upgrade_mode_binding = args.upgrade_mode.get_output(context).get_inner();
-        let upgrade_policy_binding = args.upgrade_policy.get_output(context).get_inner();
-        let vm_image_binding = args.vm_image.get_output(context).get_inner();
-        let vmss_zonal_upgrade_mode_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let upgrade_mode_binding_1 = args.upgrade_mode.get_output(context);
+        let upgrade_mode_binding = upgrade_mode_binding_1.get_inner();
+        let upgrade_policy_binding_1 = args.upgrade_policy.get_output(context);
+        let upgrade_policy_binding = upgrade_policy_binding_1.get_inner();
+        let vm_image_binding_1 = args.vm_image.get_output(context);
+        let vm_image_binding = vm_image_binding_1.get_inner();
+        let vmss_zonal_upgrade_mode_binding_1 = args
             .vmss_zonal_upgrade_mode
-            .get_output(context)
+            .get_output(context);
+        let vmss_zonal_upgrade_mode_binding = vmss_zonal_upgrade_mode_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:servicefabric/cluster:Cluster".into(),

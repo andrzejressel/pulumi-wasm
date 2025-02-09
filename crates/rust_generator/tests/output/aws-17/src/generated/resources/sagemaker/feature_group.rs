@@ -134,37 +134,34 @@ pub mod feature_group {
     ) -> FeatureGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let event_time_feature_name_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let event_time_feature_name_binding_1 = args
             .event_time_feature_name
-            .get_output(context)
+            .get_output(context);
+        let event_time_feature_name_binding = event_time_feature_name_binding_1
             .get_inner();
-        let feature_definitions_binding = args
-            .feature_definitions
-            .get_output(context)
-            .get_inner();
-        let feature_group_name_binding = args
-            .feature_group_name
-            .get_output(context)
-            .get_inner();
-        let offline_store_config_binding = args
+        let feature_definitions_binding_1 = args.feature_definitions.get_output(context);
+        let feature_definitions_binding = feature_definitions_binding_1.get_inner();
+        let feature_group_name_binding_1 = args.feature_group_name.get_output(context);
+        let feature_group_name_binding = feature_group_name_binding_1.get_inner();
+        let offline_store_config_binding_1 = args
             .offline_store_config
-            .get_output(context)
-            .get_inner();
-        let online_store_config_binding = args
-            .online_store_config
-            .get_output(context)
-            .get_inner();
-        let record_identifier_feature_name_binding = args
+            .get_output(context);
+        let offline_store_config_binding = offline_store_config_binding_1.get_inner();
+        let online_store_config_binding_1 = args.online_store_config.get_output(context);
+        let online_store_config_binding = online_store_config_binding_1.get_inner();
+        let record_identifier_feature_name_binding_1 = args
             .record_identifier_feature_name
-            .get_output(context)
+            .get_output(context);
+        let record_identifier_feature_name_binding = record_identifier_feature_name_binding_1
             .get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let throughput_config_binding = args
-            .throughput_config
-            .get_output(context)
-            .get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let throughput_config_binding_1 = args.throughput_config.get_output(context);
+        let throughput_config_binding = throughput_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/featureGroup:FeatureGroup".into(),
             name: name.to_string(),

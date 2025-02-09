@@ -74,13 +74,15 @@ pub mod region_settings {
     ) -> RegionSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let resource_type_management_preference_binding = args
+        let resource_type_management_preference_binding_1 = args
             .resource_type_management_preference
-            .get_output(context)
+            .get_output(context);
+        let resource_type_management_preference_binding = resource_type_management_preference_binding_1
             .get_inner();
-        let resource_type_opt_in_preference_binding = args
+        let resource_type_opt_in_preference_binding_1 = args
             .resource_type_opt_in_preference
-            .get_output(context)
+            .get_output(context);
+        let resource_type_opt_in_preference_binding = resource_type_opt_in_preference_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:backup/regionSettings:RegionSettings".into(),

@@ -76,19 +76,20 @@ pub mod domain_name_access_association {
     ) -> DomainNameAccessAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_association_source_binding = args
+        let access_association_source_binding_1 = args
             .access_association_source
-            .get_output(context)
+            .get_output(context);
+        let access_association_source_binding = access_association_source_binding_1
             .get_inner();
-        let access_association_source_type_binding = args
+        let access_association_source_type_binding_1 = args
             .access_association_source_type
-            .get_output(context)
+            .get_output(context);
+        let access_association_source_type_binding = access_association_source_type_binding_1
             .get_inner();
-        let domain_name_arn_binding = args
-            .domain_name_arn
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let domain_name_arn_binding_1 = args.domain_name_arn.get_output(context);
+        let domain_name_arn_binding = domain_name_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation"
                 .into(),

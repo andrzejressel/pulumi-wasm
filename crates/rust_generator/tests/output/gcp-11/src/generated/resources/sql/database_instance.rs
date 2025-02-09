@@ -460,42 +460,43 @@ pub mod database_instance {
     ) -> DatabaseInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let clone_binding = args.clone.get_output(context).get_inner();
-        let database_version_binding = args
-            .database_version
-            .get_output(context)
-            .get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let encryption_key_name_binding = args
-            .encryption_key_name
-            .get_output(context)
-            .get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
-        let maintenance_version_binding = args
-            .maintenance_version
-            .get_output(context)
-            .get_inner();
-        let master_instance_name_binding = args
+        let clone_binding_1 = args.clone.get_output(context);
+        let clone_binding = clone_binding_1.get_inner();
+        let database_version_binding_1 = args.database_version.get_output(context);
+        let database_version_binding = database_version_binding_1.get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let encryption_key_name_binding_1 = args.encryption_key_name.get_output(context);
+        let encryption_key_name_binding = encryption_key_name_binding_1.get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
+        let maintenance_version_binding_1 = args.maintenance_version.get_output(context);
+        let maintenance_version_binding = maintenance_version_binding_1.get_inner();
+        let master_instance_name_binding_1 = args
             .master_instance_name
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let replica_configuration_binding = args
+            .get_output(context);
+        let master_instance_name_binding = master_instance_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let replica_configuration_binding_1 = args
             .replica_configuration
-            .get_output(context)
-            .get_inner();
-        let replica_names_binding = args.replica_names.get_output(context).get_inner();
-        let restore_backup_context_binding = args
+            .get_output(context);
+        let replica_configuration_binding = replica_configuration_binding_1.get_inner();
+        let replica_names_binding_1 = args.replica_names.get_output(context);
+        let replica_names_binding = replica_names_binding_1.get_inner();
+        let restore_backup_context_binding_1 = args
             .restore_backup_context
-            .get_output(context)
+            .get_output(context);
+        let restore_backup_context_binding = restore_backup_context_binding_1
             .get_inner();
-        let root_password_binding = args.root_password.get_output(context).get_inner();
-        let settings_binding = args.settings.get_output(context).get_inner();
+        let root_password_binding_1 = args.root_password.get_output(context);
+        let root_password_binding = root_password_binding_1.get_inner();
+        let settings_binding_1 = args.settings.get_output(context);
+        let settings_binding = settings_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:sql/databaseInstance:DatabaseInstance".into(),
             name: name.to_string(),

@@ -60,12 +60,15 @@ pub mod assignment {
     ) -> AssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let lighthouse_definition_id_binding = args
+        let lighthouse_definition_id_binding_1 = args
             .lighthouse_definition_id
-            .get_output(context)
+            .get_output(context);
+        let lighthouse_definition_id_binding = lighthouse_definition_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:lighthouse/assignment:Assignment".into(),
             name: name.to_string(),

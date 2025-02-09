@@ -165,16 +165,20 @@ pub mod apple_app {
     ) -> AppleAppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_id_binding = args.api_key_id.get_output(context).get_inner();
-        let app_store_id_binding = args.app_store_id.get_output(context).get_inner();
-        let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
-        let deletion_policy_binding = args
-            .deletion_policy
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let team_id_binding = args.team_id.get_output(context).get_inner();
+        let api_key_id_binding_1 = args.api_key_id.get_output(context);
+        let api_key_id_binding = api_key_id_binding_1.get_inner();
+        let app_store_id_binding_1 = args.app_store_id.get_output(context);
+        let app_store_id_binding = app_store_id_binding_1.get_inner();
+        let bundle_id_binding_1 = args.bundle_id.get_output(context);
+        let bundle_id_binding = bundle_id_binding_1.get_inner();
+        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
+        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let team_id_binding_1 = args.team_id.get_output(context);
+        let team_id_binding = team_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/appleApp:AppleApp".into(),
             name: name.to_string(),

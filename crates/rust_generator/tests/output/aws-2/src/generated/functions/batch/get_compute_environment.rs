@@ -49,11 +49,13 @@ pub mod get_compute_environment {
     ) -> GetComputeEnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compute_environment_name_binding = args
+        let compute_environment_name_binding_1 = args
             .compute_environment_name
-            .get_output(context)
+            .get_output(context);
+        let compute_environment_name_binding = compute_environment_name_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:batch/getComputeEnvironment:getComputeEnvironment".into(),
             version: super::super::super::get_version(),

@@ -145,27 +145,30 @@ pub mod cluster_snapshot_copy {
     ) -> ClusterSnapshotCopyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let copy_tags_binding = args.copy_tags.get_output(context).get_inner();
-        let destination_region_binding = args
-            .destination_region
-            .get_output(context)
-            .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let presigned_url_binding = args.presigned_url.get_output(context).get_inner();
-        let shared_accounts_binding = args
-            .shared_accounts
-            .get_output(context)
-            .get_inner();
-        let source_db_cluster_snapshot_identifier_binding = args
+        let copy_tags_binding_1 = args.copy_tags.get_output(context);
+        let copy_tags_binding = copy_tags_binding_1.get_inner();
+        let destination_region_binding_1 = args.destination_region.get_output(context);
+        let destination_region_binding = destination_region_binding_1.get_inner();
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let presigned_url_binding_1 = args.presigned_url.get_output(context);
+        let presigned_url_binding = presigned_url_binding_1.get_inner();
+        let shared_accounts_binding_1 = args.shared_accounts.get_output(context);
+        let shared_accounts_binding = shared_accounts_binding_1.get_inner();
+        let source_db_cluster_snapshot_identifier_binding_1 = args
             .source_db_cluster_snapshot_identifier
-            .get_output(context)
+            .get_output(context);
+        let source_db_cluster_snapshot_identifier_binding = source_db_cluster_snapshot_identifier_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_db_cluster_snapshot_identifier_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_db_cluster_snapshot_identifier_binding_1 = args
             .target_db_cluster_snapshot_identifier
-            .get_output(context)
+            .get_output(context);
+        let target_db_cluster_snapshot_identifier_binding = target_db_cluster_snapshot_identifier_binding_1
             .get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy".into(),
             name: name.to_string(),

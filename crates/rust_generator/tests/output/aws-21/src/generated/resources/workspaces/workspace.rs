@@ -126,26 +126,32 @@ pub mod workspace {
     ) -> WorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
-        let directory_id_binding = args.directory_id.get_output(context).get_inner();
-        let root_volume_encryption_enabled_binding = args
+        let bundle_id_binding_1 = args.bundle_id.get_output(context);
+        let bundle_id_binding = bundle_id_binding_1.get_inner();
+        let directory_id_binding_1 = args.directory_id.get_output(context);
+        let directory_id_binding = directory_id_binding_1.get_inner();
+        let root_volume_encryption_enabled_binding_1 = args
             .root_volume_encryption_enabled
-            .get_output(context)
+            .get_output(context);
+        let root_volume_encryption_enabled_binding = root_volume_encryption_enabled_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_name_binding = args.user_name.get_output(context).get_inner();
-        let user_volume_encryption_enabled_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_name_binding_1 = args.user_name.get_output(context);
+        let user_name_binding = user_name_binding_1.get_inner();
+        let user_volume_encryption_enabled_binding_1 = args
             .user_volume_encryption_enabled
-            .get_output(context)
+            .get_output(context);
+        let user_volume_encryption_enabled_binding = user_volume_encryption_enabled_binding_1
             .get_inner();
-        let volume_encryption_key_binding = args
+        let volume_encryption_key_binding_1 = args
             .volume_encryption_key
-            .get_output(context)
-            .get_inner();
-        let workspace_properties_binding = args
+            .get_output(context);
+        let volume_encryption_key_binding = volume_encryption_key_binding_1.get_inner();
+        let workspace_properties_binding_1 = args
             .workspace_properties
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let workspace_properties_binding = workspace_properties_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:workspaces/workspace:Workspace".into(),
             name: name.to_string(),

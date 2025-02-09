@@ -67,17 +67,20 @@ pub mod local_gateway_route {
     ) -> LocalGatewayRouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_cidr_block_binding = args
+        let destination_cidr_block_binding_1 = args
             .destination_cidr_block
-            .get_output(context)
+            .get_output(context);
+        let destination_cidr_block_binding = destination_cidr_block_binding_1
             .get_inner();
-        let local_gateway_route_table_id_binding = args
+        let local_gateway_route_table_id_binding_1 = args
             .local_gateway_route_table_id
-            .get_output(context)
+            .get_output(context);
+        let local_gateway_route_table_id_binding = local_gateway_route_table_id_binding_1
             .get_inner();
-        let local_gateway_virtual_interface_group_id_binding = args
+        let local_gateway_virtual_interface_group_id_binding_1 = args
             .local_gateway_virtual_interface_group_id
-            .get_output(context)
+            .get_output(context);
+        let local_gateway_virtual_interface_group_id_binding = local_gateway_virtual_interface_group_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/localGatewayRoute:LocalGatewayRoute".into(),

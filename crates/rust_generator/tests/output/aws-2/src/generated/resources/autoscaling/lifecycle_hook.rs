@@ -113,29 +113,32 @@ pub mod lifecycle_hook {
     ) -> LifecycleHookResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_group_name_binding = args
+        let autoscaling_group_name_binding_1 = args
             .autoscaling_group_name
-            .get_output(context)
+            .get_output(context);
+        let autoscaling_group_name_binding = autoscaling_group_name_binding_1
             .get_inner();
-        let default_result_binding = args.default_result.get_output(context).get_inner();
-        let heartbeat_timeout_binding = args
-            .heartbeat_timeout
-            .get_output(context)
-            .get_inner();
-        let lifecycle_transition_binding = args
+        let default_result_binding_1 = args.default_result.get_output(context);
+        let default_result_binding = default_result_binding_1.get_inner();
+        let heartbeat_timeout_binding_1 = args.heartbeat_timeout.get_output(context);
+        let heartbeat_timeout_binding = heartbeat_timeout_binding_1.get_inner();
+        let lifecycle_transition_binding_1 = args
             .lifecycle_transition
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notification_metadata_binding = args
+            .get_output(context);
+        let lifecycle_transition_binding = lifecycle_transition_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notification_metadata_binding_1 = args
             .notification_metadata
-            .get_output(context)
-            .get_inner();
-        let notification_target_arn_binding = args
+            .get_output(context);
+        let notification_metadata_binding = notification_metadata_binding_1.get_inner();
+        let notification_target_arn_binding_1 = args
             .notification_target_arn
-            .get_output(context)
+            .get_output(context);
+        let notification_target_arn_binding = notification_target_arn_binding_1
             .get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:autoscaling/lifecycleHook:LifecycleHook".into(),
             name: name.to_string(),

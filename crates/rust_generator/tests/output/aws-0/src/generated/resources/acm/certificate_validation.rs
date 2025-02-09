@@ -72,13 +72,12 @@ pub mod certificate_validation {
     ) -> CertificateValidationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_arn_binding = args
-            .certificate_arn
-            .get_output(context)
-            .get_inner();
-        let validation_record_fqdns_binding = args
+        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
+        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
+        let validation_record_fqdns_binding_1 = args
             .validation_record_fqdns
-            .get_output(context)
+            .get_output(context);
+        let validation_record_fqdns_binding = validation_record_fqdns_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:acm/certificateValidation:CertificateValidation".into(),

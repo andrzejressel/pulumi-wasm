@@ -272,67 +272,63 @@ pub mod flexible_server {
     ) -> FlexibleServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administrator_login_binding = args
-            .administrator_login
-            .get_output(context)
-            .get_inner();
-        let administrator_password_binding = args
+        let administrator_login_binding_1 = args.administrator_login.get_output(context);
+        let administrator_login_binding = administrator_login_binding_1.get_inner();
+        let administrator_password_binding_1 = args
             .administrator_password
-            .get_output(context)
+            .get_output(context);
+        let administrator_password_binding = administrator_password_binding_1
             .get_inner();
-        let backup_retention_days_binding = args
+        let backup_retention_days_binding_1 = args
             .backup_retention_days
-            .get_output(context)
-            .get_inner();
-        let create_mode_binding = args.create_mode.get_output(context).get_inner();
-        let customer_managed_key_binding = args
+            .get_output(context);
+        let backup_retention_days_binding = backup_retention_days_binding_1.get_inner();
+        let create_mode_binding_1 = args.create_mode.get_output(context);
+        let create_mode_binding = create_mode_binding_1.get_inner();
+        let customer_managed_key_binding_1 = args
             .customer_managed_key
-            .get_output(context)
-            .get_inner();
-        let delegated_subnet_id_binding = args
-            .delegated_subnet_id
-            .get_output(context)
-            .get_inner();
-        let geo_redundant_backup_enabled_binding = args
+            .get_output(context);
+        let customer_managed_key_binding = customer_managed_key_binding_1.get_inner();
+        let delegated_subnet_id_binding_1 = args.delegated_subnet_id.get_output(context);
+        let delegated_subnet_id_binding = delegated_subnet_id_binding_1.get_inner();
+        let geo_redundant_backup_enabled_binding_1 = args
             .geo_redundant_backup_enabled
-            .get_output(context)
+            .get_output(context);
+        let geo_redundant_backup_enabled_binding = geo_redundant_backup_enabled_binding_1
             .get_inner();
-        let high_availability_binding = args
-            .high_availability
-            .get_output(context)
-            .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let maintenance_window_binding = args
-            .maintenance_window
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let point_in_time_restore_time_in_utc_binding = args
+        let high_availability_binding_1 = args.high_availability.get_output(context);
+        let high_availability_binding = high_availability_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
+        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let point_in_time_restore_time_in_utc_binding_1 = args
             .point_in_time_restore_time_in_utc
-            .get_output(context)
+            .get_output(context);
+        let point_in_time_restore_time_in_utc_binding = point_in_time_restore_time_in_utc_binding_1
             .get_inner();
-        let private_dns_zone_id_binding = args
-            .private_dns_zone_id
-            .get_output(context)
-            .get_inner();
-        let replication_role_binding = args
-            .replication_role
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let source_server_id_binding = args
-            .source_server_id
-            .get_output(context)
-            .get_inner();
-        let storage_binding = args.storage.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let private_dns_zone_id_binding_1 = args.private_dns_zone_id.get_output(context);
+        let private_dns_zone_id_binding = private_dns_zone_id_binding_1.get_inner();
+        let replication_role_binding_1 = args.replication_role.get_output(context);
+        let replication_role_binding = replication_role_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let source_server_id_binding_1 = args.source_server_id.get_output(context);
+        let source_server_id_binding = source_server_id_binding_1.get_inner();
+        let storage_binding_1 = args.storage.get_output(context);
+        let storage_binding = storage_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mysql/flexibleServer:FlexibleServer".into(),
             name: name.to_string(),

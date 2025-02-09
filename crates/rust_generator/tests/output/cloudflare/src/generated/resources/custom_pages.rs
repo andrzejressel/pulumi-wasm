@@ -71,11 +71,16 @@ pub mod custom_pages {
     ) -> CustomPagesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let state_binding = args.state.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let url_binding = args.url.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let url_binding_1 = args.url.get_output(context);
+        let url_binding = url_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/customPages:CustomPages".into(),
             name: name.to_string(),

@@ -66,11 +66,12 @@ pub mod redrive_allow_policy {
     ) -> RedriveAllowPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let queue_url_binding = args.queue_url.get_output(context).get_inner();
-        let redrive_allow_policy_binding = args
+        let queue_url_binding_1 = args.queue_url.get_output(context);
+        let queue_url_binding = queue_url_binding_1.get_inner();
+        let redrive_allow_policy_binding_1 = args
             .redrive_allow_policy
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let redrive_allow_policy_binding = redrive_allow_policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sqs/redriveAllowPolicy:RedriveAllowPolicy".into(),
             name: name.to_string(),

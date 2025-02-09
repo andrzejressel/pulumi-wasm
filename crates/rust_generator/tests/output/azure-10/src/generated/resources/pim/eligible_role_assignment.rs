@@ -149,15 +149,18 @@ pub mod eligible_role_assignment {
     ) -> EligibleRoleAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let justification_binding = args.justification.get_output(context).get_inner();
-        let principal_id_binding = args.principal_id.get_output(context).get_inner();
-        let role_definition_id_binding = args
-            .role_definition_id
-            .get_output(context)
-            .get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
-        let ticket_binding = args.ticket.get_output(context).get_inner();
+        let justification_binding_1 = args.justification.get_output(context);
+        let justification_binding = justification_binding_1.get_inner();
+        let principal_id_binding_1 = args.principal_id.get_output(context);
+        let principal_id_binding = principal_id_binding_1.get_inner();
+        let role_definition_id_binding_1 = args.role_definition_id.get_output(context);
+        let role_definition_id_binding = role_definition_id_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
+        let ticket_binding_1 = args.ticket.get_output(context);
+        let ticket_binding = ticket_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:pim/eligibleRoleAssignment:EligibleRoleAssignment".into(),
             name: name.to_string(),

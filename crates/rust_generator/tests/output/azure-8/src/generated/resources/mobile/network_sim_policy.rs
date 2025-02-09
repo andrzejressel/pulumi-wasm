@@ -177,29 +177,32 @@ pub mod network_sim_policy {
     ) -> NetworkSimPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_slice_id_binding = args
-            .default_slice_id
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let mobile_network_id_binding = args
-            .mobile_network_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let rat_frequency_selection_priority_index_binding = args
+        let default_slice_id_binding_1 = args.default_slice_id.get_output(context);
+        let default_slice_id_binding = default_slice_id_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let mobile_network_id_binding_1 = args.mobile_network_id.get_output(context);
+        let mobile_network_id_binding = mobile_network_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let rat_frequency_selection_priority_index_binding_1 = args
             .rat_frequency_selection_priority_index
-            .get_output(context)
+            .get_output(context);
+        let rat_frequency_selection_priority_index_binding = rat_frequency_selection_priority_index_binding_1
             .get_inner();
-        let registration_timer_in_seconds_binding = args
+        let registration_timer_in_seconds_binding_1 = args
             .registration_timer_in_seconds
-            .get_output(context)
+            .get_output(context);
+        let registration_timer_in_seconds_binding = registration_timer_in_seconds_binding_1
             .get_inner();
-        let slices_binding = args.slices.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_equipment_aggregate_maximum_bit_rate_binding = args
+        let slices_binding_1 = args.slices.get_output(context);
+        let slices_binding = slices_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_equipment_aggregate_maximum_bit_rate_binding_1 = args
             .user_equipment_aggregate_maximum_bit_rate
-            .get_output(context)
+            .get_output(context);
+        let user_equipment_aggregate_maximum_bit_rate_binding = user_equipment_aggregate_maximum_bit_rate_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mobile/networkSimPolicy:NetworkSimPolicy".into(),

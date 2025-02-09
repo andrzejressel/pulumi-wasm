@@ -79,11 +79,10 @@ pub mod log_data_protection_policy {
     ) -> LogDataProtectionPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let log_group_name_binding = args.log_group_name.get_output(context).get_inner();
-        let policy_document_binding = args
-            .policy_document
-            .get_output(context)
-            .get_inner();
+        let log_group_name_binding_1 = args.log_group_name.get_output(context);
+        let log_group_name_binding = log_group_name_binding_1.get_inner();
+        let policy_document_binding_1 = args.policy_document.get_output(context);
+        let policy_document_binding = policy_document_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy"
                 .into(),

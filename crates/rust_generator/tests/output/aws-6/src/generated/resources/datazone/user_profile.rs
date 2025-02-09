@@ -85,17 +85,16 @@ pub mod user_profile {
     ) -> UserProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_identifier_binding = args
-            .domain_identifier
-            .get_output(context)
-            .get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let user_identifier_binding = args
-            .user_identifier
-            .get_output(context)
-            .get_inner();
-        let user_type_binding = args.user_type.get_output(context).get_inner();
+        let domain_identifier_binding_1 = args.domain_identifier.get_output(context);
+        let domain_identifier_binding = domain_identifier_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let user_identifier_binding_1 = args.user_identifier.get_output(context);
+        let user_identifier_binding = user_identifier_binding_1.get_inner();
+        let user_type_binding_1 = args.user_type.get_output(context);
+        let user_type_binding = user_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datazone/userProfile:UserProfile".into(),
             name: name.to_string(),

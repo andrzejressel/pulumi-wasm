@@ -106,11 +106,16 @@ pub mod topic_authorization_rule {
     ) -> TopicAuthorizationRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let listen_binding = args.listen.get_output(context).get_inner();
-        let manage_binding = args.manage.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let send_binding = args.send.get_output(context).get_inner();
-        let topic_id_binding = args.topic_id.get_output(context).get_inner();
+        let listen_binding_1 = args.listen.get_output(context);
+        let listen_binding = listen_binding_1.get_inner();
+        let manage_binding_1 = args.manage.get_output(context);
+        let manage_binding = manage_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let send_binding_1 = args.send.get_output(context);
+        let send_binding = send_binding_1.get_inner();
+        let topic_id_binding_1 = args.topic_id.get_output(context);
+        let topic_id_binding = topic_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule".into(),
             name: name.to_string(),

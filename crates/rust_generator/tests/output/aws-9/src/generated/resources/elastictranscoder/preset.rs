@@ -158,25 +158,26 @@ pub mod preset {
     ) -> PresetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audio_binding = args.audio.get_output(context).get_inner();
-        let audio_codec_options_binding = args
-            .audio_codec_options
-            .get_output(context)
-            .get_inner();
-        let container_binding = args.container.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let thumbnails_binding = args.thumbnails.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let video_binding = args.video.get_output(context).get_inner();
-        let video_codec_options_binding = args
-            .video_codec_options
-            .get_output(context)
-            .get_inner();
-        let video_watermarks_binding = args
-            .video_watermarks
-            .get_output(context)
-            .get_inner();
+        let audio_binding_1 = args.audio.get_output(context);
+        let audio_binding = audio_binding_1.get_inner();
+        let audio_codec_options_binding_1 = args.audio_codec_options.get_output(context);
+        let audio_codec_options_binding = audio_codec_options_binding_1.get_inner();
+        let container_binding_1 = args.container.get_output(context);
+        let container_binding = container_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let thumbnails_binding_1 = args.thumbnails.get_output(context);
+        let thumbnails_binding = thumbnails_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let video_binding_1 = args.video.get_output(context);
+        let video_binding = video_binding_1.get_inner();
+        let video_codec_options_binding_1 = args.video_codec_options.get_output(context);
+        let video_codec_options_binding = video_codec_options_binding_1.get_inner();
+        let video_watermarks_binding_1 = args.video_watermarks.get_output(context);
+        let video_watermarks_binding = video_watermarks_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elastictranscoder/preset:Preset".into(),
             name: name.to_string(),

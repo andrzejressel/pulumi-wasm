@@ -97,19 +97,19 @@ pub mod cluster_snapshot {
     ) -> ClusterSnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_cluster_identifier_binding = args
+        let db_cluster_identifier_binding_1 = args
             .db_cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let db_cluster_snapshot_identifier_binding = args
+            .get_output(context);
+        let db_cluster_identifier_binding = db_cluster_identifier_binding_1.get_inner();
+        let db_cluster_snapshot_identifier_binding_1 = args
             .db_cluster_snapshot_identifier
-            .get_output(context)
+            .get_output(context);
+        let db_cluster_snapshot_identifier_binding = db_cluster_snapshot_identifier_binding_1
             .get_inner();
-        let shared_accounts_binding = args
-            .shared_accounts
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let shared_accounts_binding_1 = args.shared_accounts.get_output(context);
+        let shared_accounts_binding = shared_accounts_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/clusterSnapshot:ClusterSnapshot".into(),
             name: name.to_string(),

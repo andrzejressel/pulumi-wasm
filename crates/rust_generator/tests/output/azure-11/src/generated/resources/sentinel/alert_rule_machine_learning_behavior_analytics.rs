@@ -89,16 +89,20 @@ pub mod alert_rule_machine_learning_behavior_analytics {
     ) -> AlertRuleMachineLearningBehaviorAnalyticsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alert_rule_template_guid_binding = args
+        let alert_rule_template_guid_binding_1 = args
             .alert_rule_template_guid
-            .get_output(context)
+            .get_output(context);
+        let alert_rule_template_guid_binding = alert_rule_template_guid_binding_1
             .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let log_analytics_workspace_id_binding = args
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let log_analytics_workspace_id_binding_1 = args
             .log_analytics_workspace_id
-            .get_output(context)
+            .get_output(context);
+        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/alertRuleMachineLearningBehaviorAnalytics:AlertRuleMachineLearningBehaviorAnalytics"
                 .into(),

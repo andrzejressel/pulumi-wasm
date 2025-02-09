@@ -28,7 +28,8 @@ pub mod get_access_keys {
     ) -> GetAccessKeysResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let user_binding = args.user.get_output(context).get_inner();
+        let user_binding_1 = args.user.get_output(context);
+        let user_binding = user_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getAccessKeys:getAccessKeys".into(),
             version: super::super::super::get_version(),

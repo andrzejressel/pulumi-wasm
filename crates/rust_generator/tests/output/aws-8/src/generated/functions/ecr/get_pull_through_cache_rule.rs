@@ -30,10 +30,10 @@ pub mod get_pull_through_cache_rule {
     ) -> GetPullThroughCacheRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ecr_repository_prefix_binding = args
+        let ecr_repository_prefix_binding_1 = args
             .ecr_repository_prefix
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let ecr_repository_prefix_binding = ecr_repository_prefix_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule".into(),
             version: super::super::super::get_version(),

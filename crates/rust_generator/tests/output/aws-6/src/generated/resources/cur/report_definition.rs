@@ -125,30 +125,38 @@ pub mod report_definition {
     ) -> ReportDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_artifacts_binding = args
+        let additional_artifacts_binding_1 = args
             .additional_artifacts
-            .get_output(context)
-            .get_inner();
-        let additional_schema_elements_binding = args
+            .get_output(context);
+        let additional_artifacts_binding = additional_artifacts_binding_1.get_inner();
+        let additional_schema_elements_binding_1 = args
             .additional_schema_elements
-            .get_output(context)
+            .get_output(context);
+        let additional_schema_elements_binding = additional_schema_elements_binding_1
             .get_inner();
-        let compression_binding = args.compression.get_output(context).get_inner();
-        let format_binding = args.format.get_output(context).get_inner();
-        let refresh_closed_reports_binding = args
+        let compression_binding_1 = args.compression.get_output(context);
+        let compression_binding = compression_binding_1.get_inner();
+        let format_binding_1 = args.format.get_output(context);
+        let format_binding = format_binding_1.get_inner();
+        let refresh_closed_reports_binding_1 = args
             .refresh_closed_reports
-            .get_output(context)
+            .get_output(context);
+        let refresh_closed_reports_binding = refresh_closed_reports_binding_1
             .get_inner();
-        let report_name_binding = args.report_name.get_output(context).get_inner();
-        let report_versioning_binding = args
-            .report_versioning
-            .get_output(context)
-            .get_inner();
-        let s3_bucket_binding = args.s3_bucket.get_output(context).get_inner();
-        let s3_prefix_binding = args.s3_prefix.get_output(context).get_inner();
-        let s3_region_binding = args.s3_region.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let time_unit_binding = args.time_unit.get_output(context).get_inner();
+        let report_name_binding_1 = args.report_name.get_output(context);
+        let report_name_binding = report_name_binding_1.get_inner();
+        let report_versioning_binding_1 = args.report_versioning.get_output(context);
+        let report_versioning_binding = report_versioning_binding_1.get_inner();
+        let s3_bucket_binding_1 = args.s3_bucket.get_output(context);
+        let s3_bucket_binding = s3_bucket_binding_1.get_inner();
+        let s3_prefix_binding_1 = args.s3_prefix.get_output(context);
+        let s3_prefix_binding = s3_prefix_binding_1.get_inner();
+        let s3_region_binding_1 = args.s3_region.get_output(context);
+        let s3_region_binding = s3_region_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let time_unit_binding_1 = args.time_unit.get_output(context);
+        let time_unit_binding = time_unit_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cur/reportDefinition:ReportDefinition".into(),
             name: name.to_string(),

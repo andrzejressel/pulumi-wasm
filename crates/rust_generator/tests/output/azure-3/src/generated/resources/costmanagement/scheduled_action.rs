@@ -126,29 +126,36 @@ pub mod scheduled_action {
     ) -> ScheduledActionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let day_of_month_binding = args.day_of_month.get_output(context).get_inner();
-        let days_of_weeks_binding = args.days_of_weeks.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let email_address_sender_binding = args
+        let day_of_month_binding_1 = args.day_of_month.get_output(context);
+        let day_of_month_binding = day_of_month_binding_1.get_inner();
+        let days_of_weeks_binding_1 = args.days_of_weeks.get_output(context);
+        let days_of_weeks_binding = days_of_weeks_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let email_address_sender_binding_1 = args
             .email_address_sender
-            .get_output(context)
-            .get_inner();
-        let email_addresses_binding = args
-            .email_addresses
-            .get_output(context)
-            .get_inner();
-        let email_subject_binding = args.email_subject.get_output(context).get_inner();
-        let end_date_binding = args.end_date.get_output(context).get_inner();
-        let frequency_binding = args.frequency.get_output(context).get_inner();
-        let hour_of_day_binding = args.hour_of_day.get_output(context).get_inner();
-        let message_binding = args.message.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let start_date_binding = args.start_date.get_output(context).get_inner();
-        let view_id_binding = args.view_id.get_output(context).get_inner();
-        let weeks_of_months_binding = args
-            .weeks_of_months
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let email_address_sender_binding = email_address_sender_binding_1.get_inner();
+        let email_addresses_binding_1 = args.email_addresses.get_output(context);
+        let email_addresses_binding = email_addresses_binding_1.get_inner();
+        let email_subject_binding_1 = args.email_subject.get_output(context);
+        let email_subject_binding = email_subject_binding_1.get_inner();
+        let end_date_binding_1 = args.end_date.get_output(context);
+        let end_date_binding = end_date_binding_1.get_inner();
+        let frequency_binding_1 = args.frequency.get_output(context);
+        let frequency_binding = frequency_binding_1.get_inner();
+        let hour_of_day_binding_1 = args.hour_of_day.get_output(context);
+        let hour_of_day_binding = hour_of_day_binding_1.get_inner();
+        let message_binding_1 = args.message.get_output(context);
+        let message_binding = message_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let start_date_binding_1 = args.start_date.get_output(context);
+        let start_date_binding = start_date_binding_1.get_inner();
+        let view_id_binding_1 = args.view_id.get_output(context);
+        let view_id_binding = view_id_binding_1.get_inner();
+        let weeks_of_months_binding_1 = args.weeks_of_months.get_output(context);
+        let weeks_of_months_binding = weeks_of_months_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:costmanagement/scheduledAction:ScheduledAction".into(),
             name: name.to_string(),

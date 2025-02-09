@@ -54,12 +54,15 @@ pub mod assignment_dynamic_scope {
     ) -> AssignmentDynamicScopeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let maintenance_configuration_id_binding = args
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let maintenance_configuration_id_binding_1 = args
             .maintenance_configuration_id
-            .get_output(context)
+            .get_output(context);
+        let maintenance_configuration_id_binding = maintenance_configuration_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope"
                 .into(),

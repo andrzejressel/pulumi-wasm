@@ -364,84 +364,89 @@ pub mod function {
     ) -> FunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let available_memory_mb_binding = args
-            .available_memory_mb
-            .get_output(context)
-            .get_inner();
-        let build_environment_variables_binding = args
+        let available_memory_mb_binding_1 = args.available_memory_mb.get_output(context);
+        let available_memory_mb_binding = available_memory_mb_binding_1.get_inner();
+        let build_environment_variables_binding_1 = args
             .build_environment_variables
-            .get_output(context)
+            .get_output(context);
+        let build_environment_variables_binding = build_environment_variables_binding_1
             .get_inner();
-        let build_service_account_binding = args
+        let build_service_account_binding_1 = args
             .build_service_account
-            .get_output(context)
-            .get_inner();
-        let build_worker_pool_binding = args
-            .build_worker_pool
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let docker_registry_binding = args
-            .docker_registry
-            .get_output(context)
-            .get_inner();
-        let docker_repository_binding = args
-            .docker_repository
-            .get_output(context)
-            .get_inner();
-        let entry_point_binding = args.entry_point.get_output(context).get_inner();
-        let environment_variables_binding = args
+            .get_output(context);
+        let build_service_account_binding = build_service_account_binding_1.get_inner();
+        let build_worker_pool_binding_1 = args.build_worker_pool.get_output(context);
+        let build_worker_pool_binding = build_worker_pool_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let docker_registry_binding_1 = args.docker_registry.get_output(context);
+        let docker_registry_binding = docker_registry_binding_1.get_inner();
+        let docker_repository_binding_1 = args.docker_repository.get_output(context);
+        let docker_repository_binding = docker_repository_binding_1.get_inner();
+        let entry_point_binding_1 = args.entry_point.get_output(context);
+        let entry_point_binding = entry_point_binding_1.get_inner();
+        let environment_variables_binding_1 = args
             .environment_variables
-            .get_output(context)
-            .get_inner();
-        let event_trigger_binding = args.event_trigger.get_output(context).get_inner();
-        let https_trigger_security_level_binding = args
+            .get_output(context);
+        let environment_variables_binding = environment_variables_binding_1.get_inner();
+        let event_trigger_binding_1 = args.event_trigger.get_output(context);
+        let event_trigger_binding = event_trigger_binding_1.get_inner();
+        let https_trigger_security_level_binding_1 = args
             .https_trigger_security_level
-            .get_output(context)
+            .get_output(context);
+        let https_trigger_security_level_binding = https_trigger_security_level_binding_1
             .get_inner();
-        let https_trigger_url_binding = args
-            .https_trigger_url
-            .get_output(context)
-            .get_inner();
-        let ingress_settings_binding = args
-            .ingress_settings
-            .get_output(context)
-            .get_inner();
-        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let max_instances_binding = args.max_instances.get_output(context).get_inner();
-        let min_instances_binding = args.min_instances.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let runtime_binding = args.runtime.get_output(context).get_inner();
-        let secret_environment_variables_binding = args
+        let https_trigger_url_binding_1 = args.https_trigger_url.get_output(context);
+        let https_trigger_url_binding = https_trigger_url_binding_1.get_inner();
+        let ingress_settings_binding_1 = args.ingress_settings.get_output(context);
+        let ingress_settings_binding = ingress_settings_binding_1.get_inner();
+        let kms_key_name_binding_1 = args.kms_key_name.get_output(context);
+        let kms_key_name_binding = kms_key_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let max_instances_binding_1 = args.max_instances.get_output(context);
+        let max_instances_binding = max_instances_binding_1.get_inner();
+        let min_instances_binding_1 = args.min_instances.get_output(context);
+        let min_instances_binding = min_instances_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let runtime_binding_1 = args.runtime.get_output(context);
+        let runtime_binding = runtime_binding_1.get_inner();
+        let secret_environment_variables_binding_1 = args
             .secret_environment_variables
-            .get_output(context)
+            .get_output(context);
+        let secret_environment_variables_binding = secret_environment_variables_binding_1
             .get_inner();
-        let secret_volumes_binding = args.secret_volumes.get_output(context).get_inner();
-        let service_account_email_binding = args
+        let secret_volumes_binding_1 = args.secret_volumes.get_output(context);
+        let secret_volumes_binding = secret_volumes_binding_1.get_inner();
+        let service_account_email_binding_1 = args
             .service_account_email
-            .get_output(context)
-            .get_inner();
-        let source_archive_bucket_binding = args
+            .get_output(context);
+        let service_account_email_binding = service_account_email_binding_1.get_inner();
+        let source_archive_bucket_binding_1 = args
             .source_archive_bucket
-            .get_output(context)
-            .get_inner();
-        let source_archive_object_binding = args
+            .get_output(context);
+        let source_archive_bucket_binding = source_archive_bucket_binding_1.get_inner();
+        let source_archive_object_binding_1 = args
             .source_archive_object
-            .get_output(context)
-            .get_inner();
-        let source_repository_binding = args
-            .source_repository
-            .get_output(context)
-            .get_inner();
-        let timeout_binding = args.timeout.get_output(context).get_inner();
-        let trigger_http_binding = args.trigger_http.get_output(context).get_inner();
-        let vpc_connector_binding = args.vpc_connector.get_output(context).get_inner();
-        let vpc_connector_egress_settings_binding = args
+            .get_output(context);
+        let source_archive_object_binding = source_archive_object_binding_1.get_inner();
+        let source_repository_binding_1 = args.source_repository.get_output(context);
+        let source_repository_binding = source_repository_binding_1.get_inner();
+        let timeout_binding_1 = args.timeout.get_output(context);
+        let timeout_binding = timeout_binding_1.get_inner();
+        let trigger_http_binding_1 = args.trigger_http.get_output(context);
+        let trigger_http_binding = trigger_http_binding_1.get_inner();
+        let vpc_connector_binding_1 = args.vpc_connector.get_output(context);
+        let vpc_connector_binding = vpc_connector_binding_1.get_inner();
+        let vpc_connector_egress_settings_binding_1 = args
             .vpc_connector_egress_settings
-            .get_output(context)
+            .get_output(context);
+        let vpc_connector_egress_settings_binding = vpc_connector_egress_settings_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudfunctions/function:Function".into(),

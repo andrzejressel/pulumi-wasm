@@ -49,12 +49,12 @@ pub mod get_link {
     ) -> GetLinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let global_network_id_binding = args
-            .global_network_id
-            .get_output(context)
-            .get_inner();
-        let link_id_binding = args.link_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let global_network_id_binding_1 = args.global_network_id.get_output(context);
+        let global_network_id_binding = global_network_id_binding_1.get_inner();
+        let link_id_binding_1 = args.link_id.get_output(context);
+        let link_id_binding = link_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:networkmanager/getLink:getLink".into(),
             version: super::super::super::get_version(),

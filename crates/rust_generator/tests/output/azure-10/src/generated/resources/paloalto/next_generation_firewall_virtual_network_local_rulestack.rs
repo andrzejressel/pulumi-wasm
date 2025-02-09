@@ -207,22 +207,20 @@ pub mod next_generation_firewall_virtual_network_local_rulestack {
     ) -> NextGenerationFirewallVirtualNetworkLocalRulestackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_nats_binding = args
-            .destination_nats
-            .get_output(context)
-            .get_inner();
-        let dns_settings_binding = args.dns_settings.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_profile_binding = args
-            .network_profile
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let rulestack_id_binding = args.rulestack_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let destination_nats_binding_1 = args.destination_nats.get_output(context);
+        let destination_nats_binding = destination_nats_binding_1.get_inner();
+        let dns_settings_binding_1 = args.dns_settings.get_output(context);
+        let dns_settings_binding = dns_settings_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_profile_binding_1 = args.network_profile.get_output(context);
+        let network_profile_binding = network_profile_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let rulestack_id_binding_1 = args.rulestack_id.get_output(context);
+        let rulestack_id_binding = rulestack_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack"
                 .into(),

@@ -172,16 +172,22 @@ pub mod repository {
     ) -> RepositoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let domain_owner_binding = args.domain_owner.get_output(context).get_inner();
-        let external_connections_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let domain_owner_binding_1 = args.domain_owner.get_output(context);
+        let domain_owner_binding = domain_owner_binding_1.get_inner();
+        let external_connections_binding_1 = args
             .external_connections
-            .get_output(context)
-            .get_inner();
-        let repository_binding = args.repository.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let upstreams_binding = args.upstreams.get_output(context).get_inner();
+            .get_output(context);
+        let external_connections_binding = external_connections_binding_1.get_inner();
+        let repository_binding_1 = args.repository.get_output(context);
+        let repository_binding = repository_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let upstreams_binding_1 = args.upstreams.get_output(context);
+        let upstreams_binding = upstreams_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codeartifact/repository:Repository".into(),
             name: name.to_string(),

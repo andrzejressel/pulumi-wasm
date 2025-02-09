@@ -34,11 +34,16 @@ pub mod flexible_server_active_directory_administratory {
     ) -> FlexibleServerActiveDirectoryAdministratoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identity_id_binding = args.identity_id.get_output(context).get_inner();
-        let login_binding = args.login.get_output(context).get_inner();
-        let object_id_binding = args.object_id.get_output(context).get_inner();
-        let server_id_binding = args.server_id.get_output(context).get_inner();
-        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
+        let identity_id_binding_1 = args.identity_id.get_output(context);
+        let identity_id_binding = identity_id_binding_1.get_inner();
+        let login_binding_1 = args.login.get_output(context);
+        let login_binding = login_binding_1.get_inner();
+        let object_id_binding_1 = args.object_id.get_output(context);
+        let object_id_binding = object_id_binding_1.get_inner();
+        let server_id_binding_1 = args.server_id.get_output(context);
+        let server_id_binding = server_id_binding_1.get_inner();
+        let tenant_id_binding_1 = args.tenant_id.get_output(context);
+        let tenant_id_binding = tenant_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory"
                 .into(),

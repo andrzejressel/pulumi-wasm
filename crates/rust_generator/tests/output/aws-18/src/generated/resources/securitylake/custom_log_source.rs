@@ -101,10 +101,14 @@ pub mod custom_log_source {
     ) -> CustomLogSourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_binding = args.configuration.get_output(context).get_inner();
-        let event_classes_binding = args.event_classes.get_output(context).get_inner();
-        let source_name_binding = args.source_name.get_output(context).get_inner();
-        let source_version_binding = args.source_version.get_output(context).get_inner();
+        let configuration_binding_1 = args.configuration.get_output(context);
+        let configuration_binding = configuration_binding_1.get_inner();
+        let event_classes_binding_1 = args.event_classes.get_output(context);
+        let event_classes_binding = event_classes_binding_1.get_inner();
+        let source_name_binding_1 = args.source_name.get_output(context);
+        let source_name_binding = source_name_binding_1.get_inner();
+        let source_version_binding_1 = args.source_version.get_output(context);
+        let source_version_binding = source_version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securitylake/customLogSource:CustomLogSource".into(),
             name: name.to_string(),

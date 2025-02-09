@@ -185,45 +185,51 @@ pub mod virtual_machine_scale_set_extension {
     ) -> VirtualMachineScaleSetExtensionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_upgrade_minor_version_binding = args
+        let auto_upgrade_minor_version_binding_1 = args
             .auto_upgrade_minor_version
-            .get_output(context)
+            .get_output(context);
+        let auto_upgrade_minor_version_binding = auto_upgrade_minor_version_binding_1
             .get_inner();
-        let automatic_upgrade_enabled_binding = args
+        let automatic_upgrade_enabled_binding_1 = args
             .automatic_upgrade_enabled
-            .get_output(context)
+            .get_output(context);
+        let automatic_upgrade_enabled_binding = automatic_upgrade_enabled_binding_1
             .get_inner();
-        let failure_suppression_enabled_binding = args
+        let failure_suppression_enabled_binding_1 = args
             .failure_suppression_enabled
-            .get_output(context)
+            .get_output(context);
+        let failure_suppression_enabled_binding = failure_suppression_enabled_binding_1
             .get_inner();
-        let force_update_tag_binding = args
-            .force_update_tag
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let protected_settings_binding = args
-            .protected_settings
-            .get_output(context)
-            .get_inner();
-        let protected_settings_from_key_vault_binding = args
+        let force_update_tag_binding_1 = args.force_update_tag.get_output(context);
+        let force_update_tag_binding = force_update_tag_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let protected_settings_binding_1 = args.protected_settings.get_output(context);
+        let protected_settings_binding = protected_settings_binding_1.get_inner();
+        let protected_settings_from_key_vault_binding_1 = args
             .protected_settings_from_key_vault
-            .get_output(context)
+            .get_output(context);
+        let protected_settings_from_key_vault_binding = protected_settings_from_key_vault_binding_1
             .get_inner();
-        let provision_after_extensions_binding = args
+        let provision_after_extensions_binding_1 = args
             .provision_after_extensions
-            .get_output(context)
+            .get_output(context);
+        let provision_after_extensions_binding = provision_after_extensions_binding_1
             .get_inner();
-        let publisher_binding = args.publisher.get_output(context).get_inner();
-        let settings_binding = args.settings.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let type_handler_version_binding = args
+        let publisher_binding_1 = args.publisher.get_output(context);
+        let publisher_binding = publisher_binding_1.get_inner();
+        let settings_binding_1 = args.settings.get_output(context);
+        let settings_binding = settings_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let type_handler_version_binding_1 = args
             .type_handler_version
-            .get_output(context)
-            .get_inner();
-        let virtual_machine_scale_set_id_binding = args
+            .get_output(context);
+        let type_handler_version_binding = type_handler_version_binding_1.get_inner();
+        let virtual_machine_scale_set_id_binding_1 = args
             .virtual_machine_scale_set_id
-            .get_output(context)
+            .get_output(context);
+        let virtual_machine_scale_set_id_binding = virtual_machine_scale_set_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension"

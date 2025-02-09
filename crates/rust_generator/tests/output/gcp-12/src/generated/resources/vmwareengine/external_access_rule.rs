@@ -218,25 +218,28 @@ pub mod external_access_rule {
     ) -> ExternalAccessRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let destination_ip_ranges_binding = args
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let destination_ip_ranges_binding_1 = args
             .destination_ip_ranges
-            .get_output(context)
-            .get_inner();
-        let destination_ports_binding = args
-            .destination_ports
-            .get_output(context)
-            .get_inner();
-        let ip_protocol_binding = args.ip_protocol.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let source_ip_ranges_binding = args
-            .source_ip_ranges
-            .get_output(context)
-            .get_inner();
-        let source_ports_binding = args.source_ports.get_output(context).get_inner();
+            .get_output(context);
+        let destination_ip_ranges_binding = destination_ip_ranges_binding_1.get_inner();
+        let destination_ports_binding_1 = args.destination_ports.get_output(context);
+        let destination_ports_binding = destination_ports_binding_1.get_inner();
+        let ip_protocol_binding_1 = args.ip_protocol.get_output(context);
+        let ip_protocol_binding = ip_protocol_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let source_ip_ranges_binding_1 = args.source_ip_ranges.get_output(context);
+        let source_ip_ranges_binding = source_ip_ranges_binding_1.get_inner();
+        let source_ports_binding_1 = args.source_ports.get_output(context);
+        let source_ports_binding = source_ports_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vmwareengine/externalAccessRule:ExternalAccessRule".into(),
             name: name.to_string(),

@@ -143,23 +143,22 @@ pub mod experiment_template {
     ) -> ExperimentTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let experiment_options_binding = args
-            .experiment_options
-            .get_output(context)
-            .get_inner();
-        let log_configuration_binding = args
-            .log_configuration
-            .get_output(context)
-            .get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let stop_conditions_binding = args
-            .stop_conditions
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let targets_binding = args.targets.get_output(context).get_inner();
+        let actions_binding_1 = args.actions.get_output(context);
+        let actions_binding = actions_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let experiment_options_binding_1 = args.experiment_options.get_output(context);
+        let experiment_options_binding = experiment_options_binding_1.get_inner();
+        let log_configuration_binding_1 = args.log_configuration.get_output(context);
+        let log_configuration_binding = log_configuration_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let stop_conditions_binding_1 = args.stop_conditions.get_output(context);
+        let stop_conditions_binding = stop_conditions_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let targets_binding_1 = args.targets.get_output(context);
+        let targets_binding = targets_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fis/experimentTemplate:ExperimentTemplate".into(),
             name: name.to_string(),

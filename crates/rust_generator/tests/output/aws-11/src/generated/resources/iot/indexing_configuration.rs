@@ -85,13 +85,15 @@ pub mod indexing_configuration {
     ) -> IndexingConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let thing_group_indexing_configuration_binding = args
+        let thing_group_indexing_configuration_binding_1 = args
             .thing_group_indexing_configuration
-            .get_output(context)
+            .get_output(context);
+        let thing_group_indexing_configuration_binding = thing_group_indexing_configuration_binding_1
             .get_inner();
-        let thing_indexing_configuration_binding = args
+        let thing_indexing_configuration_binding_1 = args
             .thing_indexing_configuration
-            .get_output(context)
+            .get_output(context);
+        let thing_indexing_configuration_binding = thing_indexing_configuration_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/indexingConfiguration:IndexingConfiguration".into(),

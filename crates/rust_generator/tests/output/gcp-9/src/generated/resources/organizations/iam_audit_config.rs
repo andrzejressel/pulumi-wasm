@@ -74,12 +74,12 @@ pub mod iam_audit_config {
     ) -> IamAuditConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_log_configs_binding = args
-            .audit_log_configs
-            .get_output(context)
-            .get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
+        let audit_log_configs_binding_1 = args.audit_log_configs.get_output(context);
+        let audit_log_configs_binding = audit_log_configs_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:organizations/iamAuditConfig:IamAuditConfig".into(),
             name: name.to_string(),

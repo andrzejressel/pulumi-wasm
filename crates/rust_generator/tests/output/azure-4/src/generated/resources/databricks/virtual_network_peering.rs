@@ -138,36 +138,38 @@ pub mod virtual_network_peering {
     ) -> VirtualNetworkPeeringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_forwarded_traffic_binding = args
+        let allow_forwarded_traffic_binding_1 = args
             .allow_forwarded_traffic
-            .get_output(context)
+            .get_output(context);
+        let allow_forwarded_traffic_binding = allow_forwarded_traffic_binding_1
             .get_inner();
-        let allow_gateway_transit_binding = args
+        let allow_gateway_transit_binding_1 = args
             .allow_gateway_transit
-            .get_output(context)
-            .get_inner();
-        let allow_virtual_network_access_binding = args
+            .get_output(context);
+        let allow_gateway_transit_binding = allow_gateway_transit_binding_1.get_inner();
+        let allow_virtual_network_access_binding_1 = args
             .allow_virtual_network_access
-            .get_output(context)
+            .get_output(context);
+        let allow_virtual_network_access_binding = allow_virtual_network_access_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let remote_address_space_prefixes_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let remote_address_space_prefixes_binding_1 = args
             .remote_address_space_prefixes
-            .get_output(context)
+            .get_output(context);
+        let remote_address_space_prefixes_binding = remote_address_space_prefixes_binding_1
             .get_inner();
-        let remote_virtual_network_id_binding = args
+        let remote_virtual_network_id_binding_1 = args
             .remote_virtual_network_id
-            .get_output(context)
+            .get_output(context);
+        let remote_virtual_network_id_binding = remote_virtual_network_id_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let use_remote_gateways_binding = args
-            .use_remote_gateways
-            .get_output(context)
-            .get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let use_remote_gateways_binding_1 = args.use_remote_gateways.get_output(context);
+        let use_remote_gateways_binding = use_remote_gateways_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:databricks/virtualNetworkPeering:VirtualNetworkPeering".into(),
             name: name.to_string(),

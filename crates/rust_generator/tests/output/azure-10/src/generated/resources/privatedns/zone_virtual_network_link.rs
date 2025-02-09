@@ -105,24 +105,22 @@ pub mod zone_virtual_network_link {
     ) -> ZoneVirtualNetworkLinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let private_dns_zone_name_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let private_dns_zone_name_binding_1 = args
             .private_dns_zone_name
-            .get_output(context)
-            .get_inner();
-        let registration_enabled_binding = args
+            .get_output(context);
+        let private_dns_zone_name_binding = private_dns_zone_name_binding_1.get_inner();
+        let registration_enabled_binding_1 = args
             .registration_enabled
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let virtual_network_id_binding = args
-            .virtual_network_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let registration_enabled_binding = registration_enabled_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
+        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink"
                 .into(),

@@ -57,13 +57,14 @@ pub mod get_mesh_istio_service {
     ) -> GetMeshIstioServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mesh_uid_binding = args.mesh_uid.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let service_name_binding = args.service_name.get_output(context).get_inner();
-        let service_namespace_binding = args
-            .service_namespace
-            .get_output(context)
-            .get_inner();
+        let mesh_uid_binding_1 = args.mesh_uid.get_output(context);
+        let mesh_uid_binding = mesh_uid_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
+        let service_namespace_binding_1 = args.service_namespace.get_output(context);
+        let service_namespace_binding = service_namespace_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:monitoring/getMeshIstioService:getMeshIstioService".into(),
             version: super::super::super::get_version(),

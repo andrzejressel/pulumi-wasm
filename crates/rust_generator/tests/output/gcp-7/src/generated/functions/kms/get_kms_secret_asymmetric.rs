@@ -37,12 +37,12 @@ pub mod get_kms_secret_asymmetric {
     ) -> GetKmsSecretAsymmetricResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ciphertext_binding = args.ciphertext.get_output(context).get_inner();
-        let crc32_binding = args.crc32.get_output(context).get_inner();
-        let crypto_key_version_binding = args
-            .crypto_key_version
-            .get_output(context)
-            .get_inner();
+        let ciphertext_binding_1 = args.ciphertext.get_output(context);
+        let ciphertext_binding = ciphertext_binding_1.get_inner();
+        let crc32_binding_1 = args.crc32.get_output(context);
+        let crc32_binding = crc32_binding_1.get_inner();
+        let crypto_key_version_binding_1 = args.crypto_key_version.get_output(context);
+        let crypto_key_version_binding = crypto_key_version_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getKMSSecretAsymmetric:getKMSSecretAsymmetric".into(),
             version: super::super::super::get_version(),

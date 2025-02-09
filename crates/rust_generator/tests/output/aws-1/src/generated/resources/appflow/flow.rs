@@ -207,24 +207,30 @@ pub mod flow {
     ) -> FlowResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let destination_flow_configs_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let destination_flow_configs_binding_1 = args
             .destination_flow_configs
-            .get_output(context)
+            .get_output(context);
+        let destination_flow_configs_binding = destination_flow_configs_binding_1
             .get_inner();
-        let kms_arn_binding = args.kms_arn.get_output(context).get_inner();
-        let metadata_catalog_config_binding = args
+        let kms_arn_binding_1 = args.kms_arn.get_output(context);
+        let kms_arn_binding = kms_arn_binding_1.get_inner();
+        let metadata_catalog_config_binding_1 = args
             .metadata_catalog_config
-            .get_output(context)
+            .get_output(context);
+        let metadata_catalog_config_binding = metadata_catalog_config_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let source_flow_config_binding = args
-            .source_flow_config
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tasks_binding = args.tasks.get_output(context).get_inner();
-        let trigger_config_binding = args.trigger_config.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let source_flow_config_binding_1 = args.source_flow_config.get_output(context);
+        let source_flow_config_binding = source_flow_config_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tasks_binding_1 = args.tasks.get_output(context);
+        let tasks_binding = tasks_binding_1.get_inner();
+        let trigger_config_binding_1 = args.trigger_config.get_output(context);
+        let trigger_config_binding = trigger_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appflow/flow:Flow".into(),
             name: name.to_string(),

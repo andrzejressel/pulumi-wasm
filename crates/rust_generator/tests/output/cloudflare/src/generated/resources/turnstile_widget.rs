@@ -85,13 +85,20 @@ pub mod turnstile_widget {
     ) -> TurnstileWidgetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let bot_fight_mode_binding = args.bot_fight_mode.get_output(context).get_inner();
-        let domains_binding = args.domains.get_output(context).get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let offlabel_binding = args.offlabel.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let bot_fight_mode_binding_1 = args.bot_fight_mode.get_output(context);
+        let bot_fight_mode_binding = bot_fight_mode_binding_1.get_inner();
+        let domains_binding_1 = args.domains.get_output(context);
+        let domains_binding = domains_binding_1.get_inner();
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let offlabel_binding_1 = args.offlabel.get_output(context);
+        let offlabel_binding = offlabel_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/turnstileWidget:TurnstileWidget".into(),
             name: name.to_string(),

@@ -48,8 +48,10 @@ pub mod get_iam_policy {
     ) -> GetIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_configs_binding = args.audit_configs.get_output(context).get_inner();
-        let bindings_binding = args.bindings.get_output(context).get_inner();
+        let audit_configs_binding_1 = args.audit_configs.get_output(context);
+        let audit_configs_binding = audit_configs_binding_1.get_inner();
+        let bindings_binding_1 = args.bindings.get_output(context);
+        let bindings_binding = bindings_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:organizations/getIAMPolicy:getIAMPolicy".into(),
             version: super::super::super::get_version(),

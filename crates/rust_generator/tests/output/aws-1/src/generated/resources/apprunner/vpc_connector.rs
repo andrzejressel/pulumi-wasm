@@ -80,16 +80,14 @@ pub mod vpc_connector {
     ) -> VpcConnectorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let security_groups_binding = args
-            .security_groups
-            .get_output(context)
-            .get_inner();
-        let subnets_binding = args.subnets.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_connector_name_binding = args
-            .vpc_connector_name
-            .get_output(context)
-            .get_inner();
+        let security_groups_binding_1 = args.security_groups.get_output(context);
+        let security_groups_binding = security_groups_binding_1.get_inner();
+        let subnets_binding_1 = args.subnets.get_output(context);
+        let subnets_binding = subnets_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_connector_name_binding_1 = args.vpc_connector_name.get_output(context);
+        let vpc_connector_name_binding = vpc_connector_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apprunner/vpcConnector:VpcConnector".into(),
             name: name.to_string(),

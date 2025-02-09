@@ -195,27 +195,38 @@ pub mod agent {
     ) -> AgentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_version_binding = args.api_version.get_output(context).get_inner();
-        let avatar_uri_binding = args.avatar_uri.get_output(context).get_inner();
-        let classification_threshold_binding = args
+        let api_version_binding_1 = args.api_version.get_output(context);
+        let api_version_binding = api_version_binding_1.get_inner();
+        let avatar_uri_binding_1 = args.avatar_uri.get_output(context);
+        let avatar_uri_binding = avatar_uri_binding_1.get_inner();
+        let classification_threshold_binding_1 = args
             .classification_threshold
-            .get_output(context)
+            .get_output(context);
+        let classification_threshold_binding = classification_threshold_binding_1
             .get_inner();
-        let default_language_code_binding = args
+        let default_language_code_binding_1 = args
             .default_language_code
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enable_logging_binding = args.enable_logging.get_output(context).get_inner();
-        let match_mode_binding = args.match_mode.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let supported_language_codes_binding = args
+            .get_output(context);
+        let default_language_code_binding = default_language_code_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enable_logging_binding_1 = args.enable_logging.get_output(context);
+        let enable_logging_binding = enable_logging_binding_1.get_inner();
+        let match_mode_binding_1 = args.match_mode.get_output(context);
+        let match_mode_binding = match_mode_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let supported_language_codes_binding_1 = args
             .supported_language_codes
-            .get_output(context)
+            .get_output(context);
+        let supported_language_codes_binding = supported_language_codes_binding_1
             .get_inner();
-        let tier_binding = args.tier.get_output(context).get_inner();
-        let time_zone_binding = args.time_zone.get_output(context).get_inner();
+        let tier_binding_1 = args.tier.get_output(context);
+        let tier_binding = tier_binding_1.get_inner();
+        let time_zone_binding_1 = args.time_zone.get_output(context);
+        let time_zone_binding = time_zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/agent:Agent".into(),
             name: name.to_string(),

@@ -129,28 +129,28 @@ pub mod file_upload {
     ) -> FileUploadResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_type_binding = args
-            .authentication_type
-            .get_output(context)
-            .get_inner();
-        let connection_string_binding = args
-            .connection_string
-            .get_output(context)
-            .get_inner();
-        let container_name_binding = args.container_name.get_output(context).get_inner();
-        let default_ttl_binding = args.default_ttl.get_output(context).get_inner();
-        let identity_id_binding = args.identity_id.get_output(context).get_inner();
-        let iothub_id_binding = args.iothub_id.get_output(context).get_inner();
-        let lock_duration_binding = args.lock_duration.get_output(context).get_inner();
-        let max_delivery_count_binding = args
-            .max_delivery_count
-            .get_output(context)
-            .get_inner();
-        let notifications_enabled_binding = args
+        let authentication_type_binding_1 = args.authentication_type.get_output(context);
+        let authentication_type_binding = authentication_type_binding_1.get_inner();
+        let connection_string_binding_1 = args.connection_string.get_output(context);
+        let connection_string_binding = connection_string_binding_1.get_inner();
+        let container_name_binding_1 = args.container_name.get_output(context);
+        let container_name_binding = container_name_binding_1.get_inner();
+        let default_ttl_binding_1 = args.default_ttl.get_output(context);
+        let default_ttl_binding = default_ttl_binding_1.get_inner();
+        let identity_id_binding_1 = args.identity_id.get_output(context);
+        let identity_id_binding = identity_id_binding_1.get_inner();
+        let iothub_id_binding_1 = args.iothub_id.get_output(context);
+        let iothub_id_binding = iothub_id_binding_1.get_inner();
+        let lock_duration_binding_1 = args.lock_duration.get_output(context);
+        let lock_duration_binding = lock_duration_binding_1.get_inner();
+        let max_delivery_count_binding_1 = args.max_delivery_count.get_output(context);
+        let max_delivery_count_binding = max_delivery_count_binding_1.get_inner();
+        let notifications_enabled_binding_1 = args
             .notifications_enabled
-            .get_output(context)
-            .get_inner();
-        let sas_ttl_binding = args.sas_ttl.get_output(context).get_inner();
+            .get_output(context);
+        let notifications_enabled_binding = notifications_enabled_binding_1.get_inner();
+        let sas_ttl_binding_1 = args.sas_ttl.get_output(context);
+        let sas_ttl_binding = sas_ttl_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/fileUpload:FileUpload".into(),
             name: name.to_string(),

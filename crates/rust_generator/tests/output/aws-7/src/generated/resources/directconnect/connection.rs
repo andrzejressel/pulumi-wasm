@@ -159,17 +159,22 @@ pub mod connection {
     ) -> ConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bandwidth_binding = args.bandwidth.get_output(context).get_inner();
-        let encryption_mode_binding = args
-            .encryption_mode
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let provider_name_binding = args.provider_name.get_output(context).get_inner();
-        let request_macsec_binding = args.request_macsec.get_output(context).get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let bandwidth_binding_1 = args.bandwidth.get_output(context);
+        let bandwidth_binding = bandwidth_binding_1.get_inner();
+        let encryption_mode_binding_1 = args.encryption_mode.get_output(context);
+        let encryption_mode_binding = encryption_mode_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let provider_name_binding_1 = args.provider_name.get_output(context);
+        let provider_name_binding = provider_name_binding_1.get_inner();
+        let request_macsec_binding_1 = args.request_macsec.get_output(context);
+        let request_macsec_binding = request_macsec_binding_1.get_inner();
+        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
+        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/connection:Connection".into(),
             name: name.to_string(),

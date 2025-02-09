@@ -109,8 +109,10 @@ pub mod tag_binding {
     ) -> TagBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let tag_value_binding = args.tag_value.get_output(context).get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let tag_value_binding_1 = args.tag_value.get_output(context);
+        let tag_value_binding = tag_value_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:tags/tagBinding:TagBinding".into(),
             name: name.to_string(),

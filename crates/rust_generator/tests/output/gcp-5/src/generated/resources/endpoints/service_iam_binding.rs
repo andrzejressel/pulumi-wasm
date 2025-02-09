@@ -250,10 +250,14 @@ pub mod service_iam_binding {
     ) -> ServiceIamBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let members_binding = args.members.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
-        let service_name_binding = args.service_name.get_output(context).get_inner();
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let members_binding_1 = args.members.get_output(context);
+        let members_binding = members_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:endpoints/serviceIamBinding:ServiceIamBinding".into(),
             name: name.to_string(),

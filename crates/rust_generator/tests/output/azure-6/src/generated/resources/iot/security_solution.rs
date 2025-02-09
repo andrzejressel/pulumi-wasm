@@ -153,48 +153,52 @@ pub mod security_solution {
     ) -> SecuritySolutionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_workspaces_binding = args
+        let additional_workspaces_binding_1 = args
             .additional_workspaces
-            .get_output(context)
-            .get_inner();
-        let disabled_data_sources_binding = args
+            .get_output(context);
+        let additional_workspaces_binding = additional_workspaces_binding_1.get_inner();
+        let disabled_data_sources_binding_1 = args
             .disabled_data_sources
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let events_to_exports_binding = args
-            .events_to_exports
-            .get_output(context)
-            .get_inner();
-        let iothub_ids_binding = args.iothub_ids.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let log_analytics_workspace_id_binding = args
+            .get_output(context);
+        let disabled_data_sources_binding = disabled_data_sources_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let events_to_exports_binding_1 = args.events_to_exports.get_output(context);
+        let events_to_exports_binding = events_to_exports_binding_1.get_inner();
+        let iothub_ids_binding_1 = args.iothub_ids.get_output(context);
+        let iothub_ids_binding = iothub_ids_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let log_analytics_workspace_id_binding_1 = args
             .log_analytics_workspace_id
-            .get_output(context)
+            .get_output(context);
+        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
             .get_inner();
-        let log_unmasked_ips_enabled_binding = args
+        let log_unmasked_ips_enabled_binding_1 = args
             .log_unmasked_ips_enabled
-            .get_output(context)
+            .get_output(context);
+        let log_unmasked_ips_enabled_binding = log_unmasked_ips_enabled_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let query_for_resources_binding = args
-            .query_for_resources
-            .get_output(context)
-            .get_inner();
-        let query_subscription_ids_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let query_for_resources_binding_1 = args.query_for_resources.get_output(context);
+        let query_for_resources_binding = query_for_resources_binding_1.get_inner();
+        let query_subscription_ids_binding_1 = args
             .query_subscription_ids
-            .get_output(context)
+            .get_output(context);
+        let query_subscription_ids_binding = query_subscription_ids_binding_1
             .get_inner();
-        let recommendations_enabled_binding = args
+        let recommendations_enabled_binding_1 = args
             .recommendations_enabled
-            .get_output(context)
+            .get_output(context);
+        let recommendations_enabled_binding = recommendations_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/securitySolution:SecuritySolution".into(),
             name: name.to_string(),

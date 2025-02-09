@@ -155,30 +155,29 @@ pub mod repository_creation_template {
     ) -> RepositoryCreationTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let applied_fors_binding = args.applied_fors.get_output(context).get_inner();
-        let custom_role_arn_binding = args
-            .custom_role_arn
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let encryption_configurations_binding = args
+        let applied_fors_binding_1 = args.applied_fors.get_output(context);
+        let applied_fors_binding = applied_fors_binding_1.get_inner();
+        let custom_role_arn_binding_1 = args.custom_role_arn.get_output(context);
+        let custom_role_arn_binding = custom_role_arn_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let encryption_configurations_binding_1 = args
             .encryption_configurations
-            .get_output(context)
+            .get_output(context);
+        let encryption_configurations_binding = encryption_configurations_binding_1
             .get_inner();
-        let image_tag_mutability_binding = args
+        let image_tag_mutability_binding_1 = args
             .image_tag_mutability
-            .get_output(context)
-            .get_inner();
-        let lifecycle_policy_binding = args
-            .lifecycle_policy
-            .get_output(context)
-            .get_inner();
-        let prefix_binding = args.prefix.get_output(context).get_inner();
-        let repository_policy_binding = args
-            .repository_policy
-            .get_output(context)
-            .get_inner();
-        let resource_tags_binding = args.resource_tags.get_output(context).get_inner();
+            .get_output(context);
+        let image_tag_mutability_binding = image_tag_mutability_binding_1.get_inner();
+        let lifecycle_policy_binding_1 = args.lifecycle_policy.get_output(context);
+        let lifecycle_policy_binding = lifecycle_policy_binding_1.get_inner();
+        let prefix_binding_1 = args.prefix.get_output(context);
+        let prefix_binding = prefix_binding_1.get_inner();
+        let repository_policy_binding_1 = args.repository_policy.get_output(context);
+        let repository_policy_binding = repository_policy_binding_1.get_inner();
+        let resource_tags_binding_1 = args.resource_tags.get_output(context);
+        let resource_tags_binding = resource_tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate"
                 .into(),

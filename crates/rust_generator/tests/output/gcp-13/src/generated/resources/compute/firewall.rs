@@ -363,32 +363,46 @@ pub mod firewall {
     ) -> FirewallResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allows_binding = args.allows.get_output(context).get_inner();
-        let denies_binding = args.denies.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let destination_ranges_binding = args
-            .destination_ranges
-            .get_output(context)
-            .get_inner();
-        let direction_binding = args.direction.get_output(context).get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let enable_logging_binding = args.enable_logging.get_output(context).get_inner();
-        let log_config_binding = args.log_config.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let source_ranges_binding = args.source_ranges.get_output(context).get_inner();
-        let source_service_accounts_binding = args
+        let allows_binding_1 = args.allows.get_output(context);
+        let allows_binding = allows_binding_1.get_inner();
+        let denies_binding_1 = args.denies.get_output(context);
+        let denies_binding = denies_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let destination_ranges_binding_1 = args.destination_ranges.get_output(context);
+        let destination_ranges_binding = destination_ranges_binding_1.get_inner();
+        let direction_binding_1 = args.direction.get_output(context);
+        let direction_binding = direction_binding_1.get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let enable_logging_binding_1 = args.enable_logging.get_output(context);
+        let enable_logging_binding = enable_logging_binding_1.get_inner();
+        let log_config_binding_1 = args.log_config.get_output(context);
+        let log_config_binding = log_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let source_ranges_binding_1 = args.source_ranges.get_output(context);
+        let source_ranges_binding = source_ranges_binding_1.get_inner();
+        let source_service_accounts_binding_1 = args
             .source_service_accounts
-            .get_output(context)
+            .get_output(context);
+        let source_service_accounts_binding = source_service_accounts_binding_1
             .get_inner();
-        let source_tags_binding = args.source_tags.get_output(context).get_inner();
-        let target_service_accounts_binding = args
+        let source_tags_binding_1 = args.source_tags.get_output(context);
+        let source_tags_binding = source_tags_binding_1.get_inner();
+        let target_service_accounts_binding_1 = args
             .target_service_accounts
-            .get_output(context)
+            .get_output(context);
+        let target_service_accounts_binding = target_service_accounts_binding_1
             .get_inner();
-        let target_tags_binding = args.target_tags.get_output(context).get_inner();
+        let target_tags_binding_1 = args.target_tags.get_output(context);
+        let target_tags_binding = target_tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/firewall:Firewall".into(),
             name: name.to_string(),

@@ -77,13 +77,17 @@ pub mod get_authority {
     ) -> GetAuthorityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_authority_id_binding = args
+        let certificate_authority_id_binding_1 = args
             .certificate_authority_id
-            .get_output(context)
+            .get_output(context);
+        let certificate_authority_id_binding = certificate_authority_id_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let pool_binding = args.pool.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let pool_binding_1 = args.pool.get_output(context);
+        let pool_binding = pool_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:certificateauthority/getAuthority:getAuthority".into(),
             version: super::super::super::get_version(),

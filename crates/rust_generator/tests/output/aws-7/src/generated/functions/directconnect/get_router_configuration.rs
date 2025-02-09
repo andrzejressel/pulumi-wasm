@@ -53,14 +53,15 @@ pub mod get_router_configuration {
     ) -> GetRouterConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let router_type_identifier_binding = args
+        let router_type_identifier_binding_1 = args
             .router_type_identifier
-            .get_output(context)
+            .get_output(context);
+        let router_type_identifier_binding = router_type_identifier_binding_1
             .get_inner();
-        let virtual_interface_id_binding = args
+        let virtual_interface_id_binding_1 = args
             .virtual_interface_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let virtual_interface_id_binding = virtual_interface_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:directconnect/getRouterConfiguration:getRouterConfiguration"
                 .into(),

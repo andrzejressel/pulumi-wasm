@@ -620,79 +620,86 @@ pub mod instance_template {
     ) -> InstanceTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advanced_machine_features_binding = args
+        let advanced_machine_features_binding_1 = args
             .advanced_machine_features
-            .get_output(context)
+            .get_output(context);
+        let advanced_machine_features_binding = advanced_machine_features_binding_1
             .get_inner();
-        let can_ip_forward_binding = args.can_ip_forward.get_output(context).get_inner();
-        let confidential_instance_config_binding = args
+        let can_ip_forward_binding_1 = args.can_ip_forward.get_output(context);
+        let can_ip_forward_binding = can_ip_forward_binding_1.get_inner();
+        let confidential_instance_config_binding_1 = args
             .confidential_instance_config
-            .get_output(context)
+            .get_output(context);
+        let confidential_instance_config_binding = confidential_instance_config_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disks_binding = args.disks.get_output(context).get_inner();
-        let enable_display_binding = args.enable_display.get_output(context).get_inner();
-        let guest_accelerators_binding = args
-            .guest_accelerators
-            .get_output(context)
-            .get_inner();
-        let instance_description_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disks_binding_1 = args.disks.get_output(context);
+        let disks_binding = disks_binding_1.get_inner();
+        let enable_display_binding_1 = args.enable_display.get_output(context);
+        let enable_display_binding = enable_display_binding_1.get_inner();
+        let guest_accelerators_binding_1 = args.guest_accelerators.get_output(context);
+        let guest_accelerators_binding = guest_accelerators_binding_1.get_inner();
+        let instance_description_binding_1 = args
             .instance_description
-            .get_output(context)
-            .get_inner();
-        let key_revocation_action_type_binding = args
+            .get_output(context);
+        let instance_description_binding = instance_description_binding_1.get_inner();
+        let key_revocation_action_type_binding_1 = args
             .key_revocation_action_type
-            .get_output(context)
+            .get_output(context);
+        let key_revocation_action_type_binding = key_revocation_action_type_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let machine_type_binding = args.machine_type.get_output(context).get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let metadata_startup_script_binding = args
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let machine_type_binding_1 = args.machine_type.get_output(context);
+        let machine_type_binding = machine_type_binding_1.get_inner();
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let metadata_startup_script_binding_1 = args
             .metadata_startup_script
-            .get_output(context)
+            .get_output(context);
+        let metadata_startup_script_binding = metadata_startup_script_binding_1
             .get_inner();
-        let min_cpu_platform_binding = args
-            .min_cpu_platform
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let network_interfaces_binding = args
-            .network_interfaces
-            .get_output(context)
-            .get_inner();
-        let network_performance_config_binding = args
+        let min_cpu_platform_binding_1 = args.min_cpu_platform.get_output(context);
+        let min_cpu_platform_binding = min_cpu_platform_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let network_interfaces_binding_1 = args.network_interfaces.get_output(context);
+        let network_interfaces_binding = network_interfaces_binding_1.get_inner();
+        let network_performance_config_binding_1 = args
             .network_performance_config
-            .get_output(context)
+            .get_output(context);
+        let network_performance_config_binding = network_performance_config_binding_1
             .get_inner();
-        let partner_metadata_binding = args
-            .partner_metadata
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let reservation_affinity_binding = args
+        let partner_metadata_binding_1 = args.partner_metadata.get_output(context);
+        let partner_metadata_binding = partner_metadata_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let reservation_affinity_binding_1 = args
             .reservation_affinity
-            .get_output(context)
-            .get_inner();
-        let resource_manager_tags_binding = args
+            .get_output(context);
+        let reservation_affinity_binding = reservation_affinity_binding_1.get_inner();
+        let resource_manager_tags_binding_1 = args
             .resource_manager_tags
-            .get_output(context)
-            .get_inner();
-        let resource_policies_binding = args
-            .resource_policies
-            .get_output(context)
-            .get_inner();
-        let scheduling_binding = args.scheduling.get_output(context).get_inner();
-        let service_account_binding = args
-            .service_account
-            .get_output(context)
-            .get_inner();
-        let shielded_instance_config_binding = args
+            .get_output(context);
+        let resource_manager_tags_binding = resource_manager_tags_binding_1.get_inner();
+        let resource_policies_binding_1 = args.resource_policies.get_output(context);
+        let resource_policies_binding = resource_policies_binding_1.get_inner();
+        let scheduling_binding_1 = args.scheduling.get_output(context);
+        let scheduling_binding = scheduling_binding_1.get_inner();
+        let service_account_binding_1 = args.service_account.get_output(context);
+        let service_account_binding = service_account_binding_1.get_inner();
+        let shielded_instance_config_binding_1 = args
             .shielded_instance_config
-            .get_output(context)
+            .get_output(context);
+        let shielded_instance_config_binding = shielded_instance_config_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/instanceTemplate:InstanceTemplate".into(),
             name: name.to_string(),

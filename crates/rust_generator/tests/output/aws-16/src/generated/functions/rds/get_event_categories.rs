@@ -26,7 +26,8 @@ pub mod get_event_categories {
     ) -> GetEventCategoriesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let source_type_binding = args.source_type.get_output(context).get_inner();
+        let source_type_binding_1 = args.source_type.get_output(context);
+        let source_type_binding = source_type_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:rds/getEventCategories:getEventCategories".into(),
             version: super::super::super::get_version(),

@@ -30,7 +30,8 @@ pub mod get_workspaces {
     ) -> GetWorkspacesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_prefix_binding = args.alias_prefix.get_output(context).get_inner();
+        let alias_prefix_binding_1 = args.alias_prefix.get_output(context);
+        let alias_prefix_binding = alias_prefix_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:amp/getWorkspaces:getWorkspaces".into(),
             version: super::super::super::get_version(),

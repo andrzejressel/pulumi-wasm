@@ -67,8 +67,10 @@ pub mod tag_option_resource_association {
     ) -> TagOptionResourceAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let resource_id_binding = args.resource_id.get_output(context).get_inner();
-        let tag_option_id_binding = args.tag_option_id.get_output(context).get_inner();
+        let resource_id_binding_1 = args.resource_id.get_output(context);
+        let resource_id_binding = resource_id_binding_1.get_inner();
+        let tag_option_id_binding_1 = args.tag_option_id.get_output(context);
+        let tag_option_id_binding = tag_option_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation"
                 .into(),

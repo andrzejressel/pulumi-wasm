@@ -205,18 +205,18 @@ pub mod data_policy {
     ) -> DataPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_masking_policy_binding = args
-            .data_masking_policy
-            .get_output(context)
-            .get_inner();
-        let data_policy_id_binding = args.data_policy_id.get_output(context).get_inner();
-        let data_policy_type_binding = args
-            .data_policy_type
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let policy_tag_binding = args.policy_tag.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let data_masking_policy_binding_1 = args.data_masking_policy.get_output(context);
+        let data_masking_policy_binding = data_masking_policy_binding_1.get_inner();
+        let data_policy_id_binding_1 = args.data_policy_id.get_output(context);
+        let data_policy_id_binding = data_policy_id_binding_1.get_inner();
+        let data_policy_type_binding_1 = args.data_policy_type.get_output(context);
+        let data_policy_type_binding = data_policy_type_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let policy_tag_binding_1 = args.policy_tag.get_output(context);
+        let policy_tag_binding = policy_tag_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquerydatapolicy/dataPolicy:DataPolicy".into(),
             name: name.to_string(),

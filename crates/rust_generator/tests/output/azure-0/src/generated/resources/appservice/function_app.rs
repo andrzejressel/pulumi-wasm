@@ -402,54 +402,62 @@ pub mod function_app {
     ) -> FunctionAppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_service_plan_id_binding = args
-            .app_service_plan_id
-            .get_output(context)
-            .get_inner();
-        let app_settings_binding = args.app_settings.get_output(context).get_inner();
-        let auth_settings_binding = args.auth_settings.get_output(context).get_inner();
-        let client_cert_mode_binding = args
-            .client_cert_mode
-            .get_output(context)
-            .get_inner();
-        let connection_strings_binding = args
-            .connection_strings
-            .get_output(context)
-            .get_inner();
-        let daily_memory_time_quota_binding = args
+        let app_service_plan_id_binding_1 = args.app_service_plan_id.get_output(context);
+        let app_service_plan_id_binding = app_service_plan_id_binding_1.get_inner();
+        let app_settings_binding_1 = args.app_settings.get_output(context);
+        let app_settings_binding = app_settings_binding_1.get_inner();
+        let auth_settings_binding_1 = args.auth_settings.get_output(context);
+        let auth_settings_binding = auth_settings_binding_1.get_inner();
+        let client_cert_mode_binding_1 = args.client_cert_mode.get_output(context);
+        let client_cert_mode_binding = client_cert_mode_binding_1.get_inner();
+        let connection_strings_binding_1 = args.connection_strings.get_output(context);
+        let connection_strings_binding = connection_strings_binding_1.get_inner();
+        let daily_memory_time_quota_binding_1 = args
             .daily_memory_time_quota
-            .get_output(context)
+            .get_output(context);
+        let daily_memory_time_quota_binding = daily_memory_time_quota_binding_1
             .get_inner();
-        let enable_builtin_logging_binding = args
+        let enable_builtin_logging_binding_1 = args
             .enable_builtin_logging
-            .get_output(context)
+            .get_output(context);
+        let enable_builtin_logging_binding = enable_builtin_logging_binding_1
             .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let https_only_binding = args.https_only.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let key_vault_reference_identity_id_binding = args
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let https_only_binding_1 = args.https_only.get_output(context);
+        let https_only_binding = https_only_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let key_vault_reference_identity_id_binding_1 = args
             .key_vault_reference_identity_id
-            .get_output(context)
+            .get_output(context);
+        let key_vault_reference_identity_id_binding = key_vault_reference_identity_id_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let os_type_binding = args.os_type.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let site_config_binding = args.site_config.get_output(context).get_inner();
-        let source_control_binding = args.source_control.get_output(context).get_inner();
-        let storage_account_access_key_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let os_type_binding_1 = args.os_type.get_output(context);
+        let os_type_binding = os_type_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let site_config_binding_1 = args.site_config.get_output(context);
+        let site_config_binding = site_config_binding_1.get_inner();
+        let source_control_binding_1 = args.source_control.get_output(context);
+        let source_control_binding = source_control_binding_1.get_inner();
+        let storage_account_access_key_binding_1 = args
             .storage_account_access_key
-            .get_output(context)
+            .get_output(context);
+        let storage_account_access_key_binding = storage_account_access_key_binding_1
             .get_inner();
-        let storage_account_name_binding = args
+        let storage_account_name_binding_1 = args
             .storage_account_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+            .get_output(context);
+        let storage_account_name_binding = storage_account_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/functionApp:FunctionApp".into(),
             name: name.to_string(),

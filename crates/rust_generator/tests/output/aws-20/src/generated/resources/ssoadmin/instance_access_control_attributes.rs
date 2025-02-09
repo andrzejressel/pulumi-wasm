@@ -69,8 +69,10 @@ pub mod instance_access_control_attributes {
     ) -> InstanceAccessControlAttributesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attributes_binding = args.attributes.get_output(context).get_inner();
-        let instance_arn_binding = args.instance_arn.get_output(context).get_inner();
+        let attributes_binding_1 = args.attributes.get_output(context);
+        let attributes_binding = attributes_binding_1.get_inner();
+        let instance_arn_binding_1 = args.instance_arn.get_output(context);
+        let instance_arn_binding = instance_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes"
                 .into(),

@@ -251,38 +251,36 @@ pub mod vpc_endpoint {
     ) -> VpcEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_accept_binding = args.auto_accept.get_output(context).get_inner();
-        let dns_options_binding = args.dns_options.get_output(context).get_inner();
-        let ip_address_type_binding = args
-            .ip_address_type
-            .get_output(context)
-            .get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let private_dns_enabled_binding = args
-            .private_dns_enabled
-            .get_output(context)
-            .get_inner();
-        let route_table_ids_binding = args
-            .route_table_ids
-            .get_output(context)
-            .get_inner();
-        let security_group_ids_binding = args
-            .security_group_ids
-            .get_output(context)
-            .get_inner();
-        let service_name_binding = args.service_name.get_output(context).get_inner();
-        let service_region_binding = args.service_region.get_output(context).get_inner();
-        let subnet_configurations_binding = args
+        let auto_accept_binding_1 = args.auto_accept.get_output(context);
+        let auto_accept_binding = auto_accept_binding_1.get_inner();
+        let dns_options_binding_1 = args.dns_options.get_output(context);
+        let dns_options_binding = dns_options_binding_1.get_inner();
+        let ip_address_type_binding_1 = args.ip_address_type.get_output(context);
+        let ip_address_type_binding = ip_address_type_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let private_dns_enabled_binding_1 = args.private_dns_enabled.get_output(context);
+        let private_dns_enabled_binding = private_dns_enabled_binding_1.get_inner();
+        let route_table_ids_binding_1 = args.route_table_ids.get_output(context);
+        let route_table_ids_binding = route_table_ids_binding_1.get_inner();
+        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
+        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
+        let service_region_binding_1 = args.service_region.get_output(context);
+        let service_region_binding = service_region_binding_1.get_inner();
+        let subnet_configurations_binding_1 = args
             .subnet_configurations
-            .get_output(context)
-            .get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_endpoint_type_binding = args
-            .vpc_endpoint_type
-            .get_output(context)
-            .get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+            .get_output(context);
+        let subnet_configurations_binding = subnet_configurations_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_endpoint_type_binding_1 = args.vpc_endpoint_type.get_output(context);
+        let vpc_endpoint_type_binding = vpc_endpoint_type_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcEndpoint:VpcEndpoint".into(),
             name: name.to_string(),

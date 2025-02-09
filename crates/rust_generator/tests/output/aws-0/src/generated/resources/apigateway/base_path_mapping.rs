@@ -71,11 +71,16 @@ pub mod base_path_mapping {
     ) -> BasePathMappingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_path_binding = args.base_path.get_output(context).get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let domain_name_id_binding = args.domain_name_id.get_output(context).get_inner();
-        let rest_api_binding = args.rest_api.get_output(context).get_inner();
-        let stage_name_binding = args.stage_name.get_output(context).get_inner();
+        let base_path_binding_1 = args.base_path.get_output(context);
+        let base_path_binding = base_path_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let domain_name_id_binding_1 = args.domain_name_id.get_output(context);
+        let domain_name_id_binding = domain_name_id_binding_1.get_inner();
+        let rest_api_binding_1 = args.rest_api.get_output(context);
+        let rest_api_binding = rest_api_binding_1.get_inner();
+        let stage_name_binding_1 = args.stage_name.get_output(context);
+        let stage_name_binding = stage_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/basePathMapping:BasePathMapping".into(),
             name: name.to_string(),

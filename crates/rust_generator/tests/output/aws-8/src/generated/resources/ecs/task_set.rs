@@ -188,41 +188,43 @@ pub mod task_set {
     ) -> TaskSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_provider_strategies_binding = args
+        let capacity_provider_strategies_binding_1 = args
             .capacity_provider_strategies
-            .get_output(context)
+            .get_output(context);
+        let capacity_provider_strategies_binding = capacity_provider_strategies_binding_1
             .get_inner();
-        let cluster_binding = args.cluster.get_output(context).get_inner();
-        let external_id_binding = args.external_id.get_output(context).get_inner();
-        let force_delete_binding = args.force_delete.get_output(context).get_inner();
-        let launch_type_binding = args.launch_type.get_output(context).get_inner();
-        let load_balancers_binding = args.load_balancers.get_output(context).get_inner();
-        let network_configuration_binding = args
+        let cluster_binding_1 = args.cluster.get_output(context);
+        let cluster_binding = cluster_binding_1.get_inner();
+        let external_id_binding_1 = args.external_id.get_output(context);
+        let external_id_binding = external_id_binding_1.get_inner();
+        let force_delete_binding_1 = args.force_delete.get_output(context);
+        let force_delete_binding = force_delete_binding_1.get_inner();
+        let launch_type_binding_1 = args.launch_type.get_output(context);
+        let launch_type_binding = launch_type_binding_1.get_inner();
+        let load_balancers_binding_1 = args.load_balancers.get_output(context);
+        let load_balancers_binding = load_balancers_binding_1.get_inner();
+        let network_configuration_binding_1 = args
             .network_configuration
-            .get_output(context)
-            .get_inner();
-        let platform_version_binding = args
-            .platform_version
-            .get_output(context)
-            .get_inner();
-        let scale_binding = args.scale.get_output(context).get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
-        let service_registries_binding = args
-            .service_registries
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let task_definition_binding = args
-            .task_definition
-            .get_output(context)
-            .get_inner();
-        let wait_until_stable_binding = args
-            .wait_until_stable
-            .get_output(context)
-            .get_inner();
-        let wait_until_stable_timeout_binding = args
+            .get_output(context);
+        let network_configuration_binding = network_configuration_binding_1.get_inner();
+        let platform_version_binding_1 = args.platform_version.get_output(context);
+        let platform_version_binding = platform_version_binding_1.get_inner();
+        let scale_binding_1 = args.scale.get_output(context);
+        let scale_binding = scale_binding_1.get_inner();
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
+        let service_registries_binding_1 = args.service_registries.get_output(context);
+        let service_registries_binding = service_registries_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let task_definition_binding_1 = args.task_definition.get_output(context);
+        let task_definition_binding = task_definition_binding_1.get_inner();
+        let wait_until_stable_binding_1 = args.wait_until_stable.get_output(context);
+        let wait_until_stable_binding = wait_until_stable_binding_1.get_inner();
+        let wait_until_stable_timeout_binding_1 = args
             .wait_until_stable_timeout
-            .get_output(context)
+            .get_output(context);
+        let wait_until_stable_timeout_binding = wait_until_stable_timeout_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecs/taskSet:TaskSet".into(),

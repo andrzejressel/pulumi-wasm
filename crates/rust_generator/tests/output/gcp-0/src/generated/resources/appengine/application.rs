@@ -140,16 +140,20 @@ pub mod application {
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auth_domain_binding = args.auth_domain.get_output(context).get_inner();
-        let database_type_binding = args.database_type.get_output(context).get_inner();
-        let feature_settings_binding = args
-            .feature_settings
-            .get_output(context)
-            .get_inner();
-        let iap_binding = args.iap.get_output(context).get_inner();
-        let location_id_binding = args.location_id.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let serving_status_binding = args.serving_status.get_output(context).get_inner();
+        let auth_domain_binding_1 = args.auth_domain.get_output(context);
+        let auth_domain_binding = auth_domain_binding_1.get_inner();
+        let database_type_binding_1 = args.database_type.get_output(context);
+        let database_type_binding = database_type_binding_1.get_inner();
+        let feature_settings_binding_1 = args.feature_settings.get_output(context);
+        let feature_settings_binding = feature_settings_binding_1.get_inner();
+        let iap_binding_1 = args.iap.get_output(context);
+        let iap_binding = iap_binding_1.get_inner();
+        let location_id_binding_1 = args.location_id.get_output(context);
+        let location_id_binding = location_id_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let serving_status_binding_1 = args.serving_status.get_output(context);
+        let serving_status_binding = serving_status_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/application:Application".into(),
             name: name.to_string(),

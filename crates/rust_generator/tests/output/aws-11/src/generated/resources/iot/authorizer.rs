@@ -105,25 +105,30 @@ pub mod authorizer {
     ) -> AuthorizerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorizer_function_arn_binding = args
+        let authorizer_function_arn_binding_1 = args
             .authorizer_function_arn
-            .get_output(context)
+            .get_output(context);
+        let authorizer_function_arn_binding = authorizer_function_arn_binding_1
             .get_inner();
-        let enable_caching_for_http_binding = args
+        let enable_caching_for_http_binding_1 = args
             .enable_caching_for_http
-            .get_output(context)
+            .get_output(context);
+        let enable_caching_for_http_binding = enable_caching_for_http_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let signing_disabled_binding = args
-            .signing_disabled
-            .get_output(context)
-            .get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let token_key_name_binding = args.token_key_name.get_output(context).get_inner();
-        let token_signing_public_keys_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let signing_disabled_binding_1 = args.signing_disabled.get_output(context);
+        let signing_disabled_binding = signing_disabled_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let token_key_name_binding_1 = args.token_key_name.get_output(context);
+        let token_key_name_binding = token_key_name_binding_1.get_inner();
+        let token_signing_public_keys_binding_1 = args
             .token_signing_public_keys
-            .get_output(context)
+            .get_output(context);
+        let token_signing_public_keys_binding = token_signing_public_keys_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/authorizer:Authorizer".into(),

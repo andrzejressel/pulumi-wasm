@@ -59,13 +59,14 @@ pub mod rds_db_instance {
     ) -> RdsDbInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_password_binding = args.db_password.get_output(context).get_inner();
-        let db_user_binding = args.db_user.get_output(context).get_inner();
-        let rds_db_instance_arn_binding = args
-            .rds_db_instance_arn
-            .get_output(context)
-            .get_inner();
-        let stack_id_binding = args.stack_id.get_output(context).get_inner();
+        let db_password_binding_1 = args.db_password.get_output(context);
+        let db_password_binding = db_password_binding_1.get_inner();
+        let db_user_binding_1 = args.db_user.get_output(context);
+        let db_user_binding = db_user_binding_1.get_inner();
+        let rds_db_instance_arn_binding_1 = args.rds_db_instance_arn.get_output(context);
+        let rds_db_instance_arn_binding = rds_db_instance_arn_binding_1.get_inner();
+        let stack_id_binding_1 = args.stack_id.get_output(context);
+        let stack_id_binding = stack_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opsworks/rdsDbInstance:RdsDbInstance".into(),
             name: name.to_string(),

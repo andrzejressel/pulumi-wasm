@@ -125,15 +125,21 @@ pub mod delivery_channel {
     ) -> DeliveryChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let s3_bucket_name_binding = args.s3_bucket_name.get_output(context).get_inner();
-        let s3_key_prefix_binding = args.s3_key_prefix.get_output(context).get_inner();
-        let s3_kms_key_arn_binding = args.s3_kms_key_arn.get_output(context).get_inner();
-        let snapshot_delivery_properties_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let s3_bucket_name_binding_1 = args.s3_bucket_name.get_output(context);
+        let s3_bucket_name_binding = s3_bucket_name_binding_1.get_inner();
+        let s3_key_prefix_binding_1 = args.s3_key_prefix.get_output(context);
+        let s3_key_prefix_binding = s3_key_prefix_binding_1.get_inner();
+        let s3_kms_key_arn_binding_1 = args.s3_kms_key_arn.get_output(context);
+        let s3_kms_key_arn_binding = s3_kms_key_arn_binding_1.get_inner();
+        let snapshot_delivery_properties_binding_1 = args
             .snapshot_delivery_properties
-            .get_output(context)
+            .get_output(context);
+        let snapshot_delivery_properties_binding = snapshot_delivery_properties_binding_1
             .get_inner();
-        let sns_topic_arn_binding = args.sns_topic_arn.get_output(context).get_inner();
+        let sns_topic_arn_binding_1 = args.sns_topic_arn.get_output(context);
+        let sns_topic_arn_binding = sns_topic_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/deliveryChannel:DeliveryChannel".into(),
             name: name.to_string(),

@@ -112,22 +112,23 @@ pub mod linked_server {
     ) -> LinkedServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let linked_redis_cache_id_binding = args
+        let linked_redis_cache_id_binding_1 = args
             .linked_redis_cache_id
-            .get_output(context)
-            .get_inner();
-        let linked_redis_cache_location_binding = args
+            .get_output(context);
+        let linked_redis_cache_id_binding = linked_redis_cache_id_binding_1.get_inner();
+        let linked_redis_cache_location_binding_1 = args
             .linked_redis_cache_location
-            .get_output(context)
+            .get_output(context);
+        let linked_redis_cache_location_binding = linked_redis_cache_location_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let server_role_binding = args.server_role.get_output(context).get_inner();
-        let target_redis_cache_name_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let server_role_binding_1 = args.server_role.get_output(context);
+        let server_role_binding = server_role_binding_1.get_inner();
+        let target_redis_cache_name_binding_1 = args
             .target_redis_cache_name
-            .get_output(context)
+            .get_output(context);
+        let target_redis_cache_name_binding = target_redis_cache_name_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:redis/linkedServer:LinkedServer".into(),

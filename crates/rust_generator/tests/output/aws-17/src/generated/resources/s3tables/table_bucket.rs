@@ -76,11 +76,13 @@ pub mod table_bucket {
     ) -> TableBucketResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let maintenance_configuration_binding = args
+        let maintenance_configuration_binding_1 = args
             .maintenance_configuration
-            .get_output(context)
+            .get_output(context);
+        let maintenance_configuration_binding = maintenance_configuration_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3tables/tableBucket:TableBucket".into(),
             name: name.to_string(),

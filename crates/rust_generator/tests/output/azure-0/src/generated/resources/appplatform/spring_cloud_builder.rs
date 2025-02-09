@@ -105,16 +105,17 @@ pub mod spring_cloud_builder {
     ) -> SpringCloudBuilderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let build_pack_groups_binding = args
-            .build_pack_groups
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let spring_cloud_service_id_binding = args
+        let build_pack_groups_binding_1 = args.build_pack_groups.get_output(context);
+        let build_pack_groups_binding = build_pack_groups_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let spring_cloud_service_id_binding_1 = args
             .spring_cloud_service_id
-            .get_output(context)
+            .get_output(context);
+        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
             .get_inner();
-        let stack_binding = args.stack.get_output(context).get_inner();
+        let stack_binding_1 = args.stack.get_output(context);
+        let stack_binding = stack_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudBuilder:SpringCloudBuilder".into(),
             name: name.to_string(),

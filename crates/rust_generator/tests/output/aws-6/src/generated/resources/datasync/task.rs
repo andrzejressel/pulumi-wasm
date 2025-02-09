@@ -182,28 +182,32 @@ pub mod task {
     ) -> TaskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_log_group_arn_binding = args
+        let cloudwatch_log_group_arn_binding_1 = args
             .cloudwatch_log_group_arn
-            .get_output(context)
+            .get_output(context);
+        let cloudwatch_log_group_arn_binding = cloudwatch_log_group_arn_binding_1
             .get_inner();
-        let destination_location_arn_binding = args
+        let destination_location_arn_binding_1 = args
             .destination_location_arn
-            .get_output(context)
+            .get_output(context);
+        let destination_location_arn_binding = destination_location_arn_binding_1
             .get_inner();
-        let excludes_binding = args.excludes.get_output(context).get_inner();
-        let includes_binding = args.includes.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let options_binding = args.options.get_output(context).get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let source_location_arn_binding = args
-            .source_location_arn
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let task_report_config_binding = args
-            .task_report_config
-            .get_output(context)
-            .get_inner();
+        let excludes_binding_1 = args.excludes.get_output(context);
+        let excludes_binding = excludes_binding_1.get_inner();
+        let includes_binding_1 = args.includes.get_output(context);
+        let includes_binding = includes_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let options_binding_1 = args.options.get_output(context);
+        let options_binding = options_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let source_location_arn_binding_1 = args.source_location_arn.get_output(context);
+        let source_location_arn_binding = source_location_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let task_report_config_binding_1 = args.task_report_config.get_output(context);
+        let task_report_config_binding = task_report_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/task:Task".into(),
             name: name.to_string(),

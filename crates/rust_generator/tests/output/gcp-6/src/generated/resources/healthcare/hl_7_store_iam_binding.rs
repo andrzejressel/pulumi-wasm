@@ -196,13 +196,14 @@ pub mod hl_7_store_iam_binding {
     ) -> Hl7StoreIamBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let hl7_v2_store_id_binding = args
-            .hl7_v2_store_id
-            .get_output(context)
-            .get_inner();
-        let members_binding = args.members.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let hl7_v2_store_id_binding_1 = args.hl7_v2_store_id.get_output(context);
+        let hl7_v2_store_id_binding = hl7_v2_store_id_binding_1.get_inner();
+        let members_binding_1 = args.members.get_output(context);
+        let members_binding = members_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/hl7StoreIamBinding:Hl7StoreIamBinding".into(),
             name: name.to_string(),

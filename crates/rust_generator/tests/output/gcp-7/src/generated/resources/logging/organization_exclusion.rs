@@ -83,11 +83,16 @@ pub mod organization_exclusion {
     ) -> OrganizationExclusionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:logging/organizationExclusion:OrganizationExclusion".into(),
             name: name.to_string(),

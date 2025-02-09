@@ -225,29 +225,33 @@ pub mod policy_based_route {
     ) -> PolicyBasedRouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let interconnect_attachment_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let interconnect_attachment_binding_1 = args
             .interconnect_attachment
-            .get_output(context)
+            .get_output(context);
+        let interconnect_attachment_binding = interconnect_attachment_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let next_hop_ilb_ip_binding = args
-            .next_hop_ilb_ip
-            .get_output(context)
-            .get_inner();
-        let next_hop_other_routes_binding = args
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let next_hop_ilb_ip_binding_1 = args.next_hop_ilb_ip.get_output(context);
+        let next_hop_ilb_ip_binding = next_hop_ilb_ip_binding_1.get_inner();
+        let next_hop_other_routes_binding_1 = args
             .next_hop_other_routes
-            .get_output(context)
-            .get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let virtual_machine_binding = args
-            .virtual_machine
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let next_hop_other_routes_binding = next_hop_other_routes_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let virtual_machine_binding_1 = args.virtual_machine.get_output(context);
+        let virtual_machine_binding = virtual_machine_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkconnectivity/policyBasedRoute:PolicyBasedRoute".into(),
             name: name.to_string(),

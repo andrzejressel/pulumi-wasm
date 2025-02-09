@@ -545,19 +545,29 @@ pub mod data_source {
     ) -> DataSourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_binding = args.configuration.get_output(context).get_inner();
-        let custom_document_enrichment_configuration_binding = args
+        let configuration_binding_1 = args.configuration.get_output(context);
+        let configuration_binding = configuration_binding_1.get_inner();
+        let custom_document_enrichment_configuration_binding_1 = args
             .custom_document_enrichment_configuration
-            .get_output(context)
+            .get_output(context);
+        let custom_document_enrichment_configuration_binding = custom_document_enrichment_configuration_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let index_id_binding = args.index_id.get_output(context).get_inner();
-        let language_code_binding = args.language_code.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let index_id_binding_1 = args.index_id.get_output(context);
+        let index_id_binding = index_id_binding_1.get_inner();
+        let language_code_binding_1 = args.language_code.get_output(context);
+        let language_code_binding = language_code_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kendra/dataSource:DataSource".into(),
             name: name.to_string(),

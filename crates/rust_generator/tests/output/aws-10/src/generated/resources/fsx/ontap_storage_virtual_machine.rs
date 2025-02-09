@@ -140,21 +140,24 @@ pub mod ontap_storage_virtual_machine {
     ) -> OntapStorageVirtualMachineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_directory_configuration_binding = args
+        let active_directory_configuration_binding_1 = args
             .active_directory_configuration
-            .get_output(context)
+            .get_output(context);
+        let active_directory_configuration_binding = active_directory_configuration_binding_1
             .get_inner();
-        let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let root_volume_security_style_binding = args
+        let file_system_id_binding_1 = args.file_system_id.get_output(context);
+        let file_system_id_binding = file_system_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let root_volume_security_style_binding_1 = args
             .root_volume_security_style
-            .get_output(context)
+            .get_output(context);
+        let root_volume_security_style_binding = root_volume_security_style_binding_1
             .get_inner();
-        let svm_admin_password_binding = args
-            .svm_admin_password
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let svm_admin_password_binding_1 = args.svm_admin_password.get_output(context);
+        let svm_admin_password_binding = svm_admin_password_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine"
                 .into(),

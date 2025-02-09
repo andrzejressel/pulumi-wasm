@@ -311,51 +311,53 @@ pub mod standard_app_version {
     ) -> StandardAppVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_engine_apis_binding = args
-            .app_engine_apis
-            .get_output(context)
-            .get_inner();
-        let automatic_scaling_binding = args
-            .automatic_scaling
-            .get_output(context)
-            .get_inner();
-        let basic_scaling_binding = args.basic_scaling.get_output(context).get_inner();
-        let delete_service_on_destroy_binding = args
+        let app_engine_apis_binding_1 = args.app_engine_apis.get_output(context);
+        let app_engine_apis_binding = app_engine_apis_binding_1.get_inner();
+        let automatic_scaling_binding_1 = args.automatic_scaling.get_output(context);
+        let automatic_scaling_binding = automatic_scaling_binding_1.get_inner();
+        let basic_scaling_binding_1 = args.basic_scaling.get_output(context);
+        let basic_scaling_binding = basic_scaling_binding_1.get_inner();
+        let delete_service_on_destroy_binding_1 = args
             .delete_service_on_destroy
-            .get_output(context)
+            .get_output(context);
+        let delete_service_on_destroy_binding = delete_service_on_destroy_binding_1
             .get_inner();
-        let deployment_binding = args.deployment.get_output(context).get_inner();
-        let entrypoint_binding = args.entrypoint.get_output(context).get_inner();
-        let env_variables_binding = args.env_variables.get_output(context).get_inner();
-        let handlers_binding = args.handlers.get_output(context).get_inner();
-        let inbound_services_binding = args
-            .inbound_services
-            .get_output(context)
-            .get_inner();
-        let instance_class_binding = args.instance_class.get_output(context).get_inner();
-        let libraries_binding = args.libraries.get_output(context).get_inner();
-        let manual_scaling_binding = args.manual_scaling.get_output(context).get_inner();
-        let noop_on_destroy_binding = args
-            .noop_on_destroy
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let runtime_binding = args.runtime.get_output(context).get_inner();
-        let runtime_api_version_binding = args
-            .runtime_api_version
-            .get_output(context)
-            .get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
-        let service_account_binding = args
-            .service_account
-            .get_output(context)
-            .get_inner();
-        let threadsafe_binding = args.threadsafe.get_output(context).get_inner();
-        let version_id_binding = args.version_id.get_output(context).get_inner();
-        let vpc_access_connector_binding = args
+        let deployment_binding_1 = args.deployment.get_output(context);
+        let deployment_binding = deployment_binding_1.get_inner();
+        let entrypoint_binding_1 = args.entrypoint.get_output(context);
+        let entrypoint_binding = entrypoint_binding_1.get_inner();
+        let env_variables_binding_1 = args.env_variables.get_output(context);
+        let env_variables_binding = env_variables_binding_1.get_inner();
+        let handlers_binding_1 = args.handlers.get_output(context);
+        let handlers_binding = handlers_binding_1.get_inner();
+        let inbound_services_binding_1 = args.inbound_services.get_output(context);
+        let inbound_services_binding = inbound_services_binding_1.get_inner();
+        let instance_class_binding_1 = args.instance_class.get_output(context);
+        let instance_class_binding = instance_class_binding_1.get_inner();
+        let libraries_binding_1 = args.libraries.get_output(context);
+        let libraries_binding = libraries_binding_1.get_inner();
+        let manual_scaling_binding_1 = args.manual_scaling.get_output(context);
+        let manual_scaling_binding = manual_scaling_binding_1.get_inner();
+        let noop_on_destroy_binding_1 = args.noop_on_destroy.get_output(context);
+        let noop_on_destroy_binding = noop_on_destroy_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let runtime_binding_1 = args.runtime.get_output(context);
+        let runtime_binding = runtime_binding_1.get_inner();
+        let runtime_api_version_binding_1 = args.runtime_api_version.get_output(context);
+        let runtime_api_version_binding = runtime_api_version_binding_1.get_inner();
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
+        let service_account_binding_1 = args.service_account.get_output(context);
+        let service_account_binding = service_account_binding_1.get_inner();
+        let threadsafe_binding_1 = args.threadsafe.get_output(context);
+        let threadsafe_binding = threadsafe_binding_1.get_inner();
+        let version_id_binding_1 = args.version_id.get_output(context);
+        let version_id_binding = version_id_binding_1.get_inner();
+        let vpc_access_connector_binding_1 = args
             .vpc_access_connector
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let vpc_access_connector_binding = vpc_access_connector_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/standardAppVersion:StandardAppVersion".into(),
             name: name.to_string(),

@@ -77,16 +77,16 @@ pub mod endpoint {
     ) -> EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deployment_config_binding = args
-            .deployment_config
-            .get_output(context)
-            .get_inner();
-        let endpoint_config_name_binding = args
+        let deployment_config_binding_1 = args.deployment_config.get_output(context);
+        let deployment_config_binding = deployment_config_binding_1.get_inner();
+        let endpoint_config_name_binding_1 = args
             .endpoint_config_name
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let endpoint_config_name_binding = endpoint_config_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/endpoint:Endpoint".into(),
             name: name.to_string(),

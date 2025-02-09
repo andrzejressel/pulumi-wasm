@@ -162,19 +162,22 @@ pub mod file_system_association {
     ) -> FileSystemAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_destination_arn_binding = args
+        let audit_destination_arn_binding_1 = args
             .audit_destination_arn
-            .get_output(context)
-            .get_inner();
-        let cache_attributes_binding = args
-            .cache_attributes
-            .get_output(context)
-            .get_inner();
-        let gateway_arn_binding = args.gateway_arn.get_output(context).get_inner();
-        let location_arn_binding = args.location_arn.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
+            .get_output(context);
+        let audit_destination_arn_binding = audit_destination_arn_binding_1.get_inner();
+        let cache_attributes_binding_1 = args.cache_attributes.get_output(context);
+        let cache_attributes_binding = cache_attributes_binding_1.get_inner();
+        let gateway_arn_binding_1 = args.gateway_arn.get_output(context);
+        let gateway_arn_binding = gateway_arn_binding_1.get_inner();
+        let location_arn_binding_1 = args.location_arn.get_output(context);
+        let location_arn_binding = location_arn_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:storagegateway/fileSystemAssociation:FileSystemAssociation"
                 .into(),

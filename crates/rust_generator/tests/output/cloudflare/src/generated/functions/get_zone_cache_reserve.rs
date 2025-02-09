@@ -27,7 +27,8 @@ pub mod get_zone_cache_reserve {
     ) -> GetZoneCacheReserveResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getZoneCacheReserve:getZoneCacheReserve".into(),
             version: super::super::get_version(),

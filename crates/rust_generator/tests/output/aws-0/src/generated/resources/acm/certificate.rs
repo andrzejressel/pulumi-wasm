@@ -263,39 +263,39 @@ pub mod certificate {
     ) -> CertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_authority_arn_binding = args
+        let certificate_authority_arn_binding_1 = args
             .certificate_authority_arn
-            .get_output(context)
+            .get_output(context);
+        let certificate_authority_arn_binding = certificate_authority_arn_binding_1
             .get_inner();
-        let certificate_body_binding = args
-            .certificate_body
-            .get_output(context)
-            .get_inner();
-        let certificate_chain_binding = args
-            .certificate_chain
-            .get_output(context)
-            .get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
-        let early_renewal_duration_binding = args
+        let certificate_body_binding_1 = args.certificate_body.get_output(context);
+        let certificate_body_binding = certificate_body_binding_1.get_inner();
+        let certificate_chain_binding_1 = args.certificate_chain.get_output(context);
+        let certificate_chain_binding = certificate_chain_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
+        let early_renewal_duration_binding_1 = args
             .early_renewal_duration
-            .get_output(context)
+            .get_output(context);
+        let early_renewal_duration_binding = early_renewal_duration_binding_1
             .get_inner();
-        let key_algorithm_binding = args.key_algorithm.get_output(context).get_inner();
-        let options_binding = args.options.get_output(context).get_inner();
-        let private_key_binding = args.private_key.get_output(context).get_inner();
-        let subject_alternative_names_binding = args
+        let key_algorithm_binding_1 = args.key_algorithm.get_output(context);
+        let key_algorithm_binding = key_algorithm_binding_1.get_inner();
+        let options_binding_1 = args.options.get_output(context);
+        let options_binding = options_binding_1.get_inner();
+        let private_key_binding_1 = args.private_key.get_output(context);
+        let private_key_binding = private_key_binding_1.get_inner();
+        let subject_alternative_names_binding_1 = args
             .subject_alternative_names
-            .get_output(context)
+            .get_output(context);
+        let subject_alternative_names_binding = subject_alternative_names_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let validation_method_binding = args
-            .validation_method
-            .get_output(context)
-            .get_inner();
-        let validation_options_binding = args
-            .validation_options
-            .get_output(context)
-            .get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let validation_method_binding_1 = args.validation_method.get_output(context);
+        let validation_method_binding = validation_method_binding_1.get_inner();
+        let validation_options_binding_1 = args.validation_options.get_output(context);
+        let validation_options_binding = validation_options_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:acm/certificate:Certificate".into(),
             name: name.to_string(),

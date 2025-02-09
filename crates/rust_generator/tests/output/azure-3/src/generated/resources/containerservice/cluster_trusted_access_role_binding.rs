@@ -148,16 +148,16 @@ pub mod cluster_trusted_access_role_binding {
     ) -> ClusterTrustedAccessRoleBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let kubernetes_cluster_id_binding = args
+        let kubernetes_cluster_id_binding_1 = args
             .kubernetes_cluster_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let roles_binding = args.roles.get_output(context).get_inner();
-        let source_resource_id_binding = args
-            .source_resource_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let kubernetes_cluster_id_binding = kubernetes_cluster_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let roles_binding_1 = args.roles.get_output(context);
+        let roles_binding = roles_binding_1.get_inner();
+        let source_resource_id_binding_1 = args.source_resource_id.get_output(context);
+        let source_resource_id_binding = source_resource_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding"
                 .into(),

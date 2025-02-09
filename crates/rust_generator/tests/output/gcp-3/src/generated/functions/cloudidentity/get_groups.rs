@@ -28,7 +28,8 @@ pub mod get_groups {
     ) -> GetGroupsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parent_binding = args.parent.get_output(context).get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudidentity/getGroups:getGroups".into(),
             version: super::super::super::get_version(),

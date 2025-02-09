@@ -183,18 +183,24 @@ pub mod projects_policy_binding {
     ) -> ProjectsPolicyBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let policy_binding_id_binding = args
-            .policy_binding_id
-            .get_output(context)
-            .get_inner();
-        let policy_kind_binding = args.policy_kind.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let target_binding = args.target.get_output(context).get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let policy_binding_id_binding_1 = args.policy_binding_id.get_output(context);
+        let policy_binding_id_binding = policy_binding_id_binding_1.get_inner();
+        let policy_kind_binding_1 = args.policy_kind.get_output(context);
+        let policy_kind_binding = policy_kind_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let target_binding_1 = args.target.get_output(context);
+        let target_binding = target_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iam/projectsPolicyBinding:ProjectsPolicyBinding".into(),
             name: name.to_string(),

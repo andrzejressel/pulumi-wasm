@@ -107,11 +107,16 @@ pub mod named_query {
     ) -> NamedQueryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_binding = args.database.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let query_binding = args.query.get_output(context).get_inner();
-        let workgroup_binding = args.workgroup.get_output(context).get_inner();
+        let database_binding_1 = args.database.get_output(context);
+        let database_binding = database_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let query_binding_1 = args.query.get_output(context);
+        let query_binding = query_binding_1.get_inner();
+        let workgroup_binding_1 = args.workgroup.get_output(context);
+        let workgroup_binding = workgroup_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:athena/namedQuery:NamedQuery".into(),
             name: name.to_string(),

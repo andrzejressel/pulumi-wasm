@@ -218,26 +218,34 @@ pub mod certificate_authority {
     ) -> CertificateAuthorityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_authority_configuration_binding = args
+        let certificate_authority_configuration_binding_1 = args
             .certificate_authority_configuration
-            .get_output(context)
+            .get_output(context);
+        let certificate_authority_configuration_binding = certificate_authority_configuration_binding_1
             .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let key_storage_security_standard_binding = args
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let key_storage_security_standard_binding_1 = args
             .key_storage_security_standard
-            .get_output(context)
+            .get_output(context);
+        let key_storage_security_standard_binding = key_storage_security_standard_binding_1
             .get_inner();
-        let permanent_deletion_time_in_days_binding = args
+        let permanent_deletion_time_in_days_binding_1 = args
             .permanent_deletion_time_in_days
-            .get_output(context)
+            .get_output(context);
+        let permanent_deletion_time_in_days_binding = permanent_deletion_time_in_days_binding_1
             .get_inner();
-        let revocation_configuration_binding = args
+        let revocation_configuration_binding_1 = args
             .revocation_configuration
-            .get_output(context)
+            .get_output(context);
+        let revocation_configuration_binding = revocation_configuration_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let usage_mode_binding = args.usage_mode.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let usage_mode_binding_1 = args.usage_mode.get_output(context);
+        let usage_mode_binding = usage_mode_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:acmpca/certificateAuthority:CertificateAuthority".into(),
             name: name.to_string(),

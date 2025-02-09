@@ -113,12 +113,12 @@ pub mod routing_intent {
     ) -> RoutingIntentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let routing_policies_binding = args
-            .routing_policies
-            .get_output(context)
-            .get_inner();
-        let virtual_hub_id_binding = args.virtual_hub_id.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let routing_policies_binding_1 = args.routing_policies.get_output(context);
+        let routing_policies_binding = routing_policies_binding_1.get_inner();
+        let virtual_hub_id_binding_1 = args.virtual_hub_id.get_output(context);
+        let virtual_hub_id_binding = virtual_hub_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/routingIntent:RoutingIntent".into(),
             name: name.to_string(),

@@ -137,15 +137,18 @@ pub mod v_2_folder_notification_config {
     ) -> V2FolderNotificationConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let config_id_binding = args.config_id.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let folder_binding = args.folder.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let pubsub_topic_binding = args.pubsub_topic.get_output(context).get_inner();
-        let streaming_config_binding = args
-            .streaming_config
-            .get_output(context)
-            .get_inner();
+        let config_id_binding_1 = args.config_id.get_output(context);
+        let config_id_binding = config_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let folder_binding_1 = args.folder.get_output(context);
+        let folder_binding = folder_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let pubsub_topic_binding_1 = args.pubsub_topic.get_output(context);
+        let pubsub_topic_binding = pubsub_topic_binding_1.get_inner();
+        let streaming_config_binding_1 = args.streaming_config.get_output(context);
+        let streaming_config_binding = streaming_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/v2FolderNotificationConfig:V2FolderNotificationConfig"
                 .into(),

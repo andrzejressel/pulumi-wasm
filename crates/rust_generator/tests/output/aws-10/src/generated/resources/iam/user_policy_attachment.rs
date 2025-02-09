@@ -61,8 +61,10 @@ pub mod user_policy_attachment {
     ) -> UserPolicyAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_arn_binding = args.policy_arn.get_output(context).get_inner();
-        let user_binding = args.user.get_output(context).get_inner();
+        let policy_arn_binding_1 = args.policy_arn.get_output(context);
+        let policy_arn_binding = policy_arn_binding_1.get_inner();
+        let user_binding_1 = args.user.get_output(context);
+        let user_binding = user_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/userPolicyAttachment:UserPolicyAttachment".into(),
             name: name.to_string(),

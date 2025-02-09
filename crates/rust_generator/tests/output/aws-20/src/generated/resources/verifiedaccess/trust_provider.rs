@@ -107,25 +107,29 @@ pub mod trust_provider {
     ) -> TrustProviderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let device_options_binding = args.device_options.get_output(context).get_inner();
-        let device_trust_provider_type_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let device_options_binding_1 = args.device_options.get_output(context);
+        let device_options_binding = device_options_binding_1.get_inner();
+        let device_trust_provider_type_binding_1 = args
             .device_trust_provider_type
-            .get_output(context)
+            .get_output(context);
+        let device_trust_provider_type_binding = device_trust_provider_type_binding_1
             .get_inner();
-        let oidc_options_binding = args.oidc_options.get_output(context).get_inner();
-        let policy_reference_name_binding = args
+        let oidc_options_binding_1 = args.oidc_options.get_output(context);
+        let oidc_options_binding = oidc_options_binding_1.get_inner();
+        let policy_reference_name_binding_1 = args
             .policy_reference_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let trust_provider_type_binding = args
-            .trust_provider_type
-            .get_output(context)
-            .get_inner();
-        let user_trust_provider_type_binding = args
+            .get_output(context);
+        let policy_reference_name_binding = policy_reference_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let trust_provider_type_binding_1 = args.trust_provider_type.get_output(context);
+        let trust_provider_type_binding = trust_provider_type_binding_1.get_inner();
+        let user_trust_provider_type_binding_1 = args
             .user_trust_provider_type
-            .get_output(context)
+            .get_output(context);
+        let user_trust_provider_type_binding = user_trust_provider_type_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:verifiedaccess/trustProvider:TrustProvider".into(),

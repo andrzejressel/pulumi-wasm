@@ -114,15 +114,18 @@ pub mod tag_template {
     ) -> TagTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let fields_binding = args.fields.get_output(context).get_inner();
-        let force_delete_binding = args.force_delete.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let tag_template_id_binding = args
-            .tag_template_id
-            .get_output(context)
-            .get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let fields_binding_1 = args.fields.get_output(context);
+        let fields_binding = fields_binding_1.get_inner();
+        let force_delete_binding_1 = args.force_delete.get_output(context);
+        let force_delete_binding = force_delete_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let tag_template_id_binding_1 = args.tag_template_id.get_output(context);
+        let tag_template_id_binding = tag_template_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/tagTemplate:TagTemplate".into(),
             name: name.to_string(),

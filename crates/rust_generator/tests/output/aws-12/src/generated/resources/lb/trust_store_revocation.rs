@@ -80,22 +80,19 @@ pub mod trust_store_revocation {
     ) -> TrustStoreRevocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let revocations_s3_bucket_binding = args
+        let revocations_s3_bucket_binding_1 = args
             .revocations_s3_bucket
-            .get_output(context)
-            .get_inner();
-        let revocations_s3_key_binding = args
-            .revocations_s3_key
-            .get_output(context)
-            .get_inner();
-        let revocations_s3_object_version_binding = args
+            .get_output(context);
+        let revocations_s3_bucket_binding = revocations_s3_bucket_binding_1.get_inner();
+        let revocations_s3_key_binding_1 = args.revocations_s3_key.get_output(context);
+        let revocations_s3_key_binding = revocations_s3_key_binding_1.get_inner();
+        let revocations_s3_object_version_binding_1 = args
             .revocations_s3_object_version
-            .get_output(context)
+            .get_output(context);
+        let revocations_s3_object_version_binding = revocations_s3_object_version_binding_1
             .get_inner();
-        let trust_store_arn_binding = args
-            .trust_store_arn
-            .get_output(context)
-            .get_inner();
+        let trust_store_arn_binding_1 = args.trust_store_arn.get_output(context);
+        let trust_store_arn_binding = trust_store_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lb/trustStoreRevocation:TrustStoreRevocation".into(),
             name: name.to_string(),

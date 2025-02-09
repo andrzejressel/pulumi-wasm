@@ -85,21 +85,27 @@ pub mod rule_group {
     ) -> RuleGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_binding = args.capacity.get_output(context).get_inner();
-        let custom_response_bodies_binding = args
+        let capacity_binding_1 = args.capacity.get_output(context);
+        let capacity_binding = capacity_binding_1.get_inner();
+        let custom_response_bodies_binding_1 = args
             .custom_response_bodies
-            .get_output(context)
+            .get_output(context);
+        let custom_response_bodies_binding = custom_response_bodies_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let rules_binding = args.rules.get_output(context).get_inner();
-        let scope_binding = args.scope.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let visibility_config_binding = args
-            .visibility_config
-            .get_output(context)
-            .get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
+        let scope_binding_1 = args.scope.get_output(context);
+        let scope_binding = scope_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let visibility_config_binding_1 = args.visibility_config.get_output(context);
+        let visibility_config_binding = visibility_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:wafv2/ruleGroup:RuleGroup".into(),
             name: name.to_string(),

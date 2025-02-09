@@ -66,10 +66,14 @@ pub mod worker_secret {
     ) -> WorkerSecretResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let script_name_binding = args.script_name.get_output(context).get_inner();
-        let secret_text_binding = args.secret_text.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let script_name_binding_1 = args.script_name.get_output(context);
+        let script_name_binding = script_name_binding_1.get_inner();
+        let secret_text_binding_1 = args.secret_text.get_output(context);
+        let secret_text_binding = secret_text_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/workerSecret:WorkerSecret".into(),
             name: name.to_string(),

@@ -349,52 +349,60 @@ pub mod crawler {
     ) -> CrawlerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_targets_binding = args
-            .catalog_targets
-            .get_output(context)
-            .get_inner();
-        let classifiers_binding = args.classifiers.get_output(context).get_inner();
-        let configuration_binding = args.configuration.get_output(context).get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let delta_targets_binding = args.delta_targets.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let dynamodb_targets_binding = args
-            .dynamodb_targets
-            .get_output(context)
-            .get_inner();
-        let hudi_targets_binding = args.hudi_targets.get_output(context).get_inner();
-        let iceberg_targets_binding = args
-            .iceberg_targets
-            .get_output(context)
-            .get_inner();
-        let jdbc_targets_binding = args.jdbc_targets.get_output(context).get_inner();
-        let lake_formation_configuration_binding = args
+        let catalog_targets_binding_1 = args.catalog_targets.get_output(context);
+        let catalog_targets_binding = catalog_targets_binding_1.get_inner();
+        let classifiers_binding_1 = args.classifiers.get_output(context);
+        let classifiers_binding = classifiers_binding_1.get_inner();
+        let configuration_binding_1 = args.configuration.get_output(context);
+        let configuration_binding = configuration_binding_1.get_inner();
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let delta_targets_binding_1 = args.delta_targets.get_output(context);
+        let delta_targets_binding = delta_targets_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dynamodb_targets_binding_1 = args.dynamodb_targets.get_output(context);
+        let dynamodb_targets_binding = dynamodb_targets_binding_1.get_inner();
+        let hudi_targets_binding_1 = args.hudi_targets.get_output(context);
+        let hudi_targets_binding = hudi_targets_binding_1.get_inner();
+        let iceberg_targets_binding_1 = args.iceberg_targets.get_output(context);
+        let iceberg_targets_binding = iceberg_targets_binding_1.get_inner();
+        let jdbc_targets_binding_1 = args.jdbc_targets.get_output(context);
+        let jdbc_targets_binding = jdbc_targets_binding_1.get_inner();
+        let lake_formation_configuration_binding_1 = args
             .lake_formation_configuration
-            .get_output(context)
+            .get_output(context);
+        let lake_formation_configuration_binding = lake_formation_configuration_binding_1
             .get_inner();
-        let lineage_configuration_binding = args
+        let lineage_configuration_binding_1 = args
             .lineage_configuration
-            .get_output(context)
-            .get_inner();
-        let mongodb_targets_binding = args
-            .mongodb_targets
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let recrawl_policy_binding = args.recrawl_policy.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
-        let s3_targets_binding = args.s3_targets.get_output(context).get_inner();
-        let schedule_binding = args.schedule.get_output(context).get_inner();
-        let schema_change_policy_binding = args
+            .get_output(context);
+        let lineage_configuration_binding = lineage_configuration_binding_1.get_inner();
+        let mongodb_targets_binding_1 = args.mongodb_targets.get_output(context);
+        let mongodb_targets_binding = mongodb_targets_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recrawl_policy_binding_1 = args.recrawl_policy.get_output(context);
+        let recrawl_policy_binding = recrawl_policy_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
+        let s3_targets_binding_1 = args.s3_targets.get_output(context);
+        let s3_targets_binding = s3_targets_binding_1.get_inner();
+        let schedule_binding_1 = args.schedule.get_output(context);
+        let schedule_binding = schedule_binding_1.get_inner();
+        let schema_change_policy_binding_1 = args
             .schema_change_policy
-            .get_output(context)
-            .get_inner();
-        let security_configuration_binding = args
+            .get_output(context);
+        let schema_change_policy_binding = schema_change_policy_binding_1.get_inner();
+        let security_configuration_binding_1 = args
             .security_configuration
-            .get_output(context)
+            .get_output(context);
+        let security_configuration_binding = security_configuration_binding_1
             .get_inner();
-        let table_prefix_binding = args.table_prefix.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let table_prefix_binding_1 = args.table_prefix.get_output(context);
+        let table_prefix_binding = table_prefix_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/crawler:Crawler".into(),
             name: name.to_string(),

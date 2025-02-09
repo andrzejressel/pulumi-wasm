@@ -113,14 +113,10 @@ pub mod static_web_app_function_app_registration {
     ) -> StaticWebAppFunctionAppRegistrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let function_app_id_binding = args
-            .function_app_id
-            .get_output(context)
-            .get_inner();
-        let static_web_app_id_binding = args
-            .static_web_app_id
-            .get_output(context)
-            .get_inner();
+        let function_app_id_binding_1 = args.function_app_id.get_output(context);
+        let function_app_id_binding = function_app_id_binding_1.get_inner();
+        let static_web_app_id_binding_1 = args.static_web_app_id.get_output(context);
+        let static_web_app_id_binding = static_web_app_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration"
                 .into(),

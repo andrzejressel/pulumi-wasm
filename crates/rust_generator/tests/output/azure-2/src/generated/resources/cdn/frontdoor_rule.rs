@@ -326,18 +326,21 @@ pub mod frontdoor_rule {
     ) -> FrontdoorRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_output(context).get_inner();
-        let behavior_on_match_binding = args
-            .behavior_on_match
-            .get_output(context)
-            .get_inner();
-        let cdn_frontdoor_rule_set_id_binding = args
+        let actions_binding_1 = args.actions.get_output(context);
+        let actions_binding = actions_binding_1.get_inner();
+        let behavior_on_match_binding_1 = args.behavior_on_match.get_output(context);
+        let behavior_on_match_binding = behavior_on_match_binding_1.get_inner();
+        let cdn_frontdoor_rule_set_id_binding_1 = args
             .cdn_frontdoor_rule_set_id
-            .get_output(context)
+            .get_output(context);
+        let cdn_frontdoor_rule_set_id_binding = cdn_frontdoor_rule_set_id_binding_1
             .get_inner();
-        let conditions_binding = args.conditions.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let order_binding = args.order.get_output(context).get_inner();
+        let conditions_binding_1 = args.conditions.get_output(context);
+        let conditions_binding = conditions_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let order_binding_1 = args.order.get_output(context);
+        let order_binding = order_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorRule:FrontdoorRule".into(),
             name: name.to_string(),

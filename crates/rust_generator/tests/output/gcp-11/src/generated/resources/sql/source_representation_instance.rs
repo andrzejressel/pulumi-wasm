@@ -178,24 +178,30 @@ pub mod source_representation_instance {
     ) -> SourceRepresentationInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ca_certificate_binding = args.ca_certificate.get_output(context).get_inner();
-        let client_certificate_binding = args
-            .client_certificate
-            .get_output(context)
-            .get_inner();
-        let client_key_binding = args.client_key.get_output(context).get_inner();
-        let database_version_binding = args
-            .database_version
-            .get_output(context)
-            .get_inner();
-        let dump_file_path_binding = args.dump_file_path.get_output(context).get_inner();
-        let host_binding = args.host.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
+        let ca_certificate_binding_1 = args.ca_certificate.get_output(context);
+        let ca_certificate_binding = ca_certificate_binding_1.get_inner();
+        let client_certificate_binding_1 = args.client_certificate.get_output(context);
+        let client_certificate_binding = client_certificate_binding_1.get_inner();
+        let client_key_binding_1 = args.client_key.get_output(context);
+        let client_key_binding = client_key_binding_1.get_inner();
+        let database_version_binding_1 = args.database_version.get_output(context);
+        let database_version_binding = database_version_binding_1.get_inner();
+        let dump_file_path_binding_1 = args.dump_file_path.get_output(context);
+        let dump_file_path_binding = dump_file_path_binding_1.get_inner();
+        let host_binding_1 = args.host.get_output(context);
+        let host_binding = host_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:sql/sourceRepresentationInstance:SourceRepresentationInstance"
                 .into(),

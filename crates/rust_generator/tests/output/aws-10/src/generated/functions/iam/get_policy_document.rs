@@ -58,19 +58,26 @@ pub mod get_policy_document {
     ) -> GetPolicyDocumentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let override_json_binding = args.override_json.get_output(context).get_inner();
-        let override_policy_documents_binding = args
+        let override_json_binding_1 = args.override_json.get_output(context);
+        let override_json_binding = override_json_binding_1.get_inner();
+        let override_policy_documents_binding_1 = args
             .override_policy_documents
-            .get_output(context)
+            .get_output(context);
+        let override_policy_documents_binding = override_policy_documents_binding_1
             .get_inner();
-        let policy_id_binding = args.policy_id.get_output(context).get_inner();
-        let source_json_binding = args.source_json.get_output(context).get_inner();
-        let source_policy_documents_binding = args
+        let policy_id_binding_1 = args.policy_id.get_output(context);
+        let policy_id_binding = policy_id_binding_1.get_inner();
+        let source_json_binding_1 = args.source_json.get_output(context);
+        let source_json_binding = source_json_binding_1.get_inner();
+        let source_policy_documents_binding_1 = args
             .source_policy_documents
-            .get_output(context)
+            .get_output(context);
+        let source_policy_documents_binding = source_policy_documents_binding_1
             .get_inner();
-        let statements_binding = args.statements.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let statements_binding_1 = args.statements.get_output(context);
+        let statements_binding = statements_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getPolicyDocument:getPolicyDocument".into(),
             version: super::super::super::get_version(),

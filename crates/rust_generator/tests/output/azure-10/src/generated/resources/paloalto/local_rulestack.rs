@@ -104,37 +104,34 @@ pub mod local_rulestack {
     ) -> LocalRulestackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let anti_spyware_profile_binding = args
+        let anti_spyware_profile_binding_1 = args
             .anti_spyware_profile
-            .get_output(context)
-            .get_inner();
-        let anti_virus_profile_binding = args
-            .anti_virus_profile
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let dns_subscription_binding = args
-            .dns_subscription
-            .get_output(context)
-            .get_inner();
-        let file_blocking_profile_binding = args
+            .get_output(context);
+        let anti_spyware_profile_binding = anti_spyware_profile_binding_1.get_inner();
+        let anti_virus_profile_binding_1 = args.anti_virus_profile.get_output(context);
+        let anti_virus_profile_binding = anti_virus_profile_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dns_subscription_binding_1 = args.dns_subscription.get_output(context);
+        let dns_subscription_binding = dns_subscription_binding_1.get_inner();
+        let file_blocking_profile_binding_1 = args
             .file_blocking_profile
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let url_filtering_profile_binding = args
+            .get_output(context);
+        let file_blocking_profile_binding = file_blocking_profile_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let url_filtering_profile_binding_1 = args
             .url_filtering_profile
-            .get_output(context)
-            .get_inner();
-        let vulnerability_profile_binding = args
+            .get_output(context);
+        let url_filtering_profile_binding = url_filtering_profile_binding_1.get_inner();
+        let vulnerability_profile_binding_1 = args
             .vulnerability_profile
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let vulnerability_profile_binding = vulnerability_profile_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:paloalto/localRulestack:LocalRulestack".into(),
             name: name.to_string(),

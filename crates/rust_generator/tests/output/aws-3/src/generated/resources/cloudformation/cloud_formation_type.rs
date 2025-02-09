@@ -83,17 +83,19 @@ pub mod cloud_formation_type {
     ) -> CloudFormationTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let execution_role_arn_binding = args
-            .execution_role_arn
-            .get_output(context)
-            .get_inner();
-        let logging_config_binding = args.logging_config.get_output(context).get_inner();
-        let schema_handler_package_binding = args
+        let execution_role_arn_binding_1 = args.execution_role_arn.get_output(context);
+        let execution_role_arn_binding = execution_role_arn_binding_1.get_inner();
+        let logging_config_binding_1 = args.logging_config.get_output(context);
+        let logging_config_binding = logging_config_binding_1.get_inner();
+        let schema_handler_package_binding_1 = args
             .schema_handler_package
-            .get_output(context)
+            .get_output(context);
+        let schema_handler_package_binding = schema_handler_package_binding_1
             .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let type_name_binding = args.type_name.get_output(context).get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let type_name_binding_1 = args.type_name.get_output(context);
+        let type_name_binding = type_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudformation/cloudFormationType:CloudFormationType".into(),
             name: name.to_string(),

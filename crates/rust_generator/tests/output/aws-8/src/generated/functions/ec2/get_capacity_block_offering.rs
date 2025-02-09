@@ -50,17 +50,19 @@ pub mod get_capacity_block_offering {
     ) -> GetCapacityBlockOfferingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_duration_hours_binding = args
+        let capacity_duration_hours_binding_1 = args
             .capacity_duration_hours
-            .get_output(context)
+            .get_output(context);
+        let capacity_duration_hours_binding = capacity_duration_hours_binding_1
             .get_inner();
-        let end_date_range_binding = args.end_date_range.get_output(context).get_inner();
-        let instance_count_binding = args.instance_count.get_output(context).get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
-        let start_date_range_binding = args
-            .start_date_range
-            .get_output(context)
-            .get_inner();
+        let end_date_range_binding_1 = args.end_date_range.get_output(context);
+        let end_date_range_binding = end_date_range_binding_1.get_inner();
+        let instance_count_binding_1 = args.instance_count.get_output(context);
+        let instance_count_binding = instance_count_binding_1.get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
+        let start_date_range_binding_1 = args.start_date_range.get_output(context);
+        let start_date_range_binding = start_date_range_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering".into(),
             version: super::super::super::get_version(),

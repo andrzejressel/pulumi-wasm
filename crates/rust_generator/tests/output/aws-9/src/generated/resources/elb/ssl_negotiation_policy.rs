@@ -118,11 +118,16 @@ pub mod ssl_negotiation_policy {
     ) -> SslNegotiationPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attributes_binding = args.attributes.get_output(context).get_inner();
-        let lb_port_binding = args.lb_port.get_output(context).get_inner();
-        let load_balancer_binding = args.load_balancer.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let triggers_binding = args.triggers.get_output(context).get_inner();
+        let attributes_binding_1 = args.attributes.get_output(context);
+        let attributes_binding = attributes_binding_1.get_inner();
+        let lb_port_binding_1 = args.lb_port.get_output(context);
+        let lb_port_binding = lb_port_binding_1.get_inner();
+        let load_balancer_binding_1 = args.load_balancer.get_output(context);
+        let load_balancer_binding = load_balancer_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let triggers_binding_1 = args.triggers.get_output(context);
+        let triggers_binding = triggers_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elb/sslNegotiationPolicy:SslNegotiationPolicy".into(),
             name: name.to_string(),

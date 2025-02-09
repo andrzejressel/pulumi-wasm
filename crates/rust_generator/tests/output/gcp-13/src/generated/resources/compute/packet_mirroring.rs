@@ -220,18 +220,24 @@ pub mod packet_mirroring {
     ) -> PacketMirroringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let collector_ilb_binding = args.collector_ilb.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let mirrored_resources_binding = args
-            .mirrored_resources
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
+        let collector_ilb_binding_1 = args.collector_ilb.get_output(context);
+        let collector_ilb_binding = collector_ilb_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let mirrored_resources_binding_1 = args.mirrored_resources.get_output(context);
+        let mirrored_resources_binding = mirrored_resources_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/packetMirroring:PacketMirroring".into(),
             name: name.to_string(),

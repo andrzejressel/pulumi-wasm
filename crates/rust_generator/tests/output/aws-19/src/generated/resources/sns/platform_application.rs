@@ -181,51 +181,58 @@ pub mod platform_application {
     ) -> PlatformApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let apple_platform_bundle_id_binding = args
+        let apple_platform_bundle_id_binding_1 = args
             .apple_platform_bundle_id
-            .get_output(context)
+            .get_output(context);
+        let apple_platform_bundle_id_binding = apple_platform_bundle_id_binding_1
             .get_inner();
-        let apple_platform_team_id_binding = args
+        let apple_platform_team_id_binding_1 = args
             .apple_platform_team_id
-            .get_output(context)
+            .get_output(context);
+        let apple_platform_team_id_binding = apple_platform_team_id_binding_1
             .get_inner();
-        let event_delivery_failure_topic_arn_binding = args
+        let event_delivery_failure_topic_arn_binding_1 = args
             .event_delivery_failure_topic_arn
-            .get_output(context)
+            .get_output(context);
+        let event_delivery_failure_topic_arn_binding = event_delivery_failure_topic_arn_binding_1
             .get_inner();
-        let event_endpoint_created_topic_arn_binding = args
+        let event_endpoint_created_topic_arn_binding_1 = args
             .event_endpoint_created_topic_arn
-            .get_output(context)
+            .get_output(context);
+        let event_endpoint_created_topic_arn_binding = event_endpoint_created_topic_arn_binding_1
             .get_inner();
-        let event_endpoint_deleted_topic_arn_binding = args
+        let event_endpoint_deleted_topic_arn_binding_1 = args
             .event_endpoint_deleted_topic_arn
-            .get_output(context)
+            .get_output(context);
+        let event_endpoint_deleted_topic_arn_binding = event_endpoint_deleted_topic_arn_binding_1
             .get_inner();
-        let event_endpoint_updated_topic_arn_binding = args
+        let event_endpoint_updated_topic_arn_binding_1 = args
             .event_endpoint_updated_topic_arn
-            .get_output(context)
+            .get_output(context);
+        let event_endpoint_updated_topic_arn_binding = event_endpoint_updated_topic_arn_binding_1
             .get_inner();
-        let failure_feedback_role_arn_binding = args
+        let failure_feedback_role_arn_binding_1 = args
             .failure_feedback_role_arn
-            .get_output(context)
+            .get_output(context);
+        let failure_feedback_role_arn_binding = failure_feedback_role_arn_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let platform_binding = args.platform.get_output(context).get_inner();
-        let platform_credential_binding = args
-            .platform_credential
-            .get_output(context)
-            .get_inner();
-        let platform_principal_binding = args
-            .platform_principal
-            .get_output(context)
-            .get_inner();
-        let success_feedback_role_arn_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let platform_binding_1 = args.platform.get_output(context);
+        let platform_binding = platform_binding_1.get_inner();
+        let platform_credential_binding_1 = args.platform_credential.get_output(context);
+        let platform_credential_binding = platform_credential_binding_1.get_inner();
+        let platform_principal_binding_1 = args.platform_principal.get_output(context);
+        let platform_principal_binding = platform_principal_binding_1.get_inner();
+        let success_feedback_role_arn_binding_1 = args
             .success_feedback_role_arn
-            .get_output(context)
+            .get_output(context);
+        let success_feedback_role_arn_binding = success_feedback_role_arn_binding_1
             .get_inner();
-        let success_feedback_sample_rate_binding = args
+        let success_feedback_sample_rate_binding_1 = args
             .success_feedback_sample_rate
-            .get_output(context)
+            .get_output(context);
+        let success_feedback_sample_rate_binding = success_feedback_sample_rate_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sns/platformApplication:PlatformApplication".into(),

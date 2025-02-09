@@ -124,12 +124,18 @@ pub mod gateway {
     ) -> GatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_config_binding = args.api_config.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let gateway_id_binding = args.gateway_id.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
+        let api_config_binding_1 = args.api_config.get_output(context);
+        let api_config_binding = api_config_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let gateway_id_binding_1 = args.gateway_id.get_output(context);
+        let gateway_id_binding = gateway_id_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigateway/gateway:Gateway".into(),
             name: name.to_string(),

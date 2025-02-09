@@ -64,11 +64,10 @@ pub mod device {
     ) -> DeviceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let device_binding = args.device.get_output(context).get_inner();
-        let device_fleet_name_binding = args
-            .device_fleet_name
-            .get_output(context)
-            .get_inner();
+        let device_binding_1 = args.device.get_output(context);
+        let device_binding = device_binding_1.get_inner();
+        let device_fleet_name_binding_1 = args.device_fleet_name.get_output(context);
+        let device_fleet_name_binding = device_fleet_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/device:Device".into(),
             name: name.to_string(),

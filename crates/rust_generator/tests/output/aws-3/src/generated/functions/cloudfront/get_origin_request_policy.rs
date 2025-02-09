@@ -48,8 +48,10 @@ pub mod get_origin_request_policy {
     ) -> GetOriginRequestPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let id_binding = args.id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let id_binding_1 = args.id.get_output(context);
+        let id_binding = id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy".into(),
             version: super::super::super::get_version(),

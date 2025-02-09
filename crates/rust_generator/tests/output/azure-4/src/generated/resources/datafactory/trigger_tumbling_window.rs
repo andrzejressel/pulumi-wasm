@@ -181,33 +181,40 @@ pub mod trigger_tumbling_window {
     ) -> TriggerTumblingWindowResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let activated_binding = args.activated.get_output(context).get_inner();
-        let additional_properties_binding = args
+        let activated_binding_1 = args.activated.get_output(context);
+        let activated_binding = activated_binding_1.get_inner();
+        let additional_properties_binding_1 = args
             .additional_properties
-            .get_output(context)
-            .get_inner();
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let data_factory_id_binding = args
-            .data_factory_id
-            .get_output(context)
-            .get_inner();
-        let delay_binding = args.delay.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let end_time_binding = args.end_time.get_output(context).get_inner();
-        let frequency_binding = args.frequency.get_output(context).get_inner();
-        let interval_binding = args.interval.get_output(context).get_inner();
-        let max_concurrency_binding = args
-            .max_concurrency
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let pipeline_binding = args.pipeline.get_output(context).get_inner();
-        let retry_binding = args.retry.get_output(context).get_inner();
-        let start_time_binding = args.start_time.get_output(context).get_inner();
-        let trigger_dependencies_binding = args
+            .get_output(context);
+        let additional_properties_binding = additional_properties_binding_1.get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
+        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
+        let delay_binding_1 = args.delay.get_output(context);
+        let delay_binding = delay_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let end_time_binding_1 = args.end_time.get_output(context);
+        let end_time_binding = end_time_binding_1.get_inner();
+        let frequency_binding_1 = args.frequency.get_output(context);
+        let frequency_binding = frequency_binding_1.get_inner();
+        let interval_binding_1 = args.interval.get_output(context);
+        let interval_binding = interval_binding_1.get_inner();
+        let max_concurrency_binding_1 = args.max_concurrency.get_output(context);
+        let max_concurrency_binding = max_concurrency_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let pipeline_binding_1 = args.pipeline.get_output(context);
+        let pipeline_binding = pipeline_binding_1.get_inner();
+        let retry_binding_1 = args.retry.get_output(context);
+        let retry_binding = retry_binding_1.get_inner();
+        let start_time_binding_1 = args.start_time.get_output(context);
+        let start_time_binding = start_time_binding_1.get_inner();
+        let trigger_dependencies_binding_1 = args
             .trigger_dependencies
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let trigger_dependencies_binding = trigger_dependencies_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow"
                 .into(),

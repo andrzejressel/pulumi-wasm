@@ -157,46 +157,50 @@ pub mod zero_trust_device_profiles {
     ) -> ZeroTrustDeviceProfilesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let allow_mode_switch_binding = args
-            .allow_mode_switch
-            .get_output(context)
-            .get_inner();
-        let allow_updates_binding = args.allow_updates.get_output(context).get_inner();
-        let allowed_to_leave_binding = args
-            .allowed_to_leave
-            .get_output(context)
-            .get_inner();
-        let auto_connect_binding = args.auto_connect.get_output(context).get_inner();
-        let captive_portal_binding = args.captive_portal.get_output(context).get_inner();
-        let default_binding = args.default.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disable_auto_fallback_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let allow_mode_switch_binding_1 = args.allow_mode_switch.get_output(context);
+        let allow_mode_switch_binding = allow_mode_switch_binding_1.get_inner();
+        let allow_updates_binding_1 = args.allow_updates.get_output(context);
+        let allow_updates_binding = allow_updates_binding_1.get_inner();
+        let allowed_to_leave_binding_1 = args.allowed_to_leave.get_output(context);
+        let allowed_to_leave_binding = allowed_to_leave_binding_1.get_inner();
+        let auto_connect_binding_1 = args.auto_connect.get_output(context);
+        let auto_connect_binding = auto_connect_binding_1.get_inner();
+        let captive_portal_binding_1 = args.captive_portal.get_output(context);
+        let captive_portal_binding = captive_portal_binding_1.get_inner();
+        let default_binding_1 = args.default.get_output(context);
+        let default_binding = default_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disable_auto_fallback_binding_1 = args
             .disable_auto_fallback
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let exclude_office_ips_binding = args
-            .exclude_office_ips
-            .get_output(context)
-            .get_inner();
-        let match__binding = args.match_.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let precedence_binding = args.precedence.get_output(context).get_inner();
-        let service_mode_v2_mode_binding = args
+            .get_output(context);
+        let disable_auto_fallback_binding = disable_auto_fallback_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let exclude_office_ips_binding_1 = args.exclude_office_ips.get_output(context);
+        let exclude_office_ips_binding = exclude_office_ips_binding_1.get_inner();
+        let match__binding_1 = args.match_.get_output(context);
+        let match__binding = match__binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let precedence_binding_1 = args.precedence.get_output(context);
+        let precedence_binding = precedence_binding_1.get_inner();
+        let service_mode_v2_mode_binding_1 = args
             .service_mode_v2_mode
-            .get_output(context)
-            .get_inner();
-        let service_mode_v2_port_binding = args
+            .get_output(context);
+        let service_mode_v2_mode_binding = service_mode_v2_mode_binding_1.get_inner();
+        let service_mode_v2_port_binding_1 = args
             .service_mode_v2_port
-            .get_output(context)
-            .get_inner();
-        let support_url_binding = args.support_url.get_output(context).get_inner();
-        let switch_locked_binding = args.switch_locked.get_output(context).get_inner();
-        let tunnel_protocol_binding = args
-            .tunnel_protocol
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let service_mode_v2_port_binding = service_mode_v2_port_binding_1.get_inner();
+        let support_url_binding_1 = args.support_url.get_output(context);
+        let support_url_binding = support_url_binding_1.get_inner();
+        let switch_locked_binding_1 = args.switch_locked.get_output(context);
+        let switch_locked_binding = switch_locked_binding_1.get_inner();
+        let tunnel_protocol_binding_1 = args.tunnel_protocol.get_output(context);
+        let tunnel_protocol_binding = tunnel_protocol_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustDeviceProfiles:ZeroTrustDeviceProfiles"
                 .into(),

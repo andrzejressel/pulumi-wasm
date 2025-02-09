@@ -96,20 +96,23 @@ pub mod channel_sms {
     ) -> ChannelSmsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_name_binding = args.bot_name.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let phone_number_binding = args.phone_number.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sms_channel_account_security_id_binding = args
+        let bot_name_binding_1 = args.bot_name.get_output(context);
+        let bot_name_binding = bot_name_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let phone_number_binding_1 = args.phone_number.get_output(context);
+        let phone_number_binding = phone_number_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sms_channel_account_security_id_binding_1 = args
             .sms_channel_account_security_id
-            .get_output(context)
+            .get_output(context);
+        let sms_channel_account_security_id_binding = sms_channel_account_security_id_binding_1
             .get_inner();
-        let sms_channel_auth_token_binding = args
+        let sms_channel_auth_token_binding_1 = args
             .sms_channel_auth_token
-            .get_output(context)
+            .get_output(context);
+        let sms_channel_auth_token_binding = sms_channel_auth_token_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:bot/channelSms:ChannelSms".into(),

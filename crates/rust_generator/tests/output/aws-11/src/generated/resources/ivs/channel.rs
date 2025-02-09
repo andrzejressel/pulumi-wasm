@@ -90,15 +90,21 @@ pub mod channel {
     ) -> ChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorized_binding = args.authorized.get_output(context).get_inner();
-        let latency_mode_binding = args.latency_mode.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let recording_configuration_arn_binding = args
+        let authorized_binding_1 = args.authorized.get_output(context);
+        let authorized_binding = authorized_binding_1.get_inner();
+        let latency_mode_binding_1 = args.latency_mode.get_output(context);
+        let latency_mode_binding = latency_mode_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let recording_configuration_arn_binding_1 = args
             .recording_configuration_arn
-            .get_output(context)
+            .get_output(context);
+        let recording_configuration_arn_binding = recording_configuration_arn_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ivs/channel:Channel".into(),
             name: name.to_string(),

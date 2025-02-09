@@ -42,7 +42,8 @@ pub mod get_organization_settings {
     ) -> GetOrganizationSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let organization_binding = args.organization.get_output(context).get_inner();
+        let organization_binding_1 = args.organization.get_output(context);
+        let organization_binding = organization_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:logging/getOrganizationSettings:getOrganizationSettings".into(),
             version: super::super::super::get_version(),

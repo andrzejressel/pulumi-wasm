@@ -516,48 +516,59 @@ pub mod subnetwork {
     ) -> SubnetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_subnet_cidr_routes_overlap_binding = args
+        let allow_subnet_cidr_routes_overlap_binding_1 = args
             .allow_subnet_cidr_routes_overlap
-            .get_output(context)
+            .get_output(context);
+        let allow_subnet_cidr_routes_overlap_binding = allow_subnet_cidr_routes_overlap_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let external_ipv6_prefix_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let external_ipv6_prefix_binding_1 = args
             .external_ipv6_prefix
-            .get_output(context)
-            .get_inner();
-        let ip_cidr_range_binding = args.ip_cidr_range.get_output(context).get_inner();
-        let ipv6_access_type_binding = args
-            .ipv6_access_type
-            .get_output(context)
-            .get_inner();
-        let log_config_binding = args.log_config.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let private_ip_google_access_binding = args
+            .get_output(context);
+        let external_ipv6_prefix_binding = external_ipv6_prefix_binding_1.get_inner();
+        let ip_cidr_range_binding_1 = args.ip_cidr_range.get_output(context);
+        let ip_cidr_range_binding = ip_cidr_range_binding_1.get_inner();
+        let ipv6_access_type_binding_1 = args.ipv6_access_type.get_output(context);
+        let ipv6_access_type_binding = ipv6_access_type_binding_1.get_inner();
+        let log_config_binding_1 = args.log_config.get_output(context);
+        let log_config_binding = log_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let private_ip_google_access_binding_1 = args
             .private_ip_google_access
-            .get_output(context)
+            .get_output(context);
+        let private_ip_google_access_binding = private_ip_google_access_binding_1
             .get_inner();
-        let private_ipv6_google_access_binding = args
+        let private_ipv6_google_access_binding_1 = args
             .private_ipv6_google_access
-            .get_output(context)
+            .get_output(context);
+        let private_ipv6_google_access_binding = private_ipv6_google_access_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let purpose_binding = args.purpose.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let reserved_internal_range_binding = args
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let purpose_binding_1 = args.purpose.get_output(context);
+        let purpose_binding = purpose_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let reserved_internal_range_binding_1 = args
             .reserved_internal_range
-            .get_output(context)
+            .get_output(context);
+        let reserved_internal_range_binding = reserved_internal_range_binding_1
             .get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
-        let secondary_ip_ranges_binding = args
-            .secondary_ip_ranges
-            .get_output(context)
-            .get_inner();
-        let send_secondary_ip_range_if_empty_binding = args
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
+        let secondary_ip_ranges_binding_1 = args.secondary_ip_ranges.get_output(context);
+        let secondary_ip_ranges_binding = secondary_ip_ranges_binding_1.get_inner();
+        let send_secondary_ip_range_if_empty_binding_1 = args
             .send_secondary_ip_range_if_empty
-            .get_output(context)
+            .get_output(context);
+        let send_secondary_ip_range_if_empty_binding = send_secondary_ip_range_if_empty_binding_1
             .get_inner();
-        let stack_type_binding = args.stack_type.get_output(context).get_inner();
+        let stack_type_binding_1 = args.stack_type.get_output(context);
+        let stack_type_binding = stack_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/subnetwork:Subnetwork".into(),
             name: name.to_string(),

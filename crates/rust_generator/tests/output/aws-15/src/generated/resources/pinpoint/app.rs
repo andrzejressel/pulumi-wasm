@@ -102,12 +102,18 @@ pub mod app {
     ) -> AppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let campaign_hook_binding = args.campaign_hook.get_output(context).get_inner();
-        let limits_binding = args.limits.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let quiet_time_binding = args.quiet_time.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let campaign_hook_binding_1 = args.campaign_hook.get_output(context);
+        let campaign_hook_binding = campaign_hook_binding_1.get_inner();
+        let limits_binding_1 = args.limits.get_output(context);
+        let limits_binding = limits_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let quiet_time_binding_1 = args.quiet_time.get_output(context);
+        let quiet_time_binding = quiet_time_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:pinpoint/app:App".into(),
             name: name.to_string(),

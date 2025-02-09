@@ -85,14 +85,16 @@ pub mod hosted_connection {
     ) -> HostedConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bandwidth_binding = args.bandwidth.get_output(context).get_inner();
-        let connection_id_binding = args.connection_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let owner_account_id_binding = args
-            .owner_account_id
-            .get_output(context)
-            .get_inner();
-        let vlan_binding = args.vlan.get_output(context).get_inner();
+        let bandwidth_binding_1 = args.bandwidth.get_output(context);
+        let bandwidth_binding = bandwidth_binding_1.get_inner();
+        let connection_id_binding_1 = args.connection_id.get_output(context);
+        let connection_id_binding = connection_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let owner_account_id_binding_1 = args.owner_account_id.get_output(context);
+        let owner_account_id_binding = owner_account_id_binding_1.get_inner();
+        let vlan_binding_1 = args.vlan.get_output(context);
+        let vlan_binding = vlan_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/hostedConnection:HostedConnection".into(),
             name: name.to_string(),

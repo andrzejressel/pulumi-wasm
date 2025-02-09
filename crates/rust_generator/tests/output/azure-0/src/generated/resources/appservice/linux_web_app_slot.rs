@@ -289,73 +289,83 @@ pub mod linux_web_app_slot {
     ) -> LinuxWebAppSlotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_service_id_binding = args.app_service_id.get_output(context).get_inner();
-        let app_settings_binding = args.app_settings.get_output(context).get_inner();
-        let auth_settings_binding = args.auth_settings.get_output(context).get_inner();
-        let auth_settings_v2_binding = args
-            .auth_settings_v2
-            .get_output(context)
-            .get_inner();
-        let backup_binding = args.backup.get_output(context).get_inner();
-        let client_affinity_enabled_binding = args
+        let app_service_id_binding_1 = args.app_service_id.get_output(context);
+        let app_service_id_binding = app_service_id_binding_1.get_inner();
+        let app_settings_binding_1 = args.app_settings.get_output(context);
+        let app_settings_binding = app_settings_binding_1.get_inner();
+        let auth_settings_binding_1 = args.auth_settings.get_output(context);
+        let auth_settings_binding = auth_settings_binding_1.get_inner();
+        let auth_settings_v2_binding_1 = args.auth_settings_v2.get_output(context);
+        let auth_settings_v2_binding = auth_settings_v2_binding_1.get_inner();
+        let backup_binding_1 = args.backup.get_output(context);
+        let backup_binding = backup_binding_1.get_inner();
+        let client_affinity_enabled_binding_1 = args
             .client_affinity_enabled
-            .get_output(context)
+            .get_output(context);
+        let client_affinity_enabled_binding = client_affinity_enabled_binding_1
             .get_inner();
-        let client_certificate_enabled_binding = args
+        let client_certificate_enabled_binding_1 = args
             .client_certificate_enabled
-            .get_output(context)
+            .get_output(context);
+        let client_certificate_enabled_binding = client_certificate_enabled_binding_1
             .get_inner();
-        let client_certificate_exclusion_paths_binding = args
+        let client_certificate_exclusion_paths_binding_1 = args
             .client_certificate_exclusion_paths
-            .get_output(context)
+            .get_output(context);
+        let client_certificate_exclusion_paths_binding = client_certificate_exclusion_paths_binding_1
             .get_inner();
-        let client_certificate_mode_binding = args
+        let client_certificate_mode_binding_1 = args
             .client_certificate_mode
-            .get_output(context)
+            .get_output(context);
+        let client_certificate_mode_binding = client_certificate_mode_binding_1
             .get_inner();
-        let connection_strings_binding = args
-            .connection_strings
-            .get_output(context)
-            .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let ftp_publish_basic_authentication_enabled_binding = args
+        let connection_strings_binding_1 = args.connection_strings.get_output(context);
+        let connection_strings_binding = connection_strings_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let ftp_publish_basic_authentication_enabled_binding_1 = args
             .ftp_publish_basic_authentication_enabled
-            .get_output(context)
+            .get_output(context);
+        let ftp_publish_basic_authentication_enabled_binding = ftp_publish_basic_authentication_enabled_binding_1
             .get_inner();
-        let https_only_binding = args.https_only.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let key_vault_reference_identity_id_binding = args
+        let https_only_binding_1 = args.https_only.get_output(context);
+        let https_only_binding = https_only_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let key_vault_reference_identity_id_binding_1 = args
             .key_vault_reference_identity_id
-            .get_output(context)
+            .get_output(context);
+        let key_vault_reference_identity_id_binding = key_vault_reference_identity_id_binding_1
             .get_inner();
-        let logs_binding = args.logs.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+        let logs_binding_1 = args.logs.get_output(context);
+        let logs_binding = logs_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let service_plan_id_binding = args
-            .service_plan_id
-            .get_output(context)
-            .get_inner();
-        let site_config_binding = args.site_config.get_output(context).get_inner();
-        let storage_accounts_binding = args
-            .storage_accounts
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let virtual_network_subnet_id_binding = args
+        let service_plan_id_binding_1 = args.service_plan_id.get_output(context);
+        let service_plan_id_binding = service_plan_id_binding_1.get_inner();
+        let site_config_binding_1 = args.site_config.get_output(context);
+        let site_config_binding = site_config_binding_1.get_inner();
+        let storage_accounts_binding_1 = args.storage_accounts.get_output(context);
+        let storage_accounts_binding = storage_accounts_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let virtual_network_subnet_id_binding_1 = args
             .virtual_network_subnet_id
-            .get_output(context)
+            .get_output(context);
+        let virtual_network_subnet_id_binding = virtual_network_subnet_id_binding_1
             .get_inner();
-        let webdeploy_publish_basic_authentication_enabled_binding = args
+        let webdeploy_publish_basic_authentication_enabled_binding_1 = args
             .webdeploy_publish_basic_authentication_enabled
-            .get_output(context)
+            .get_output(context);
+        let webdeploy_publish_basic_authentication_enabled_binding = webdeploy_publish_basic_authentication_enabled_binding_1
             .get_inner();
-        let zip_deploy_file_binding = args
-            .zip_deploy_file
-            .get_output(context)
-            .get_inner();
+        let zip_deploy_file_binding_1 = args.zip_deploy_file.get_output(context);
+        let zip_deploy_file_binding = zip_deploy_file_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/linuxWebAppSlot:LinuxWebAppSlot".into(),
             name: name.to_string(),

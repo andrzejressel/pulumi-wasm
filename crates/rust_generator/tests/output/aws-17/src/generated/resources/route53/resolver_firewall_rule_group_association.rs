@@ -91,18 +91,21 @@ pub mod resolver_firewall_rule_group_association {
     ) -> ResolverFirewallRuleGroupAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let firewall_rule_group_id_binding = args
+        let firewall_rule_group_id_binding_1 = args
             .firewall_rule_group_id
-            .get_output(context)
+            .get_output(context);
+        let firewall_rule_group_id_binding = firewall_rule_group_id_binding_1
             .get_inner();
-        let mutation_protection_binding = args
-            .mutation_protection
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let mutation_protection_binding_1 = args.mutation_protection.get_output(context);
+        let mutation_protection_binding = mutation_protection_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation"
                 .into(),

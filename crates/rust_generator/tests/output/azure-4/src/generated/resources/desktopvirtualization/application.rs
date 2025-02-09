@@ -144,25 +144,34 @@ pub mod application {
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_group_id_binding = args
+        let application_group_id_binding_1 = args
             .application_group_id
-            .get_output(context)
-            .get_inner();
-        let command_line_argument_policy_binding = args
+            .get_output(context);
+        let application_group_id_binding = application_group_id_binding_1.get_inner();
+        let command_line_argument_policy_binding_1 = args
             .command_line_argument_policy
-            .get_output(context)
+            .get_output(context);
+        let command_line_argument_policy_binding = command_line_argument_policy_binding_1
             .get_inner();
-        let command_line_arguments_binding = args
+        let command_line_arguments_binding_1 = args
             .command_line_arguments
-            .get_output(context)
+            .get_output(context);
+        let command_line_arguments_binding = command_line_arguments_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let friendly_name_binding = args.friendly_name.get_output(context).get_inner();
-        let icon_index_binding = args.icon_index.get_output(context).get_inner();
-        let icon_path_binding = args.icon_path.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let path_binding = args.path.get_output(context).get_inner();
-        let show_in_portal_binding = args.show_in_portal.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let friendly_name_binding_1 = args.friendly_name.get_output(context);
+        let friendly_name_binding = friendly_name_binding_1.get_inner();
+        let icon_index_binding_1 = args.icon_index.get_output(context);
+        let icon_index_binding = icon_index_binding_1.get_inner();
+        let icon_path_binding_1 = args.icon_path.get_output(context);
+        let icon_path_binding = icon_path_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let path_binding_1 = args.path.get_output(context);
+        let path_binding = path_binding_1.get_inner();
+        let show_in_portal_binding_1 = args.show_in_portal.get_output(context);
+        let show_in_portal_binding = show_in_portal_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:desktopvirtualization/application:Application".into(),
             name: name.to_string(),

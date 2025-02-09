@@ -104,28 +104,31 @@ pub mod mlflow_tracking_server {
     ) -> MlflowTrackingServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let artifact_store_uri_binding = args
-            .artifact_store_uri
-            .get_output(context)
-            .get_inner();
-        let automatic_model_registration_binding = args
+        let artifact_store_uri_binding_1 = args.artifact_store_uri.get_output(context);
+        let artifact_store_uri_binding = artifact_store_uri_binding_1.get_inner();
+        let automatic_model_registration_binding_1 = args
             .automatic_model_registration
-            .get_output(context)
+            .get_output(context);
+        let automatic_model_registration_binding = automatic_model_registration_binding_1
             .get_inner();
-        let mlflow_version_binding = args.mlflow_version.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tracking_server_name_binding = args
+        let mlflow_version_binding_1 = args.mlflow_version.get_output(context);
+        let mlflow_version_binding = mlflow_version_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tracking_server_name_binding_1 = args
             .tracking_server_name
-            .get_output(context)
-            .get_inner();
-        let tracking_server_size_binding = args
+            .get_output(context);
+        let tracking_server_name_binding = tracking_server_name_binding_1.get_inner();
+        let tracking_server_size_binding_1 = args
             .tracking_server_size
-            .get_output(context)
-            .get_inner();
-        let weekly_maintenance_window_start_binding = args
+            .get_output(context);
+        let tracking_server_size_binding = tracking_server_size_binding_1.get_inner();
+        let weekly_maintenance_window_start_binding_1 = args
             .weekly_maintenance_window_start
-            .get_output(context)
+            .get_output(context);
+        let weekly_maintenance_window_start_binding = weekly_maintenance_window_start_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer".into(),

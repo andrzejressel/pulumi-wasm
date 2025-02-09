@@ -461,74 +461,88 @@ pub mod callback_function {
     ) -> CallbackFunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let architectures_binding = args.architectures.get_output(context).get_inner();
-        let callback_binding = args.callback.get_output(context).get_inner();
-        let callback_factory_binding = args
-            .callback_factory
-            .get_output(context)
-            .get_inner();
-        let code_path_options_binding = args
-            .code_path_options
-            .get_output(context)
-            .get_inner();
-        let code_signing_config_arn_binding = args
+        let architectures_binding_1 = args.architectures.get_output(context);
+        let architectures_binding = architectures_binding_1.get_inner();
+        let callback_binding_1 = args.callback.get_output(context);
+        let callback_binding = callback_binding_1.get_inner();
+        let callback_factory_binding_1 = args.callback_factory.get_output(context);
+        let callback_factory_binding = callback_factory_binding_1.get_inner();
+        let code_path_options_binding_1 = args.code_path_options.get_output(context);
+        let code_path_options_binding = code_path_options_binding_1.get_inner();
+        let code_signing_config_arn_binding_1 = args
             .code_signing_config_arn
-            .get_output(context)
+            .get_output(context);
+        let code_signing_config_arn_binding = code_signing_config_arn_binding_1
             .get_inner();
-        let dead_letter_config_binding = args
-            .dead_letter_config
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let environment_binding = args.environment.get_output(context).get_inner();
-        let ephemeral_storage_binding = args
-            .ephemeral_storage
-            .get_output(context)
-            .get_inner();
-        let file_system_config_binding = args
-            .file_system_config
-            .get_output(context)
-            .get_inner();
-        let image_config_binding = args.image_config.get_output(context).get_inner();
-        let image_uri_binding = args.image_uri.get_output(context).get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
-        let layers_binding = args.layers.get_output(context).get_inner();
-        let logging_config_binding = args.logging_config.get_output(context).get_inner();
-        let memory_size_binding = args.memory_size.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let package_type_binding = args.package_type.get_output(context).get_inner();
-        let policies_binding = args.policies.get_output(context).get_inner();
-        let publish_binding = args.publish.get_output(context).get_inner();
-        let replace_security_groups_on_destroy_binding = args
+        let dead_letter_config_binding_1 = args.dead_letter_config.get_output(context);
+        let dead_letter_config_binding = dead_letter_config_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let environment_binding_1 = args.environment.get_output(context);
+        let environment_binding = environment_binding_1.get_inner();
+        let ephemeral_storage_binding_1 = args.ephemeral_storage.get_output(context);
+        let ephemeral_storage_binding = ephemeral_storage_binding_1.get_inner();
+        let file_system_config_binding_1 = args.file_system_config.get_output(context);
+        let file_system_config_binding = file_system_config_binding_1.get_inner();
+        let image_config_binding_1 = args.image_config.get_output(context);
+        let image_config_binding = image_config_binding_1.get_inner();
+        let image_uri_binding_1 = args.image_uri.get_output(context);
+        let image_uri_binding = image_uri_binding_1.get_inner();
+        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
+        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
+        let layers_binding_1 = args.layers.get_output(context);
+        let layers_binding = layers_binding_1.get_inner();
+        let logging_config_binding_1 = args.logging_config.get_output(context);
+        let logging_config_binding = logging_config_binding_1.get_inner();
+        let memory_size_binding_1 = args.memory_size.get_output(context);
+        let memory_size_binding = memory_size_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let package_type_binding_1 = args.package_type.get_output(context);
+        let package_type_binding = package_type_binding_1.get_inner();
+        let policies_binding_1 = args.policies.get_output(context);
+        let policies_binding = policies_binding_1.get_inner();
+        let publish_binding_1 = args.publish.get_output(context);
+        let publish_binding = publish_binding_1.get_inner();
+        let replace_security_groups_on_destroy_binding_1 = args
             .replace_security_groups_on_destroy
-            .get_output(context)
+            .get_output(context);
+        let replace_security_groups_on_destroy_binding = replace_security_groups_on_destroy_binding_1
             .get_inner();
-        let replacement_security_group_ids_binding = args
+        let replacement_security_group_ids_binding_1 = args
             .replacement_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let replacement_security_group_ids_binding = replacement_security_group_ids_binding_1
             .get_inner();
-        let reserved_concurrent_executions_binding = args
+        let reserved_concurrent_executions_binding_1 = args
             .reserved_concurrent_executions
-            .get_output(context)
+            .get_output(context);
+        let reserved_concurrent_executions_binding = reserved_concurrent_executions_binding_1
             .get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
-        let runtime_binding = args.runtime.get_output(context).get_inner();
-        let s3_bucket_binding = args.s3_bucket.get_output(context).get_inner();
-        let s3_key_binding = args.s3_key.get_output(context).get_inner();
-        let s3_object_version_binding = args
-            .s3_object_version
-            .get_output(context)
-            .get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
-        let snap_start_binding = args.snap_start.get_output(context).get_inner();
-        let source_code_hash_binding = args
-            .source_code_hash
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeout_binding = args.timeout.get_output(context).get_inner();
-        let tracing_config_binding = args.tracing_config.get_output(context).get_inner();
-        let vpc_config_binding = args.vpc_config.get_output(context).get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
+        let runtime_binding_1 = args.runtime.get_output(context);
+        let runtime_binding = runtime_binding_1.get_inner();
+        let s3_bucket_binding_1 = args.s3_bucket.get_output(context);
+        let s3_bucket_binding = s3_bucket_binding_1.get_inner();
+        let s3_key_binding_1 = args.s3_key.get_output(context);
+        let s3_key_binding = s3_key_binding_1.get_inner();
+        let s3_object_version_binding_1 = args.s3_object_version.get_output(context);
+        let s3_object_version_binding = s3_object_version_binding_1.get_inner();
+        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
+        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
+        let snap_start_binding_1 = args.snap_start.get_output(context);
+        let snap_start_binding = snap_start_binding_1.get_inner();
+        let source_code_hash_binding_1 = args.source_code_hash.get_output(context);
+        let source_code_hash_binding = source_code_hash_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeout_binding_1 = args.timeout.get_output(context);
+        let timeout_binding = timeout_binding_1.get_inner();
+        let tracing_config_binding_1 = args.tracing_config.get_output(context);
+        let tracing_config_binding = tracing_config_binding_1.get_inner();
+        let vpc_config_binding_1 = args.vpc_config.get_output(context);
+        let vpc_config_binding = vpc_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/callbackFunction:CallbackFunction".into(),
             name: name.to_string(),

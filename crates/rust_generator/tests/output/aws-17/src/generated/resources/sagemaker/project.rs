@@ -87,16 +87,17 @@ pub mod project {
     ) -> ProjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let project_description_binding = args
-            .project_description
-            .get_output(context)
-            .get_inner();
-        let project_name_binding = args.project_name.get_output(context).get_inner();
-        let service_catalog_provisioning_details_binding = args
+        let project_description_binding_1 = args.project_description.get_output(context);
+        let project_description_binding = project_description_binding_1.get_inner();
+        let project_name_binding_1 = args.project_name.get_output(context);
+        let project_name_binding = project_name_binding_1.get_inner();
+        let service_catalog_provisioning_details_binding_1 = args
             .service_catalog_provisioning_details
-            .get_output(context)
+            .get_output(context);
+        let service_catalog_provisioning_details_binding = service_catalog_provisioning_details_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/project:Project".into(),
             name: name.to_string(),

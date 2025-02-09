@@ -71,11 +71,10 @@ pub mod listener_certificate {
     ) -> ListenerCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_arn_binding = args
-            .certificate_arn
-            .get_output(context)
-            .get_inner();
-        let listener_arn_binding = args.listener_arn.get_output(context).get_inner();
+        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
+        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
+        let listener_arn_binding_1 = args.listener_arn.get_output(context);
+        let listener_arn_binding = listener_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:alb/listenerCertificate:ListenerCertificate".into(),
             name: name.to_string(),

@@ -34,7 +34,8 @@ pub mod get_group {
     ) -> GetGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_name_binding = args.group_name.get_output(context).get_inner();
+        let group_name_binding_1 = args.group_name.get_output(context);
+        let group_name_binding = group_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getGroup:getGroup".into(),
             version: super::super::super::get_version(),

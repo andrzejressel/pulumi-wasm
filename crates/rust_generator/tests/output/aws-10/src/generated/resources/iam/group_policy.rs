@@ -80,10 +80,14 @@ pub mod group_policy {
     ) -> GroupPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_binding = args.group.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
+        let group_binding_1 = args.group.get_output(context);
+        let group_binding = group_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/groupPolicy:GroupPolicy".into(),
             name: name.to_string(),

@@ -121,17 +121,22 @@ pub mod database_principal_assignment {
     ) -> DatabasePrincipalAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let principal_id_binding = args.principal_id.get_output(context).get_inner();
-        let principal_type_binding = args.principal_type.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
-        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let principal_id_binding_1 = args.principal_id.get_output(context);
+        let principal_id_binding = principal_id_binding_1.get_inner();
+        let principal_type_binding_1 = args.principal_type.get_output(context);
+        let principal_type_binding = principal_type_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
+        let tenant_id_binding_1 = args.tenant_id.get_output(context);
+        let tenant_id_binding = tenant_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment"
                 .into(),

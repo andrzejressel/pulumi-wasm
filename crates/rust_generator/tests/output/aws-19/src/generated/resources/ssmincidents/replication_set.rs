@@ -135,8 +135,10 @@ pub mod replication_set {
     ) -> ReplicationSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let regions_binding = args.regions.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let regions_binding_1 = args.regions.get_output(context);
+        let regions_binding = regions_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssmincidents/replicationSet:ReplicationSet".into(),
             name: name.to_string(),

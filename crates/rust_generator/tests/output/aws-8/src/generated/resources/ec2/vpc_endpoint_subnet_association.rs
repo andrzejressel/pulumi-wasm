@@ -63,11 +63,10 @@ pub mod vpc_endpoint_subnet_association {
     ) -> VpcEndpointSubnetAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let vpc_endpoint_id_binding = args
-            .vpc_endpoint_id
-            .get_output(context)
-            .get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let vpc_endpoint_id_binding_1 = args.vpc_endpoint_id.get_output(context);
+        let vpc_endpoint_id_binding = vpc_endpoint_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation"
                 .into(),

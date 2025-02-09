@@ -193,30 +193,33 @@ pub mod gallery_application_version {
     ) -> GalleryApplicationVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let config_file_binding = args.config_file.get_output(context).get_inner();
-        let enable_health_check_binding = args
-            .enable_health_check
-            .get_output(context)
-            .get_inner();
-        let end_of_life_date_binding = args
-            .end_of_life_date
-            .get_output(context)
-            .get_inner();
-        let exclude_from_latest_binding = args
-            .exclude_from_latest
-            .get_output(context)
-            .get_inner();
-        let gallery_application_id_binding = args
+        let config_file_binding_1 = args.config_file.get_output(context);
+        let config_file_binding = config_file_binding_1.get_inner();
+        let enable_health_check_binding_1 = args.enable_health_check.get_output(context);
+        let enable_health_check_binding = enable_health_check_binding_1.get_inner();
+        let end_of_life_date_binding_1 = args.end_of_life_date.get_output(context);
+        let end_of_life_date_binding = end_of_life_date_binding_1.get_inner();
+        let exclude_from_latest_binding_1 = args.exclude_from_latest.get_output(context);
+        let exclude_from_latest_binding = exclude_from_latest_binding_1.get_inner();
+        let gallery_application_id_binding_1 = args
             .gallery_application_id
-            .get_output(context)
+            .get_output(context);
+        let gallery_application_id_binding = gallery_application_id_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let manage_action_binding = args.manage_action.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let package_file_binding = args.package_file.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_regions_binding = args.target_regions.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let manage_action_binding_1 = args.manage_action.get_output(context);
+        let manage_action_binding = manage_action_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let package_file_binding_1 = args.package_file.get_output(context);
+        let package_file_binding = package_file_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_regions_binding_1 = args.target_regions.get_output(context);
+        let target_regions_binding = target_regions_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/galleryApplicationVersion:GalleryApplicationVersion"
                 .into(),

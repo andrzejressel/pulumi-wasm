@@ -126,21 +126,27 @@ pub mod output_cosmosdb {
     ) -> OutputCosmosdbResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_name_binding = args.container_name.get_output(context).get_inner();
-        let cosmosdb_account_key_binding = args
+        let container_name_binding_1 = args.container_name.get_output(context);
+        let container_name_binding = container_name_binding_1.get_inner();
+        let cosmosdb_account_key_binding_1 = args
             .cosmosdb_account_key
-            .get_output(context)
-            .get_inner();
-        let cosmosdb_sql_database_id_binding = args
+            .get_output(context);
+        let cosmosdb_account_key_binding = cosmosdb_account_key_binding_1.get_inner();
+        let cosmosdb_sql_database_id_binding_1 = args
             .cosmosdb_sql_database_id
-            .get_output(context)
+            .get_output(context);
+        let cosmosdb_sql_database_id_binding = cosmosdb_sql_database_id_binding_1
             .get_inner();
-        let document_id_binding = args.document_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let partition_key_binding = args.partition_key.get_output(context).get_inner();
-        let stream_analytics_job_id_binding = args
+        let document_id_binding_1 = args.document_id.get_output(context);
+        let document_id_binding = document_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let partition_key_binding_1 = args.partition_key.get_output(context);
+        let partition_key_binding = partition_key_binding_1.get_inner();
+        let stream_analytics_job_id_binding_1 = args
             .stream_analytics_job_id
-            .get_output(context)
+            .get_output(context);
+        let stream_analytics_job_id_binding = stream_analytics_job_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/outputCosmosdb:OutputCosmosdb".into(),

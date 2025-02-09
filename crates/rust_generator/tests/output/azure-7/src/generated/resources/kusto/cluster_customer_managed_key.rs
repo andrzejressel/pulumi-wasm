@@ -142,11 +142,16 @@ pub mod cluster_customer_managed_key {
     ) -> ClusterCustomerManagedKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
-        let key_name_binding = args.key_name.get_output(context).get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
-        let key_version_binding = args.key_version.get_output(context).get_inner();
-        let user_identity_binding = args.user_identity.get_output(context).get_inner();
+        let cluster_id_binding_1 = args.cluster_id.get_output(context);
+        let cluster_id_binding = cluster_id_binding_1.get_inner();
+        let key_name_binding_1 = args.key_name.get_output(context);
+        let key_name_binding = key_name_binding_1.get_inner();
+        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
+        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
+        let key_version_binding_1 = args.key_version.get_output(context);
+        let key_version_binding = key_version_binding_1.get_inner();
+        let user_identity_binding_1 = args.user_identity.get_output(context);
+        let user_identity_binding = user_identity_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey"
                 .into(),

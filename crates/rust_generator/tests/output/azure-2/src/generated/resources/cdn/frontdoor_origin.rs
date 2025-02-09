@@ -323,26 +323,34 @@ pub mod frontdoor_origin {
     ) -> FrontdoorOriginResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdn_frontdoor_origin_group_id_binding = args
+        let cdn_frontdoor_origin_group_id_binding_1 = args
             .cdn_frontdoor_origin_group_id
-            .get_output(context)
+            .get_output(context);
+        let cdn_frontdoor_origin_group_id_binding = cdn_frontdoor_origin_group_id_binding_1
             .get_inner();
-        let certificate_name_check_enabled_binding = args
+        let certificate_name_check_enabled_binding_1 = args
             .certificate_name_check_enabled
-            .get_output(context)
+            .get_output(context);
+        let certificate_name_check_enabled_binding = certificate_name_check_enabled_binding_1
             .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let host_name_binding = args.host_name.get_output(context).get_inner();
-        let http_port_binding = args.http_port.get_output(context).get_inner();
-        let https_port_binding = args.https_port.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let origin_host_header_binding = args
-            .origin_host_header
-            .get_output(context)
-            .get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let private_link_binding = args.private_link.get_output(context).get_inner();
-        let weight_binding = args.weight.get_output(context).get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let host_name_binding_1 = args.host_name.get_output(context);
+        let host_name_binding = host_name_binding_1.get_inner();
+        let http_port_binding_1 = args.http_port.get_output(context);
+        let http_port_binding = http_port_binding_1.get_inner();
+        let https_port_binding_1 = args.https_port.get_output(context);
+        let https_port_binding = https_port_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let origin_host_header_binding_1 = args.origin_host_header.get_output(context);
+        let origin_host_header_binding = origin_host_header_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let private_link_binding_1 = args.private_link.get_output(context);
+        let private_link_binding = private_link_binding_1.get_inner();
+        let weight_binding_1 = args.weight.get_output(context);
+        let weight_binding = weight_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorOrigin:FrontdoorOrigin".into(),
             name: name.to_string(),

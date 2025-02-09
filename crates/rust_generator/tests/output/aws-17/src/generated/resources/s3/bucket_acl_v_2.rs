@@ -200,16 +200,18 @@ pub mod bucket_acl_v_2 {
     ) -> BucketAclV2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_control_policy_binding = args
+        let access_control_policy_binding_1 = args
             .access_control_policy
-            .get_output(context)
-            .get_inner();
-        let acl_binding = args.acl.get_output(context).get_inner();
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let expected_bucket_owner_binding = args
+            .get_output(context);
+        let access_control_policy_binding = access_control_policy_binding_1.get_inner();
+        let acl_binding_1 = args.acl.get_output(context);
+        let acl_binding = acl_binding_1.get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let expected_bucket_owner_binding_1 = args
             .expected_bucket_owner
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketAclV2:BucketAclV2".into(),
             name: name.to_string(),

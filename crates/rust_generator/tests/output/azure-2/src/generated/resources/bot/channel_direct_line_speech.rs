@@ -114,32 +114,36 @@ pub mod channel_direct_line_speech {
     ) -> ChannelDirectLineSpeechResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_name_binding = args.bot_name.get_output(context).get_inner();
-        let cognitive_account_id_binding = args
+        let bot_name_binding_1 = args.bot_name.get_output(context);
+        let bot_name_binding = bot_name_binding_1.get_inner();
+        let cognitive_account_id_binding_1 = args
             .cognitive_account_id
-            .get_output(context)
-            .get_inner();
-        let cognitive_service_access_key_binding = args
+            .get_output(context);
+        let cognitive_account_id_binding = cognitive_account_id_binding_1.get_inner();
+        let cognitive_service_access_key_binding_1 = args
             .cognitive_service_access_key
-            .get_output(context)
+            .get_output(context);
+        let cognitive_service_access_key_binding = cognitive_service_access_key_binding_1
             .get_inner();
-        let cognitive_service_location_binding = args
+        let cognitive_service_location_binding_1 = args
             .cognitive_service_location
-            .get_output(context)
+            .get_output(context);
+        let cognitive_service_location_binding = cognitive_service_location_binding_1
             .get_inner();
-        let custom_speech_model_id_binding = args
+        let custom_speech_model_id_binding_1 = args
             .custom_speech_model_id
-            .get_output(context)
+            .get_output(context);
+        let custom_speech_model_id_binding = custom_speech_model_id_binding_1
             .get_inner();
-        let custom_voice_deployment_id_binding = args
+        let custom_voice_deployment_id_binding_1 = args
             .custom_voice_deployment_id
-            .get_output(context)
+            .get_output(context);
+        let custom_voice_deployment_id_binding = custom_voice_deployment_id_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech".into(),
             name: name.to_string(),

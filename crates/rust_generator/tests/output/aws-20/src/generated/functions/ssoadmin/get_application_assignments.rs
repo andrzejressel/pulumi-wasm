@@ -41,13 +41,12 @@ pub mod get_application_assignments {
     ) -> GetApplicationAssignmentsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_arn_binding = args
-            .application_arn
-            .get_output(context)
-            .get_inner();
-        let application_assignments_binding = args
+        let application_arn_binding_1 = args.application_arn.get_output(context);
+        let application_arn_binding = application_arn_binding_1.get_inner();
+        let application_assignments_binding_1 = args
             .application_assignments
-            .get_output(context)
+            .get_output(context);
+        let application_assignments_binding = application_assignments_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssoadmin/getApplicationAssignments:getApplicationAssignments"

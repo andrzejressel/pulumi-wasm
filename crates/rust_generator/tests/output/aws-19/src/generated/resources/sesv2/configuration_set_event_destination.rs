@@ -209,17 +209,17 @@ pub mod configuration_set_event_destination {
     ) -> ConfigurationSetEventDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_set_name_binding = args
+        let configuration_set_name_binding_1 = args
             .configuration_set_name
-            .get_output(context)
+            .get_output(context);
+        let configuration_set_name_binding = configuration_set_name_binding_1
             .get_inner();
-        let event_destination_binding = args
-            .event_destination
-            .get_output(context)
-            .get_inner();
-        let event_destination_name_binding = args
+        let event_destination_binding_1 = args.event_destination.get_output(context);
+        let event_destination_binding = event_destination_binding_1.get_inner();
+        let event_destination_name_binding_1 = args
             .event_destination_name
-            .get_output(context)
+            .get_output(context);
+        let event_destination_name_binding = event_destination_name_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination"

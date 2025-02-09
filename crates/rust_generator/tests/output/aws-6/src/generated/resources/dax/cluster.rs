@@ -182,47 +182,45 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zones_binding = args
-            .availability_zones
-            .get_output(context)
-            .get_inner();
-        let cluster_endpoint_encryption_type_binding = args
+        let availability_zones_binding_1 = args.availability_zones.get_output(context);
+        let availability_zones_binding = availability_zones_binding_1.get_inner();
+        let cluster_endpoint_encryption_type_binding_1 = args
             .cluster_endpoint_encryption_type
-            .get_output(context)
+            .get_output(context);
+        let cluster_endpoint_encryption_type_binding = cluster_endpoint_encryption_type_binding_1
             .get_inner();
-        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
-        let maintenance_window_binding = args
-            .maintenance_window
-            .get_output(context)
-            .get_inner();
-        let node_type_binding = args.node_type.get_output(context).get_inner();
-        let notification_topic_arn_binding = args
+        let cluster_name_binding_1 = args.cluster_name.get_output(context);
+        let cluster_name_binding = cluster_name_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
+        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
+        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
+        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
+        let node_type_binding_1 = args.node_type.get_output(context);
+        let node_type_binding = node_type_binding_1.get_inner();
+        let notification_topic_arn_binding_1 = args
             .notification_topic_arn
-            .get_output(context)
+            .get_output(context);
+        let notification_topic_arn_binding = notification_topic_arn_binding_1
             .get_inner();
-        let parameter_group_name_binding = args
+        let parameter_group_name_binding_1 = args
             .parameter_group_name
-            .get_output(context)
-            .get_inner();
-        let replication_factor_binding = args
-            .replication_factor
-            .get_output(context)
-            .get_inner();
-        let security_group_ids_binding = args
-            .security_group_ids
-            .get_output(context)
-            .get_inner();
-        let server_side_encryption_binding = args
+            .get_output(context);
+        let parameter_group_name_binding = parameter_group_name_binding_1.get_inner();
+        let replication_factor_binding_1 = args.replication_factor.get_output(context);
+        let replication_factor_binding = replication_factor_binding_1.get_inner();
+        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
+        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
+        let server_side_encryption_binding_1 = args
             .server_side_encryption
-            .get_output(context)
+            .get_output(context);
+        let server_side_encryption_binding = server_side_encryption_binding_1
             .get_inner();
-        let subnet_group_name_binding = args
-            .subnet_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let subnet_group_name_binding_1 = args.subnet_group_name.get_output(context);
+        let subnet_group_name_binding = subnet_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dax/cluster:Cluster".into(),
             name: name.to_string(),

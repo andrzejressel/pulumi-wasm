@@ -190,90 +190,90 @@ pub mod replicated_vm {
     ) -> ReplicatedVMResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let managed_disks_binding = args.managed_disks.get_output(context).get_inner();
-        let multi_vm_group_name_binding = args
-            .multi_vm_group_name
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_interfaces_binding = args
-            .network_interfaces
-            .get_output(context)
-            .get_inner();
-        let recovery_replication_policy_id_binding = args
+        let managed_disks_binding_1 = args.managed_disks.get_output(context);
+        let managed_disks_binding = managed_disks_binding_1.get_inner();
+        let multi_vm_group_name_binding_1 = args.multi_vm_group_name.get_output(context);
+        let multi_vm_group_name_binding = multi_vm_group_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_interfaces_binding_1 = args.network_interfaces.get_output(context);
+        let network_interfaces_binding = network_interfaces_binding_1.get_inner();
+        let recovery_replication_policy_id_binding_1 = args
             .recovery_replication_policy_id
-            .get_output(context)
+            .get_output(context);
+        let recovery_replication_policy_id_binding = recovery_replication_policy_id_binding_1
             .get_inner();
-        let recovery_vault_name_binding = args
-            .recovery_vault_name
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let source_recovery_fabric_name_binding = args
+        let recovery_vault_name_binding_1 = args.recovery_vault_name.get_output(context);
+        let recovery_vault_name_binding = recovery_vault_name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let source_recovery_fabric_name_binding_1 = args
             .source_recovery_fabric_name
-            .get_output(context)
+            .get_output(context);
+        let source_recovery_fabric_name_binding = source_recovery_fabric_name_binding_1
             .get_inner();
-        let source_recovery_protection_container_name_binding = args
+        let source_recovery_protection_container_name_binding_1 = args
             .source_recovery_protection_container_name
-            .get_output(context)
+            .get_output(context);
+        let source_recovery_protection_container_name_binding = source_recovery_protection_container_name_binding_1
             .get_inner();
-        let source_vm_id_binding = args.source_vm_id.get_output(context).get_inner();
-        let target_availability_set_id_binding = args
+        let source_vm_id_binding_1 = args.source_vm_id.get_output(context);
+        let source_vm_id_binding = source_vm_id_binding_1.get_inner();
+        let target_availability_set_id_binding_1 = args
             .target_availability_set_id
-            .get_output(context)
+            .get_output(context);
+        let target_availability_set_id_binding = target_availability_set_id_binding_1
             .get_inner();
-        let target_boot_diagnostic_storage_account_id_binding = args
+        let target_boot_diagnostic_storage_account_id_binding_1 = args
             .target_boot_diagnostic_storage_account_id
-            .get_output(context)
+            .get_output(context);
+        let target_boot_diagnostic_storage_account_id_binding = target_boot_diagnostic_storage_account_id_binding_1
             .get_inner();
-        let target_capacity_reservation_group_id_binding = args
+        let target_capacity_reservation_group_id_binding_1 = args
             .target_capacity_reservation_group_id
-            .get_output(context)
+            .get_output(context);
+        let target_capacity_reservation_group_id_binding = target_capacity_reservation_group_id_binding_1
             .get_inner();
-        let target_edge_zone_binding = args
-            .target_edge_zone
-            .get_output(context)
-            .get_inner();
-        let target_network_id_binding = args
-            .target_network_id
-            .get_output(context)
-            .get_inner();
-        let target_proximity_placement_group_id_binding = args
+        let target_edge_zone_binding_1 = args.target_edge_zone.get_output(context);
+        let target_edge_zone_binding = target_edge_zone_binding_1.get_inner();
+        let target_network_id_binding_1 = args.target_network_id.get_output(context);
+        let target_network_id_binding = target_network_id_binding_1.get_inner();
+        let target_proximity_placement_group_id_binding_1 = args
             .target_proximity_placement_group_id
-            .get_output(context)
+            .get_output(context);
+        let target_proximity_placement_group_id_binding = target_proximity_placement_group_id_binding_1
             .get_inner();
-        let target_recovery_fabric_id_binding = args
+        let target_recovery_fabric_id_binding_1 = args
             .target_recovery_fabric_id
-            .get_output(context)
+            .get_output(context);
+        let target_recovery_fabric_id_binding = target_recovery_fabric_id_binding_1
             .get_inner();
-        let target_recovery_protection_container_id_binding = args
+        let target_recovery_protection_container_id_binding_1 = args
             .target_recovery_protection_container_id
-            .get_output(context)
+            .get_output(context);
+        let target_recovery_protection_container_id_binding = target_recovery_protection_container_id_binding_1
             .get_inner();
-        let target_resource_group_id_binding = args
+        let target_resource_group_id_binding_1 = args
             .target_resource_group_id
-            .get_output(context)
+            .get_output(context);
+        let target_resource_group_id_binding = target_resource_group_id_binding_1
             .get_inner();
-        let target_virtual_machine_scale_set_id_binding = args
+        let target_virtual_machine_scale_set_id_binding_1 = args
             .target_virtual_machine_scale_set_id
-            .get_output(context)
+            .get_output(context);
+        let target_virtual_machine_scale_set_id_binding = target_virtual_machine_scale_set_id_binding_1
             .get_inner();
-        let target_virtual_machine_size_binding = args
+        let target_virtual_machine_size_binding_1 = args
             .target_virtual_machine_size
-            .get_output(context)
+            .get_output(context);
+        let target_virtual_machine_size_binding = target_virtual_machine_size_binding_1
             .get_inner();
-        let target_zone_binding = args.target_zone.get_output(context).get_inner();
-        let test_network_id_binding = args
-            .test_network_id
-            .get_output(context)
-            .get_inner();
-        let unmanaged_disks_binding = args
-            .unmanaged_disks
-            .get_output(context)
-            .get_inner();
+        let target_zone_binding_1 = args.target_zone.get_output(context);
+        let target_zone_binding = target_zone_binding_1.get_inner();
+        let test_network_id_binding_1 = args.test_network_id.get_output(context);
+        let test_network_id_binding = test_network_id_binding_1.get_inner();
+        let unmanaged_disks_binding_1 = args.unmanaged_disks.get_output(context);
+        let unmanaged_disks_binding = unmanaged_disks_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:siterecovery/replicatedVM:ReplicatedVM".into(),
             name: name.to_string(),

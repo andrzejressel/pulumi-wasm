@@ -276,29 +276,31 @@ pub mod cloud_vm_cluster {
     ) -> CloudVmClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_subnet_cidr_binding = args
-            .backup_subnet_cidr
-            .get_output(context)
-            .get_inner();
-        let cidr_binding = args.cidr.get_output(context).get_inner();
-        let cloud_vm_cluster_id_binding = args
-            .cloud_vm_cluster_id
-            .get_output(context)
-            .get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let exadata_infrastructure_binding = args
+        let backup_subnet_cidr_binding_1 = args.backup_subnet_cidr.get_output(context);
+        let backup_subnet_cidr_binding = backup_subnet_cidr_binding_1.get_inner();
+        let cidr_binding_1 = args.cidr.get_output(context);
+        let cidr_binding = cidr_binding_1.get_inner();
+        let cloud_vm_cluster_id_binding_1 = args.cloud_vm_cluster_id.get_output(context);
+        let cloud_vm_cluster_id_binding = cloud_vm_cluster_id_binding_1.get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let exadata_infrastructure_binding_1 = args
             .exadata_infrastructure
-            .get_output(context)
+            .get_output(context);
+        let exadata_infrastructure_binding = exadata_infrastructure_binding_1
             .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let properties_binding = args.properties.get_output(context).get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let properties_binding_1 = args.properties.get_output(context);
+        let properties_binding = properties_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:oracledatabase/cloudVmCluster:CloudVmCluster".into(),
             name: name.to_string(),

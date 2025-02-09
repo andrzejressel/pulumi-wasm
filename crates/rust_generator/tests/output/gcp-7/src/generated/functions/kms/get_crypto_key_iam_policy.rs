@@ -28,7 +28,8 @@ pub mod get_crypto_key_iam_policy {
     ) -> GetCryptoKeyIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let crypto_key_id_binding = args.crypto_key_id.get_output(context).get_inner();
+        let crypto_key_id_binding_1 = args.crypto_key_id.get_output(context);
+        let crypto_key_id_binding = crypto_key_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getCryptoKeyIamPolicy:getCryptoKeyIamPolicy".into(),
             version: super::super::super::get_version(),

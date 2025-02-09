@@ -90,9 +90,12 @@ pub mod service_perimeter_dry_run_ingress_policy {
     ) -> ServicePerimeterDryRunIngressPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ingress_from_binding = args.ingress_from.get_output(context).get_inner();
-        let ingress_to_binding = args.ingress_to.get_output(context).get_inner();
-        let perimeter_binding = args.perimeter.get_output(context).get_inner();
+        let ingress_from_binding_1 = args.ingress_from.get_output(context);
+        let ingress_from_binding = ingress_from_binding_1.get_inner();
+        let ingress_to_binding_1 = args.ingress_to.get_output(context);
+        let ingress_to_binding = ingress_to_binding_1.get_inner();
+        let perimeter_binding_1 = args.perimeter.get_output(context);
+        let perimeter_binding = perimeter_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/servicePerimeterDryRunIngressPolicy:ServicePerimeterDryRunIngressPolicy"
                 .into(),

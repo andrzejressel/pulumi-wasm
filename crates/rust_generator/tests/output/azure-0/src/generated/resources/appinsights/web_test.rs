@@ -146,25 +146,35 @@ pub mod web_test {
     ) -> WebTestResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_insights_id_binding = args
+        let application_insights_id_binding_1 = args
             .application_insights_id
-            .get_output(context)
+            .get_output(context);
+        let application_insights_id_binding = application_insights_id_binding_1
             .get_inner();
-        let configuration_binding = args.configuration.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let frequency_binding = args.frequency.get_output(context).get_inner();
-        let geo_locations_binding = args.geo_locations.get_output(context).get_inner();
-        let kind_binding = args.kind.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let retry_enabled_binding = args.retry_enabled.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeout_binding = args.timeout.get_output(context).get_inner();
+        let configuration_binding_1 = args.configuration.get_output(context);
+        let configuration_binding = configuration_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let frequency_binding_1 = args.frequency.get_output(context);
+        let frequency_binding = frequency_binding_1.get_inner();
+        let geo_locations_binding_1 = args.geo_locations.get_output(context);
+        let geo_locations_binding = geo_locations_binding_1.get_inner();
+        let kind_binding_1 = args.kind.get_output(context);
+        let kind_binding = kind_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let retry_enabled_binding_1 = args.retry_enabled.get_output(context);
+        let retry_enabled_binding = retry_enabled_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeout_binding_1 = args.timeout.get_output(context);
+        let timeout_binding = timeout_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appinsights/webTest:WebTest".into(),
             name: name.to_string(),

@@ -38,10 +38,12 @@ pub mod get_virtual_machine_manager_inventory_items {
     ) -> GetVirtualMachineManagerInventoryItemsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let inventory_type_binding = args.inventory_type.get_output(context).get_inner();
-        let system_center_virtual_machine_manager_server_id_binding = args
+        let inventory_type_binding_1 = args.inventory_type.get_output(context);
+        let inventory_type_binding = inventory_type_binding_1.get_inner();
+        let system_center_virtual_machine_manager_server_id_binding_1 = args
             .system_center_virtual_machine_manager_server_id
-            .get_output(context)
+            .get_output(context);
+        let system_center_virtual_machine_manager_server_id_binding = system_center_virtual_machine_manager_server_id_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems"

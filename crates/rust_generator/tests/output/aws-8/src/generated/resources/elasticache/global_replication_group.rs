@@ -214,34 +214,35 @@ pub mod global_replication_group {
     ) -> GlobalReplicationGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automatic_failover_enabled_binding = args
+        let automatic_failover_enabled_binding_1 = args
             .automatic_failover_enabled
-            .get_output(context)
+            .get_output(context);
+        let automatic_failover_enabled_binding = automatic_failover_enabled_binding_1
             .get_inner();
-        let cache_node_type_binding = args
-            .cache_node_type
-            .get_output(context)
-            .get_inner();
-        let engine_version_binding = args.engine_version.get_output(context).get_inner();
-        let global_replication_group_description_binding = args
+        let cache_node_type_binding_1 = args.cache_node_type.get_output(context);
+        let cache_node_type_binding = cache_node_type_binding_1.get_inner();
+        let engine_version_binding_1 = args.engine_version.get_output(context);
+        let engine_version_binding = engine_version_binding_1.get_inner();
+        let global_replication_group_description_binding_1 = args
             .global_replication_group_description
-            .get_output(context)
+            .get_output(context);
+        let global_replication_group_description_binding = global_replication_group_description_binding_1
             .get_inner();
-        let global_replication_group_id_suffix_binding = args
+        let global_replication_group_id_suffix_binding_1 = args
             .global_replication_group_id_suffix
-            .get_output(context)
+            .get_output(context);
+        let global_replication_group_id_suffix_binding = global_replication_group_id_suffix_binding_1
             .get_inner();
-        let num_node_groups_binding = args
-            .num_node_groups
-            .get_output(context)
-            .get_inner();
-        let parameter_group_name_binding = args
+        let num_node_groups_binding_1 = args.num_node_groups.get_output(context);
+        let num_node_groups_binding = num_node_groups_binding_1.get_inner();
+        let parameter_group_name_binding_1 = args
             .parameter_group_name
-            .get_output(context)
-            .get_inner();
-        let primary_replication_group_id_binding = args
+            .get_output(context);
+        let parameter_group_name_binding = parameter_group_name_binding_1.get_inner();
+        let primary_replication_group_id_binding_1 = args
             .primary_replication_group_id
-            .get_output(context)
+            .get_output(context);
+        let primary_replication_group_id_binding = primary_replication_group_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticache/globalReplicationGroup:GlobalReplicationGroup"

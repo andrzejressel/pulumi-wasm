@@ -92,22 +92,20 @@ pub mod connection {
     ) -> ConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connected_device_id_binding = args
-            .connected_device_id
-            .get_output(context)
-            .get_inner();
-        let connected_link_id_binding = args
-            .connected_link_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let device_id_binding = args.device_id.get_output(context).get_inner();
-        let global_network_id_binding = args
-            .global_network_id
-            .get_output(context)
-            .get_inner();
-        let link_id_binding = args.link_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let connected_device_id_binding_1 = args.connected_device_id.get_output(context);
+        let connected_device_id_binding = connected_device_id_binding_1.get_inner();
+        let connected_link_id_binding_1 = args.connected_link_id.get_output(context);
+        let connected_link_id_binding = connected_link_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let device_id_binding_1 = args.device_id.get_output(context);
+        let device_id_binding = device_id_binding_1.get_inner();
+        let global_network_id_binding_1 = args.global_network_id.get_output(context);
+        let global_network_id_binding = global_network_id_binding_1.get_inner();
+        let link_id_binding_1 = args.link_id.get_output(context);
+        let link_id_binding = link_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/connection:Connection".into(),
             name: name.to_string(),

@@ -91,16 +91,14 @@ pub mod resource_set {
     ) -> ResourceSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let resource_set_name_binding = args
-            .resource_set_name
-            .get_output(context)
-            .get_inner();
-        let resource_set_type_binding = args
-            .resource_set_type
-            .get_output(context)
-            .get_inner();
-        let resources_binding = args.resources.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_set_name_binding_1 = args.resource_set_name.get_output(context);
+        let resource_set_name_binding = resource_set_name_binding_1.get_inner();
+        let resource_set_type_binding_1 = args.resource_set_type.get_output(context);
+        let resource_set_type_binding = resource_set_type_binding_1.get_inner();
+        let resources_binding_1 = args.resources.get_output(context);
+        let resources_binding = resources_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53recoveryreadiness/resourceSet:ResourceSet".into(),
             name: name.to_string(),

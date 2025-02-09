@@ -160,27 +160,31 @@ pub mod pipeline {
     ) -> PipelineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_kms_key_arn_binding = args
-            .aws_kms_key_arn
-            .get_output(context)
-            .get_inner();
-        let content_config_binding = args.content_config.get_output(context).get_inner();
-        let content_config_permissions_binding = args
+        let aws_kms_key_arn_binding_1 = args.aws_kms_key_arn.get_output(context);
+        let aws_kms_key_arn_binding = aws_kms_key_arn_binding_1.get_inner();
+        let content_config_binding_1 = args.content_config.get_output(context);
+        let content_config_binding = content_config_binding_1.get_inner();
+        let content_config_permissions_binding_1 = args
             .content_config_permissions
-            .get_output(context)
+            .get_output(context);
+        let content_config_permissions_binding = content_config_permissions_binding_1
             .get_inner();
-        let input_bucket_binding = args.input_bucket.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notifications_binding = args.notifications.get_output(context).get_inner();
-        let output_bucket_binding = args.output_bucket.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
-        let thumbnail_config_binding = args
-            .thumbnail_config
-            .get_output(context)
-            .get_inner();
-        let thumbnail_config_permissions_binding = args
+        let input_bucket_binding_1 = args.input_bucket.get_output(context);
+        let input_bucket_binding = input_bucket_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notifications_binding_1 = args.notifications.get_output(context);
+        let notifications_binding = notifications_binding_1.get_inner();
+        let output_bucket_binding_1 = args.output_bucket.get_output(context);
+        let output_bucket_binding = output_bucket_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
+        let thumbnail_config_binding_1 = args.thumbnail_config.get_output(context);
+        let thumbnail_config_binding = thumbnail_config_binding_1.get_inner();
+        let thumbnail_config_permissions_binding_1 = args
             .thumbnail_config_permissions
-            .get_output(context)
+            .get_output(context);
+        let thumbnail_config_permissions_binding = thumbnail_config_permissions_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elastictranscoder/pipeline:Pipeline".into(),

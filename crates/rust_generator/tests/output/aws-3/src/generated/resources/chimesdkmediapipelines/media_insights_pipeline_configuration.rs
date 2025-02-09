@@ -339,17 +339,22 @@ pub mod media_insights_pipeline_configuration {
     ) -> MediaInsightsPipelineConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let elements_binding = args.elements.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let real_time_alert_configuration_binding = args
+        let elements_binding_1 = args.elements.get_output(context);
+        let elements_binding = elements_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let real_time_alert_configuration_binding_1 = args
             .real_time_alert_configuration
-            .get_output(context)
+            .get_output(context);
+        let real_time_alert_configuration_binding = real_time_alert_configuration_binding_1
             .get_inner();
-        let resource_access_role_arn_binding = args
+        let resource_access_role_arn_binding_1 = args
             .resource_access_role_arn
-            .get_output(context)
+            .get_output(context);
+        let resource_access_role_arn_binding = resource_access_role_arn_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration"
                 .into(),

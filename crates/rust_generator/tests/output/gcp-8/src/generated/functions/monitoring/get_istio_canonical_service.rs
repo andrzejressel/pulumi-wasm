@@ -59,16 +59,17 @@ pub mod get_istio_canonical_service {
     ) -> GetIstioCanonicalServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let canonical_service_binding = args
-            .canonical_service
-            .get_output(context)
-            .get_inner();
-        let canonical_service_namespace_binding = args
+        let canonical_service_binding_1 = args.canonical_service.get_output(context);
+        let canonical_service_binding = canonical_service_binding_1.get_inner();
+        let canonical_service_namespace_binding_1 = args
             .canonical_service_namespace
-            .get_output(context)
+            .get_output(context);
+        let canonical_service_namespace_binding = canonical_service_namespace_binding_1
             .get_inner();
-        let mesh_uid_binding = args.mesh_uid.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let mesh_uid_binding_1 = args.mesh_uid.get_output(context);
+        let mesh_uid_binding = mesh_uid_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:monitoring/getIstioCanonicalService:getIstioCanonicalService"
                 .into(),

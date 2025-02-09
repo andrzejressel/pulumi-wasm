@@ -89,19 +89,20 @@ pub mod customer_gateway {
     ) -> CustomerGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bgp_asn_binding = args.bgp_asn.get_output(context).get_inner();
-        let bgp_asn_extended_binding = args
-            .bgp_asn_extended
-            .get_output(context)
-            .get_inner();
-        let certificate_arn_binding = args
-            .certificate_arn
-            .get_output(context)
-            .get_inner();
-        let device_name_binding = args.device_name.get_output(context).get_inner();
-        let ip_address_binding = args.ip_address.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let bgp_asn_binding_1 = args.bgp_asn.get_output(context);
+        let bgp_asn_binding = bgp_asn_binding_1.get_inner();
+        let bgp_asn_extended_binding_1 = args.bgp_asn_extended.get_output(context);
+        let bgp_asn_extended_binding = bgp_asn_extended_binding_1.get_inner();
+        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
+        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
+        let device_name_binding_1 = args.device_name.get_output(context);
+        let device_name_binding = device_name_binding_1.get_inner();
+        let ip_address_binding_1 = args.ip_address.get_output(context);
+        let ip_address_binding = ip_address_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/customerGateway:CustomerGateway".into(),
             name: name.to_string(),

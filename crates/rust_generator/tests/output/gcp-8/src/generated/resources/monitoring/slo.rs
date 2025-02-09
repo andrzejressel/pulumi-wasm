@@ -405,29 +405,28 @@ pub mod slo {
     ) -> SloResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let basic_sli_binding = args.basic_sli.get_output(context).get_inner();
-        let calendar_period_binding = args
-            .calendar_period
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let goal_binding = args.goal.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let request_based_sli_binding = args
-            .request_based_sli
-            .get_output(context)
-            .get_inner();
-        let rolling_period_days_binding = args
-            .rolling_period_days
-            .get_output(context)
-            .get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
-        let slo_id_binding = args.slo_id.get_output(context).get_inner();
-        let user_labels_binding = args.user_labels.get_output(context).get_inner();
-        let windows_based_sli_binding = args
-            .windows_based_sli
-            .get_output(context)
-            .get_inner();
+        let basic_sli_binding_1 = args.basic_sli.get_output(context);
+        let basic_sli_binding = basic_sli_binding_1.get_inner();
+        let calendar_period_binding_1 = args.calendar_period.get_output(context);
+        let calendar_period_binding = calendar_period_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let goal_binding_1 = args.goal.get_output(context);
+        let goal_binding = goal_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let request_based_sli_binding_1 = args.request_based_sli.get_output(context);
+        let request_based_sli_binding = request_based_sli_binding_1.get_inner();
+        let rolling_period_days_binding_1 = args.rolling_period_days.get_output(context);
+        let rolling_period_days_binding = rolling_period_days_binding_1.get_inner();
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
+        let slo_id_binding_1 = args.slo_id.get_output(context);
+        let slo_id_binding = slo_id_binding_1.get_inner();
+        let user_labels_binding_1 = args.user_labels.get_output(context);
+        let user_labels_binding = user_labels_binding_1.get_inner();
+        let windows_based_sli_binding_1 = args.windows_based_sli.get_output(context);
+        let windows_based_sli_binding = windows_based_sli_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:monitoring/slo:Slo".into(),
             name: name.to_string(),

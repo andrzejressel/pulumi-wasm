@@ -97,11 +97,10 @@ pub mod finding_aggregator {
     ) -> FindingAggregatorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let linking_mode_binding = args.linking_mode.get_output(context).get_inner();
-        let specified_regions_binding = args
-            .specified_regions
-            .get_output(context)
-            .get_inner();
+        let linking_mode_binding_1 = args.linking_mode.get_output(context);
+        let linking_mode_binding = linking_mode_binding_1.get_inner();
+        let specified_regions_binding_1 = args.specified_regions.get_output(context);
+        let specified_regions_binding = specified_regions_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/findingAggregator:FindingAggregator".into(),
             name: name.to_string(),

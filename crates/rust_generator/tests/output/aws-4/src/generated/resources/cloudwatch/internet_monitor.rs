@@ -112,25 +112,32 @@ pub mod internet_monitor {
     ) -> InternetMonitorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let health_events_config_binding = args
+        let health_events_config_binding_1 = args
             .health_events_config
-            .get_output(context)
-            .get_inner();
-        let internet_measurements_log_delivery_binding = args
+            .get_output(context);
+        let health_events_config_binding = health_events_config_binding_1.get_inner();
+        let internet_measurements_log_delivery_binding_1 = args
             .internet_measurements_log_delivery
-            .get_output(context)
+            .get_output(context);
+        let internet_measurements_log_delivery_binding = internet_measurements_log_delivery_binding_1
             .get_inner();
-        let max_city_networks_to_monitor_binding = args
+        let max_city_networks_to_monitor_binding_1 = args
             .max_city_networks_to_monitor
-            .get_output(context)
+            .get_output(context);
+        let max_city_networks_to_monitor_binding = max_city_networks_to_monitor_binding_1
             .get_inner();
-        let monitor_name_binding = args.monitor_name.get_output(context).get_inner();
-        let resources_binding = args.resources.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let traffic_percentage_to_monitor_binding = args
+        let monitor_name_binding_1 = args.monitor_name.get_output(context);
+        let monitor_name_binding = monitor_name_binding_1.get_inner();
+        let resources_binding_1 = args.resources.get_output(context);
+        let resources_binding = resources_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let traffic_percentage_to_monitor_binding_1 = args
             .traffic_percentage_to_monitor
-            .get_output(context)
+            .get_output(context);
+        let traffic_percentage_to_monitor_binding = traffic_percentage_to_monitor_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/internetMonitor:InternetMonitor".into(),

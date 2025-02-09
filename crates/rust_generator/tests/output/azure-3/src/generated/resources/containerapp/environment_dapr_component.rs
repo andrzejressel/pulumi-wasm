@@ -139,18 +139,27 @@ pub mod environment_dapr_component {
     ) -> EnvironmentDaprComponentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let component_type_binding = args.component_type.get_output(context).get_inner();
-        let container_app_environment_id_binding = args
+        let component_type_binding_1 = args.component_type.get_output(context);
+        let component_type_binding = component_type_binding_1.get_inner();
+        let container_app_environment_id_binding_1 = args
             .container_app_environment_id
-            .get_output(context)
+            .get_output(context);
+        let container_app_environment_id_binding = container_app_environment_id_binding_1
             .get_inner();
-        let ignore_errors_binding = args.ignore_errors.get_output(context).get_inner();
-        let init_timeout_binding = args.init_timeout.get_output(context).get_inner();
-        let metadatas_binding = args.metadatas.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let scopes_binding = args.scopes.get_output(context).get_inner();
-        let secrets_binding = args.secrets.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let ignore_errors_binding_1 = args.ignore_errors.get_output(context);
+        let ignore_errors_binding = ignore_errors_binding_1.get_inner();
+        let init_timeout_binding_1 = args.init_timeout.get_output(context);
+        let init_timeout_binding = init_timeout_binding_1.get_inner();
+        let metadatas_binding_1 = args.metadatas.get_output(context);
+        let metadatas_binding = metadatas_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let scopes_binding_1 = args.scopes.get_output(context);
+        let scopes_binding = scopes_binding_1.get_inner();
+        let secrets_binding_1 = args.secrets.get_output(context);
+        let secrets_binding = secrets_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent"
                 .into(),

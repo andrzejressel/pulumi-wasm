@@ -124,14 +124,16 @@ pub mod account_queue_properties {
     ) -> AccountQueuePropertiesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cors_rules_binding = args.cors_rules.get_output(context).get_inner();
-        let hour_metrics_binding = args.hour_metrics.get_output(context).get_inner();
-        let logging_binding = args.logging.get_output(context).get_inner();
-        let minute_metrics_binding = args.minute_metrics.get_output(context).get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
+        let cors_rules_binding_1 = args.cors_rules.get_output(context);
+        let cors_rules_binding = cors_rules_binding_1.get_inner();
+        let hour_metrics_binding_1 = args.hour_metrics.get_output(context);
+        let hour_metrics_binding = hour_metrics_binding_1.get_inner();
+        let logging_binding_1 = args.logging.get_output(context);
+        let logging_binding = logging_binding_1.get_inner();
+        let minute_metrics_binding_1 = args.minute_metrics.get_output(context);
+        let minute_metrics_binding = minute_metrics_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/accountQueueProperties:AccountQueueProperties".into(),
             name: name.to_string(),

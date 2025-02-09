@@ -118,18 +118,23 @@ pub mod bucket_logging_v_2 {
     ) -> BucketLoggingV2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let expected_bucket_owner_binding = args
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let expected_bucket_owner_binding_1 = args
             .expected_bucket_owner
-            .get_output(context)
-            .get_inner();
-        let target_bucket_binding = args.target_bucket.get_output(context).get_inner();
-        let target_grants_binding = args.target_grants.get_output(context).get_inner();
-        let target_object_key_format_binding = args
+            .get_output(context);
+        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
+        let target_bucket_binding_1 = args.target_bucket.get_output(context);
+        let target_bucket_binding = target_bucket_binding_1.get_inner();
+        let target_grants_binding_1 = args.target_grants.get_output(context);
+        let target_grants_binding = target_grants_binding_1.get_inner();
+        let target_object_key_format_binding_1 = args
             .target_object_key_format
-            .get_output(context)
+            .get_output(context);
+        let target_object_key_format_binding = target_object_key_format_binding_1
             .get_inner();
-        let target_prefix_binding = args.target_prefix.get_output(context).get_inner();
+        let target_prefix_binding_1 = args.target_prefix.get_output(context);
+        let target_prefix_binding = target_prefix_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketLoggingV2:BucketLoggingV2".into(),
             name: name.to_string(),

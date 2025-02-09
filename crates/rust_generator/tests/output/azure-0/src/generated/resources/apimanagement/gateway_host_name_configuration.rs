@@ -137,21 +137,27 @@ pub mod gateway_host_name_configuration {
     ) -> GatewayHostNameConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding = args
-            .api_management_id
-            .get_output(context)
-            .get_inner();
-        let certificate_id_binding = args.certificate_id.get_output(context).get_inner();
-        let gateway_name_binding = args.gateway_name.get_output(context).get_inner();
-        let host_name_binding = args.host_name.get_output(context).get_inner();
-        let http2_enabled_binding = args.http2_enabled.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let request_client_certificate_enabled_binding = args
+        let api_management_id_binding_1 = args.api_management_id.get_output(context);
+        let api_management_id_binding = api_management_id_binding_1.get_inner();
+        let certificate_id_binding_1 = args.certificate_id.get_output(context);
+        let certificate_id_binding = certificate_id_binding_1.get_inner();
+        let gateway_name_binding_1 = args.gateway_name.get_output(context);
+        let gateway_name_binding = gateway_name_binding_1.get_inner();
+        let host_name_binding_1 = args.host_name.get_output(context);
+        let host_name_binding = host_name_binding_1.get_inner();
+        let http2_enabled_binding_1 = args.http2_enabled.get_output(context);
+        let http2_enabled_binding = http2_enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let request_client_certificate_enabled_binding_1 = args
             .request_client_certificate_enabled
-            .get_output(context)
+            .get_output(context);
+        let request_client_certificate_enabled_binding = request_client_certificate_enabled_binding_1
             .get_inner();
-        let tls10_enabled_binding = args.tls10_enabled.get_output(context).get_inner();
-        let tls11_enabled_binding = args.tls11_enabled.get_output(context).get_inner();
+        let tls10_enabled_binding_1 = args.tls10_enabled.get_output(context);
+        let tls10_enabled_binding = tls10_enabled_binding_1.get_inner();
+        let tls11_enabled_binding_1 = args.tls11_enabled.get_output(context);
+        let tls11_enabled_binding = tls11_enabled_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration"
                 .into(),

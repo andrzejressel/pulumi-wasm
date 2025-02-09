@@ -143,27 +143,33 @@ pub mod backend {
     ) -> BackendResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args
-            .api_management_name
-            .get_output(context)
-            .get_inner();
-        let credentials_binding = args.credentials.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let proxy_binding = args.proxy.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let resource_id_binding = args.resource_id.get_output(context).get_inner();
-        let service_fabric_cluster_binding = args
+        let api_management_name_binding_1 = args.api_management_name.get_output(context);
+        let api_management_name_binding = api_management_name_binding_1.get_inner();
+        let credentials_binding_1 = args.credentials.get_output(context);
+        let credentials_binding = credentials_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let proxy_binding_1 = args.proxy.get_output(context);
+        let proxy_binding = proxy_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let resource_id_binding_1 = args.resource_id.get_output(context);
+        let resource_id_binding = resource_id_binding_1.get_inner();
+        let service_fabric_cluster_binding_1 = args
             .service_fabric_cluster
-            .get_output(context)
+            .get_output(context);
+        let service_fabric_cluster_binding = service_fabric_cluster_binding_1
             .get_inner();
-        let title_binding = args.title.get_output(context).get_inner();
-        let tls_binding = args.tls.get_output(context).get_inner();
-        let url_binding = args.url.get_output(context).get_inner();
+        let title_binding_1 = args.title.get_output(context);
+        let title_binding = title_binding_1.get_inner();
+        let tls_binding_1 = args.tls.get_output(context);
+        let tls_binding = tls_binding_1.get_inner();
+        let url_binding_1 = args.url.get_output(context);
+        let url_binding = url_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/backend:Backend".into(),
             name: name.to_string(),

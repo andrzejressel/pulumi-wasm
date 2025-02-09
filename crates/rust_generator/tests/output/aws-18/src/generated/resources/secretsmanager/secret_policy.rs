@@ -82,12 +82,12 @@ pub mod secret_policy {
     ) -> SecretPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let block_public_policy_binding = args
-            .block_public_policy
-            .get_output(context)
-            .get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let secret_arn_binding = args.secret_arn.get_output(context).get_inner();
+        let block_public_policy_binding_1 = args.block_public_policy.get_output(context);
+        let block_public_policy_binding = block_public_policy_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let secret_arn_binding_1 = args.secret_arn.get_output(context);
+        let secret_arn_binding = secret_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:secretsmanager/secretPolicy:SecretPolicy".into(),
             name: name.to_string(),

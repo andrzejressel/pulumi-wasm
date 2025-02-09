@@ -889,6 +889,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
+                pub unsafe fn _export_method_output_clone_cabi<T: GuestOutput>(
+                    arg0: *mut u8,
+                ) -> i32 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let result0 = T::clone(
+                        OutputBorrow::lift(arg0 as u32 as usize).get(),
+                    );
+                    (result0).take_handle() as i32
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
                 pub unsafe fn _export_combine_cabi<T: Guest>(
                     arg0: *mut u8,
                     arg1: usize,
@@ -979,6 +990,7 @@ pub mod exports {
                         secret: bool,
                     ) -> Self;
                     fn map(&self, function_name: _rt::String) -> Output;
+                    fn clone(&self) -> Output;
                 }
                 pub trait GuestRegisterOutput: 'static {
                     #[doc(hidden)]
@@ -1042,6 +1054,11 @@ pub mod exports {
                         arg1 : * mut u8, arg2 : usize,) -> i32 { $($path_to_types)*::
                         _export_method_output_map_cabi::<<$ty as $($path_to_types)*::
                         Guest >::Output > (arg0, arg1, arg2) } #[export_name =
+                        "component:pulumi-gestalt/output-interface@0.0.0-DEV#[method]output.clone"]
+                        unsafe extern "C" fn export_method_output_clone(arg0 : * mut u8,)
+                        -> i32 { $($path_to_types)*::
+                        _export_method_output_clone_cabi::<<$ty as $($path_to_types)*::
+                        Guest >::Output > (arg0) } #[export_name =
                         "component:pulumi-gestalt/output-interface@0.0.0-DEV#combine"]
                         unsafe extern "C" fn export_combine(arg0 : * mut u8, arg1 :
                         usize,) -> i32 { $($path_to_types)*:: _export_combine_cabi::<$ty
@@ -1667,8 +1684,8 @@ pub(crate) use __export_pulumi_gestalt_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.36.0:component:pulumi-gestalt@0.0.0-DEV:pulumi-gestalt:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1885] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xd8\x0d\x01A\x02\x01\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1921] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xfc\x0d\x01A\x02\x01\
 A\x0f\x01B\x0a\x01m\x05\x05TRACE\x05DEBUG\x04INFO\x04WARN\x05ERROR\x04\0\x05leve\
 l\x03\0\0\x01ks\x01ky\x01o\x02ss\x01p\x04\x01r\x07\x05level\x01\x06targets\x04ar\
 gss\x0bmodule-path\x02\x04file\x02\x04line\x03\x0akey-values\x05\x04\0\x07conten\
@@ -1683,31 +1700,32 @@ esource-invoke\x01\x08\x01@\x01\x07request\x04\x01\0\x04\0\x11register-resource\
 omponent:pulumi-gestalt-external/external-world@0.0.0-STABLE-DEV\x05\x01\x01B\x04\
 \x04\0\x06engine\x03\x01\x01i\0\x01@\x01\x0ain-preview\x7f\0\x01\x04\0\x13[const\
 ructor]engine\x01\x02\x04\00component:pulumi-gestalt/pulumi-engine@0.0.0-DEV\x05\
-\x02\x02\x03\0\x02\x06engine\x01B\x11\x02\x03\x02\x01\x03\x04\0\x06engine\x03\0\0\
+\x02\x02\x03\0\x02\x06engine\x01B\x13\x02\x03\x02\x01\x03\x04\0\x06engine\x03\0\0\
 \x04\0\x06output\x03\x01\x04\0\x0fregister-output\x03\x01\x01h\x01\x01i\x02\x01@\
 \x03\x06engine\x04\x05values\x06secret\x7f\0\x05\x04\0\x13[constructor]output\x01\
 \x06\x01h\x02\x01@\x02\x04self\x07\x0dfunction-names\0\x05\x04\0\x12[method]outp\
-ut.map\x01\x08\x01h\x03\x01@\x02\x04self\x09\x0afield-names\0\x05\x04\0%[method]\
-register-output.extract-field\x01\x0a\x01p\x07\x01@\x01\x07outputs\x0b\0\x05\x04\
-\0\x07combine\x01\x0c\x04\03component:pulumi-gestalt/output-interface@0.0.0-DEV\x05\
-\x04\x02\x03\0\x03\x06output\x02\x03\0\x03\x0fregister-output\x01B\x14\x02\x03\x02\
-\x01\x03\x04\0\x06engine\x03\0\0\x02\x03\x02\x01\x05\x04\0\x06output\x03\0\x02\x02\
-\x03\x02\x01\x06\x04\0\x0fregister-output\x03\0\x04\x01h\x03\x01r\x02\x04names\x05\
-value\x06\x04\0\x0cobject-field\x03\0\x07\x01p\x08\x01r\x04\x04types\x04names\x07\
-versions\x06object\x09\x04\0\x19register-resource-request\x03\0\x0a\x01r\x03\x05\
-tokens\x07versions\x06object\x09\x04\0\x17resource-invoke-request\x03\0\x0c\x01h\
-\x01\x01i\x05\x01@\x02\x06engine\x0e\x07request\x0b\0\x0f\x04\0\x08register\x01\x10\
-\x01@\x02\x06engine\x0e\x07request\x0d\0\x0f\x04\0\x06invoke\x01\x11\x04\05compo\
-nent:pulumi-gestalt/register-interface@0.0.0-DEV\x05\x07\x01B\x11\x02\x03\x02\x01\
-\x03\x04\0\x06engine\x03\0\0\x02\x03\x02\x01\x05\x04\0\x06output\x03\0\x02\x01i\x03\
-\x01r\x03\x02id\x04\x0bfunction-ids\x05values\x04\0\x1bfunction-invocation-reque\
-st\x03\0\x05\x01h\x03\x01r\x02\x02id\x07\x05values\x04\0\x1afunction-invocation-\
-result\x03\0\x08\x01@\x02\x04names\x05value\x07\x01\0\x04\0\x0aadd-export\x01\x0a\
-\x01h\x01\x01p\x09\x01p\x06\x01@\x02\x06engine\x0b\x09functions\x0c\0\x0d\x04\0\x06\
-finish\x01\x0e\x04\02component:pulumi-gestalt/stack-interface@0.0.0-DEV\x05\x08\x04\
-\01component:pulumi-gestalt/pulumi-gestalt@0.0.0-DEV\x04\0\x0b\x14\x01\0\x0epulu\
-mi-gestalt\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070\
-.220.0\x10wit-bindgen-rust\x060.36.0";
+ut.map\x01\x08\x01@\x01\x04self\x07\0\x05\x04\0\x14[method]output.clone\x01\x09\x01\
+h\x03\x01@\x02\x04self\x0a\x0afield-names\0\x05\x04\0%[method]register-output.ex\
+tract-field\x01\x0b\x01p\x07\x01@\x01\x07outputs\x0c\0\x05\x04\0\x07combine\x01\x0d\
+\x04\03component:pulumi-gestalt/output-interface@0.0.0-DEV\x05\x04\x02\x03\0\x03\
+\x06output\x02\x03\0\x03\x0fregister-output\x01B\x14\x02\x03\x02\x01\x03\x04\0\x06\
+engine\x03\0\0\x02\x03\x02\x01\x05\x04\0\x06output\x03\0\x02\x02\x03\x02\x01\x06\
+\x04\0\x0fregister-output\x03\0\x04\x01h\x03\x01r\x02\x04names\x05value\x06\x04\0\
+\x0cobject-field\x03\0\x07\x01p\x08\x01r\x04\x04types\x04names\x07versions\x06ob\
+ject\x09\x04\0\x19register-resource-request\x03\0\x0a\x01r\x03\x05tokens\x07vers\
+ions\x06object\x09\x04\0\x17resource-invoke-request\x03\0\x0c\x01h\x01\x01i\x05\x01\
+@\x02\x06engine\x0e\x07request\x0b\0\x0f\x04\0\x08register\x01\x10\x01@\x02\x06e\
+ngine\x0e\x07request\x0d\0\x0f\x04\0\x06invoke\x01\x11\x04\05component:pulumi-ge\
+stalt/register-interface@0.0.0-DEV\x05\x07\x01B\x11\x02\x03\x02\x01\x03\x04\0\x06\
+engine\x03\0\0\x02\x03\x02\x01\x05\x04\0\x06output\x03\0\x02\x01i\x03\x01r\x03\x02\
+id\x04\x0bfunction-ids\x05values\x04\0\x1bfunction-invocation-request\x03\0\x05\x01\
+h\x03\x01r\x02\x02id\x07\x05values\x04\0\x1afunction-invocation-result\x03\0\x08\
+\x01@\x02\x04names\x05value\x07\x01\0\x04\0\x0aadd-export\x01\x0a\x01h\x01\x01p\x09\
+\x01p\x06\x01@\x02\x06engine\x0b\x09functions\x0c\0\x0d\x04\0\x06finish\x01\x0e\x04\
+\02component:pulumi-gestalt/stack-interface@0.0.0-DEV\x05\x08\x04\01component:pu\
+lumi-gestalt/pulumi-gestalt@0.0.0-DEV\x04\0\x0b\x14\x01\0\x0epulumi-gestalt\x03\0\
+\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070.220.0\x10wit-bi\
+ndgen-rust\x060.36.0";
 #[inline(never)]
 #[doc(hidden)]
 pub fn __link_custom_section_describing_imports() {

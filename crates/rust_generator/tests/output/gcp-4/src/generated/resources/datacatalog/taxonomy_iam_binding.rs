@@ -265,12 +265,18 @@ pub mod taxonomy_iam_binding {
     ) -> TaxonomyIamBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let members_binding = args.members.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
-        let taxonomy_binding = args.taxonomy.get_output(context).get_inner();
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let members_binding_1 = args.members.get_output(context);
+        let members_binding = members_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
+        let taxonomy_binding_1 = args.taxonomy.get_output(context);
+        let taxonomy_binding = taxonomy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/taxonomyIamBinding:TaxonomyIamBinding".into(),
             name: name.to_string(),

@@ -76,18 +76,18 @@ pub mod flowhook {
     ) -> FlowhookResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let continue_on_error_binding = args
-            .continue_on_error
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let environment_binding = args.environment.get_output(context).get_inner();
-        let flow_hook_point_binding = args
-            .flow_hook_point
-            .get_output(context)
-            .get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
-        let sharedflow_binding = args.sharedflow.get_output(context).get_inner();
+        let continue_on_error_binding_1 = args.continue_on_error.get_output(context);
+        let continue_on_error_binding = continue_on_error_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let environment_binding_1 = args.environment.get_output(context);
+        let environment_binding = environment_binding_1.get_inner();
+        let flow_hook_point_binding_1 = args.flow_hook_point.get_output(context);
+        let flow_hook_point_binding = flow_hook_point_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
+        let sharedflow_binding_1 = args.sharedflow.get_output(context);
+        let sharedflow_binding = sharedflow_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/flowhook:Flowhook".into(),
             name: name.to_string(),

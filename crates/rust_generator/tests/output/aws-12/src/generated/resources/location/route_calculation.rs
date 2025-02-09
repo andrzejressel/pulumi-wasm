@@ -83,13 +83,14 @@ pub mod route_calculation {
     ) -> RouteCalculationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let calculator_name_binding = args
-            .calculator_name
-            .get_output(context)
-            .get_inner();
-        let data_source_binding = args.data_source.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let calculator_name_binding_1 = args.calculator_name.get_output(context);
+        let calculator_name_binding = calculator_name_binding_1.get_inner();
+        let data_source_binding_1 = args.data_source.get_output(context);
+        let data_source_binding = data_source_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:location/routeCalculation:RouteCalculation".into(),
             name: name.to_string(),

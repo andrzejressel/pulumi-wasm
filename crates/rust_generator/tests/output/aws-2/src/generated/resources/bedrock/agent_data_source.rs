@@ -113,28 +113,32 @@ pub mod agent_data_source {
     ) -> AgentDataSourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_deletion_policy_binding = args
+        let data_deletion_policy_binding_1 = args
             .data_deletion_policy
-            .get_output(context)
-            .get_inner();
-        let data_source_configuration_binding = args
+            .get_output(context);
+        let data_deletion_policy_binding = data_deletion_policy_binding_1.get_inner();
+        let data_source_configuration_binding_1 = args
             .data_source_configuration
-            .get_output(context)
+            .get_output(context);
+        let data_source_configuration_binding = data_source_configuration_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let knowledge_base_id_binding = args
-            .knowledge_base_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let server_side_encryption_configuration_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let knowledge_base_id_binding_1 = args.knowledge_base_id.get_output(context);
+        let knowledge_base_id_binding = knowledge_base_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let server_side_encryption_configuration_binding_1 = args
             .server_side_encryption_configuration
-            .get_output(context)
+            .get_output(context);
+        let server_side_encryption_configuration_binding = server_side_encryption_configuration_binding_1
             .get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let vector_ingestion_configuration_binding = args
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let vector_ingestion_configuration_binding_1 = args
             .vector_ingestion_configuration
-            .get_output(context)
+            .get_output(context);
+        let vector_ingestion_configuration_binding = vector_ingestion_configuration_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:bedrock/agentDataSource:AgentDataSource".into(),

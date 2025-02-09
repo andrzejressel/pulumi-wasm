@@ -126,25 +126,31 @@ pub mod source_control {
     ) -> SourceControlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automatic_sync_binding = args.automatic_sync.get_output(context).get_inner();
-        let automation_account_id_binding = args
+        let automatic_sync_binding_1 = args.automatic_sync.get_output(context);
+        let automatic_sync_binding = automatic_sync_binding_1.get_inner();
+        let automation_account_id_binding_1 = args
             .automation_account_id
-            .get_output(context)
-            .get_inner();
-        let branch_binding = args.branch.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let folder_path_binding = args.folder_path.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let publish_runbook_enabled_binding = args
+            .get_output(context);
+        let automation_account_id_binding = automation_account_id_binding_1.get_inner();
+        let branch_binding_1 = args.branch.get_output(context);
+        let branch_binding = branch_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let folder_path_binding_1 = args.folder_path.get_output(context);
+        let folder_path_binding = folder_path_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let publish_runbook_enabled_binding_1 = args
             .publish_runbook_enabled
-            .get_output(context)
+            .get_output(context);
+        let publish_runbook_enabled_binding = publish_runbook_enabled_binding_1
             .get_inner();
-        let repository_url_binding = args.repository_url.get_output(context).get_inner();
-        let security_binding = args.security.get_output(context).get_inner();
-        let source_control_type_binding = args
-            .source_control_type
-            .get_output(context)
-            .get_inner();
+        let repository_url_binding_1 = args.repository_url.get_output(context);
+        let repository_url_binding = repository_url_binding_1.get_inner();
+        let security_binding_1 = args.security.get_output(context);
+        let security_binding = security_binding_1.get_inner();
+        let source_control_type_binding_1 = args.source_control_type.get_output(context);
+        let source_control_type_binding = source_control_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/sourceControl:SourceControl".into(),
             name: name.to_string(),

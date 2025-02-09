@@ -72,15 +72,12 @@ pub mod account_static_website {
     ) -> AccountStaticWebsiteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let error404_document_binding = args
-            .error404_document
-            .get_output(context)
-            .get_inner();
-        let index_document_binding = args.index_document.get_output(context).get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
+        let error404_document_binding_1 = args.error404_document.get_output(context);
+        let error404_document_binding = error404_document_binding_1.get_inner();
+        let index_document_binding_1 = args.index_document.get_output(context);
+        let index_document_binding = index_document_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/accountStaticWebsite:AccountStaticWebsite".into(),
             name: name.to_string(),

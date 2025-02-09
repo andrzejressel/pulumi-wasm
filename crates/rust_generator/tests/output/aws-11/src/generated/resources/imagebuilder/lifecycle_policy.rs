@@ -146,17 +146,22 @@ pub mod lifecycle_policy {
     ) -> LifecyclePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let execution_role_binding = args.execution_role.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let policy_details_binding = args.policy_details.get_output(context).get_inner();
-        let resource_selection_binding = args
-            .resource_selection
-            .get_output(context)
-            .get_inner();
-        let resource_type_binding = args.resource_type.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let execution_role_binding_1 = args.execution_role.get_output(context);
+        let execution_role_binding = execution_role_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let policy_details_binding_1 = args.policy_details.get_output(context);
+        let policy_details_binding = policy_details_binding_1.get_inner();
+        let resource_selection_binding_1 = args.resource_selection.get_output(context);
+        let resource_selection_binding = resource_selection_binding_1.get_inner();
+        let resource_type_binding_1 = args.resource_type.get_output(context);
+        let resource_type_binding = resource_type_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:imagebuilder/lifecyclePolicy:LifecyclePolicy".into(),
             name: name.to_string(),

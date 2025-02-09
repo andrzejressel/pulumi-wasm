@@ -444,12 +444,18 @@ pub mod instance_iam_member {
     ) -> InstanceIAMMemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_output(context).get_inner();
-        let instance_name_binding = args.instance_name.get_output(context).get_inner();
-        let member_binding = args.member.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let condition_binding_1 = args.condition.get_output(context);
+        let condition_binding = condition_binding_1.get_inner();
+        let instance_name_binding_1 = args.instance_name.get_output(context);
+        let instance_name_binding = instance_name_binding_1.get_inner();
+        let member_binding_1 = args.member.get_output(context);
+        let member_binding = member_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/instanceIAMMember:InstanceIAMMember".into(),
             name: name.to_string(),

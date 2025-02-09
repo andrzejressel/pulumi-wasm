@@ -130,8 +130,10 @@ pub mod plan {
     ) -> PlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contact_id_binding = args.contact_id.get_output(context).get_inner();
-        let stages_binding = args.stages.get_output(context).get_inner();
+        let contact_id_binding_1 = args.contact_id.get_output(context);
+        let contact_id_binding = contact_id_binding_1.get_inner();
+        let stages_binding_1 = args.stages.get_output(context);
+        let stages_binding = stages_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssmcontacts/plan:Plan".into(),
             name: name.to_string(),

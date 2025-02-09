@@ -112,11 +112,10 @@ pub mod default_patch_baseline {
     ) -> DefaultPatchBaselineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let baseline_id_binding = args.baseline_id.get_output(context).get_inner();
-        let operating_system_binding = args
-            .operating_system
-            .get_output(context)
-            .get_inner();
+        let baseline_id_binding_1 = args.baseline_id.get_output(context);
+        let baseline_id_binding = baseline_id_binding_1.get_inner();
+        let operating_system_binding_1 = args.operating_system.get_output(context);
+        let operating_system_binding = operating_system_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/defaultPatchBaseline:DefaultPatchBaseline".into(),
             name: name.to_string(),

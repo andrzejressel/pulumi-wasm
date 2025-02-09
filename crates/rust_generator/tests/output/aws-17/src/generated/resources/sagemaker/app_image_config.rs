@@ -112,23 +112,27 @@ pub mod app_image_config {
     ) -> AppImageConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_image_config_name_binding = args
+        let app_image_config_name_binding_1 = args
             .app_image_config_name
-            .get_output(context)
-            .get_inner();
-        let code_editor_app_image_config_binding = args
+            .get_output(context);
+        let app_image_config_name_binding = app_image_config_name_binding_1.get_inner();
+        let code_editor_app_image_config_binding_1 = args
             .code_editor_app_image_config
-            .get_output(context)
+            .get_output(context);
+        let code_editor_app_image_config_binding = code_editor_app_image_config_binding_1
             .get_inner();
-        let jupyter_lab_image_config_binding = args
+        let jupyter_lab_image_config_binding_1 = args
             .jupyter_lab_image_config
-            .get_output(context)
+            .get_output(context);
+        let jupyter_lab_image_config_binding = jupyter_lab_image_config_binding_1
             .get_inner();
-        let kernel_gateway_image_config_binding = args
+        let kernel_gateway_image_config_binding_1 = args
             .kernel_gateway_image_config
-            .get_output(context)
+            .get_output(context);
+        let kernel_gateway_image_config_binding = kernel_gateway_image_config_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/appImageConfig:AppImageConfig".into(),
             name: name.to_string(),

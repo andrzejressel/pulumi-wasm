@@ -151,21 +151,18 @@ pub mod subscription {
     ) -> SubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_output(context).get_inner();
-        let billing_scope_id_binding = args
-            .billing_scope_id
-            .get_output(context)
-            .get_inner();
-        let subscription_id_binding = args
-            .subscription_id
-            .get_output(context)
-            .get_inner();
-        let subscription_name_binding = args
-            .subscription_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let workload_binding = args.workload.get_output(context).get_inner();
+        let alias_binding_1 = args.alias.get_output(context);
+        let alias_binding = alias_binding_1.get_inner();
+        let billing_scope_id_binding_1 = args.billing_scope_id.get_output(context);
+        let billing_scope_id_binding = billing_scope_id_binding_1.get_inner();
+        let subscription_id_binding_1 = args.subscription_id.get_output(context);
+        let subscription_id_binding = subscription_id_binding_1.get_inner();
+        let subscription_name_binding_1 = args.subscription_name.get_output(context);
+        let subscription_name_binding = subscription_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let workload_binding_1 = args.workload.get_output(context);
+        let workload_binding = workload_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:core/subscription:Subscription".into(),
             name: name.to_string(),

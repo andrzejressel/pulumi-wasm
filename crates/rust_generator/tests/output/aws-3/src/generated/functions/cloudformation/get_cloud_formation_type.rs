@@ -63,10 +63,14 @@ pub mod get_cloud_formation_type {
     ) -> GetCloudFormationTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let type_name_binding = args.type_name.get_output(context).get_inner();
-        let version_id_binding = args.version_id.get_output(context).get_inner();
+        let arn_binding_1 = args.arn.get_output(context);
+        let arn_binding = arn_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let type_name_binding_1 = args.type_name.get_output(context);
+        let type_name_binding = type_name_binding_1.get_inner();
+        let version_id_binding_1 = args.version_id.get_output(context);
+        let version_id_binding = version_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudformation/getCloudFormationType:getCloudFormationType"
                 .into(),

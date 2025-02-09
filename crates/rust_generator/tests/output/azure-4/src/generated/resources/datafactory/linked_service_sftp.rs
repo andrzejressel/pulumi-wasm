@@ -149,38 +149,44 @@ pub mod linked_service_sftp {
     ) -> LinkedServiceSftpResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_properties_binding = args
+        let additional_properties_binding_1 = args
             .additional_properties
-            .get_output(context)
-            .get_inner();
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let authentication_type_binding = args
-            .authentication_type
-            .get_output(context)
-            .get_inner();
-        let data_factory_id_binding = args
-            .data_factory_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let host_binding = args.host.get_output(context).get_inner();
-        let host_key_fingerprint_binding = args
+            .get_output(context);
+        let additional_properties_binding = additional_properties_binding_1.get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let authentication_type_binding_1 = args.authentication_type.get_output(context);
+        let authentication_type_binding = authentication_type_binding_1.get_inner();
+        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
+        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let host_binding_1 = args.host.get_output(context);
+        let host_binding = host_binding_1.get_inner();
+        let host_key_fingerprint_binding_1 = args
             .host_key_fingerprint
-            .get_output(context)
-            .get_inner();
-        let integration_runtime_name_binding = args
+            .get_output(context);
+        let host_key_fingerprint_binding = host_key_fingerprint_binding_1.get_inner();
+        let integration_runtime_name_binding_1 = args
             .integration_runtime_name
-            .get_output(context)
+            .get_output(context);
+        let integration_runtime_name_binding = integration_runtime_name_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let skip_host_key_validation_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let skip_host_key_validation_binding_1 = args
             .skip_host_key_validation
-            .get_output(context)
+            .get_output(context);
+        let skip_host_key_validation_binding = skip_host_key_validation_binding_1
             .get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/linkedServiceSftp:LinkedServiceSftp".into(),
             name: name.to_string(),

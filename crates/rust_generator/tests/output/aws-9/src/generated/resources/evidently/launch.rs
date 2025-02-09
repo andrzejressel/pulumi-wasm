@@ -298,23 +298,25 @@ pub mod launch {
     ) -> LaunchResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let groups_binding = args.groups.get_output(context).get_inner();
-        let metric_monitors_binding = args
-            .metric_monitors
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let randomization_salt_binding = args
-            .randomization_salt
-            .get_output(context)
-            .get_inner();
-        let scheduled_splits_config_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let groups_binding_1 = args.groups.get_output(context);
+        let groups_binding = groups_binding_1.get_inner();
+        let metric_monitors_binding_1 = args.metric_monitors.get_output(context);
+        let metric_monitors_binding = metric_monitors_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let randomization_salt_binding_1 = args.randomization_salt.get_output(context);
+        let randomization_salt_binding = randomization_salt_binding_1.get_inner();
+        let scheduled_splits_config_binding_1 = args
             .scheduled_splits_config
-            .get_output(context)
+            .get_output(context);
+        let scheduled_splits_config_binding = scheduled_splits_config_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:evidently/launch:Launch".into(),
             name: name.to_string(),

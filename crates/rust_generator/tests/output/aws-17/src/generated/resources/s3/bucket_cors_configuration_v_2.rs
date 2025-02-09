@@ -91,12 +91,14 @@ pub mod bucket_cors_configuration_v_2 {
     ) -> BucketCorsConfigurationV2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let cors_rules_binding = args.cors_rules.get_output(context).get_inner();
-        let expected_bucket_owner_binding = args
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let cors_rules_binding_1 = args.cors_rules.get_output(context);
+        let cors_rules_binding = cors_rules_binding_1.get_inner();
+        let expected_bucket_owner_binding_1 = args
             .expected_bucket_owner
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2".into(),
             name: name.to_string(),

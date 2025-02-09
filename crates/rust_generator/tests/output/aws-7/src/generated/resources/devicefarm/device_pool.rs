@@ -96,12 +96,18 @@ pub mod device_pool {
     ) -> DevicePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let max_devices_binding = args.max_devices.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_arn_binding = args.project_arn.get_output(context).get_inner();
-        let rules_binding = args.rules.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let max_devices_binding_1 = args.max_devices.get_output(context);
+        let max_devices_binding = max_devices_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_arn_binding_1 = args.project_arn.get_output(context);
+        let project_arn_binding = project_arn_binding_1.get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:devicefarm/devicePool:DevicePool".into(),
             name: name.to_string(),

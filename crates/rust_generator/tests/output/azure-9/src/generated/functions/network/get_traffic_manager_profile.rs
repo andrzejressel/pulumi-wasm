@@ -59,16 +59,16 @@ pub mod get_traffic_manager_profile {
     ) -> GetTrafficManagerProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let traffic_view_enabled_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let traffic_view_enabled_binding_1 = args
             .traffic_view_enabled
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let traffic_view_enabled_binding = traffic_view_enabled_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getTrafficManagerProfile:getTrafficManagerProfile"
                 .into(),

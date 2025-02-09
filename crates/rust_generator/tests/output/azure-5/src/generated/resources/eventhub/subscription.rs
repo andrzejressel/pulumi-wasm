@@ -163,51 +163,54 @@ pub mod subscription {
     ) -> SubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_delete_on_idle_binding = args
-            .auto_delete_on_idle
-            .get_output(context)
-            .get_inner();
-        let batched_operations_enabled_binding = args
+        let auto_delete_on_idle_binding_1 = args.auto_delete_on_idle.get_output(context);
+        let auto_delete_on_idle_binding = auto_delete_on_idle_binding_1.get_inner();
+        let batched_operations_enabled_binding_1 = args
             .batched_operations_enabled
-            .get_output(context)
+            .get_output(context);
+        let batched_operations_enabled_binding = batched_operations_enabled_binding_1
             .get_inner();
-        let client_scoped_subscription_binding = args
+        let client_scoped_subscription_binding_1 = args
             .client_scoped_subscription
-            .get_output(context)
+            .get_output(context);
+        let client_scoped_subscription_binding = client_scoped_subscription_binding_1
             .get_inner();
-        let client_scoped_subscription_enabled_binding = args
+        let client_scoped_subscription_enabled_binding_1 = args
             .client_scoped_subscription_enabled
-            .get_output(context)
+            .get_output(context);
+        let client_scoped_subscription_enabled_binding = client_scoped_subscription_enabled_binding_1
             .get_inner();
-        let dead_lettering_on_filter_evaluation_error_binding = args
+        let dead_lettering_on_filter_evaluation_error_binding_1 = args
             .dead_lettering_on_filter_evaluation_error
-            .get_output(context)
+            .get_output(context);
+        let dead_lettering_on_filter_evaluation_error_binding = dead_lettering_on_filter_evaluation_error_binding_1
             .get_inner();
-        let dead_lettering_on_message_expiration_binding = args
+        let dead_lettering_on_message_expiration_binding_1 = args
             .dead_lettering_on_message_expiration
-            .get_output(context)
+            .get_output(context);
+        let dead_lettering_on_message_expiration_binding = dead_lettering_on_message_expiration_binding_1
             .get_inner();
-        let default_message_ttl_binding = args
-            .default_message_ttl
-            .get_output(context)
-            .get_inner();
-        let forward_dead_lettered_messages_to_binding = args
+        let default_message_ttl_binding_1 = args.default_message_ttl.get_output(context);
+        let default_message_ttl_binding = default_message_ttl_binding_1.get_inner();
+        let forward_dead_lettered_messages_to_binding_1 = args
             .forward_dead_lettered_messages_to
-            .get_output(context)
+            .get_output(context);
+        let forward_dead_lettered_messages_to_binding = forward_dead_lettered_messages_to_binding_1
             .get_inner();
-        let forward_to_binding = args.forward_to.get_output(context).get_inner();
-        let lock_duration_binding = args.lock_duration.get_output(context).get_inner();
-        let max_delivery_count_binding = args
-            .max_delivery_count
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let requires_session_binding = args
-            .requires_session
-            .get_output(context)
-            .get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let topic_id_binding = args.topic_id.get_output(context).get_inner();
+        let forward_to_binding_1 = args.forward_to.get_output(context);
+        let forward_to_binding = forward_to_binding_1.get_inner();
+        let lock_duration_binding_1 = args.lock_duration.get_output(context);
+        let lock_duration_binding = lock_duration_binding_1.get_inner();
+        let max_delivery_count_binding_1 = args.max_delivery_count.get_output(context);
+        let max_delivery_count_binding = max_delivery_count_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let requires_session_binding_1 = args.requires_session.get_output(context);
+        let requires_session_binding = requires_session_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let topic_id_binding_1 = args.topic_id.get_output(context);
+        let topic_id_binding = topic_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:eventhub/subscription:Subscription".into(),
             name: name.to_string(),

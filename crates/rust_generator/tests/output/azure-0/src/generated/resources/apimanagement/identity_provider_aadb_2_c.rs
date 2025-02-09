@@ -137,30 +137,35 @@ pub mod identity_provider_aadb_2_c {
     ) -> IdentityProviderAadb2cResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_tenant_binding = args.allowed_tenant.get_output(context).get_inner();
-        let api_management_name_binding = args
-            .api_management_name
-            .get_output(context)
-            .get_inner();
-        let authority_binding = args.authority.get_output(context).get_inner();
-        let client_id_binding = args.client_id.get_output(context).get_inner();
-        let client_library_binding = args.client_library.get_output(context).get_inner();
-        let client_secret_binding = args.client_secret.get_output(context).get_inner();
-        let password_reset_policy_binding = args
+        let allowed_tenant_binding_1 = args.allowed_tenant.get_output(context);
+        let allowed_tenant_binding = allowed_tenant_binding_1.get_inner();
+        let api_management_name_binding_1 = args.api_management_name.get_output(context);
+        let api_management_name_binding = api_management_name_binding_1.get_inner();
+        let authority_binding_1 = args.authority.get_output(context);
+        let authority_binding = authority_binding_1.get_inner();
+        let client_id_binding_1 = args.client_id.get_output(context);
+        let client_id_binding = client_id_binding_1.get_inner();
+        let client_library_binding_1 = args.client_library.get_output(context);
+        let client_library_binding = client_library_binding_1.get_inner();
+        let client_secret_binding_1 = args.client_secret.get_output(context);
+        let client_secret_binding = client_secret_binding_1.get_inner();
+        let password_reset_policy_binding_1 = args
             .password_reset_policy
-            .get_output(context)
-            .get_inner();
-        let profile_editing_policy_binding = args
+            .get_output(context);
+        let password_reset_policy_binding = password_reset_policy_binding_1.get_inner();
+        let profile_editing_policy_binding_1 = args
             .profile_editing_policy
-            .get_output(context)
+            .get_output(context);
+        let profile_editing_policy_binding = profile_editing_policy_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let signin_policy_binding = args.signin_policy.get_output(context).get_inner();
-        let signin_tenant_binding = args.signin_tenant.get_output(context).get_inner();
-        let signup_policy_binding = args.signup_policy.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let signin_policy_binding_1 = args.signin_policy.get_output(context);
+        let signin_policy_binding = signin_policy_binding_1.get_inner();
+        let signin_tenant_binding_1 = args.signin_tenant.get_output(context);
+        let signin_tenant_binding = signin_tenant_binding_1.get_inner();
+        let signup_policy_binding_1 = args.signup_policy.get_output(context);
+        let signup_policy_binding = signup_policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c"
                 .into(),

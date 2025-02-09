@@ -133,27 +133,33 @@ pub mod schedule {
     ) -> ScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding = args
+        let automation_account_name_binding_1 = args
             .automation_account_name
-            .get_output(context)
+            .get_output(context);
+        let automation_account_name_binding = automation_account_name_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let expiry_time_binding = args.expiry_time.get_output(context).get_inner();
-        let frequency_binding = args.frequency.get_output(context).get_inner();
-        let interval_binding = args.interval.get_output(context).get_inner();
-        let month_days_binding = args.month_days.get_output(context).get_inner();
-        let monthly_occurrence_binding = args
-            .monthly_occurrence
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let start_time_binding = args.start_time.get_output(context).get_inner();
-        let timezone_binding = args.timezone.get_output(context).get_inner();
-        let week_days_binding = args.week_days.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let expiry_time_binding_1 = args.expiry_time.get_output(context);
+        let expiry_time_binding = expiry_time_binding_1.get_inner();
+        let frequency_binding_1 = args.frequency.get_output(context);
+        let frequency_binding = frequency_binding_1.get_inner();
+        let interval_binding_1 = args.interval.get_output(context);
+        let interval_binding = interval_binding_1.get_inner();
+        let month_days_binding_1 = args.month_days.get_output(context);
+        let month_days_binding = month_days_binding_1.get_inner();
+        let monthly_occurrence_binding_1 = args.monthly_occurrence.get_output(context);
+        let monthly_occurrence_binding = monthly_occurrence_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let start_time_binding_1 = args.start_time.get_output(context);
+        let start_time_binding = start_time_binding_1.get_inner();
+        let timezone_binding_1 = args.timezone.get_output(context);
+        let timezone_binding = timezone_binding_1.get_inner();
+        let week_days_binding_1 = args.week_days.get_output(context);
+        let week_days_binding = week_days_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/schedule:Schedule".into(),
             name: name.to_string(),

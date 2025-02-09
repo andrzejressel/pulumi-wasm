@@ -57,14 +57,16 @@ pub mod get_key_pair {
     ) -> GetKeyPairResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let include_public_key_binding = args
-            .include_public_key
-            .get_output(context)
-            .get_inner();
-        let key_name_binding = args.key_name.get_output(context).get_inner();
-        let key_pair_id_binding = args.key_pair_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let include_public_key_binding_1 = args.include_public_key.get_output(context);
+        let include_public_key_binding = include_public_key_binding_1.get_inner();
+        let key_name_binding_1 = args.key_name.get_output(context);
+        let key_name_binding = key_name_binding_1.get_inner();
+        let key_pair_id_binding_1 = args.key_pair_id.get_output(context);
+        let key_pair_id_binding = key_pair_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getKeyPair:getKeyPair".into(),
             version: super::super::super::get_version(),

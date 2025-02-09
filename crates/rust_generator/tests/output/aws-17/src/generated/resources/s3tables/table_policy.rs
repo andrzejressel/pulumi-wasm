@@ -99,16 +99,14 @@ pub mod table_policy {
     ) -> TablePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let namespace_binding = args.namespace.get_output(context).get_inner();
-        let resource_policy_binding = args
-            .resource_policy
-            .get_output(context)
-            .get_inner();
-        let table_bucket_arn_binding = args
-            .table_bucket_arn
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let namespace_binding_1 = args.namespace.get_output(context);
+        let namespace_binding = namespace_binding_1.get_inner();
+        let resource_policy_binding_1 = args.resource_policy.get_output(context);
+        let resource_policy_binding = resource_policy_binding_1.get_inner();
+        let table_bucket_arn_binding_1 = args.table_bucket_arn.get_output(context);
+        let table_bucket_arn_binding = table_bucket_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3tables/tablePolicy:TablePolicy".into(),
             name: name.to_string(),

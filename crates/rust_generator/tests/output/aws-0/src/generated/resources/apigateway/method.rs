@@ -178,29 +178,32 @@ pub mod method {
     ) -> MethodResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_required_binding = args
-            .api_key_required
-            .get_output(context)
-            .get_inner();
-        let authorization_binding = args.authorization.get_output(context).get_inner();
-        let authorization_scopes_binding = args
+        let api_key_required_binding_1 = args.api_key_required.get_output(context);
+        let api_key_required_binding = api_key_required_binding_1.get_inner();
+        let authorization_binding_1 = args.authorization.get_output(context);
+        let authorization_binding = authorization_binding_1.get_inner();
+        let authorization_scopes_binding_1 = args
             .authorization_scopes
-            .get_output(context)
-            .get_inner();
-        let authorizer_id_binding = args.authorizer_id.get_output(context).get_inner();
-        let http_method_binding = args.http_method.get_output(context).get_inner();
-        let operation_name_binding = args.operation_name.get_output(context).get_inner();
-        let request_models_binding = args.request_models.get_output(context).get_inner();
-        let request_parameters_binding = args
-            .request_parameters
-            .get_output(context)
-            .get_inner();
-        let request_validator_id_binding = args
+            .get_output(context);
+        let authorization_scopes_binding = authorization_scopes_binding_1.get_inner();
+        let authorizer_id_binding_1 = args.authorizer_id.get_output(context);
+        let authorizer_id_binding = authorizer_id_binding_1.get_inner();
+        let http_method_binding_1 = args.http_method.get_output(context);
+        let http_method_binding = http_method_binding_1.get_inner();
+        let operation_name_binding_1 = args.operation_name.get_output(context);
+        let operation_name_binding = operation_name_binding_1.get_inner();
+        let request_models_binding_1 = args.request_models.get_output(context);
+        let request_models_binding = request_models_binding_1.get_inner();
+        let request_parameters_binding_1 = args.request_parameters.get_output(context);
+        let request_parameters_binding = request_parameters_binding_1.get_inner();
+        let request_validator_id_binding_1 = args
             .request_validator_id
-            .get_output(context)
-            .get_inner();
-        let resource_id_binding = args.resource_id.get_output(context).get_inner();
-        let rest_api_binding = args.rest_api.get_output(context).get_inner();
+            .get_output(context);
+        let request_validator_id_binding = request_validator_id_binding_1.get_inner();
+        let resource_id_binding_1 = args.resource_id.get_output(context);
+        let resource_id_binding = resource_id_binding_1.get_inner();
+        let rest_api_binding_1 = args.rest_api.get_output(context);
+        let rest_api_binding = rest_api_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/method:Method".into(),
             name: name.to_string(),

@@ -90,13 +90,14 @@ pub mod rule_group {
     ) -> RuleGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let activated_rules_binding = args
-            .activated_rules
-            .get_output(context)
-            .get_inner();
-        let metric_name_binding = args.metric_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let activated_rules_binding_1 = args.activated_rules.get_output(context);
+        let activated_rules_binding = activated_rules_binding_1.get_inner();
+        let metric_name_binding_1 = args.metric_name.get_output(context);
+        let metric_name_binding = metric_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:waf/ruleGroup:RuleGroup".into(),
             name: name.to_string(),

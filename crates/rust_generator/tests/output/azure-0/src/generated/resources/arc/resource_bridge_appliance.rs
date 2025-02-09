@@ -101,23 +101,25 @@ pub mod resource_bridge_appliance {
     ) -> ResourceBridgeApplianceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let distro_binding = args.distro.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let infrastructure_provider_binding = args
+        let distro_binding_1 = args.distro.get_output(context);
+        let distro_binding = distro_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let infrastructure_provider_binding_1 = args
             .infrastructure_provider
-            .get_output(context)
+            .get_output(context);
+        let infrastructure_provider_binding = infrastructure_provider_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_key_base64_binding = args
-            .public_key_base64
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_key_base64_binding_1 = args.public_key_base64.get_output(context);
+        let public_key_base64_binding = public_key_base64_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance".into(),
             name: name.to_string(),

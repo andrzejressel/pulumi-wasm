@@ -94,22 +94,29 @@ pub mod proxy {
     ) -> ProxyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auths_binding = args.auths.get_output(context).get_inner();
-        let debug_logging_binding = args.debug_logging.get_output(context).get_inner();
-        let engine_family_binding = args.engine_family.get_output(context).get_inner();
-        let idle_client_timeout_binding = args
-            .idle_client_timeout
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let require_tls_binding = args.require_tls.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_security_group_ids_binding = args
+        let auths_binding_1 = args.auths.get_output(context);
+        let auths_binding = auths_binding_1.get_inner();
+        let debug_logging_binding_1 = args.debug_logging.get_output(context);
+        let debug_logging_binding = debug_logging_binding_1.get_inner();
+        let engine_family_binding_1 = args.engine_family.get_output(context);
+        let engine_family_binding = engine_family_binding_1.get_inner();
+        let idle_client_timeout_binding_1 = args.idle_client_timeout.get_output(context);
+        let idle_client_timeout_binding = idle_client_timeout_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let require_tls_binding_1 = args.require_tls.get_output(context);
+        let require_tls_binding = require_tls_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_security_group_ids_binding_1 = args
             .vpc_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
             .get_inner();
-        let vpc_subnet_ids_binding = args.vpc_subnet_ids.get_output(context).get_inner();
+        let vpc_subnet_ids_binding_1 = args.vpc_subnet_ids.get_output(context);
+        let vpc_subnet_ids_binding = vpc_subnet_ids_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/proxy:Proxy".into(),
             name: name.to_string(),

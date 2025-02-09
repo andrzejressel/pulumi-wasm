@@ -168,26 +168,34 @@ pub mod network_manager_admin_rule {
     ) -> NetworkManagerAdminRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let admin_rule_collection_id_binding = args
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let admin_rule_collection_id_binding_1 = args
             .admin_rule_collection_id
-            .get_output(context)
+            .get_output(context);
+        let admin_rule_collection_id_binding = admin_rule_collection_id_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let destination_port_ranges_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let destination_port_ranges_binding_1 = args
             .destination_port_ranges
-            .get_output(context)
+            .get_output(context);
+        let destination_port_ranges_binding = destination_port_ranges_binding_1
             .get_inner();
-        let destinations_binding = args.destinations.get_output(context).get_inner();
-        let direction_binding = args.direction.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let source_port_ranges_binding = args
-            .source_port_ranges
-            .get_output(context)
-            .get_inner();
-        let sources_binding = args.sources.get_output(context).get_inner();
+        let destinations_binding_1 = args.destinations.get_output(context);
+        let destinations_binding = destinations_binding_1.get_inner();
+        let direction_binding_1 = args.direction.get_output(context);
+        let direction_binding = direction_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let source_port_ranges_binding_1 = args.source_port_ranges.get_output(context);
+        let source_port_ranges_binding = source_port_ranges_binding_1.get_inner();
+        let sources_binding_1 = args.sources.get_output(context);
+        let sources_binding = sources_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkManagerAdminRule:NetworkManagerAdminRule"
                 .into(),

@@ -38,12 +38,16 @@ pub mod get_account_access_token {
     ) -> GetAccountAccessTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delegates_binding = args.delegates.get_output(context).get_inner();
-        let lifetime_binding = args.lifetime.get_output(context).get_inner();
-        let scopes_binding = args.scopes.get_output(context).get_inner();
-        let target_service_account_binding = args
+        let delegates_binding_1 = args.delegates.get_output(context);
+        let delegates_binding = delegates_binding_1.get_inner();
+        let lifetime_binding_1 = args.lifetime.get_output(context);
+        let lifetime_binding = lifetime_binding_1.get_inner();
+        let scopes_binding_1 = args.scopes.get_output(context);
+        let scopes_binding = scopes_binding_1.get_inner();
+        let target_service_account_binding_1 = args
             .target_service_account
-            .get_output(context)
+            .get_output(context);
+        let target_service_account_binding = target_service_account_binding_1
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:serviceaccount/getAccountAccessToken:getAccountAccessToken"

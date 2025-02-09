@@ -47,16 +47,14 @@ pub mod get_reserved_cache_node_offering {
     ) -> GetReservedCacheNodeOfferingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cache_node_type_binding = args
-            .cache_node_type
-            .get_output(context)
-            .get_inner();
-        let duration_binding = args.duration.get_output(context).get_inner();
-        let offering_type_binding = args.offering_type.get_output(context).get_inner();
-        let product_description_binding = args
-            .product_description
-            .get_output(context)
-            .get_inner();
+        let cache_node_type_binding_1 = args.cache_node_type.get_output(context);
+        let cache_node_type_binding = cache_node_type_binding_1.get_inner();
+        let duration_binding_1 = args.duration.get_output(context);
+        let duration_binding = duration_binding_1.get_inner();
+        let offering_type_binding_1 = args.offering_type.get_output(context);
+        let offering_type_binding = offering_type_binding_1.get_inner();
+        let product_description_binding_1 = args.product_description.get_output(context);
+        let product_description_binding = product_description_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering"
                 .into(),

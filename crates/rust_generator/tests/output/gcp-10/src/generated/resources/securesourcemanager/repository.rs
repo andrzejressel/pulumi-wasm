@@ -175,12 +175,18 @@ pub mod repository {
     ) -> RepositoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let initial_config_binding = args.initial_config.get_output(context).get_inner();
-        let instance_binding = args.instance.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let repository_id_binding = args.repository_id.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let initial_config_binding_1 = args.initial_config.get_output(context);
+        let initial_config_binding = initial_config_binding_1.get_inner();
+        let instance_binding_1 = args.instance.get_output(context);
+        let instance_binding = instance_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let repository_id_binding_1 = args.repository_id.get_output(context);
+        let repository_id_binding = repository_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securesourcemanager/repository:Repository".into(),
             name: name.to_string(),

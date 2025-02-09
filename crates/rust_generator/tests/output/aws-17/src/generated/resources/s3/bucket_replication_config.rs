@@ -239,10 +239,14 @@ pub mod bucket_replication_config {
     ) -> BucketReplicationConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
-        let rules_binding = args.rules.get_output(context).get_inner();
-        let token_binding = args.token.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
+        let token_binding_1 = args.token.get_output(context);
+        let token_binding = token_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketReplicationConfig:BucketReplicationConfig".into(),
             name: name.to_string(),

@@ -119,20 +119,25 @@ pub mod fleet_update_run {
     ) -> FleetUpdateRunResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let fleet_update_strategy_id_binding = args
+        let fleet_update_strategy_id_binding_1 = args
             .fleet_update_strategy_id
-            .get_output(context)
+            .get_output(context);
+        let fleet_update_strategy_id_binding = fleet_update_strategy_id_binding_1
             .get_inner();
-        let kubernetes_fleet_manager_id_binding = args
+        let kubernetes_fleet_manager_id_binding_1 = args
             .kubernetes_fleet_manager_id
-            .get_output(context)
+            .get_output(context);
+        let kubernetes_fleet_manager_id_binding = kubernetes_fleet_manager_id_binding_1
             .get_inner();
-        let managed_cluster_update_binding = args
+        let managed_cluster_update_binding_1 = args
             .managed_cluster_update
-            .get_output(context)
+            .get_output(context);
+        let managed_cluster_update_binding = managed_cluster_update_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let stages_binding = args.stages.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let stages_binding_1 = args.stages.get_output(context);
+        let stages_binding = stages_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/fleetUpdateRun:FleetUpdateRun".into(),
             name: name.to_string(),

@@ -27,7 +27,8 @@ pub mod get_finding_ids {
     ) -> GetFindingIdsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let detector_id_binding = args.detector_id.get_output(context).get_inner();
+        let detector_id_binding_1 = args.detector_id.get_output(context);
+        let detector_id_binding = detector_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:guardduty/getFindingIds:getFindingIds".into(),
             version: super::super::super::get_version(),

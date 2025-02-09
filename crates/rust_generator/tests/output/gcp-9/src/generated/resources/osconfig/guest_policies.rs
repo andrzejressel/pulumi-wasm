@@ -263,20 +263,24 @@ pub mod guest_policies {
     ) -> GuestPoliciesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assignment_binding = args.assignment.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let etag_binding = args.etag.get_output(context).get_inner();
-        let guest_policy_id_binding = args
-            .guest_policy_id
-            .get_output(context)
-            .get_inner();
-        let package_repositories_binding = args
+        let assignment_binding_1 = args.assignment.get_output(context);
+        let assignment_binding = assignment_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let etag_binding_1 = args.etag.get_output(context);
+        let etag_binding = etag_binding_1.get_inner();
+        let guest_policy_id_binding_1 = args.guest_policy_id.get_output(context);
+        let guest_policy_id_binding = guest_policy_id_binding_1.get_inner();
+        let package_repositories_binding_1 = args
             .package_repositories
-            .get_output(context)
-            .get_inner();
-        let packages_binding = args.packages.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let recipes_binding = args.recipes.get_output(context).get_inner();
+            .get_output(context);
+        let package_repositories_binding = package_repositories_binding_1.get_inner();
+        let packages_binding_1 = args.packages.get_output(context);
+        let packages_binding = packages_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let recipes_binding_1 = args.recipes.get_output(context);
+        let recipes_binding = recipes_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:osconfig/guestPolicies:GuestPolicies".into(),
             name: name.to_string(),

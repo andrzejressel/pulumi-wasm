@@ -178,49 +178,49 @@ pub mod mongo_cluster {
     ) -> MongoClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administrator_password_binding = args
+        let administrator_password_binding_1 = args
             .administrator_password
-            .get_output(context)
+            .get_output(context);
+        let administrator_password_binding = administrator_password_binding_1
             .get_inner();
-        let administrator_username_binding = args
+        let administrator_username_binding_1 = args
             .administrator_username
-            .get_output(context)
+            .get_output(context);
+        let administrator_username_binding = administrator_username_binding_1
             .get_inner();
-        let compute_tier_binding = args.compute_tier.get_output(context).get_inner();
-        let create_mode_binding = args.create_mode.get_output(context).get_inner();
-        let high_availability_mode_binding = args
+        let compute_tier_binding_1 = args.compute_tier.get_output(context);
+        let compute_tier_binding = compute_tier_binding_1.get_inner();
+        let create_mode_binding_1 = args.create_mode.get_output(context);
+        let create_mode_binding = create_mode_binding_1.get_inner();
+        let high_availability_mode_binding_1 = args
             .high_availability_mode
-            .get_output(context)
+            .get_output(context);
+        let high_availability_mode_binding = high_availability_mode_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let preview_features_binding = args
-            .preview_features
-            .get_output(context)
-            .get_inner();
-        let public_network_access_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let preview_features_binding_1 = args.preview_features.get_output(context);
+        let preview_features_binding = preview_features_binding_1.get_inner();
+        let public_network_access_binding_1 = args
             .public_network_access
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let shard_count_binding = args.shard_count.get_output(context).get_inner();
-        let source_location_binding = args
-            .source_location
-            .get_output(context)
-            .get_inner();
-        let source_server_id_binding = args
-            .source_server_id
-            .get_output(context)
-            .get_inner();
-        let storage_size_in_gb_binding = args
-            .storage_size_in_gb
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+            .get_output(context);
+        let public_network_access_binding = public_network_access_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let shard_count_binding_1 = args.shard_count.get_output(context);
+        let shard_count_binding = shard_count_binding_1.get_inner();
+        let source_location_binding_1 = args.source_location.get_output(context);
+        let source_location_binding = source_location_binding_1.get_inner();
+        let source_server_id_binding_1 = args.source_server_id.get_output(context);
+        let source_server_id_binding = source_server_id_binding_1.get_inner();
+        let storage_size_in_gb_binding_1 = args.storage_size_in_gb.get_output(context);
+        let storage_size_in_gb_binding = storage_size_in_gb_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/mongoCluster:MongoCluster".into(),
             name: name.to_string(),

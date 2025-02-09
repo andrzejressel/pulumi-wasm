@@ -186,32 +186,38 @@ pub mod alert_rule_anomaly_duplicate {
     ) -> AlertRuleAnomalyDuplicateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let built_in_rule_id_binding = args
-            .built_in_rule_id
-            .get_output(context)
-            .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let log_analytics_workspace_id_binding = args
+        let built_in_rule_id_binding_1 = args.built_in_rule_id.get_output(context);
+        let built_in_rule_id_binding = built_in_rule_id_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let log_analytics_workspace_id_binding_1 = args
             .log_analytics_workspace_id
-            .get_output(context)
+            .get_output(context);
+        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
             .get_inner();
-        let mode_binding = args.mode.get_output(context).get_inner();
-        let multi_select_observations_binding = args
+        let mode_binding_1 = args.mode.get_output(context);
+        let mode_binding = mode_binding_1.get_inner();
+        let multi_select_observations_binding_1 = args
             .multi_select_observations
-            .get_output(context)
+            .get_output(context);
+        let multi_select_observations_binding = multi_select_observations_binding_1
             .get_inner();
-        let prioritized_exclude_observations_binding = args
+        let prioritized_exclude_observations_binding_1 = args
             .prioritized_exclude_observations
-            .get_output(context)
+            .get_output(context);
+        let prioritized_exclude_observations_binding = prioritized_exclude_observations_binding_1
             .get_inner();
-        let single_select_observations_binding = args
+        let single_select_observations_binding_1 = args
             .single_select_observations
-            .get_output(context)
+            .get_output(context);
+        let single_select_observations_binding = single_select_observations_binding_1
             .get_inner();
-        let threshold_observations_binding = args
+        let threshold_observations_binding_1 = args
             .threshold_observations
-            .get_output(context)
+            .get_output(context);
+        let threshold_observations_binding = threshold_observations_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/alertRuleAnomalyDuplicate:AlertRuleAnomalyDuplicate"

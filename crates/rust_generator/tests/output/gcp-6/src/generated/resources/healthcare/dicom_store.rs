@@ -202,14 +202,16 @@ pub mod dicom_store {
     ) -> DicomStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dataset_binding = args.dataset.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notification_config_binding = args
-            .notification_config
-            .get_output(context)
-            .get_inner();
-        let stream_configs_binding = args.stream_configs.get_output(context).get_inner();
+        let dataset_binding_1 = args.dataset.get_output(context);
+        let dataset_binding = dataset_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notification_config_binding_1 = args.notification_config.get_output(context);
+        let notification_config_binding = notification_config_binding_1.get_inner();
+        let stream_configs_binding_1 = args.stream_configs.get_output(context);
+        let stream_configs_binding = stream_configs_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/dicomStore:DicomStore".into(),
             name: name.to_string(),

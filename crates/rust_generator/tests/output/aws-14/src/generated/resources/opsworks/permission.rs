@@ -65,11 +65,16 @@ pub mod permission {
     ) -> PermissionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_ssh_binding = args.allow_ssh.get_output(context).get_inner();
-        let allow_sudo_binding = args.allow_sudo.get_output(context).get_inner();
-        let level_binding = args.level.get_output(context).get_inner();
-        let stack_id_binding = args.stack_id.get_output(context).get_inner();
-        let user_arn_binding = args.user_arn.get_output(context).get_inner();
+        let allow_ssh_binding_1 = args.allow_ssh.get_output(context);
+        let allow_ssh_binding = allow_ssh_binding_1.get_inner();
+        let allow_sudo_binding_1 = args.allow_sudo.get_output(context);
+        let allow_sudo_binding = allow_sudo_binding_1.get_inner();
+        let level_binding_1 = args.level.get_output(context);
+        let level_binding = level_binding_1.get_inner();
+        let stack_id_binding_1 = args.stack_id.get_output(context);
+        let stack_id_binding = stack_id_binding_1.get_inner();
+        let user_arn_binding_1 = args.user_arn.get_output(context);
+        let user_arn_binding = user_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opsworks/permission:Permission".into(),
             name: name.to_string(),

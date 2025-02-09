@@ -117,14 +117,22 @@ pub mod application_version {
     ) -> ApplicationVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_binding = args.application.get_output(context).get_inner();
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let force_delete_binding = args.force_delete.get_output(context).get_inner();
-        let key_binding = args.key.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let process_binding = args.process.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let application_binding_1 = args.application.get_output(context);
+        let application_binding = application_binding_1.get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let force_delete_binding_1 = args.force_delete.get_output(context);
+        let force_delete_binding = force_delete_binding_1.get_inner();
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let process_binding_1 = args.process.get_output(context);
+        let process_binding = process_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticbeanstalk/applicationVersion:ApplicationVersion".into(),
             name: name.to_string(),

@@ -84,12 +84,14 @@ pub mod table {
     ) -> TableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let acls_binding = args.acls.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let storage_account_name_binding = args
+        let acls_binding_1 = args.acls.get_output(context);
+        let acls_binding = acls_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let storage_account_name_binding_1 = args
             .storage_account_name
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let storage_account_name_binding = storage_account_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/table:Table".into(),
             name: name.to_string(),

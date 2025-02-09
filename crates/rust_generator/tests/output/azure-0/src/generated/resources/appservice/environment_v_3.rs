@@ -188,34 +188,37 @@ pub mod environment_v_3 {
     ) -> EnvironmentV3Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_new_private_endpoint_connections_binding = args
+        let allow_new_private_endpoint_connections_binding_1 = args
             .allow_new_private_endpoint_connections
-            .get_output(context)
+            .get_output(context);
+        let allow_new_private_endpoint_connections_binding = allow_new_private_endpoint_connections_binding_1
             .get_inner();
-        let cluster_settings_binding = args
-            .cluster_settings
-            .get_output(context)
-            .get_inner();
-        let dedicated_host_count_binding = args
+        let cluster_settings_binding_1 = args.cluster_settings.get_output(context);
+        let cluster_settings_binding = cluster_settings_binding_1.get_inner();
+        let dedicated_host_count_binding_1 = args
             .dedicated_host_count
-            .get_output(context)
-            .get_inner();
-        let internal_load_balancing_mode_binding = args
+            .get_output(context);
+        let dedicated_host_count_binding = dedicated_host_count_binding_1.get_inner();
+        let internal_load_balancing_mode_binding_1 = args
             .internal_load_balancing_mode
-            .get_output(context)
+            .get_output(context);
+        let internal_load_balancing_mode_binding = internal_load_balancing_mode_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let remote_debugging_enabled_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let remote_debugging_enabled_binding_1 = args
             .remote_debugging_enabled
-            .get_output(context)
+            .get_output(context);
+        let remote_debugging_enabled_binding = remote_debugging_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let zone_redundant_binding = args.zone_redundant.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let zone_redundant_binding_1 = args.zone_redundant.get_output(context);
+        let zone_redundant_binding = zone_redundant_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/environmentV3:EnvironmentV3".into(),
             name: name.to_string(),

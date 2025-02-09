@@ -168,20 +168,19 @@ pub mod hybrid_runbook_worker {
     ) -> HybridRunbookWorkerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding = args
+        let automation_account_name_binding_1 = args
             .automation_account_name
-            .get_output(context)
+            .get_output(context);
+        let automation_account_name_binding = automation_account_name_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let vm_resource_id_binding = args.vm_resource_id.get_output(context).get_inner();
-        let worker_group_name_binding = args
-            .worker_group_name
-            .get_output(context)
-            .get_inner();
-        let worker_id_binding = args.worker_id.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let vm_resource_id_binding_1 = args.vm_resource_id.get_output(context);
+        let vm_resource_id_binding = vm_resource_id_binding_1.get_inner();
+        let worker_group_name_binding_1 = args.worker_group_name.get_output(context);
+        let worker_group_name_binding = worker_group_name_binding_1.get_inner();
+        let worker_id_binding_1 = args.worker_id.get_output(context);
+        let worker_id_binding = worker_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/hybridRunbookWorker:HybridRunbookWorker".into(),
             name: name.to_string(),

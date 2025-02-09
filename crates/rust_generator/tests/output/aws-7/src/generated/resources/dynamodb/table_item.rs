@@ -83,10 +83,14 @@ pub mod table_item {
     ) -> TableItemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hash_key_binding = args.hash_key.get_output(context).get_inner();
-        let item_binding = args.item.get_output(context).get_inner();
-        let range_key_binding = args.range_key.get_output(context).get_inner();
-        let table_name_binding = args.table_name.get_output(context).get_inner();
+        let hash_key_binding_1 = args.hash_key.get_output(context);
+        let hash_key_binding = hash_key_binding_1.get_inner();
+        let item_binding_1 = args.item.get_output(context);
+        let item_binding = item_binding_1.get_inner();
+        let range_key_binding_1 = args.range_key.get_output(context);
+        let range_key_binding = range_key_binding_1.get_inner();
+        let table_name_binding_1 = args.table_name.get_output(context);
+        let table_name_binding = table_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dynamodb/tableItem:TableItem".into(),
             name: name.to_string(),

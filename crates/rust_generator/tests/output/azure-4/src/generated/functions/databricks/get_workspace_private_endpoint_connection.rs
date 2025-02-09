@@ -36,11 +36,10 @@ pub mod get_workspace_private_endpoint_connection {
     ) -> GetWorkspacePrivateEndpointConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let private_endpoint_id_binding = args
-            .private_endpoint_id
-            .get_output(context)
-            .get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+        let private_endpoint_id_binding_1 = args.private_endpoint_id.get_output(context);
+        let private_endpoint_id_binding = private_endpoint_id_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection"
                 .into(),

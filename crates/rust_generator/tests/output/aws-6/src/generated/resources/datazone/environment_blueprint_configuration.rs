@@ -108,27 +108,26 @@ pub mod environment_blueprint_configuration {
     ) -> EnvironmentBlueprintConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_id_binding = args.domain_id.get_output(context).get_inner();
-        let enabled_regions_binding = args
-            .enabled_regions
-            .get_output(context)
-            .get_inner();
-        let environment_blueprint_id_binding = args
+        let domain_id_binding_1 = args.domain_id.get_output(context);
+        let domain_id_binding = domain_id_binding_1.get_inner();
+        let enabled_regions_binding_1 = args.enabled_regions.get_output(context);
+        let enabled_regions_binding = enabled_regions_binding_1.get_inner();
+        let environment_blueprint_id_binding_1 = args
             .environment_blueprint_id
-            .get_output(context)
+            .get_output(context);
+        let environment_blueprint_id_binding = environment_blueprint_id_binding_1
             .get_inner();
-        let manage_access_role_arn_binding = args
+        let manage_access_role_arn_binding_1 = args
             .manage_access_role_arn
-            .get_output(context)
+            .get_output(context);
+        let manage_access_role_arn_binding = manage_access_role_arn_binding_1
             .get_inner();
-        let provisioning_role_arn_binding = args
+        let provisioning_role_arn_binding_1 = args
             .provisioning_role_arn
-            .get_output(context)
-            .get_inner();
-        let regional_parameters_binding = args
-            .regional_parameters
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let provisioning_role_arn_binding = provisioning_role_arn_binding_1.get_inner();
+        let regional_parameters_binding_1 = args.regional_parameters.get_output(context);
+        let regional_parameters_binding = regional_parameters_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration"
                 .into(),

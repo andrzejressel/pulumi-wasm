@@ -107,26 +107,26 @@ pub mod integration_runtime_rule {
     ) -> IntegrationRuntimeRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cleanup_enabled_binding = args
-            .cleanup_enabled
-            .get_output(context)
-            .get_inner();
-        let compute_type_binding = args.compute_type.get_output(context).get_inner();
-        let core_count_binding = args.core_count.get_output(context).get_inner();
-        let data_factory_id_binding = args
-            .data_factory_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let time_to_live_min_binding = args
-            .time_to_live_min
-            .get_output(context)
-            .get_inner();
-        let virtual_network_enabled_binding = args
+        let cleanup_enabled_binding_1 = args.cleanup_enabled.get_output(context);
+        let cleanup_enabled_binding = cleanup_enabled_binding_1.get_inner();
+        let compute_type_binding_1 = args.compute_type.get_output(context);
+        let compute_type_binding = compute_type_binding_1.get_inner();
+        let core_count_binding_1 = args.core_count.get_output(context);
+        let core_count_binding = core_count_binding_1.get_inner();
+        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
+        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let time_to_live_min_binding_1 = args.time_to_live_min.get_output(context);
+        let time_to_live_min_binding = time_to_live_min_binding_1.get_inner();
+        let virtual_network_enabled_binding_1 = args
             .virtual_network_enabled
-            .get_output(context)
+            .get_output(context);
+        let virtual_network_enabled_binding = virtual_network_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule"

@@ -594,31 +594,36 @@ pub mod job {
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let binary_authorization_binding = args
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let binary_authorization_binding_1 = args
             .binary_authorization
-            .get_output(context)
-            .get_inner();
-        let client_binding = args.client.get_output(context).get_inner();
-        let client_version_binding = args.client_version.get_output(context).get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let launch_stage_binding = args.launch_stage.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let run_execution_token_binding = args
-            .run_execution_token
-            .get_output(context)
-            .get_inner();
-        let start_execution_token_binding = args
+            .get_output(context);
+        let binary_authorization_binding = binary_authorization_binding_1.get_inner();
+        let client_binding_1 = args.client.get_output(context);
+        let client_binding = client_binding_1.get_inner();
+        let client_version_binding_1 = args.client_version.get_output(context);
+        let client_version_binding = client_version_binding_1.get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let launch_stage_binding_1 = args.launch_stage.get_output(context);
+        let launch_stage_binding = launch_stage_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let run_execution_token_binding_1 = args.run_execution_token.get_output(context);
+        let run_execution_token_binding = run_execution_token_binding_1.get_inner();
+        let start_execution_token_binding_1 = args
             .start_execution_token
-            .get_output(context)
-            .get_inner();
-        let template_binding = args.template.get_output(context).get_inner();
+            .get_output(context);
+        let start_execution_token_binding = start_execution_token_binding_1.get_inner();
+        let template_binding_1 = args.template.get_output(context);
+        let template_binding = template_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudrunv2/job:Job".into(),
             name: name.to_string(),

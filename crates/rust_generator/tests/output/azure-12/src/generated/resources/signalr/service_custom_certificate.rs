@@ -133,15 +133,14 @@ pub mod service_custom_certificate {
     ) -> ServiceCustomCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_certificate_id_binding = args
+        let custom_certificate_id_binding_1 = args
             .custom_certificate_id
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let signalr_service_id_binding = args
-            .signalr_service_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let custom_certificate_id_binding = custom_certificate_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let signalr_service_id_binding_1 = args.signalr_service_id.get_output(context);
+        let signalr_service_id_binding = signalr_service_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:signalr/serviceCustomCertificate:ServiceCustomCertificate"
                 .into(),

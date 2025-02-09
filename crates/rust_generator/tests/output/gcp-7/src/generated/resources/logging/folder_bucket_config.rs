@@ -121,13 +121,20 @@ pub mod folder_bucket_config {
     ) -> FolderBucketConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_id_binding = args.bucket_id.get_output(context).get_inner();
-        let cmek_settings_binding = args.cmek_settings.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let folder_binding = args.folder.get_output(context).get_inner();
-        let index_configs_binding = args.index_configs.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let retention_days_binding = args.retention_days.get_output(context).get_inner();
+        let bucket_id_binding_1 = args.bucket_id.get_output(context);
+        let bucket_id_binding = bucket_id_binding_1.get_inner();
+        let cmek_settings_binding_1 = args.cmek_settings.get_output(context);
+        let cmek_settings_binding = cmek_settings_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let folder_binding_1 = args.folder.get_output(context);
+        let folder_binding = folder_binding_1.get_inner();
+        let index_configs_binding_1 = args.index_configs.get_output(context);
+        let index_configs_binding = index_configs_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let retention_days_binding_1 = args.retention_days.get_output(context);
+        let retention_days_binding = retention_days_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:logging/folderBucketConfig:FolderBucketConfig".into(),
             name: name.to_string(),

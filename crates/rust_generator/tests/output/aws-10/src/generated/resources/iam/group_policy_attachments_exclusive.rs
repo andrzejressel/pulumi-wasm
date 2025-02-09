@@ -38,8 +38,10 @@ pub mod group_policy_attachments_exclusive {
     ) -> GroupPolicyAttachmentsExclusiveResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_name_binding = args.group_name.get_output(context).get_inner();
-        let policy_arns_binding = args.policy_arns.get_output(context).get_inner();
+        let group_name_binding_1 = args.group_name.get_output(context);
+        let group_name_binding = group_name_binding_1.get_inner();
+        let policy_arns_binding_1 = args.policy_arns.get_output(context);
+        let policy_arns_binding = policy_arns_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive"
                 .into(),

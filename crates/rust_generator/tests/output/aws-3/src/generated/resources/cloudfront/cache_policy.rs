@@ -118,14 +118,20 @@ pub mod cache_policy {
     ) -> CachePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let default_ttl_binding = args.default_ttl.get_output(context).get_inner();
-        let max_ttl_binding = args.max_ttl.get_output(context).get_inner();
-        let min_ttl_binding = args.min_ttl.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameters_in_cache_key_and_forwarded_to_origin_binding = args
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let default_ttl_binding_1 = args.default_ttl.get_output(context);
+        let default_ttl_binding = default_ttl_binding_1.get_inner();
+        let max_ttl_binding_1 = args.max_ttl.get_output(context);
+        let max_ttl_binding = max_ttl_binding_1.get_inner();
+        let min_ttl_binding_1 = args.min_ttl.get_output(context);
+        let min_ttl_binding = min_ttl_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameters_in_cache_key_and_forwarded_to_origin_binding_1 = args
             .parameters_in_cache_key_and_forwarded_to_origin
-            .get_output(context)
+            .get_output(context);
+        let parameters_in_cache_key_and_forwarded_to_origin_binding = parameters_in_cache_key_and_forwarded_to_origin_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/cachePolicy:CachePolicy".into(),

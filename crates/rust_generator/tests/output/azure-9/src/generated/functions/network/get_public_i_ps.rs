@@ -40,19 +40,14 @@ pub mod get_public_i_ps {
     ) -> GetPublicIPsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocation_type_binding = args
-            .allocation_type
-            .get_output(context)
-            .get_inner();
-        let attachment_status_binding = args
-            .attachment_status
-            .get_output(context)
-            .get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let allocation_type_binding_1 = args.allocation_type.get_output(context);
+        let allocation_type_binding = allocation_type_binding_1.get_inner();
+        let attachment_status_binding_1 = args.attachment_status.get_output(context);
+        let attachment_status_binding = attachment_status_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getPublicIPs:getPublicIPs".into(),
             version: super::super::super::get_version(),

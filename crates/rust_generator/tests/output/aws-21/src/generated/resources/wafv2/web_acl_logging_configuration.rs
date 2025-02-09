@@ -134,16 +134,17 @@ pub mod web_acl_logging_configuration {
     ) -> WebAclLoggingConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let log_destination_configs_binding = args
+        let log_destination_configs_binding_1 = args
             .log_destination_configs
-            .get_output(context)
+            .get_output(context);
+        let log_destination_configs_binding = log_destination_configs_binding_1
             .get_inner();
-        let logging_filter_binding = args.logging_filter.get_output(context).get_inner();
-        let redacted_fields_binding = args
-            .redacted_fields
-            .get_output(context)
-            .get_inner();
-        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
+        let logging_filter_binding_1 = args.logging_filter.get_output(context);
+        let logging_filter_binding = logging_filter_binding_1.get_inner();
+        let redacted_fields_binding_1 = args.redacted_fields.get_output(context);
+        let redacted_fields_binding = redacted_fields_binding_1.get_inner();
+        let resource_arn_binding_1 = args.resource_arn.get_output(context);
+        let resource_arn_binding = resource_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration"
                 .into(),

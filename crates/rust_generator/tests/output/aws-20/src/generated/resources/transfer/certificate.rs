@@ -75,15 +75,18 @@ pub mod certificate {
     ) -> CertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_binding = args.certificate.get_output(context).get_inner();
-        let certificate_chain_binding = args
-            .certificate_chain
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let private_key_binding = args.private_key.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let usage_binding = args.usage.get_output(context).get_inner();
+        let certificate_binding_1 = args.certificate.get_output(context);
+        let certificate_binding = certificate_binding_1.get_inner();
+        let certificate_chain_binding_1 = args.certificate_chain.get_output(context);
+        let certificate_chain_binding = certificate_chain_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let private_key_binding_1 = args.private_key.get_output(context);
+        let private_key_binding = private_key_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let usage_binding_1 = args.usage.get_output(context);
+        let usage_binding = usage_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:transfer/certificate:Certificate".into(),
             name: name.to_string(),

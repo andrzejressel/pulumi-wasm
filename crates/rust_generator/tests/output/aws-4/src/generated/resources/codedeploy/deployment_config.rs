@@ -141,23 +141,24 @@ pub mod deployment_config {
     ) -> DeploymentConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compute_platform_binding = args
-            .compute_platform
-            .get_output(context)
-            .get_inner();
-        let deployment_config_name_binding = args
+        let compute_platform_binding_1 = args.compute_platform.get_output(context);
+        let compute_platform_binding = compute_platform_binding_1.get_inner();
+        let deployment_config_name_binding_1 = args
             .deployment_config_name
-            .get_output(context)
+            .get_output(context);
+        let deployment_config_name_binding = deployment_config_name_binding_1
             .get_inner();
-        let minimum_healthy_hosts_binding = args
+        let minimum_healthy_hosts_binding_1 = args
             .minimum_healthy_hosts
-            .get_output(context)
-            .get_inner();
-        let traffic_routing_config_binding = args
+            .get_output(context);
+        let minimum_healthy_hosts_binding = minimum_healthy_hosts_binding_1.get_inner();
+        let traffic_routing_config_binding_1 = args
             .traffic_routing_config
-            .get_output(context)
+            .get_output(context);
+        let traffic_routing_config_binding = traffic_routing_config_binding_1
             .get_inner();
-        let zonal_config_binding = args.zonal_config.get_output(context).get_inner();
+        let zonal_config_binding_1 = args.zonal_config.get_output(context);
+        let zonal_config_binding = zonal_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codedeploy/deploymentConfig:DeploymentConfig".into(),
             name: name.to_string(),

@@ -155,25 +155,26 @@ pub mod folder_sink {
     ) -> FolderSinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bigquery_options_binding = args
-            .bigquery_options
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let destination_binding = args.destination.get_output(context).get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let exclusions_binding = args.exclusions.get_output(context).get_inner();
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let folder_binding = args.folder.get_output(context).get_inner();
-        let include_children_binding = args
-            .include_children
-            .get_output(context)
-            .get_inner();
-        let intercept_children_binding = args
-            .intercept_children
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let bigquery_options_binding_1 = args.bigquery_options.get_output(context);
+        let bigquery_options_binding = bigquery_options_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let destination_binding_1 = args.destination.get_output(context);
+        let destination_binding = destination_binding_1.get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let exclusions_binding_1 = args.exclusions.get_output(context);
+        let exclusions_binding = exclusions_binding_1.get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let folder_binding_1 = args.folder.get_output(context);
+        let folder_binding = folder_binding_1.get_inner();
+        let include_children_binding_1 = args.include_children.get_output(context);
+        let include_children_binding = include_children_binding_1.get_inner();
+        let intercept_children_binding_1 = args.intercept_children.get_output(context);
+        let intercept_children_binding = intercept_children_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:logging/folderSink:FolderSink".into(),
             name: name.to_string(),

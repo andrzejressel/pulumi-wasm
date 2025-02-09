@@ -177,44 +177,47 @@ pub mod environment {
     ) -> EnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dapr_application_insights_connection_string_binding = args
+        let dapr_application_insights_connection_string_binding_1 = args
             .dapr_application_insights_connection_string
-            .get_output(context)
+            .get_output(context);
+        let dapr_application_insights_connection_string_binding = dapr_application_insights_connection_string_binding_1
             .get_inner();
-        let infrastructure_resource_group_name_binding = args
+        let infrastructure_resource_group_name_binding_1 = args
             .infrastructure_resource_group_name
-            .get_output(context)
+            .get_output(context);
+        let infrastructure_resource_group_name_binding = infrastructure_resource_group_name_binding_1
             .get_inner();
-        let infrastructure_subnet_id_binding = args
+        let infrastructure_subnet_id_binding_1 = args
             .infrastructure_subnet_id
-            .get_output(context)
+            .get_output(context);
+        let infrastructure_subnet_id_binding = infrastructure_subnet_id_binding_1
             .get_inner();
-        let internal_load_balancer_enabled_binding = args
+        let internal_load_balancer_enabled_binding_1 = args
             .internal_load_balancer_enabled
-            .get_output(context)
+            .get_output(context);
+        let internal_load_balancer_enabled_binding = internal_load_balancer_enabled_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let log_analytics_workspace_id_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let log_analytics_workspace_id_binding_1 = args
             .log_analytics_workspace_id
-            .get_output(context)
+            .get_output(context);
+        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
             .get_inner();
-        let mutual_tls_enabled_binding = args
-            .mutual_tls_enabled
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let workload_profiles_binding = args
-            .workload_profiles
-            .get_output(context)
-            .get_inner();
-        let zone_redundancy_enabled_binding = args
+        let mutual_tls_enabled_binding_1 = args.mutual_tls_enabled.get_output(context);
+        let mutual_tls_enabled_binding = mutual_tls_enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let workload_profiles_binding_1 = args.workload_profiles.get_output(context);
+        let workload_profiles_binding = workload_profiles_binding_1.get_inner();
+        let zone_redundancy_enabled_binding_1 = args
             .zone_redundancy_enabled
-            .get_output(context)
+            .get_output(context);
+        let zone_redundancy_enabled_binding = zone_redundancy_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerapp/environment:Environment".into(),

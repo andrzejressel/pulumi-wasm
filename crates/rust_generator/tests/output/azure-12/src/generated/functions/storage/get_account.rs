@@ -219,15 +219,12 @@ pub mod get_account {
     ) -> GetAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let min_tls_version_binding = args
-            .min_tls_version
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let min_tls_version_binding_1 = args.min_tls_version.get_output(context);
+        let min_tls_version_binding = min_tls_version_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getAccount:getAccount".into(),
             version: super::super::super::get_version(),

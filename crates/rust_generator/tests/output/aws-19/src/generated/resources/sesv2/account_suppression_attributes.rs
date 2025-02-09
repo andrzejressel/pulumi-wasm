@@ -49,10 +49,8 @@ pub mod account_suppression_attributes {
     ) -> AccountSuppressionAttributesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let suppressed_reasons_binding = args
-            .suppressed_reasons
-            .get_output(context)
-            .get_inner();
+        let suppressed_reasons_binding_1 = args.suppressed_reasons.get_output(context);
+        let suppressed_reasons_binding = suppressed_reasons_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes"
                 .into(),

@@ -78,10 +78,14 @@ pub mod bucket_acl {
     ) -> BucketACLResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let default_acl_binding = args.default_acl.get_output(context).get_inner();
-        let predefined_acl_binding = args.predefined_acl.get_output(context).get_inner();
-        let role_entities_binding = args.role_entities.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let default_acl_binding_1 = args.default_acl.get_output(context);
+        let default_acl_binding = default_acl_binding_1.get_inner();
+        let predefined_acl_binding_1 = args.predefined_acl.get_output(context);
+        let predefined_acl_binding = predefined_acl_binding_1.get_inner();
+        let role_entities_binding_1 = args.role_entities.get_output(context);
+        let role_entities_binding = role_entities_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/bucketACL:BucketACL".into(),
             name: name.to_string(),

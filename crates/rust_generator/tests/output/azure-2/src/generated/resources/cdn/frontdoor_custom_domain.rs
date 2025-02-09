@@ -162,14 +162,19 @@ pub mod frontdoor_custom_domain {
     ) -> FrontdoorCustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdn_frontdoor_profile_id_binding = args
+        let cdn_frontdoor_profile_id_binding_1 = args
             .cdn_frontdoor_profile_id
-            .get_output(context)
+            .get_output(context);
+        let cdn_frontdoor_profile_id_binding = cdn_frontdoor_profile_id_binding_1
             .get_inner();
-        let dns_zone_id_binding = args.dns_zone_id.get_output(context).get_inner();
-        let host_name_binding = args.host_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tls_binding = args.tls.get_output(context).get_inner();
+        let dns_zone_id_binding_1 = args.dns_zone_id.get_output(context);
+        let dns_zone_id_binding = dns_zone_id_binding_1.get_inner();
+        let host_name_binding_1 = args.host_name.get_output(context);
+        let host_name_binding = host_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tls_binding_1 = args.tls.get_output(context);
+        let tls_binding = tls_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain".into(),
             name: name.to_string(),

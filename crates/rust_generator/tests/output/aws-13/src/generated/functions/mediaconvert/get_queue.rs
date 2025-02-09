@@ -35,8 +35,10 @@ pub mod get_queue {
     ) -> GetQueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let id_binding = args.id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let id_binding_1 = args.id.get_output(context);
+        let id_binding = id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:mediaconvert/getQueue:getQueue".into(),
             version: super::super::super::get_version(),

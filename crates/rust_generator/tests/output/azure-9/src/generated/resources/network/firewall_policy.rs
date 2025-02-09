@@ -183,47 +183,51 @@ pub mod firewall_policy {
     ) -> FirewallPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_learn_private_ranges_enabled_binding = args
+        let auto_learn_private_ranges_enabled_binding_1 = args
             .auto_learn_private_ranges_enabled
-            .get_output(context)
+            .get_output(context);
+        let auto_learn_private_ranges_enabled_binding = auto_learn_private_ranges_enabled_binding_1
             .get_inner();
-        let base_policy_id_binding = args.base_policy_id.get_output(context).get_inner();
-        let dns_binding = args.dns.get_output(context).get_inner();
-        let explicit_proxy_binding = args.explicit_proxy.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let insights_binding = args.insights.get_output(context).get_inner();
-        let intrusion_detection_binding = args
-            .intrusion_detection
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let private_ip_ranges_binding = args
-            .private_ip_ranges
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let sql_redirect_allowed_binding = args
+        let base_policy_id_binding_1 = args.base_policy_id.get_output(context);
+        let base_policy_id_binding = base_policy_id_binding_1.get_inner();
+        let dns_binding_1 = args.dns.get_output(context);
+        let dns_binding = dns_binding_1.get_inner();
+        let explicit_proxy_binding_1 = args.explicit_proxy.get_output(context);
+        let explicit_proxy_binding = explicit_proxy_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let insights_binding_1 = args.insights.get_output(context);
+        let insights_binding = insights_binding_1.get_inner();
+        let intrusion_detection_binding_1 = args.intrusion_detection.get_output(context);
+        let intrusion_detection_binding = intrusion_detection_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let private_ip_ranges_binding_1 = args.private_ip_ranges.get_output(context);
+        let private_ip_ranges_binding = private_ip_ranges_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let sql_redirect_allowed_binding_1 = args
             .sql_redirect_allowed
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let threat_intelligence_allowlist_binding = args
+            .get_output(context);
+        let sql_redirect_allowed_binding = sql_redirect_allowed_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let threat_intelligence_allowlist_binding_1 = args
             .threat_intelligence_allowlist
-            .get_output(context)
+            .get_output(context);
+        let threat_intelligence_allowlist_binding = threat_intelligence_allowlist_binding_1
             .get_inner();
-        let threat_intelligence_mode_binding = args
+        let threat_intelligence_mode_binding_1 = args
             .threat_intelligence_mode
-            .get_output(context)
+            .get_output(context);
+        let threat_intelligence_mode_binding = threat_intelligence_mode_binding_1
             .get_inner();
-        let tls_certificate_binding = args
-            .tls_certificate
-            .get_output(context)
-            .get_inner();
+        let tls_certificate_binding_1 = args.tls_certificate.get_output(context);
+        let tls_certificate_binding = tls_certificate_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/firewallPolicy:FirewallPolicy".into(),
             name: name.to_string(),

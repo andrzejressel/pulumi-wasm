@@ -74,8 +74,10 @@ pub mod cluster_policy {
     ) -> ClusterPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_arn_binding = args.cluster_arn.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
+        let cluster_arn_binding_1 = args.cluster_arn.get_output(context);
+        let cluster_arn_binding = cluster_arn_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:msk/clusterPolicy:ClusterPolicy".into(),
             name: name.to_string(),

@@ -78,18 +78,20 @@ pub mod bgp_peer {
     ) -> BgpPeerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_family_binding = args.address_family.get_output(context).get_inner();
-        let amazon_address_binding = args.amazon_address.get_output(context).get_inner();
-        let bgp_asn_binding = args.bgp_asn.get_output(context).get_inner();
-        let bgp_auth_key_binding = args.bgp_auth_key.get_output(context).get_inner();
-        let customer_address_binding = args
-            .customer_address
-            .get_output(context)
-            .get_inner();
-        let virtual_interface_id_binding = args
+        let address_family_binding_1 = args.address_family.get_output(context);
+        let address_family_binding = address_family_binding_1.get_inner();
+        let amazon_address_binding_1 = args.amazon_address.get_output(context);
+        let amazon_address_binding = amazon_address_binding_1.get_inner();
+        let bgp_asn_binding_1 = args.bgp_asn.get_output(context);
+        let bgp_asn_binding = bgp_asn_binding_1.get_inner();
+        let bgp_auth_key_binding_1 = args.bgp_auth_key.get_output(context);
+        let bgp_auth_key_binding = bgp_auth_key_binding_1.get_inner();
+        let customer_address_binding_1 = args.customer_address.get_output(context);
+        let customer_address_binding = customer_address_binding_1.get_inner();
+        let virtual_interface_id_binding_1 = args
             .virtual_interface_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let virtual_interface_id_binding = virtual_interface_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/bgpPeer:BgpPeer".into(),
             name: name.to_string(),

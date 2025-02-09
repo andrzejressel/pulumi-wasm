@@ -46,17 +46,16 @@ pub mod get_reserved_instance_offering {
     ) -> GetReservedInstanceOfferingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_instance_class_binding = args
-            .db_instance_class
-            .get_output(context)
-            .get_inner();
-        let duration_binding = args.duration.get_output(context).get_inner();
-        let multi_az_binding = args.multi_az.get_output(context).get_inner();
-        let offering_type_binding = args.offering_type.get_output(context).get_inner();
-        let product_description_binding = args
-            .product_description
-            .get_output(context)
-            .get_inner();
+        let db_instance_class_binding_1 = args.db_instance_class.get_output(context);
+        let db_instance_class_binding = db_instance_class_binding_1.get_inner();
+        let duration_binding_1 = args.duration.get_output(context);
+        let duration_binding = duration_binding_1.get_inner();
+        let multi_az_binding_1 = args.multi_az.get_output(context);
+        let multi_az_binding = multi_az_binding_1.get_inner();
+        let offering_type_binding_1 = args.offering_type.get_output(context);
+        let offering_type_binding = offering_type_binding_1.get_inner();
+        let product_description_binding_1 = args.product_description.get_output(context);
+        let product_description_binding = product_description_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:rds/getReservedInstanceOffering:getReservedInstanceOffering"
                 .into(),

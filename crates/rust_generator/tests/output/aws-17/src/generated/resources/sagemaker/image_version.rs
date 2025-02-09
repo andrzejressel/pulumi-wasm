@@ -64,8 +64,10 @@ pub mod image_version {
     ) -> ImageVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_image_binding = args.base_image.get_output(context).get_inner();
-        let image_name_binding = args.image_name.get_output(context).get_inner();
+        let base_image_binding_1 = args.base_image.get_output(context);
+        let base_image_binding = base_image_binding_1.get_inner();
+        let image_name_binding_1 = args.image_name.get_output(context);
+        let image_name_binding = image_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/imageVersion:ImageVersion".into(),
             name: name.to_string(),

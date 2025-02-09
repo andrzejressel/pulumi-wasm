@@ -109,19 +109,23 @@ pub mod resolver_endpoint {
     ) -> ResolverEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let direction_binding = args.direction.get_output(context).get_inner();
-        let ip_addresses_binding = args.ip_addresses.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let protocols_binding = args.protocols.get_output(context).get_inner();
-        let resolver_endpoint_type_binding = args
+        let direction_binding_1 = args.direction.get_output(context);
+        let direction_binding = direction_binding_1.get_inner();
+        let ip_addresses_binding_1 = args.ip_addresses.get_output(context);
+        let ip_addresses_binding = ip_addresses_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let protocols_binding_1 = args.protocols.get_output(context);
+        let protocols_binding = protocols_binding_1.get_inner();
+        let resolver_endpoint_type_binding_1 = args
             .resolver_endpoint_type
-            .get_output(context)
+            .get_output(context);
+        let resolver_endpoint_type_binding = resolver_endpoint_type_binding_1
             .get_inner();
-        let security_group_ids_binding = args
-            .security_group_ids
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
+        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/resolverEndpoint:ResolverEndpoint".into(),
             name: name.to_string(),

@@ -725,191 +725,184 @@ pub mod kubernetes_cluster {
     ) -> KubernetesClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aci_connector_linux_binding = args
-            .aci_connector_linux
-            .get_output(context)
-            .get_inner();
-        let api_server_access_profile_binding = args
+        let aci_connector_linux_binding_1 = args.aci_connector_linux.get_output(context);
+        let aci_connector_linux_binding = aci_connector_linux_binding_1.get_inner();
+        let api_server_access_profile_binding_1 = args
             .api_server_access_profile
-            .get_output(context)
+            .get_output(context);
+        let api_server_access_profile_binding = api_server_access_profile_binding_1
             .get_inner();
-        let auto_scaler_profile_binding = args
-            .auto_scaler_profile
-            .get_output(context)
-            .get_inner();
-        let automatic_upgrade_channel_binding = args
+        let auto_scaler_profile_binding_1 = args.auto_scaler_profile.get_output(context);
+        let auto_scaler_profile_binding = auto_scaler_profile_binding_1.get_inner();
+        let automatic_upgrade_channel_binding_1 = args
             .automatic_upgrade_channel
-            .get_output(context)
+            .get_output(context);
+        let automatic_upgrade_channel_binding = automatic_upgrade_channel_binding_1
             .get_inner();
-        let azure_active_directory_role_based_access_control_binding = args
+        let azure_active_directory_role_based_access_control_binding_1 = args
             .azure_active_directory_role_based_access_control
-            .get_output(context)
+            .get_output(context);
+        let azure_active_directory_role_based_access_control_binding = azure_active_directory_role_based_access_control_binding_1
             .get_inner();
-        let azure_policy_enabled_binding = args
+        let azure_policy_enabled_binding_1 = args
             .azure_policy_enabled
-            .get_output(context)
-            .get_inner();
-        let confidential_computing_binding = args
+            .get_output(context);
+        let azure_policy_enabled_binding = azure_policy_enabled_binding_1.get_inner();
+        let confidential_computing_binding_1 = args
             .confidential_computing
-            .get_output(context)
+            .get_output(context);
+        let confidential_computing_binding = confidential_computing_binding_1
             .get_inner();
-        let cost_analysis_enabled_binding = args
+        let cost_analysis_enabled_binding_1 = args
             .cost_analysis_enabled
-            .get_output(context)
-            .get_inner();
-        let default_node_pool_binding = args
-            .default_node_pool
-            .get_output(context)
-            .get_inner();
-        let disk_encryption_set_id_binding = args
+            .get_output(context);
+        let cost_analysis_enabled_binding = cost_analysis_enabled_binding_1.get_inner();
+        let default_node_pool_binding_1 = args.default_node_pool.get_output(context);
+        let default_node_pool_binding = default_node_pool_binding_1.get_inner();
+        let disk_encryption_set_id_binding_1 = args
             .disk_encryption_set_id
-            .get_output(context)
+            .get_output(context);
+        let disk_encryption_set_id_binding = disk_encryption_set_id_binding_1
             .get_inner();
-        let dns_prefix_binding = args.dns_prefix.get_output(context).get_inner();
-        let dns_prefix_private_cluster_binding = args
+        let dns_prefix_binding_1 = args.dns_prefix.get_output(context);
+        let dns_prefix_binding = dns_prefix_binding_1.get_inner();
+        let dns_prefix_private_cluster_binding_1 = args
             .dns_prefix_private_cluster
-            .get_output(context)
+            .get_output(context);
+        let dns_prefix_private_cluster_binding = dns_prefix_private_cluster_binding_1
             .get_inner();
-        let edge_zone_binding = args.edge_zone.get_output(context).get_inner();
-        let http_application_routing_enabled_binding = args
+        let edge_zone_binding_1 = args.edge_zone.get_output(context);
+        let edge_zone_binding = edge_zone_binding_1.get_inner();
+        let http_application_routing_enabled_binding_1 = args
             .http_application_routing_enabled
-            .get_output(context)
+            .get_output(context);
+        let http_application_routing_enabled_binding = http_application_routing_enabled_binding_1
             .get_inner();
-        let http_proxy_config_binding = args
-            .http_proxy_config
-            .get_output(context)
-            .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let image_cleaner_enabled_binding = args
+        let http_proxy_config_binding_1 = args.http_proxy_config.get_output(context);
+        let http_proxy_config_binding = http_proxy_config_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let image_cleaner_enabled_binding_1 = args
             .image_cleaner_enabled
-            .get_output(context)
-            .get_inner();
-        let image_cleaner_interval_hours_binding = args
+            .get_output(context);
+        let image_cleaner_enabled_binding = image_cleaner_enabled_binding_1.get_inner();
+        let image_cleaner_interval_hours_binding_1 = args
             .image_cleaner_interval_hours
-            .get_output(context)
+            .get_output(context);
+        let image_cleaner_interval_hours_binding = image_cleaner_interval_hours_binding_1
             .get_inner();
-        let ingress_application_gateway_binding = args
+        let ingress_application_gateway_binding_1 = args
             .ingress_application_gateway
-            .get_output(context)
+            .get_output(context);
+        let ingress_application_gateway_binding = ingress_application_gateway_binding_1
             .get_inner();
-        let key_management_service_binding = args
+        let key_management_service_binding_1 = args
             .key_management_service
-            .get_output(context)
+            .get_output(context);
+        let key_management_service_binding = key_management_service_binding_1
             .get_inner();
-        let key_vault_secrets_provider_binding = args
+        let key_vault_secrets_provider_binding_1 = args
             .key_vault_secrets_provider
-            .get_output(context)
+            .get_output(context);
+        let key_vault_secrets_provider_binding = key_vault_secrets_provider_binding_1
             .get_inner();
-        let kubelet_identity_binding = args
-            .kubelet_identity
-            .get_output(context)
-            .get_inner();
-        let kubernetes_version_binding = args
-            .kubernetes_version
-            .get_output(context)
-            .get_inner();
-        let linux_profile_binding = args.linux_profile.get_output(context).get_inner();
-        let local_account_disabled_binding = args
+        let kubelet_identity_binding_1 = args.kubelet_identity.get_output(context);
+        let kubelet_identity_binding = kubelet_identity_binding_1.get_inner();
+        let kubernetes_version_binding_1 = args.kubernetes_version.get_output(context);
+        let kubernetes_version_binding = kubernetes_version_binding_1.get_inner();
+        let linux_profile_binding_1 = args.linux_profile.get_output(context);
+        let linux_profile_binding = linux_profile_binding_1.get_inner();
+        let local_account_disabled_binding_1 = args
             .local_account_disabled
-            .get_output(context)
+            .get_output(context);
+        let local_account_disabled_binding = local_account_disabled_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let maintenance_window_binding = args
-            .maintenance_window
-            .get_output(context)
-            .get_inner();
-        let maintenance_window_auto_upgrade_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
+        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
+        let maintenance_window_auto_upgrade_binding_1 = args
             .maintenance_window_auto_upgrade
-            .get_output(context)
+            .get_output(context);
+        let maintenance_window_auto_upgrade_binding = maintenance_window_auto_upgrade_binding_1
             .get_inner();
-        let maintenance_window_node_os_binding = args
+        let maintenance_window_node_os_binding_1 = args
             .maintenance_window_node_os
-            .get_output(context)
+            .get_output(context);
+        let maintenance_window_node_os_binding = maintenance_window_node_os_binding_1
             .get_inner();
-        let microsoft_defender_binding = args
-            .microsoft_defender
-            .get_output(context)
-            .get_inner();
-        let monitor_metrics_binding = args
-            .monitor_metrics
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_profile_binding = args
-            .network_profile
-            .get_output(context)
-            .get_inner();
-        let node_os_upgrade_channel_binding = args
+        let microsoft_defender_binding_1 = args.microsoft_defender.get_output(context);
+        let microsoft_defender_binding = microsoft_defender_binding_1.get_inner();
+        let monitor_metrics_binding_1 = args.monitor_metrics.get_output(context);
+        let monitor_metrics_binding = monitor_metrics_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_profile_binding_1 = args.network_profile.get_output(context);
+        let network_profile_binding = network_profile_binding_1.get_inner();
+        let node_os_upgrade_channel_binding_1 = args
             .node_os_upgrade_channel
-            .get_output(context)
+            .get_output(context);
+        let node_os_upgrade_channel_binding = node_os_upgrade_channel_binding_1
             .get_inner();
-        let node_resource_group_binding = args
-            .node_resource_group
-            .get_output(context)
-            .get_inner();
-        let oidc_issuer_enabled_binding = args
-            .oidc_issuer_enabled
-            .get_output(context)
-            .get_inner();
-        let oms_agent_binding = args.oms_agent.get_output(context).get_inner();
-        let open_service_mesh_enabled_binding = args
+        let node_resource_group_binding_1 = args.node_resource_group.get_output(context);
+        let node_resource_group_binding = node_resource_group_binding_1.get_inner();
+        let oidc_issuer_enabled_binding_1 = args.oidc_issuer_enabled.get_output(context);
+        let oidc_issuer_enabled_binding = oidc_issuer_enabled_binding_1.get_inner();
+        let oms_agent_binding_1 = args.oms_agent.get_output(context);
+        let oms_agent_binding = oms_agent_binding_1.get_inner();
+        let open_service_mesh_enabled_binding_1 = args
             .open_service_mesh_enabled
-            .get_output(context)
+            .get_output(context);
+        let open_service_mesh_enabled_binding = open_service_mesh_enabled_binding_1
             .get_inner();
-        let private_cluster_enabled_binding = args
+        let private_cluster_enabled_binding_1 = args
             .private_cluster_enabled
-            .get_output(context)
+            .get_output(context);
+        let private_cluster_enabled_binding = private_cluster_enabled_binding_1
             .get_inner();
-        let private_cluster_public_fqdn_enabled_binding = args
+        let private_cluster_public_fqdn_enabled_binding_1 = args
             .private_cluster_public_fqdn_enabled
-            .get_output(context)
+            .get_output(context);
+        let private_cluster_public_fqdn_enabled_binding = private_cluster_public_fqdn_enabled_binding_1
             .get_inner();
-        let private_dns_zone_id_binding = args
-            .private_dns_zone_id
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let role_based_access_control_enabled_binding = args
+        let private_dns_zone_id_binding_1 = args.private_dns_zone_id.get_output(context);
+        let private_dns_zone_id_binding = private_dns_zone_id_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let role_based_access_control_enabled_binding_1 = args
             .role_based_access_control_enabled
-            .get_output(context)
+            .get_output(context);
+        let role_based_access_control_enabled_binding = role_based_access_control_enabled_binding_1
             .get_inner();
-        let run_command_enabled_binding = args
-            .run_command_enabled
-            .get_output(context)
-            .get_inner();
-        let service_mesh_profile_binding = args
+        let run_command_enabled_binding_1 = args.run_command_enabled.get_output(context);
+        let run_command_enabled_binding = run_command_enabled_binding_1.get_inner();
+        let service_mesh_profile_binding_1 = args
             .service_mesh_profile
-            .get_output(context)
-            .get_inner();
-        let service_principal_binding = args
-            .service_principal
-            .get_output(context)
-            .get_inner();
-        let sku_tier_binding = args.sku_tier.get_output(context).get_inner();
-        let storage_profile_binding = args
-            .storage_profile
-            .get_output(context)
-            .get_inner();
-        let support_plan_binding = args.support_plan.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let web_app_routing_binding = args
-            .web_app_routing
-            .get_output(context)
-            .get_inner();
-        let windows_profile_binding = args
-            .windows_profile
-            .get_output(context)
-            .get_inner();
-        let workload_autoscaler_profile_binding = args
+            .get_output(context);
+        let service_mesh_profile_binding = service_mesh_profile_binding_1.get_inner();
+        let service_principal_binding_1 = args.service_principal.get_output(context);
+        let service_principal_binding = service_principal_binding_1.get_inner();
+        let sku_tier_binding_1 = args.sku_tier.get_output(context);
+        let sku_tier_binding = sku_tier_binding_1.get_inner();
+        let storage_profile_binding_1 = args.storage_profile.get_output(context);
+        let storage_profile_binding = storage_profile_binding_1.get_inner();
+        let support_plan_binding_1 = args.support_plan.get_output(context);
+        let support_plan_binding = support_plan_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let web_app_routing_binding_1 = args.web_app_routing.get_output(context);
+        let web_app_routing_binding = web_app_routing_binding_1.get_inner();
+        let windows_profile_binding_1 = args.windows_profile.get_output(context);
+        let windows_profile_binding = windows_profile_binding_1.get_inner();
+        let workload_autoscaler_profile_binding_1 = args
             .workload_autoscaler_profile
-            .get_output(context)
+            .get_output(context);
+        let workload_autoscaler_profile_binding = workload_autoscaler_profile_binding_1
             .get_inner();
-        let workload_identity_enabled_binding = args
+        let workload_identity_enabled_binding_1 = args
             .workload_identity_enabled
-            .get_output(context)
+            .get_output(context);
+        let workload_identity_enabled_binding = workload_identity_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/kubernetesCluster:KubernetesCluster".into(),

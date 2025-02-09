@@ -116,26 +116,30 @@ pub mod traffic_mirror_session {
     ) -> TrafficMirrorSessionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let network_interface_id_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let network_interface_id_binding_1 = args
             .network_interface_id
-            .get_output(context)
-            .get_inner();
-        let packet_length_binding = args.packet_length.get_output(context).get_inner();
-        let session_number_binding = args.session_number.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let traffic_mirror_filter_id_binding = args
+            .get_output(context);
+        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
+        let packet_length_binding_1 = args.packet_length.get_output(context);
+        let packet_length_binding = packet_length_binding_1.get_inner();
+        let session_number_binding_1 = args.session_number.get_output(context);
+        let session_number_binding = session_number_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let traffic_mirror_filter_id_binding_1 = args
             .traffic_mirror_filter_id
-            .get_output(context)
+            .get_output(context);
+        let traffic_mirror_filter_id_binding = traffic_mirror_filter_id_binding_1
             .get_inner();
-        let traffic_mirror_target_id_binding = args
+        let traffic_mirror_target_id_binding_1 = args
             .traffic_mirror_target_id
-            .get_output(context)
+            .get_output(context);
+        let traffic_mirror_target_id_binding = traffic_mirror_target_id_binding_1
             .get_inner();
-        let virtual_network_id_binding = args
-            .virtual_network_id
-            .get_output(context)
-            .get_inner();
+        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
+        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/trafficMirrorSession:TrafficMirrorSession".into(),
             name: name.to_string(),

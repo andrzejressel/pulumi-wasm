@@ -146,23 +146,29 @@ pub mod datastore_fileshare {
     ) -> DatastoreFileshareResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_key_binding = args.account_key.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let service_data_identity_binding = args
+        let account_key_binding_1 = args.account_key.get_output(context);
+        let account_key_binding = account_key_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let service_data_identity_binding_1 = args
             .service_data_identity
-            .get_output(context)
-            .get_inner();
-        let shared_access_signature_binding = args
+            .get_output(context);
+        let service_data_identity_binding = service_data_identity_binding_1.get_inner();
+        let shared_access_signature_binding_1 = args
             .shared_access_signature
-            .get_output(context)
+            .get_output(context);
+        let shared_access_signature_binding = shared_access_signature_binding_1
             .get_inner();
-        let storage_fileshare_id_binding = args
+        let storage_fileshare_id_binding_1 = args
             .storage_fileshare_id
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+            .get_output(context);
+        let storage_fileshare_id_binding = storage_fileshare_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:machinelearning/datastoreFileshare:DatastoreFileshare".into(),
             name: name.to_string(),

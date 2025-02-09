@@ -553,100 +553,100 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_info_binding = args
-            .additional_info
-            .get_output(context)
-            .get_inner();
-        let applications_binding = args.applications.get_output(context).get_inner();
-        let auto_termination_policy_binding = args
+        let additional_info_binding_1 = args.additional_info.get_output(context);
+        let additional_info_binding = additional_info_binding_1.get_inner();
+        let applications_binding_1 = args.applications.get_output(context);
+        let applications_binding = applications_binding_1.get_inner();
+        let auto_termination_policy_binding_1 = args
             .auto_termination_policy
-            .get_output(context)
+            .get_output(context);
+        let auto_termination_policy_binding = auto_termination_policy_binding_1
             .get_inner();
-        let autoscaling_role_binding = args
-            .autoscaling_role
-            .get_output(context)
-            .get_inner();
-        let bootstrap_actions_binding = args
-            .bootstrap_actions
-            .get_output(context)
-            .get_inner();
-        let configurations_binding = args.configurations.get_output(context).get_inner();
-        let configurations_json_binding = args
-            .configurations_json
-            .get_output(context)
-            .get_inner();
-        let core_instance_fleet_binding = args
-            .core_instance_fleet
-            .get_output(context)
-            .get_inner();
-        let core_instance_group_binding = args
-            .core_instance_group
-            .get_output(context)
-            .get_inner();
-        let custom_ami_id_binding = args.custom_ami_id.get_output(context).get_inner();
-        let ebs_root_volume_size_binding = args
+        let autoscaling_role_binding_1 = args.autoscaling_role.get_output(context);
+        let autoscaling_role_binding = autoscaling_role_binding_1.get_inner();
+        let bootstrap_actions_binding_1 = args.bootstrap_actions.get_output(context);
+        let bootstrap_actions_binding = bootstrap_actions_binding_1.get_inner();
+        let configurations_binding_1 = args.configurations.get_output(context);
+        let configurations_binding = configurations_binding_1.get_inner();
+        let configurations_json_binding_1 = args.configurations_json.get_output(context);
+        let configurations_json_binding = configurations_json_binding_1.get_inner();
+        let core_instance_fleet_binding_1 = args.core_instance_fleet.get_output(context);
+        let core_instance_fleet_binding = core_instance_fleet_binding_1.get_inner();
+        let core_instance_group_binding_1 = args.core_instance_group.get_output(context);
+        let core_instance_group_binding = core_instance_group_binding_1.get_inner();
+        let custom_ami_id_binding_1 = args.custom_ami_id.get_output(context);
+        let custom_ami_id_binding = custom_ami_id_binding_1.get_inner();
+        let ebs_root_volume_size_binding_1 = args
             .ebs_root_volume_size
-            .get_output(context)
-            .get_inner();
-        let ec2_attributes_binding = args.ec2_attributes.get_output(context).get_inner();
-        let keep_job_flow_alive_when_no_steps_binding = args
+            .get_output(context);
+        let ebs_root_volume_size_binding = ebs_root_volume_size_binding_1.get_inner();
+        let ec2_attributes_binding_1 = args.ec2_attributes.get_output(context);
+        let ec2_attributes_binding = ec2_attributes_binding_1.get_inner();
+        let keep_job_flow_alive_when_no_steps_binding_1 = args
             .keep_job_flow_alive_when_no_steps
-            .get_output(context)
+            .get_output(context);
+        let keep_job_flow_alive_when_no_steps_binding = keep_job_flow_alive_when_no_steps_binding_1
             .get_inner();
-        let kerberos_attributes_binding = args
-            .kerberos_attributes
-            .get_output(context)
-            .get_inner();
-        let list_steps_states_binding = args
-            .list_steps_states
-            .get_output(context)
-            .get_inner();
-        let log_encryption_kms_key_id_binding = args
+        let kerberos_attributes_binding_1 = args.kerberos_attributes.get_output(context);
+        let kerberos_attributes_binding = kerberos_attributes_binding_1.get_inner();
+        let list_steps_states_binding_1 = args.list_steps_states.get_output(context);
+        let list_steps_states_binding = list_steps_states_binding_1.get_inner();
+        let log_encryption_kms_key_id_binding_1 = args
             .log_encryption_kms_key_id
-            .get_output(context)
+            .get_output(context);
+        let log_encryption_kms_key_id_binding = log_encryption_kms_key_id_binding_1
             .get_inner();
-        let log_uri_binding = args.log_uri.get_output(context).get_inner();
-        let master_instance_fleet_binding = args
+        let log_uri_binding_1 = args.log_uri.get_output(context);
+        let log_uri_binding = log_uri_binding_1.get_inner();
+        let master_instance_fleet_binding_1 = args
             .master_instance_fleet
-            .get_output(context)
-            .get_inner();
-        let master_instance_group_binding = args
+            .get_output(context);
+        let master_instance_fleet_binding = master_instance_fleet_binding_1.get_inner();
+        let master_instance_group_binding_1 = args
             .master_instance_group
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let placement_group_configs_binding = args
+            .get_output(context);
+        let master_instance_group_binding = master_instance_group_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let placement_group_configs_binding_1 = args
             .placement_group_configs
-            .get_output(context)
+            .get_output(context);
+        let placement_group_configs_binding = placement_group_configs_binding_1
             .get_inner();
-        let release_label_binding = args.release_label.get_output(context).get_inner();
-        let scale_down_behavior_binding = args
-            .scale_down_behavior
-            .get_output(context)
-            .get_inner();
-        let security_configuration_binding = args
+        let release_label_binding_1 = args.release_label.get_output(context);
+        let release_label_binding = release_label_binding_1.get_inner();
+        let scale_down_behavior_binding_1 = args.scale_down_behavior.get_output(context);
+        let scale_down_behavior_binding = scale_down_behavior_binding_1.get_inner();
+        let security_configuration_binding_1 = args
             .security_configuration
-            .get_output(context)
+            .get_output(context);
+        let security_configuration_binding = security_configuration_binding_1
             .get_inner();
-        let service_role_binding = args.service_role.get_output(context).get_inner();
-        let step_concurrency_level_binding = args
+        let service_role_binding_1 = args.service_role.get_output(context);
+        let service_role_binding = service_role_binding_1.get_inner();
+        let step_concurrency_level_binding_1 = args
             .step_concurrency_level
-            .get_output(context)
+            .get_output(context);
+        let step_concurrency_level_binding = step_concurrency_level_binding_1
             .get_inner();
-        let steps_binding = args.steps.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let termination_protection_binding = args
+        let steps_binding_1 = args.steps.get_output(context);
+        let steps_binding = steps_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let termination_protection_binding_1 = args
             .termination_protection
-            .get_output(context)
+            .get_output(context);
+        let termination_protection_binding = termination_protection_binding_1
             .get_inner();
-        let unhealthy_node_replacement_binding = args
+        let unhealthy_node_replacement_binding_1 = args
             .unhealthy_node_replacement
-            .get_output(context)
+            .get_output(context);
+        let unhealthy_node_replacement_binding = unhealthy_node_replacement_binding_1
             .get_inner();
-        let visible_to_all_users_binding = args
+        let visible_to_all_users_binding_1 = args
             .visible_to_all_users
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let visible_to_all_users_binding = visible_to_all_users_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:emr/cluster:Cluster".into(),
             name: name.to_string(),

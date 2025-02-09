@@ -79,12 +79,12 @@ pub mod email_template {
     ) -> EmailTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let email_templates_binding = args
-            .email_templates
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let template_name_binding = args.template_name.get_output(context).get_inner();
+        let email_templates_binding_1 = args.email_templates.get_output(context);
+        let email_templates_binding = email_templates_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let template_name_binding_1 = args.template_name.get_output(context);
+        let template_name_binding = template_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:pinpoint/emailTemplate:EmailTemplate".into(),
             name: name.to_string(),

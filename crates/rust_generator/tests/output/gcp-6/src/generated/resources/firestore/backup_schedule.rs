@@ -157,17 +157,16 @@ pub mod backup_schedule {
     ) -> BackupScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let daily_recurrence_binding = args
-            .daily_recurrence
-            .get_output(context)
-            .get_inner();
-        let database_binding = args.database.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let retention_binding = args.retention.get_output(context).get_inner();
-        let weekly_recurrence_binding = args
-            .weekly_recurrence
-            .get_output(context)
-            .get_inner();
+        let daily_recurrence_binding_1 = args.daily_recurrence.get_output(context);
+        let daily_recurrence_binding = daily_recurrence_binding_1.get_inner();
+        let database_binding_1 = args.database.get_output(context);
+        let database_binding = database_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let retention_binding_1 = args.retention.get_output(context);
+        let retention_binding = retention_binding_1.get_inner();
+        let weekly_recurrence_binding_1 = args.weekly_recurrence.get_output(context);
+        let weekly_recurrence_binding = weekly_recurrence_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firestore/backupSchedule:BackupSchedule".into(),
             name: name.to_string(),

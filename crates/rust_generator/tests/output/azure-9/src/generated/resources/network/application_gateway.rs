@@ -441,93 +441,108 @@ pub mod application_gateway {
     ) -> ApplicationGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_certificates_binding = args
+        let authentication_certificates_binding_1 = args
             .authentication_certificates
-            .get_output(context)
+            .get_output(context);
+        let authentication_certificates_binding = authentication_certificates_binding_1
             .get_inner();
-        let autoscale_configuration_binding = args
+        let autoscale_configuration_binding_1 = args
             .autoscale_configuration
-            .get_output(context)
+            .get_output(context);
+        let autoscale_configuration_binding = autoscale_configuration_binding_1
             .get_inner();
-        let backend_address_pools_binding = args
+        let backend_address_pools_binding_1 = args
             .backend_address_pools
-            .get_output(context)
-            .get_inner();
-        let backend_http_settings_binding = args
+            .get_output(context);
+        let backend_address_pools_binding = backend_address_pools_binding_1.get_inner();
+        let backend_http_settings_binding_1 = args
             .backend_http_settings
-            .get_output(context)
-            .get_inner();
-        let custom_error_configurations_binding = args
+            .get_output(context);
+        let backend_http_settings_binding = backend_http_settings_binding_1.get_inner();
+        let custom_error_configurations_binding_1 = args
             .custom_error_configurations
-            .get_output(context)
+            .get_output(context);
+        let custom_error_configurations_binding = custom_error_configurations_binding_1
             .get_inner();
-        let enable_http2_binding = args.enable_http2.get_output(context).get_inner();
-        let fips_enabled_binding = args.fips_enabled.get_output(context).get_inner();
-        let firewall_policy_id_binding = args
-            .firewall_policy_id
-            .get_output(context)
-            .get_inner();
-        let force_firewall_policy_association_binding = args
+        let enable_http2_binding_1 = args.enable_http2.get_output(context);
+        let enable_http2_binding = enable_http2_binding_1.get_inner();
+        let fips_enabled_binding_1 = args.fips_enabled.get_output(context);
+        let fips_enabled_binding = fips_enabled_binding_1.get_inner();
+        let firewall_policy_id_binding_1 = args.firewall_policy_id.get_output(context);
+        let firewall_policy_id_binding = firewall_policy_id_binding_1.get_inner();
+        let force_firewall_policy_association_binding_1 = args
             .force_firewall_policy_association
-            .get_output(context)
+            .get_output(context);
+        let force_firewall_policy_association_binding = force_firewall_policy_association_binding_1
             .get_inner();
-        let frontend_ip_configurations_binding = args
+        let frontend_ip_configurations_binding_1 = args
             .frontend_ip_configurations
-            .get_output(context)
+            .get_output(context);
+        let frontend_ip_configurations_binding = frontend_ip_configurations_binding_1
             .get_inner();
-        let frontend_ports_binding = args.frontend_ports.get_output(context).get_inner();
-        let gateway_ip_configurations_binding = args
+        let frontend_ports_binding_1 = args.frontend_ports.get_output(context);
+        let frontend_ports_binding = frontend_ports_binding_1.get_inner();
+        let gateway_ip_configurations_binding_1 = args
             .gateway_ip_configurations
-            .get_output(context)
+            .get_output(context);
+        let gateway_ip_configurations_binding = gateway_ip_configurations_binding_1
             .get_inner();
-        let global_binding = args.global.get_output(context).get_inner();
-        let http_listeners_binding = args.http_listeners.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let private_link_configurations_binding = args
+        let global_binding_1 = args.global.get_output(context);
+        let global_binding = global_binding_1.get_inner();
+        let http_listeners_binding_1 = args.http_listeners.get_output(context);
+        let http_listeners_binding = http_listeners_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let private_link_configurations_binding_1 = args
             .private_link_configurations
-            .get_output(context)
+            .get_output(context);
+        let private_link_configurations_binding = private_link_configurations_binding_1
             .get_inner();
-        let probes_binding = args.probes.get_output(context).get_inner();
-        let redirect_configurations_binding = args
+        let probes_binding_1 = args.probes.get_output(context);
+        let probes_binding = probes_binding_1.get_inner();
+        let redirect_configurations_binding_1 = args
             .redirect_configurations
-            .get_output(context)
+            .get_output(context);
+        let redirect_configurations_binding = redirect_configurations_binding_1
             .get_inner();
-        let request_routing_rules_binding = args
+        let request_routing_rules_binding_1 = args
             .request_routing_rules
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let rewrite_rule_sets_binding = args
-            .rewrite_rule_sets
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let ssl_certificates_binding = args
-            .ssl_certificates
-            .get_output(context)
-            .get_inner();
-        let ssl_policy_binding = args.ssl_policy.get_output(context).get_inner();
-        let ssl_profiles_binding = args.ssl_profiles.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let trusted_client_certificates_binding = args
+            .get_output(context);
+        let request_routing_rules_binding = request_routing_rules_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let rewrite_rule_sets_binding_1 = args.rewrite_rule_sets.get_output(context);
+        let rewrite_rule_sets_binding = rewrite_rule_sets_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let ssl_certificates_binding_1 = args.ssl_certificates.get_output(context);
+        let ssl_certificates_binding = ssl_certificates_binding_1.get_inner();
+        let ssl_policy_binding_1 = args.ssl_policy.get_output(context);
+        let ssl_policy_binding = ssl_policy_binding_1.get_inner();
+        let ssl_profiles_binding_1 = args.ssl_profiles.get_output(context);
+        let ssl_profiles_binding = ssl_profiles_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let trusted_client_certificates_binding_1 = args
             .trusted_client_certificates
-            .get_output(context)
+            .get_output(context);
+        let trusted_client_certificates_binding = trusted_client_certificates_binding_1
             .get_inner();
-        let trusted_root_certificates_binding = args
+        let trusted_root_certificates_binding_1 = args
             .trusted_root_certificates
-            .get_output(context)
+            .get_output(context);
+        let trusted_root_certificates_binding = trusted_root_certificates_binding_1
             .get_inner();
-        let url_path_maps_binding = args.url_path_maps.get_output(context).get_inner();
-        let waf_configuration_binding = args
-            .waf_configuration
-            .get_output(context)
-            .get_inner();
-        let zones_binding = args.zones.get_output(context).get_inner();
+        let url_path_maps_binding_1 = args.url_path_maps.get_output(context);
+        let url_path_maps_binding = url_path_maps_binding_1.get_inner();
+        let waf_configuration_binding_1 = args.waf_configuration.get_output(context);
+        let waf_configuration_binding = waf_configuration_binding_1.get_inner();
+        let zones_binding_1 = args.zones.get_output(context);
+        let zones_binding = zones_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/applicationGateway:ApplicationGateway".into(),
             name: name.to_string(),

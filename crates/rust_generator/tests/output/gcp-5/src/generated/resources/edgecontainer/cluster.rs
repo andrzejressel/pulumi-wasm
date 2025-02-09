@@ -323,39 +323,47 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorization_binding = args.authorization.get_output(context).get_inner();
-        let control_plane_binding = args.control_plane.get_output(context).get_inner();
-        let control_plane_encryption_binding = args
+        let authorization_binding_1 = args.authorization.get_output(context);
+        let authorization_binding = authorization_binding_1.get_inner();
+        let control_plane_binding_1 = args.control_plane.get_output(context);
+        let control_plane_binding = control_plane_binding_1.get_inner();
+        let control_plane_encryption_binding_1 = args
             .control_plane_encryption
-            .get_output(context)
+            .get_output(context);
+        let control_plane_encryption_binding = control_plane_encryption_binding_1
             .get_inner();
-        let default_max_pods_per_node_binding = args
+        let default_max_pods_per_node_binding_1 = args
             .default_max_pods_per_node
-            .get_output(context)
+            .get_output(context);
+        let default_max_pods_per_node_binding = default_max_pods_per_node_binding_1
             .get_inner();
-        let external_load_balancer_ipv4_address_pools_binding = args
+        let external_load_balancer_ipv4_address_pools_binding_1 = args
             .external_load_balancer_ipv4_address_pools
-            .get_output(context)
+            .get_output(context);
+        let external_load_balancer_ipv4_address_pools_binding = external_load_balancer_ipv4_address_pools_binding_1
             .get_inner();
-        let fleet_binding = args.fleet.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let maintenance_policy_binding = args
-            .maintenance_policy
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let networking_binding = args.networking.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let release_channel_binding = args
-            .release_channel
-            .get_output(context)
-            .get_inner();
-        let system_addons_config_binding = args
+        let fleet_binding_1 = args.fleet.get_output(context);
+        let fleet_binding = fleet_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maintenance_policy_binding_1 = args.maintenance_policy.get_output(context);
+        let maintenance_policy_binding = maintenance_policy_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let networking_binding_1 = args.networking.get_output(context);
+        let networking_binding = networking_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let release_channel_binding_1 = args.release_channel.get_output(context);
+        let release_channel_binding = release_channel_binding_1.get_inner();
+        let system_addons_config_binding_1 = args
             .system_addons_config
-            .get_output(context)
-            .get_inner();
-        let target_version_binding = args.target_version.get_output(context).get_inner();
+            .get_output(context);
+        let system_addons_config_binding = system_addons_config_binding_1.get_inner();
+        let target_version_binding_1 = args.target_version.get_output(context);
+        let target_version_binding = target_version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:edgecontainer/cluster:Cluster".into(),
             name: name.to_string(),

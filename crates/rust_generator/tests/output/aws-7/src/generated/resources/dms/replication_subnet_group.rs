@@ -122,16 +122,20 @@ pub mod replication_subnet_group {
     ) -> ReplicationSubnetGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let replication_subnet_group_description_binding = args
+        let replication_subnet_group_description_binding_1 = args
             .replication_subnet_group_description
-            .get_output(context)
+            .get_output(context);
+        let replication_subnet_group_description_binding = replication_subnet_group_description_binding_1
             .get_inner();
-        let replication_subnet_group_id_binding = args
+        let replication_subnet_group_id_binding_1 = args
             .replication_subnet_group_id
-            .get_output(context)
+            .get_output(context);
+        let replication_subnet_group_id_binding = replication_subnet_group_id_binding_1
             .get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dms/replicationSubnetGroup:ReplicationSubnetGroup".into(),
             name: name.to_string(),

@@ -209,19 +209,26 @@ pub mod entry_type {
     ) -> EntryTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let entry_type_id_binding = args.entry_type_id.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let platform_binding = args.platform.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let required_aspects_binding = args
-            .required_aspects
-            .get_output(context)
-            .get_inner();
-        let system_binding = args.system.get_output(context).get_inner();
-        let type_aliases_binding = args.type_aliases.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let entry_type_id_binding_1 = args.entry_type_id.get_output(context);
+        let entry_type_id_binding = entry_type_id_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let platform_binding_1 = args.platform.get_output(context);
+        let platform_binding = platform_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let required_aspects_binding_1 = args.required_aspects.get_output(context);
+        let required_aspects_binding = required_aspects_binding_1.get_inner();
+        let system_binding_1 = args.system.get_output(context);
+        let system_binding = system_binding_1.get_inner();
+        let type_aliases_binding_1 = args.type_aliases.get_output(context);
+        let type_aliases_binding = type_aliases_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataplex/entryType:EntryType".into(),
             name: name.to_string(),

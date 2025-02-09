@@ -83,11 +83,10 @@ pub mod vault_policy {
     ) -> VaultPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_vault_name_binding = args
-            .backup_vault_name
-            .get_output(context)
-            .get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
+        let backup_vault_name_binding_1 = args.backup_vault_name.get_output(context);
+        let backup_vault_name_binding = backup_vault_name_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:backup/vaultPolicy:VaultPolicy".into(),
             name: name.to_string(),

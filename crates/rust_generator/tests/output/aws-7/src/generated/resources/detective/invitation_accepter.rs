@@ -57,7 +57,8 @@ pub mod invitation_accepter {
     ) -> InvitationAccepterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let graph_arn_binding = args.graph_arn.get_output(context).get_inner();
+        let graph_arn_binding_1 = args.graph_arn.get_output(context);
+        let graph_arn_binding = graph_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:detective/invitationAccepter:InvitationAccepter".into(),
             name: name.to_string(),

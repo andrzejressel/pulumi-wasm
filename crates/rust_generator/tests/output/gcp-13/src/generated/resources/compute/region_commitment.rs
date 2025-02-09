@@ -243,23 +243,30 @@ pub mod region_commitment {
     ) -> RegionCommitmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_renew_binding = args.auto_renew.get_output(context).get_inner();
-        let category_binding = args.category.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let existing_reservations_binding = args
+        let auto_renew_binding_1 = args.auto_renew.get_output(context);
+        let auto_renew_binding = auto_renew_binding_1.get_inner();
+        let category_binding_1 = args.category.get_output(context);
+        let category_binding = category_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let existing_reservations_binding_1 = args
             .existing_reservations
-            .get_output(context)
-            .get_inner();
-        let license_resource_binding = args
-            .license_resource
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let plan_binding = args.plan.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let resources_binding = args.resources.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+            .get_output(context);
+        let existing_reservations_binding = existing_reservations_binding_1.get_inner();
+        let license_resource_binding_1 = args.license_resource.get_output(context);
+        let license_resource_binding = license_resource_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let plan_binding_1 = args.plan.get_output(context);
+        let plan_binding = plan_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let resources_binding_1 = args.resources.get_output(context);
+        let resources_binding = resources_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionCommitment:RegionCommitment".into(),
             name: name.to_string(),

@@ -160,15 +160,18 @@ pub mod bucket_versioning_v_2 {
     ) -> BucketVersioningV2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let expected_bucket_owner_binding = args
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let expected_bucket_owner_binding_1 = args
             .expected_bucket_owner
-            .get_output(context)
-            .get_inner();
-        let mfa_binding = args.mfa.get_output(context).get_inner();
-        let versioning_configuration_binding = args
+            .get_output(context);
+        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
+        let mfa_binding_1 = args.mfa.get_output(context);
+        let mfa_binding = mfa_binding_1.get_inner();
+        let versioning_configuration_binding_1 = args
             .versioning_configuration
-            .get_output(context)
+            .get_output(context);
+        let versioning_configuration_binding = versioning_configuration_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketVersioningV2:BucketVersioningV2".into(),

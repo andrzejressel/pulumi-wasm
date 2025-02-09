@@ -79,19 +79,17 @@ pub mod cluster_snapshot {
     ) -> ClusterSnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_identifier_binding = args
-            .cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let manual_snapshot_retention_period_binding = args
+        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
+        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
+        let manual_snapshot_retention_period_binding_1 = args
             .manual_snapshot_retention_period
-            .get_output(context)
+            .get_output(context);
+        let manual_snapshot_retention_period_binding = manual_snapshot_retention_period_binding_1
             .get_inner();
-        let snapshot_identifier_binding = args
-            .snapshot_identifier
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let snapshot_identifier_binding_1 = args.snapshot_identifier.get_output(context);
+        let snapshot_identifier_binding = snapshot_identifier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/clusterSnapshot:ClusterSnapshot".into(),
             name: name.to_string(),

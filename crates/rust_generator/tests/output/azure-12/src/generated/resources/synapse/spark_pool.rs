@@ -195,49 +195,55 @@ pub mod spark_pool {
     ) -> SparkPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_pause_binding = args.auto_pause.get_output(context).get_inner();
-        let auto_scale_binding = args.auto_scale.get_output(context).get_inner();
-        let cache_size_binding = args.cache_size.get_output(context).get_inner();
-        let compute_isolation_enabled_binding = args
+        let auto_pause_binding_1 = args.auto_pause.get_output(context);
+        let auto_pause_binding = auto_pause_binding_1.get_inner();
+        let auto_scale_binding_1 = args.auto_scale.get_output(context);
+        let auto_scale_binding = auto_scale_binding_1.get_inner();
+        let cache_size_binding_1 = args.cache_size.get_output(context);
+        let cache_size_binding = cache_size_binding_1.get_inner();
+        let compute_isolation_enabled_binding_1 = args
             .compute_isolation_enabled
-            .get_output(context)
+            .get_output(context);
+        let compute_isolation_enabled_binding = compute_isolation_enabled_binding_1
             .get_inner();
-        let dynamic_executor_allocation_enabled_binding = args
+        let dynamic_executor_allocation_enabled_binding_1 = args
             .dynamic_executor_allocation_enabled
-            .get_output(context)
+            .get_output(context);
+        let dynamic_executor_allocation_enabled_binding = dynamic_executor_allocation_enabled_binding_1
             .get_inner();
-        let library_requirement_binding = args
-            .library_requirement
-            .get_output(context)
-            .get_inner();
-        let max_executors_binding = args.max_executors.get_output(context).get_inner();
-        let min_executors_binding = args.min_executors.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_count_binding = args.node_count.get_output(context).get_inner();
-        let node_size_binding = args.node_size.get_output(context).get_inner();
-        let node_size_family_binding = args
-            .node_size_family
-            .get_output(context)
-            .get_inner();
-        let session_level_packages_enabled_binding = args
+        let library_requirement_binding_1 = args.library_requirement.get_output(context);
+        let library_requirement_binding = library_requirement_binding_1.get_inner();
+        let max_executors_binding_1 = args.max_executors.get_output(context);
+        let max_executors_binding = max_executors_binding_1.get_inner();
+        let min_executors_binding_1 = args.min_executors.get_output(context);
+        let min_executors_binding = min_executors_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_count_binding_1 = args.node_count.get_output(context);
+        let node_count_binding = node_count_binding_1.get_inner();
+        let node_size_binding_1 = args.node_size.get_output(context);
+        let node_size_binding = node_size_binding_1.get_inner();
+        let node_size_family_binding_1 = args.node_size_family.get_output(context);
+        let node_size_family_binding = node_size_family_binding_1.get_inner();
+        let session_level_packages_enabled_binding_1 = args
             .session_level_packages_enabled
-            .get_output(context)
+            .get_output(context);
+        let session_level_packages_enabled_binding = session_level_packages_enabled_binding_1
             .get_inner();
-        let spark_config_binding = args.spark_config.get_output(context).get_inner();
-        let spark_events_folder_binding = args
-            .spark_events_folder
-            .get_output(context)
-            .get_inner();
-        let spark_log_folder_binding = args
-            .spark_log_folder
-            .get_output(context)
-            .get_inner();
-        let spark_version_binding = args.spark_version.get_output(context).get_inner();
-        let synapse_workspace_id_binding = args
+        let spark_config_binding_1 = args.spark_config.get_output(context);
+        let spark_config_binding = spark_config_binding_1.get_inner();
+        let spark_events_folder_binding_1 = args.spark_events_folder.get_output(context);
+        let spark_events_folder_binding = spark_events_folder_binding_1.get_inner();
+        let spark_log_folder_binding_1 = args.spark_log_folder.get_output(context);
+        let spark_log_folder_binding = spark_log_folder_binding_1.get_inner();
+        let spark_version_binding_1 = args.spark_version.get_output(context);
+        let spark_version_binding = spark_version_binding_1.get_inner();
+        let synapse_workspace_id_binding_1 = args
             .synapse_workspace_id
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let synapse_workspace_id_binding = synapse_workspace_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/sparkPool:SparkPool".into(),
             name: name.to_string(),

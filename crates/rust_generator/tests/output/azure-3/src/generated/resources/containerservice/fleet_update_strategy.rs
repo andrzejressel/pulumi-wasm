@@ -88,12 +88,15 @@ pub mod fleet_update_strategy {
     ) -> FleetUpdateStrategyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let kubernetes_fleet_manager_id_binding = args
+        let kubernetes_fleet_manager_id_binding_1 = args
             .kubernetes_fleet_manager_id
-            .get_output(context)
+            .get_output(context);
+        let kubernetes_fleet_manager_id_binding = kubernetes_fleet_manager_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let stages_binding = args.stages.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let stages_binding_1 = args.stages.get_output(context);
+        let stages_binding = stages_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy"
                 .into(),

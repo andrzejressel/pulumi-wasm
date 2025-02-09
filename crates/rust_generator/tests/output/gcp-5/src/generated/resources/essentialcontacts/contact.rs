@@ -100,13 +100,17 @@ pub mod contact {
     ) -> ContactResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let email_binding = args.email.get_output(context).get_inner();
-        let language_tag_binding = args.language_tag.get_output(context).get_inner();
-        let notification_category_subscriptions_binding = args
+        let email_binding_1 = args.email.get_output(context);
+        let email_binding = email_binding_1.get_inner();
+        let language_tag_binding_1 = args.language_tag.get_output(context);
+        let language_tag_binding = language_tag_binding_1.get_inner();
+        let notification_category_subscriptions_binding_1 = args
             .notification_category_subscriptions
-            .get_output(context)
+            .get_output(context);
+        let notification_category_subscriptions_binding = notification_category_subscriptions_binding_1
             .get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:essentialcontacts/contact:Contact".into(),
             name: name.to_string(),

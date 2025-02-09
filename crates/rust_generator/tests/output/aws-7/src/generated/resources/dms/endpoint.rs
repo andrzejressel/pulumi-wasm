@@ -229,64 +229,68 @@ pub mod endpoint {
     ) -> EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_arn_binding = args
-            .certificate_arn
-            .get_output(context)
-            .get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let elasticsearch_settings_binding = args
+        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
+        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let elasticsearch_settings_binding_1 = args
             .elasticsearch_settings
-            .get_output(context)
+            .get_output(context);
+        let elasticsearch_settings_binding = elasticsearch_settings_binding_1
             .get_inner();
-        let endpoint_id_binding = args.endpoint_id.get_output(context).get_inner();
-        let endpoint_type_binding = args.endpoint_type.get_output(context).get_inner();
-        let engine_name_binding = args.engine_name.get_output(context).get_inner();
-        let extra_connection_attributes_binding = args
+        let endpoint_id_binding_1 = args.endpoint_id.get_output(context);
+        let endpoint_id_binding = endpoint_id_binding_1.get_inner();
+        let endpoint_type_binding_1 = args.endpoint_type.get_output(context);
+        let endpoint_type_binding = endpoint_type_binding_1.get_inner();
+        let engine_name_binding_1 = args.engine_name.get_output(context);
+        let engine_name_binding = engine_name_binding_1.get_inner();
+        let extra_connection_attributes_binding_1 = args
             .extra_connection_attributes
-            .get_output(context)
+            .get_output(context);
+        let extra_connection_attributes_binding = extra_connection_attributes_binding_1
             .get_inner();
-        let kafka_settings_binding = args.kafka_settings.get_output(context).get_inner();
-        let kinesis_settings_binding = args
-            .kinesis_settings
-            .get_output(context)
-            .get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
-        let mongodb_settings_binding = args
-            .mongodb_settings
-            .get_output(context)
-            .get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let pause_replication_tasks_binding = args
+        let kafka_settings_binding_1 = args.kafka_settings.get_output(context);
+        let kafka_settings_binding = kafka_settings_binding_1.get_inner();
+        let kinesis_settings_binding_1 = args.kinesis_settings.get_output(context);
+        let kinesis_settings_binding = kinesis_settings_binding_1.get_inner();
+        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
+        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
+        let mongodb_settings_binding_1 = args.mongodb_settings.get_output(context);
+        let mongodb_settings_binding = mongodb_settings_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let pause_replication_tasks_binding_1 = args
             .pause_replication_tasks
-            .get_output(context)
+            .get_output(context);
+        let pause_replication_tasks_binding = pause_replication_tasks_binding_1
             .get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let postgres_settings_binding = args
-            .postgres_settings
-            .get_output(context)
-            .get_inner();
-        let redis_settings_binding = args.redis_settings.get_output(context).get_inner();
-        let redshift_settings_binding = args
-            .redshift_settings
-            .get_output(context)
-            .get_inner();
-        let s3_settings_binding = args.s3_settings.get_output(context).get_inner();
-        let secrets_manager_access_role_arn_binding = args
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let postgres_settings_binding_1 = args.postgres_settings.get_output(context);
+        let postgres_settings_binding = postgres_settings_binding_1.get_inner();
+        let redis_settings_binding_1 = args.redis_settings.get_output(context);
+        let redis_settings_binding = redis_settings_binding_1.get_inner();
+        let redshift_settings_binding_1 = args.redshift_settings.get_output(context);
+        let redshift_settings_binding = redshift_settings_binding_1.get_inner();
+        let s3_settings_binding_1 = args.s3_settings.get_output(context);
+        let s3_settings_binding = s3_settings_binding_1.get_inner();
+        let secrets_manager_access_role_arn_binding_1 = args
             .secrets_manager_access_role_arn
-            .get_output(context)
+            .get_output(context);
+        let secrets_manager_access_role_arn_binding = secrets_manager_access_role_arn_binding_1
             .get_inner();
-        let secrets_manager_arn_binding = args
-            .secrets_manager_arn
-            .get_output(context)
-            .get_inner();
-        let server_name_binding = args.server_name.get_output(context).get_inner();
-        let service_access_role_binding = args
-            .service_access_role
-            .get_output(context)
-            .get_inner();
-        let ssl_mode_binding = args.ssl_mode.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
+        let secrets_manager_arn_binding_1 = args.secrets_manager_arn.get_output(context);
+        let secrets_manager_arn_binding = secrets_manager_arn_binding_1.get_inner();
+        let server_name_binding_1 = args.server_name.get_output(context);
+        let server_name_binding = server_name_binding_1.get_inner();
+        let service_access_role_binding_1 = args.service_access_role.get_output(context);
+        let service_access_role_binding = service_access_role_binding_1.get_inner();
+        let ssl_mode_binding_1 = args.ssl_mode.get_output(context);
+        let ssl_mode_binding = ssl_mode_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dms/endpoint:Endpoint".into(),
             name: name.to_string(),

@@ -63,7 +63,8 @@ pub mod invite_accepter {
     ) -> InviteAccepterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let master_id_binding = args.master_id.get_output(context).get_inner();
+        let master_id_binding_1 = args.master_id.get_output(context);
+        let master_id_binding = master_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/inviteAccepter:InviteAccepter".into(),
             name: name.to_string(),

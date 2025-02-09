@@ -250,24 +250,27 @@ pub mod network_connection_monitor {
     ) -> NetworkConnectionMonitorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoints_binding = args.endpoints.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_watcher_id_binding = args
-            .network_watcher_id
-            .get_output(context)
-            .get_inner();
-        let notes_binding = args.notes.get_output(context).get_inner();
-        let output_workspace_resource_ids_binding = args
+        let endpoints_binding_1 = args.endpoints.get_output(context);
+        let endpoints_binding = endpoints_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_watcher_id_binding_1 = args.network_watcher_id.get_output(context);
+        let network_watcher_id_binding = network_watcher_id_binding_1.get_inner();
+        let notes_binding_1 = args.notes.get_output(context);
+        let notes_binding = notes_binding_1.get_inner();
+        let output_workspace_resource_ids_binding_1 = args
             .output_workspace_resource_ids
-            .get_output(context)
+            .get_output(context);
+        let output_workspace_resource_ids_binding = output_workspace_resource_ids_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let test_configurations_binding = args
-            .test_configurations
-            .get_output(context)
-            .get_inner();
-        let test_groups_binding = args.test_groups.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let test_configurations_binding_1 = args.test_configurations.get_output(context);
+        let test_configurations_binding = test_configurations_binding_1.get_inner();
+        let test_groups_binding_1 = args.test_groups.get_output(context);
+        let test_groups_binding = test_groups_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkConnectionMonitor:NetworkConnectionMonitor"
                 .into(),

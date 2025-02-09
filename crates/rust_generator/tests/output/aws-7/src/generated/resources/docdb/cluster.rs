@@ -257,99 +257,96 @@ pub mod cluster {
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_major_version_upgrade_binding = args
+        let allow_major_version_upgrade_binding_1 = args
             .allow_major_version_upgrade
-            .get_output(context)
+            .get_output(context);
+        let allow_major_version_upgrade_binding = allow_major_version_upgrade_binding_1
             .get_inner();
-        let apply_immediately_binding = args
-            .apply_immediately
-            .get_output(context)
-            .get_inner();
-        let availability_zones_binding = args
-            .availability_zones
-            .get_output(context)
-            .get_inner();
-        let backup_retention_period_binding = args
+        let apply_immediately_binding_1 = args.apply_immediately.get_output(context);
+        let apply_immediately_binding = apply_immediately_binding_1.get_inner();
+        let availability_zones_binding_1 = args.availability_zones.get_output(context);
+        let availability_zones_binding = availability_zones_binding_1.get_inner();
+        let backup_retention_period_binding_1 = args
             .backup_retention_period
-            .get_output(context)
+            .get_output(context);
+        let backup_retention_period_binding = backup_retention_period_binding_1
             .get_inner();
-        let cluster_identifier_binding = args
-            .cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let cluster_identifier_prefix_binding = args
+        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
+        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
+        let cluster_identifier_prefix_binding_1 = args
             .cluster_identifier_prefix
-            .get_output(context)
+            .get_output(context);
+        let cluster_identifier_prefix_binding = cluster_identifier_prefix_binding_1
             .get_inner();
-        let cluster_members_binding = args
-            .cluster_members
-            .get_output(context)
-            .get_inner();
-        let db_cluster_parameter_group_name_binding = args
+        let cluster_members_binding_1 = args.cluster_members.get_output(context);
+        let cluster_members_binding = cluster_members_binding_1.get_inner();
+        let db_cluster_parameter_group_name_binding_1 = args
             .db_cluster_parameter_group_name
-            .get_output(context)
+            .get_output(context);
+        let db_cluster_parameter_group_name_binding = db_cluster_parameter_group_name_binding_1
             .get_inner();
-        let db_subnet_group_name_binding = args
+        let db_subnet_group_name_binding_1 = args
             .db_subnet_group_name
-            .get_output(context)
-            .get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let enabled_cloudwatch_logs_exports_binding = args
+            .get_output(context);
+        let db_subnet_group_name_binding = db_subnet_group_name_binding_1.get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let enabled_cloudwatch_logs_exports_binding_1 = args
             .enabled_cloudwatch_logs_exports
-            .get_output(context)
+            .get_output(context);
+        let enabled_cloudwatch_logs_exports_binding = enabled_cloudwatch_logs_exports_binding_1
             .get_inner();
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let engine_version_binding = args.engine_version.get_output(context).get_inner();
-        let final_snapshot_identifier_binding = args
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let engine_version_binding_1 = args.engine_version.get_output(context);
+        let engine_version_binding = engine_version_binding_1.get_inner();
+        let final_snapshot_identifier_binding_1 = args
             .final_snapshot_identifier
-            .get_output(context)
+            .get_output(context);
+        let final_snapshot_identifier_binding = final_snapshot_identifier_binding_1
             .get_inner();
-        let global_cluster_identifier_binding = args
+        let global_cluster_identifier_binding_1 = args
             .global_cluster_identifier
-            .get_output(context)
+            .get_output(context);
+        let global_cluster_identifier_binding = global_cluster_identifier_binding_1
             .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
-        let master_password_binding = args
-            .master_password
-            .get_output(context)
-            .get_inner();
-        let master_username_binding = args
-            .master_username
-            .get_output(context)
-            .get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let preferred_backup_window_binding = args
+        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
+        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
+        let master_password_binding_1 = args.master_password.get_output(context);
+        let master_password_binding = master_password_binding_1.get_inner();
+        let master_username_binding_1 = args.master_username.get_output(context);
+        let master_username_binding = master_username_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let preferred_backup_window_binding_1 = args
             .preferred_backup_window
-            .get_output(context)
+            .get_output(context);
+        let preferred_backup_window_binding = preferred_backup_window_binding_1
             .get_inner();
-        let preferred_maintenance_window_binding = args
+        let preferred_maintenance_window_binding_1 = args
             .preferred_maintenance_window
-            .get_output(context)
+            .get_output(context);
+        let preferred_maintenance_window_binding = preferred_maintenance_window_binding_1
             .get_inner();
-        let restore_to_point_in_time_binding = args
+        let restore_to_point_in_time_binding_1 = args
             .restore_to_point_in_time
-            .get_output(context)
+            .get_output(context);
+        let restore_to_point_in_time_binding = restore_to_point_in_time_binding_1
             .get_inner();
-        let skip_final_snapshot_binding = args
-            .skip_final_snapshot
-            .get_output(context)
-            .get_inner();
-        let snapshot_identifier_binding = args
-            .snapshot_identifier
-            .get_output(context)
-            .get_inner();
-        let storage_encrypted_binding = args
-            .storage_encrypted
-            .get_output(context)
-            .get_inner();
-        let storage_type_binding = args.storage_type.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_security_group_ids_binding = args
+        let skip_final_snapshot_binding_1 = args.skip_final_snapshot.get_output(context);
+        let skip_final_snapshot_binding = skip_final_snapshot_binding_1.get_inner();
+        let snapshot_identifier_binding_1 = args.snapshot_identifier.get_output(context);
+        let snapshot_identifier_binding = snapshot_identifier_binding_1.get_inner();
+        let storage_encrypted_binding_1 = args.storage_encrypted.get_output(context);
+        let storage_encrypted_binding = storage_encrypted_binding_1.get_inner();
+        let storage_type_binding_1 = args.storage_type.get_output(context);
+        let storage_type_binding = storage_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_security_group_ids_binding_1 = args
             .vpc_security_group_ids
-            .get_output(context)
+            .get_output(context);
+        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:docdb/cluster:Cluster".into(),

@@ -148,17 +148,22 @@ pub mod response_plan {
     ) -> ResponsePlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let chat_channels_binding = args.chat_channels.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let engagements_binding = args.engagements.get_output(context).get_inner();
-        let incident_template_binding = args
-            .incident_template
-            .get_output(context)
-            .get_inner();
-        let integration_binding = args.integration.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let chat_channels_binding_1 = args.chat_channels.get_output(context);
+        let chat_channels_binding = chat_channels_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let engagements_binding_1 = args.engagements.get_output(context);
+        let engagements_binding = engagements_binding_1.get_inner();
+        let incident_template_binding_1 = args.incident_template.get_output(context);
+        let incident_template_binding = incident_template_binding_1.get_inner();
+        let integration_binding_1 = args.integration.get_output(context);
+        let integration_binding = integration_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssmincidents/responsePlan:ResponsePlan".into(),
             name: name.to_string(),

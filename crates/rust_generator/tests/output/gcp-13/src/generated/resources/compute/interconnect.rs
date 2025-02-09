@@ -300,36 +300,38 @@ pub mod interconnect {
     ) -> InterconnectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_enabled_binding = args.admin_enabled.get_output(context).get_inner();
-        let customer_name_binding = args.customer_name.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let interconnect_type_binding = args
-            .interconnect_type
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let link_type_binding = args.link_type.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let macsec_binding = args.macsec.get_output(context).get_inner();
-        let macsec_enabled_binding = args.macsec_enabled.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let noc_contact_email_binding = args
-            .noc_contact_email
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let remote_location_binding = args
-            .remote_location
-            .get_output(context)
-            .get_inner();
-        let requested_features_binding = args
-            .requested_features
-            .get_output(context)
-            .get_inner();
-        let requested_link_count_binding = args
+        let admin_enabled_binding_1 = args.admin_enabled.get_output(context);
+        let admin_enabled_binding = admin_enabled_binding_1.get_inner();
+        let customer_name_binding_1 = args.customer_name.get_output(context);
+        let customer_name_binding = customer_name_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let interconnect_type_binding_1 = args.interconnect_type.get_output(context);
+        let interconnect_type_binding = interconnect_type_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let link_type_binding_1 = args.link_type.get_output(context);
+        let link_type_binding = link_type_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let macsec_binding_1 = args.macsec.get_output(context);
+        let macsec_binding = macsec_binding_1.get_inner();
+        let macsec_enabled_binding_1 = args.macsec_enabled.get_output(context);
+        let macsec_enabled_binding = macsec_enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let noc_contact_email_binding_1 = args.noc_contact_email.get_output(context);
+        let noc_contact_email_binding = noc_contact_email_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let remote_location_binding_1 = args.remote_location.get_output(context);
+        let remote_location_binding = remote_location_binding_1.get_inner();
+        let requested_features_binding_1 = args.requested_features.get_output(context);
+        let requested_features_binding = requested_features_binding_1.get_inner();
+        let requested_link_count_binding_1 = args
             .requested_link_count
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let requested_link_count_binding = requested_link_count_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/interconnect:Interconnect".into(),
             name: name.to_string(),

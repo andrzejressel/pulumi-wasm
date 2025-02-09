@@ -333,40 +333,44 @@ pub mod authority {
     ) -> AuthorityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_authority_id_binding = args
+        let certificate_authority_id_binding_1 = args
             .certificate_authority_id
-            .get_output(context)
+            .get_output(context);
+        let certificate_authority_id_binding = certificate_authority_id_binding_1
             .get_inner();
-        let config_binding = args.config.get_output(context).get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let desired_state_binding = args.desired_state.get_output(context).get_inner();
-        let gcs_bucket_binding = args.gcs_bucket.get_output(context).get_inner();
-        let ignore_active_certificates_on_deletion_binding = args
+        let config_binding_1 = args.config.get_output(context);
+        let config_binding = config_binding_1.get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let desired_state_binding_1 = args.desired_state.get_output(context);
+        let desired_state_binding = desired_state_binding_1.get_inner();
+        let gcs_bucket_binding_1 = args.gcs_bucket.get_output(context);
+        let gcs_bucket_binding = gcs_bucket_binding_1.get_inner();
+        let ignore_active_certificates_on_deletion_binding_1 = args
             .ignore_active_certificates_on_deletion
-            .get_output(context)
+            .get_output(context);
+        let ignore_active_certificates_on_deletion_binding = ignore_active_certificates_on_deletion_binding_1
             .get_inner();
-        let key_spec_binding = args.key_spec.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let lifetime_binding = args.lifetime.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let pem_ca_certificate_binding = args
-            .pem_ca_certificate
-            .get_output(context)
-            .get_inner();
-        let pool_binding = args.pool.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let skip_grace_period_binding = args
-            .skip_grace_period
-            .get_output(context)
-            .get_inner();
-        let subordinate_config_binding = args
-            .subordinate_config
-            .get_output(context)
-            .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let key_spec_binding_1 = args.key_spec.get_output(context);
+        let key_spec_binding = key_spec_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let lifetime_binding_1 = args.lifetime.get_output(context);
+        let lifetime_binding = lifetime_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let pem_ca_certificate_binding_1 = args.pem_ca_certificate.get_output(context);
+        let pem_ca_certificate_binding = pem_ca_certificate_binding_1.get_inner();
+        let pool_binding_1 = args.pool.get_output(context);
+        let pool_binding = pool_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let skip_grace_period_binding_1 = args.skip_grace_period.get_output(context);
+        let skip_grace_period_binding = skip_grace_period_binding_1.get_inner();
+        let subordinate_config_binding_1 = args.subordinate_config.get_output(context);
+        let subordinate_config_binding = subordinate_config_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificateauthority/authority:Authority".into(),
             name: name.to_string(),

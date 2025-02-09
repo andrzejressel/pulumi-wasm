@@ -40,16 +40,16 @@ pub mod get_orderable_cluster {
     ) -> GetOrderableClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_type_binding = args.cluster_type.get_output(context).get_inner();
-        let cluster_version_binding = args
-            .cluster_version
-            .get_output(context)
-            .get_inner();
-        let node_type_binding = args.node_type.get_output(context).get_inner();
-        let preferred_node_types_binding = args
+        let cluster_type_binding_1 = args.cluster_type.get_output(context);
+        let cluster_type_binding = cluster_type_binding_1.get_inner();
+        let cluster_version_binding_1 = args.cluster_version.get_output(context);
+        let cluster_version_binding = cluster_version_binding_1.get_inner();
+        let node_type_binding_1 = args.node_type.get_output(context);
+        let node_type_binding = node_type_binding_1.get_inner();
+        let preferred_node_types_binding_1 = args
             .preferred_node_types
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let preferred_node_types_binding = preferred_node_types_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshift/getOrderableCluster:getOrderableCluster".into(),
             version: super::super::super::get_version(),

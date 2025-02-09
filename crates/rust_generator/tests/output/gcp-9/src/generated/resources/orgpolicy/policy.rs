@@ -234,10 +234,14 @@ pub mod policy {
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dry_run_spec_binding = args.dry_run_spec.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let spec_binding = args.spec.get_output(context).get_inner();
+        let dry_run_spec_binding_1 = args.dry_run_spec.get_output(context);
+        let dry_run_spec_binding = dry_run_spec_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let spec_binding_1 = args.spec.get_output(context);
+        let spec_binding = spec_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:orgpolicy/policy:Policy".into(),
             name: name.to_string(),

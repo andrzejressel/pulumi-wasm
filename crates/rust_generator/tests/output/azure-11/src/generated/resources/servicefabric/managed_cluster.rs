@@ -180,41 +180,49 @@ pub mod managed_cluster {
     ) -> ManagedClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_binding = args.authentication.get_output(context).get_inner();
-        let backup_service_enabled_binding = args
+        let authentication_binding_1 = args.authentication.get_output(context);
+        let authentication_binding = authentication_binding_1.get_inner();
+        let backup_service_enabled_binding_1 = args
             .backup_service_enabled
-            .get_output(context)
+            .get_output(context);
+        let backup_service_enabled_binding = backup_service_enabled_binding_1
             .get_inner();
-        let client_connection_port_binding = args
+        let client_connection_port_binding_1 = args
             .client_connection_port
-            .get_output(context)
+            .get_output(context);
+        let client_connection_port_binding = client_connection_port_binding_1
             .get_inner();
-        let custom_fabric_settings_binding = args
+        let custom_fabric_settings_binding_1 = args
             .custom_fabric_settings
-            .get_output(context)
+            .get_output(context);
+        let custom_fabric_settings_binding = custom_fabric_settings_binding_1
             .get_inner();
-        let dns_name_binding = args.dns_name.get_output(context).get_inner();
-        let dns_service_enabled_binding = args
-            .dns_service_enabled
-            .get_output(context)
-            .get_inner();
-        let http_gateway_port_binding = args
-            .http_gateway_port
-            .get_output(context)
-            .get_inner();
-        let lb_rules_binding = args.lb_rules.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_types_binding = args.node_types.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let upgrade_wave_binding = args.upgrade_wave.get_output(context).get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
+        let dns_name_binding_1 = args.dns_name.get_output(context);
+        let dns_name_binding = dns_name_binding_1.get_inner();
+        let dns_service_enabled_binding_1 = args.dns_service_enabled.get_output(context);
+        let dns_service_enabled_binding = dns_service_enabled_binding_1.get_inner();
+        let http_gateway_port_binding_1 = args.http_gateway_port.get_output(context);
+        let http_gateway_port_binding = http_gateway_port_binding_1.get_inner();
+        let lb_rules_binding_1 = args.lb_rules.get_output(context);
+        let lb_rules_binding = lb_rules_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_types_binding_1 = args.node_types.get_output(context);
+        let node_types_binding = node_types_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let upgrade_wave_binding_1 = args.upgrade_wave.get_output(context);
+        let upgrade_wave_binding = upgrade_wave_binding_1.get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:servicefabric/managedCluster:ManagedCluster".into(),
             name: name.to_string(),

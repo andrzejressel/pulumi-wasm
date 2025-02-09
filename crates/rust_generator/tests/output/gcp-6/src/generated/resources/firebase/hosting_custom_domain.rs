@@ -316,21 +316,20 @@ pub mod hosting_custom_domain {
     ) -> HostingCustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cert_preference_binding = args
-            .cert_preference
-            .get_output(context)
-            .get_inner();
-        let custom_domain_binding = args.custom_domain.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let redirect_target_binding = args
-            .redirect_target
-            .get_output(context)
-            .get_inner();
-        let site_id_binding = args.site_id.get_output(context).get_inner();
-        let wait_dns_verification_binding = args
+        let cert_preference_binding_1 = args.cert_preference.get_output(context);
+        let cert_preference_binding = cert_preference_binding_1.get_inner();
+        let custom_domain_binding_1 = args.custom_domain.get_output(context);
+        let custom_domain_binding = custom_domain_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let redirect_target_binding_1 = args.redirect_target.get_output(context);
+        let redirect_target_binding = redirect_target_binding_1.get_inner();
+        let site_id_binding_1 = args.site_id.get_output(context);
+        let site_id_binding = site_id_binding_1.get_inner();
+        let wait_dns_verification_binding_1 = args
             .wait_dns_verification
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let wait_dns_verification_binding = wait_dns_verification_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/hostingCustomDomain:HostingCustomDomain".into(),
             name: name.to_string(),

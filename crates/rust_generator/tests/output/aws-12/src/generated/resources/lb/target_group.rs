@@ -318,68 +318,71 @@ pub mod target_group {
     ) -> TargetGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_termination_binding = args
+        let connection_termination_binding_1 = args
             .connection_termination
-            .get_output(context)
+            .get_output(context);
+        let connection_termination_binding = connection_termination_binding_1
             .get_inner();
-        let deregistration_delay_binding = args
+        let deregistration_delay_binding_1 = args
             .deregistration_delay
-            .get_output(context)
-            .get_inner();
-        let health_check_binding = args.health_check.get_output(context).get_inner();
-        let ip_address_type_binding = args
-            .ip_address_type
-            .get_output(context)
-            .get_inner();
-        let lambda_multi_value_headers_enabled_binding = args
+            .get_output(context);
+        let deregistration_delay_binding = deregistration_delay_binding_1.get_inner();
+        let health_check_binding_1 = args.health_check.get_output(context);
+        let health_check_binding = health_check_binding_1.get_inner();
+        let ip_address_type_binding_1 = args.ip_address_type.get_output(context);
+        let ip_address_type_binding = ip_address_type_binding_1.get_inner();
+        let lambda_multi_value_headers_enabled_binding_1 = args
             .lambda_multi_value_headers_enabled
-            .get_output(context)
+            .get_output(context);
+        let lambda_multi_value_headers_enabled_binding = lambda_multi_value_headers_enabled_binding_1
             .get_inner();
-        let load_balancing_algorithm_type_binding = args
+        let load_balancing_algorithm_type_binding_1 = args
             .load_balancing_algorithm_type
-            .get_output(context)
+            .get_output(context);
+        let load_balancing_algorithm_type_binding = load_balancing_algorithm_type_binding_1
             .get_inner();
-        let load_balancing_anomaly_mitigation_binding = args
+        let load_balancing_anomaly_mitigation_binding_1 = args
             .load_balancing_anomaly_mitigation
-            .get_output(context)
+            .get_output(context);
+        let load_balancing_anomaly_mitigation_binding = load_balancing_anomaly_mitigation_binding_1
             .get_inner();
-        let load_balancing_cross_zone_enabled_binding = args
+        let load_balancing_cross_zone_enabled_binding_1 = args
             .load_balancing_cross_zone_enabled
-            .get_output(context)
+            .get_output(context);
+        let load_balancing_cross_zone_enabled_binding = load_balancing_cross_zone_enabled_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let preserve_client_ip_binding = args
-            .preserve_client_ip
-            .get_output(context)
-            .get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let protocol_version_binding = args
-            .protocol_version
-            .get_output(context)
-            .get_inner();
-        let proxy_protocol_v2_binding = args
-            .proxy_protocol_v2
-            .get_output(context)
-            .get_inner();
-        let slow_start_binding = args.slow_start.get_output(context).get_inner();
-        let stickiness_binding = args.stickiness.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_failovers_binding = args
-            .target_failovers
-            .get_output(context)
-            .get_inner();
-        let target_group_health_binding = args
-            .target_group_health
-            .get_output(context)
-            .get_inner();
-        let target_health_states_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let preserve_client_ip_binding_1 = args.preserve_client_ip.get_output(context);
+        let preserve_client_ip_binding = preserve_client_ip_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let protocol_version_binding_1 = args.protocol_version.get_output(context);
+        let protocol_version_binding = protocol_version_binding_1.get_inner();
+        let proxy_protocol_v2_binding_1 = args.proxy_protocol_v2.get_output(context);
+        let proxy_protocol_v2_binding = proxy_protocol_v2_binding_1.get_inner();
+        let slow_start_binding_1 = args.slow_start.get_output(context);
+        let slow_start_binding = slow_start_binding_1.get_inner();
+        let stickiness_binding_1 = args.stickiness.get_output(context);
+        let stickiness_binding = stickiness_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_failovers_binding_1 = args.target_failovers.get_output(context);
+        let target_failovers_binding = target_failovers_binding_1.get_inner();
+        let target_group_health_binding_1 = args.target_group_health.get_output(context);
+        let target_group_health_binding = target_group_health_binding_1.get_inner();
+        let target_health_states_binding_1 = args
             .target_health_states
-            .get_output(context)
-            .get_inner();
-        let target_type_binding = args.target_type.get_output(context).get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+            .get_output(context);
+        let target_health_states_binding = target_health_states_binding_1.get_inner();
+        let target_type_binding_1 = args.target_type.get_output(context);
+        let target_type_binding = target_type_binding_1.get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lb/targetGroup:TargetGroup".into(),
             name: name.to_string(),

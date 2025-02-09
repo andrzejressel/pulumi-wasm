@@ -93,12 +93,14 @@ pub mod bucket_server_side_encryption_configuration_v_2 {
     ) -> BucketServerSideEncryptionConfigurationV2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let expected_bucket_owner_binding = args
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let expected_bucket_owner_binding_1 = args
             .expected_bucket_owner
-            .get_output(context)
-            .get_inner();
-        let rules_binding = args.rules.get_output(context).get_inner();
+            .get_output(context);
+        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2"
                 .into(),

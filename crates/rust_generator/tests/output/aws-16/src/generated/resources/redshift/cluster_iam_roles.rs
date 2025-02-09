@@ -62,15 +62,14 @@ pub mod cluster_iam_roles {
     ) -> ClusterIamRolesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_identifier_binding = args
-            .cluster_identifier
-            .get_output(context)
-            .get_inner();
-        let default_iam_role_arn_binding = args
+        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
+        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
+        let default_iam_role_arn_binding_1 = args
             .default_iam_role_arn
-            .get_output(context)
-            .get_inner();
-        let iam_role_arns_binding = args.iam_role_arns.get_output(context).get_inner();
+            .get_output(context);
+        let default_iam_role_arn_binding = default_iam_role_arn_binding_1.get_inner();
+        let iam_role_arns_binding_1 = args.iam_role_arns.get_output(context);
+        let iam_role_arns_binding = iam_role_arns_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/clusterIamRoles:ClusterIamRoles".into(),
             name: name.to_string(),

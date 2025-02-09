@@ -57,8 +57,10 @@ pub mod cost_allocation_tag {
     ) -> CostAllocationTagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let status_binding = args.status.get_output(context).get_inner();
-        let tag_key_binding = args.tag_key.get_output(context).get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let tag_key_binding_1 = args.tag_key.get_output(context);
+        let tag_key_binding = tag_key_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:costexplorer/costAllocationTag:CostAllocationTag".into(),
             name: name.to_string(),

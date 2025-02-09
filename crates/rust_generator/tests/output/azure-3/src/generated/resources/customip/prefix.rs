@@ -171,35 +171,41 @@ pub mod prefix {
     ) -> PrefixResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_binding = args.cidr.get_output(context).get_inner();
-        let commissioning_enabled_binding = args
+        let cidr_binding_1 = args.cidr.get_output(context);
+        let cidr_binding = cidr_binding_1.get_inner();
+        let commissioning_enabled_binding_1 = args
             .commissioning_enabled
-            .get_output(context)
-            .get_inner();
-        let internet_advertising_disabled_binding = args
+            .get_output(context);
+        let commissioning_enabled_binding = commissioning_enabled_binding_1.get_inner();
+        let internet_advertising_disabled_binding_1 = args
             .internet_advertising_disabled
-            .get_output(context)
+            .get_output(context);
+        let internet_advertising_disabled_binding = internet_advertising_disabled_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_custom_ip_prefix_id_binding = args
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_custom_ip_prefix_id_binding_1 = args
             .parent_custom_ip_prefix_id
-            .get_output(context)
+            .get_output(context);
+        let parent_custom_ip_prefix_id_binding = parent_custom_ip_prefix_id_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let roa_validity_end_date_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let roa_validity_end_date_binding_1 = args
             .roa_validity_end_date
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let wan_validation_signed_message_binding = args
+            .get_output(context);
+        let roa_validity_end_date_binding = roa_validity_end_date_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let wan_validation_signed_message_binding_1 = args
             .wan_validation_signed_message
-            .get_output(context)
+            .get_output(context);
+        let wan_validation_signed_message_binding = wan_validation_signed_message_binding_1
             .get_inner();
-        let zones_binding = args.zones.get_output(context).get_inner();
+        let zones_binding_1 = args.zones.get_output(context);
+        let zones_binding = zones_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:customip/prefix:Prefix".into(),
             name: name.to_string(),

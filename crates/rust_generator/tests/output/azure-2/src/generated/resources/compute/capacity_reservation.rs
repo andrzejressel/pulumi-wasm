@@ -100,14 +100,19 @@ pub mod capacity_reservation {
     ) -> CapacityReservationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_reservation_group_id_binding = args
+        let capacity_reservation_group_id_binding_1 = args
             .capacity_reservation_group_id
-            .get_output(context)
+            .get_output(context);
+        let capacity_reservation_group_id_binding = capacity_reservation_group_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/capacityReservation:CapacityReservation".into(),
             name: name.to_string(),

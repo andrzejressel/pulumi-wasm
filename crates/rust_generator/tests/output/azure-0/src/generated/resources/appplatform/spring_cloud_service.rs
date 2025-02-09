@@ -210,47 +210,58 @@ pub mod spring_cloud_service {
     ) -> SpringCloudServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let build_agent_pool_size_binding = args
+        let build_agent_pool_size_binding_1 = args
             .build_agent_pool_size
-            .get_output(context)
-            .get_inner();
-        let config_server_git_setting_binding = args
+            .get_output(context);
+        let build_agent_pool_size_binding = build_agent_pool_size_binding_1.get_inner();
+        let config_server_git_setting_binding_1 = args
             .config_server_git_setting
-            .get_output(context)
+            .get_output(context);
+        let config_server_git_setting_binding = config_server_git_setting_binding_1
             .get_inner();
-        let container_registries_binding = args
+        let container_registries_binding_1 = args
             .container_registries
-            .get_output(context)
-            .get_inner();
-        let default_build_service_binding = args
+            .get_output(context);
+        let container_registries_binding = container_registries_binding_1.get_inner();
+        let default_build_service_binding_1 = args
             .default_build_service
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let log_stream_public_endpoint_enabled_binding = args
+            .get_output(context);
+        let default_build_service_binding = default_build_service_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let log_stream_public_endpoint_enabled_binding_1 = args
             .log_stream_public_endpoint_enabled
-            .get_output(context)
+            .get_output(context);
+        let log_stream_public_endpoint_enabled_binding = log_stream_public_endpoint_enabled_binding_1
             .get_inner();
-        let managed_environment_id_binding = args
+        let managed_environment_id_binding_1 = args
             .managed_environment_id
-            .get_output(context)
+            .get_output(context);
+        let managed_environment_id_binding = managed_environment_id_binding_1
             .get_inner();
-        let marketplace_binding = args.marketplace.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let service_registry_enabled_binding = args
+        let marketplace_binding_1 = args.marketplace.get_output(context);
+        let marketplace_binding = marketplace_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let service_registry_enabled_binding_1 = args
             .service_registry_enabled
-            .get_output(context)
+            .get_output(context);
+        let service_registry_enabled_binding = service_registry_enabled_binding_1
             .get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let sku_tier_binding = args.sku_tier.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let trace_binding = args.trace.get_output(context).get_inner();
-        let zone_redundant_binding = args.zone_redundant.get_output(context).get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let sku_tier_binding_1 = args.sku_tier.get_output(context);
+        let sku_tier_binding = sku_tier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let trace_binding_1 = args.trace.get_output(context);
+        let trace_binding = trace_binding_1.get_inner();
+        let zone_redundant_binding_1 = args.zone_redundant.get_output(context);
+        let zone_redundant_binding = zone_redundant_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudService:SpringCloudService".into(),
             name: name.to_string(),

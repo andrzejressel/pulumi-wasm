@@ -41,9 +41,10 @@ pub mod security_token_service_preferences {
     ) -> SecurityTokenServicePreferencesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let global_endpoint_token_version_binding = args
+        let global_endpoint_token_version_binding_1 = args
             .global_endpoint_token_version
-            .get_output(context)
+            .get_output(context);
+        let global_endpoint_token_version_binding = global_endpoint_token_version_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences"

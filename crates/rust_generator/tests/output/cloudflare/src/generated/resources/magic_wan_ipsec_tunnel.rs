@@ -143,54 +143,47 @@ pub mod magic_wan_ipsec_tunnel {
     ) -> MagicWanIpsecTunnelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let allow_null_cipher_binding = args
-            .allow_null_cipher
-            .get_output(context)
-            .get_inner();
-        let cloudflare_endpoint_binding = args
-            .cloudflare_endpoint
-            .get_output(context)
-            .get_inner();
-        let customer_endpoint_binding = args
-            .customer_endpoint
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let fqdn_id_binding = args.fqdn_id.get_output(context).get_inner();
-        let health_check_direction_binding = args
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let allow_null_cipher_binding_1 = args.allow_null_cipher.get_output(context);
+        let allow_null_cipher_binding = allow_null_cipher_binding_1.get_inner();
+        let cloudflare_endpoint_binding_1 = args.cloudflare_endpoint.get_output(context);
+        let cloudflare_endpoint_binding = cloudflare_endpoint_binding_1.get_inner();
+        let customer_endpoint_binding_1 = args.customer_endpoint.get_output(context);
+        let customer_endpoint_binding = customer_endpoint_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let fqdn_id_binding_1 = args.fqdn_id.get_output(context);
+        let fqdn_id_binding = fqdn_id_binding_1.get_inner();
+        let health_check_direction_binding_1 = args
             .health_check_direction
-            .get_output(context)
+            .get_output(context);
+        let health_check_direction_binding = health_check_direction_binding_1
             .get_inner();
-        let health_check_enabled_binding = args
+        let health_check_enabled_binding_1 = args
             .health_check_enabled
-            .get_output(context)
-            .get_inner();
-        let health_check_rate_binding = args
-            .health_check_rate
-            .get_output(context)
-            .get_inner();
-        let health_check_target_binding = args
-            .health_check_target
-            .get_output(context)
-            .get_inner();
-        let health_check_type_binding = args
-            .health_check_type
-            .get_output(context)
-            .get_inner();
-        let hex_id_binding = args.hex_id.get_output(context).get_inner();
-        let interface_address_binding = args
-            .interface_address
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let psk_binding = args.psk.get_output(context).get_inner();
-        let remote_id_binding = args.remote_id.get_output(context).get_inner();
-        let replay_protection_binding = args
-            .replay_protection
-            .get_output(context)
-            .get_inner();
-        let user_id_binding = args.user_id.get_output(context).get_inner();
+            .get_output(context);
+        let health_check_enabled_binding = health_check_enabled_binding_1.get_inner();
+        let health_check_rate_binding_1 = args.health_check_rate.get_output(context);
+        let health_check_rate_binding = health_check_rate_binding_1.get_inner();
+        let health_check_target_binding_1 = args.health_check_target.get_output(context);
+        let health_check_target_binding = health_check_target_binding_1.get_inner();
+        let health_check_type_binding_1 = args.health_check_type.get_output(context);
+        let health_check_type_binding = health_check_type_binding_1.get_inner();
+        let hex_id_binding_1 = args.hex_id.get_output(context);
+        let hex_id_binding = hex_id_binding_1.get_inner();
+        let interface_address_binding_1 = args.interface_address.get_output(context);
+        let interface_address_binding = interface_address_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let psk_binding_1 = args.psk.get_output(context);
+        let psk_binding = psk_binding_1.get_inner();
+        let remote_id_binding_1 = args.remote_id.get_output(context);
+        let remote_id_binding = remote_id_binding_1.get_inner();
+        let replay_protection_binding_1 = args.replay_protection.get_output(context);
+        let replay_protection_binding = replay_protection_binding_1.get_inner();
+        let user_id_binding_1 = args.user_id.get_output(context);
+        let user_id_binding = user_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/magicWanIpsecTunnel:MagicWanIpsecTunnel".into(),
             name: name.to_string(),

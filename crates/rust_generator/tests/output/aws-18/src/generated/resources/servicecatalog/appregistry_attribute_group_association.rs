@@ -66,11 +66,10 @@ pub mod appregistry_attribute_group_association {
     ) -> AppregistryAttributeGroupAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_output(context).get_inner();
-        let attribute_group_id_binding = args
-            .attribute_group_id
-            .get_output(context)
-            .get_inner();
+        let application_id_binding_1 = args.application_id.get_output(context);
+        let application_id_binding = application_id_binding_1.get_inner();
+        let attribute_group_id_binding_1 = args.attribute_group_id.get_output(context);
+        let attribute_group_id_binding = attribute_group_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation"
                 .into(),

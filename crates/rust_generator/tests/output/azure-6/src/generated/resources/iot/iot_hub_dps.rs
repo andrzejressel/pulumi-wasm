@@ -123,31 +123,32 @@ pub mod iot_hub_dps {
     ) -> IotHubDpsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocation_policy_binding = args
-            .allocation_policy
-            .get_output(context)
-            .get_inner();
-        let data_residency_enabled_binding = args
+        let allocation_policy_binding_1 = args.allocation_policy.get_output(context);
+        let allocation_policy_binding = allocation_policy_binding_1.get_inner();
+        let data_residency_enabled_binding_1 = args
             .data_residency_enabled
-            .get_output(context)
+            .get_output(context);
+        let data_residency_enabled_binding = data_residency_enabled_binding_1
             .get_inner();
-        let ip_filter_rules_binding = args
-            .ip_filter_rules
-            .get_output(context)
-            .get_inner();
-        let linked_hubs_binding = args.linked_hubs.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let public_network_access_enabled_binding = args
+        let ip_filter_rules_binding_1 = args.ip_filter_rules.get_output(context);
+        let ip_filter_rules_binding = ip_filter_rules_binding_1.get_inner();
+        let linked_hubs_binding_1 = args.linked_hubs.get_output(context);
+        let linked_hubs_binding = linked_hubs_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/iotHubDps:IotHubDps".into(),
             name: name.to_string(),

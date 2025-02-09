@@ -100,12 +100,15 @@ pub mod token_password {
     ) -> TokenPasswordResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_registry_token_id_binding = args
+        let container_registry_token_id_binding_1 = args
             .container_registry_token_id
-            .get_output(context)
+            .get_output(context);
+        let container_registry_token_id_binding = container_registry_token_id_binding_1
             .get_inner();
-        let password1_binding = args.password1.get_output(context).get_inner();
-        let password2_binding = args.password2.get_output(context).get_inner();
+        let password1_binding_1 = args.password1.get_output(context);
+        let password1_binding = password1_binding_1.get_inner();
+        let password2_binding_1 = args.password2.get_output(context);
+        let password2_binding = password2_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/tokenPassword:TokenPassword".into(),
             name: name.to_string(),

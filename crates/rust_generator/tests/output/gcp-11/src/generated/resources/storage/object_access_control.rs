@@ -137,10 +137,14 @@ pub mod object_access_control {
     ) -> ObjectAccessControlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let entity_binding = args.entity.get_output(context).get_inner();
-        let object_binding = args.object.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let entity_binding_1 = args.entity.get_output(context);
+        let entity_binding = entity_binding_1.get_inner();
+        let object_binding_1 = args.object.get_output(context);
+        let object_binding = object_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/objectAccessControl:ObjectAccessControl".into(),
             name: name.to_string(),

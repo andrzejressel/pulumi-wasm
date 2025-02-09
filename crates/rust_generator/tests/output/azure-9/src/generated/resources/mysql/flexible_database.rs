@@ -92,14 +92,16 @@ pub mod flexible_database {
     ) -> FlexibleDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let charset_binding = args.charset.get_output(context).get_inner();
-        let collation_binding = args.collation.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let server_name_binding = args.server_name.get_output(context).get_inner();
+        let charset_binding_1 = args.charset.get_output(context);
+        let charset_binding = charset_binding_1.get_inner();
+        let collation_binding_1 = args.collation.get_output(context);
+        let collation_binding = collation_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let server_name_binding_1 = args.server_name.get_output(context);
+        let server_name_binding = server_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mysql/flexibleDatabase:FlexibleDatabase".into(),
             name: name.to_string(),

@@ -100,16 +100,22 @@ pub mod link_aggregation_group {
     ) -> LinkAggregationGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_id_binding = args.connection_id.get_output(context).get_inner();
-        let connections_bandwidth_binding = args
+        let connection_id_binding_1 = args.connection_id.get_output(context);
+        let connection_id_binding = connection_id_binding_1.get_inner();
+        let connections_bandwidth_binding_1 = args
             .connections_bandwidth
-            .get_output(context)
-            .get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let provider_name_binding = args.provider_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let connections_bandwidth_binding = connections_bandwidth_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let provider_name_binding_1 = args.provider_name.get_output(context);
+        let provider_name_binding = provider_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/linkAggregationGroup:LinkAggregationGroup".into(),
             name: name.to_string(),

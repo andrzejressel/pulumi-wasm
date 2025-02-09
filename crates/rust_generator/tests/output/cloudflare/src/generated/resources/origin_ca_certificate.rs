@@ -85,17 +85,18 @@ pub mod origin_ca_certificate {
     ) -> OriginCaCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let csr_binding = args.csr.get_output(context).get_inner();
-        let hostnames_binding = args.hostnames.get_output(context).get_inner();
-        let min_days_for_renewal_binding = args
+        let csr_binding_1 = args.csr.get_output(context);
+        let csr_binding = csr_binding_1.get_inner();
+        let hostnames_binding_1 = args.hostnames.get_output(context);
+        let hostnames_binding = hostnames_binding_1.get_inner();
+        let min_days_for_renewal_binding_1 = args
             .min_days_for_renewal
-            .get_output(context)
-            .get_inner();
-        let request_type_binding = args.request_type.get_output(context).get_inner();
-        let requested_validity_binding = args
-            .requested_validity
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let min_days_for_renewal_binding = min_days_for_renewal_binding_1.get_inner();
+        let request_type_binding_1 = args.request_type.get_output(context);
+        let request_type_binding = request_type_binding_1.get_inner();
+        let requested_validity_binding_1 = args.requested_validity.get_output(context);
+        let requested_validity_binding = requested_validity_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/originCaCertificate:OriginCaCertificate".into(),
             name: name.to_string(),

@@ -77,14 +77,16 @@ pub mod sharedflow_deployment {
     ) -> SharedflowDeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let environment_binding = args.environment.get_output(context).get_inner();
-        let org_id_binding = args.org_id.get_output(context).get_inner();
-        let revision_binding = args.revision.get_output(context).get_inner();
-        let service_account_binding = args
-            .service_account
-            .get_output(context)
-            .get_inner();
-        let sharedflow_id_binding = args.sharedflow_id.get_output(context).get_inner();
+        let environment_binding_1 = args.environment.get_output(context);
+        let environment_binding = environment_binding_1.get_inner();
+        let org_id_binding_1 = args.org_id.get_output(context);
+        let org_id_binding = org_id_binding_1.get_inner();
+        let revision_binding_1 = args.revision.get_output(context);
+        let revision_binding = revision_binding_1.get_inner();
+        let service_account_binding_1 = args.service_account.get_output(context);
+        let service_account_binding = service_account_binding_1.get_inner();
+        let sharedflow_id_binding_1 = args.sharedflow_id.get_output(context);
+        let sharedflow_id_binding = sharedflow_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/sharedflowDeployment:SharedflowDeployment".into(),
             name: name.to_string(),

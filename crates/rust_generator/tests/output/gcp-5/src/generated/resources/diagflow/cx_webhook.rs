@@ -162,30 +162,30 @@ pub mod cx_webhook {
     ) -> CxWebhookResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let enable_spell_correction_binding = args
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let enable_spell_correction_binding_1 = args
             .enable_spell_correction
-            .get_output(context)
+            .get_output(context);
+        let enable_spell_correction_binding = enable_spell_correction_binding_1
             .get_inner();
-        let enable_stackdriver_logging_binding = args
+        let enable_stackdriver_logging_binding_1 = args
             .enable_stackdriver_logging
-            .get_output(context)
+            .get_output(context);
+        let enable_stackdriver_logging_binding = enable_stackdriver_logging_binding_1
             .get_inner();
-        let generic_web_service_binding = args
-            .generic_web_service
-            .get_output(context)
-            .get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let security_settings_binding = args
-            .security_settings
-            .get_output(context)
-            .get_inner();
-        let service_directory_binding = args
-            .service_directory
-            .get_output(context)
-            .get_inner();
-        let timeout_binding = args.timeout.get_output(context).get_inner();
+        let generic_web_service_binding_1 = args.generic_web_service.get_output(context);
+        let generic_web_service_binding = generic_web_service_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let security_settings_binding_1 = args.security_settings.get_output(context);
+        let security_settings_binding = security_settings_binding_1.get_inner();
+        let service_directory_binding_1 = args.service_directory.get_output(context);
+        let service_directory_binding = service_directory_binding_1.get_inner();
+        let timeout_binding_1 = args.timeout.get_output(context);
+        let timeout_binding = timeout_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/cxWebhook:CxWebhook".into(),
             name: name.to_string(),

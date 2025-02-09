@@ -37,9 +37,12 @@ pub mod get_regions {
     ) -> GetRegionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let all_regions_binding = args.all_regions.get_output(context).get_inner();
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let id_binding = args.id.get_output(context).get_inner();
+        let all_regions_binding_1 = args.all_regions.get_output(context);
+        let all_regions_binding = all_regions_binding_1.get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let id_binding_1 = args.id.get_output(context);
+        let id_binding = id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:index/getRegions:getRegions".into(),
             version: super::super::get_version(),

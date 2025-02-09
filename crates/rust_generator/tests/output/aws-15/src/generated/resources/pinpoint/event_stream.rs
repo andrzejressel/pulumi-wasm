@@ -99,12 +99,15 @@ pub mod event_stream {
     ) -> EventStreamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_output(context).get_inner();
-        let destination_stream_arn_binding = args
+        let application_id_binding_1 = args.application_id.get_output(context);
+        let application_id_binding = application_id_binding_1.get_inner();
+        let destination_stream_arn_binding_1 = args
             .destination_stream_arn
-            .get_output(context)
+            .get_output(context);
+        let destination_stream_arn_binding = destination_stream_arn_binding_1
             .get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:pinpoint/eventStream:EventStream".into(),
             name: name.to_string(),

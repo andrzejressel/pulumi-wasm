@@ -135,15 +135,18 @@ pub mod maintenance_window_target {
     ) -> MaintenanceWindowTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let owner_information_binding = args
-            .owner_information
-            .get_output(context)
-            .get_inner();
-        let resource_type_binding = args.resource_type.get_output(context).get_inner();
-        let targets_binding = args.targets.get_output(context).get_inner();
-        let window_id_binding = args.window_id.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let owner_information_binding_1 = args.owner_information.get_output(context);
+        let owner_information_binding = owner_information_binding_1.get_inner();
+        let resource_type_binding_1 = args.resource_type.get_output(context);
+        let resource_type_binding = resource_type_binding_1.get_inner();
+        let targets_binding_1 = args.targets.get_output(context);
+        let targets_binding = targets_binding_1.get_inner();
+        let window_id_binding_1 = args.window_id.get_output(context);
+        let window_id_binding = window_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget".into(),
             name: name.to_string(),

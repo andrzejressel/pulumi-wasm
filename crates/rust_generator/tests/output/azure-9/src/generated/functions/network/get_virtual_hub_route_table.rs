@@ -41,15 +41,12 @@ pub mod get_virtual_hub_route_table {
     ) -> GetVirtualHubRouteTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let virtual_hub_name_binding = args
-            .virtual_hub_name
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let virtual_hub_name_binding_1 = args.virtual_hub_name.get_output(context);
+        let virtual_hub_name_binding = virtual_hub_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable"
                 .into(),

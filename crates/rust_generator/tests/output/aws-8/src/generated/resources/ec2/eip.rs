@@ -239,32 +239,36 @@ pub mod eip {
     ) -> EipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_binding = args.address.get_output(context).get_inner();
-        let associate_with_private_ip_binding = args
+        let address_binding_1 = args.address.get_output(context);
+        let address_binding = address_binding_1.get_inner();
+        let associate_with_private_ip_binding_1 = args
             .associate_with_private_ip
-            .get_output(context)
+            .get_output(context);
+        let associate_with_private_ip_binding = associate_with_private_ip_binding_1
             .get_inner();
-        let customer_owned_ipv4_pool_binding = args
+        let customer_owned_ipv4_pool_binding_1 = args
             .customer_owned_ipv4_pool
-            .get_output(context)
+            .get_output(context);
+        let customer_owned_ipv4_pool_binding = customer_owned_ipv4_pool_binding_1
             .get_inner();
-        let domain_binding = args.domain.get_output(context).get_inner();
-        let instance_binding = args.instance.get_output(context).get_inner();
-        let ipam_pool_id_binding = args.ipam_pool_id.get_output(context).get_inner();
-        let network_border_group_binding = args
+        let domain_binding_1 = args.domain.get_output(context);
+        let domain_binding = domain_binding_1.get_inner();
+        let instance_binding_1 = args.instance.get_output(context);
+        let instance_binding = instance_binding_1.get_inner();
+        let ipam_pool_id_binding_1 = args.ipam_pool_id.get_output(context);
+        let ipam_pool_id_binding = ipam_pool_id_binding_1.get_inner();
+        let network_border_group_binding_1 = args
             .network_border_group
-            .get_output(context)
-            .get_inner();
-        let network_interface_binding = args
-            .network_interface
-            .get_output(context)
-            .get_inner();
-        let public_ipv4_pool_binding = args
-            .public_ipv4_pool
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let vpc_binding = args.vpc.get_output(context).get_inner();
+            .get_output(context);
+        let network_border_group_binding = network_border_group_binding_1.get_inner();
+        let network_interface_binding_1 = args.network_interface.get_output(context);
+        let network_interface_binding = network_interface_binding_1.get_inner();
+        let public_ipv4_pool_binding_1 = args.public_ipv4_pool.get_output(context);
+        let public_ipv4_pool_binding = public_ipv4_pool_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let vpc_binding_1 = args.vpc.get_output(context);
+        let vpc_binding = vpc_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/eip:Eip".into(),
             name: name.to_string(),

@@ -42,11 +42,13 @@ pub mod get_resolver_forwarding_rule {
     ) -> GetResolverForwardingRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_forwarding_ruleset_id_binding = args
+        let dns_forwarding_ruleset_id_binding_1 = args
             .dns_forwarding_ruleset_id
-            .get_output(context)
+            .get_output(context);
+        let dns_forwarding_ruleset_id_binding = dns_forwarding_ruleset_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:privatedns/getResolverForwardingRule:getResolverForwardingRule"
                 .into(),

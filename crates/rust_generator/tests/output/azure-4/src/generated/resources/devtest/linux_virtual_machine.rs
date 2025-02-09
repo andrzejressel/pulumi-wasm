@@ -197,41 +197,49 @@ pub mod linux_virtual_machine {
     ) -> LinuxVirtualMachineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_claim_binding = args.allow_claim.get_output(context).get_inner();
-        let disallow_public_ip_address_binding = args
+        let allow_claim_binding_1 = args.allow_claim.get_output(context);
+        let allow_claim_binding = allow_claim_binding_1.get_inner();
+        let disallow_public_ip_address_binding_1 = args
             .disallow_public_ip_address
-            .get_output(context)
+            .get_output(context);
+        let disallow_public_ip_address_binding = disallow_public_ip_address_binding_1
             .get_inner();
-        let gallery_image_reference_binding = args
+        let gallery_image_reference_binding_1 = args
             .gallery_image_reference
-            .get_output(context)
+            .get_output(context);
+        let gallery_image_reference_binding = gallery_image_reference_binding_1
             .get_inner();
-        let inbound_nat_rules_binding = args
-            .inbound_nat_rules
-            .get_output(context)
-            .get_inner();
-        let lab_name_binding = args.lab_name.get_output(context).get_inner();
-        let lab_subnet_name_binding = args
-            .lab_subnet_name
-            .get_output(context)
-            .get_inner();
-        let lab_virtual_network_id_binding = args
+        let inbound_nat_rules_binding_1 = args.inbound_nat_rules.get_output(context);
+        let inbound_nat_rules_binding = inbound_nat_rules_binding_1.get_inner();
+        let lab_name_binding_1 = args.lab_name.get_output(context);
+        let lab_name_binding = lab_name_binding_1.get_inner();
+        let lab_subnet_name_binding_1 = args.lab_subnet_name.get_output(context);
+        let lab_subnet_name_binding = lab_subnet_name_binding_1.get_inner();
+        let lab_virtual_network_id_binding_1 = args
             .lab_virtual_network_id
-            .get_output(context)
+            .get_output(context);
+        let lab_virtual_network_id_binding = lab_virtual_network_id_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let notes_binding = args.notes.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let size_binding = args.size.get_output(context).get_inner();
-        let ssh_key_binding = args.ssh_key.get_output(context).get_inner();
-        let storage_type_binding = args.storage_type.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let username_binding = args.username.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let notes_binding_1 = args.notes.get_output(context);
+        let notes_binding = notes_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let size_binding_1 = args.size.get_output(context);
+        let size_binding = size_binding_1.get_inner();
+        let ssh_key_binding_1 = args.ssh_key.get_output(context);
+        let ssh_key_binding = ssh_key_binding_1.get_inner();
+        let storage_type_binding_1 = args.storage_type.get_output(context);
+        let storage_type_binding = storage_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let username_binding_1 = args.username.get_output(context);
+        let username_binding = username_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:devtest/linuxVirtualMachine:LinuxVirtualMachine".into(),
             name: name.to_string(),

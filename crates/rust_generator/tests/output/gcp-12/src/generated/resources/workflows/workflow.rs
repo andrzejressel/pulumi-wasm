@@ -200,30 +200,30 @@ pub mod workflow {
     ) -> WorkflowResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let call_log_level_binding = args.call_log_level.get_output(context).get_inner();
-        let crypto_key_name_binding = args
-            .crypto_key_name
-            .get_output(context)
-            .get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let service_account_binding = args
-            .service_account
-            .get_output(context)
-            .get_inner();
-        let source_contents_binding = args
-            .source_contents
-            .get_output(context)
-            .get_inner();
-        let user_env_vars_binding = args.user_env_vars.get_output(context).get_inner();
+        let call_log_level_binding_1 = args.call_log_level.get_output(context);
+        let call_log_level_binding = call_log_level_binding_1.get_inner();
+        let crypto_key_name_binding_1 = args.crypto_key_name.get_output(context);
+        let crypto_key_name_binding = crypto_key_name_binding_1.get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let service_account_binding_1 = args.service_account.get_output(context);
+        let service_account_binding = service_account_binding_1.get_inner();
+        let source_contents_binding_1 = args.source_contents.get_output(context);
+        let source_contents_binding = source_contents_binding_1.get_inner();
+        let user_env_vars_binding_1 = args.user_env_vars.get_output(context);
+        let user_env_vars_binding = user_env_vars_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:workflows/workflow:Workflow".into(),
             name: name.to_string(),

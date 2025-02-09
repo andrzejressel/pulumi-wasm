@@ -105,10 +105,14 @@ pub mod analyzer {
     ) -> AnalyzerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let analyzer_name_binding = args.analyzer_name.get_output(context).get_inner();
-        let configuration_binding = args.configuration.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let analyzer_name_binding_1 = args.analyzer_name.get_output(context);
+        let analyzer_name_binding = analyzer_name_binding_1.get_inner();
+        let configuration_binding_1 = args.configuration.get_output(context);
+        let configuration_binding = configuration_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:accessanalyzer/analyzer:Analyzer".into(),
             name: name.to_string(),

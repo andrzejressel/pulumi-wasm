@@ -204,22 +204,26 @@ pub mod data_flow {
     ) -> DataFlowResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let data_factory_id_binding = args
-            .data_factory_id
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let folder_binding = args.folder.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let script_binding = args.script.get_output(context).get_inner();
-        let script_lines_binding = args.script_lines.get_output(context).get_inner();
-        let sinks_binding = args.sinks.get_output(context).get_inner();
-        let sources_binding = args.sources.get_output(context).get_inner();
-        let transformations_binding = args
-            .transformations
-            .get_output(context)
-            .get_inner();
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
+        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let folder_binding_1 = args.folder.get_output(context);
+        let folder_binding = folder_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let script_binding_1 = args.script.get_output(context);
+        let script_binding = script_binding_1.get_inner();
+        let script_lines_binding_1 = args.script_lines.get_output(context);
+        let script_lines_binding = script_lines_binding_1.get_inner();
+        let sinks_binding_1 = args.sinks.get_output(context);
+        let sinks_binding = sinks_binding_1.get_inner();
+        let sources_binding_1 = args.sources.get_output(context);
+        let sources_binding = sources_binding_1.get_inner();
+        let transformations_binding_1 = args.transformations.get_output(context);
+        let transformations_binding = transformations_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/dataFlow:DataFlow".into(),
             name: name.to_string(),

@@ -55,18 +55,21 @@ pub mod get_local_gateway_route_table {
     ) -> GetLocalGatewayRouteTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let local_gateway_id_binding = args
-            .local_gateway_id
-            .get_output(context)
-            .get_inner();
-        let local_gateway_route_table_id_binding = args
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let local_gateway_id_binding_1 = args.local_gateway_id.get_output(context);
+        let local_gateway_id_binding = local_gateway_id_binding_1.get_inner();
+        let local_gateway_route_table_id_binding_1 = args
             .local_gateway_route_table_id
-            .get_output(context)
+            .get_output(context);
+        let local_gateway_route_table_id_binding = local_gateway_route_table_id_binding_1
             .get_inner();
-        let outpost_arn_binding = args.outpost_arn.get_output(context).get_inner();
-        let state_binding = args.state.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let outpost_arn_binding_1 = args.outpost_arn.get_output(context);
+        let outpost_arn_binding = outpost_arn_binding_1.get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable".into(),
             version: super::super::super::get_version(),

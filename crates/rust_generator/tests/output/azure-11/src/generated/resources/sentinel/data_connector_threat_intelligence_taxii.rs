@@ -127,22 +127,29 @@ pub mod data_connector_threat_intelligence_taxii {
     ) -> DataConnectorThreatIntelligenceTaxiiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_root_url_binding = args.api_root_url.get_output(context).get_inner();
-        let collection_id_binding = args.collection_id.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let log_analytics_workspace_id_binding = args
+        let api_root_url_binding_1 = args.api_root_url.get_output(context);
+        let api_root_url_binding = api_root_url_binding_1.get_inner();
+        let collection_id_binding_1 = args.collection_id.get_output(context);
+        let collection_id_binding = collection_id_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let log_analytics_workspace_id_binding_1 = args
             .log_analytics_workspace_id
-            .get_output(context)
+            .get_output(context);
+        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
             .get_inner();
-        let lookback_date_binding = args.lookback_date.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let password_binding = args.password.get_output(context).get_inner();
-        let polling_frequency_binding = args
-            .polling_frequency
-            .get_output(context)
-            .get_inner();
-        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
-        let user_name_binding = args.user_name.get_output(context).get_inner();
+        let lookback_date_binding_1 = args.lookback_date.get_output(context);
+        let lookback_date_binding = lookback_date_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let password_binding_1 = args.password.get_output(context);
+        let password_binding = password_binding_1.get_inner();
+        let polling_frequency_binding_1 = args.polling_frequency.get_output(context);
+        let polling_frequency_binding = polling_frequency_binding_1.get_inner();
+        let tenant_id_binding_1 = args.tenant_id.get_output(context);
+        let tenant_id_binding = tenant_id_binding_1.get_inner();
+        let user_name_binding_1 = args.user_name.get_output(context);
+        let user_name_binding = user_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/dataConnectorThreatIntelligenceTaxii:DataConnectorThreatIntelligenceTaxii"
                 .into(),

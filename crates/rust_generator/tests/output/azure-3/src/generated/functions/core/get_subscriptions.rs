@@ -32,14 +32,12 @@ pub mod get_subscriptions {
     ) -> GetSubscriptionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_contains_binding = args
+        let display_name_contains_binding_1 = args
             .display_name_contains
-            .get_output(context)
-            .get_inner();
-        let display_name_prefix_binding = args
-            .display_name_prefix
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let display_name_contains_binding = display_name_contains_binding_1.get_inner();
+        let display_name_prefix_binding_1 = args.display_name_prefix.get_output(context);
+        let display_name_prefix_binding = display_name_prefix_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:core/getSubscriptions:getSubscriptions".into(),
             version: super::super::super::get_version(),

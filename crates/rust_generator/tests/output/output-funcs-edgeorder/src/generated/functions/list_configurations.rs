@@ -37,15 +37,17 @@ pub mod list_configurations {
     ) -> ListConfigurationsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_filters_binding = args
+        let configuration_filters_binding_1 = args
             .configuration_filters
-            .get_output(context)
-            .get_inner();
-        let customer_subscription_details_binding = args
+            .get_output(context);
+        let configuration_filters_binding = configuration_filters_binding_1.get_inner();
+        let customer_subscription_details_binding_1 = args
             .customer_subscription_details
-            .get_output(context)
+            .get_output(context);
+        let customer_subscription_details_binding = customer_subscription_details_binding_1
             .get_inner();
-        let skip_token_binding = args.skip_token.get_output(context).get_inner();
+        let skip_token_binding_1 = args.skip_token.get_output(context);
+        let skip_token_binding = skip_token_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "myedgeorder::listConfigurations".into(),
             version: super::super::get_version(),

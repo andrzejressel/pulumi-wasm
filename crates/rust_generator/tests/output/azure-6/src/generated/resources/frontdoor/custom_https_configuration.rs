@@ -130,18 +130,20 @@ pub mod custom_https_configuration {
     ) -> CustomHttpsConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_https_configuration_binding = args
+        let custom_https_configuration_binding_1 = args
             .custom_https_configuration
-            .get_output(context)
+            .get_output(context);
+        let custom_https_configuration_binding = custom_https_configuration_binding_1
             .get_inner();
-        let custom_https_provisioning_enabled_binding = args
+        let custom_https_provisioning_enabled_binding_1 = args
             .custom_https_provisioning_enabled
-            .get_output(context)
+            .get_output(context);
+        let custom_https_provisioning_enabled_binding = custom_https_provisioning_enabled_binding_1
             .get_inner();
-        let frontend_endpoint_id_binding = args
+        let frontend_endpoint_id_binding_1 = args
             .frontend_endpoint_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let frontend_endpoint_id_binding = frontend_endpoint_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration"
                 .into(),

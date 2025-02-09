@@ -208,17 +208,20 @@ pub mod network_peering_routes_config {
     ) -> NetworkPeeringRoutesConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let export_custom_routes_binding = args
+        let export_custom_routes_binding_1 = args
             .export_custom_routes
-            .get_output(context)
-            .get_inner();
-        let import_custom_routes_binding = args
+            .get_output(context);
+        let export_custom_routes_binding = export_custom_routes_binding_1.get_inner();
+        let import_custom_routes_binding_1 = args
             .import_custom_routes
-            .get_output(context)
-            .get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let peering_binding = args.peering.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+            .get_output(context);
+        let import_custom_routes_binding = import_custom_routes_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let peering_binding_1 = args.peering.get_output(context);
+        let peering_binding = peering_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/networkPeeringRoutesConfig:NetworkPeeringRoutesConfig"
                 .into(),

@@ -139,15 +139,18 @@ pub mod authorized_view {
     ) -> AuthorizedViewResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let instance_name_binding = args.instance_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let subset_view_binding = args.subset_view.get_output(context).get_inner();
-        let table_name_binding = args.table_name.get_output(context).get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let instance_name_binding_1 = args.instance_name.get_output(context);
+        let instance_name_binding = instance_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let subset_view_binding_1 = args.subset_view.get_output(context);
+        let subset_view_binding = subset_view_binding_1.get_inner();
+        let table_name_binding_1 = args.table_name.get_output(context);
+        let table_name_binding = table_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigtable/authorizedView:AuthorizedView".into(),
             name: name.to_string(),

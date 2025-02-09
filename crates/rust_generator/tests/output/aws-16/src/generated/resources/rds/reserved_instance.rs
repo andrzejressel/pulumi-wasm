@@ -114,10 +114,14 @@ pub mod reserved_instance {
     ) -> ReservedInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_count_binding = args.instance_count.get_output(context).get_inner();
-        let offering_id_binding = args.offering_id.get_output(context).get_inner();
-        let reservation_id_binding = args.reservation_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let instance_count_binding_1 = args.instance_count.get_output(context);
+        let instance_count_binding = instance_count_binding_1.get_inner();
+        let offering_id_binding_1 = args.offering_id.get_output(context);
+        let offering_id_binding = offering_id_binding_1.get_inner();
+        let reservation_id_binding_1 = args.reservation_id.get_output(context);
+        let reservation_id_binding = reservation_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/reservedInstance:ReservedInstance".into(),
             name: name.to_string(),

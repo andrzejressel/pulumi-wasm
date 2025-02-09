@@ -104,18 +104,18 @@ pub mod api_connection {
     ) -> ApiConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let managed_api_id_binding = args.managed_api_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameter_values_binding = args
-            .parameter_values
-            .get_output(context)
-            .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let managed_api_id_binding_1 = args.managed_api_id.get_output(context);
+        let managed_api_id_binding = managed_api_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameter_values_binding_1 = args.parameter_values.get_output(context);
+        let parameter_values_binding = parameter_values_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:connections/apiConnection:ApiConnection".into(),
             name: name.to_string(),

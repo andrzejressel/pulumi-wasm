@@ -57,8 +57,10 @@ pub mod function_recursion_config {
     ) -> FunctionRecursionConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let function_name_binding = args.function_name.get_output(context).get_inner();
-        let recursive_loop_binding = args.recursive_loop.get_output(context).get_inner();
+        let function_name_binding_1 = args.function_name.get_output(context);
+        let function_name_binding = function_name_binding_1.get_inner();
+        let recursive_loop_binding_1 = args.recursive_loop.get_output(context);
+        let recursive_loop_binding = recursive_loop_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/functionRecursionConfig:FunctionRecursionConfig".into(),
             name: name.to_string(),

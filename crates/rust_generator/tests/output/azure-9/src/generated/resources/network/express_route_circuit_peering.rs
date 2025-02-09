@@ -215,36 +215,42 @@ pub mod express_route_circuit_peering {
     ) -> ExpressRouteCircuitPeeringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let express_route_circuit_name_binding = args
+        let express_route_circuit_name_binding_1 = args
             .express_route_circuit_name
-            .get_output(context)
+            .get_output(context);
+        let express_route_circuit_name_binding = express_route_circuit_name_binding_1
             .get_inner();
-        let ipv4_enabled_binding = args.ipv4_enabled.get_output(context).get_inner();
-        let ipv6_binding = args.ipv6.get_output(context).get_inner();
-        let microsoft_peering_config_binding = args
+        let ipv4_enabled_binding_1 = args.ipv4_enabled.get_output(context);
+        let ipv4_enabled_binding = ipv4_enabled_binding_1.get_inner();
+        let ipv6_binding_1 = args.ipv6.get_output(context);
+        let ipv6_binding = ipv6_binding_1.get_inner();
+        let microsoft_peering_config_binding_1 = args
             .microsoft_peering_config
-            .get_output(context)
+            .get_output(context);
+        let microsoft_peering_config_binding = microsoft_peering_config_binding_1
             .get_inner();
-        let peer_asn_binding = args.peer_asn.get_output(context).get_inner();
-        let peering_type_binding = args.peering_type.get_output(context).get_inner();
-        let primary_peer_address_prefix_binding = args
+        let peer_asn_binding_1 = args.peer_asn.get_output(context);
+        let peer_asn_binding = peer_asn_binding_1.get_inner();
+        let peering_type_binding_1 = args.peering_type.get_output(context);
+        let peering_type_binding = peering_type_binding_1.get_inner();
+        let primary_peer_address_prefix_binding_1 = args
             .primary_peer_address_prefix
-            .get_output(context)
+            .get_output(context);
+        let primary_peer_address_prefix_binding = primary_peer_address_prefix_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let route_filter_id_binding = args
-            .route_filter_id
-            .get_output(context)
-            .get_inner();
-        let secondary_peer_address_prefix_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let route_filter_id_binding_1 = args.route_filter_id.get_output(context);
+        let route_filter_id_binding = route_filter_id_binding_1.get_inner();
+        let secondary_peer_address_prefix_binding_1 = args
             .secondary_peer_address_prefix
-            .get_output(context)
+            .get_output(context);
+        let secondary_peer_address_prefix_binding = secondary_peer_address_prefix_binding_1
             .get_inner();
-        let shared_key_binding = args.shared_key.get_output(context).get_inner();
-        let vlan_id_binding = args.vlan_id.get_output(context).get_inner();
+        let shared_key_binding_1 = args.shared_key.get_output(context);
+        let shared_key_binding = shared_key_binding_1.get_inner();
+        let vlan_id_binding_1 = args.vlan_id.get_output(context);
+        let vlan_id_binding = vlan_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering"
                 .into(),

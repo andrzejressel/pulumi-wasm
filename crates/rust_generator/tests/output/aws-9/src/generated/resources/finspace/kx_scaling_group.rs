@@ -106,14 +106,18 @@ pub mod kx_scaling_group {
     ) -> KxScalingGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_id_binding = args
+        let availability_zone_id_binding_1 = args
             .availability_zone_id
-            .get_output(context)
-            .get_inner();
-        let environment_id_binding = args.environment_id.get_output(context).get_inner();
-        let host_type_binding = args.host_type.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let availability_zone_id_binding = availability_zone_id_binding_1.get_inner();
+        let environment_id_binding_1 = args.environment_id.get_output(context);
+        let environment_id_binding = environment_id_binding_1.get_inner();
+        let host_type_binding_1 = args.host_type.get_output(context);
+        let host_type_binding = host_type_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:finspace/kxScalingGroup:KxScalingGroup".into(),
             name: name.to_string(),

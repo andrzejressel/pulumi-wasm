@@ -197,35 +197,48 @@ pub mod healthcheck {
     ) -> HealthcheckResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_binding = args.address.get_output(context).get_inner();
-        let allow_insecure_binding = args.allow_insecure.get_output(context).get_inner();
-        let check_regions_binding = args.check_regions.get_output(context).get_inner();
-        let consecutive_fails_binding = args
-            .consecutive_fails
-            .get_output(context)
-            .get_inner();
-        let consecutive_successes_binding = args
+        let address_binding_1 = args.address.get_output(context);
+        let address_binding = address_binding_1.get_inner();
+        let allow_insecure_binding_1 = args.allow_insecure.get_output(context);
+        let allow_insecure_binding = allow_insecure_binding_1.get_inner();
+        let check_regions_binding_1 = args.check_regions.get_output(context);
+        let check_regions_binding = check_regions_binding_1.get_inner();
+        let consecutive_fails_binding_1 = args.consecutive_fails.get_output(context);
+        let consecutive_fails_binding = consecutive_fails_binding_1.get_inner();
+        let consecutive_successes_binding_1 = args
             .consecutive_successes
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let expected_body_binding = args.expected_body.get_output(context).get_inner();
-        let expected_codes_binding = args.expected_codes.get_output(context).get_inner();
-        let follow_redirects_binding = args
-            .follow_redirects
-            .get_output(context)
-            .get_inner();
-        let headers_binding = args.headers.get_output(context).get_inner();
-        let interval_binding = args.interval.get_output(context).get_inner();
-        let method_binding = args.method.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let path_binding = args.path.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let retries_binding = args.retries.get_output(context).get_inner();
-        let suspended_binding = args.suspended.get_output(context).get_inner();
-        let timeout_binding = args.timeout.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+            .get_output(context);
+        let consecutive_successes_binding = consecutive_successes_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let expected_body_binding_1 = args.expected_body.get_output(context);
+        let expected_body_binding = expected_body_binding_1.get_inner();
+        let expected_codes_binding_1 = args.expected_codes.get_output(context);
+        let expected_codes_binding = expected_codes_binding_1.get_inner();
+        let follow_redirects_binding_1 = args.follow_redirects.get_output(context);
+        let follow_redirects_binding = follow_redirects_binding_1.get_inner();
+        let headers_binding_1 = args.headers.get_output(context);
+        let headers_binding = headers_binding_1.get_inner();
+        let interval_binding_1 = args.interval.get_output(context);
+        let interval_binding = interval_binding_1.get_inner();
+        let method_binding_1 = args.method.get_output(context);
+        let method_binding = method_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let path_binding_1 = args.path.get_output(context);
+        let path_binding = path_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let retries_binding_1 = args.retries.get_output(context);
+        let retries_binding = retries_binding_1.get_inner();
+        let suspended_binding_1 = args.suspended.get_output(context);
+        let suspended_binding = suspended_binding_1.get_inner();
+        let timeout_binding_1 = args.timeout.get_output(context);
+        let timeout_binding = timeout_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/healthcheck:Healthcheck".into(),
             name: name.to_string(),

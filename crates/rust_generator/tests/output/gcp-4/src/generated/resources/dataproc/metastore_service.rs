@@ -656,48 +656,46 @@ pub mod metastore_service {
     ) -> MetastoreServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_type_binding = args.database_type.get_output(context).get_inner();
-        let deletion_protection_binding = args
-            .deletion_protection
-            .get_output(context)
-            .get_inner();
-        let encryption_config_binding = args
-            .encryption_config
-            .get_output(context)
-            .get_inner();
-        let hive_metastore_config_binding = args
+        let database_type_binding_1 = args.database_type.get_output(context);
+        let database_type_binding = database_type_binding_1.get_inner();
+        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
+        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
+        let encryption_config_binding_1 = args.encryption_config.get_output(context);
+        let encryption_config_binding = encryption_config_binding_1.get_inner();
+        let hive_metastore_config_binding_1 = args
             .hive_metastore_config
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let maintenance_window_binding = args
-            .maintenance_window
-            .get_output(context)
-            .get_inner();
-        let metadata_integration_binding = args
+            .get_output(context);
+        let hive_metastore_config_binding = hive_metastore_config_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
+        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
+        let metadata_integration_binding_1 = args
             .metadata_integration
-            .get_output(context)
-            .get_inner();
-        let network_binding = args.network.get_output(context).get_inner();
-        let network_config_binding = args.network_config.get_output(context).get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let release_channel_binding = args
-            .release_channel
-            .get_output(context)
-            .get_inner();
-        let scaling_config_binding = args.scaling_config.get_output(context).get_inner();
-        let scheduled_backup_binding = args
-            .scheduled_backup
-            .get_output(context)
-            .get_inner();
-        let service_id_binding = args.service_id.get_output(context).get_inner();
-        let telemetry_config_binding = args
-            .telemetry_config
-            .get_output(context)
-            .get_inner();
-        let tier_binding = args.tier.get_output(context).get_inner();
+            .get_output(context);
+        let metadata_integration_binding = metadata_integration_binding_1.get_inner();
+        let network_binding_1 = args.network.get_output(context);
+        let network_binding = network_binding_1.get_inner();
+        let network_config_binding_1 = args.network_config.get_output(context);
+        let network_config_binding = network_config_binding_1.get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let release_channel_binding_1 = args.release_channel.get_output(context);
+        let release_channel_binding = release_channel_binding_1.get_inner();
+        let scaling_config_binding_1 = args.scaling_config.get_output(context);
+        let scaling_config_binding = scaling_config_binding_1.get_inner();
+        let scheduled_backup_binding_1 = args.scheduled_backup.get_output(context);
+        let scheduled_backup_binding = scheduled_backup_binding_1.get_inner();
+        let service_id_binding_1 = args.service_id.get_output(context);
+        let service_id_binding = service_id_binding_1.get_inner();
+        let telemetry_config_binding_1 = args.telemetry_config.get_output(context);
+        let telemetry_config_binding = telemetry_config_binding_1.get_inner();
+        let tier_binding_1 = args.tier.get_output(context);
+        let tier_binding = tier_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/metastoreService:MetastoreService".into(),
             name: name.to_string(),

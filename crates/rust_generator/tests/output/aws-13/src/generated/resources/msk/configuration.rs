@@ -72,13 +72,14 @@ pub mod configuration {
     ) -> ConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let kafka_versions_binding = args.kafka_versions.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let server_properties_binding = args
-            .server_properties
-            .get_output(context)
-            .get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let kafka_versions_binding_1 = args.kafka_versions.get_output(context);
+        let kafka_versions_binding = kafka_versions_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let server_properties_binding_1 = args.server_properties.get_output(context);
+        let server_properties_binding = server_properties_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:msk/configuration:Configuration".into(),
             name: name.to_string(),

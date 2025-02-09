@@ -44,14 +44,18 @@ pub mod get_resolver_rules {
     ) -> GetResolverRulesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_regex_binding = args.name_regex.get_output(context).get_inner();
-        let owner_id_binding = args.owner_id.get_output(context).get_inner();
-        let resolver_endpoint_id_binding = args
+        let name_regex_binding_1 = args.name_regex.get_output(context);
+        let name_regex_binding = name_regex_binding_1.get_inner();
+        let owner_id_binding_1 = args.owner_id.get_output(context);
+        let owner_id_binding = owner_id_binding_1.get_inner();
+        let resolver_endpoint_id_binding_1 = args
             .resolver_endpoint_id
-            .get_output(context)
-            .get_inner();
-        let rule_type_binding = args.rule_type.get_output(context).get_inner();
-        let share_status_binding = args.share_status.get_output(context).get_inner();
+            .get_output(context);
+        let resolver_endpoint_id_binding = resolver_endpoint_id_binding_1.get_inner();
+        let rule_type_binding_1 = args.rule_type.get_output(context);
+        let rule_type_binding = rule_type_binding_1.get_inner();
+        let share_status_binding_1 = args.share_status.get_output(context);
+        let share_status_binding = share_status_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverRules:getResolverRules".into(),
             version: super::super::super::get_version(),

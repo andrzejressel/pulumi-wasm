@@ -80,10 +80,14 @@ pub mod get_data_set {
     ) -> GetDataSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let data_set_id_binding = args.data_set_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let tags_all_binding = args.tags_all.get_output(context).get_inner();
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let data_set_id_binding_1 = args.data_set_id.get_output(context);
+        let data_set_id_binding = data_set_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let tags_all_binding_1 = args.tags_all.get_output(context);
+        let tags_all_binding = tags_all_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:quicksight/getDataSet:getDataSet".into(),
             version: super::super::super::get_version(),

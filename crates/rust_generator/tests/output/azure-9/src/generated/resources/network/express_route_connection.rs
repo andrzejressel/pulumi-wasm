@@ -179,33 +179,39 @@ pub mod express_route_connection {
     ) -> ExpressRouteConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorization_key_binding = args
-            .authorization_key
-            .get_output(context)
-            .get_inner();
-        let enable_internet_security_binding = args
+        let authorization_key_binding_1 = args.authorization_key.get_output(context);
+        let authorization_key_binding = authorization_key_binding_1.get_inner();
+        let enable_internet_security_binding_1 = args
             .enable_internet_security
-            .get_output(context)
+            .get_output(context);
+        let enable_internet_security_binding = enable_internet_security_binding_1
             .get_inner();
-        let express_route_circuit_peering_id_binding = args
+        let express_route_circuit_peering_id_binding_1 = args
             .express_route_circuit_peering_id
-            .get_output(context)
+            .get_output(context);
+        let express_route_circuit_peering_id_binding = express_route_circuit_peering_id_binding_1
             .get_inner();
-        let express_route_gateway_bypass_enabled_binding = args
+        let express_route_gateway_bypass_enabled_binding_1 = args
             .express_route_gateway_bypass_enabled
-            .get_output(context)
+            .get_output(context);
+        let express_route_gateway_bypass_enabled_binding = express_route_gateway_bypass_enabled_binding_1
             .get_inner();
-        let express_route_gateway_id_binding = args
+        let express_route_gateway_id_binding_1 = args
             .express_route_gateway_id
-            .get_output(context)
+            .get_output(context);
+        let express_route_gateway_id_binding = express_route_gateway_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let private_link_fast_path_enabled_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let private_link_fast_path_enabled_binding_1 = args
             .private_link_fast_path_enabled
-            .get_output(context)
+            .get_output(context);
+        let private_link_fast_path_enabled_binding = private_link_fast_path_enabled_binding_1
             .get_inner();
-        let routing_binding = args.routing.get_output(context).get_inner();
-        let routing_weight_binding = args.routing_weight.get_output(context).get_inner();
+        let routing_binding_1 = args.routing.get_output(context);
+        let routing_binding = routing_binding_1.get_inner();
+        let routing_weight_binding_1 = args.routing_weight.get_output(context);
+        let routing_weight_binding = routing_weight_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/expressRouteConnection:ExpressRouteConnection".into(),
             name: name.to_string(),

@@ -324,29 +324,40 @@ pub mod instance {
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_protection_enabled_binding = args
+        let deletion_protection_enabled_binding_1 = args
             .deletion_protection_enabled
-            .get_output(context)
+            .get_output(context);
+        let deletion_protection_enabled_binding = deletion_protection_enabled_binding_1
             .get_inner();
-        let deletion_protection_reason_binding = args
+        let deletion_protection_reason_binding_1 = args
             .deletion_protection_reason
-            .get_output(context)
+            .get_output(context);
+        let deletion_protection_reason_binding = deletion_protection_reason_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let file_shares_binding = args.file_shares.get_output(context).get_inner();
-        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let networks_binding = args.networks.get_output(context).get_inner();
-        let performance_config_binding = args
-            .performance_config
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let protocol_binding = args.protocol.get_output(context).get_inner();
-        let tier_binding = args.tier.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let file_shares_binding_1 = args.file_shares.get_output(context);
+        let file_shares_binding = file_shares_binding_1.get_inner();
+        let kms_key_name_binding_1 = args.kms_key_name.get_output(context);
+        let kms_key_name_binding = kms_key_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let networks_binding_1 = args.networks.get_output(context);
+        let networks_binding = networks_binding_1.get_inner();
+        let performance_config_binding_1 = args.performance_config.get_output(context);
+        let performance_config_binding = performance_config_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let protocol_binding_1 = args.protocol.get_output(context);
+        let protocol_binding = protocol_binding_1.get_inner();
+        let tier_binding_1 = args.tier.get_output(context);
+        let tier_binding = tier_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:filestore/instance:Instance".into(),
             name: name.to_string(),

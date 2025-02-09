@@ -245,53 +245,61 @@ pub mod group {
     ) -> GroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let containers_binding = args.containers.get_output(context).get_inner();
-        let diagnostics_binding = args.diagnostics.get_output(context).get_inner();
-        let dns_config_binding = args.dns_config.get_output(context).get_inner();
-        let dns_name_label_binding = args.dns_name_label.get_output(context).get_inner();
-        let dns_name_label_reuse_policy_binding = args
+        let containers_binding_1 = args.containers.get_output(context);
+        let containers_binding = containers_binding_1.get_inner();
+        let diagnostics_binding_1 = args.diagnostics.get_output(context);
+        let diagnostics_binding = diagnostics_binding_1.get_inner();
+        let dns_config_binding_1 = args.dns_config.get_output(context);
+        let dns_config_binding = dns_config_binding_1.get_inner();
+        let dns_name_label_binding_1 = args.dns_name_label.get_output(context);
+        let dns_name_label_binding = dns_name_label_binding_1.get_inner();
+        let dns_name_label_reuse_policy_binding_1 = args
             .dns_name_label_reuse_policy
-            .get_output(context)
+            .get_output(context);
+        let dns_name_label_reuse_policy_binding = dns_name_label_reuse_policy_binding_1
             .get_inner();
-        let exposed_ports_binding = args.exposed_ports.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let image_registry_credentials_binding = args
+        let exposed_ports_binding_1 = args.exposed_ports.get_output(context);
+        let exposed_ports_binding = exposed_ports_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let image_registry_credentials_binding_1 = args
             .image_registry_credentials
-            .get_output(context)
+            .get_output(context);
+        let image_registry_credentials_binding = image_registry_credentials_binding_1
             .get_inner();
-        let init_containers_binding = args
-            .init_containers
-            .get_output(context)
-            .get_inner();
-        let ip_address_type_binding = args
-            .ip_address_type
-            .get_output(context)
-            .get_inner();
-        let key_vault_key_id_binding = args
-            .key_vault_key_id
-            .get_output(context)
-            .get_inner();
-        let key_vault_user_assigned_identity_id_binding = args
+        let init_containers_binding_1 = args.init_containers.get_output(context);
+        let init_containers_binding = init_containers_binding_1.get_inner();
+        let ip_address_type_binding_1 = args.ip_address_type.get_output(context);
+        let ip_address_type_binding = ip_address_type_binding_1.get_inner();
+        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
+        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
+        let key_vault_user_assigned_identity_id_binding_1 = args
             .key_vault_user_assigned_identity_id
-            .get_output(context)
+            .get_output(context);
+        let key_vault_user_assigned_identity_id_binding = key_vault_user_assigned_identity_id_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_profile_id_binding = args
-            .network_profile_id
-            .get_output(context)
-            .get_inner();
-        let os_type_binding = args.os_type.get_output(context).get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let restart_policy_binding = args.restart_policy.get_output(context).get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let zones_binding = args.zones.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_profile_id_binding_1 = args.network_profile_id.get_output(context);
+        let network_profile_id_binding = network_profile_id_binding_1.get_inner();
+        let os_type_binding_1 = args.os_type.get_output(context);
+        let os_type_binding = os_type_binding_1.get_inner();
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let restart_policy_binding_1 = args.restart_policy.get_output(context);
+        let restart_policy_binding = restart_policy_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
+        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let zones_binding_1 = args.zones.get_output(context);
+        let zones_binding = zones_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/group:Group".into(),
             name: name.to_string(),

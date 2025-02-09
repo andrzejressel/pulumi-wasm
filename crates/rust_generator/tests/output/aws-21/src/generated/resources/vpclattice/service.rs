@@ -93,17 +93,16 @@ pub mod service {
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auth_type_binding = args.auth_type.get_output(context).get_inner();
-        let certificate_arn_binding = args
-            .certificate_arn
-            .get_output(context)
-            .get_inner();
-        let custom_domain_name_binding = args
-            .custom_domain_name
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let auth_type_binding_1 = args.auth_type.get_output(context);
+        let auth_type_binding = auth_type_binding_1.get_inner();
+        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
+        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
+        let custom_domain_name_binding_1 = args.custom_domain_name.get_output(context);
+        let custom_domain_name_binding = custom_domain_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpclattice/service:Service".into(),
             name: name.to_string(),

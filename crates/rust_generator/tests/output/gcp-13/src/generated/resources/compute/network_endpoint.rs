@@ -172,15 +172,21 @@ pub mod network_endpoint {
     ) -> NetworkEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_binding = args.instance.get_output(context).get_inner();
-        let ip_address_binding = args.ip_address.get_output(context).get_inner();
-        let network_endpoint_group_binding = args
+        let instance_binding_1 = args.instance.get_output(context);
+        let instance_binding = instance_binding_1.get_inner();
+        let ip_address_binding_1 = args.ip_address.get_output(context);
+        let ip_address_binding = ip_address_binding_1.get_inner();
+        let network_endpoint_group_binding_1 = args
             .network_endpoint_group
-            .get_output(context)
+            .get_output(context);
+        let network_endpoint_group_binding = network_endpoint_group_binding_1
             .get_inner();
-        let port_binding = args.port.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let zone_binding = args.zone.get_output(context).get_inner();
+        let port_binding_1 = args.port.get_output(context);
+        let port_binding = port_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let zone_binding_1 = args.zone.get_output(context);
+        let zone_binding = zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/networkEndpoint:NetworkEndpoint".into(),
             name: name.to_string(),

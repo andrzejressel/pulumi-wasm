@@ -94,8 +94,10 @@ pub mod subscriber_notification {
     ) -> SubscriberNotificationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_binding = args.configuration.get_output(context).get_inner();
-        let subscriber_id_binding = args.subscriber_id.get_output(context).get_inner();
+        let configuration_binding_1 = args.configuration.get_output(context);
+        let configuration_binding = configuration_binding_1.get_inner();
+        let subscriber_id_binding_1 = args.subscriber_id.get_output(context);
+        let subscriber_id_binding = subscriber_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securitylake/subscriberNotification:SubscriberNotification"
                 .into(),

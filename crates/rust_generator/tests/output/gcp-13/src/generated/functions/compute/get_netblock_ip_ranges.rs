@@ -48,7 +48,8 @@ pub mod get_netblock_ip_ranges {
     ) -> GetNetblockIpRangesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let range_type_binding = args.range_type.get_output(context).get_inner();
+        let range_type_binding_1 = args.range_type.get_output(context);
+        let range_type_binding = range_type_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getNetblockIPRanges:getNetblockIPRanges".into(),
             version: super::super::super::get_version(),

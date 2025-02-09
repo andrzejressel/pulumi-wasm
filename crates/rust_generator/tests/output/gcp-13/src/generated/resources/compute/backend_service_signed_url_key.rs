@@ -128,13 +128,14 @@ pub mod backend_service_signed_url_key {
     ) -> BackendServiceSignedUrlKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backend_service_binding = args
-            .backend_service
-            .get_output(context)
-            .get_inner();
-        let key_value_binding = args.key_value.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let backend_service_binding_1 = args.backend_service.get_output(context);
+        let backend_service_binding = backend_service_binding_1.get_inner();
+        let key_value_binding_1 = args.key_value.get_output(context);
+        let key_value_binding = key_value_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/backendServiceSignedUrlKey:BackendServiceSignedUrlKey"
                 .into(),

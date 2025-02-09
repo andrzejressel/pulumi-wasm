@@ -103,23 +103,27 @@ pub mod database {
     ) -> DatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let acl_configuration_binding = args
-            .acl_configuration
-            .get_output(context)
-            .get_inner();
-        let bucket_binding = args.bucket.get_output(context).get_inner();
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let encryption_configuration_binding = args
+        let acl_configuration_binding_1 = args.acl_configuration.get_output(context);
+        let acl_configuration_binding = acl_configuration_binding_1.get_inner();
+        let bucket_binding_1 = args.bucket.get_output(context);
+        let bucket_binding = bucket_binding_1.get_inner();
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let encryption_configuration_binding_1 = args
             .encryption_configuration
-            .get_output(context)
+            .get_output(context);
+        let encryption_configuration_binding = encryption_configuration_binding_1
             .get_inner();
-        let expected_bucket_owner_binding = args
+        let expected_bucket_owner_binding_1 = args
             .expected_bucket_owner
-            .get_output(context)
-            .get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let properties_binding = args.properties.get_output(context).get_inner();
+            .get_output(context);
+        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let properties_binding_1 = args.properties.get_output(context);
+        let properties_binding = properties_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:athena/database:Database".into(),
             name: name.to_string(),

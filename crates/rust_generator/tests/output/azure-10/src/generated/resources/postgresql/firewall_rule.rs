@@ -130,17 +130,16 @@ pub mod firewall_rule {
     ) -> FirewallRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let end_ip_address_binding = args.end_ip_address.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let server_name_binding = args.server_name.get_output(context).get_inner();
-        let start_ip_address_binding = args
-            .start_ip_address
-            .get_output(context)
-            .get_inner();
+        let end_ip_address_binding_1 = args.end_ip_address.get_output(context);
+        let end_ip_address_binding = end_ip_address_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let server_name_binding_1 = args.server_name.get_output(context);
+        let server_name_binding = server_name_binding_1.get_inner();
+        let start_ip_address_binding_1 = args.start_ip_address.get_output(context);
+        let start_ip_address_binding = start_ip_address_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:postgresql/firewallRule:FirewallRule".into(),
             name: name.to_string(),

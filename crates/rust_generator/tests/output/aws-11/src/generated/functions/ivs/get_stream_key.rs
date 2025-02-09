@@ -35,8 +35,10 @@ pub mod get_stream_key {
     ) -> GetStreamKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let channel_arn_binding = args.channel_arn.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let channel_arn_binding_1 = args.channel_arn.get_output(context);
+        let channel_arn_binding = channel_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ivs/getStreamKey:getStreamKey".into(),
             version: super::super::super::get_version(),

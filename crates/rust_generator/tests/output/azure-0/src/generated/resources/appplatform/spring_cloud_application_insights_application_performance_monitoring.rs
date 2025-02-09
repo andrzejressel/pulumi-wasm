@@ -121,28 +121,27 @@ pub mod spring_cloud_application_insights_application_performance_monitoring {
     ) -> SpringCloudApplicationInsightsApplicationPerformanceMonitoringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_string_binding = args
-            .connection_string
-            .get_output(context)
-            .get_inner();
-        let globally_enabled_binding = args
-            .globally_enabled
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let role_instance_binding = args.role_instance.get_output(context).get_inner();
-        let role_name_binding = args.role_name.get_output(context).get_inner();
-        let sampling_percentage_binding = args
-            .sampling_percentage
-            .get_output(context)
-            .get_inner();
-        let sampling_requests_per_second_binding = args
+        let connection_string_binding_1 = args.connection_string.get_output(context);
+        let connection_string_binding = connection_string_binding_1.get_inner();
+        let globally_enabled_binding_1 = args.globally_enabled.get_output(context);
+        let globally_enabled_binding = globally_enabled_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let role_instance_binding_1 = args.role_instance.get_output(context);
+        let role_instance_binding = role_instance_binding_1.get_inner();
+        let role_name_binding_1 = args.role_name.get_output(context);
+        let role_name_binding = role_name_binding_1.get_inner();
+        let sampling_percentage_binding_1 = args.sampling_percentage.get_output(context);
+        let sampling_percentage_binding = sampling_percentage_binding_1.get_inner();
+        let sampling_requests_per_second_binding_1 = args
             .sampling_requests_per_second
-            .get_output(context)
+            .get_output(context);
+        let sampling_requests_per_second_binding = sampling_requests_per_second_binding_1
             .get_inner();
-        let spring_cloud_service_id_binding = args
+        let spring_cloud_service_id_binding_1 = args
             .spring_cloud_service_id
-            .get_output(context)
+            .get_output(context);
+        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring"

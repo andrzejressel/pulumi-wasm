@@ -181,33 +181,38 @@ pub mod network_interface {
     ) -> NetworkInterfaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerated_networking_enabled_binding = args
+        let accelerated_networking_enabled_binding_1 = args
             .accelerated_networking_enabled
-            .get_output(context)
+            .get_output(context);
+        let accelerated_networking_enabled_binding = accelerated_networking_enabled_binding_1
             .get_inner();
-        let auxiliary_mode_binding = args.auxiliary_mode.get_output(context).get_inner();
-        let auxiliary_sku_binding = args.auxiliary_sku.get_output(context).get_inner();
-        let dns_servers_binding = args.dns_servers.get_output(context).get_inner();
-        let edge_zone_binding = args.edge_zone.get_output(context).get_inner();
-        let internal_dns_name_label_binding = args
+        let auxiliary_mode_binding_1 = args.auxiliary_mode.get_output(context);
+        let auxiliary_mode_binding = auxiliary_mode_binding_1.get_inner();
+        let auxiliary_sku_binding_1 = args.auxiliary_sku.get_output(context);
+        let auxiliary_sku_binding = auxiliary_sku_binding_1.get_inner();
+        let dns_servers_binding_1 = args.dns_servers.get_output(context);
+        let dns_servers_binding = dns_servers_binding_1.get_inner();
+        let edge_zone_binding_1 = args.edge_zone.get_output(context);
+        let edge_zone_binding = edge_zone_binding_1.get_inner();
+        let internal_dns_name_label_binding_1 = args
             .internal_dns_name_label
-            .get_output(context)
+            .get_output(context);
+        let internal_dns_name_label_binding = internal_dns_name_label_binding_1
             .get_inner();
-        let ip_configurations_binding = args
-            .ip_configurations
-            .get_output(context)
-            .get_inner();
-        let ip_forwarding_enabled_binding = args
+        let ip_configurations_binding_1 = args.ip_configurations.get_output(context);
+        let ip_configurations_binding = ip_configurations_binding_1.get_inner();
+        let ip_forwarding_enabled_binding_1 = args
             .ip_forwarding_enabled
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let ip_forwarding_enabled_binding = ip_forwarding_enabled_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkInterface:NetworkInterface".into(),
             name: name.to_string(),

@@ -35,12 +35,12 @@ pub mod get_addon_version {
     ) -> GetAddonVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addon_name_binding = args.addon_name.get_output(context).get_inner();
-        let kubernetes_version_binding = args
-            .kubernetes_version
-            .get_output(context)
-            .get_inner();
-        let most_recent_binding = args.most_recent.get_output(context).get_inner();
+        let addon_name_binding_1 = args.addon_name.get_output(context);
+        let addon_name_binding = addon_name_binding_1.get_inner();
+        let kubernetes_version_binding_1 = args.kubernetes_version.get_output(context);
+        let kubernetes_version_binding = kubernetes_version_binding_1.get_inner();
+        let most_recent_binding_1 = args.most_recent.get_output(context);
+        let most_recent_binding = most_recent_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:eks/getAddonVersion:getAddonVersion".into(),
             version: super::super::super::get_version(),

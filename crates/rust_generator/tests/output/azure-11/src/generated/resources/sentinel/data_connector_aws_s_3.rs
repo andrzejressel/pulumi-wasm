@@ -98,17 +98,19 @@ pub mod data_connector_aws_s_3 {
     ) -> DataConnectorAwsS3Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_role_arn_binding = args.aws_role_arn.get_output(context).get_inner();
-        let destination_table_binding = args
-            .destination_table
-            .get_output(context)
-            .get_inner();
-        let log_analytics_workspace_id_binding = args
+        let aws_role_arn_binding_1 = args.aws_role_arn.get_output(context);
+        let aws_role_arn_binding = aws_role_arn_binding_1.get_inner();
+        let destination_table_binding_1 = args.destination_table.get_output(context);
+        let destination_table_binding = destination_table_binding_1.get_inner();
+        let log_analytics_workspace_id_binding_1 = args
             .log_analytics_workspace_id
-            .get_output(context)
+            .get_output(context);
+        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let sqs_urls_binding = args.sqs_urls.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let sqs_urls_binding_1 = args.sqs_urls.get_output(context);
+        let sqs_urls_binding = sqs_urls_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3".into(),
             name: name.to_string(),

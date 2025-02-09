@@ -67,16 +67,17 @@ pub mod identity_notification_topic {
     ) -> IdentityNotificationTopicResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let include_original_headers_binding = args
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let include_original_headers_binding_1 = args
             .include_original_headers
-            .get_output(context)
+            .get_output(context);
+        let include_original_headers_binding = include_original_headers_binding_1
             .get_inner();
-        let notification_type_binding = args
-            .notification_type
-            .get_output(context)
-            .get_inner();
-        let topic_arn_binding = args.topic_arn.get_output(context).get_inner();
+        let notification_type_binding_1 = args.notification_type.get_output(context);
+        let notification_type_binding = notification_type_binding_1.get_inner();
+        let topic_arn_binding_1 = args.topic_arn.get_output(context);
+        let topic_arn_binding = topic_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/identityNotificationTopic:IdentityNotificationTopic".into(),
             name: name.to_string(),

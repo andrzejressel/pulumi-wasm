@@ -130,22 +130,23 @@ pub mod subscriber {
     ) -> SubscriberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_type_binding = args.access_type.get_output(context).get_inner();
-        let source_binding = args.source.get_output(context).get_inner();
-        let subscriber_description_binding = args
+        let access_type_binding_1 = args.access_type.get_output(context);
+        let access_type_binding = access_type_binding_1.get_inner();
+        let source_binding_1 = args.source.get_output(context);
+        let source_binding = source_binding_1.get_inner();
+        let subscriber_description_binding_1 = args
             .subscriber_description
-            .get_output(context)
+            .get_output(context);
+        let subscriber_description_binding = subscriber_description_binding_1
             .get_inner();
-        let subscriber_identity_binding = args
-            .subscriber_identity
-            .get_output(context)
-            .get_inner();
-        let subscriber_name_binding = args
-            .subscriber_name
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let subscriber_identity_binding_1 = args.subscriber_identity.get_output(context);
+        let subscriber_identity_binding = subscriber_identity_binding_1.get_inner();
+        let subscriber_name_binding_1 = args.subscriber_name.get_output(context);
+        let subscriber_name_binding = subscriber_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securitylake/subscriber:Subscriber".into(),
             name: name.to_string(),

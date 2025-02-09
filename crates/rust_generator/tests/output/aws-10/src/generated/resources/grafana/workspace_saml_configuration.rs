@@ -138,46 +138,37 @@ pub mod workspace_saml_configuration {
     ) -> WorkspaceSamlConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_role_values_binding = args
-            .admin_role_values
-            .get_output(context)
-            .get_inner();
-        let allowed_organizations_binding = args
+        let admin_role_values_binding_1 = args.admin_role_values.get_output(context);
+        let admin_role_values_binding = admin_role_values_binding_1.get_inner();
+        let allowed_organizations_binding_1 = args
             .allowed_organizations
-            .get_output(context)
-            .get_inner();
-        let editor_role_values_binding = args
-            .editor_role_values
-            .get_output(context)
-            .get_inner();
-        let email_assertion_binding = args
-            .email_assertion
-            .get_output(context)
-            .get_inner();
-        let groups_assertion_binding = args
-            .groups_assertion
-            .get_output(context)
-            .get_inner();
-        let idp_metadata_url_binding = args
-            .idp_metadata_url
-            .get_output(context)
-            .get_inner();
-        let idp_metadata_xml_binding = args
-            .idp_metadata_xml
-            .get_output(context)
-            .get_inner();
-        let login_assertion_binding = args
-            .login_assertion
-            .get_output(context)
-            .get_inner();
-        let login_validity_duration_binding = args
+            .get_output(context);
+        let allowed_organizations_binding = allowed_organizations_binding_1.get_inner();
+        let editor_role_values_binding_1 = args.editor_role_values.get_output(context);
+        let editor_role_values_binding = editor_role_values_binding_1.get_inner();
+        let email_assertion_binding_1 = args.email_assertion.get_output(context);
+        let email_assertion_binding = email_assertion_binding_1.get_inner();
+        let groups_assertion_binding_1 = args.groups_assertion.get_output(context);
+        let groups_assertion_binding = groups_assertion_binding_1.get_inner();
+        let idp_metadata_url_binding_1 = args.idp_metadata_url.get_output(context);
+        let idp_metadata_url_binding = idp_metadata_url_binding_1.get_inner();
+        let idp_metadata_xml_binding_1 = args.idp_metadata_xml.get_output(context);
+        let idp_metadata_xml_binding = idp_metadata_xml_binding_1.get_inner();
+        let login_assertion_binding_1 = args.login_assertion.get_output(context);
+        let login_assertion_binding = login_assertion_binding_1.get_inner();
+        let login_validity_duration_binding_1 = args
             .login_validity_duration
-            .get_output(context)
+            .get_output(context);
+        let login_validity_duration_binding = login_validity_duration_binding_1
             .get_inner();
-        let name_assertion_binding = args.name_assertion.get_output(context).get_inner();
-        let org_assertion_binding = args.org_assertion.get_output(context).get_inner();
-        let role_assertion_binding = args.role_assertion.get_output(context).get_inner();
-        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
+        let name_assertion_binding_1 = args.name_assertion.get_output(context);
+        let name_assertion_binding = name_assertion_binding_1.get_inner();
+        let org_assertion_binding_1 = args.org_assertion.get_output(context);
+        let org_assertion_binding = org_assertion_binding_1.get_inner();
+        let role_assertion_binding_1 = args.role_assertion.get_output(context);
+        let role_assertion_binding = role_assertion_binding_1.get_inner();
+        let workspace_id_binding_1 = args.workspace_id.get_output(context);
+        let workspace_id_binding = workspace_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration"
                 .into(),

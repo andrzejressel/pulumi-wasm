@@ -80,12 +80,12 @@ pub mod signing_certificate {
     ) -> SigningCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_body_binding = args
-            .certificate_body
-            .get_output(context)
-            .get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let user_name_binding = args.user_name.get_output(context).get_inner();
+        let certificate_body_binding_1 = args.certificate_body.get_output(context);
+        let certificate_body_binding = certificate_body_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let user_name_binding_1 = args.user_name.get_output(context);
+        let user_name_binding = user_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/signingCertificate:SigningCertificate".into(),
             name: name.to_string(),

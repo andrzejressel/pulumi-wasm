@@ -115,10 +115,14 @@ pub mod lien {
     ) -> LienResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let origin_binding = args.origin.get_output(context).get_inner();
-        let parent_binding = args.parent.get_output(context).get_inner();
-        let reason_binding = args.reason.get_output(context).get_inner();
-        let restrictions_binding = args.restrictions.get_output(context).get_inner();
+        let origin_binding_1 = args.origin.get_output(context);
+        let origin_binding = origin_binding_1.get_inner();
+        let parent_binding_1 = args.parent.get_output(context);
+        let parent_binding = parent_binding_1.get_inner();
+        let reason_binding_1 = args.reason.get_output(context);
+        let reason_binding = reason_binding_1.get_inner();
+        let restrictions_binding_1 = args.restrictions.get_output(context);
+        let restrictions_binding = restrictions_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:resourcemanager/lien:Lien".into(),
             name: name.to_string(),

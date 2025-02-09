@@ -321,30 +321,33 @@ pub mod permissions {
     ) -> PermissionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
-        let catalog_resource_binding = args
-            .catalog_resource
-            .get_output(context)
-            .get_inner();
-        let data_cells_filter_binding = args
-            .data_cells_filter
-            .get_output(context)
-            .get_inner();
-        let data_location_binding = args.data_location.get_output(context).get_inner();
-        let database_binding = args.database.get_output(context).get_inner();
-        let lf_tag_binding = args.lf_tag.get_output(context).get_inner();
-        let lf_tag_policy_binding = args.lf_tag_policy.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let permissions_with_grant_options_binding = args
+        let catalog_id_binding_1 = args.catalog_id.get_output(context);
+        let catalog_id_binding = catalog_id_binding_1.get_inner();
+        let catalog_resource_binding_1 = args.catalog_resource.get_output(context);
+        let catalog_resource_binding = catalog_resource_binding_1.get_inner();
+        let data_cells_filter_binding_1 = args.data_cells_filter.get_output(context);
+        let data_cells_filter_binding = data_cells_filter_binding_1.get_inner();
+        let data_location_binding_1 = args.data_location.get_output(context);
+        let data_location_binding = data_location_binding_1.get_inner();
+        let database_binding_1 = args.database.get_output(context);
+        let database_binding = database_binding_1.get_inner();
+        let lf_tag_binding_1 = args.lf_tag.get_output(context);
+        let lf_tag_binding = lf_tag_binding_1.get_inner();
+        let lf_tag_policy_binding_1 = args.lf_tag_policy.get_output(context);
+        let lf_tag_policy_binding = lf_tag_policy_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let permissions_with_grant_options_binding_1 = args
             .permissions_with_grant_options
-            .get_output(context)
+            .get_output(context);
+        let permissions_with_grant_options_binding = permissions_with_grant_options_binding_1
             .get_inner();
-        let principal_binding = args.principal.get_output(context).get_inner();
-        let table_binding = args.table.get_output(context).get_inner();
-        let table_with_columns_binding = args
-            .table_with_columns
-            .get_output(context)
-            .get_inner();
+        let principal_binding_1 = args.principal.get_output(context);
+        let principal_binding = principal_binding_1.get_inner();
+        let table_binding_1 = args.table.get_output(context);
+        let table_binding = table_binding_1.get_inner();
+        let table_with_columns_binding_1 = args.table_with_columns.get_output(context);
+        let table_with_columns_binding = table_with_columns_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lakeformation/permissions:Permissions".into(),
             name: name.to_string(),

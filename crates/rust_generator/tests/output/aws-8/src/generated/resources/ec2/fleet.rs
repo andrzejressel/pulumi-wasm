@@ -185,53 +185,58 @@ pub mod fleet {
     ) -> FleetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let context_binding = args.context.get_output(context).get_inner();
-        let excess_capacity_termination_policy_binding = args
+        let context_binding_1 = args.context.get_output(context);
+        let context_binding = context_binding_1.get_inner();
+        let excess_capacity_termination_policy_binding_1 = args
             .excess_capacity_termination_policy
-            .get_output(context)
+            .get_output(context);
+        let excess_capacity_termination_policy_binding = excess_capacity_termination_policy_binding_1
             .get_inner();
-        let fleet_instance_sets_binding = args
-            .fleet_instance_sets
-            .get_output(context)
-            .get_inner();
-        let fleet_state_binding = args.fleet_state.get_output(context).get_inner();
-        let fulfilled_capacity_binding = args
-            .fulfilled_capacity
-            .get_output(context)
-            .get_inner();
-        let fulfilled_on_demand_capacity_binding = args
+        let fleet_instance_sets_binding_1 = args.fleet_instance_sets.get_output(context);
+        let fleet_instance_sets_binding = fleet_instance_sets_binding_1.get_inner();
+        let fleet_state_binding_1 = args.fleet_state.get_output(context);
+        let fleet_state_binding = fleet_state_binding_1.get_inner();
+        let fulfilled_capacity_binding_1 = args.fulfilled_capacity.get_output(context);
+        let fulfilled_capacity_binding = fulfilled_capacity_binding_1.get_inner();
+        let fulfilled_on_demand_capacity_binding_1 = args
             .fulfilled_on_demand_capacity
-            .get_output(context)
+            .get_output(context);
+        let fulfilled_on_demand_capacity_binding = fulfilled_on_demand_capacity_binding_1
             .get_inner();
-        let launch_template_configs_binding = args
+        let launch_template_configs_binding_1 = args
             .launch_template_configs
-            .get_output(context)
+            .get_output(context);
+        let launch_template_configs_binding = launch_template_configs_binding_1
             .get_inner();
-        let on_demand_options_binding = args
-            .on_demand_options
-            .get_output(context)
-            .get_inner();
-        let replace_unhealthy_instances_binding = args
+        let on_demand_options_binding_1 = args.on_demand_options.get_output(context);
+        let on_demand_options_binding = on_demand_options_binding_1.get_inner();
+        let replace_unhealthy_instances_binding_1 = args
             .replace_unhealthy_instances
-            .get_output(context)
+            .get_output(context);
+        let replace_unhealthy_instances_binding = replace_unhealthy_instances_binding_1
             .get_inner();
-        let spot_options_binding = args.spot_options.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let target_capacity_specification_binding = args
+        let spot_options_binding_1 = args.spot_options.get_output(context);
+        let spot_options_binding = spot_options_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let target_capacity_specification_binding_1 = args
             .target_capacity_specification
-            .get_output(context)
+            .get_output(context);
+        let target_capacity_specification_binding = target_capacity_specification_binding_1
             .get_inner();
-        let terminate_instances_binding = args
-            .terminate_instances
-            .get_output(context)
-            .get_inner();
-        let terminate_instances_with_expiration_binding = args
+        let terminate_instances_binding_1 = args.terminate_instances.get_output(context);
+        let terminate_instances_binding = terminate_instances_binding_1.get_inner();
+        let terminate_instances_with_expiration_binding_1 = args
             .terminate_instances_with_expiration
-            .get_output(context)
+            .get_output(context);
+        let terminate_instances_with_expiration_binding = terminate_instances_with_expiration_binding_1
             .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let valid_from_binding = args.valid_from.get_output(context).get_inner();
-        let valid_until_binding = args.valid_until.get_output(context).get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let valid_from_binding_1 = args.valid_from.get_output(context);
+        let valid_from_binding = valid_from_binding_1.get_inner();
+        let valid_until_binding_1 = args.valid_until.get_output(context);
+        let valid_until_binding = valid_until_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/fleet:Fleet".into(),
             name: name.to_string(),

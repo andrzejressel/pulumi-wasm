@@ -60,8 +60,10 @@ pub mod group_association {
     ) -> GroupAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let canary_arn_binding = args.canary_arn.get_output(context).get_inner();
-        let group_name_binding = args.group_name.get_output(context).get_inner();
+        let canary_arn_binding_1 = args.canary_arn.get_output(context);
+        let canary_arn_binding = canary_arn_binding_1.get_inner();
+        let group_name_binding_1 = args.group_name.get_output(context);
+        let group_name_binding = group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:synthetics/groupAssociation:GroupAssociation".into(),
             name: name.to_string(),

@@ -338,30 +338,36 @@ pub mod budget {
     ) -> BudgetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let auto_adjust_data_binding = args
-            .auto_adjust_data
-            .get_output(context)
-            .get_inner();
-        let budget_type_binding = args.budget_type.get_output(context).get_inner();
-        let cost_filters_binding = args.cost_filters.get_output(context).get_inner();
-        let cost_types_binding = args.cost_types.get_output(context).get_inner();
-        let limit_amount_binding = args.limit_amount.get_output(context).get_inner();
-        let limit_unit_binding = args.limit_unit.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
-        let notifications_binding = args.notifications.get_output(context).get_inner();
-        let planned_limits_binding = args.planned_limits.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let time_period_end_binding = args
-            .time_period_end
-            .get_output(context)
-            .get_inner();
-        let time_period_start_binding = args
-            .time_period_start
-            .get_output(context)
-            .get_inner();
-        let time_unit_binding = args.time_unit.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let auto_adjust_data_binding_1 = args.auto_adjust_data.get_output(context);
+        let auto_adjust_data_binding = auto_adjust_data_binding_1.get_inner();
+        let budget_type_binding_1 = args.budget_type.get_output(context);
+        let budget_type_binding = budget_type_binding_1.get_inner();
+        let cost_filters_binding_1 = args.cost_filters.get_output(context);
+        let cost_filters_binding = cost_filters_binding_1.get_inner();
+        let cost_types_binding_1 = args.cost_types.get_output(context);
+        let cost_types_binding = cost_types_binding_1.get_inner();
+        let limit_amount_binding_1 = args.limit_amount.get_output(context);
+        let limit_amount_binding = limit_amount_binding_1.get_inner();
+        let limit_unit_binding_1 = args.limit_unit.get_output(context);
+        let limit_unit_binding = limit_unit_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let name_prefix_binding_1 = args.name_prefix.get_output(context);
+        let name_prefix_binding = name_prefix_binding_1.get_inner();
+        let notifications_binding_1 = args.notifications.get_output(context);
+        let notifications_binding = notifications_binding_1.get_inner();
+        let planned_limits_binding_1 = args.planned_limits.get_output(context);
+        let planned_limits_binding = planned_limits_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let time_period_end_binding_1 = args.time_period_end.get_output(context);
+        let time_period_end_binding = time_period_end_binding_1.get_inner();
+        let time_period_start_binding_1 = args.time_period_start.get_output(context);
+        let time_period_start_binding = time_period_start_binding_1.get_inner();
+        let time_unit_binding_1 = args.time_unit.get_output(context);
+        let time_unit_binding = time_unit_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:budgets/budget:Budget".into(),
             name: name.to_string(),

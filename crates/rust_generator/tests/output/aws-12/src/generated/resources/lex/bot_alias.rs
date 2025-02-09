@@ -85,14 +85,16 @@ pub mod bot_alias {
     ) -> BotAliasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_name_binding = args.bot_name.get_output(context).get_inner();
-        let bot_version_binding = args.bot_version.get_output(context).get_inner();
-        let conversation_logs_binding = args
-            .conversation_logs
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let bot_name_binding_1 = args.bot_name.get_output(context);
+        let bot_name_binding = bot_name_binding_1.get_inner();
+        let bot_version_binding_1 = args.bot_version.get_output(context);
+        let bot_version_binding = bot_version_binding_1.get_inner();
+        let conversation_logs_binding_1 = args.conversation_logs.get_output(context);
+        let conversation_logs_binding = conversation_logs_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lex/botAlias:BotAlias".into(),
             name: name.to_string(),

@@ -40,13 +40,14 @@ pub mod get_prebuilt_ecr_image {
     ) -> GetPrebuiltEcrImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_suffix_binding = args.dns_suffix.get_output(context).get_inner();
-        let image_tag_binding = args.image_tag.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let repository_name_binding = args
-            .repository_name
-            .get_output(context)
-            .get_inner();
+        let dns_suffix_binding_1 = args.dns_suffix.get_output(context);
+        let dns_suffix_binding = dns_suffix_binding_1.get_inner();
+        let image_tag_binding_1 = args.image_tag.get_output(context);
+        let image_tag_binding = image_tag_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let repository_name_binding_1 = args.repository_name.get_output(context);
+        let repository_name_binding = repository_name_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage".into(),
             version: super::super::super::get_version(),

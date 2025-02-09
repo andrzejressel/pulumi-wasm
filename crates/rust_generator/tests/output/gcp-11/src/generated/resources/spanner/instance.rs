@@ -244,26 +244,31 @@ pub mod instance {
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_config_binding = args
-            .autoscaling_config
-            .get_output(context)
-            .get_inner();
-        let config_binding = args.config.get_output(context).get_inner();
-        let default_backup_schedule_type_binding = args
+        let autoscaling_config_binding_1 = args.autoscaling_config.get_output(context);
+        let autoscaling_config_binding = autoscaling_config_binding_1.get_inner();
+        let config_binding_1 = args.config.get_output(context);
+        let config_binding = config_binding_1.get_inner();
+        let default_backup_schedule_type_binding_1 = args
             .default_backup_schedule_type
-            .get_output(context)
+            .get_output(context);
+        let default_backup_schedule_type_binding = default_backup_schedule_type_binding_1
             .get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let edition_binding = args.edition.get_output(context).get_inner();
-        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let num_nodes_binding = args.num_nodes.get_output(context).get_inner();
-        let processing_units_binding = args
-            .processing_units
-            .get_output(context)
-            .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let edition_binding_1 = args.edition.get_output(context);
+        let edition_binding = edition_binding_1.get_inner();
+        let force_destroy_binding_1 = args.force_destroy.get_output(context);
+        let force_destroy_binding = force_destroy_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let num_nodes_binding_1 = args.num_nodes.get_output(context);
+        let num_nodes_binding = num_nodes_binding_1.get_inner();
+        let processing_units_binding_1 = args.processing_units.get_output(context);
+        let processing_units_binding = processing_units_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:spanner/instance:Instance".into(),
             name: name.to_string(),

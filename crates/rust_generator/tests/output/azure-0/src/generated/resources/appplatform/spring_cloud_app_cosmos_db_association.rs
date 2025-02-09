@@ -155,40 +155,41 @@ pub mod spring_cloud_app_cosmos_db_association {
     ) -> SpringCloudAppCosmosDBAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_type_binding = args.api_type.get_output(context).get_inner();
-        let cosmosdb_access_key_binding = args
-            .cosmosdb_access_key
-            .get_output(context)
-            .get_inner();
-        let cosmosdb_account_id_binding = args
-            .cosmosdb_account_id
-            .get_output(context)
-            .get_inner();
-        let cosmosdb_cassandra_keyspace_name_binding = args
+        let api_type_binding_1 = args.api_type.get_output(context);
+        let api_type_binding = api_type_binding_1.get_inner();
+        let cosmosdb_access_key_binding_1 = args.cosmosdb_access_key.get_output(context);
+        let cosmosdb_access_key_binding = cosmosdb_access_key_binding_1.get_inner();
+        let cosmosdb_account_id_binding_1 = args.cosmosdb_account_id.get_output(context);
+        let cosmosdb_account_id_binding = cosmosdb_account_id_binding_1.get_inner();
+        let cosmosdb_cassandra_keyspace_name_binding_1 = args
             .cosmosdb_cassandra_keyspace_name
-            .get_output(context)
+            .get_output(context);
+        let cosmosdb_cassandra_keyspace_name_binding = cosmosdb_cassandra_keyspace_name_binding_1
             .get_inner();
-        let cosmosdb_gremlin_database_name_binding = args
+        let cosmosdb_gremlin_database_name_binding_1 = args
             .cosmosdb_gremlin_database_name
-            .get_output(context)
+            .get_output(context);
+        let cosmosdb_gremlin_database_name_binding = cosmosdb_gremlin_database_name_binding_1
             .get_inner();
-        let cosmosdb_gremlin_graph_name_binding = args
+        let cosmosdb_gremlin_graph_name_binding_1 = args
             .cosmosdb_gremlin_graph_name
-            .get_output(context)
+            .get_output(context);
+        let cosmosdb_gremlin_graph_name_binding = cosmosdb_gremlin_graph_name_binding_1
             .get_inner();
-        let cosmosdb_mongo_database_name_binding = args
+        let cosmosdb_mongo_database_name_binding_1 = args
             .cosmosdb_mongo_database_name
-            .get_output(context)
+            .get_output(context);
+        let cosmosdb_mongo_database_name_binding = cosmosdb_mongo_database_name_binding_1
             .get_inner();
-        let cosmosdb_sql_database_name_binding = args
+        let cosmosdb_sql_database_name_binding_1 = args
             .cosmosdb_sql_database_name
-            .get_output(context)
+            .get_output(context);
+        let cosmosdb_sql_database_name_binding = cosmosdb_sql_database_name_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let spring_cloud_app_id_binding = args
-            .spring_cloud_app_id
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let spring_cloud_app_id_binding_1 = args.spring_cloud_app_id.get_output(context);
+        let spring_cloud_app_id_binding = spring_cloud_app_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation"
                 .into(),

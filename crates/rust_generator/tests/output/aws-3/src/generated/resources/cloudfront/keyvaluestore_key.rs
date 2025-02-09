@@ -72,12 +72,12 @@ pub mod keyvaluestore_key {
     ) -> KeyvaluestoreKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_binding = args.key.get_output(context).get_inner();
-        let key_value_store_arn_binding = args
-            .key_value_store_arn
-            .get_output(context)
-            .get_inner();
-        let value_binding = args.value.get_output(context).get_inner();
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let key_value_store_arn_binding_1 = args.key_value_store_arn.get_output(context);
+        let key_value_store_arn_binding = key_value_store_arn_binding_1.get_inner();
+        let value_binding_1 = args.value.get_output(context);
+        let value_binding = value_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey".into(),
             name: name.to_string(),

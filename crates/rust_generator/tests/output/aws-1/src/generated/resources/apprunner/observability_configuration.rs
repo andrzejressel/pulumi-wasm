@@ -81,15 +81,15 @@ pub mod observability_configuration {
     ) -> ObservabilityConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let observability_configuration_name_binding = args
+        let observability_configuration_name_binding_1 = args
             .observability_configuration_name
-            .get_output(context)
+            .get_output(context);
+        let observability_configuration_name_binding = observability_configuration_name_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let trace_configuration_binding = args
-            .trace_configuration
-            .get_output(context)
-            .get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let trace_configuration_binding_1 = args.trace_configuration.get_output(context);
+        let trace_configuration_binding = trace_configuration_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apprunner/observabilityConfiguration:ObservabilityConfiguration"
                 .into(),

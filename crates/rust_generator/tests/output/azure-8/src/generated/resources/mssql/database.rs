@@ -432,95 +432,113 @@ pub mod database {
     ) -> DatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_pause_delay_in_minutes_binding = args
+        let auto_pause_delay_in_minutes_binding_1 = args
             .auto_pause_delay_in_minutes
-            .get_output(context)
+            .get_output(context);
+        let auto_pause_delay_in_minutes_binding = auto_pause_delay_in_minutes_binding_1
             .get_inner();
-        let collation_binding = args.collation.get_output(context).get_inner();
-        let create_mode_binding = args.create_mode.get_output(context).get_inner();
-        let creation_source_database_id_binding = args
+        let collation_binding_1 = args.collation.get_output(context);
+        let collation_binding = collation_binding_1.get_inner();
+        let create_mode_binding_1 = args.create_mode.get_output(context);
+        let create_mode_binding = create_mode_binding_1.get_inner();
+        let creation_source_database_id_binding_1 = args
             .creation_source_database_id
-            .get_output(context)
+            .get_output(context);
+        let creation_source_database_id_binding = creation_source_database_id_binding_1
             .get_inner();
-        let elastic_pool_id_binding = args
-            .elastic_pool_id
-            .get_output(context)
-            .get_inner();
-        let enclave_type_binding = args.enclave_type.get_output(context).get_inner();
-        let geo_backup_enabled_binding = args
-            .geo_backup_enabled
-            .get_output(context)
-            .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let import_binding = args.import.get_output(context).get_inner();
-        let ledger_enabled_binding = args.ledger_enabled.get_output(context).get_inner();
-        let license_type_binding = args.license_type.get_output(context).get_inner();
-        let long_term_retention_policy_binding = args
+        let elastic_pool_id_binding_1 = args.elastic_pool_id.get_output(context);
+        let elastic_pool_id_binding = elastic_pool_id_binding_1.get_inner();
+        let enclave_type_binding_1 = args.enclave_type.get_output(context);
+        let enclave_type_binding = enclave_type_binding_1.get_inner();
+        let geo_backup_enabled_binding_1 = args.geo_backup_enabled.get_output(context);
+        let geo_backup_enabled_binding = geo_backup_enabled_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let import_binding_1 = args.import.get_output(context);
+        let import_binding = import_binding_1.get_inner();
+        let ledger_enabled_binding_1 = args.ledger_enabled.get_output(context);
+        let ledger_enabled_binding = ledger_enabled_binding_1.get_inner();
+        let license_type_binding_1 = args.license_type.get_output(context);
+        let license_type_binding = license_type_binding_1.get_inner();
+        let long_term_retention_policy_binding_1 = args
             .long_term_retention_policy
-            .get_output(context)
+            .get_output(context);
+        let long_term_retention_policy_binding = long_term_retention_policy_binding_1
             .get_inner();
-        let maintenance_configuration_name_binding = args
+        let maintenance_configuration_name_binding_1 = args
             .maintenance_configuration_name
-            .get_output(context)
+            .get_output(context);
+        let maintenance_configuration_name_binding = maintenance_configuration_name_binding_1
             .get_inner();
-        let max_size_gb_binding = args.max_size_gb.get_output(context).get_inner();
-        let min_capacity_binding = args.min_capacity.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let read_replica_count_binding = args
-            .read_replica_count
-            .get_output(context)
-            .get_inner();
-        let read_scale_binding = args.read_scale.get_output(context).get_inner();
-        let recover_database_id_binding = args
-            .recover_database_id
-            .get_output(context)
-            .get_inner();
-        let recovery_point_id_binding = args
-            .recovery_point_id
-            .get_output(context)
-            .get_inner();
-        let restore_dropped_database_id_binding = args
+        let max_size_gb_binding_1 = args.max_size_gb.get_output(context);
+        let max_size_gb_binding = max_size_gb_binding_1.get_inner();
+        let min_capacity_binding_1 = args.min_capacity.get_output(context);
+        let min_capacity_binding = min_capacity_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let read_replica_count_binding_1 = args.read_replica_count.get_output(context);
+        let read_replica_count_binding = read_replica_count_binding_1.get_inner();
+        let read_scale_binding_1 = args.read_scale.get_output(context);
+        let read_scale_binding = read_scale_binding_1.get_inner();
+        let recover_database_id_binding_1 = args.recover_database_id.get_output(context);
+        let recover_database_id_binding = recover_database_id_binding_1.get_inner();
+        let recovery_point_id_binding_1 = args.recovery_point_id.get_output(context);
+        let recovery_point_id_binding = recovery_point_id_binding_1.get_inner();
+        let restore_dropped_database_id_binding_1 = args
             .restore_dropped_database_id
-            .get_output(context)
+            .get_output(context);
+        let restore_dropped_database_id_binding = restore_dropped_database_id_binding_1
             .get_inner();
-        let restore_long_term_retention_backup_id_binding = args
+        let restore_long_term_retention_backup_id_binding_1 = args
             .restore_long_term_retention_backup_id
-            .get_output(context)
+            .get_output(context);
+        let restore_long_term_retention_backup_id_binding = restore_long_term_retention_backup_id_binding_1
             .get_inner();
-        let restore_point_in_time_binding = args
+        let restore_point_in_time_binding_1 = args
             .restore_point_in_time
-            .get_output(context)
-            .get_inner();
-        let sample_name_binding = args.sample_name.get_output(context).get_inner();
-        let secondary_type_binding = args.secondary_type.get_output(context).get_inner();
-        let server_id_binding = args.server_id.get_output(context).get_inner();
-        let short_term_retention_policy_binding = args
+            .get_output(context);
+        let restore_point_in_time_binding = restore_point_in_time_binding_1.get_inner();
+        let sample_name_binding_1 = args.sample_name.get_output(context);
+        let sample_name_binding = sample_name_binding_1.get_inner();
+        let secondary_type_binding_1 = args.secondary_type.get_output(context);
+        let secondary_type_binding = secondary_type_binding_1.get_inner();
+        let server_id_binding_1 = args.server_id.get_output(context);
+        let server_id_binding = server_id_binding_1.get_inner();
+        let short_term_retention_policy_binding_1 = args
             .short_term_retention_policy
-            .get_output(context)
+            .get_output(context);
+        let short_term_retention_policy_binding = short_term_retention_policy_binding_1
             .get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let storage_account_type_binding = args
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let storage_account_type_binding_1 = args
             .storage_account_type
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let threat_detection_policy_binding = args
+            .get_output(context);
+        let storage_account_type_binding = storage_account_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let threat_detection_policy_binding_1 = args
             .threat_detection_policy
-            .get_output(context)
+            .get_output(context);
+        let threat_detection_policy_binding = threat_detection_policy_binding_1
             .get_inner();
-        let transparent_data_encryption_enabled_binding = args
+        let transparent_data_encryption_enabled_binding_1 = args
             .transparent_data_encryption_enabled
-            .get_output(context)
+            .get_output(context);
+        let transparent_data_encryption_enabled_binding = transparent_data_encryption_enabled_binding_1
             .get_inner();
-        let transparent_data_encryption_key_automatic_rotation_enabled_binding = args
+        let transparent_data_encryption_key_automatic_rotation_enabled_binding_1 = args
             .transparent_data_encryption_key_automatic_rotation_enabled
-            .get_output(context)
+            .get_output(context);
+        let transparent_data_encryption_key_automatic_rotation_enabled_binding = transparent_data_encryption_key_automatic_rotation_enabled_binding_1
             .get_inner();
-        let transparent_data_encryption_key_vault_key_id_binding = args
+        let transparent_data_encryption_key_vault_key_id_binding_1 = args
             .transparent_data_encryption_key_vault_key_id
-            .get_output(context)
+            .get_output(context);
+        let transparent_data_encryption_key_vault_key_id_binding = transparent_data_encryption_key_vault_key_id_binding_1
             .get_inner();
-        let zone_redundant_binding = args.zone_redundant.get_output(context).get_inner();
+        let zone_redundant_binding_1 = args.zone_redundant.get_output(context);
+        let zone_redundant_binding = zone_redundant_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/database:Database".into(),
             name: name.to_string(),

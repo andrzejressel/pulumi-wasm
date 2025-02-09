@@ -129,37 +129,41 @@ pub mod rest_api {
     ) -> RestApiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_source_binding = args.api_key_source.get_output(context).get_inner();
-        let binary_media_types_binding = args
-            .binary_media_types
-            .get_output(context)
-            .get_inner();
-        let body_binding = args.body.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disable_execute_api_endpoint_binding = args
+        let api_key_source_binding_1 = args.api_key_source.get_output(context);
+        let api_key_source_binding = api_key_source_binding_1.get_inner();
+        let binary_media_types_binding_1 = args.binary_media_types.get_output(context);
+        let binary_media_types_binding = binary_media_types_binding_1.get_inner();
+        let body_binding_1 = args.body.get_output(context);
+        let body_binding = body_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disable_execute_api_endpoint_binding_1 = args
             .disable_execute_api_endpoint
-            .get_output(context)
+            .get_output(context);
+        let disable_execute_api_endpoint_binding = disable_execute_api_endpoint_binding_1
             .get_inner();
-        let endpoint_configuration_binding = args
+        let endpoint_configuration_binding_1 = args
             .endpoint_configuration
-            .get_output(context)
+            .get_output(context);
+        let endpoint_configuration_binding = endpoint_configuration_binding_1
             .get_inner();
-        let fail_on_warnings_binding = args
-            .fail_on_warnings
-            .get_output(context)
-            .get_inner();
-        let minimum_compression_size_binding = args
+        let fail_on_warnings_binding_1 = args.fail_on_warnings.get_output(context);
+        let fail_on_warnings_binding = fail_on_warnings_binding_1.get_inner();
+        let minimum_compression_size_binding_1 = args
             .minimum_compression_size
-            .get_output(context)
+            .get_output(context);
+        let minimum_compression_size_binding = minimum_compression_size_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let put_rest_api_mode_binding = args
-            .put_rest_api_mode
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let put_rest_api_mode_binding_1 = args.put_rest_api_mode.get_output(context);
+        let put_rest_api_mode_binding = put_rest_api_mode_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/restApi:RestApi".into(),
             name: name.to_string(),

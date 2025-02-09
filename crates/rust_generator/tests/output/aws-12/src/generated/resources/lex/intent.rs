@@ -239,42 +239,37 @@ pub mod intent {
     ) -> IntentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let conclusion_statement_binding = args
+        let conclusion_statement_binding_1 = args
             .conclusion_statement
-            .get_output(context)
-            .get_inner();
-        let confirmation_prompt_binding = args
-            .confirmation_prompt
-            .get_output(context)
-            .get_inner();
-        let create_version_binding = args.create_version.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let dialog_code_hook_binding = args
-            .dialog_code_hook
-            .get_output(context)
-            .get_inner();
-        let follow_up_prompt_binding = args
-            .follow_up_prompt
-            .get_output(context)
-            .get_inner();
-        let fulfillment_activity_binding = args
+            .get_output(context);
+        let conclusion_statement_binding = conclusion_statement_binding_1.get_inner();
+        let confirmation_prompt_binding_1 = args.confirmation_prompt.get_output(context);
+        let confirmation_prompt_binding = confirmation_prompt_binding_1.get_inner();
+        let create_version_binding_1 = args.create_version.get_output(context);
+        let create_version_binding = create_version_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dialog_code_hook_binding_1 = args.dialog_code_hook.get_output(context);
+        let dialog_code_hook_binding = dialog_code_hook_binding_1.get_inner();
+        let follow_up_prompt_binding_1 = args.follow_up_prompt.get_output(context);
+        let follow_up_prompt_binding = follow_up_prompt_binding_1.get_inner();
+        let fulfillment_activity_binding_1 = args
             .fulfillment_activity
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parent_intent_signature_binding = args
+            .get_output(context);
+        let fulfillment_activity_binding = fulfillment_activity_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parent_intent_signature_binding_1 = args
             .parent_intent_signature
-            .get_output(context)
+            .get_output(context);
+        let parent_intent_signature_binding = parent_intent_signature_binding_1
             .get_inner();
-        let rejection_statement_binding = args
-            .rejection_statement
-            .get_output(context)
-            .get_inner();
-        let sample_utterances_binding = args
-            .sample_utterances
-            .get_output(context)
-            .get_inner();
-        let slots_binding = args.slots.get_output(context).get_inner();
+        let rejection_statement_binding_1 = args.rejection_statement.get_output(context);
+        let rejection_statement_binding = rejection_statement_binding_1.get_inner();
+        let sample_utterances_binding_1 = args.sample_utterances.get_output(context);
+        let sample_utterances_binding = sample_utterances_binding_1.get_inner();
+        let slots_binding_1 = args.slots.get_output(context);
+        let slots_binding = slots_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lex/intent:Intent".into(),
             name: name.to_string(),

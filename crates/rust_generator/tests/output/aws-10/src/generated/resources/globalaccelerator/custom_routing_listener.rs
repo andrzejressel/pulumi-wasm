@@ -79,11 +79,10 @@ pub mod custom_routing_listener {
     ) -> CustomRoutingListenerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerator_arn_binding = args
-            .accelerator_arn
-            .get_output(context)
-            .get_inner();
-        let port_ranges_binding = args.port_ranges.get_output(context).get_inner();
+        let accelerator_arn_binding_1 = args.accelerator_arn.get_output(context);
+        let accelerator_arn_binding = accelerator_arn_binding_1.get_inner();
+        let port_ranges_binding_1 = args.port_ranges.get_output(context);
+        let port_ranges_binding = port_ranges_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:globalaccelerator/customRoutingListener:CustomRoutingListener"
                 .into(),

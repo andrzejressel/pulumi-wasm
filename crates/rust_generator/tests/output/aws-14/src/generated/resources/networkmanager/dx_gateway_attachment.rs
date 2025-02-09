@@ -104,17 +104,19 @@ pub mod dx_gateway_attachment {
     ) -> DxGatewayAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let core_network_id_binding = args
-            .core_network_id
-            .get_output(context)
-            .get_inner();
-        let direct_connect_gateway_arn_binding = args
+        let core_network_id_binding_1 = args.core_network_id.get_output(context);
+        let core_network_id_binding = core_network_id_binding_1.get_inner();
+        let direct_connect_gateway_arn_binding_1 = args
             .direct_connect_gateway_arn
-            .get_output(context)
+            .get_output(context);
+        let direct_connect_gateway_arn_binding = direct_connect_gateway_arn_binding_1
             .get_inner();
-        let edge_locations_binding = args.edge_locations.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let edge_locations_binding_1 = args.edge_locations.get_output(context);
+        let edge_locations_binding = edge_locations_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment".into(),
             name: name.to_string(),

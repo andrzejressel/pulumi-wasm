@@ -109,23 +109,30 @@ pub mod dedicated_host {
     ) -> DedicatedHostResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_replace_on_failure_binding = args
+        let auto_replace_on_failure_binding_1 = args
             .auto_replace_on_failure
-            .get_output(context)
+            .get_output(context);
+        let auto_replace_on_failure_binding = auto_replace_on_failure_binding_1
             .get_inner();
-        let dedicated_host_group_id_binding = args
+        let dedicated_host_group_id_binding_1 = args
             .dedicated_host_group_id
-            .get_output(context)
+            .get_output(context);
+        let dedicated_host_group_id_binding = dedicated_host_group_id_binding_1
             .get_inner();
-        let license_type_binding = args.license_type.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let platform_fault_domain_binding = args
+        let license_type_binding_1 = args.license_type.get_output(context);
+        let license_type_binding = license_type_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let platform_fault_domain_binding_1 = args
             .platform_fault_domain
-            .get_output(context)
-            .get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let platform_fault_domain_binding = platform_fault_domain_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/dedicatedHost:DedicatedHost".into(),
             name: name.to_string(),

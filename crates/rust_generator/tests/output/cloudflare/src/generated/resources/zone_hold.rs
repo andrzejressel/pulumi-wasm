@@ -65,13 +65,14 @@ pub mod zone_hold {
     ) -> ZoneHoldResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hold_binding = args.hold.get_output(context).get_inner();
-        let hold_after_binding = args.hold_after.get_output(context).get_inner();
-        let include_subdomains_binding = args
-            .include_subdomains
-            .get_output(context)
-            .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let hold_binding_1 = args.hold.get_output(context);
+        let hold_binding = hold_binding_1.get_inner();
+        let hold_after_binding_1 = args.hold_after.get_output(context);
+        let hold_after_binding = hold_after_binding_1.get_inner();
+        let include_subdomains_binding_1 = args.include_subdomains.get_output(context);
+        let include_subdomains_binding = include_subdomains_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zoneHold:ZoneHold".into(),
             name: name.to_string(),

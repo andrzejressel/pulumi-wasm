@@ -203,18 +203,21 @@ pub mod machine_image {
     ) -> MachineImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let guest_flush_binding = args.guest_flush.get_output(context).get_inner();
-        let machine_image_encryption_key_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let guest_flush_binding_1 = args.guest_flush.get_output(context);
+        let guest_flush_binding = guest_flush_binding_1.get_inner();
+        let machine_image_encryption_key_binding_1 = args
             .machine_image_encryption_key
-            .get_output(context)
+            .get_output(context);
+        let machine_image_encryption_key_binding = machine_image_encryption_key_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let source_instance_binding = args
-            .source_instance
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let source_instance_binding_1 = args.source_instance.get_output(context);
+        let source_instance_binding = source_instance_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/machineImage:MachineImage".into(),
             name: name.to_string(),

@@ -98,18 +98,22 @@ pub mod vpc_attachment_accepter {
     ) -> VpcAttachmentAccepterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let transit_gateway_attachment_id_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let transit_gateway_attachment_id_binding_1 = args
             .transit_gateway_attachment_id
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_attachment_id_binding = transit_gateway_attachment_id_binding_1
             .get_inner();
-        let transit_gateway_default_route_table_association_binding = args
+        let transit_gateway_default_route_table_association_binding_1 = args
             .transit_gateway_default_route_table_association
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_default_route_table_association_binding = transit_gateway_default_route_table_association_binding_1
             .get_inner();
-        let transit_gateway_default_route_table_propagation_binding = args
+        let transit_gateway_default_route_table_propagation_binding_1 = args
             .transit_gateway_default_route_table_propagation
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_default_route_table_propagation_binding = transit_gateway_default_route_table_propagation_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter"

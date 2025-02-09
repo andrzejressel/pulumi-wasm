@@ -81,13 +81,17 @@ pub mod load_balancer_cookie_stickiness_policy {
     ) -> LoadBalancerCookieStickinessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cookie_expiration_period_binding = args
+        let cookie_expiration_period_binding_1 = args
             .cookie_expiration_period
-            .get_output(context)
+            .get_output(context);
+        let cookie_expiration_period_binding = cookie_expiration_period_binding_1
             .get_inner();
-        let lb_port_binding = args.lb_port.get_output(context).get_inner();
-        let load_balancer_binding = args.load_balancer.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
+        let lb_port_binding_1 = args.lb_port.get_output(context);
+        let lb_port_binding = lb_port_binding_1.get_inner();
+        let load_balancer_binding_1 = args.load_balancer.get_output(context);
+        let load_balancer_binding = load_balancer_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy"
                 .into(),

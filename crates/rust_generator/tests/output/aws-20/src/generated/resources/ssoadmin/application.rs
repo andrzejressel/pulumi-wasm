@@ -135,17 +135,25 @@ pub mod application {
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_provider_arn_binding = args
+        let application_provider_arn_binding_1 = args
             .application_provider_arn
-            .get_output(context)
+            .get_output(context);
+        let application_provider_arn_binding = application_provider_arn_binding_1
             .get_inner();
-        let client_token_binding = args.client_token.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let instance_arn_binding = args.instance_arn.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let portal_options_binding = args.portal_options.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let client_token_binding_1 = args.client_token.get_output(context);
+        let client_token_binding = client_token_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let instance_arn_binding_1 = args.instance_arn.get_output(context);
+        let instance_arn_binding = instance_arn_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let portal_options_binding_1 = args.portal_options.get_output(context);
+        let portal_options_binding = portal_options_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssoadmin/application:Application".into(),
             name: name.to_string(),

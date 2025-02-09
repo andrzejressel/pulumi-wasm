@@ -68,8 +68,10 @@ pub mod env_group_attachment {
     ) -> EnvGroupAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let envgroup_id_binding = args.envgroup_id.get_output(context).get_inner();
-        let environment_binding = args.environment.get_output(context).get_inner();
+        let envgroup_id_binding_1 = args.envgroup_id.get_output(context);
+        let envgroup_id_binding = envgroup_id_binding_1.get_inner();
+        let environment_binding_1 = args.environment.get_output(context);
+        let environment_binding = environment_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/envGroupAttachment:EnvGroupAttachment".into(),
             name: name.to_string(),

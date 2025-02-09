@@ -77,8 +77,10 @@ pub mod domain_service_access_policy {
     ) -> DomainServiceAccessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_policy_binding = args.access_policy.get_output(context).get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let access_policy_binding_1 = args.access_policy.get_output(context);
+        let access_policy_binding = access_policy_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy"
                 .into(),

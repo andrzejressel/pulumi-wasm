@@ -104,11 +104,16 @@ pub mod managed_prefix_list {
     ) -> ManagedPrefixListResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_family_binding = args.address_family.get_output(context).get_inner();
-        let entries_binding = args.entries.get_output(context).get_inner();
-        let max_entries_binding = args.max_entries.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let address_family_binding_1 = args.address_family.get_output(context);
+        let address_family_binding = address_family_binding_1.get_inner();
+        let entries_binding_1 = args.entries.get_output(context);
+        let entries_binding = entries_binding_1.get_inner();
+        let max_entries_binding_1 = args.max_entries.get_output(context);
+        let max_entries_binding = max_entries_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/managedPrefixList:ManagedPrefixList".into(),
             name: name.to_string(),

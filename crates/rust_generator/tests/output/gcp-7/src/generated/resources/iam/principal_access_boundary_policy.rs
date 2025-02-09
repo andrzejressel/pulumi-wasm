@@ -134,14 +134,20 @@ pub mod principal_access_boundary_policy {
     ) -> PrincipalAccessBoundaryPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let details_binding = args.details.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let organization_binding = args.organization.get_output(context).get_inner();
-        let principal_access_boundary_policy_id_binding = args
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let details_binding_1 = args.details.get_output(context);
+        let details_binding = details_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let organization_binding_1 = args.organization.get_output(context);
+        let organization_binding = organization_binding_1.get_inner();
+        let principal_access_boundary_policy_id_binding_1 = args
             .principal_access_boundary_policy_id
-            .get_output(context)
+            .get_output(context);
+        let principal_access_boundary_policy_id_binding = principal_access_boundary_policy_id_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iam/principalAccessBoundaryPolicy:PrincipalAccessBoundaryPolicy"

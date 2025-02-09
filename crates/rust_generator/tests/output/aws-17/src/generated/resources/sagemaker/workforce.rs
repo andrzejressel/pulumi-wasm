@@ -144,17 +144,18 @@ pub mod workforce {
     ) -> WorkforceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cognito_config_binding = args.cognito_config.get_output(context).get_inner();
-        let oidc_config_binding = args.oidc_config.get_output(context).get_inner();
-        let source_ip_config_binding = args
-            .source_ip_config
-            .get_output(context)
-            .get_inner();
-        let workforce_name_binding = args.workforce_name.get_output(context).get_inner();
-        let workforce_vpc_config_binding = args
+        let cognito_config_binding_1 = args.cognito_config.get_output(context);
+        let cognito_config_binding = cognito_config_binding_1.get_inner();
+        let oidc_config_binding_1 = args.oidc_config.get_output(context);
+        let oidc_config_binding = oidc_config_binding_1.get_inner();
+        let source_ip_config_binding_1 = args.source_ip_config.get_output(context);
+        let source_ip_config_binding = source_ip_config_binding_1.get_inner();
+        let workforce_name_binding_1 = args.workforce_name.get_output(context);
+        let workforce_name_binding = workforce_name_binding_1.get_inner();
+        let workforce_vpc_config_binding_1 = args
             .workforce_vpc_config
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let workforce_vpc_config_binding = workforce_vpc_config_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/workforce:Workforce".into(),
             name: name.to_string(),

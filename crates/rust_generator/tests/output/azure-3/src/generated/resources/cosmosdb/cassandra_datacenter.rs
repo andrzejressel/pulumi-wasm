@@ -174,36 +174,47 @@ pub mod cassandra_datacenter {
     ) -> CassandraDatacenterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zones_enabled_binding = args
+        let availability_zones_enabled_binding_1 = args
             .availability_zones_enabled
-            .get_output(context)
+            .get_output(context);
+        let availability_zones_enabled_binding = availability_zones_enabled_binding_1
             .get_inner();
-        let backup_storage_customer_key_uri_binding = args
+        let backup_storage_customer_key_uri_binding_1 = args
             .backup_storage_customer_key_uri
-            .get_output(context)
+            .get_output(context);
+        let backup_storage_customer_key_uri_binding = backup_storage_customer_key_uri_binding_1
             .get_inner();
-        let base64_encoded_yaml_fragment_binding = args
+        let base64_encoded_yaml_fragment_binding_1 = args
             .base64_encoded_yaml_fragment
-            .get_output(context)
+            .get_output(context);
+        let base64_encoded_yaml_fragment_binding = base64_encoded_yaml_fragment_binding_1
             .get_inner();
-        let cassandra_cluster_id_binding = args
+        let cassandra_cluster_id_binding_1 = args
             .cassandra_cluster_id
-            .get_output(context)
-            .get_inner();
-        let delegated_management_subnet_id_binding = args
+            .get_output(context);
+        let cassandra_cluster_id_binding = cassandra_cluster_id_binding_1.get_inner();
+        let delegated_management_subnet_id_binding_1 = args
             .delegated_management_subnet_id
-            .get_output(context)
+            .get_output(context);
+        let delegated_management_subnet_id_binding = delegated_management_subnet_id_binding_1
             .get_inner();
-        let disk_count_binding = args.disk_count.get_output(context).get_inner();
-        let disk_sku_binding = args.disk_sku.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let managed_disk_customer_key_uri_binding = args
+        let disk_count_binding_1 = args.disk_count.get_output(context);
+        let disk_count_binding = disk_count_binding_1.get_inner();
+        let disk_sku_binding_1 = args.disk_sku.get_output(context);
+        let disk_sku_binding = disk_sku_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let managed_disk_customer_key_uri_binding_1 = args
             .managed_disk_customer_key_uri
-            .get_output(context)
+            .get_output(context);
+        let managed_disk_customer_key_uri_binding = managed_disk_customer_key_uri_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let node_count_binding = args.node_count.get_output(context).get_inner();
-        let sku_name_binding = args.sku_name.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let node_count_binding_1 = args.node_count.get_output(context);
+        let node_count_binding = node_count_binding_1.get_inner();
+        let sku_name_binding_1 = args.sku_name.get_output(context);
+        let sku_name_binding = sku_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/cassandraDatacenter:CassandraDatacenter".into(),
             name: name.to_string(),

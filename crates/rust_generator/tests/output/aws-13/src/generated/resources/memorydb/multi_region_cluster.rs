@@ -135,26 +135,34 @@ pub mod multi_region_cluster {
     ) -> MultiRegionClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let engine_binding = args.engine.get_output(context).get_inner();
-        let engine_version_binding = args.engine_version.get_output(context).get_inner();
-        let multi_region_cluster_name_suffix_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let engine_binding_1 = args.engine.get_output(context);
+        let engine_binding = engine_binding_1.get_inner();
+        let engine_version_binding_1 = args.engine_version.get_output(context);
+        let engine_version_binding = engine_version_binding_1.get_inner();
+        let multi_region_cluster_name_suffix_binding_1 = args
             .multi_region_cluster_name_suffix
-            .get_output(context)
+            .get_output(context);
+        let multi_region_cluster_name_suffix_binding = multi_region_cluster_name_suffix_binding_1
             .get_inner();
-        let multi_region_parameter_group_name_binding = args
+        let multi_region_parameter_group_name_binding_1 = args
             .multi_region_parameter_group_name
-            .get_output(context)
+            .get_output(context);
+        let multi_region_parameter_group_name_binding = multi_region_parameter_group_name_binding_1
             .get_inner();
-        let node_type_binding = args.node_type.get_output(context).get_inner();
-        let num_shards_binding = args.num_shards.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let timeouts_binding = args.timeouts.get_output(context).get_inner();
-        let tls_enabled_binding = args.tls_enabled.get_output(context).get_inner();
-        let update_strategy_binding = args
-            .update_strategy
-            .get_output(context)
-            .get_inner();
+        let node_type_binding_1 = args.node_type.get_output(context);
+        let node_type_binding = node_type_binding_1.get_inner();
+        let num_shards_binding_1 = args.num_shards.get_output(context);
+        let num_shards_binding = num_shards_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let timeouts_binding_1 = args.timeouts.get_output(context);
+        let timeouts_binding = timeouts_binding_1.get_inner();
+        let tls_enabled_binding_1 = args.tls_enabled.get_output(context);
+        let tls_enabled_binding = tls_enabled_binding_1.get_inner();
+        let update_strategy_binding_1 = args.update_strategy.get_output(context);
+        let update_strategy_binding = update_strategy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:memorydb/multiRegionCluster:MultiRegionCluster".into(),
             name: name.to_string(),

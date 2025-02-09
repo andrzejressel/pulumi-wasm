@@ -138,18 +138,24 @@ pub mod rate_limit {
     ) -> RateLimitResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_output(context).get_inner();
-        let bypass_url_patterns_binding = args
-            .bypass_url_patterns
-            .get_output(context)
-            .get_inner();
-        let correlate_binding = args.correlate.get_output(context).get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let match__binding = args.match_.get_output(context).get_inner();
-        let period_binding = args.period.get_output(context).get_inner();
-        let threshold_binding = args.threshold.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let action_binding_1 = args.action.get_output(context);
+        let action_binding = action_binding_1.get_inner();
+        let bypass_url_patterns_binding_1 = args.bypass_url_patterns.get_output(context);
+        let bypass_url_patterns_binding = bypass_url_patterns_binding_1.get_inner();
+        let correlate_binding_1 = args.correlate.get_output(context);
+        let correlate_binding = correlate_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let match__binding_1 = args.match_.get_output(context);
+        let match__binding = match__binding_1.get_inner();
+        let period_binding_1 = args.period.get_output(context);
+        let period_binding = period_binding_1.get_inner();
+        let threshold_binding_1 = args.threshold.get_output(context);
+        let threshold_binding = threshold_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/rateLimit:RateLimit".into(),
             name: name.to_string(),

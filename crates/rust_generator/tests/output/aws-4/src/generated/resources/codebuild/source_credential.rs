@@ -89,10 +89,14 @@ pub mod source_credential {
     ) -> SourceCredentialResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auth_type_binding = args.auth_type.get_output(context).get_inner();
-        let server_type_binding = args.server_type.get_output(context).get_inner();
-        let token_binding = args.token.get_output(context).get_inner();
-        let user_name_binding = args.user_name.get_output(context).get_inner();
+        let auth_type_binding_1 = args.auth_type.get_output(context);
+        let auth_type_binding = auth_type_binding_1.get_inner();
+        let server_type_binding_1 = args.server_type.get_output(context);
+        let server_type_binding = server_type_binding_1.get_inner();
+        let token_binding_1 = args.token.get_output(context);
+        let token_binding = token_binding_1.get_inner();
+        let user_name_binding_1 = args.user_name.get_output(context);
+        let user_name_binding = user_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codebuild/sourceCredential:SourceCredential".into(),
             name: name.to_string(),

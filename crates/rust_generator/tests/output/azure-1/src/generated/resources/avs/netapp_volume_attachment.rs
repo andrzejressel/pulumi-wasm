@@ -223,15 +223,12 @@ pub mod netapp_volume_attachment {
     ) -> NetappVolumeAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let netapp_volume_id_binding = args
-            .netapp_volume_id
-            .get_output(context)
-            .get_inner();
-        let vmware_cluster_id_binding = args
-            .vmware_cluster_id
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let netapp_volume_id_binding_1 = args.netapp_volume_id.get_output(context);
+        let netapp_volume_id_binding = netapp_volume_id_binding_1.get_inner();
+        let vmware_cluster_id_binding_1 = args.vmware_cluster_id.get_output(context);
+        let vmware_cluster_id_binding = vmware_cluster_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:avs/netappVolumeAttachment:NetappVolumeAttachment".into(),
             name: name.to_string(),

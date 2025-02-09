@@ -29,10 +29,8 @@ pub mod get_organization_service_account {
     ) -> GetOrganizationServiceAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let organization_id_binding = args
-            .organization_id
-            .get_output(context)
-            .get_inner();
+        let organization_id_binding_1 = args.organization_id.get_output(context);
+        let organization_id_binding = organization_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:accessapproval/getOrganizationServiceAccount:getOrganizationServiceAccount"
                 .into(),

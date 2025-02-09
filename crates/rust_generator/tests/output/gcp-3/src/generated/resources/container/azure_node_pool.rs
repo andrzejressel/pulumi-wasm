@@ -232,24 +232,33 @@ pub mod azure_node_pool {
     ) -> AzureNodePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_output(context).get_inner();
-        let autoscaling_binding = args.autoscaling.get_output(context).get_inner();
-        let azure_availability_zone_binding = args
+        let annotations_binding_1 = args.annotations.get_output(context);
+        let annotations_binding = annotations_binding_1.get_inner();
+        let autoscaling_binding_1 = args.autoscaling.get_output(context);
+        let autoscaling_binding = autoscaling_binding_1.get_inner();
+        let azure_availability_zone_binding_1 = args
             .azure_availability_zone
-            .get_output(context)
+            .get_output(context);
+        let azure_availability_zone_binding = azure_availability_zone_binding_1
             .get_inner();
-        let cluster_binding = args.cluster.get_output(context).get_inner();
-        let config_binding = args.config.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let management_binding = args.management.get_output(context).get_inner();
-        let max_pods_constraint_binding = args
-            .max_pods_constraint
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let cluster_binding_1 = args.cluster.get_output(context);
+        let cluster_binding = cluster_binding_1.get_inner();
+        let config_binding_1 = args.config.get_output(context);
+        let config_binding = config_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let management_binding_1 = args.management.get_output(context);
+        let management_binding = management_binding_1.get_inner();
+        let max_pods_constraint_binding_1 = args.max_pods_constraint.get_output(context);
+        let max_pods_constraint_binding = max_pods_constraint_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:container/azureNodePool:AzureNodePool".into(),
             name: name.to_string(),

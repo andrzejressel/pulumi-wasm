@@ -144,18 +144,28 @@ pub mod data_source {
     ) -> DataSourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let credentials_binding = args.credentials.get_output(context).get_inner();
-        let data_source_id_binding = args.data_source_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let parameters_binding = args.parameters.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let ssl_properties_binding = args.ssl_properties.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let vpc_connection_properties_binding = args
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let credentials_binding_1 = args.credentials.get_output(context);
+        let credentials_binding = credentials_binding_1.get_inner();
+        let data_source_id_binding_1 = args.data_source_id.get_output(context);
+        let data_source_id_binding = data_source_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let parameters_binding_1 = args.parameters.get_output(context);
+        let parameters_binding = parameters_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let ssl_properties_binding_1 = args.ssl_properties.get_output(context);
+        let ssl_properties_binding = ssl_properties_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let vpc_connection_properties_binding_1 = args
             .vpc_connection_properties
-            .get_output(context)
+            .get_output(context);
+        let vpc_connection_properties_binding = vpc_connection_properties_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/dataSource:DataSource".into(),

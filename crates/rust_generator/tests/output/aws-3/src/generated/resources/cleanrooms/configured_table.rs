@@ -103,21 +103,18 @@ pub mod configured_table {
     ) -> ConfiguredTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_columns_binding = args
-            .allowed_columns
-            .get_output(context)
-            .get_inner();
-        let analysis_method_binding = args
-            .analysis_method
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let table_reference_binding = args
-            .table_reference
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let allowed_columns_binding_1 = args.allowed_columns.get_output(context);
+        let allowed_columns_binding = allowed_columns_binding_1.get_inner();
+        let analysis_method_binding_1 = args.analysis_method.get_output(context);
+        let analysis_method_binding = analysis_method_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let table_reference_binding_1 = args.table_reference.get_output(context);
+        let table_reference_binding = table_reference_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cleanrooms/configuredTable:ConfiguredTable".into(),
             name: name.to_string(),

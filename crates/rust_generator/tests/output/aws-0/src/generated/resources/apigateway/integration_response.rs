@@ -141,26 +141,22 @@ pub mod integration_response {
     ) -> IntegrationResponseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let content_handling_binding = args
-            .content_handling
-            .get_output(context)
-            .get_inner();
-        let http_method_binding = args.http_method.get_output(context).get_inner();
-        let resource_id_binding = args.resource_id.get_output(context).get_inner();
-        let response_parameters_binding = args
-            .response_parameters
-            .get_output(context)
-            .get_inner();
-        let response_templates_binding = args
-            .response_templates
-            .get_output(context)
-            .get_inner();
-        let rest_api_binding = args.rest_api.get_output(context).get_inner();
-        let selection_pattern_binding = args
-            .selection_pattern
-            .get_output(context)
-            .get_inner();
-        let status_code_binding = args.status_code.get_output(context).get_inner();
+        let content_handling_binding_1 = args.content_handling.get_output(context);
+        let content_handling_binding = content_handling_binding_1.get_inner();
+        let http_method_binding_1 = args.http_method.get_output(context);
+        let http_method_binding = http_method_binding_1.get_inner();
+        let resource_id_binding_1 = args.resource_id.get_output(context);
+        let resource_id_binding = resource_id_binding_1.get_inner();
+        let response_parameters_binding_1 = args.response_parameters.get_output(context);
+        let response_parameters_binding = response_parameters_binding_1.get_inner();
+        let response_templates_binding_1 = args.response_templates.get_output(context);
+        let response_templates_binding = response_templates_binding_1.get_inner();
+        let rest_api_binding_1 = args.rest_api.get_output(context);
+        let rest_api_binding = rest_api_binding_1.get_inner();
+        let selection_pattern_binding_1 = args.selection_pattern.get_output(context);
+        let selection_pattern_binding = selection_pattern_binding_1.get_inner();
+        let status_code_binding_1 = args.status_code.get_output(context);
+        let status_code_binding = status_code_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/integrationResponse:IntegrationResponse".into(),
             name: name.to_string(),

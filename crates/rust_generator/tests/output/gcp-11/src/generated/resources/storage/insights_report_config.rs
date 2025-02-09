@@ -162,18 +162,21 @@ pub mod insights_report_config {
     ) -> InsightsReportConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let csv_options_binding = args.csv_options.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let frequency_options_binding = args
-            .frequency_options
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let object_metadata_report_options_binding = args
+        let csv_options_binding_1 = args.csv_options.get_output(context);
+        let csv_options_binding = csv_options_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let frequency_options_binding_1 = args.frequency_options.get_output(context);
+        let frequency_options_binding = frequency_options_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let object_metadata_report_options_binding_1 = args
             .object_metadata_report_options
-            .get_output(context)
+            .get_output(context);
+        let object_metadata_report_options_binding = object_metadata_report_options_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/insightsReportConfig:InsightsReportConfig".into(),
             name: name.to_string(),

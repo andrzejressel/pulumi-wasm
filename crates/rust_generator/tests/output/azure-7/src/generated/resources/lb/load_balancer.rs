@@ -126,20 +126,25 @@ pub mod load_balancer {
     ) -> LoadBalancerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let edge_zone_binding = args.edge_zone.get_output(context).get_inner();
-        let frontend_ip_configurations_binding = args
+        let edge_zone_binding_1 = args.edge_zone.get_output(context);
+        let edge_zone_binding = edge_zone_binding_1.get_inner();
+        let frontend_ip_configurations_binding_1 = args
             .frontend_ip_configurations
-            .get_output(context)
+            .get_output(context);
+        let frontend_ip_configurations_binding = frontend_ip_configurations_binding_1
             .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let sku_tier_binding = args.sku_tier.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let sku_tier_binding_1 = args.sku_tier.get_output(context);
+        let sku_tier_binding = sku_tier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:lb/loadBalancer:LoadBalancer".into(),
             name: name.to_string(),

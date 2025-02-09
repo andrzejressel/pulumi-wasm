@@ -283,72 +283,76 @@ pub mod instance {
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_version_binding = args.agent_version.get_output(context).get_inner();
-        let ami_id_binding = args.ami_id.get_output(context).get_inner();
-        let architecture_binding = args.architecture.get_output(context).get_inner();
-        let auto_scaling_type_binding = args
-            .auto_scaling_type
-            .get_output(context)
-            .get_inner();
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let created_at_binding = args.created_at.get_output(context).get_inner();
-        let delete_ebs_binding = args.delete_ebs.get_output(context).get_inner();
-        let delete_eip_binding = args.delete_eip.get_output(context).get_inner();
-        let ebs_block_devices_binding = args
-            .ebs_block_devices
-            .get_output(context)
-            .get_inner();
-        let ebs_optimized_binding = args.ebs_optimized.get_output(context).get_inner();
-        let ecs_cluster_arn_binding = args
-            .ecs_cluster_arn
-            .get_output(context)
-            .get_inner();
-        let elastic_ip_binding = args.elastic_ip.get_output(context).get_inner();
-        let ephemeral_block_devices_binding = args
+        let agent_version_binding_1 = args.agent_version.get_output(context);
+        let agent_version_binding = agent_version_binding_1.get_inner();
+        let ami_id_binding_1 = args.ami_id.get_output(context);
+        let ami_id_binding = ami_id_binding_1.get_inner();
+        let architecture_binding_1 = args.architecture.get_output(context);
+        let architecture_binding = architecture_binding_1.get_inner();
+        let auto_scaling_type_binding_1 = args.auto_scaling_type.get_output(context);
+        let auto_scaling_type_binding = auto_scaling_type_binding_1.get_inner();
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let created_at_binding_1 = args.created_at.get_output(context);
+        let created_at_binding = created_at_binding_1.get_inner();
+        let delete_ebs_binding_1 = args.delete_ebs.get_output(context);
+        let delete_ebs_binding = delete_ebs_binding_1.get_inner();
+        let delete_eip_binding_1 = args.delete_eip.get_output(context);
+        let delete_eip_binding = delete_eip_binding_1.get_inner();
+        let ebs_block_devices_binding_1 = args.ebs_block_devices.get_output(context);
+        let ebs_block_devices_binding = ebs_block_devices_binding_1.get_inner();
+        let ebs_optimized_binding_1 = args.ebs_optimized.get_output(context);
+        let ebs_optimized_binding = ebs_optimized_binding_1.get_inner();
+        let ecs_cluster_arn_binding_1 = args.ecs_cluster_arn.get_output(context);
+        let ecs_cluster_arn_binding = ecs_cluster_arn_binding_1.get_inner();
+        let elastic_ip_binding_1 = args.elastic_ip.get_output(context);
+        let elastic_ip_binding = elastic_ip_binding_1.get_inner();
+        let ephemeral_block_devices_binding_1 = args
             .ephemeral_block_devices
-            .get_output(context)
+            .get_output(context);
+        let ephemeral_block_devices_binding = ephemeral_block_devices_binding_1
             .get_inner();
-        let hostname_binding = args.hostname.get_output(context).get_inner();
-        let infrastructure_class_binding = args
+        let hostname_binding_1 = args.hostname.get_output(context);
+        let hostname_binding = hostname_binding_1.get_inner();
+        let infrastructure_class_binding_1 = args
             .infrastructure_class
-            .get_output(context)
-            .get_inner();
-        let install_updates_on_boot_binding = args
+            .get_output(context);
+        let infrastructure_class_binding = infrastructure_class_binding_1.get_inner();
+        let install_updates_on_boot_binding_1 = args
             .install_updates_on_boot
-            .get_output(context)
+            .get_output(context);
+        let install_updates_on_boot_binding = install_updates_on_boot_binding_1
             .get_inner();
-        let instance_profile_arn_binding = args
+        let instance_profile_arn_binding_1 = args
             .instance_profile_arn
-            .get_output(context)
-            .get_inner();
-        let instance_type_binding = args.instance_type.get_output(context).get_inner();
-        let layer_ids_binding = args.layer_ids.get_output(context).get_inner();
-        let os_binding = args.os.get_output(context).get_inner();
-        let root_block_devices_binding = args
-            .root_block_devices
-            .get_output(context)
-            .get_inner();
-        let root_device_type_binding = args
-            .root_device_type
-            .get_output(context)
-            .get_inner();
-        let security_group_ids_binding = args
-            .security_group_ids
-            .get_output(context)
-            .get_inner();
-        let ssh_key_name_binding = args.ssh_key_name.get_output(context).get_inner();
-        let stack_id_binding = args.stack_id.get_output(context).get_inner();
-        let state_binding = args.state.get_output(context).get_inner();
-        let status_binding = args.status.get_output(context).get_inner();
-        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
-        let tenancy_binding = args.tenancy.get_output(context).get_inner();
-        let virtualization_type_binding = args
-            .virtualization_type
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let instance_profile_arn_binding = instance_profile_arn_binding_1.get_inner();
+        let instance_type_binding_1 = args.instance_type.get_output(context);
+        let instance_type_binding = instance_type_binding_1.get_inner();
+        let layer_ids_binding_1 = args.layer_ids.get_output(context);
+        let layer_ids_binding = layer_ids_binding_1.get_inner();
+        let os_binding_1 = args.os.get_output(context);
+        let os_binding = os_binding_1.get_inner();
+        let root_block_devices_binding_1 = args.root_block_devices.get_output(context);
+        let root_block_devices_binding = root_block_devices_binding_1.get_inner();
+        let root_device_type_binding_1 = args.root_device_type.get_output(context);
+        let root_device_type_binding = root_device_type_binding_1.get_inner();
+        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
+        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
+        let ssh_key_name_binding_1 = args.ssh_key_name.get_output(context);
+        let ssh_key_name_binding = ssh_key_name_binding_1.get_inner();
+        let stack_id_binding_1 = args.stack_id.get_output(context);
+        let stack_id_binding = stack_id_binding_1.get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
+        let status_binding_1 = args.status.get_output(context);
+        let status_binding = status_binding_1.get_inner();
+        let subnet_id_binding_1 = args.subnet_id.get_output(context);
+        let subnet_id_binding = subnet_id_binding_1.get_inner();
+        let tenancy_binding_1 = args.tenancy.get_output(context);
+        let tenancy_binding = tenancy_binding_1.get_inner();
+        let virtualization_type_binding_1 = args.virtualization_type.get_output(context);
+        let virtualization_type_binding = virtualization_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opsworks/instance:Instance".into(),
             name: name.to_string(),

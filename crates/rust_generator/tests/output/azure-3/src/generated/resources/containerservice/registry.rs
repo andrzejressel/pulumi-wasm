@@ -281,60 +281,67 @@ pub mod registry {
     ) -> RegistryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_enabled_binding = args.admin_enabled.get_output(context).get_inner();
-        let anonymous_pull_enabled_binding = args
+        let admin_enabled_binding_1 = args.admin_enabled.get_output(context);
+        let admin_enabled_binding = admin_enabled_binding_1.get_inner();
+        let anonymous_pull_enabled_binding_1 = args
             .anonymous_pull_enabled
-            .get_output(context)
+            .get_output(context);
+        let anonymous_pull_enabled_binding = anonymous_pull_enabled_binding_1
             .get_inner();
-        let data_endpoint_enabled_binding = args
+        let data_endpoint_enabled_binding_1 = args
             .data_endpoint_enabled
-            .get_output(context)
-            .get_inner();
-        let encryption_binding = args.encryption.get_output(context).get_inner();
-        let export_policy_enabled_binding = args
+            .get_output(context);
+        let data_endpoint_enabled_binding = data_endpoint_enabled_binding_1.get_inner();
+        let encryption_binding_1 = args.encryption.get_output(context);
+        let encryption_binding = encryption_binding_1.get_inner();
+        let export_policy_enabled_binding_1 = args
             .export_policy_enabled
-            .get_output(context)
-            .get_inner();
-        let georeplications_binding = args
-            .georeplications
-            .get_output(context)
-            .get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_rule_bypass_option_binding = args
+            .get_output(context);
+        let export_policy_enabled_binding = export_policy_enabled_binding_1.get_inner();
+        let georeplications_binding_1 = args.georeplications.get_output(context);
+        let georeplications_binding = georeplications_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_rule_bypass_option_binding_1 = args
             .network_rule_bypass_option
-            .get_output(context)
+            .get_output(context);
+        let network_rule_bypass_option_binding = network_rule_bypass_option_binding_1
             .get_inner();
-        let network_rule_set_binding = args
-            .network_rule_set
-            .get_output(context)
-            .get_inner();
-        let public_network_access_enabled_binding = args
+        let network_rule_set_binding_1 = args.network_rule_set.get_output(context);
+        let network_rule_set_binding = network_rule_set_binding_1.get_inner();
+        let public_network_access_enabled_binding_1 = args
             .public_network_access_enabled
-            .get_output(context)
+            .get_output(context);
+        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
             .get_inner();
-        let quarantine_policy_enabled_binding = args
+        let quarantine_policy_enabled_binding_1 = args
             .quarantine_policy_enabled
-            .get_output(context)
+            .get_output(context);
+        let quarantine_policy_enabled_binding = quarantine_policy_enabled_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let retention_policy_in_days_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let retention_policy_in_days_binding_1 = args
             .retention_policy_in_days
-            .get_output(context)
+            .get_output(context);
+        let retention_policy_in_days_binding = retention_policy_in_days_binding_1
             .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let trust_policy_enabled_binding = args
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let trust_policy_enabled_binding_1 = args
             .trust_policy_enabled
-            .get_output(context)
-            .get_inner();
-        let zone_redundancy_enabled_binding = args
+            .get_output(context);
+        let trust_policy_enabled_binding = trust_policy_enabled_binding_1.get_inner();
+        let zone_redundancy_enabled_binding_1 = args
             .zone_redundancy_enabled
-            .get_output(context)
+            .get_output(context);
+        let zone_redundancy_enabled_binding = zone_redundancy_enabled_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/registry:Registry".into(),

@@ -134,17 +134,22 @@ pub mod theme {
     ) -> ThemeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let base_theme_id_binding = args.base_theme_id.get_output(context).get_inner();
-        let configuration_binding = args.configuration.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let theme_id_binding = args.theme_id.get_output(context).get_inner();
-        let version_description_binding = args
-            .version_description
-            .get_output(context)
-            .get_inner();
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let base_theme_id_binding_1 = args.base_theme_id.get_output(context);
+        let base_theme_id_binding = base_theme_id_binding_1.get_inner();
+        let configuration_binding_1 = args.configuration.get_output(context);
+        let configuration_binding = configuration_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let theme_id_binding_1 = args.theme_id.get_output(context);
+        let theme_id_binding = theme_id_binding_1.get_inner();
+        let version_description_binding_1 = args.version_description.get_output(context);
+        let version_description_binding = version_description_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/theme:Theme".into(),
             name: name.to_string(),

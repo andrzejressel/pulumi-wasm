@@ -132,18 +132,19 @@ pub mod network_interface_backend_address_pool_association {
     ) -> NetworkInterfaceBackendAddressPoolAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backend_address_pool_id_binding = args
+        let backend_address_pool_id_binding_1 = args
             .backend_address_pool_id
-            .get_output(context)
+            .get_output(context);
+        let backend_address_pool_id_binding = backend_address_pool_id_binding_1
             .get_inner();
-        let ip_configuration_name_binding = args
+        let ip_configuration_name_binding_1 = args
             .ip_configuration_name
-            .get_output(context)
-            .get_inner();
-        let network_interface_id_binding = args
+            .get_output(context);
+        let ip_configuration_name_binding = ip_configuration_name_binding_1.get_inner();
+        let network_interface_id_binding_1 = args
             .network_interface_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation"
                 .into(),

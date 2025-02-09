@@ -113,28 +113,30 @@ pub mod container {
     ) -> ContainerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_access_type_binding = args
+        let container_access_type_binding_1 = args
             .container_access_type
-            .get_output(context)
-            .get_inner();
-        let default_encryption_scope_binding = args
+            .get_output(context);
+        let container_access_type_binding = container_access_type_binding_1.get_inner();
+        let default_encryption_scope_binding_1 = args
             .default_encryption_scope
-            .get_output(context)
+            .get_output(context);
+        let default_encryption_scope_binding = default_encryption_scope_binding_1
             .get_inner();
-        let encryption_scope_override_enabled_binding = args
+        let encryption_scope_override_enabled_binding_1 = args
             .encryption_scope_override_enabled
-            .get_output(context)
+            .get_output(context);
+        let encryption_scope_override_enabled_binding = encryption_scope_override_enabled_binding_1
             .get_inner();
-        let metadata_binding = args.metadata.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
-        let storage_account_name_binding = args
+        let metadata_binding_1 = args.metadata.get_output(context);
+        let metadata_binding = metadata_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
+        let storage_account_name_binding_1 = args
             .storage_account_name
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let storage_account_name_binding = storage_account_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/container:Container".into(),
             name: name.to_string(),

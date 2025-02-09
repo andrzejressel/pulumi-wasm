@@ -26,8 +26,10 @@ pub mod func_with_secrets {
     ) -> FuncWithSecretsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let crypto_key_binding = args.crypto_key.get_output(context).get_inner();
-        let plaintext_binding = args.plaintext.get_output(context).get_inner();
+        let crypto_key_binding_1 = args.crypto_key.get_output(context);
+        let crypto_key_binding = crypto_key_binding_1.get_inner();
+        let plaintext_binding_1 = args.plaintext.get_output(context);
+        let plaintext_binding = plaintext_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "mypkg::funcWithSecrets".into(),
             version: super::super::get_version(),

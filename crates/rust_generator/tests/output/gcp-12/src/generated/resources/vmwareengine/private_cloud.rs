@@ -211,24 +211,29 @@ pub mod private_cloud {
     ) -> PrivateCloudResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_delay_hours_binding = args
+        let deletion_delay_hours_binding_1 = args
             .deletion_delay_hours
-            .get_output(context)
-            .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let management_cluster_binding = args
-            .management_cluster
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_config_binding = args.network_config.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let send_deletion_delay_hours_if_zero_binding = args
+            .get_output(context);
+        let deletion_delay_hours_binding = deletion_delay_hours_binding_1.get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let management_cluster_binding_1 = args.management_cluster.get_output(context);
+        let management_cluster_binding = management_cluster_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_config_binding_1 = args.network_config.get_output(context);
+        let network_config_binding = network_config_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let send_deletion_delay_hours_if_zero_binding_1 = args
             .send_deletion_delay_hours_if_zero
-            .get_output(context)
+            .get_output(context);
+        let send_deletion_delay_hours_if_zero_binding = send_deletion_delay_hours_if_zero_binding_1
             .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vmwareengine/privateCloud:PrivateCloud".into(),
             name: name.to_string(),

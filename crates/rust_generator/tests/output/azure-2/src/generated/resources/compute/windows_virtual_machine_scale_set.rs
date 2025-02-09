@@ -596,142 +596,168 @@ pub mod windows_virtual_machine_scale_set {
     ) -> WindowsVirtualMachineScaleSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_capabilities_binding = args
+        let additional_capabilities_binding_1 = args
             .additional_capabilities
-            .get_output(context)
+            .get_output(context);
+        let additional_capabilities_binding = additional_capabilities_binding_1
             .get_inner();
-        let additional_unattend_contents_binding = args
+        let additional_unattend_contents_binding_1 = args
             .additional_unattend_contents
-            .get_output(context)
+            .get_output(context);
+        let additional_unattend_contents_binding = additional_unattend_contents_binding_1
             .get_inner();
-        let admin_password_binding = args.admin_password.get_output(context).get_inner();
-        let admin_username_binding = args.admin_username.get_output(context).get_inner();
-        let automatic_instance_repair_binding = args
+        let admin_password_binding_1 = args.admin_password.get_output(context);
+        let admin_password_binding = admin_password_binding_1.get_inner();
+        let admin_username_binding_1 = args.admin_username.get_output(context);
+        let admin_username_binding = admin_username_binding_1.get_inner();
+        let automatic_instance_repair_binding_1 = args
             .automatic_instance_repair
-            .get_output(context)
+            .get_output(context);
+        let automatic_instance_repair_binding = automatic_instance_repair_binding_1
             .get_inner();
-        let automatic_os_upgrade_policy_binding = args
+        let automatic_os_upgrade_policy_binding_1 = args
             .automatic_os_upgrade_policy
-            .get_output(context)
+            .get_output(context);
+        let automatic_os_upgrade_policy_binding = automatic_os_upgrade_policy_binding_1
             .get_inner();
-        let boot_diagnostics_binding = args
-            .boot_diagnostics
-            .get_output(context)
-            .get_inner();
-        let capacity_reservation_group_id_binding = args
+        let boot_diagnostics_binding_1 = args.boot_diagnostics.get_output(context);
+        let boot_diagnostics_binding = boot_diagnostics_binding_1.get_inner();
+        let capacity_reservation_group_id_binding_1 = args
             .capacity_reservation_group_id
-            .get_output(context)
+            .get_output(context);
+        let capacity_reservation_group_id_binding = capacity_reservation_group_id_binding_1
             .get_inner();
-        let computer_name_prefix_binding = args
+        let computer_name_prefix_binding_1 = args
             .computer_name_prefix
-            .get_output(context)
-            .get_inner();
-        let custom_data_binding = args.custom_data.get_output(context).get_inner();
-        let data_disks_binding = args.data_disks.get_output(context).get_inner();
-        let do_not_run_extensions_on_overprovisioned_machines_binding = args
+            .get_output(context);
+        let computer_name_prefix_binding = computer_name_prefix_binding_1.get_inner();
+        let custom_data_binding_1 = args.custom_data.get_output(context);
+        let custom_data_binding = custom_data_binding_1.get_inner();
+        let data_disks_binding_1 = args.data_disks.get_output(context);
+        let data_disks_binding = data_disks_binding_1.get_inner();
+        let do_not_run_extensions_on_overprovisioned_machines_binding_1 = args
             .do_not_run_extensions_on_overprovisioned_machines
-            .get_output(context)
+            .get_output(context);
+        let do_not_run_extensions_on_overprovisioned_machines_binding = do_not_run_extensions_on_overprovisioned_machines_binding_1
             .get_inner();
-        let edge_zone_binding = args.edge_zone.get_output(context).get_inner();
-        let enable_automatic_updates_binding = args
+        let edge_zone_binding_1 = args.edge_zone.get_output(context);
+        let edge_zone_binding = edge_zone_binding_1.get_inner();
+        let enable_automatic_updates_binding_1 = args
             .enable_automatic_updates
-            .get_output(context)
+            .get_output(context);
+        let enable_automatic_updates_binding = enable_automatic_updates_binding_1
             .get_inner();
-        let encryption_at_host_enabled_binding = args
+        let encryption_at_host_enabled_binding_1 = args
             .encryption_at_host_enabled
-            .get_output(context)
+            .get_output(context);
+        let encryption_at_host_enabled_binding = encryption_at_host_enabled_binding_1
             .get_inner();
-        let eviction_policy_binding = args
-            .eviction_policy
-            .get_output(context)
-            .get_inner();
-        let extension_operations_enabled_binding = args
+        let eviction_policy_binding_1 = args.eviction_policy.get_output(context);
+        let eviction_policy_binding = eviction_policy_binding_1.get_inner();
+        let extension_operations_enabled_binding_1 = args
             .extension_operations_enabled
-            .get_output(context)
+            .get_output(context);
+        let extension_operations_enabled_binding = extension_operations_enabled_binding_1
             .get_inner();
-        let extensions_binding = args.extensions.get_output(context).get_inner();
-        let extensions_time_budget_binding = args
+        let extensions_binding_1 = args.extensions.get_output(context);
+        let extensions_binding = extensions_binding_1.get_inner();
+        let extensions_time_budget_binding_1 = args
             .extensions_time_budget
-            .get_output(context)
+            .get_output(context);
+        let extensions_time_budget_binding = extensions_time_budget_binding_1
             .get_inner();
-        let gallery_applications_binding = args
+        let gallery_applications_binding_1 = args
             .gallery_applications
-            .get_output(context)
-            .get_inner();
-        let health_probe_id_binding = args
-            .health_probe_id
-            .get_output(context)
-            .get_inner();
-        let host_group_id_binding = args.host_group_id.get_output(context).get_inner();
-        let identity_binding = args.identity.get_output(context).get_inner();
-        let instances_binding = args.instances.get_output(context).get_inner();
-        let license_type_binding = args.license_type.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let max_bid_price_binding = args.max_bid_price.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let network_interfaces_binding = args
-            .network_interfaces
-            .get_output(context)
-            .get_inner();
-        let os_disk_binding = args.os_disk.get_output(context).get_inner();
-        let overprovision_binding = args.overprovision.get_output(context).get_inner();
-        let plan_binding = args.plan.get_output(context).get_inner();
-        let platform_fault_domain_count_binding = args
+            .get_output(context);
+        let gallery_applications_binding = gallery_applications_binding_1.get_inner();
+        let health_probe_id_binding_1 = args.health_probe_id.get_output(context);
+        let health_probe_id_binding = health_probe_id_binding_1.get_inner();
+        let host_group_id_binding_1 = args.host_group_id.get_output(context);
+        let host_group_id_binding = host_group_id_binding_1.get_inner();
+        let identity_binding_1 = args.identity.get_output(context);
+        let identity_binding = identity_binding_1.get_inner();
+        let instances_binding_1 = args.instances.get_output(context);
+        let instances_binding = instances_binding_1.get_inner();
+        let license_type_binding_1 = args.license_type.get_output(context);
+        let license_type_binding = license_type_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let max_bid_price_binding_1 = args.max_bid_price.get_output(context);
+        let max_bid_price_binding = max_bid_price_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let network_interfaces_binding_1 = args.network_interfaces.get_output(context);
+        let network_interfaces_binding = network_interfaces_binding_1.get_inner();
+        let os_disk_binding_1 = args.os_disk.get_output(context);
+        let os_disk_binding = os_disk_binding_1.get_inner();
+        let overprovision_binding_1 = args.overprovision.get_output(context);
+        let overprovision_binding = overprovision_binding_1.get_inner();
+        let plan_binding_1 = args.plan.get_output(context);
+        let plan_binding = plan_binding_1.get_inner();
+        let platform_fault_domain_count_binding_1 = args
             .platform_fault_domain_count
-            .get_output(context)
+            .get_output(context);
+        let platform_fault_domain_count_binding = platform_fault_domain_count_binding_1
             .get_inner();
-        let priority_binding = args.priority.get_output(context).get_inner();
-        let provision_vm_agent_binding = args
-            .provision_vm_agent
-            .get_output(context)
-            .get_inner();
-        let proximity_placement_group_id_binding = args
+        let priority_binding_1 = args.priority.get_output(context);
+        let priority_binding = priority_binding_1.get_inner();
+        let provision_vm_agent_binding_1 = args.provision_vm_agent.get_output(context);
+        let provision_vm_agent_binding = provision_vm_agent_binding_1.get_inner();
+        let proximity_placement_group_id_binding_1 = args
             .proximity_placement_group_id
-            .get_output(context)
+            .get_output(context);
+        let proximity_placement_group_id_binding = proximity_placement_group_id_binding_1
             .get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let rolling_upgrade_policy_binding = args
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let rolling_upgrade_policy_binding_1 = args
             .rolling_upgrade_policy
-            .get_output(context)
+            .get_output(context);
+        let rolling_upgrade_policy_binding = rolling_upgrade_policy_binding_1
             .get_inner();
-        let scale_in_binding = args.scale_in.get_output(context).get_inner();
-        let secrets_binding = args.secrets.get_output(context).get_inner();
-        let secure_boot_enabled_binding = args
-            .secure_boot_enabled
-            .get_output(context)
-            .get_inner();
-        let single_placement_group_binding = args
+        let scale_in_binding_1 = args.scale_in.get_output(context);
+        let scale_in_binding = scale_in_binding_1.get_inner();
+        let secrets_binding_1 = args.secrets.get_output(context);
+        let secrets_binding = secrets_binding_1.get_inner();
+        let secure_boot_enabled_binding_1 = args.secure_boot_enabled.get_output(context);
+        let secure_boot_enabled_binding = secure_boot_enabled_binding_1.get_inner();
+        let single_placement_group_binding_1 = args
             .single_placement_group
-            .get_output(context)
+            .get_output(context);
+        let single_placement_group_binding = single_placement_group_binding_1
             .get_inner();
-        let sku_binding = args.sku.get_output(context).get_inner();
-        let source_image_id_binding = args
-            .source_image_id
-            .get_output(context)
-            .get_inner();
-        let source_image_reference_binding = args
+        let sku_binding_1 = args.sku.get_output(context);
+        let sku_binding = sku_binding_1.get_inner();
+        let source_image_id_binding_1 = args.source_image_id.get_output(context);
+        let source_image_id_binding = source_image_id_binding_1.get_inner();
+        let source_image_reference_binding_1 = args
             .source_image_reference
-            .get_output(context)
+            .get_output(context);
+        let source_image_reference_binding = source_image_reference_binding_1
             .get_inner();
-        let spot_restore_binding = args.spot_restore.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let termination_notification_binding = args
+        let spot_restore_binding_1 = args.spot_restore.get_output(context);
+        let spot_restore_binding = spot_restore_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let termination_notification_binding_1 = args
             .termination_notification
-            .get_output(context)
+            .get_output(context);
+        let termination_notification_binding = termination_notification_binding_1
             .get_inner();
-        let timezone_binding = args.timezone.get_output(context).get_inner();
-        let upgrade_mode_binding = args.upgrade_mode.get_output(context).get_inner();
-        let user_data_binding = args.user_data.get_output(context).get_inner();
-        let vtpm_enabled_binding = args.vtpm_enabled.get_output(context).get_inner();
-        let winrm_listeners_binding = args
-            .winrm_listeners
-            .get_output(context)
-            .get_inner();
-        let zone_balance_binding = args.zone_balance.get_output(context).get_inner();
-        let zones_binding = args.zones.get_output(context).get_inner();
+        let timezone_binding_1 = args.timezone.get_output(context);
+        let timezone_binding = timezone_binding_1.get_inner();
+        let upgrade_mode_binding_1 = args.upgrade_mode.get_output(context);
+        let upgrade_mode_binding = upgrade_mode_binding_1.get_inner();
+        let user_data_binding_1 = args.user_data.get_output(context);
+        let user_data_binding = user_data_binding_1.get_inner();
+        let vtpm_enabled_binding_1 = args.vtpm_enabled.get_output(context);
+        let vtpm_enabled_binding = vtpm_enabled_binding_1.get_inner();
+        let winrm_listeners_binding_1 = args.winrm_listeners.get_output(context);
+        let winrm_listeners_binding = winrm_listeners_binding_1.get_inner();
+        let zone_balance_binding_1 = args.zone_balance.get_output(context);
+        let zone_balance_binding = zone_balance_binding_1.get_inner();
+        let zones_binding_1 = args.zones.get_output(context);
+        let zones_binding = zones_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet"
                 .into(),

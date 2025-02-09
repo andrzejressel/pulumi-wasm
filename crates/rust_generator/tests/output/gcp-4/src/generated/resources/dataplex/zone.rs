@@ -164,16 +164,26 @@ pub mod zone {
     ) -> ZoneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let discovery_spec_binding = args.discovery_spec.get_output(context).get_inner();
-        let display_name_binding = args.display_name.get_output(context).get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let lake_binding = args.lake.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let resource_spec_binding = args.resource_spec.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let discovery_spec_binding_1 = args.discovery_spec.get_output(context);
+        let discovery_spec_binding = discovery_spec_binding_1.get_inner();
+        let display_name_binding_1 = args.display_name.get_output(context);
+        let display_name_binding = display_name_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let lake_binding_1 = args.lake.get_output(context);
+        let lake_binding = lake_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let resource_spec_binding_1 = args.resource_spec.get_output(context);
+        let resource_spec_binding = resource_spec_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataplex/zone:Zone".into(),
             name: name.to_string(),

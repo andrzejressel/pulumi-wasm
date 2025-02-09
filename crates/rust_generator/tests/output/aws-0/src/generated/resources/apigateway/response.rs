@@ -81,17 +81,16 @@ pub mod response {
     ) -> ResponseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let response_parameters_binding = args
-            .response_parameters
-            .get_output(context)
-            .get_inner();
-        let response_templates_binding = args
-            .response_templates
-            .get_output(context)
-            .get_inner();
-        let response_type_binding = args.response_type.get_output(context).get_inner();
-        let rest_api_id_binding = args.rest_api_id.get_output(context).get_inner();
-        let status_code_binding = args.status_code.get_output(context).get_inner();
+        let response_parameters_binding_1 = args.response_parameters.get_output(context);
+        let response_parameters_binding = response_parameters_binding_1.get_inner();
+        let response_templates_binding_1 = args.response_templates.get_output(context);
+        let response_templates_binding = response_templates_binding_1.get_inner();
+        let response_type_binding_1 = args.response_type.get_output(context);
+        let response_type_binding = response_type_binding_1.get_inner();
+        let rest_api_id_binding_1 = args.rest_api_id.get_output(context);
+        let rest_api_id_binding = rest_api_id_binding_1.get_inner();
+        let status_code_binding_1 = args.status_code.get_output(context);
+        let status_code_binding = status_code_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/response:Response".into(),
             name: name.to_string(),

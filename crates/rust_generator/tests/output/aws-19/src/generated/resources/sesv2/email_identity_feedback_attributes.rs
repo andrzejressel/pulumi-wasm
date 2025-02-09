@@ -61,11 +61,13 @@ pub mod email_identity_feedback_attributes {
     ) -> EmailIdentityFeedbackAttributesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let email_forwarding_enabled_binding = args
+        let email_forwarding_enabled_binding_1 = args
             .email_forwarding_enabled
-            .get_output(context)
+            .get_output(context);
+        let email_forwarding_enabled_binding = email_forwarding_enabled_binding_1
             .get_inner();
-        let email_identity_binding = args.email_identity.get_output(context).get_inner();
+        let email_identity_binding_1 = args.email_identity.get_output(context);
+        let email_identity_binding = email_identity_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes"
                 .into(),

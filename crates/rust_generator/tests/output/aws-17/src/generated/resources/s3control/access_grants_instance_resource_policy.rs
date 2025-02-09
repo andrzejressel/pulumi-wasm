@@ -59,8 +59,10 @@ pub mod access_grants_instance_resource_policy {
     ) -> AccessGrantsInstanceResourcePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy"
                 .into(),

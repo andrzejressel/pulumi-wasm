@@ -451,22 +451,26 @@ pub mod batch {
     ) -> BatchResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let batch_id_binding = args.batch_id.get_output(context).get_inner();
-        let environment_config_binding = args
-            .environment_config
-            .get_output(context)
-            .get_inner();
-        let labels_binding = args.labels.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let pyspark_batch_binding = args.pyspark_batch.get_output(context).get_inner();
-        let runtime_config_binding = args.runtime_config.get_output(context).get_inner();
-        let spark_batch_binding = args.spark_batch.get_output(context).get_inner();
-        let spark_r_batch_binding = args.spark_r_batch.get_output(context).get_inner();
-        let spark_sql_batch_binding = args
-            .spark_sql_batch
-            .get_output(context)
-            .get_inner();
+        let batch_id_binding_1 = args.batch_id.get_output(context);
+        let batch_id_binding = batch_id_binding_1.get_inner();
+        let environment_config_binding_1 = args.environment_config.get_output(context);
+        let environment_config_binding = environment_config_binding_1.get_inner();
+        let labels_binding_1 = args.labels.get_output(context);
+        let labels_binding = labels_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let pyspark_batch_binding_1 = args.pyspark_batch.get_output(context);
+        let pyspark_batch_binding = pyspark_batch_binding_1.get_inner();
+        let runtime_config_binding_1 = args.runtime_config.get_output(context);
+        let runtime_config_binding = runtime_config_binding_1.get_inner();
+        let spark_batch_binding_1 = args.spark_batch.get_output(context);
+        let spark_batch_binding = spark_batch_binding_1.get_inner();
+        let spark_r_batch_binding_1 = args.spark_r_batch.get_output(context);
+        let spark_r_batch_binding = spark_r_batch_binding_1.get_inner();
+        let spark_sql_batch_binding_1 = args.spark_sql_batch.get_output(context);
+        let spark_sql_batch_binding = spark_sql_batch_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/batch:Batch".into(),
             name: name.to_string(),

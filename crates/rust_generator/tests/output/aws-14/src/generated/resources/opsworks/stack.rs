@@ -189,67 +189,75 @@ pub mod stack {
     ) -> StackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_version_binding = args.agent_version.get_output(context).get_inner();
-        let berkshelf_version_binding = args
-            .berkshelf_version
-            .get_output(context)
-            .get_inner();
-        let color_binding = args.color.get_output(context).get_inner();
-        let configuration_manager_name_binding = args
+        let agent_version_binding_1 = args.agent_version.get_output(context);
+        let agent_version_binding = agent_version_binding_1.get_inner();
+        let berkshelf_version_binding_1 = args.berkshelf_version.get_output(context);
+        let berkshelf_version_binding = berkshelf_version_binding_1.get_inner();
+        let color_binding_1 = args.color.get_output(context);
+        let color_binding = color_binding_1.get_inner();
+        let configuration_manager_name_binding_1 = args
             .configuration_manager_name
-            .get_output(context)
+            .get_output(context);
+        let configuration_manager_name_binding = configuration_manager_name_binding_1
             .get_inner();
-        let configuration_manager_version_binding = args
+        let configuration_manager_version_binding_1 = args
             .configuration_manager_version
-            .get_output(context)
+            .get_output(context);
+        let configuration_manager_version_binding = configuration_manager_version_binding_1
             .get_inner();
-        let custom_cookbooks_sources_binding = args
+        let custom_cookbooks_sources_binding_1 = args
             .custom_cookbooks_sources
-            .get_output(context)
+            .get_output(context);
+        let custom_cookbooks_sources_binding = custom_cookbooks_sources_binding_1
             .get_inner();
-        let custom_json_binding = args.custom_json.get_output(context).get_inner();
-        let default_availability_zone_binding = args
+        let custom_json_binding_1 = args.custom_json.get_output(context);
+        let custom_json_binding = custom_json_binding_1.get_inner();
+        let default_availability_zone_binding_1 = args
             .default_availability_zone
-            .get_output(context)
+            .get_output(context);
+        let default_availability_zone_binding = default_availability_zone_binding_1
             .get_inner();
-        let default_instance_profile_arn_binding = args
+        let default_instance_profile_arn_binding_1 = args
             .default_instance_profile_arn
-            .get_output(context)
+            .get_output(context);
+        let default_instance_profile_arn_binding = default_instance_profile_arn_binding_1
             .get_inner();
-        let default_os_binding = args.default_os.get_output(context).get_inner();
-        let default_root_device_type_binding = args
+        let default_os_binding_1 = args.default_os.get_output(context);
+        let default_os_binding = default_os_binding_1.get_inner();
+        let default_root_device_type_binding_1 = args
             .default_root_device_type
-            .get_output(context)
+            .get_output(context);
+        let default_root_device_type_binding = default_root_device_type_binding_1
             .get_inner();
-        let default_ssh_key_name_binding = args
+        let default_ssh_key_name_binding_1 = args
             .default_ssh_key_name
-            .get_output(context)
-            .get_inner();
-        let default_subnet_id_binding = args
-            .default_subnet_id
-            .get_output(context)
-            .get_inner();
-        let hostname_theme_binding = args.hostname_theme.get_output(context).get_inner();
-        let manage_berkshelf_binding = args
-            .manage_berkshelf
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let service_role_arn_binding = args
-            .service_role_arn
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let use_custom_cookbooks_binding = args
+            .get_output(context);
+        let default_ssh_key_name_binding = default_ssh_key_name_binding_1.get_inner();
+        let default_subnet_id_binding_1 = args.default_subnet_id.get_output(context);
+        let default_subnet_id_binding = default_subnet_id_binding_1.get_inner();
+        let hostname_theme_binding_1 = args.hostname_theme.get_output(context);
+        let hostname_theme_binding = hostname_theme_binding_1.get_inner();
+        let manage_berkshelf_binding_1 = args.manage_berkshelf.get_output(context);
+        let manage_berkshelf_binding = manage_berkshelf_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let service_role_arn_binding_1 = args.service_role_arn.get_output(context);
+        let service_role_arn_binding = service_role_arn_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let use_custom_cookbooks_binding_1 = args
             .use_custom_cookbooks
-            .get_output(context)
-            .get_inner();
-        let use_opsworks_security_groups_binding = args
+            .get_output(context);
+        let use_custom_cookbooks_binding = use_custom_cookbooks_binding_1.get_inner();
+        let use_opsworks_security_groups_binding_1 = args
             .use_opsworks_security_groups
-            .get_output(context)
+            .get_output(context);
+        let use_opsworks_security_groups_binding = use_opsworks_security_groups_binding_1
             .get_inner();
-        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let vpc_id_binding_1 = args.vpc_id.get_output(context);
+        let vpc_id_binding = vpc_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opsworks/stack:Stack".into(),
             name: name.to_string(),

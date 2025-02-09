@@ -204,17 +204,22 @@ pub mod repository_workflow_config {
     ) -> RepositoryWorkflowConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cron_schedule_binding = args.cron_schedule.get_output(context).get_inner();
-        let invocation_config_binding = args
-            .invocation_config
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let release_config_binding = args.release_config.get_output(context).get_inner();
-        let repository_binding = args.repository.get_output(context).get_inner();
-        let time_zone_binding = args.time_zone.get_output(context).get_inner();
+        let cron_schedule_binding_1 = args.cron_schedule.get_output(context);
+        let cron_schedule_binding = cron_schedule_binding_1.get_inner();
+        let invocation_config_binding_1 = args.invocation_config.get_output(context);
+        let invocation_config_binding = invocation_config_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let release_config_binding_1 = args.release_config.get_output(context);
+        let release_config_binding = release_config_binding_1.get_inner();
+        let repository_binding_1 = args.repository.get_output(context);
+        let repository_binding = repository_binding_1.get_inner();
+        let time_zone_binding_1 = args.time_zone.get_output(context);
+        let time_zone_binding = time_zone_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataform/repositoryWorkflowConfig:RepositoryWorkflowConfig"
                 .into(),

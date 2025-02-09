@@ -116,41 +116,39 @@ pub mod bot_management {
     ) -> BotManagementResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ai_bots_protection_binding = args
-            .ai_bots_protection
-            .get_output(context)
-            .get_inner();
-        let auto_update_model_binding = args
-            .auto_update_model
-            .get_output(context)
-            .get_inner();
-        let enable_js_binding = args.enable_js.get_output(context).get_inner();
-        let fight_mode_binding = args.fight_mode.get_output(context).get_inner();
-        let optimize_wordpress_binding = args
-            .optimize_wordpress
-            .get_output(context)
-            .get_inner();
-        let sbfm_definitely_automated_binding = args
+        let ai_bots_protection_binding_1 = args.ai_bots_protection.get_output(context);
+        let ai_bots_protection_binding = ai_bots_protection_binding_1.get_inner();
+        let auto_update_model_binding_1 = args.auto_update_model.get_output(context);
+        let auto_update_model_binding = auto_update_model_binding_1.get_inner();
+        let enable_js_binding_1 = args.enable_js.get_output(context);
+        let enable_js_binding = enable_js_binding_1.get_inner();
+        let fight_mode_binding_1 = args.fight_mode.get_output(context);
+        let fight_mode_binding = fight_mode_binding_1.get_inner();
+        let optimize_wordpress_binding_1 = args.optimize_wordpress.get_output(context);
+        let optimize_wordpress_binding = optimize_wordpress_binding_1.get_inner();
+        let sbfm_definitely_automated_binding_1 = args
             .sbfm_definitely_automated
-            .get_output(context)
+            .get_output(context);
+        let sbfm_definitely_automated_binding = sbfm_definitely_automated_binding_1
             .get_inner();
-        let sbfm_likely_automated_binding = args
+        let sbfm_likely_automated_binding_1 = args
             .sbfm_likely_automated
-            .get_output(context)
-            .get_inner();
-        let sbfm_static_resource_protection_binding = args
+            .get_output(context);
+        let sbfm_likely_automated_binding = sbfm_likely_automated_binding_1.get_inner();
+        let sbfm_static_resource_protection_binding_1 = args
             .sbfm_static_resource_protection
-            .get_output(context)
+            .get_output(context);
+        let sbfm_static_resource_protection_binding = sbfm_static_resource_protection_binding_1
             .get_inner();
-        let sbfm_verified_bots_binding = args
-            .sbfm_verified_bots
-            .get_output(context)
-            .get_inner();
-        let suppress_session_score_binding = args
+        let sbfm_verified_bots_binding_1 = args.sbfm_verified_bots.get_output(context);
+        let sbfm_verified_bots_binding = sbfm_verified_bots_binding_1.get_inner();
+        let suppress_session_score_binding_1 = args
             .suppress_session_score
-            .get_output(context)
+            .get_output(context);
+        let suppress_session_score_binding = suppress_session_score_binding_1
             .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/botManagement:BotManagement".into(),
             name: name.to_string(),

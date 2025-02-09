@@ -42,11 +42,10 @@ pub mod get_folder {
     ) -> GetFolderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let folder_binding = args.folder.get_output(context).get_inner();
-        let lookup_organization_binding = args
-            .lookup_organization
-            .get_output(context)
-            .get_inner();
+        let folder_binding_1 = args.folder.get_output(context);
+        let folder_binding = folder_binding_1.get_inner();
+        let lookup_organization_binding_1 = args.lookup_organization.get_output(context);
+        let lookup_organization_binding = lookup_organization_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:organizations/getFolder:getFolder".into(),
             version: super::super::super::get_version(),

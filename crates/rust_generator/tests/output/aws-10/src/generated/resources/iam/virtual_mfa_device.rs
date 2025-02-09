@@ -82,11 +82,14 @@ pub mod virtual_mfa_device {
     ) -> VirtualMfaDeviceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let path_binding = args.path.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let virtual_mfa_device_name_binding = args
+        let path_binding_1 = args.path.get_output(context);
+        let path_binding = path_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let virtual_mfa_device_name_binding_1 = args
             .virtual_mfa_device_name
-            .get_output(context)
+            .get_output(context);
+        let virtual_mfa_device_name_binding = virtual_mfa_device_name_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/virtualMfaDevice:VirtualMfaDevice".into(),

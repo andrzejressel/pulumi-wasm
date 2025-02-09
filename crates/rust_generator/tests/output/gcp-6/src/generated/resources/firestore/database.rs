@@ -373,31 +373,35 @@ pub mod database {
     ) -> DatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_engine_integration_mode_binding = args
+        let app_engine_integration_mode_binding_1 = args
             .app_engine_integration_mode
-            .get_output(context)
+            .get_output(context);
+        let app_engine_integration_mode_binding = app_engine_integration_mode_binding_1
             .get_inner();
-        let cmek_config_binding = args.cmek_config.get_output(context).get_inner();
-        let concurrency_mode_binding = args
-            .concurrency_mode
-            .get_output(context)
-            .get_inner();
-        let delete_protection_state_binding = args
+        let cmek_config_binding_1 = args.cmek_config.get_output(context);
+        let cmek_config_binding = cmek_config_binding_1.get_inner();
+        let concurrency_mode_binding_1 = args.concurrency_mode.get_output(context);
+        let concurrency_mode_binding = concurrency_mode_binding_1.get_inner();
+        let delete_protection_state_binding_1 = args
             .delete_protection_state
-            .get_output(context)
+            .get_output(context);
+        let delete_protection_state_binding = delete_protection_state_binding_1
             .get_inner();
-        let deletion_policy_binding = args
-            .deletion_policy
-            .get_output(context)
-            .get_inner();
-        let location_id_binding = args.location_id.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let point_in_time_recovery_enablement_binding = args
+        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
+        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
+        let location_id_binding_1 = args.location_id.get_output(context);
+        let location_id_binding = location_id_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let point_in_time_recovery_enablement_binding_1 = args
             .point_in_time_recovery_enablement
-            .get_output(context)
+            .get_output(context);
+        let point_in_time_recovery_enablement_binding = point_in_time_recovery_enablement_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firestore/database:Database".into(),
             name: name.to_string(),

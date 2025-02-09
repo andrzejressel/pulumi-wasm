@@ -55,8 +55,10 @@ pub mod domain_name_api_association {
     ) -> DomainNameApiAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_output(context).get_inner();
-        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let api_id_binding_1 = args.api_id.get_output(context);
+        let api_id_binding = api_id_binding_1.get_inner();
+        let domain_name_binding_1 = args.domain_name.get_output(context);
+        let domain_name_binding = domain_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appsync/domainNameApiAssociation:DomainNameApiAssociation"
                 .into(),

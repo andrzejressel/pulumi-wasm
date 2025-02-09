@@ -82,11 +82,16 @@ pub mod assessment_delegation {
     ) -> AssessmentDelegationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assessment_id_binding = args.assessment_id.get_output(context).get_inner();
-        let comment_binding = args.comment.get_output(context).get_inner();
-        let control_set_id_binding = args.control_set_id.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let role_type_binding = args.role_type.get_output(context).get_inner();
+        let assessment_id_binding_1 = args.assessment_id.get_output(context);
+        let assessment_id_binding = assessment_id_binding_1.get_inner();
+        let comment_binding_1 = args.comment.get_output(context);
+        let comment_binding = comment_binding_1.get_inner();
+        let control_set_id_binding_1 = args.control_set_id.get_output(context);
+        let control_set_id_binding = control_set_id_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let role_type_binding_1 = args.role_type.get_output(context);
+        let role_type_binding = role_type_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:auditmanager/assessmentDelegation:AssessmentDelegation".into(),
             name: name.to_string(),

@@ -160,22 +160,26 @@ pub mod vpn_gateway_connection {
     ) -> VpnGatewayConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let internet_security_enabled_binding = args
+        let internet_security_enabled_binding_1 = args
             .internet_security_enabled
-            .get_output(context)
+            .get_output(context);
+        let internet_security_enabled_binding = internet_security_enabled_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let remote_vpn_site_id_binding = args
-            .remote_vpn_site_id
-            .get_output(context)
-            .get_inner();
-        let routing_binding = args.routing.get_output(context).get_inner();
-        let traffic_selector_policies_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let remote_vpn_site_id_binding_1 = args.remote_vpn_site_id.get_output(context);
+        let remote_vpn_site_id_binding = remote_vpn_site_id_binding_1.get_inner();
+        let routing_binding_1 = args.routing.get_output(context);
+        let routing_binding = routing_binding_1.get_inner();
+        let traffic_selector_policies_binding_1 = args
             .traffic_selector_policies
-            .get_output(context)
+            .get_output(context);
+        let traffic_selector_policies_binding = traffic_selector_policies_binding_1
             .get_inner();
-        let vpn_gateway_id_binding = args.vpn_gateway_id.get_output(context).get_inner();
-        let vpn_links_binding = args.vpn_links.get_output(context).get_inner();
+        let vpn_gateway_id_binding_1 = args.vpn_gateway_id.get_output(context);
+        let vpn_gateway_id_binding = vpn_gateway_id_binding_1.get_inner();
+        let vpn_links_binding_1 = args.vpn_links.get_output(context);
+        let vpn_links_binding = vpn_links_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/vpnGatewayConnection:VpnGatewayConnection".into(),
             name: name.to_string(),

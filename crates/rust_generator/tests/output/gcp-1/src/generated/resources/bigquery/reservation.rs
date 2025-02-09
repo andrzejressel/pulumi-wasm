@@ -139,17 +139,22 @@ pub mod reservation {
     ) -> ReservationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscale_binding = args.autoscale.get_output(context).get_inner();
-        let concurrency_binding = args.concurrency.get_output(context).get_inner();
-        let edition_binding = args.edition.get_output(context).get_inner();
-        let ignore_idle_slots_binding = args
-            .ignore_idle_slots
-            .get_output(context)
-            .get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let slot_capacity_binding = args.slot_capacity.get_output(context).get_inner();
+        let autoscale_binding_1 = args.autoscale.get_output(context);
+        let autoscale_binding = autoscale_binding_1.get_inner();
+        let concurrency_binding_1 = args.concurrency.get_output(context);
+        let concurrency_binding = concurrency_binding_1.get_inner();
+        let edition_binding_1 = args.edition.get_output(context);
+        let edition_binding = edition_binding_1.get_inner();
+        let ignore_idle_slots_binding_1 = args.ignore_idle_slots.get_output(context);
+        let ignore_idle_slots_binding = ignore_idle_slots_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let slot_capacity_binding_1 = args.slot_capacity.get_output(context);
+        let slot_capacity_binding = slot_capacity_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/reservation:Reservation".into(),
             name: name.to_string(),

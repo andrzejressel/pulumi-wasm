@@ -76,8 +76,10 @@ pub mod enabler {
     ) -> EnablerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_ids_binding = args.account_ids.get_output(context).get_inner();
-        let resource_types_binding = args.resource_types.get_output(context).get_inner();
+        let account_ids_binding_1 = args.account_ids.get_output(context);
+        let account_ids_binding = account_ids_binding_1.get_inner();
+        let resource_types_binding_1 = args.resource_types.get_output(context);
+        let resource_types_binding = resource_types_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:inspector2/enabler:Enabler".into(),
             name: name.to_string(),

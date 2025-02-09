@@ -94,25 +94,29 @@ pub mod hsm_configuration {
     ) -> HsmConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let hsm_configuration_identifier_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let hsm_configuration_identifier_binding_1 = args
             .hsm_configuration_identifier
-            .get_output(context)
+            .get_output(context);
+        let hsm_configuration_identifier_binding = hsm_configuration_identifier_binding_1
             .get_inner();
-        let hsm_ip_address_binding = args.hsm_ip_address.get_output(context).get_inner();
-        let hsm_partition_name_binding = args
-            .hsm_partition_name
-            .get_output(context)
-            .get_inner();
-        let hsm_partition_password_binding = args
+        let hsm_ip_address_binding_1 = args.hsm_ip_address.get_output(context);
+        let hsm_ip_address_binding = hsm_ip_address_binding_1.get_inner();
+        let hsm_partition_name_binding_1 = args.hsm_partition_name.get_output(context);
+        let hsm_partition_name_binding = hsm_partition_name_binding_1.get_inner();
+        let hsm_partition_password_binding_1 = args
             .hsm_partition_password
-            .get_output(context)
+            .get_output(context);
+        let hsm_partition_password_binding = hsm_partition_password_binding_1
             .get_inner();
-        let hsm_server_public_certificate_binding = args
+        let hsm_server_public_certificate_binding_1 = args
             .hsm_server_public_certificate
-            .get_output(context)
+            .get_output(context);
+        let hsm_server_public_certificate_binding = hsm_server_public_certificate_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/hsmConfiguration:HsmConfiguration".into(),
             name: name.to_string(),

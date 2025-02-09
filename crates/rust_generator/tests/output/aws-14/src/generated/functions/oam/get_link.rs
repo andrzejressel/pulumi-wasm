@@ -45,11 +45,10 @@ pub mod get_link {
     ) -> GetLinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let link_identifier_binding = args
-            .link_identifier
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let link_identifier_binding_1 = args.link_identifier.get_output(context);
+        let link_identifier_binding = link_identifier_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:oam/getLink:getLink".into(),
             version: super::super::super::get_version(),

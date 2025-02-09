@@ -218,8 +218,10 @@ pub mod tag_value_iam_policy {
     ) -> TagValueIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_data_binding = args.policy_data.get_output(context).get_inner();
-        let tag_value_binding = args.tag_value.get_output(context).get_inner();
+        let policy_data_binding_1 = args.policy_data.get_output(context);
+        let policy_data_binding = policy_data_binding_1.get_inner();
+        let tag_value_binding_1 = args.tag_value.get_output(context);
+        let tag_value_binding = tag_value_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:tags/tagValueIamPolicy:TagValueIamPolicy".into(),
             name: name.to_string(),

@@ -99,11 +99,16 @@ pub mod trigger_http_request {
     ) -> TriggerHttpRequestResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let logic_app_id_binding = args.logic_app_id.get_output(context).get_inner();
-        let method_binding = args.method.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let relative_path_binding = args.relative_path.get_output(context).get_inner();
-        let schema_binding = args.schema.get_output(context).get_inner();
+        let logic_app_id_binding_1 = args.logic_app_id.get_output(context);
+        let logic_app_id_binding = logic_app_id_binding_1.get_inner();
+        let method_binding_1 = args.method.get_output(context);
+        let method_binding = method_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let relative_path_binding_1 = args.relative_path.get_output(context);
+        let relative_path_binding = relative_path_binding_1.get_inner();
+        let schema_binding_1 = args.schema.get_output(context);
+        let schema_binding = schema_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/triggerHttpRequest:TriggerHttpRequest".into(),
             name: name.to_string(),

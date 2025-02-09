@@ -131,41 +131,43 @@ pub mod transit_gateway {
     ) -> TransitGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let amazon_side_asn_binding = args
-            .amazon_side_asn
-            .get_output(context)
-            .get_inner();
-        let auto_accept_shared_attachments_binding = args
+        let amazon_side_asn_binding_1 = args.amazon_side_asn.get_output(context);
+        let amazon_side_asn_binding = amazon_side_asn_binding_1.get_inner();
+        let auto_accept_shared_attachments_binding_1 = args
             .auto_accept_shared_attachments
-            .get_output(context)
+            .get_output(context);
+        let auto_accept_shared_attachments_binding = auto_accept_shared_attachments_binding_1
             .get_inner();
-        let default_route_table_association_binding = args
+        let default_route_table_association_binding_1 = args
             .default_route_table_association
-            .get_output(context)
+            .get_output(context);
+        let default_route_table_association_binding = default_route_table_association_binding_1
             .get_inner();
-        let default_route_table_propagation_binding = args
+        let default_route_table_propagation_binding_1 = args
             .default_route_table_propagation
-            .get_output(context)
+            .get_output(context);
+        let default_route_table_propagation_binding = default_route_table_propagation_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let dns_support_binding = args.dns_support.get_output(context).get_inner();
-        let multicast_support_binding = args
-            .multicast_support
-            .get_output(context)
-            .get_inner();
-        let security_group_referencing_support_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let dns_support_binding_1 = args.dns_support.get_output(context);
+        let dns_support_binding = dns_support_binding_1.get_inner();
+        let multicast_support_binding_1 = args.multicast_support.get_output(context);
+        let multicast_support_binding = multicast_support_binding_1.get_inner();
+        let security_group_referencing_support_binding_1 = args
             .security_group_referencing_support
-            .get_output(context)
+            .get_output(context);
+        let security_group_referencing_support_binding = security_group_referencing_support_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let transit_gateway_cidr_blocks_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let transit_gateway_cidr_blocks_binding_1 = args
             .transit_gateway_cidr_blocks
-            .get_output(context)
+            .get_output(context);
+        let transit_gateway_cidr_blocks_binding = transit_gateway_cidr_blocks_binding_1
             .get_inner();
-        let vpn_ecmp_support_binding = args
-            .vpn_ecmp_support
-            .get_output(context)
-            .get_inner();
+        let vpn_ecmp_support_binding_1 = args.vpn_ecmp_support.get_output(context);
+        let vpn_ecmp_support_binding = vpn_ecmp_support_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/transitGateway:TransitGateway".into(),
             name: name.to_string(),

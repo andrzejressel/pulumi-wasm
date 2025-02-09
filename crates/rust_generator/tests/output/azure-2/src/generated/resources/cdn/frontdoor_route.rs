@@ -266,53 +266,58 @@ pub mod frontdoor_route {
     ) -> FrontdoorRouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cache_binding = args.cache.get_output(context).get_inner();
-        let cdn_frontdoor_custom_domain_ids_binding = args
+        let cache_binding_1 = args.cache.get_output(context);
+        let cache_binding = cache_binding_1.get_inner();
+        let cdn_frontdoor_custom_domain_ids_binding_1 = args
             .cdn_frontdoor_custom_domain_ids
-            .get_output(context)
+            .get_output(context);
+        let cdn_frontdoor_custom_domain_ids_binding = cdn_frontdoor_custom_domain_ids_binding_1
             .get_inner();
-        let cdn_frontdoor_endpoint_id_binding = args
+        let cdn_frontdoor_endpoint_id_binding_1 = args
             .cdn_frontdoor_endpoint_id
-            .get_output(context)
+            .get_output(context);
+        let cdn_frontdoor_endpoint_id_binding = cdn_frontdoor_endpoint_id_binding_1
             .get_inner();
-        let cdn_frontdoor_origin_group_id_binding = args
+        let cdn_frontdoor_origin_group_id_binding_1 = args
             .cdn_frontdoor_origin_group_id
-            .get_output(context)
+            .get_output(context);
+        let cdn_frontdoor_origin_group_id_binding = cdn_frontdoor_origin_group_id_binding_1
             .get_inner();
-        let cdn_frontdoor_origin_ids_binding = args
+        let cdn_frontdoor_origin_ids_binding_1 = args
             .cdn_frontdoor_origin_ids
-            .get_output(context)
+            .get_output(context);
+        let cdn_frontdoor_origin_ids_binding = cdn_frontdoor_origin_ids_binding_1
             .get_inner();
-        let cdn_frontdoor_origin_path_binding = args
+        let cdn_frontdoor_origin_path_binding_1 = args
             .cdn_frontdoor_origin_path
-            .get_output(context)
+            .get_output(context);
+        let cdn_frontdoor_origin_path_binding = cdn_frontdoor_origin_path_binding_1
             .get_inner();
-        let cdn_frontdoor_rule_set_ids_binding = args
+        let cdn_frontdoor_rule_set_ids_binding_1 = args
             .cdn_frontdoor_rule_set_ids
-            .get_output(context)
+            .get_output(context);
+        let cdn_frontdoor_rule_set_ids_binding = cdn_frontdoor_rule_set_ids_binding_1
             .get_inner();
-        let enabled_binding = args.enabled.get_output(context).get_inner();
-        let forwarding_protocol_binding = args
-            .forwarding_protocol
-            .get_output(context)
-            .get_inner();
-        let https_redirect_enabled_binding = args
+        let enabled_binding_1 = args.enabled.get_output(context);
+        let enabled_binding = enabled_binding_1.get_inner();
+        let forwarding_protocol_binding_1 = args.forwarding_protocol.get_output(context);
+        let forwarding_protocol_binding = forwarding_protocol_binding_1.get_inner();
+        let https_redirect_enabled_binding_1 = args
             .https_redirect_enabled
-            .get_output(context)
+            .get_output(context);
+        let https_redirect_enabled_binding = https_redirect_enabled_binding_1
             .get_inner();
-        let link_to_default_domain_binding = args
+        let link_to_default_domain_binding_1 = args
             .link_to_default_domain
-            .get_output(context)
+            .get_output(context);
+        let link_to_default_domain_binding = link_to_default_domain_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let patterns_to_matches_binding = args
-            .patterns_to_matches
-            .get_output(context)
-            .get_inner();
-        let supported_protocols_binding = args
-            .supported_protocols
-            .get_output(context)
-            .get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let patterns_to_matches_binding_1 = args.patterns_to_matches.get_output(context);
+        let patterns_to_matches_binding = patterns_to_matches_binding_1.get_inner();
+        let supported_protocols_binding_1 = args.supported_protocols.get_output(context);
+        let supported_protocols_binding = supported_protocols_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorRoute:FrontdoorRoute".into(),
             name: name.to_string(),

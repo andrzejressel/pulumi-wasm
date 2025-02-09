@@ -38,12 +38,15 @@ pub mod get_kms_secret {
     ) -> GetKmsSecretResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_authenticated_data_binding = args
+        let additional_authenticated_data_binding_1 = args
             .additional_authenticated_data
-            .get_output(context)
+            .get_output(context);
+        let additional_authenticated_data_binding = additional_authenticated_data_binding_1
             .get_inner();
-        let ciphertext_binding = args.ciphertext.get_output(context).get_inner();
-        let crypto_key_binding = args.crypto_key.get_output(context).get_inner();
+        let ciphertext_binding_1 = args.ciphertext.get_output(context);
+        let ciphertext_binding = ciphertext_binding_1.get_inner();
+        let crypto_key_binding_1 = args.crypto_key.get_output(context);
+        let crypto_key_binding = crypto_key_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getKMSSecret:getKMSSecret".into(),
             version: super::super::super::get_version(),

@@ -155,11 +155,16 @@ pub mod catalog_table_optimizer {
     ) -> CatalogTableOptimizerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
-        let configuration_binding = args.configuration.get_output(context).get_inner();
-        let database_name_binding = args.database_name.get_output(context).get_inner();
-        let table_name_binding = args.table_name.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let catalog_id_binding_1 = args.catalog_id.get_output(context);
+        let catalog_id_binding = catalog_id_binding_1.get_inner();
+        let configuration_binding_1 = args.configuration.get_output(context);
+        let configuration_binding = configuration_binding_1.get_inner();
+        let database_name_binding_1 = args.database_name.get_output(context);
+        let database_name_binding = database_name_binding_1.get_inner();
+        let table_name_binding_1 = args.table_name.get_output(context);
+        let table_name_binding = table_name_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/catalogTableOptimizer:CatalogTableOptimizer".into(),
             name: name.to_string(),

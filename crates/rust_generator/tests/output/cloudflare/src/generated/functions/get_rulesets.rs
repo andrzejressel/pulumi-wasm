@@ -45,10 +45,14 @@ pub mod get_rulesets {
     ) -> GetRulesetsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_output(context).get_inner();
-        let filter_binding = args.filter.get_output(context).get_inner();
-        let include_rules_binding = args.include_rules.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let account_id_binding_1 = args.account_id.get_output(context);
+        let account_id_binding = account_id_binding_1.get_inner();
+        let filter_binding_1 = args.filter.get_output(context);
+        let filter_binding = filter_binding_1.get_inner();
+        let include_rules_binding_1 = args.include_rules.get_output(context);
+        let include_rules_binding = include_rules_binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getRulesets:getRulesets".into(),
             version: super::super::get_version(),

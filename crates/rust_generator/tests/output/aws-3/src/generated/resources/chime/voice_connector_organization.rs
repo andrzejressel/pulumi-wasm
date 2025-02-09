@@ -79,12 +79,12 @@ pub mod voice_connector_organization {
     ) -> VoiceConnectorOrganizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disabled_binding = args.disabled.get_output(context).get_inner();
-        let routes_binding = args.routes.get_output(context).get_inner();
-        let voice_connector_id_binding = args
-            .voice_connector_id
-            .get_output(context)
-            .get_inner();
+        let disabled_binding_1 = args.disabled.get_output(context);
+        let disabled_binding = disabled_binding_1.get_inner();
+        let routes_binding_1 = args.routes.get_output(context);
+        let routes_binding = routes_binding_1.get_inner();
+        let voice_connector_id_binding_1 = args.voice_connector_id.get_output(context);
+        let voice_connector_id_binding = voice_connector_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization"
                 .into(),

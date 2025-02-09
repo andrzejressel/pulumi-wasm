@@ -89,10 +89,14 @@ pub mod authenticated_origin_pulls_certificate {
     ) -> AuthenticatedOriginPullsCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_binding = args.certificate.get_output(context).get_inner();
-        let private_key_binding = args.private_key.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let certificate_binding_1 = args.certificate.get_output(context);
+        let certificate_binding = certificate_binding_1.get_inner();
+        let private_key_binding_1 = args.private_key.get_output(context);
+        let private_key_binding = private_key_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/authenticatedOriginPullsCertificate:AuthenticatedOriginPullsCertificate"
                 .into(),

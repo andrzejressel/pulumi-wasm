@@ -139,28 +139,22 @@ pub mod local_user {
     ) -> LocalUserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let home_directory_binding = args.home_directory.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let permission_scopes_binding = args
-            .permission_scopes
-            .get_output(context)
-            .get_inner();
-        let ssh_authorized_keys_binding = args
-            .ssh_authorized_keys
-            .get_output(context)
-            .get_inner();
-        let ssh_key_enabled_binding = args
-            .ssh_key_enabled
-            .get_output(context)
-            .get_inner();
-        let ssh_password_enabled_binding = args
+        let home_directory_binding_1 = args.home_directory.get_output(context);
+        let home_directory_binding = home_directory_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let permission_scopes_binding_1 = args.permission_scopes.get_output(context);
+        let permission_scopes_binding = permission_scopes_binding_1.get_inner();
+        let ssh_authorized_keys_binding_1 = args.ssh_authorized_keys.get_output(context);
+        let ssh_authorized_keys_binding = ssh_authorized_keys_binding_1.get_inner();
+        let ssh_key_enabled_binding_1 = args.ssh_key_enabled.get_output(context);
+        let ssh_key_enabled_binding = ssh_key_enabled_binding_1.get_inner();
+        let ssh_password_enabled_binding_1 = args
             .ssh_password_enabled
-            .get_output(context)
-            .get_inner();
-        let storage_account_id_binding = args
-            .storage_account_id
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let ssh_password_enabled_binding = ssh_password_enabled_binding_1.get_inner();
+        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
+        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/localUser:LocalUser".into(),
             name: name.to_string(),

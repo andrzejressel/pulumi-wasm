@@ -67,13 +67,12 @@ pub mod monitoring_subscription {
     ) -> MonitoringSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let distribution_id_binding = args
-            .distribution_id
-            .get_output(context)
-            .get_inner();
-        let monitoring_subscription_binding = args
+        let distribution_id_binding_1 = args.distribution_id.get_output(context);
+        let distribution_id_binding = distribution_id_binding_1.get_inner();
+        let monitoring_subscription_binding_1 = args
             .monitoring_subscription
-            .get_output(context)
+            .get_output(context);
+        let monitoring_subscription_binding = monitoring_subscription_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/monitoringSubscription:MonitoringSubscription".into(),

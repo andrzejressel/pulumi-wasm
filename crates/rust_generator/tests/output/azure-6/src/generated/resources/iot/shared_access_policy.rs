@@ -110,19 +110,20 @@ pub mod shared_access_policy {
     ) -> SharedAccessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let device_connect_binding = args.device_connect.get_output(context).get_inner();
-        let iothub_name_binding = args.iothub_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let registry_read_binding = args.registry_read.get_output(context).get_inner();
-        let registry_write_binding = args.registry_write.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let service_connect_binding = args
-            .service_connect
-            .get_output(context)
-            .get_inner();
+        let device_connect_binding_1 = args.device_connect.get_output(context);
+        let device_connect_binding = device_connect_binding_1.get_inner();
+        let iothub_name_binding_1 = args.iothub_name.get_output(context);
+        let iothub_name_binding = iothub_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let registry_read_binding_1 = args.registry_read.get_output(context);
+        let registry_read_binding = registry_read_binding_1.get_inner();
+        let registry_write_binding_1 = args.registry_write.get_output(context);
+        let registry_write_binding = registry_write_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let service_connect_binding_1 = args.service_connect.get_output(context);
+        let service_connect_binding = service_connect_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/sharedAccessPolicy:SharedAccessPolicy".into(),
             name: name.to_string(),

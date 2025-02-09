@@ -71,11 +71,16 @@ pub mod get_vpc_endpoint_service {
     ) -> GetVpcEndpointServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let service_binding = args.service.get_output(context).get_inner();
-        let service_name_binding = args.service_name.get_output(context).get_inner();
-        let service_type_binding = args.service_type.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let service_binding_1 = args.service.get_output(context);
+        let service_binding = service_binding_1.get_inner();
+        let service_name_binding_1 = args.service_name.get_output(context);
+        let service_name_binding = service_name_binding_1.get_inner();
+        let service_type_binding_1 = args.service_type.get_output(context);
+        let service_type_binding = service_type_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getVpcEndpointService:getVpcEndpointService".into(),
             version: super::super::super::get_version(),

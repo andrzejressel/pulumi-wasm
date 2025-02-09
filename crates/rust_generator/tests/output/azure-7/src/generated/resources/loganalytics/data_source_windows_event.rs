@@ -90,14 +90,16 @@ pub mod data_source_windows_event {
     ) -> DataSourceWindowsEventResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let event_log_name_binding = args.event_log_name.get_output(context).get_inner();
-        let event_types_binding = args.event_types.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let workspace_name_binding = args.workspace_name.get_output(context).get_inner();
+        let event_log_name_binding_1 = args.event_log_name.get_output(context);
+        let event_log_name_binding = event_log_name_binding_1.get_inner();
+        let event_types_binding_1 = args.event_types.get_output(context);
+        let event_types_binding = event_types_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let workspace_name_binding_1 = args.workspace_name.get_output(context);
+        let workspace_name_binding = workspace_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent"
                 .into(),

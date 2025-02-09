@@ -355,34 +355,35 @@ pub mod application {
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_configuration_binding = args
+        let application_configuration_binding_1 = args
             .application_configuration
-            .get_output(context)
+            .get_output(context);
+        let application_configuration_binding = application_configuration_binding_1
             .get_inner();
-        let application_mode_binding = args
-            .application_mode
-            .get_output(context)
-            .get_inner();
-        let cloudwatch_logging_options_binding = args
+        let application_mode_binding_1 = args.application_mode.get_output(context);
+        let application_mode_binding = application_mode_binding_1.get_inner();
+        let cloudwatch_logging_options_binding_1 = args
             .cloudwatch_logging_options
-            .get_output(context)
+            .get_output(context);
+        let cloudwatch_logging_options_binding = cloudwatch_logging_options_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let force_stop_binding = args.force_stop.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let runtime_environment_binding = args
-            .runtime_environment
-            .get_output(context)
-            .get_inner();
-        let service_execution_role_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let force_stop_binding_1 = args.force_stop.get_output(context);
+        let force_stop_binding = force_stop_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let runtime_environment_binding_1 = args.runtime_environment.get_output(context);
+        let runtime_environment_binding = runtime_environment_binding_1.get_inner();
+        let service_execution_role_binding_1 = args
             .service_execution_role
-            .get_output(context)
+            .get_output(context);
+        let service_execution_role_binding = service_execution_role_binding_1
             .get_inner();
-        let start_application_binding = args
-            .start_application
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let start_application_binding_1 = args.start_application.get_output(context);
+        let start_application_binding = start_application_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kinesisanalyticsv2/application:Application".into(),
             name: name.to_string(),

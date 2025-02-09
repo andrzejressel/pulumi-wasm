@@ -61,9 +61,12 @@ pub mod get_theme {
     ) -> GetThemeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let theme_id_binding = args.theme_id.get_output(context).get_inner();
+        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
+        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let theme_id_binding_1 = args.theme_id.get_output(context);
+        let theme_id_binding = theme_id_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:quicksight/getTheme:getTheme".into(),
             version: super::super::super::get_version(),

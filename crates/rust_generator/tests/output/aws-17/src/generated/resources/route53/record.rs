@@ -318,49 +318,56 @@ pub mod record {
     ) -> RecordResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aliases_binding = args.aliases.get_output(context).get_inner();
-        let allow_overwrite_binding = args
-            .allow_overwrite
-            .get_output(context)
-            .get_inner();
-        let cidr_routing_policy_binding = args
-            .cidr_routing_policy
-            .get_output(context)
-            .get_inner();
-        let failover_routing_policies_binding = args
+        let aliases_binding_1 = args.aliases.get_output(context);
+        let aliases_binding = aliases_binding_1.get_inner();
+        let allow_overwrite_binding_1 = args.allow_overwrite.get_output(context);
+        let allow_overwrite_binding = allow_overwrite_binding_1.get_inner();
+        let cidr_routing_policy_binding_1 = args.cidr_routing_policy.get_output(context);
+        let cidr_routing_policy_binding = cidr_routing_policy_binding_1.get_inner();
+        let failover_routing_policies_binding_1 = args
             .failover_routing_policies
-            .get_output(context)
+            .get_output(context);
+        let failover_routing_policies_binding = failover_routing_policies_binding_1
             .get_inner();
-        let geolocation_routing_policies_binding = args
+        let geolocation_routing_policies_binding_1 = args
             .geolocation_routing_policies
-            .get_output(context)
+            .get_output(context);
+        let geolocation_routing_policies_binding = geolocation_routing_policies_binding_1
             .get_inner();
-        let geoproximity_routing_policy_binding = args
+        let geoproximity_routing_policy_binding_1 = args
             .geoproximity_routing_policy
-            .get_output(context)
+            .get_output(context);
+        let geoproximity_routing_policy_binding = geoproximity_routing_policy_binding_1
             .get_inner();
-        let health_check_id_binding = args
-            .health_check_id
-            .get_output(context)
-            .get_inner();
-        let latency_routing_policies_binding = args
+        let health_check_id_binding_1 = args.health_check_id.get_output(context);
+        let health_check_id_binding = health_check_id_binding_1.get_inner();
+        let latency_routing_policies_binding_1 = args
             .latency_routing_policies
-            .get_output(context)
+            .get_output(context);
+        let latency_routing_policies_binding = latency_routing_policies_binding_1
             .get_inner();
-        let multivalue_answer_routing_policy_binding = args
+        let multivalue_answer_routing_policy_binding_1 = args
             .multivalue_answer_routing_policy
-            .get_output(context)
+            .get_output(context);
+        let multivalue_answer_routing_policy_binding = multivalue_answer_routing_policy_binding_1
             .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let records_binding = args.records.get_output(context).get_inner();
-        let set_identifier_binding = args.set_identifier.get_output(context).get_inner();
-        let ttl_binding = args.ttl.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let weighted_routing_policies_binding = args
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let records_binding_1 = args.records.get_output(context);
+        let records_binding = records_binding_1.get_inner();
+        let set_identifier_binding_1 = args.set_identifier.get_output(context);
+        let set_identifier_binding = set_identifier_binding_1.get_inner();
+        let ttl_binding_1 = args.ttl.get_output(context);
+        let ttl_binding = ttl_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let weighted_routing_policies_binding_1 = args
             .weighted_routing_policies
-            .get_output(context)
+            .get_output(context);
+        let weighted_routing_policies_binding = weighted_routing_policies_binding_1
             .get_inner();
-        let zone_id_binding = args.zone_id.get_output(context).get_inner();
+        let zone_id_binding_1 = args.zone_id.get_output(context);
+        let zone_id_binding = zone_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/record:Record".into(),
             name: name.to_string(),

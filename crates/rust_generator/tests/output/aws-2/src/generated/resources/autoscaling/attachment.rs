@@ -69,15 +69,15 @@ pub mod attachment {
     ) -> AttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_group_name_binding = args
+        let autoscaling_group_name_binding_1 = args
             .autoscaling_group_name
-            .get_output(context)
+            .get_output(context);
+        let autoscaling_group_name_binding = autoscaling_group_name_binding_1
             .get_inner();
-        let elb_binding = args.elb.get_output(context).get_inner();
-        let lb_target_group_arn_binding = args
-            .lb_target_group_arn
-            .get_output(context)
-            .get_inner();
+        let elb_binding_1 = args.elb.get_output(context);
+        let elb_binding = elb_binding_1.get_inner();
+        let lb_target_group_arn_binding_1 = args.lb_target_group_arn.get_output(context);
+        let lb_target_group_arn_binding = lb_target_group_arn_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:autoscaling/attachment:Attachment".into(),
             name: name.to_string(),

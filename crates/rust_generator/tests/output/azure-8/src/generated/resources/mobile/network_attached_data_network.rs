@@ -214,44 +214,56 @@ pub mod network_attached_data_network {
     ) -> NetworkAttachedDataNetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dns_addresses_binding = args.dns_addresses.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let mobile_network_data_network_name_binding = args
+        let dns_addresses_binding_1 = args.dns_addresses.get_output(context);
+        let dns_addresses_binding = dns_addresses_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let mobile_network_data_network_name_binding_1 = args
             .mobile_network_data_network_name
-            .get_output(context)
+            .get_output(context);
+        let mobile_network_data_network_name_binding = mobile_network_data_network_name_binding_1
             .get_inner();
-        let mobile_network_packet_core_data_plane_id_binding = args
+        let mobile_network_packet_core_data_plane_id_binding_1 = args
             .mobile_network_packet_core_data_plane_id
-            .get_output(context)
+            .get_output(context);
+        let mobile_network_packet_core_data_plane_id_binding = mobile_network_packet_core_data_plane_id_binding_1
             .get_inner();
-        let network_address_port_translation_binding = args
+        let network_address_port_translation_binding_1 = args
             .network_address_port_translation
-            .get_output(context)
+            .get_output(context);
+        let network_address_port_translation_binding = network_address_port_translation_binding_1
             .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_equipment_address_pool_prefixes_binding = args
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_equipment_address_pool_prefixes_binding_1 = args
             .user_equipment_address_pool_prefixes
-            .get_output(context)
+            .get_output(context);
+        let user_equipment_address_pool_prefixes_binding = user_equipment_address_pool_prefixes_binding_1
             .get_inner();
-        let user_equipment_static_address_pool_prefixes_binding = args
+        let user_equipment_static_address_pool_prefixes_binding_1 = args
             .user_equipment_static_address_pool_prefixes
-            .get_output(context)
+            .get_output(context);
+        let user_equipment_static_address_pool_prefixes_binding = user_equipment_static_address_pool_prefixes_binding_1
             .get_inner();
-        let user_plane_access_ipv4_address_binding = args
+        let user_plane_access_ipv4_address_binding_1 = args
             .user_plane_access_ipv4_address
-            .get_output(context)
+            .get_output(context);
+        let user_plane_access_ipv4_address_binding = user_plane_access_ipv4_address_binding_1
             .get_inner();
-        let user_plane_access_ipv4_gateway_binding = args
+        let user_plane_access_ipv4_gateway_binding_1 = args
             .user_plane_access_ipv4_gateway
-            .get_output(context)
+            .get_output(context);
+        let user_plane_access_ipv4_gateway_binding = user_plane_access_ipv4_gateway_binding_1
             .get_inner();
-        let user_plane_access_ipv4_subnet_binding = args
+        let user_plane_access_ipv4_subnet_binding_1 = args
             .user_plane_access_ipv4_subnet
-            .get_output(context)
+            .get_output(context);
+        let user_plane_access_ipv4_subnet_binding = user_plane_access_ipv4_subnet_binding_1
             .get_inner();
-        let user_plane_access_name_binding = args
+        let user_plane_access_name_binding_1 = args
             .user_plane_access_name
-            .get_output(context)
+            .get_output(context);
+        let user_plane_access_name_binding = user_plane_access_name_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork"

@@ -228,24 +228,30 @@ pub mod policy {
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admission_whitelist_patterns_binding = args
+        let admission_whitelist_patterns_binding_1 = args
             .admission_whitelist_patterns
-            .get_output(context)
+            .get_output(context);
+        let admission_whitelist_patterns_binding = admission_whitelist_patterns_binding_1
             .get_inner();
-        let cluster_admission_rules_binding = args
+        let cluster_admission_rules_binding_1 = args
             .cluster_admission_rules
-            .get_output(context)
+            .get_output(context);
+        let cluster_admission_rules_binding = cluster_admission_rules_binding_1
             .get_inner();
-        let default_admission_rule_binding = args
+        let default_admission_rule_binding_1 = args
             .default_admission_rule
-            .get_output(context)
+            .get_output(context);
+        let default_admission_rule_binding = default_admission_rule_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let global_policy_evaluation_mode_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let global_policy_evaluation_mode_binding_1 = args
             .global_policy_evaluation_mode
-            .get_output(context)
+            .get_output(context);
+        let global_policy_evaluation_mode_binding = global_policy_evaluation_mode_binding_1
             .get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:binaryauthorization/policy:Policy".into(),
             name: name.to_string(),

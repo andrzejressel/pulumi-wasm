@@ -91,17 +91,16 @@ pub mod build {
     ) -> BuildResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_output(context).get_inner();
-        let operating_system_binding = args
-            .operating_system
-            .get_output(context)
-            .get_inner();
-        let storage_location_binding = args
-            .storage_location
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let version_binding = args.version.get_output(context).get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let operating_system_binding_1 = args.operating_system.get_output(context);
+        let operating_system_binding = operating_system_binding_1.get_inner();
+        let storage_location_binding_1 = args.storage_location.get_output(context);
+        let storage_location_binding = storage_location_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let version_binding_1 = args.version.get_output(context);
+        let version_binding = version_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:gamelift/build:Build".into(),
             name: name.to_string(),

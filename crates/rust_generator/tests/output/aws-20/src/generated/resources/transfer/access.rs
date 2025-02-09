@@ -121,20 +121,25 @@ pub mod access {
     ) -> AccessResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let external_id_binding = args.external_id.get_output(context).get_inner();
-        let home_directory_binding = args.home_directory.get_output(context).get_inner();
-        let home_directory_mappings_binding = args
+        let external_id_binding_1 = args.external_id.get_output(context);
+        let external_id_binding = external_id_binding_1.get_inner();
+        let home_directory_binding_1 = args.home_directory.get_output(context);
+        let home_directory_binding = home_directory_binding_1.get_inner();
+        let home_directory_mappings_binding_1 = args
             .home_directory_mappings
-            .get_output(context)
+            .get_output(context);
+        let home_directory_mappings_binding = home_directory_mappings_binding_1
             .get_inner();
-        let home_directory_type_binding = args
-            .home_directory_type
-            .get_output(context)
-            .get_inner();
-        let policy_binding = args.policy.get_output(context).get_inner();
-        let posix_profile_binding = args.posix_profile.get_output(context).get_inner();
-        let role_binding = args.role.get_output(context).get_inner();
-        let server_id_binding = args.server_id.get_output(context).get_inner();
+        let home_directory_type_binding_1 = args.home_directory_type.get_output(context);
+        let home_directory_type_binding = home_directory_type_binding_1.get_inner();
+        let policy_binding_1 = args.policy.get_output(context);
+        let policy_binding = policy_binding_1.get_inner();
+        let posix_profile_binding_1 = args.posix_profile.get_output(context);
+        let posix_profile_binding = posix_profile_binding_1.get_inner();
+        let role_binding_1 = args.role.get_output(context);
+        let role_binding = role_binding_1.get_inner();
+        let server_id_binding_1 = args.server_id.get_output(context);
+        let server_id_binding = server_id_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:transfer/access:Access".into(),
             name: name.to_string(),

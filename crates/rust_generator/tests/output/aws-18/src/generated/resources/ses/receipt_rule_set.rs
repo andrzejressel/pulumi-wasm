@@ -49,7 +49,8 @@ pub mod receipt_rule_set {
     ) -> ReceiptRuleSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let rule_set_name_binding = args.rule_set_name.get_output(context).get_inner();
+        let rule_set_name_binding_1 = args.rule_set_name.get_output(context);
+        let rule_set_name_binding = rule_set_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/receiptRuleSet:ReceiptRuleSet".into(),
             name: name.to_string(),

@@ -516,69 +516,79 @@ pub mod router_nat {
     ) -> RouterNatResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_network_tier_binding = args
-            .auto_network_tier
-            .get_output(context)
-            .get_inner();
-        let drain_nat_ips_binding = args.drain_nat_ips.get_output(context).get_inner();
-        let enable_dynamic_port_allocation_binding = args
+        let auto_network_tier_binding_1 = args.auto_network_tier.get_output(context);
+        let auto_network_tier_binding = auto_network_tier_binding_1.get_inner();
+        let drain_nat_ips_binding_1 = args.drain_nat_ips.get_output(context);
+        let drain_nat_ips_binding = drain_nat_ips_binding_1.get_inner();
+        let enable_dynamic_port_allocation_binding_1 = args
             .enable_dynamic_port_allocation
-            .get_output(context)
+            .get_output(context);
+        let enable_dynamic_port_allocation_binding = enable_dynamic_port_allocation_binding_1
             .get_inner();
-        let enable_endpoint_independent_mapping_binding = args
+        let enable_endpoint_independent_mapping_binding_1 = args
             .enable_endpoint_independent_mapping
-            .get_output(context)
+            .get_output(context);
+        let enable_endpoint_independent_mapping_binding = enable_endpoint_independent_mapping_binding_1
             .get_inner();
-        let endpoint_types_binding = args.endpoint_types.get_output(context).get_inner();
-        let icmp_idle_timeout_sec_binding = args
+        let endpoint_types_binding_1 = args.endpoint_types.get_output(context);
+        let endpoint_types_binding = endpoint_types_binding_1.get_inner();
+        let icmp_idle_timeout_sec_binding_1 = args
             .icmp_idle_timeout_sec
-            .get_output(context)
-            .get_inner();
-        let initial_nat_ips_binding = args
-            .initial_nat_ips
-            .get_output(context)
-            .get_inner();
-        let log_config_binding = args.log_config.get_output(context).get_inner();
-        let max_ports_per_vm_binding = args
-            .max_ports_per_vm
-            .get_output(context)
-            .get_inner();
-        let min_ports_per_vm_binding = args
-            .min_ports_per_vm
-            .get_output(context)
-            .get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let nat_ip_allocate_option_binding = args
+            .get_output(context);
+        let icmp_idle_timeout_sec_binding = icmp_idle_timeout_sec_binding_1.get_inner();
+        let initial_nat_ips_binding_1 = args.initial_nat_ips.get_output(context);
+        let initial_nat_ips_binding = initial_nat_ips_binding_1.get_inner();
+        let log_config_binding_1 = args.log_config.get_output(context);
+        let log_config_binding = log_config_binding_1.get_inner();
+        let max_ports_per_vm_binding_1 = args.max_ports_per_vm.get_output(context);
+        let max_ports_per_vm_binding = max_ports_per_vm_binding_1.get_inner();
+        let min_ports_per_vm_binding_1 = args.min_ports_per_vm.get_output(context);
+        let min_ports_per_vm_binding = min_ports_per_vm_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let nat_ip_allocate_option_binding_1 = args
             .nat_ip_allocate_option
-            .get_output(context)
+            .get_output(context);
+        let nat_ip_allocate_option_binding = nat_ip_allocate_option_binding_1
             .get_inner();
-        let nat_ips_binding = args.nat_ips.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let region_binding = args.region.get_output(context).get_inner();
-        let router_binding = args.router.get_output(context).get_inner();
-        let rules_binding = args.rules.get_output(context).get_inner();
-        let source_subnetwork_ip_ranges_to_nat_binding = args
+        let nat_ips_binding_1 = args.nat_ips.get_output(context);
+        let nat_ips_binding = nat_ips_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let region_binding_1 = args.region.get_output(context);
+        let region_binding = region_binding_1.get_inner();
+        let router_binding_1 = args.router.get_output(context);
+        let router_binding = router_binding_1.get_inner();
+        let rules_binding_1 = args.rules.get_output(context);
+        let rules_binding = rules_binding_1.get_inner();
+        let source_subnetwork_ip_ranges_to_nat_binding_1 = args
             .source_subnetwork_ip_ranges_to_nat
-            .get_output(context)
+            .get_output(context);
+        let source_subnetwork_ip_ranges_to_nat_binding = source_subnetwork_ip_ranges_to_nat_binding_1
             .get_inner();
-        let subnetworks_binding = args.subnetworks.get_output(context).get_inner();
-        let tcp_established_idle_timeout_sec_binding = args
+        let subnetworks_binding_1 = args.subnetworks.get_output(context);
+        let subnetworks_binding = subnetworks_binding_1.get_inner();
+        let tcp_established_idle_timeout_sec_binding_1 = args
             .tcp_established_idle_timeout_sec
-            .get_output(context)
+            .get_output(context);
+        let tcp_established_idle_timeout_sec_binding = tcp_established_idle_timeout_sec_binding_1
             .get_inner();
-        let tcp_time_wait_timeout_sec_binding = args
+        let tcp_time_wait_timeout_sec_binding_1 = args
             .tcp_time_wait_timeout_sec
-            .get_output(context)
+            .get_output(context);
+        let tcp_time_wait_timeout_sec_binding = tcp_time_wait_timeout_sec_binding_1
             .get_inner();
-        let tcp_transitory_idle_timeout_sec_binding = args
+        let tcp_transitory_idle_timeout_sec_binding_1 = args
             .tcp_transitory_idle_timeout_sec
-            .get_output(context)
+            .get_output(context);
+        let tcp_transitory_idle_timeout_sec_binding = tcp_transitory_idle_timeout_sec_binding_1
             .get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
-        let udp_idle_timeout_sec_binding = args
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
+        let udp_idle_timeout_sec_binding_1 = args
             .udp_idle_timeout_sec
-            .get_output(context)
-            .get_inner();
+            .get_output(context);
+        let udp_idle_timeout_sec_binding = udp_idle_timeout_sec_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/routerNat:RouterNat".into(),
             name: name.to_string(),

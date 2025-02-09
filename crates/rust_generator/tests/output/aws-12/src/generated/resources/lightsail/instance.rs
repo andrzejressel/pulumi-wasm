@@ -184,21 +184,24 @@ pub mod instance {
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let add_on_binding = args.add_on.get_output(context).get_inner();
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let blueprint_id_binding = args.blueprint_id.get_output(context).get_inner();
-        let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
-        let ip_address_type_binding = args
-            .ip_address_type
-            .get_output(context)
-            .get_inner();
-        let key_pair_name_binding = args.key_pair_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
-        let user_data_binding = args.user_data.get_output(context).get_inner();
+        let add_on_binding_1 = args.add_on.get_output(context);
+        let add_on_binding = add_on_binding_1.get_inner();
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let blueprint_id_binding_1 = args.blueprint_id.get_output(context);
+        let blueprint_id_binding = blueprint_id_binding_1.get_inner();
+        let bundle_id_binding_1 = args.bundle_id.get_output(context);
+        let bundle_id_binding = bundle_id_binding_1.get_inner();
+        let ip_address_type_binding_1 = args.ip_address_type.get_output(context);
+        let ip_address_type_binding = ip_address_type_binding_1.get_inner();
+        let key_pair_name_binding_1 = args.key_pair_name.get_output(context);
+        let key_pair_name_binding = key_pair_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
+        let user_data_binding_1 = args.user_data.get_output(context);
+        let user_data_binding = user_data_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/instance:Instance".into(),
             name: name.to_string(),

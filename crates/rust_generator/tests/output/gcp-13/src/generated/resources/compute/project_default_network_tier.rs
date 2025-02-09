@@ -70,8 +70,10 @@ pub mod project_default_network_tier {
     ) -> ProjectDefaultNetworkTierResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let network_tier_binding = args.network_tier.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
+        let network_tier_binding_1 = args.network_tier.get_output(context);
+        let network_tier_binding = network_tier_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/projectDefaultNetworkTier:ProjectDefaultNetworkTier"
                 .into(),

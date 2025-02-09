@@ -83,10 +83,14 @@ pub mod access_point {
     ) -> AccessPointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
-        let posix_user_binding = args.posix_user.get_output(context).get_inner();
-        let root_directory_binding = args.root_directory.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let file_system_id_binding_1 = args.file_system_id.get_output(context);
+        let file_system_id_binding = file_system_id_binding_1.get_inner();
+        let posix_user_binding_1 = args.posix_user.get_output(context);
+        let posix_user_binding = posix_user_binding_1.get_inner();
+        let root_directory_binding_1 = args.root_directory.get_output(context);
+        let root_directory_binding = root_directory_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:efs/accessPoint:AccessPoint".into(),
             name: name.to_string(),

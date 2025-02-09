@@ -165,41 +165,48 @@ pub mod fleet {
     ) -> FleetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let build_id_binding = args.build_id.get_output(context).get_inner();
-        let certificate_configuration_binding = args
+        let build_id_binding_1 = args.build_id.get_output(context);
+        let build_id_binding = build_id_binding_1.get_inner();
+        let certificate_configuration_binding_1 = args
             .certificate_configuration
-            .get_output(context)
+            .get_output(context);
+        let certificate_configuration_binding = certificate_configuration_binding_1
             .get_inner();
-        let description_binding = args.description.get_output(context).get_inner();
-        let ec2_inbound_permissions_binding = args
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let ec2_inbound_permissions_binding_1 = args
             .ec2_inbound_permissions
-            .get_output(context)
+            .get_output(context);
+        let ec2_inbound_permissions_binding = ec2_inbound_permissions_binding_1
             .get_inner();
-        let ec2_instance_type_binding = args
-            .ec2_instance_type
-            .get_output(context)
-            .get_inner();
-        let fleet_type_binding = args.fleet_type.get_output(context).get_inner();
-        let instance_role_arn_binding = args
-            .instance_role_arn
-            .get_output(context)
-            .get_inner();
-        let metric_groups_binding = args.metric_groups.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let new_game_session_protection_policy_binding = args
+        let ec2_instance_type_binding_1 = args.ec2_instance_type.get_output(context);
+        let ec2_instance_type_binding = ec2_instance_type_binding_1.get_inner();
+        let fleet_type_binding_1 = args.fleet_type.get_output(context);
+        let fleet_type_binding = fleet_type_binding_1.get_inner();
+        let instance_role_arn_binding_1 = args.instance_role_arn.get_output(context);
+        let instance_role_arn_binding = instance_role_arn_binding_1.get_inner();
+        let metric_groups_binding_1 = args.metric_groups.get_output(context);
+        let metric_groups_binding = metric_groups_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let new_game_session_protection_policy_binding_1 = args
             .new_game_session_protection_policy
-            .get_output(context)
+            .get_output(context);
+        let new_game_session_protection_policy_binding = new_game_session_protection_policy_binding_1
             .get_inner();
-        let resource_creation_limit_policy_binding = args
+        let resource_creation_limit_policy_binding_1 = args
             .resource_creation_limit_policy
-            .get_output(context)
+            .get_output(context);
+        let resource_creation_limit_policy_binding = resource_creation_limit_policy_binding_1
             .get_inner();
-        let runtime_configuration_binding = args
+        let runtime_configuration_binding_1 = args
             .runtime_configuration
-            .get_output(context)
-            .get_inner();
-        let script_id_binding = args.script_id.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+            .get_output(context);
+        let runtime_configuration_binding = runtime_configuration_binding_1.get_inner();
+        let script_id_binding_1 = args.script_id.get_output(context);
+        let script_id_binding = script_id_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:gamelift/fleet:Fleet".into(),
             name: name.to_string(),

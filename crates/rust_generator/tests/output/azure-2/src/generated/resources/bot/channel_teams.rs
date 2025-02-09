@@ -93,21 +93,21 @@ pub mod channel_teams {
     ) -> ChannelTeamsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_name_binding = args.bot_name.get_output(context).get_inner();
-        let calling_web_hook_binding = args
-            .calling_web_hook
-            .get_output(context)
-            .get_inner();
-        let deployment_environment_binding = args
+        let bot_name_binding_1 = args.bot_name.get_output(context);
+        let bot_name_binding = bot_name_binding_1.get_inner();
+        let calling_web_hook_binding_1 = args.calling_web_hook.get_output(context);
+        let calling_web_hook_binding = calling_web_hook_binding_1.get_inner();
+        let deployment_environment_binding_1 = args
             .deployment_environment
-            .get_output(context)
+            .get_output(context);
+        let deployment_environment_binding = deployment_environment_binding_1
             .get_inner();
-        let enable_calling_binding = args.enable_calling.get_output(context).get_inner();
-        let location_binding = args.location.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
+        let enable_calling_binding_1 = args.enable_calling.get_output(context);
+        let enable_calling_binding = enable_calling_binding_1.get_inner();
+        let location_binding_1 = args.location.get_output(context);
+        let location_binding = location_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:bot/channelTeams:ChannelTeams".into(),
             name: name.to_string(),

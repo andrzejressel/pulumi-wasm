@@ -76,14 +76,17 @@ pub mod directory_config {
     ) -> DirectoryConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let directory_name_binding = args.directory_name.get_output(context).get_inner();
-        let organizational_unit_distinguished_names_binding = args
+        let directory_name_binding_1 = args.directory_name.get_output(context);
+        let directory_name_binding = directory_name_binding_1.get_inner();
+        let organizational_unit_distinguished_names_binding_1 = args
             .organizational_unit_distinguished_names
-            .get_output(context)
+            .get_output(context);
+        let organizational_unit_distinguished_names_binding = organizational_unit_distinguished_names_binding_1
             .get_inner();
-        let service_account_credentials_binding = args
+        let service_account_credentials_binding_1 = args
             .service_account_credentials
-            .get_output(context)
+            .get_output(context);
+        let service_account_credentials_binding = service_account_credentials_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appstream/directoryConfig:DirectoryConfig".into(),

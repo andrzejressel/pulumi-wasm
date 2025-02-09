@@ -143,25 +143,24 @@ pub mod output_function {
     ) -> OutputFunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_binding = args.api_key.get_output(context).get_inner();
-        let batch_max_count_binding = args
-            .batch_max_count
-            .get_output(context)
-            .get_inner();
-        let batch_max_in_bytes_binding = args
-            .batch_max_in_bytes
-            .get_output(context)
-            .get_inner();
-        let function_app_binding = args.function_app.get_output(context).get_inner();
-        let function_name_binding = args.function_name.get_output(context).get_inner();
-        let name_binding = args.name.get_output(context).get_inner();
-        let resource_group_name_binding = args
-            .resource_group_name
-            .get_output(context)
-            .get_inner();
-        let stream_analytics_job_name_binding = args
+        let api_key_binding_1 = args.api_key.get_output(context);
+        let api_key_binding = api_key_binding_1.get_inner();
+        let batch_max_count_binding_1 = args.batch_max_count.get_output(context);
+        let batch_max_count_binding = batch_max_count_binding_1.get_inner();
+        let batch_max_in_bytes_binding_1 = args.batch_max_in_bytes.get_output(context);
+        let batch_max_in_bytes_binding = batch_max_in_bytes_binding_1.get_inner();
+        let function_app_binding_1 = args.function_app.get_output(context);
+        let function_app_binding = function_app_binding_1.get_inner();
+        let function_name_binding_1 = args.function_name.get_output(context);
+        let function_name_binding = function_name_binding_1.get_inner();
+        let name_binding_1 = args.name.get_output(context);
+        let name_binding = name_binding_1.get_inner();
+        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
+        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
+        let stream_analytics_job_name_binding_1 = args
             .stream_analytics_job_name
-            .get_output(context)
+            .get_output(context);
+        let stream_analytics_job_name_binding = stream_analytics_job_name_binding_1
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/outputFunction:OutputFunction".into(),

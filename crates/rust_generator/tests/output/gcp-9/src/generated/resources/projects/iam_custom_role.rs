@@ -113,12 +113,18 @@ pub mod iam_custom_role {
     ) -> IAMCustomRoleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_output(context).get_inner();
-        let permissions_binding = args.permissions.get_output(context).get_inner();
-        let project_binding = args.project.get_output(context).get_inner();
-        let role_id_binding = args.role_id.get_output(context).get_inner();
-        let stage_binding = args.stage.get_output(context).get_inner();
-        let title_binding = args.title.get_output(context).get_inner();
+        let description_binding_1 = args.description.get_output(context);
+        let description_binding = description_binding_1.get_inner();
+        let permissions_binding_1 = args.permissions.get_output(context);
+        let permissions_binding = permissions_binding_1.get_inner();
+        let project_binding_1 = args.project.get_output(context);
+        let project_binding = project_binding_1.get_inner();
+        let role_id_binding_1 = args.role_id.get_output(context);
+        let role_id_binding = role_id_binding_1.get_inner();
+        let stage_binding_1 = args.stage.get_output(context);
+        let stage_binding = stage_binding_1.get_inner();
+        let title_binding_1 = args.title.get_output(context);
+        let title_binding = title_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:projects/iAMCustomRole:IAMCustomRole".into(),
             name: name.to_string(),

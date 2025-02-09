@@ -208,23 +208,22 @@ pub mod target {
     ) -> TargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let max_capacity_binding = args.max_capacity.get_output(context).get_inner();
-        let min_capacity_binding = args.min_capacity.get_output(context).get_inner();
-        let resource_id_binding = args.resource_id.get_output(context).get_inner();
-        let role_arn_binding = args.role_arn.get_output(context).get_inner();
-        let scalable_dimension_binding = args
-            .scalable_dimension
-            .get_output(context)
-            .get_inner();
-        let service_namespace_binding = args
-            .service_namespace
-            .get_output(context)
-            .get_inner();
-        let suspended_state_binding = args
-            .suspended_state
-            .get_output(context)
-            .get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let max_capacity_binding_1 = args.max_capacity.get_output(context);
+        let max_capacity_binding = max_capacity_binding_1.get_inner();
+        let min_capacity_binding_1 = args.min_capacity.get_output(context);
+        let min_capacity_binding = min_capacity_binding_1.get_inner();
+        let resource_id_binding_1 = args.resource_id.get_output(context);
+        let resource_id_binding = resource_id_binding_1.get_inner();
+        let role_arn_binding_1 = args.role_arn.get_output(context);
+        let role_arn_binding = role_arn_binding_1.get_inner();
+        let scalable_dimension_binding_1 = args.scalable_dimension.get_output(context);
+        let scalable_dimension_binding = scalable_dimension_binding_1.get_inner();
+        let service_namespace_binding_1 = args.service_namespace.get_output(context);
+        let service_namespace_binding = service_namespace_binding_1.get_inner();
+        let suspended_state_binding_1 = args.suspended_state.get_output(context);
+        let suspended_state_binding = suspended_state_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appautoscaling/target:Target".into(),
             name: name.to_string(),

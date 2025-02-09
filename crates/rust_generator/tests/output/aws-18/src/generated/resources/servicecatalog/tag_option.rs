@@ -64,9 +64,12 @@ pub mod tag_option {
     ) -> TagOptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_binding = args.active.get_output(context).get_inner();
-        let key_binding = args.key.get_output(context).get_inner();
-        let value_binding = args.value.get_output(context).get_inner();
+        let active_binding_1 = args.active.get_output(context);
+        let active_binding = active_binding_1.get_inner();
+        let key_binding_1 = args.key.get_output(context);
+        let key_binding = key_binding_1.get_inner();
+        let value_binding_1 = args.value.get_output(context);
+        let value_binding = value_binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/tagOption:TagOption".into(),
             name: name.to_string(),

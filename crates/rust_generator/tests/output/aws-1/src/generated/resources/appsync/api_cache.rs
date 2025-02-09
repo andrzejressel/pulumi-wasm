@@ -84,21 +84,26 @@ pub mod api_cache {
     ) -> ApiCacheResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_caching_behavior_binding = args
+        let api_caching_behavior_binding_1 = args
             .api_caching_behavior
-            .get_output(context)
-            .get_inner();
-        let api_id_binding = args.api_id.get_output(context).get_inner();
-        let at_rest_encryption_enabled_binding = args
+            .get_output(context);
+        let api_caching_behavior_binding = api_caching_behavior_binding_1.get_inner();
+        let api_id_binding_1 = args.api_id.get_output(context);
+        let api_id_binding = api_id_binding_1.get_inner();
+        let at_rest_encryption_enabled_binding_1 = args
             .at_rest_encryption_enabled
-            .get_output(context)
+            .get_output(context);
+        let at_rest_encryption_enabled_binding = at_rest_encryption_enabled_binding_1
             .get_inner();
-        let transit_encryption_enabled_binding = args
+        let transit_encryption_enabled_binding_1 = args
             .transit_encryption_enabled
-            .get_output(context)
+            .get_output(context);
+        let transit_encryption_enabled_binding = transit_encryption_enabled_binding_1
             .get_inner();
-        let ttl_binding = args.ttl.get_output(context).get_inner();
-        let type__binding = args.type_.get_output(context).get_inner();
+        let ttl_binding_1 = args.ttl.get_output(context);
+        let ttl_binding = ttl_binding_1.get_inner();
+        let type__binding_1 = args.type_.get_output(context);
+        let type__binding = type__binding_1.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appsync/apiCache:ApiCache".into(),
             name: name.to_string(),

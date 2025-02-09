@@ -57,22 +57,20 @@ pub mod get_vpn_gateway {
     ) -> GetVpnGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let amazon_side_asn_binding = args
-            .amazon_side_asn
-            .get_output(context)
-            .get_inner();
-        let attached_vpc_id_binding = args
-            .attached_vpc_id
-            .get_output(context)
-            .get_inner();
-        let availability_zone_binding = args
-            .availability_zone
-            .get_output(context)
-            .get_inner();
-        let filters_binding = args.filters.get_output(context).get_inner();
-        let id_binding = args.id.get_output(context).get_inner();
-        let state_binding = args.state.get_output(context).get_inner();
-        let tags_binding = args.tags.get_output(context).get_inner();
+        let amazon_side_asn_binding_1 = args.amazon_side_asn.get_output(context);
+        let amazon_side_asn_binding = amazon_side_asn_binding_1.get_inner();
+        let attached_vpc_id_binding_1 = args.attached_vpc_id.get_output(context);
+        let attached_vpc_id_binding = attached_vpc_id_binding_1.get_inner();
+        let availability_zone_binding_1 = args.availability_zone.get_output(context);
+        let availability_zone_binding = availability_zone_binding_1.get_inner();
+        let filters_binding_1 = args.filters.get_output(context);
+        let filters_binding = filters_binding_1.get_inner();
+        let id_binding_1 = args.id.get_output(context);
+        let id_binding = id_binding_1.get_inner();
+        let state_binding_1 = args.state.get_output(context);
+        let state_binding = state_binding_1.get_inner();
+        let tags_binding_1 = args.tags.get_output(context);
+        let tags_binding = tags_binding_1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getVpnGateway:getVpnGateway".into(),
             version: super::super::super::get_version(),
